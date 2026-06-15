@@ -1,0 +1,59 @@
+name: Umbrella artifact CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate required files exist
+        run: |
+          set -e
+          required=(
+            README.md
+            LICENSE
+            CITATION.cff
+            docs/SYSTEM_OVERVIEW.md
+            docs/MEASUREMENT_PROTOCOL.md
+            docs/SOURCE_MATRIX.md
+            docs/PUBLICATION_PLAN.md
+            docs/PRIVACY_AND_ETHICS.md
+            docs/CLAIMS_TO_EVIDENCE.md
+            paper/ieee_conference_draft.md
+            methods/field_measurement_protocol.md
+            methods/ai_ran_simulation_protocol.md
+            methods/edge_console_protocol.md
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "Missing $f"; exit 1; }
+          done
+
+      - name: Markdown link check (internal)
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('.')
+          md_files = list(root.rglob('*.md'))
+          missing = []
+          link_re = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
+          for md in md_files:
+              text = md.read_text(encoding='utf-8')
+              for target in link_re.findall(text):
+                  if target.startswith(('http://', 'https://', 'mailto:', '#')):
+                      continue
+                  path = (md.parent / target.split('#')[0]).resolve()
+                  if not path.exists():
+                      missing.append((str(md), target))
+          if missing:
+              print('Broken relative links:')
+              for src, tgt in missing:
+                  print(f'  {src} -> {tgt}')
+              raise SystemExit(1)
+          print('Link check passed')
+          PY
