@@ -54,9 +54,11 @@ def audit(matrix_path: Path, sessions_dir: Path) -> dict:
     hashes: dict[str, list[str]] = {}
     eligible = 0
     physical = 0
+    calibration = 0
 
     for path, doc in session_docs(sessions_dir):
         meta = extract_cell_keys(doc)
+        ctx = doc.get("session_context") or {}
         h = sha256_file(path)
         hashes.setdefault(h, []).append(str(path))
         if meta["evidence_level"] != EVIDENCE_PHYSICAL:
@@ -73,6 +75,23 @@ def audit(matrix_path: Path, sessions_dir: Path) -> dict:
             continue
         if meta["consent_status"] != "active":
             rejected.append({"path": str(path), "reason": "consent_not_active"})
+            continue
+        notes = str(ctx.get("operator_notes") or "")
+        deviation = str(ctx.get("protocol_deviation") or "")
+        is_calibration = (
+            bool(ctx.get("calibration_only"))
+            or "calibration_only=true" in notes.replace(" ", "").lower()
+            or deviation == "calibration_not_pilot"
+        )
+        if is_calibration:
+            calibration += 1
+            rejected.append(
+                {
+                    "path": str(path),
+                    "reason": "calibration_only_excluded_from_pilot_matrix",
+                    "counts_toward_pilot": False,
+                }
+            )
             continue
         cell = f"{meta['collection_day_id']}_{meta['zone_id']}_{meta['network_condition']}_{meta['workload_profile']}"
         if cell not in required:
@@ -99,12 +118,14 @@ def audit(matrix_path: Path, sessions_dir: Path) -> dict:
         "missing_cells": missing,
         "physical_session_count": physical,
         "eligible_physical_session_count": eligible,
+        "calibration_session_count": calibration,
         "observed_counts": {
             "locations": len(zones),
             "network_conditions": len(nets),
             "distinct_days": len(days),
             "workload_profiles": dict(workloads),
             "eligible_sessions": eligible,
+            "calibration_sessions": calibration,
         },
         "required_counts": {
             "locations": 3,

@@ -1,23 +1,21 @@
-# Post-Merge Gate 3 Test Report
+# POST_MERGE_GATE3_TEST_REPORT
 
-Placeholder for post-merge Gate 3 validation.
+Generated: 2026-07-22T17:10:05.764565+00:00
 
-Expected command set:
+## Promotion merge tests (on each repo after merge)
 
-```bash
-python3 -m pytest -q tests
-make gate3-evidence
-make gate4-evaluation-ready
-```
+| Repo | Command | Result |
+|---|---|---|
+| edge-io-measurement-node | `PYTHONPATH=src pytest -q tests` | 18 passed |
+| 7gc-digital-twin | `PYTHONPATH=src pytest -q tests` | 50 passed |
+| spectrumx-ai-ran-gary | `PYTHONPATH=src pytest -q tests/gate2` | 4 passed (unrelated tqdm failures in digital_twin_contract) |
+| ntn-resilience-sim | `PYTHONPATH=src pytest -q tests` | 22 passed |
+| field-kit | `pytest -q tests` | 29+ passed; later 37+ with Gate 4 |
+| field-kit | `run_gate3_evidence_pipeline.py --android-builds` | GATE3_COLLECTION_READY initially |
 
-Baseline SHAs to confirm:
+## Post-calibration
 
-- edge-io main: `2b4434952e6a533dff451349a10eb587045dd9f7`
-- 7gc: `b036905df4f867aabdcc939ac646464874a3ee1f`
-- spectrumx: `f7af6c7f7541360e07402f6927794116a1684d32`
-- ntn: `9055b806fa001b6b8d0130353d87668f038dce6e`
-- field-kit master: `6a239e942aef31088589190eaa0e290b095f5578`
-- readygary observed: `525405cb19d7987ad218272f5897c10dd75`
-- readygary full: `525405cb19d7987ad218272f5897d4917c10dd75`
-
-Do not record `GATE_3_PASS` or `GATE_4_PASS` unless all physical evidence and scientific evaluation requirements are satisfied.
+| Command | Result |
+|---|---|
+| gate3 pipeline with sanitized calibration | **GATE3_PARTIAL_EVIDENCE** |
+| make gate4-evaluation-ready | **GATE4_EVALUATION_READY** |

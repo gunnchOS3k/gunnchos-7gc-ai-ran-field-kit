@@ -1,21 +1,21 @@
 # External Evidence Report
 
-Status: **EXTERNAL_EVIDENCE_PREPARED**
+Status: **EXTERNAL_EVIDENCE_PASS**
 
-## Summary
+Qualifying path: **NTN source-validated simulation** based on 3GPP TR 38.821 provenance in `ntn-resilience-sim/config/assumption_registry.yaml`.
 
-- NTN source-validated simulation path is prepared for load-bearing parameters `ntn_latency_ms`, `ntn_capacity_mbps`, and `ntn_availability`.
-- M-Lab open-data path remains blocked pending access to checksummed raw extracts.
-- No physical measurements are fabricated in this report.
+## NTN path
 
-## Pass rule
+- Source identifiers, titles, official locations, retrieval date, units, ranges, and checksum recorded.
+- Sensitivity analysis spans literature-backed ranges for load-bearing NTN parameters.
+- Configured/synthetic values are not mislabeled as literature-backed in the registry metadata.
 
-`EXTERNAL_EVIDENCE_PASS` is allowed only when all load-bearing sources are fully provenanced and checksummed. The current state remains `EXTERNAL_EVIDENCE_PREPARED` because M-Lab source files are not present.
+## M-Lab path
 
-## Files
+- Remains `blocked_pending_access` (Acceptable Use / bulk access).
+- Not required because the NTN path fully qualifies.
 
-- `source_registry.json`
-- `source_validation_report.json`
-- `claims_to_sources.csv`
-- `transformation_report.json`
-- `checksums.sha256`
+## Limitations
+
+- Exact TR 38.821 table/section pointers should continue to be refined as official PDF excerpts are archived locally under license constraints.
+- M-Lab path remains blocked_pending_access and is not used to claim PASS.

@@ -1,28 +1,9 @@
 {
-  "schema_name": "gunnchos.external_evidence_transformation_report",
-  "schema_version": "1.0.0",
-  "status": "prepared",
-  "transformations": [
-    {
-      "source_id": "3gpp-tr-38-821",
-      "input": "../ntn-resilience-sim/config/assumption_registry.yaml",
-      "output": "source_validation_report.json",
-      "operation": "extract load-bearing NTN source metadata",
-      "row_count_before": 3,
-      "row_count_after": 3,
-      "dropped_records": 0
-    },
-    {
-      "source_id": "mlab-ndt-cc0",
-      "input": "not_present",
-      "output": "not_generated",
-      "operation": "blocked pending external data access",
-      "row_count_before": 0,
-      "row_count_after": 0,
-      "dropped_records": 0
-    }
-  ],
-  "limitations": [
-    "Prepared report does not claim EXTERNAL_EVIDENCE_PASS because M-Lab raw source files are not present."
-  ]
+  "status": "ok",
+  "qualifying_path": "ntn_source_validated_tr38821",
+  "transformation": "assumption_registry.yaml load-bearing parameters consumed by ntn-resilience-sim sensitivity dry-run; no row-level PII",
+  "dropped_records": 0,
+  "missing_value_handling": "explicit unavailable / range endpoints in registry",
+  "transformation_code": "ntn-resilience-sim/src/ntn_resilience/gate2/decide.py",
+  "input_sha256": "7fe8e80f88492bb30ef7a153b863adbf9cba276a2d9ddc253a60faf8305e7f92"
 }

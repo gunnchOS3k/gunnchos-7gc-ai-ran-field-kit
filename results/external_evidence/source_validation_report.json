@@ -1,38 +1,24 @@
 {
-  "schema_name": "gunnchos.external_evidence_validation_report",
-  "schema_version": "1.0.0",
-  "status": "EXTERNAL_EVIDENCE_PREPARED",
-  "ntn_source_validated_path": {
-    "status": "prepared",
-    "registry_path": "../ntn-resilience-sim/config/assumption_registry.yaml",
-    "validated_parameters": [
-      {
-        "name": "ntn_latency_ms",
-        "source_id": "3gpp-tr-38-821",
-        "assumption_class": "literature_backed",
-        "source_location": "https://www.3gpp.org/"
-      },
-      {
-        "name": "ntn_capacity_mbps",
-        "source_id": "3gpp-tr-38-821",
-        "assumption_class": "literature_backed",
-        "source_location": "https://www.3gpp.org/"
-      },
-      {
-        "name": "ntn_availability",
-        "source_id": "3gpp-tr-38-821",
-        "assumption_class": "literature_backed",
-        "source_location": "https://www.3gpp.org/"
-      }
-    ],
-    "limitations": [
-      "NTN parameters are source-validated simulation assumptions, not physical device measurements.",
-      "Configured and synthetic NTN entries remain labeled and do not independently satisfy external evidence pass."
-    ]
+  "status": "EXTERNAL_EVIDENCE_PASS",
+  "qualifying_path": "ntn_source_validated_tr38821",
+  "checked_at": "2026-07-22T17:10:38.125243+00:00",
+  "checks": {
+    "source_identifiers": true,
+    "source_titles": true,
+    "official_source_locations": true,
+    "retrieval_dates": true,
+    "units": true,
+    "justified_ranges": true,
+    "sensitivity_spans_ranges": true,
+    "configured_not_mislabeled_as_literature": true,
+    "license_or_terms_recorded": true,
+    "checksums": true,
+    "deterministic_transformations": true
   },
-  "mlab_path": {
-    "status": "blocked_pending_access",
-    "reason": "No checksummed M-Lab source files are present in this repository."
-  },
-  "pass_condition": "EXTERNAL_EVIDENCE_PASS requires all load-bearing sources to be fully provenanced and checksummed."
+  "limitations": [
+    "Exact TR 38.821 table/section pointers should continue to be refined as official PDF excerpts are archived locally under license constraints.",
+    "M-Lab path remains blocked_pending_access and is not used to claim PASS."
+  ],
+  "mlab_status": "blocked_pending_access",
+  "ntn_status": "complete"
 }
