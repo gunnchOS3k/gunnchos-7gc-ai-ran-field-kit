@@ -1,0 +1,212 @@
+{
+  "schema_name": "gunnchos.integrated_run_manifest",
+  "schema_version": "1.0.0",
+  "run_id": "pixel-cal-1784756973874",
+  "site_id": "gary",
+  "component_commits": {
+    "edge-io-measurement-node": "ab9f263dce5e2b030aaea5eee24c25c42e50095f",
+    "7gc-digital-twin": "b036905df4f867aabdcc939ac646464874a3ee1f",
+    "spectrumx-ai-ran-gary": "f7af6c7f7541360e07402f6927794116a1684d32",
+    "ntn-resilience-sim": "aef2678571bbfcfffc4c2734e608bd69ffa67c49",
+    "readygary-6g-beam-selection": "525405cb19d7987ad218272f5897d4917c10dd75"
+  },
+  "schema_versions": {
+    "edge_measurement_batch": "1.0.0",
+    "twin_state_bundle": "1.0.0",
+    "airan_decision_bundle": "1.0.0",
+    "resilience_decision_bundle": "1.0.0",
+    "integrated_run_manifest": "1.0.0"
+  },
+  "configuration_hashes": {
+    "repo_lock": "ef89a2cf5656bc59c3b4ca5edd3907c4129ad97cb8838e1c0fd269045aee4427"
+  },
+  "input_hashes": {
+    "edge_input": "3f8e0110eca358bb7128c08ab4817c778b222b35c09465288f29477b253f40f0"
+  },
+  "output_hashes": {
+    "01_edge_measurements.json": "3f8e0110eca358bb7128c08ab4817c778b222b35c09465288f29477b253f40f0",
+    "02_twin_state.json": "e50910ebeff34de063dbcf8e8d559bc0f172657e22ffd18b0f1823065ee77623",
+    "03_airan_static_decision.json": "86b9fe443816908e84884eaec04123972f11a3841f10bbf4c8e4f61645b64dbc",
+    "03_airan_network_only_decision.json": "1e0ba511b80ecc12f2794aded5e9b8b7a4ef37f5de1da5ab998159ae654f0790",
+    "03_airan_service_priority_decision.json": "dd8db67920f807f328036f66ece92a4f0edd92a6a4053f621ee9f3b878cb1a6e",
+    "03_airan_optimization_decision.json": "26343e8be1e3545e539a4fbbf75f187549840b0349f953de90e6df6048f681ed",
+    "03_airan_twin_informed_decision.json": "72e3da3e9ea13489c26e43bf3bf96cc6ee9b6f5fdc51c81d6a6f202b52ec5e3e",
+    "04_resilience_decision.json": "ccec708bf3f89eaf0b2aae196cbae4d899166af57f01548772cfcca26850d4bf",
+    "benchmark_results.csv": "162951e87c4215791f432f4d9818bb08e09083e0204a229273ad0af4dfc719ed",
+    "ablation_results.csv": "ac1dced6b45923302f09e1a0af8086f1547ff234b8b84ce71f789c31df65936a",
+    "sensitivity_results.csv": "964b88a0b12082f40c47dfd4d16d3caa8576718d2ea2d0d9f13830e4334481e5",
+    "environment.txt": "a1cca9c550c859a590755898269d96047088939f16a29df042b02ad47170630e"
+  },
+  "random_seeds": {
+    "airan": 0
+  },
+  "environment": {
+    "os": "macOS-26.5.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "python_version": "3.11.2",
+    "dependency_lock_hashes": {
+      "field_kit_requirements": "20ea7f406d68a1b9ea8a0e77c1a5fbc7a36da9a281a4566349e02ea5025ff214"
+    }
+  },
+  "commands_executed": [
+    {
+      "command": "/usr/local/bin/python3 -m edge_io_node export-to-7gc /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/_ignored_raw/pixel-cal-1784756973874.batch.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/01_edge_measurements.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.11333529200055636,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/edge-io-measurement-node"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m seven_gc_twin ingest-edge --input /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/01_edge_measurements.json --site gary --run-id pixel-cal-1784756973874 --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.10946954199971515,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/7gc-digital-twin"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m seven_gc_twin build-twin-state --input /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/01_edge_measurements.json --run-id pixel-cal-1784756973874 --site gary --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.1533280419971561,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/7gc-digital-twin"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m seven_gc_twin validate-twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.09614175000024261,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/7gc-digital-twin"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --policy static_uniform --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_static_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
+      "returncode": 0,
+      "duration_s": 2.3485674999974435,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_static_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.3581327499996405,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --policy network_only --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_network_only_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
+      "returncode": 0,
+      "duration_s": 0.5907223329995759,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_network_only_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.3991983750020154,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --policy service_priority --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_service_priority_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
+      "returncode": 0,
+      "duration_s": 0.4051894580006774,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_service_priority_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.38155887500033714,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --policy optimization_based --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_optimization_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
+      "returncode": 0,
+      "duration_s": 0.4223477500017907,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_optimization_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.3704637500013632,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --policy twin_informed --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_twin_informed_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
+      "returncode": 0,
+      "duration_s": 0.3737146249986836,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_twin_informed_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.36633837499903166,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m ntn_resilience decide --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --airan-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_twin_informed_decision.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/04_resilience_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --policy service_aware_multi_access",
+      "returncode": 0,
+      "duration_s": 0.1168874999966647,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/ntn-resilience-sim"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m ntn_resilience validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/04_resilience_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.09138474999781465,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/ntn-resilience-sim"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research benchmark --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/benchmark_results.csv --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --repetitions 3 --warmup 1 --seed 0",
+      "returncode": 0,
+      "duration_s": 0.59012504200291,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m airan_research ablation --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/ablation_results.csv --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
+      "returncode": 0,
+      "duration_s": 0.5000412080007663,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/spectrumx-ai-ran-gary"
+    },
+    {
+      "command": "/usr/local/bin/python3 -m ntn_resilience sensitivity --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/02_twin_state.json --airan-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/03_airan_twin_informed_decision.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/sensitivity_results.csv --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
+      "returncode": 0,
+      "duration_s": 0.32773816699773306,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/ntn-resilience-sim"
+    },
+    {
+      "command": "/usr/local/bin/python3 /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/scripts/verify_checksums.py /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/checksums.sha256",
+      "returncode": 0,
+      "duration_s": 0.030356582999957027,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874"
+    },
+    {
+      "command": "/usr/local/bin/python3 /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/scripts/evaluate_gate2_status.py --run-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874 --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/calibration/pixel6a/integrated/pixel-cal-1784756973874/gate2_status.json",
+      "returncode": 0,
+      "duration_s": 0.02937795899924822,
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit"
+    }
+  ],
+  "started_at": "2026-07-22T21:59:57Z",
+  "completed_at": "2026-07-22T22:00:05Z",
+  "validation_results": {
+    "edge": true,
+    "twin": true,
+    "airan_policies": [
+      "static_uniform",
+      "network_only",
+      "service_priority",
+      "optimization_based",
+      "twin_informed"
+    ],
+    "resilience": true,
+    "checksums": true
+  },
+  "test_results": {
+    "orchestrator": "commands_executed"
+  },
+  "evidence_levels": {
+    "edge_input": "controlled_device_measurement",
+    "twin": "controlled_device_measurement"
+  },
+  "readygary_used": false,
+  "failures": [],
+  "warnings": [
+    "NON-REPRODUCIBLE: edge-io-measurement-node commit mismatch lock=2b4434952e6a533dff451349a10eb587045dd9f7 actual=ab9f263dce5e2b030aaea5eee24c25c42e50095f",
+    "NON-REPRODUCIBLE: ntn-resilience-sim commit mismatch lock=9055b806fa001b6b8d0130353d87668f038dce6e actual=aef2678571bbfcfffc4c2734e608bd69ffa67c49",
+    "ReadyGary present but optional provider not required for Gate 2 path; continuing without beam actions."
+  ],
+  "field_kit_runtime_sha": "4ab30a6c8215a6a5f968d88647e8bb4faefe708b",
+  "gate2_status": "AUTOMATED_PIPELINE_PASS",
+  "selected_airan_policy": "twin_informed",
+  "selected_resilience_mode": "terrestrial"
+}

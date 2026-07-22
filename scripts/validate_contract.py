@@ -60,11 +60,57 @@ PROHIBITED_KEY_PATTERNS = [
 ]
 
 PROHIBITED_VALUE_PATTERNS = [
+    # Email
     re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE),
-    re.compile(r"\b(?:\+?\d{1,3}[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}\b"),
+    # Phone-like values: require at least one separator or leading + to avoid
+    # false positives on opaque run IDs such as pixel-cal-<epoch-ms>.
+    re.compile(
+        r"(?<!\w)(?:\+?\d{1,3}[-.\s])?(?:\(?\d{3}\)?[-.\s])\d{3}[-.\s]\d{4}(?!\w)"
+    ),
+    # MAC address
     re.compile(r"\b(?:[0-9A-F]{2}:){5}[0-9A-F]{2}\b", re.IGNORECASE),
-    re.compile(r"\b\d{15}\b"),  # IMEI-like
+    # IMEI-like 15-digit sequences (not applied to opaque ID fields; see below)
+    re.compile(r"(?<!\d)\d{15}(?!\d)"),
 ]
+
+# Opaque workflow identifiers may embed epoch milliseconds; do not treat those
+# digit runs as phone/IMEI values.
+PRIVACY_VALUE_SCAN_EXEMPT_SUFFIXES = (
+    ".run_id",
+    ".session_id",
+    ".collection_day_id",
+    ".receipt_id",
+    ".consent_receipt_id",
+    ".client_version",
+    ".collector_version",
+)
+
+
+def _path_exempt_from_value_patterns(path: str) -> bool:
+    return any(path.endswith(suffix) for suffix in PRIVACY_VALUE_SCAN_EXEMPT_SUFFIXES)
+
+
+def find_prohibited_identifiers(
+    obj: Any, path: str = "$"
+) -> list[str]:
+    """Recursively inspect nested objects for prohibited direct identifiers."""
+    findings: list[str] = []
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            child = f"{path}.{key}"
+            if any(pat.search(str(key)) for pat in PROHIBITED_KEY_PATTERNS):
+                findings.append(f"prohibited key at {child}")
+            findings.extend(find_prohibited_identifiers(value, child))
+    elif isinstance(obj, list):
+        for idx, item in enumerate(obj):
+            findings.extend(find_prohibited_identifiers(item, f"{path}[{idx}]"))
+    elif isinstance(obj, str):
+        if not _path_exempt_from_value_patterns(path):
+            for pat in PROHIBITED_VALUE_PATTERNS:
+                if pat.search(obj):
+                    findings.append(f"prohibited value pattern at {path}: {obj[:48]}")
+                    break
+    return findings
 
 
 class ContractError(ValueError):
@@ -114,28 +160,6 @@ def load_schema(schema_name: str, schema_dir: Path) -> dict[str, Any]:
     if not path.is_file():
         raise ContractError(f"Schema file not found: {path}")
     return load_json(path)
-
-
-def find_prohibited_identifiers(
-    obj: Any, path: str = "$"
-) -> list[str]:
-    """Recursively inspect nested objects for prohibited direct identifiers."""
-    findings: list[str] = []
-    if isinstance(obj, dict):
-        for key, value in obj.items():
-            child = f"{path}.{key}"
-            if any(pat.search(str(key)) for pat in PROHIBITED_KEY_PATTERNS):
-                findings.append(f"prohibited key at {child}")
-            findings.extend(find_prohibited_identifiers(value, child))
-    elif isinstance(obj, list):
-        for idx, item in enumerate(obj):
-            findings.extend(find_prohibited_identifiers(item, f"{path}[{idx}]"))
-    elif isinstance(obj, str):
-        for pat in PROHIBITED_VALUE_PATTERNS:
-            if pat.search(obj):
-                findings.append(f"prohibited value pattern at {path}: {obj[:48]}")
-                break
-    return findings
 
 
 def validate_document(

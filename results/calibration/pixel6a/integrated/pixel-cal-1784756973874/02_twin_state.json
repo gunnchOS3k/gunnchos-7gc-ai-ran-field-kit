@@ -1,0 +1,199 @@
+{
+  "schema_name": "gunnchos.twin_state_bundle",
+  "schema_version": "1.0.0",
+  "run_id": "pixel-cal-1784756973874",
+  "site_id": "gary",
+  "source_measurement": {
+    "summary": {
+      "n_samples": 13,
+      "mean_latency_ms": 62.8595223076923,
+      "mean_jitter_ms": 30.470272500000004,
+      "mean_packet_loss_pct": 0.0,
+      "mean_upload_mbps": 0.0,
+      "mean_download_mbps": 0.0,
+      "dominant_network_type": "wifi",
+      "workload_profile": "learn",
+      "service_profile": "learn_continuity"
+    },
+    "sha256": "3f8e0110eca358bb7128c08ab4817c778b222b35c09465288f29477b253f40f0",
+    "producer_repository": "edge-io-measurement-node",
+    "producer_commit": "ab9f263dce5e2b030aaea5eee24c25c42e50095f"
+  },
+  "service_demand": {
+    "values": {
+      "service_profile": "learn_continuity",
+      "workload_profile": "learn",
+      "latency_budget_ms": 150.0
+    },
+    "origin": "inferred"
+  },
+  "user_demands": [
+    {
+      "user_class": "learn",
+      "priority": 2,
+      "latency_budget_ms": 150.0,
+      "bandwidth_mbps": 1.0,
+      "origin": "inferred"
+    }
+  ],
+  "connectivity_candidates": [
+    {
+      "network": "terrestrial",
+      "available": true,
+      "estimated_latency_ms": 62.8595223076923,
+      "estimated_capacity_mbps": 0.0,
+      "origin": "measured"
+    },
+    {
+      "network": "local_edge_wifi",
+      "available": false,
+      "estimated_latency_ms": 62.8595223076923,
+      "estimated_capacity_mbps": 0.0,
+      "origin": "measured"
+    },
+    {
+      "network": "degraded_local",
+      "available": true,
+      "estimated_latency_ms": 94.28928346153845,
+      "estimated_capacity_mbps": 0.5,
+      "origin": "inferred"
+    },
+    {
+      "network": "ntn_fallback",
+      "available": true,
+      "estimated_latency_ms": 45.0,
+      "estimated_capacity_mbps": 5.0,
+      "origin": "configured"
+    },
+    {
+      "network": "device_to_device",
+      "available": false,
+      "estimated_latency_ms": null,
+      "estimated_capacity_mbps": null,
+      "origin": "missing"
+    },
+    {
+      "network": "offline_continuation",
+      "available": true,
+      "estimated_latency_ms": 0.0,
+      "estimated_capacity_mbps": 0.0,
+      "origin": "configured"
+    }
+  ],
+  "network_state": {
+    "values": {
+      "dominant_network_type": "wifi",
+      "mean_latency_ms": 62.8595223076923,
+      "mean_packet_loss_pct": 0.0,
+      "mean_jitter_ms": 30.470272500000004
+    },
+    "origin": "measured"
+  },
+  "spectrum_availability": {
+    "values": {
+      "spectrum_budget_mhz": 20.0
+    },
+    "origin": "configured"
+  },
+  "compute_availability": {
+    "values": {
+      "local_edge": false,
+      "cloud": true,
+      "device": true,
+      "compute_nodes": [
+        {
+          "id": "device",
+          "capacity": 1.0
+        },
+        {
+          "id": "local_edge",
+          "capacity": 0.0
+        },
+        {
+          "id": "cloud",
+          "capacity": 1.0
+        }
+      ]
+    },
+    "origin": "inferred"
+  },
+  "mobility_state": {
+    "values": {
+      "class": "low_mobility_named_zone"
+    },
+    "origin": "configured"
+  },
+  "blockage_state": {
+    "values": {
+      "blocked": false
+    },
+    "origin": "missing"
+  },
+  "energy_constraints": {
+    "values": {
+      "energy_budget_j": 100.0,
+      "mean_battery_pct": 100.0
+    },
+    "origin": "measured"
+  },
+  "outage_state": {
+    "values": {
+      "terrestrial_outage": false,
+      "degraded": false
+    },
+    "origin": "inferred"
+  },
+  "privacy_constraints": {
+    "values": {
+      "location_precision": "named_test_zone",
+      "contains_direct_identifiers": false,
+      "retention_days": 30
+    },
+    "origin": "measured"
+  },
+  "continuity_requirements": {
+    "values": {
+      "class": "degraded_ok",
+      "max_interruption_s": 120
+    },
+    "origin": "inferred"
+  },
+  "uncertainty": {
+    "overall": "low",
+    "notes": "Derived from Edge-IO batch; configured NTN parameters are not measured."
+  },
+  "missing_data_flags": [
+    "device_to_device_availability",
+    "blockage_state"
+  ],
+  "field_provenance": {
+    "fields": {
+      "network_state": "measured",
+      "service_demand": "inferred",
+      "spectrum_availability": "configured",
+      "ntn_fallback_latency": "configured",
+      "blockage_state": "missing",
+      "device_to_device": "missing"
+    }
+  },
+  "scenario_provenance": {
+    "transformer": "seven_gc_twin.gate2.edge_ingest.v1",
+    "generated_at": "2026-07-22T21:59:57Z",
+    "notes": "Aggregated without modifying the source Edge-IO file."
+  },
+  "configuration_hash": "ed6e55ab60177b99deff9341257ccf449baad93dfce2e5754b27dd96c20c5142",
+  "evidence_level": "controlled_device_measurement",
+  "producer": {
+    "repository": "7gc-digital-twin",
+    "commit": "b036905df4f867aabdcc939ac646464874a3ee1f"
+  },
+  "n_users": 4,
+  "service_profile": "learn_continuity",
+  "measurement_quality": {
+    "flags": [
+      "ok",
+      "physical_android",
+      "unavailable_fields_explicit"
+    ]
+  }
+}

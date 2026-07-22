@@ -1,28 +1,18 @@
 # PILOTCTL_ACCEPTANCE_REPORT
 
-Generated: 2026-07-22T18:30:03Z
-
 ## Result
-
-**PASS** (fixture-based acceptance; 8/8 dedicated tests + full suite green)
-
-## Checks
 
 | Check | Result |
 |---|---|
-| Matrix has exactly 54 cells | PASS |
-| Calibration cannot satisfy a cell | PASS |
-| Synthetic cannot satisfy a cell | PASS |
-| Wrong zone rejected | PASS |
-| Withdrawn rejected | PASS |
-| Privacy-fail rejected | PASS |
-| next-cell deterministic | PASS |
-| Status shows 0 eligible with calibration present | PASS |
+| pytest tests/pilotctl | 8 passed |
+| matrix rows | 54 |
+| eligible physical sessions | 0 |
+| filled cells | 0 |
+| missing cells | 54 |
+| Pixel calibration counted | no |
+| Laptop calibration counted | no |
+| Synthetic counted | no |
+| next cell | `day_01_zone_a_wifi_normal_learn` |
+| Day 1 auto-start | no |
 
-Commands:
-
-```
-python3 -m pytest -q tests/pilotctl
-python3 scripts/pilotctl.py status
-python3 scripts/pilotctl.py next
-```
+Pixel calibration (`zone_calibration`, `calibration_only=true`, `protocol_deviation=calibration_not_pilot`) remains excluded from the 54-cell pilot.

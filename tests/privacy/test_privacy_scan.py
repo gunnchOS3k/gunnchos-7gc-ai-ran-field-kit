@@ -17,3 +17,21 @@ def test_nested_email_and_imei():
 def test_mac_value_pattern():
     findings = recursive_privacy_scan({"note": "peer aa:bb:cc:dd:ee:ff"})
     assert findings
+
+
+def test_pixel_calibration_run_id_not_flagged_as_phone():
+    from validate_contract import find_prohibited_identifiers
+
+    batch = {
+        "run_id": "pixel-cal-1784756973874",
+        "site_id": "gary",
+        "note": "ok",
+    }
+    assert find_prohibited_identifiers(batch) == []
+
+
+def test_real_phone_still_flagged():
+    from validate_contract import find_prohibited_identifiers
+
+    findings = find_prohibited_identifiers({"operator_note": "call 312-555-0199"})
+    assert findings
