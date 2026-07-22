@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/external_dataset_record.v1.schema.json",
+  "title": "External Dataset Record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "record_id",
+    "title",
+    "publisher",
+    "source_location",
+    "version_or_retrieval_date",
+    "license_or_terms",
+    "citation",
+    "intended_gate3_use",
+    "original_checksum",
+    "download_command",
+    "original_file_list",
+    "transformation_script",
+    "transformed_checksum",
+    "field_mapping",
+    "unit_mapping",
+    "missing_data_behavior",
+    "limitations",
+    "evidence_class",
+    "status"
+  ],
+  "properties": {
+    "schema_name": {
+      "const": "gunnchos.external_dataset_record"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "source_location": {
+      "type": "string"
+    },
+    "version_or_retrieval_date": {
+      "type": "string"
+    },
+    "license_or_terms": {
+      "type": "string",
+      "minLength": 1
+    },
+    "citation": {
+      "type": "string"
+    },
+    "intended_gate3_use": {
+      "type": "string"
+    },
+    "original_checksum": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "download_command": {
+      "type": "string"
+    },
+    "original_file_list": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transformation_script": {
+      "type": "string"
+    },
+    "transformed_checksum": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "field_mapping": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "unit_mapping": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "missing_data_behavior": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "open_data",
+        "source_validated_simulation"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "prepared",
+        "downloaded",
+        "verified",
+        "transformed",
+        "blocked_pending_access",
+        "incomplete"
+      ]
+    }
+  }
+}
