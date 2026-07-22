@@ -1,0 +1,250 @@
+{
+  "schema_name": "gunnchos.resilience_decision_bundle",
+  "schema_version": "1.0.0",
+  "run_id": "2026-07-22-synthetic-gary-learn-001",
+  "site_id": "gary",
+  "policy_name": "service_aware_multi_access",
+  "selected_mode": "terrestrial",
+  "fallback_trigger": "terrestrial_superior",
+  "input_twin_state_hash": "ba641ca101d1f8028a3a1d3a43a70db049186f35c866d726c7bada8dba10a5c4",
+  "input_airan_decision_hash": "123ad8be02790e526404dd73e2c58ffa6457cb4e820c19d693ed0f61f04cfb9e",
+  "continuity_score": 0.8433333333333333,
+  "expected_recovery_time_s": 0.0,
+  "estimated_latency_ms": 47.0,
+  "estimated_capacity_mbps": 66.0,
+  "estimated_energy_cost_j": 10.0,
+  "estimated_privacy_cost": 0.2,
+  "retained_service_features": [
+    "basic_service"
+  ],
+  "suspended_service_features": [],
+  "rejected_alternatives": [
+    {
+      "mode": "local_edge_wifi",
+      "reason": "rejected_by_policy_even_if_higher_score"
+    },
+    {
+      "mode": "device_to_device",
+      "reason": "unavailable"
+    },
+    {
+      "mode": "degraded_local",
+      "reason": "lower_continuity_than_selected"
+    },
+    {
+      "mode": "delayed_synchronization",
+      "reason": "latency_budget"
+    },
+    {
+      "mode": "ntn_fallback",
+      "reason": "rejected_by_policy_even_if_higher_score"
+    },
+    {
+      "mode": "offline_continuation",
+      "reason": "lower_continuity_than_selected"
+    }
+  ],
+  "uncertainty": {
+    "score": 0.5,
+    "notes": "Non-measured NTN parameters come from the assumption registry."
+  },
+  "assumptions_used": [
+    {
+      "value": 45,
+      "unit": "ms",
+      "source_id": "ntn_latency_ms",
+      "range": [
+        35,
+        70
+      ],
+      "assumption_class": "configured"
+    },
+    {
+      "value": 5,
+      "unit": "Mbps",
+      "source_id": "ntn_capacity_mbps",
+      "range": [
+        1,
+        20
+      ],
+      "assumption_class": "configured"
+    },
+    {
+      "value": 0.85,
+      "unit": "fraction",
+      "source_id": "ntn_availability",
+      "range": [
+        0.5,
+        0.99
+      ],
+      "assumption_class": "configured"
+    },
+    {
+      "value": 3.0,
+      "unit": "s",
+      "source_id": "handover_delay_s",
+      "range": [
+        1.0,
+        10.0
+      ],
+      "assumption_class": "configured"
+    },
+    {
+      "value": 25.0,
+      "unit": "J",
+      "source_id": "ntn_energy_cost_j",
+      "range": [
+        10.0,
+        80.0
+      ],
+      "assumption_class": "synthetic"
+    },
+    {
+      "value": 30.0,
+      "unit": "s",
+      "source_id": "terrestrial_outage_duration_s",
+      "range": [
+        5.0,
+        120.0
+      ],
+      "assumption_class": "configured"
+    }
+  ],
+  "runtime_s": 4.2251998820574954e-05,
+  "producer": {
+    "repository": "ntn-resilience-sim",
+    "commit": "9e0d308c7b01f6d7cd6292179793e857ab5080f9"
+  },
+  "evidence_level": "synthetic",
+  "deployable": true,
+  "path_scores": {
+    "terrestrial": {
+      "mode": "terrestrial",
+      "available": true,
+      "feasible": true,
+      "latency_ms": 47.0,
+      "capacity_mbps": 66.0,
+      "energy_j": 10.0,
+      "privacy_cost": 0.2,
+      "recovery_s": 0.0,
+      "continuity_score": 0.8433333333333333,
+      "retained": [
+        "basic_service"
+      ],
+      "suspended": [],
+      "reject_reasons": [],
+      "path_availability": 1.0
+    },
+    "local_edge_wifi": {
+      "mode": "local_edge_wifi",
+      "available": true,
+      "feasible": true,
+      "latency_ms": 12.0,
+      "capacity_mbps": 52.800000000000004,
+      "energy_j": 8.0,
+      "privacy_cost": 0.15,
+      "recovery_s": 1.5,
+      "continuity_score": 0.96,
+      "retained": [
+        "basic_service"
+      ],
+      "suspended": [],
+      "reject_reasons": [],
+      "path_availability": 1.0
+    },
+    "device_to_device": {
+      "mode": "device_to_device",
+      "available": false,
+      "feasible": false,
+      "latency_ms": 30.0,
+      "capacity_mbps": 2.0,
+      "energy_j": 6.0,
+      "privacy_cost": 0.25,
+      "recovery_s": 3.0,
+      "continuity_score": 0.0,
+      "retained": [
+        "basic_service"
+      ],
+      "suspended": [],
+      "reject_reasons": [
+        "unavailable"
+      ],
+      "path_availability": 0.0
+    },
+    "degraded_local": {
+      "mode": "degraded_local",
+      "available": true,
+      "feasible": true,
+      "latency_ms": 70.5,
+      "capacity_mbps": 19.8,
+      "energy_j": 7.0,
+      "privacy_cost": 0.2,
+      "recovery_s": 5.0,
+      "continuity_score": 0.765,
+      "retained": [
+        "basic_service"
+      ],
+      "suspended": [],
+      "reject_reasons": [],
+      "path_availability": 1.0
+    },
+    "delayed_synchronization": {
+      "mode": "delayed_synchronization",
+      "available": true,
+      "feasible": false,
+      "latency_ms": 300.0,
+      "capacity_mbps": 0.5,
+      "energy_j": 4.0,
+      "privacy_cost": 0.1,
+      "recovery_s": 60.0,
+      "continuity_score": 0.0,
+      "retained": [
+        "basic_service"
+      ],
+      "suspended": [
+        "latency_sensitive_features"
+      ],
+      "reject_reasons": [
+        "latency_budget"
+      ],
+      "path_availability": 1.0
+    },
+    "ntn_fallback": {
+      "mode": "ntn_fallback",
+      "available": true,
+      "feasible": true,
+      "latency_ms": 45.0,
+      "capacity_mbps": 5.0,
+      "energy_j": 25.0,
+      "privacy_cost": 0.35,
+      "recovery_s": 6.0,
+      "continuity_score": 0.85,
+      "retained": [
+        "basic_service"
+      ],
+      "suspended": [],
+      "reject_reasons": [],
+      "path_availability": 1.0
+    },
+    "offline_continuation": {
+      "mode": "offline_continuation",
+      "available": true,
+      "feasible": true,
+      "latency_ms": 0.0,
+      "capacity_mbps": 0.0,
+      "energy_j": 1.0,
+      "privacy_cost": 0.05,
+      "recovery_s": 30.0,
+      "continuity_score": 0.25,
+      "retained": [
+        "local_cache"
+      ],
+      "suspended": [
+        "realtime_sync",
+        "interactive_uplink"
+      ],
+      "reject_reasons": [],
+      "path_availability": 1.0
+    }
+  }
+}

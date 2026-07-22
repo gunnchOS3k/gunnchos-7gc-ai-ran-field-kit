@@ -1,0 +1,110 @@
+{
+  "schema_name": "gunnchos.edge_measurement_batch",
+  "schema_version": "1.0.0",
+  "run_id": "2026-07-22-synthetic-gary-learn-001",
+  "site_id": "gary",
+  "producer": {
+    "repository": "edge-io-measurement-node",
+    "commit": "4c5679440449867c09529c1f028ea23533286629",
+    "client_version": "0.1.0"
+  },
+  "consent": {
+    "status": "pending",
+    "receipt_id": "rcpt_syn_gary_learn_001",
+    "withdrawal_supported": true,
+    "captured_at": "2026-07-22T04:00:00Z"
+  },
+  "privacy": {
+    "location_precision": "named_test_zone",
+    "contains_direct_identifiers": false,
+    "retention_days": 30
+  },
+  "device": {
+    "device_class": "phone",
+    "os_family": "linux",
+    "model_label": "deterministic_emulator",
+    "network_interfaces": [
+      "wifi"
+    ]
+  },
+  "workload": {
+    "profile": "learn",
+    "service_profile": "learn_continuity",
+    "duration_s": 300
+  },
+  "measurements": [
+    {
+      "timestamp": "2026-07-22T04:00:10Z",
+      "latency_ms": 42.5,
+      "jitter_ms": 3.1,
+      "packet_loss_pct": 0.2,
+      "upload_mbps": 18.4,
+      "download_mbps": 64.2,
+      "network_type": "wifi",
+      "signal_dbm": -58.0,
+      "cpu_pct": 31.0,
+      "memory_pct": 44.0,
+      "battery_pct": 82.0,
+      "charging": false,
+      "thermal_state": "nominal",
+      "workload_profile": "learn",
+      "service_profile": "learn_continuity",
+      "local_edge_response_ms": 12.0,
+      "quality_flags": [
+        "ok",
+        "emulator"
+      ]
+    },
+    {
+      "timestamp": "2026-07-22T04:00:40Z",
+      "latency_ms": 47.0,
+      "jitter_ms": 4.0,
+      "packet_loss_pct": 0.4,
+      "upload_mbps": 17.1,
+      "download_mbps": 60.5,
+      "network_type": "wifi",
+      "signal_dbm": -61.0,
+      "cpu_pct": 35.0,
+      "memory_pct": 46.0,
+      "battery_pct": 81.0,
+      "charging": false,
+      "thermal_state": "nominal",
+      "workload_profile": "learn",
+      "service_profile": "learn_continuity",
+      "local_edge_response_ms": 14.0,
+      "quality_flags": [
+        "ok",
+        "emulator"
+      ]
+    },
+    {
+      "timestamp": "2026-07-22T04:01:10Z",
+      "latency_ms": 51.2,
+      "jitter_ms": 5.2,
+      "packet_loss_pct": 0.5,
+      "upload_mbps": 16.0,
+      "download_mbps": 58.0,
+      "network_type": "wifi",
+      "signal_dbm": -63.0,
+      "cpu_pct": 38.0,
+      "memory_pct": 48.0,
+      "battery_pct": 80.0,
+      "charging": false,
+      "thermal_state": "warm",
+      "workload_profile": "learn",
+      "service_profile": "learn_continuity",
+      "local_edge_response_ms": 15.5,
+      "quality_flags": [
+        "ok",
+        "emulator"
+      ]
+    }
+  ],
+  "provenance": {
+    "collector": "physical_device",
+    "generated_at": "2026-07-22T04:00:00Z",
+    "source": "fixtures/valid/edge_measurement_batch.valid.json",
+    "notes": "Labeled synthetic fixture for Gate 2 automated pipeline tests."
+  },
+  "evidence_level": "controlled_device_measurement"
+}

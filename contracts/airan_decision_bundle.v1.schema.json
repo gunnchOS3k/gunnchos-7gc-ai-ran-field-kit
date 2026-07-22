@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/airan_decision_bundle.v1.schema.json",
+  "title": "AI-RAN Decision Bundle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "policy_name",
+    "policy_version",
+    "policy_configuration_hash",
+    "input_twin_state_hash",
+    "selected_actions",
+    "predicted_metrics",
+    "confidence",
+    "constraint_violations",
+    "runtime_s",
+    "peak_memory_mb",
+    "decision_rationale",
+    "producer",
+    "evidence_level",
+    "metric_model_assumptions"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.airan_decision_bundle"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "policy_name": {
+      "type": "string",
+      "enum": [
+        "static_uniform",
+        "network_only",
+        "service_priority",
+        "optimization_based",
+        "twin_informed"
+      ]
+    },
+    "policy_version": { "type": "string", "minLength": 1 },
+    "policy_configuration_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_twin_state_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "selected_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resource_block_allocation",
+        "power_allocation",
+        "scheduling_priority",
+        "selected_network",
+        "compute_placement",
+        "local_edge_placement",
+        "continuity_class"
+      ],
+      "properties": {
+        "resource_block_allocation": {
+          "type": "array",
+          "items": { "type": "number", "minimum": 0 }
+        },
+        "power_allocation": {
+          "type": "array",
+          "items": { "type": "number", "minimum": 0 }
+        },
+        "beam_action": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "candidate_beams": {
+              "type": "array",
+              "items": { "type": "integer", "minimum": 0 }
+            },
+            "selected_beam": { "type": "integer", "minimum": 0 },
+            "expected_sinr_db": { "type": "number" },
+            "beam_switch_cost_ms": { "type": "number", "minimum": 0 },
+            "model_runtime_ms": { "type": "number", "minimum": 0 },
+            "provider": { "type": "string" },
+            "provider_commit": { "type": "string" },
+            "provider_input_hash": { "type": "string" }
+          }
+        },
+        "scheduling_priority": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 }
+        },
+        "selected_network": {
+          "type": "string",
+          "enum": [
+            "terrestrial",
+            "local_edge_wifi",
+            "device_to_device",
+            "degraded_local",
+            "ntn_fallback",
+            "offline_continuation"
+          ]
+        },
+        "compute_placement": {
+          "type": "string",
+          "enum": ["device", "local_edge", "cloud", "hybrid"]
+        },
+        "local_edge_placement": { "type": "boolean" },
+        "continuity_class": {
+          "type": "string",
+          "enum": ["strict", "degraded_ok", "store_and_forward", "offline_ok"]
+        }
+      }
+    },
+    "predicted_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicted_latency_ms",
+        "predicted_reliability",
+        "predicted_packet_loss_pct",
+        "energy_use_j",
+        "fairness",
+        "service_continuity_utility",
+        "capacity_utilization"
+      ],
+      "properties": {
+        "predicted_latency_ms": { "type": "number", "minimum": 0 },
+        "predicted_reliability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "predicted_packet_loss_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "energy_use_j": { "type": "number", "minimum": 0 },
+        "fairness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "service_continuity_utility": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "capacity_utilization": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "notes"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "notes": { "type": "string" }
+      }
+    },
+    "constraint_violations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["constraint", "severity", "detail"],
+        "properties": {
+          "constraint": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": ["info", "warning", "error"]
+          },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "runtime_s": { "type": "number", "minimum": 0 },
+    "peak_memory_mb": { "type": "number", "minimum": 0 },
+    "decision_rationale": { "type": "string", "minLength": 1 },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "const": "spectrumx-ai-ran-gary"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["synthetic", "controlled_device_measurement", "mixed"]
+    },
+    "metric_model_assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "description", "assumption_class"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "assumption_class": {
+            "type": "string",
+            "enum": [
+              "measured",
+              "open_data",
+              "literature_backed",
+              "configured",
+              "synthetic"
+            ]
+          }
+        }
+      }
+    },
+    "readygary_used": { "type": "boolean" },
+    "random_seed": { "type": ["integer", "null"] }
+  }
+}

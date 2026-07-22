@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/twin_state_bundle.v1.schema.json",
+  "title": "Twin State Bundle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "source_measurement",
+    "service_demand",
+    "user_demands",
+    "connectivity_candidates",
+    "network_state",
+    "spectrum_availability",
+    "compute_availability",
+    "mobility_state",
+    "blockage_state",
+    "energy_constraints",
+    "outage_state",
+    "privacy_constraints",
+    "continuity_requirements",
+    "uncertainty",
+    "missing_data_flags",
+    "field_provenance",
+    "scenario_provenance",
+    "configuration_hash",
+    "evidence_level",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.twin_state_bundle"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "source_measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "sha256",
+        "producer_repository",
+        "producer_commit"
+      ],
+      "properties": {
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "n_samples",
+            "mean_latency_ms",
+            "mean_jitter_ms",
+            "mean_packet_loss_pct",
+            "mean_upload_mbps",
+            "mean_download_mbps",
+            "dominant_network_type",
+            "workload_profile",
+            "service_profile"
+          ],
+          "properties": {
+            "n_samples": { "type": "integer", "minimum": 1 },
+            "mean_latency_ms": { "type": "number", "minimum": 0 },
+            "mean_jitter_ms": { "type": "number", "minimum": 0 },
+            "mean_packet_loss_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "mean_upload_mbps": { "type": "number", "minimum": 0 },
+            "mean_download_mbps": { "type": "number", "minimum": 0 },
+            "dominant_network_type": { "type": "string" },
+            "workload_profile": { "type": "string" },
+            "service_profile": { "type": "string" }
+          }
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "producer_repository": { "type": "string" },
+        "producer_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "service_demand": {
+      "$ref": "#/$defs/typed_value_object"
+    },
+    "user_demands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["user_class", "priority", "latency_budget_ms", "origin"],
+        "properties": {
+          "user_class": { "type": "string" },
+          "priority": { "type": "integer", "minimum": 0 },
+          "latency_budget_ms": { "type": "number", "minimum": 0 },
+          "bandwidth_mbps": { "type": "number", "minimum": 0 },
+          "origin": {
+            "type": "string",
+            "enum": ["measured", "inferred", "configured", "missing"]
+          }
+        }
+      }
+    },
+    "connectivity_candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["network", "available", "origin"],
+        "properties": {
+          "network": {
+            "type": "string",
+            "enum": [
+              "terrestrial",
+              "local_edge_wifi",
+              "device_to_device",
+              "degraded_local",
+              "ntn_fallback",
+              "offline_continuation"
+            ]
+          },
+          "available": { "type": "boolean" },
+          "estimated_latency_ms": { "type": ["number", "null"], "minimum": 0 },
+          "estimated_capacity_mbps": {
+            "type": ["number", "null"],
+            "minimum": 0
+          },
+          "origin": {
+            "type": "string",
+            "enum": ["measured", "inferred", "configured", "missing"]
+          }
+        }
+      }
+    },
+    "network_state": { "$ref": "#/$defs/typed_value_object" },
+    "spectrum_availability": { "$ref": "#/$defs/typed_value_object" },
+    "compute_availability": { "$ref": "#/$defs/typed_value_object" },
+    "mobility_state": { "$ref": "#/$defs/typed_value_object" },
+    "blockage_state": { "$ref": "#/$defs/typed_value_object" },
+    "energy_constraints": { "$ref": "#/$defs/typed_value_object" },
+    "outage_state": { "$ref": "#/$defs/typed_value_object" },
+    "privacy_constraints": { "$ref": "#/$defs/typed_value_object" },
+    "continuity_requirements": { "$ref": "#/$defs/typed_value_object" },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "notes"],
+      "properties": {
+        "overall": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "missing_data_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "field_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fields"],
+      "properties": {
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["measured", "inferred", "configured", "missing"]
+          }
+        }
+      }
+    },
+    "scenario_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transformer", "generated_at"],
+      "properties": {
+        "transformer": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      }
+    },
+    "configuration_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["synthetic", "controlled_device_measurement", "mixed"]
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "const": "7gc-digital-twin"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "n_users": { "type": "integer", "minimum": 1 },
+    "service_profile": { "type": "string" },
+    "measurement_quality": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "typed_value_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["values", "origin"],
+      "properties": {
+        "values": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "origin": {
+          "type": "string",
+          "enum": ["measured", "inferred", "configured", "missing"]
+        }
+      }
+    }
+  }
+}
