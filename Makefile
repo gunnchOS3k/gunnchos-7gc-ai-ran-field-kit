@@ -85,3 +85,37 @@ external-data-transform:
 gate3-integrated-evidence:
 	@test -n "$(CONTROLLED_DATASET)" || (echo "Set CONTROLLED_DATASET=path/to/dataset_manifest.json" && exit 1)
 	$(PYTHON) -c "import json,sys; m=json.load(open(sys.argv[1])); assert m.get('evidence_level')=='controlled_device_measurement'; 'refusing synthetic'; print('ok', m['dataset_id'])" $(CONTROLLED_DATASET)
+
+.PHONY: gate4-evaluation-ready gate4-evaluate pilot-status pilot-next pilot-import pilot-validate-day pilot-report
+
+gate4-evaluation-ready:
+	$(PYTHON) scripts/run_gate4_evaluation.py \
+		--repos-root $(REPOS_ROOT) \
+		--output-root results/gate4 \
+		--dry-run \
+		--strict
+
+gate4-evaluate:
+	@test -n "$(DATASET)" || (echo "Set DATASET=path/to/dataset_manifest.json" && exit 1)
+	$(PYTHON) scripts/run_gate4_evaluation.py \
+		--dataset $(DATASET) \
+		--repos-root $(REPOS_ROOT) \
+		--output-root results/gate4 \
+		--strict
+
+pilot-status:
+	$(PYTHON) scripts/pilotctl.py status
+
+pilot-next:
+	$(PYTHON) scripts/pilotctl.py next
+
+pilot-import:
+	@test -n "$(SESSION)" || (echo "Set SESSION=path/to/session.json" && exit 1)
+	$(PYTHON) scripts/pilotctl.py import-session $(SESSION)
+
+pilot-validate-day:
+	@test -n "$(DAY)" || (echo "Set DAY=day_01" && exit 1)
+	$(PYTHON) scripts/pilotctl.py validate-day $(DAY)
+
+pilot-report:
+	$(PYTHON) scripts/pilotctl.py report

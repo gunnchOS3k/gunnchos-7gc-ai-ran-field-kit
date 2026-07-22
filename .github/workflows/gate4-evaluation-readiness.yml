@@ -1,0 +1,40 @@
+name: Gate 4 Evaluation Readiness
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  gate4-readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install jsonschema pytest pyyaml
+      - name: Gate 4 readiness dry-run
+        run: |
+          python -m pytest -q tests/gate4_status tests/evaluation_splits tests/uncertainty tests/baselines tests/ablations tests/sensitivity tests/negative_results
+          make gate4-evaluation-ready
+          STATUS_JSON=$(ls -d results/gate4/gate4-run-* | tail -n 1)/gate4_status.json
+          python - <<'PY' "$STATUS_JSON"
+          import json, sys
+          status = json.load(open(sys.argv[1]))
+          assert status["gate4_status"] == "GATE4_EVALUATION_READY", status
+          assert status["gate4_status"] != "GATE_4_PASS", status
+          assert status["evaluation_label"] == "infrastructure_validation_only", status
+          assert status["inference_label"] == "insufficient_sample_size_for_inference", status
+          print(json.dumps(status, indent=2))
+          PY
+      - name: Upload Gate 4 readiness artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate4-readiness
+          path: results/gate4/
+      - name: Summary
+        run: |
+          echo "## Gate 4 readiness" >> "$GITHUB_STEP_SUMMARY"
+          echo "Synthetic fixtures prove evaluation infrastructure only." >> "$GITHUB_STEP_SUMMARY"
+          echo "CI cannot produce GATE_4_PASS." >> "$GITHUB_STEP_SUMMARY"

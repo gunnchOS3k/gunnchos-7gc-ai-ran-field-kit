@@ -1,0 +1,28 @@
+{
+  "schema_name": "gunnchos.external_evidence_source_registry",
+  "schema_version": "1.0.0",
+  "status": "EXTERNAL_EVIDENCE_PREPARED",
+  "sources": [
+    {
+      "source_id": "mlab-ndt-cc0",
+      "path_or_url": "https://www.measurementlab.net/tests/ndt/",
+      "evidence_class": "open_data",
+      "status": "blocked_pending_access",
+      "provenance_status": "not_fully_provenanced",
+      "reason": "M-Lab archival access requires AUA/GCS or BigQuery access before checksummed source files can be registered."
+    },
+    {
+      "source_id": "3gpp-tr-38-821",
+      "path_or_url": "https://www.3gpp.org/",
+      "local_path": "../ntn-resilience-sim/config/assumption_registry.yaml",
+      "evidence_class": "source_validated_simulation",
+      "status": "source_validated_prepared",
+      "provenance_status": "load_bearing_ntn_parameters_have_source_metadata",
+      "load_bearing_parameters": [
+        "ntn_latency_ms",
+        "ntn_capacity_mbps",
+        "ntn_availability"
+      ]
+    }
+  ]
+}

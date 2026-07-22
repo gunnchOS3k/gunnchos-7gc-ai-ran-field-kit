@@ -1,0 +1,15 @@
+schema_name: gunnchos.gate4.held_out_scenarios
+schema_version: 1.0.0
+split_types:
+  - leave_one_day_out
+  - leave_one_zone_out
+  - leave_one_network_condition_out
+  - leave_one_workload_profile_out
+  - stress_scenario_holdout
+leakage_controls:
+  session_id_exclusive: true
+  duplicate_hash_detection: true
+  fail_when_dataset_too_small: true
+minimums:
+  gate4_sessions: 54
+  inference_sessions: 30

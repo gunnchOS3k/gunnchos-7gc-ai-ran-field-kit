@@ -1,0 +1,32 @@
+{
+  "schema_name": "gunnchos.gate4_evaluation_status",
+  "schema_version": "1.0.0",
+  "gate4_status": "GATE4_EVALUATION_READY",
+  "evaluation_label": "infrastructure_validation_only",
+  "inference_label": "insufficient_sample_size_for_inference",
+  "sample_count": 6,
+  "missing_requirements": [
+    "insufficient_sample_size_for_inference",
+    "sample_count_below_gate4_minimum",
+    "synthetic_or_calibration_run_not_eligible_for_gate4_pass"
+  ],
+  "artifacts": {
+    "experiment_manifest": "results/gate4/gate4-run-20260722T170351Z/experiment_manifest.json",
+    "split_summary": "results/gate4/gate4-run-20260722T170351Z/splits/split_summary.json",
+    "baseline_results": "results/gate4/gate4-run-20260722T170351Z/raw_results/baseline_results.csv",
+    "ablation_results": "results/gate4/gate4-run-20260722T170351Z/raw_results/ablation_results.csv",
+    "uncertainty_report": "results/gate4/gate4-run-20260722T170351Z/raw_results/uncertainty_report.json",
+    "sensitivity_results": "results/gate4/gate4-run-20260722T170351Z/raw_results/sensitivity_results.csv",
+    "failure_boundaries": "results/gate4/gate4-run-20260722T170351Z/raw_results/failure_boundaries.csv",
+    "negative_results": "results/gate4/gate4-run-20260722T170351Z/reports/NEGATIVE_RESULTS_REGISTER.md",
+    "tables": "results/gate4/gate4-run-20260722T170351Z/tables/gate4_summary_table.csv",
+    "figures": "results/gate4/gate4-run-20260722T170351Z/figures/gate4_sensitivity.svg",
+    "evaluation_report": "results/gate4/gate4-run-20260722T170351Z/reports/GATE4_EVALUATION_REPORT.md"
+  },
+  "limitations": [
+    "Synthetic and calibration-only fixtures never produce GATE_4_PASS.",
+    "Oracle hindsight resilience baseline is analysis-only and never deployable.",
+    "GATE_4_PASS requires eligible non-synthetic data, no leakage, no duplicate hashes, and sufficient sample size."
+  ],
+  "generated_at": "2026-07-22T17:03:51Z"
+}

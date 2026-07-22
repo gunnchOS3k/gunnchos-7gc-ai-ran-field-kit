@@ -1,0 +1,28 @@
+{
+  "schema_name": "gunnchos.external_evidence_transformation_report",
+  "schema_version": "1.0.0",
+  "status": "prepared",
+  "transformations": [
+    {
+      "source_id": "3gpp-tr-38-821",
+      "input": "../ntn-resilience-sim/config/assumption_registry.yaml",
+      "output": "source_validation_report.json",
+      "operation": "extract load-bearing NTN source metadata",
+      "row_count_before": 3,
+      "row_count_after": 3,
+      "dropped_records": 0
+    },
+    {
+      "source_id": "mlab-ndt-cc0",
+      "input": "not_present",
+      "output": "not_generated",
+      "operation": "blocked pending external data access",
+      "row_count_before": 0,
+      "row_count_after": 0,
+      "dropped_records": 0
+    }
+  ],
+  "limitations": [
+    "Prepared report does not claim EXTERNAL_EVIDENCE_PASS because M-Lab raw source files are not present."
+  ]
+}

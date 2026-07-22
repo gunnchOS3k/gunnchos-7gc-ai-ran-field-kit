@@ -1,0 +1,17 @@
+schema_name: gunnchos.gate4.baselines
+schema_version: 1.0.0
+ai_ran_baselines:
+  - static_uniform
+  - network_only
+  - service_priority
+  - optimization_based
+  - twin_informed
+resilience_baselines:
+  - terrestrial_only
+  - terrestrial_then_offline
+  - always_ntn_on_terrestrial_failure
+  - priority_class_fallback
+  - service_aware_multi_access
+  - oracle_hindsight_analysis_only
+notes:
+  oracle_hindsight_analysis_only: analysis_only_never_deployable

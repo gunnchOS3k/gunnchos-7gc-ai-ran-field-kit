@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.example/schemas/gate4/experiment_manifest.schema.json",
+  "title": "Gate 4 Experiment Manifest",
+  "type": "object",
+  "required": [
+    "schema_name",
+    "schema_version",
+    "experiment_id",
+    "dataset_manifest",
+    "evidence_level",
+    "evaluation_label",
+    "sample_count",
+    "created_at"
+  ],
+  "properties": {
+    "schema_name": {"const": "gunnchos.gate4_experiment_manifest"},
+    "schema_version": {"type": "string", "pattern": "^1\\.0\\.0$"},
+    "experiment_id": {"type": "string", "minLength": 1},
+    "dataset_manifest": {"type": "string", "minLength": 1},
+    "evidence_level": {"type": "string"},
+    "evaluation_label": {
+      "type": "string",
+      "enum": ["infrastructure_validation_only", "scientific_evaluation"]
+    },
+    "sample_count": {"type": "integer", "minimum": 0},
+    "created_at": {"type": "string"},
+    "strict": {"type": "boolean"},
+    "configs": {"type": "object"},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

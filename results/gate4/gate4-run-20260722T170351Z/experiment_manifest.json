@@ -1,0 +1,30 @@
+{
+  "schema_name": "gunnchos.gate4_experiment_manifest",
+  "schema_version": "1.0.0",
+  "experiment_id": "gate4-20260722T170351Z",
+  "dataset_manifest": "results/gate4/gate4-run-20260722T170351Z/synthetic_infrastructure_dataset_manifest.json",
+  "evidence_level": "synthetic",
+  "evaluation_label": "infrastructure_validation_only",
+  "sample_count": 6,
+  "created_at": "2026-07-22T17:03:51Z",
+  "strict": true,
+  "repository_commits": {
+    "gunnchos-7gc-ai-ran-field-kit": "6a239e942aef31088589190eaa0e290b095f5578",
+    "edge-io-measurement-node": "2b4434952e6a533dff451349a10eb587045dd9f7",
+    "7gc-digital-twin": "b036905df4f867aabdcc939ac646464874a3ee1f",
+    "spectrumx-ai-ran-gary": "f7af6c7f7541360e07402f6927794116a1684d32",
+    "ntn-resilience-sim": "9055b806fa001b6b8d0130353d87668f038dce6e",
+    "readygary-6g-beam-selection": "525405cb19d7987ad218272f5897d4917c10dd75"
+  },
+  "configs": {
+    "baselines": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/baselines.yaml",
+    "held_out_scenarios": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/held_out_scenarios.yaml",
+    "ablations": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/ablations.yaml",
+    "sensitivity": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/sensitivity.yaml",
+    "metrics": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/metrics.yaml"
+  },
+  "limitations": [
+    "Dry-run datasets are infrastructure_validation_only.",
+    "Synthetic/calibration-only data are insufficient_sample_size_for_inference."
+  ]
+}

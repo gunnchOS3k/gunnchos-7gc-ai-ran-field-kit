@@ -1,0 +1,38 @@
+{
+  "schema_name": "gunnchos.external_evidence_validation_report",
+  "schema_version": "1.0.0",
+  "status": "EXTERNAL_EVIDENCE_PREPARED",
+  "ntn_source_validated_path": {
+    "status": "prepared",
+    "registry_path": "../ntn-resilience-sim/config/assumption_registry.yaml",
+    "validated_parameters": [
+      {
+        "name": "ntn_latency_ms",
+        "source_id": "3gpp-tr-38-821",
+        "assumption_class": "literature_backed",
+        "source_location": "https://www.3gpp.org/"
+      },
+      {
+        "name": "ntn_capacity_mbps",
+        "source_id": "3gpp-tr-38-821",
+        "assumption_class": "literature_backed",
+        "source_location": "https://www.3gpp.org/"
+      },
+      {
+        "name": "ntn_availability",
+        "source_id": "3gpp-tr-38-821",
+        "assumption_class": "literature_backed",
+        "source_location": "https://www.3gpp.org/"
+      }
+    ],
+    "limitations": [
+      "NTN parameters are source-validated simulation assumptions, not physical device measurements.",
+      "Configured and synthetic NTN entries remain labeled and do not independently satisfy external evidence pass."
+    ]
+  },
+  "mlab_path": {
+    "status": "blocked_pending_access",
+    "reason": "No checksummed M-Lab source files are present in this repository."
+  },
+  "pass_condition": "EXTERNAL_EVIDENCE_PASS requires all load-bearing sources to be fully provenanced and checksummed."
+}
