@@ -1,0 +1,36 @@
+{
+  "schema_name": "gunnchos.gate4_synthetic_dataset_manifest",
+  "schema_version": "1.0.0",
+  "dataset_id": "gate4-infrastructure-validation-fixture",
+  "evidence_level": "synthetic",
+  "infrastructure_validation_only": true,
+  "n_sessions": 6,
+  "n_distinct_days": 2,
+  "location_categories": [
+    "zone_a",
+    "zone_b",
+    "zone_c"
+  ],
+  "network_conditions": [
+    "wifi_normal",
+    "wifi_degraded"
+  ],
+  "workload_profile_coverage": {
+    "learn": 2,
+    "create": 2,
+    "sense": 2
+  },
+  "session_hashes": {
+    "synthetic_session_1.json": "0000000000000000000000000000000000000000000000000000000000000001",
+    "synthetic_session_2.json": "0000000000000000000000000000000000000000000000000000000000000002",
+    "synthetic_session_3.json": "0000000000000000000000000000000000000000000000000000000000000003",
+    "synthetic_session_4.json": "0000000000000000000000000000000000000000000000000000000000000004",
+    "synthetic_session_5.json": "0000000000000000000000000000000000000000000000000000000000000005",
+    "synthetic_session_6.json": "0000000000000000000000000000000000000000000000000000000000000006"
+  },
+  "known_limitations": [
+    "Synthetic fixture for infrastructure validation only.",
+    "Insufficient sample size for scientific inference."
+  ],
+  "_manifest_path": "results/gate4/gate4-run-20260722T220015Z/synthetic_infrastructure_dataset_manifest.json"
+}

@@ -16,3 +16,13 @@ datasets/controlled/staged/**
 !datasets/controlled/staged/.gitkeep
 *.device-private.json
 *.raw-session.json
+
+# Sanitized sessions stay local until Edmund approves publication
+datasets/controlled/sanitized/**
+!datasets/controlled/sanitized/.gitkeep
+
+# Calibration raw reports may include sanitized copies — keep measurement JSON local
+results/calibration/**/sanitized_*.json
+results/calibration/sanitized_*.json
+results/calibration/**/_ignored_raw/
+results/android/_ignored_local/

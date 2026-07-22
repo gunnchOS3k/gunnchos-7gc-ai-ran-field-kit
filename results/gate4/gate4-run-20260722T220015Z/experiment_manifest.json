@@ -1,0 +1,30 @@
+{
+  "schema_name": "gunnchos.gate4_experiment_manifest",
+  "schema_version": "1.0.0",
+  "experiment_id": "gate4-20260722T220015Z",
+  "dataset_manifest": "results/gate4/gate4-run-20260722T220015Z/synthetic_infrastructure_dataset_manifest.json",
+  "evidence_level": "synthetic",
+  "evaluation_label": "infrastructure_validation_only",
+  "sample_count": 6,
+  "created_at": "2026-07-22T22:00:15Z",
+  "strict": true,
+  "repository_commits": {
+    "gunnchos-7gc-ai-ran-field-kit": "4ab30a6c8215a6a5f968d88647e8bb4faefe708b",
+    "edge-io-measurement-node": "ab9f263dce5e2b030aaea5eee24c25c42e50095f",
+    "7gc-digital-twin": "b036905df4f867aabdcc939ac646464874a3ee1f",
+    "spectrumx-ai-ran-gary": "f7af6c7f7541360e07402f6927794116a1684d32",
+    "ntn-resilience-sim": "aef2678571bbfcfffc4c2734e608bd69ffa67c49",
+    "readygary-6g-beam-selection": "525405cb19d7987ad218272f5897d4917c10dd75"
+  },
+  "configs": {
+    "baselines": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/baselines.yaml",
+    "held_out_scenarios": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/held_out_scenarios.yaml",
+    "ablations": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/ablations.yaml",
+    "sensitivity": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/sensitivity.yaml",
+    "metrics": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/evaluation/configs/metrics.yaml"
+  },
+  "limitations": [
+    "Dry-run datasets are infrastructure_validation_only.",
+    "Synthetic/calibration-only data are insufficient_sample_size_for_inference."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_name": "gunnchos.gate4_uncertainty_report",
+  "schema_version": "1.0.0",
+  "methods": [
+    "bootstrap",
+    "repeated_seed",
+    "scenario_range"
+  ],
+  "confidence_level": 0.95,
+  "resampling_count": 1000,
+  "seed": 0,
+  "sample_count": 6,
+  "evaluation_label": "infrastructure_validation_only",
+  "inference_label": "insufficient_sample_size_for_inference",
+  "interval": [
+    null,
+    null
+  ],
+  "assumptions": [
+    "Bootstrap resamples result records after upstream split validation.",
+    "Repeated-seed and scenario-range outputs are comparable only when generated from non-synthetic inputs."
+  ],
+  "limitations": [
+    "Calibration-only and synthetic dry-runs are insufficient_sample_size_for_inference.",
+    "Intervals are null unless sample count and evidence level support inference."
+  ],
+  "generated_at": "2026-07-22T22:00:15Z"
+}

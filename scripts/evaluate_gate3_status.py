@@ -47,6 +47,7 @@ def evaluate(
 
     eligible = int(coverage.get("eligible_physical_session_count") or 0)
     physical = int(coverage.get("physical_session_count") or 0)
+    calibration = int(coverage.get("calibration_session_count") or 0)
     locs = int(observed.get("locations") or 0)
     nets = int(observed.get("network_conditions") or 0)
     days = int(observed.get("distinct_days") or 0)
@@ -60,7 +61,8 @@ def evaluate(
         and eligible >= required["cells"]
     )
 
-    if eligible == 0 and software_ready:
+    # Valid calibration (physical, non-pilot) yields PARTIAL without matrix credit.
+    if eligible == 0 and calibration == 0 and physical == 0 and software_ready:
         status = "GATE3_COLLECTION_READY"
         missing.extend(
             [
@@ -69,6 +71,20 @@ def evaluate(
                 "minimum_network_condition_coverage",
                 "minimum_distinct_day_coverage",
                 "minimum_repetitions",
+            ]
+        )
+        if not external_complete:
+            missing.append("external_or_source_validated_evidence_incomplete")
+    elif eligible == 0 and (calibration > 0 or physical > 0) and software_ready:
+        status = "GATE3_PARTIAL_EVIDENCE"
+        missing.extend(
+            [
+                "calibration_or_non_matrix_physical_only",
+                "minimum_location_coverage",
+                "minimum_network_condition_coverage",
+                "minimum_distinct_day_coverage",
+                "minimum_repetitions",
+                f"missing_matrix_cells:{len(missing_cells)}",
             ]
         )
         if not external_complete:
@@ -109,12 +125,14 @@ def evaluate(
             "distinct_days": days,
             "eligible_sessions": eligible,
             "physical_sessions": physical,
+            "calibration_sessions": calibration,
             "filled_cells": int(coverage.get("filled_cells") or 0),
             "missing_cells": len(missing_cells),
         },
         "missing_requirements": sorted(set(missing)),
         "physical_session_count": physical,
         "eligible_physical_session_count": eligible,
+        "calibration_session_count": calibration,
         "external_evidence_status": "complete" if external_complete else ("prepared" if external_prepared else "missing"),
         "privacy_status": "pass" if privacy_ok else "fail_or_unverified",
         "consent_status": "pass" if consent_ok else "fail_or_unverified",

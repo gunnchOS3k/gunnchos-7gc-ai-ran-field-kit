@@ -329,24 +329,24 @@
           "format": "date-time"
         },
         "latency_ms": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0
         },
         "jitter_ms": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0
         },
         "packet_loss_pct": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0,
           "maximum": 100
         },
         "upload_mbps": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0
         },
         "download_mbps": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0
         },
         "network_type": {
@@ -366,22 +366,22 @@
           ]
         },
         "cpu_pct": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0,
           "maximum": 100
         },
         "memory_pct": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0,
           "maximum": 100
         },
         "battery_pct": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0,
           "maximum": 100
         },
         "charging": {
-          "type": "boolean"
+          "type": ["boolean", "null"]
         },
         "thermal_state": {
           "type": "string",
@@ -406,7 +406,7 @@
           "minLength": 1
         },
         "local_edge_response_ms": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0
         },
         "quality_flags": {
@@ -418,8 +418,18 @@
               "partial_sample",
               "probe_timeout",
               "degraded_link",
-              "emulator"
+              "emulator",
+              "physical_android",
+              "unavailable_fields_explicit"
             ]
+          }
+        },
+        "unavailable_fields": {
+          "type": "object",
+          "description": "Map of field name to explicit reason when a metric is unavailable. Do not zero-fill.",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }

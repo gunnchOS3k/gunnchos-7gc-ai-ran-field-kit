@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.example/schemas/gate4/evaluation_report.schema.json",
+  "title": "Gate 4 Evaluation Report",
+  "type": "object",
+  "required": [
+    "schema_name",
+    "schema_version",
+    "gate4_status",
+    "evaluation_label",
+    "inference_label",
+    "sample_count",
+    "generated_at",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_name": {"type": "string"},
+    "schema_version": {"type": "string"},
+    "gate4_status": {
+      "type": "string",
+      "enum": ["FAIL", "GATE4_EVALUATION_READY", "GATE4_PARTIAL_EVALUATION", "GATE_4_PASS"]
+    },
+    "evaluation_label": {
+      "type": "string",
+      "enum": ["infrastructure_validation_only", "scientific_evaluation"]
+    },
+    "inference_label": {
+      "type": "string",
+      "enum": ["insufficient_sample_size_for_inference", "inferential_evaluation"]
+    },
+    "sample_count": {"type": "integer", "minimum": 0},
+    "generated_at": {"type": "string"},
+    "artifacts": {"type": "object"},
+    "missing_requirements": {"type": "array", "items": {"type": "string"}},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

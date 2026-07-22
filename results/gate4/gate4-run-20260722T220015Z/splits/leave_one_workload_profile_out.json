@@ -1,0 +1,51 @@
+{
+  "schema_name": "gunnchos.gate4_split",
+  "schema_version": "1.0.0",
+  "split_type": "leave_one_workload_profile_out",
+  "held_out_key": "workload_profile",
+  "evaluation_label": "infrastructure_validation_only",
+  "groups": [
+    {
+      "holdout_value": "create",
+      "train_session_ids": [
+        "synthetic_session_1",
+        "synthetic_session_3",
+        "synthetic_session_4",
+        "synthetic_session_6"
+      ],
+      "test_session_ids": [
+        "synthetic_session_2",
+        "synthetic_session_5"
+      ],
+      "leakage_detected": false
+    },
+    {
+      "holdout_value": "learn",
+      "train_session_ids": [
+        "synthetic_session_2",
+        "synthetic_session_3",
+        "synthetic_session_5",
+        "synthetic_session_6"
+      ],
+      "test_session_ids": [
+        "synthetic_session_1",
+        "synthetic_session_4"
+      ],
+      "leakage_detected": false
+    },
+    {
+      "holdout_value": "sense",
+      "train_session_ids": [
+        "synthetic_session_1",
+        "synthetic_session_2",
+        "synthetic_session_4",
+        "synthetic_session_5"
+      ],
+      "test_session_ids": [
+        "synthetic_session_3",
+        "synthetic_session_6"
+      ],
+      "leakage_detected": false
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_name": "gunnchos.gate4_split",
+  "schema_version": "1.0.0",
+  "split_type": "stress_scenario_holdout",
+  "held_out_key": "is_stress",
+  "evaluation_label": "infrastructure_validation_only",
+  "groups": [
+    {
+      "holdout_value": "stress",
+      "train_session_ids": [
+        "synthetic_session_1",
+        "synthetic_session_2",
+        "synthetic_session_3",
+        "synthetic_session_4",
+        "synthetic_session_5"
+      ],
+      "test_session_ids": [
+        "synthetic_session_6"
+      ],
+      "leakage_detected": false
+    }
+  ]
+}
