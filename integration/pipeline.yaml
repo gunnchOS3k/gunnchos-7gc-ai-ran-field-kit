@@ -1,0 +1,24 @@
+components:
+  - name: edge-io-measurement-node
+    role: producer
+  - name: 7gc-digital-twin
+    role: normalization
+  - name: spectrumx-ai-ran-gary
+    role: airan_decision
+  - name: ntn-resilience-sim
+    role: resilience_decision
+  - name: readygary-6g-beam-selection
+    role: optional_beam_provider
+
+stages:
+  - validate_edge
+  - ingest_edge
+  - build_twin_state
+  - evaluate_airan_policies
+  - decide_resilience
+  - benchmark_ablation_sensitivity
+  - manifest_checksums_report
+
+deploy_airan_policy: twin_informed
+resilience_policy: service_aware_multi_access
+strict_in_ci: true

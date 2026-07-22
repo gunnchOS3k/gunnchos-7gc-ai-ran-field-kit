@@ -1,0 +1,123 @@
+name: Gate 2 Integrated System
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  gate2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout field-kit
+        uses: actions/checkout@v4
+        with:
+          path: gunnchos-7gc-ai-ran-field-kit
+
+      - name: Checkout edge-io
+        uses: actions/checkout@v4
+        with:
+          repository: gunnchos3k/edge-io-measurement-node
+          path: edge-io-measurement-node
+
+      - name: Checkout 7gc
+        uses: actions/checkout@v4
+        with:
+          repository: gunnchos3k/7gc-digital-twin
+          path: 7gc-digital-twin
+
+      - name: Checkout spectrumx
+        uses: actions/checkout@v4
+        with:
+          repository: gunnchos3k/spectrumx-ai-ran-gary
+          path: spectrumx-ai-ran-gary
+
+      - name: Checkout ntn
+        uses: actions/checkout@v4
+        with:
+          repository: gunnchos3k/ntn-resilience-sim
+          path: ntn-resilience-sim
+
+      - name: Checkout readygary (optional)
+        uses: actions/checkout@v4
+        with:
+          repository: gunnchos3k/readygary-6g-beam-selection
+          path: readygary-6g-beam-selection
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install jsonschema pytest pyyaml 'scipy>=1.11' 'numpy>=1.24'
+          python -m pip install -r gunnchos-7gc-ai-ran-field-kit/requirements.txt
+          python -m pip install -r edge-io-measurement-node/requirements.txt
+          python -m pip install -r 7gc-digital-twin/requirements.txt
+          python -m pip install -r ntn-resilience-sim/requirements.txt
+
+      - name: Schema and failure tests
+        working-directory: gunnchos-7gc-ai-ran-field-kit
+        run: |
+          python -m pytest -q tests/contracts tests/failure_cases tests/provenance
+
+      - name: Component contract tests
+        run: |
+          PYTHONPATH=src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts \
+            pytest -q edge-io-measurement-node/tests/contracts || PYTHONPATH=edge-io-measurement-node/src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts pytest -q edge-io-measurement-node/tests/contracts
+          PYTHONPATH=7gc-digital-twin/src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts pytest -q 7gc-digital-twin/tests/gate2
+          PYTHONPATH=spectrumx-ai-ran-gary/src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts pytest -q spectrumx-ai-ran-gary/tests/gate2
+          PYTHONPATH=ntn-resilience-sim/src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts pytest -q ntn-resilience-sim/tests/gate2
+
+      - name: Integrated pipeline (strict)
+        working-directory: gunnchos-7gc-ai-ran-field-kit
+        run: |
+          # Development CI may refresh lock to checked-out SHAs when branches diverge from pinned main.
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          root = Path('..').resolve()
+          lock_path = Path('integration/repo-lock.json')
+          lock = json.loads(lock_path.read_text())
+          for name, meta in lock['components'].items():
+              repo = root / name
+              if repo.is_dir():
+                  sha = subprocess.check_output(['git','rev-parse','HEAD'], cwd=repo, text=True).strip()
+                  meta['commit'] = sha
+                  meta['branch'] = subprocess.check_output(['git','branch','--show-current'], cwd=repo, text=True).strip()
+          lock_path.write_text(json.dumps(lock, indent=2)+'\n')
+          PY
+          python scripts/run_integrated_pipeline.py \
+            --edge-input fixtures/valid/edge_measurement_batch.valid.json \
+            --repos-root .. \
+            --output-root results/integrated \
+            --strict
+
+      - name: Verify checksums and provenance
+        working-directory: gunnchos-7gc-ai-ran-field-kit
+        run: |
+          RUN_DIR=$(ls -d results/integrated/* | head -n 1)
+          python scripts/verify_checksums.py "$RUN_DIR/checksums.sha256"
+          python scripts/verify_provenance.py --run-dir "$RUN_DIR"
+          python reproduction/verify_reproduction.py "$RUN_DIR"
+
+      - name: Upload integrated artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate2-integrated-artifacts
+          path: gunnchos-7gc-ai-ran-field-kit/results/integrated/
+
+      - name: Summary
+        working-directory: gunnchos-7gc-ai-ran-field-kit
+        run: |
+          RUN_DIR=$(ls -d results/integrated/* | head -n 1)
+          echo "## Gate 2 Integrated System" >> "$GITHUB_STEP_SUMMARY"
+          python - <<PY
+          import json, pathlib, os
+          run = pathlib.Path(os.environ.get('RUN_DIR') or list(pathlib.Path('results/integrated').glob('*'))[0])
+          gate = json.loads((run/'gate2_status.json').read_text())
+          man = json.loads((run/'manifest.json').read_text())
+          print(f"Status: **{gate['status']}**", file=open(os.environ['GITHUB_STEP_SUMMARY'],'a'))
+          print(f"Run ID: `{man['run_id']}`", file=open(os.environ['GITHUB_STEP_SUMMARY'],'a'))
+          print(f"Evidence: `{man['evidence_levels']}`", file=open(os.environ['GITHUB_STEP_SUMMARY'],'a'))
+          PY

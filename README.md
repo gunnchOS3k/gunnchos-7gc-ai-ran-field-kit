@@ -66,3 +66,25 @@ See [CITATION.cff](CITATION.cff). Zenodo DOI: **planned** (see [docs/PUBLICATION
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+
+---
+
+## Gate 2 integrated system (contracts + orchestration)
+
+This repository is the **canonical contract authority** for Gate 2.
+
+```bash
+pip install -r requirements.txt
+make test
+make contract-test
+make integrated-pipeline EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
+make reproduce EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
+```
+
+Evidence labels:
+- `synthetic` — emulator/fixtures only
+- `controlled_device_measurement` — physical device only (not present until captured)
+
+Automated completion yields `AUTOMATED_PIPELINE_PASS`. Full `GATE_2_PASS` requires external evidence listed in `GATE2_EXTERNAL_EVIDENCE_CHECKLIST.md`.
+Final merge approver: **Edmund Gunn Jr.**

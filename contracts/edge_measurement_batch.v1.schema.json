@@ -1,0 +1,428 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/edge_measurement_batch.v1.schema.json",
+  "title": "Edge Measurement Batch v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "producer",
+    "consent",
+    "privacy",
+    "device",
+    "workload",
+    "measurements",
+    "provenance",
+    "evidence_level"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.edge_measurement_batch"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "site_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "commit",
+        "client_version"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "const": "edge-io-measurement-node"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "client_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "receipt_id",
+        "withdrawal_supported",
+        "captured_at"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "withdrawn",
+            "pending"
+          ]
+        },
+        "receipt_id": {
+          "type": "string",
+          "minLength": 8,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "withdrawal_supported": {
+          "type": "boolean"
+        },
+        "captured_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "withdrawn_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "location_precision",
+        "contains_direct_identifiers",
+        "retention_days"
+      ],
+      "properties": {
+        "location_precision": {
+          "type": "string",
+          "enum": [
+            "named_test_zone",
+            "site_level",
+            "none"
+          ]
+        },
+        "contains_direct_identifiers": {
+          "type": "boolean",
+          "const": false
+        },
+        "retention_days": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "device": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_class",
+        "os_family",
+        "network_interfaces"
+      ],
+      "properties": {
+        "device_class": {
+          "type": "string",
+          "enum": [
+            "phone",
+            "tablet",
+            "laptop",
+            "kiosk",
+            "emulator"
+          ]
+        },
+        "os_family": {
+          "type": "string",
+          "enum": [
+            "android",
+            "linux",
+            "windows",
+            "macos",
+            "other"
+          ]
+        },
+        "model_label": {
+          "type": "string"
+        },
+        "network_interfaces": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "wifi",
+              "cellular",
+              "ethernet",
+              "bluetooth",
+              "unknown"
+            ]
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "workload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "service_profile",
+        "duration_s"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string",
+          "enum": [
+            "learn",
+            "create",
+            "sense"
+          ]
+        },
+        "service_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duration_s": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/measurement_record"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collector",
+        "generated_at",
+        "source"
+      ],
+      "properties": {
+        "collector": {
+          "type": "string",
+          "enum": [
+            "physical_device",
+            "deterministic_emulator",
+            "android_client"
+          ]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": [
+        "synthetic",
+        "controlled_device_measurement"
+      ]
+    },
+    "annotations": {
+      "type": "object",
+      "description": "Optional non-identifier annotations. Privacy scan still applies recursively.",
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "evidence_level": {
+            "const": "controlled_device_measurement"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "provenance": {
+            "properties": {
+              "collector": {
+                "enum": [
+                  "physical_device",
+                  "android_client"
+                ]
+              }
+            }
+          },
+          "consent": {
+            "properties": {
+              "status": {
+                "const": "active"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_level": {
+            "const": "synthetic"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "provenance": {
+            "properties": {
+              "collector": {
+                "const": "deterministic_emulator"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "measurement_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp",
+        "latency_ms",
+        "jitter_ms",
+        "packet_loss_pct",
+        "upload_mbps",
+        "download_mbps",
+        "network_type",
+        "cpu_pct",
+        "memory_pct",
+        "battery_pct",
+        "charging",
+        "thermal_state",
+        "workload_profile",
+        "service_profile",
+        "local_edge_response_ms",
+        "quality_flags"
+      ],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "latency_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "jitter_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "packet_loss_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "upload_mbps": {
+          "type": "number",
+          "minimum": 0
+        },
+        "download_mbps": {
+          "type": "number",
+          "minimum": 0
+        },
+        "network_type": {
+          "type": "string",
+          "enum": [
+            "wifi",
+            "cellular",
+            "ethernet",
+            "unknown",
+            "degraded_local"
+          ]
+        },
+        "signal_dbm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cpu_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "memory_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "battery_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "charging": {
+          "type": "boolean"
+        },
+        "thermal_state": {
+          "type": "string",
+          "enum": [
+            "nominal",
+            "warm",
+            "hot",
+            "critical",
+            "unknown"
+          ]
+        },
+        "workload_profile": {
+          "type": "string",
+          "enum": [
+            "learn",
+            "create",
+            "sense"
+          ]
+        },
+        "service_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "local_edge_response_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "quality_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "partial_sample",
+              "probe_timeout",
+              "degraded_link",
+              "emulator"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

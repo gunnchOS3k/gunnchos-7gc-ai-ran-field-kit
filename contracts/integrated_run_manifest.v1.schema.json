@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/integrated_run_manifest.v1.schema.json",
+  "title": "Integrated Run Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "component_commits",
+    "schema_versions",
+    "configuration_hashes",
+    "input_hashes",
+    "output_hashes",
+    "random_seeds",
+    "environment",
+    "commands_executed",
+    "started_at",
+    "completed_at",
+    "validation_results",
+    "test_results",
+    "evidence_levels",
+    "readygary_used",
+    "failures",
+    "warnings",
+    "field_kit_runtime_sha",
+    "gate2_status"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.integrated_run_manifest"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "component_commits": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{40}$"
+      }
+    },
+    "schema_versions": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "configuration_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "input_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "output_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "random_seeds": {
+      "type": "object",
+      "additionalProperties": { "type": ["integer", "null"] }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "os",
+        "architecture",
+        "python_version",
+        "dependency_lock_hashes"
+      ],
+      "properties": {
+        "os": { "type": "string" },
+        "architecture": { "type": "string" },
+        "python_version": { "type": "string" },
+        "dependency_lock_hashes": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "commands_executed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["command", "returncode", "duration_s"],
+        "properties": {
+          "command": { "type": "string" },
+          "returncode": { "type": "integer" },
+          "duration_s": { "type": "number", "minimum": 0 },
+          "cwd": { "type": "string" }
+        }
+      }
+    },
+    "started_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": "string", "format": "date-time" },
+    "validation_results": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "test_results": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evidence_levels": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "readygary_used": { "type": "boolean" },
+    "failures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "field_kit_runtime_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "gate2_status": {
+      "type": "string",
+      "enum": ["FAIL", "AUTOMATED_PIPELINE_PASS", "GATE_2_PASS"]
+    },
+    "selected_airan_policy": { "type": "string" },
+    "selected_resilience_mode": { "type": "string" }
+  }
+}

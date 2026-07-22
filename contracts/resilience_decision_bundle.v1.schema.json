@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/resilience_decision_bundle.v1.schema.json",
+  "title": "Resilience Decision Bundle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "policy_name",
+    "selected_mode",
+    "fallback_trigger",
+    "input_twin_state_hash",
+    "input_airan_decision_hash",
+    "continuity_score",
+    "expected_recovery_time_s",
+    "estimated_latency_ms",
+    "estimated_capacity_mbps",
+    "estimated_energy_cost_j",
+    "estimated_privacy_cost",
+    "retained_service_features",
+    "suspended_service_features",
+    "rejected_alternatives",
+    "uncertainty",
+    "assumptions_used",
+    "runtime_s",
+    "producer",
+    "evidence_level"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.resilience_decision_bundle"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "policy_name": {
+      "type": "string",
+      "enum": [
+        "terrestrial_only",
+        "terrestrial_then_offline",
+        "always_ntn_on_terrestrial_failure",
+        "priority_class_fallback",
+        "service_aware_multi_access",
+        "oracle_hindsight_analysis_only"
+      ]
+    },
+    "selected_mode": {
+      "type": "string",
+      "enum": [
+        "terrestrial",
+        "local_edge_wifi",
+        "device_to_device",
+        "degraded_local",
+        "delayed_synchronization",
+        "ntn_fallback",
+        "offline_continuation"
+      ]
+    },
+    "fallback_trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_twin_state_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_airan_decision_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "continuity_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "expected_recovery_time_s": { "type": "number", "minimum": 0 },
+    "estimated_latency_ms": { "type": "number", "minimum": 0 },
+    "estimated_capacity_mbps": { "type": "number", "minimum": 0 },
+    "estimated_energy_cost_j": { "type": "number", "minimum": 0 },
+    "estimated_privacy_cost": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "retained_service_features": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "suspended_service_features": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rejected_alternatives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["mode", "reason"],
+        "properties": {
+          "mode": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "notes"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "notes": { "type": "string" }
+      }
+    },
+    "assumptions_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "value",
+          "unit",
+          "source_id",
+          "range",
+          "assumption_class"
+        ],
+        "properties": {
+          "value": { "type": ["number", "string", "boolean"] },
+          "unit": { "type": "string" },
+          "source_id": { "type": "string" },
+          "range": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": { "type": ["number", "string", "null"] }
+          },
+          "assumption_class": {
+            "type": "string",
+            "enum": [
+              "measured",
+              "open_data",
+              "literature_backed",
+              "configured",
+              "synthetic"
+            ]
+          }
+        }
+      }
+    },
+    "runtime_s": { "type": "number", "minimum": 0 },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "const": "ntn-resilience-sim"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["synthetic", "controlled_device_measurement", "mixed"]
+    },
+    "deployable": { "type": "boolean" },
+    "path_scores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  }
+}
