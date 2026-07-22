@@ -2,20 +2,16 @@
 
 Status: **EXTERNAL_EVIDENCE_PASS**
 
-Qualifying path: **NTN source-validated simulation** based on 3GPP TR 38.821 provenance in `ntn-resilience-sim/config/assumption_registry.yaml`.
+Qualifying path: NTN source-validated simulation (3GPP TR 38.821).
 
-## NTN path
+## Audit
 
-- Source identifiers, titles, official locations, retrieval date, units, ranges, and checksum recorded.
-- Sensitivity analysis spans literature-backed ranges for load-bearing NTN parameters.
-- Configured/synthetic values are not mislabeled as literature-backed in the registry metadata.
+- Load-bearing parameters have source IDs, titles, official FTP archive locations, retrieval dates, units, and justified ranges.
+- Clause 5 / scenario section pointers are recorded in `ntn-resilience-sim/config/assumption_registry.yaml`.
+- Configured and synthetic assumptions remain explicitly non-literature-backed.
+- Sensitivity spans the declared ranges for load-bearing NTN parameters.
+- M-Lab remains `blocked_pending_access` and is not required for this PASS.
 
-## M-Lab path
+## Issues
 
-- Remains `blocked_pending_access` (Acceptable Use / bulk access).
-- Not required because the NTN path fully qualifies.
-
-## Limitations
-
-- Exact TR 38.821 table/section pointers should continue to be refined as official PDF excerpts are archived locally under license constraints.
-- M-Lab path remains blocked_pending_access and is not used to claim PASS.
+['none']

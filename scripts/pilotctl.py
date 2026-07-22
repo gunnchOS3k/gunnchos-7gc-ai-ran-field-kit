@@ -64,8 +64,24 @@ def validate_import(path: Path) -> dict:
         errors.append("synthetic/emulator sessions are rejected for pilot counting")
     if evidence in {"synthetic", "calibration_only"}:
         errors.append("synthetic/calibration_only sessions are rejected for pilot counting")
+    notes = str(ctx.get("operator_notes") or "")
+    deviation = str(ctx.get("protocol_deviation") or "")
+    if (
+        bool(ctx.get("calibration_only"))
+        or "calibration_only=true" in notes.replace(" ", "").lower()
+        or deviation == "calibration_not_pilot"
+    ):
+        errors.append("calibration_only sessions are rejected for pilot counting")
     if consent != "active":
         errors.append("consent.status must be active")
+    if (batch.get("consent") or {}).get("status") == "withdrawn":
+        errors.append("withdrawn sessions are rejected")
+    if doc.get("deleted"):
+        errors.append("deleted sessions are rejected")
+    planned = float(ctx.get("planned_duration_seconds") or 0)
+    actual = float(ctx.get("actual_duration_seconds") or 0)
+    if planned >= 300 and actual + 1e-6 < 300:
+        errors.append("undersized duration relative to 300s pilot protocol")
     findings = recursive_privacy_scan(doc)
     if findings:
         errors.append("privacy findings present")

@@ -1,7 +1,7 @@
 {
   "schema_name": "gunnchos.external_evidence_registry",
-  "schema_version": "1.0.0",
-  "generated_at": "2026-07-22T17:10:38.124946+00:00",
+  "schema_version": "1.1.0",
+  "generated_at": "2026-07-22T18:29:19.993890+00:00",
   "paths": [
     {
       "path_id": "ntn_source_validated_tr38821",
@@ -10,15 +10,16 @@
       "official_source": "https://www.3gpp.org/ftp/Specs/archive/38_series/38.821/",
       "document": "3GPP TR 38.821",
       "retrieval_date": "2026-07-22",
-      "local_artifact": "/agent/repos/ntn-resilience-sim/config/assumption_registry.yaml",
-      "sha256": "7fe8e80f88492bb30ef7a153b863adbf9cba276a2d9ddc253a60faf8305e7f92",
-      "license_or_terms": "3GPP documentation; citation required; no redistribution of proprietary extracts beyond fair research citation",
+      "local_artifact": "ntn-resilience-sim/config/assumption_registry.yaml",
+      "sha256": "1498451fe824d7f30ccccf423b7b1b25108f463c97e334980b4b608d47258b65",
+      "license_or_terms": "3GPP documentation; citation required",
       "status": "complete",
       "load_bearing_parameters": [
         "ntn_latency_ms",
         "ntn_capacity_mbps",
         "ntn_availability"
-      ]
+      ],
+      "section_pointers_present": true
     },
     {
       "path_id": "mlab_ndt_open_data",
@@ -29,8 +30,7 @@
       "local_artifact": null,
       "sha256": null,
       "license_or_terms": "M-Lab Acceptable Use Agreement required before bulk access",
-      "status": "blocked_pending_access",
-      "notes": "Not required for Gate 3 when NTN path qualifies"
+      "status": "blocked_pending_access"
     }
   ]
 }
