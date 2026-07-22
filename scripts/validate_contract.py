@@ -23,6 +23,10 @@ SCHEMA_FILES = {
     "gunnchos.airan_decision_bundle": "airan_decision_bundle.v1.schema.json",
     "gunnchos.resilience_decision_bundle": "resilience_decision_bundle.v1.schema.json",
     "gunnchos.integrated_run_manifest": "integrated_run_manifest.v1.schema.json",
+    "gunnchos.measurement_session_context": "measurement_session_context.v1.schema.json",
+    "gunnchos.controlled_dataset_manifest": "controlled_dataset_manifest.v1.schema.json",
+    "gunnchos.external_dataset_record": "external_dataset_record.v1.schema.json",
+    "gunnchos.gate3_evidence_report": "gate3_evidence_report.v1.schema.json",
 }
 
 PROHIBITED_KEY_PATTERNS = [
@@ -157,6 +161,15 @@ def validate_document(
 
     for field in ("run_id", "site_id"):
         if field not in document or not str(document[field]).strip():
+            # Session-context documents carry run_id but not always site_id.
+            if schema_name == "gunnchos.measurement_session_context" and field == "site_id":
+                continue
+            if schema_name in {
+                "gunnchos.controlled_dataset_manifest",
+                "gunnchos.external_dataset_record",
+                "gunnchos.gate3_evidence_report",
+            }:
+                continue
             raise ContractError(f"Missing required field: {field}")
 
     schema = load_schema(schema_name, schema_dir)

@@ -7,3 +7,12 @@ __pycache__/
 !results/integrated/
 !results/integrated/**/
 
+*.pyc
+
+# Gate 3 raw / private evidence — never auto-commit
+datasets/controlled/raw/**
+datasets/controlled/staged/**
+!datasets/controlled/raw/.gitkeep
+!datasets/controlled/staged/.gitkeep
+*.device-private.json
+*.raw-session.json

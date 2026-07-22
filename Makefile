@@ -53,3 +53,35 @@ reproduce:
 
 clean:
 	rm -rf results/integrated/*
+
+.PHONY: gate3-evidence assemble-controlled-dataset external-data-download external-data-verify external-data-transform gate3-integrated-evidence
+
+gate3-evidence:
+	$(PYTHON) scripts/run_gate3_evidence_pipeline.py \
+		--controlled-sessions datasets/controlled/sanitized \
+		--collection-matrix protocols/controlled_pilot_matrix.csv \
+		--external-registry datasets/external/registry/external_dataset_registry.json \
+		--repos-root $(REPOS_ROOT) \
+		--output-root results/gate3 \
+		--android-builds
+
+assemble-controlled-dataset:
+	$(PYTHON) scripts/assemble_controlled_dataset.py \
+		--sessions datasets/controlled/sanitized \
+		--matrix protocols/controlled_pilot_matrix.csv \
+		--output-root results/gate3 \
+		--repos-root $(REPOS_ROOT)
+
+external-data-download:
+	@echo "M-Lab archival download requires AUA/GCS credentials; registry records the unresolved step."
+	$(PYTHON) scripts/register_external_dataset.py register
+
+external-data-verify:
+	$(PYTHON) scripts/verify_external_dataset.py
+
+external-data-transform:
+	$(PYTHON) scripts/transform_external_dataset.py --output datasets/external/transformed/ntn_sim_metadata.json
+
+gate3-integrated-evidence:
+	@test -n "$(CONTROLLED_DATASET)" || (echo "Set CONTROLLED_DATASET=path/to/dataset_manifest.json" && exit 1)
+	$(PYTHON) -c "import json,sys; m=json.load(open(sys.argv[1])); assert m.get('evidence_level')=='controlled_device_measurement'; 'refusing synthetic'; print('ok', m['dataset_id'])" $(CONTROLLED_DATASET)

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/gate3_evidence_report.v1.schema.json",
+  "title": "Gate 3 Evidence Report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "generated_at",
+    "gate3_status",
+    "required_counts",
+    "observed_counts",
+    "missing_requirements",
+    "physical_session_count",
+    "eligible_physical_session_count",
+    "external_evidence_status",
+    "privacy_status",
+    "consent_status",
+    "limitations",
+    "dataset_id"
+  ],
+  "properties": {
+    "schema_name": {
+      "const": "gunnchos.gate3_evidence_report"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "gate3_status": {
+      "type": "string",
+      "enum": [
+        "FAIL",
+        "GATE3_COLLECTION_READY",
+        "GATE3_PARTIAL_EVIDENCE",
+        "GATE_3_PASS"
+      ]
+    },
+    "required_counts": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "observed_counts": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "missing_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "physical_session_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "eligible_physical_session_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "external_evidence_status": {
+      "type": "string"
+    },
+    "privacy_status": {
+      "type": "string"
+    },
+    "consent_status": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "descriptive_tables": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "integrated_run_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

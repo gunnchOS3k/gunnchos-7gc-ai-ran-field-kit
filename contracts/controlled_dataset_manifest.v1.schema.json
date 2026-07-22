@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/controlled_dataset_manifest.v1.schema.json",
+  "title": "Controlled Dataset Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "dataset_id",
+    "collection_start_date",
+    "collection_end_date",
+    "n_sessions",
+    "n_locations",
+    "location_categories",
+    "n_network_conditions",
+    "network_conditions",
+    "n_distinct_days",
+    "workload_profile_coverage",
+    "device_model_categories",
+    "collector_versions",
+    "repository_commits",
+    "consent_status_summary",
+    "withdrawal_count",
+    "deletion_count",
+    "privacy_review_result",
+    "prohibited_field_scan_result",
+    "raw_data_storage_policy",
+    "sanitized_data_path",
+    "session_hashes",
+    "dataset_hash",
+    "evidence_level",
+    "missing_cells",
+    "protocol_deviations",
+    "known_limitations",
+    "counts_computed_from_sessions"
+  ],
+  "properties": {
+    "schema_name": {
+      "const": "gunnchos.controlled_dataset_manifest"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collection_start_date": {
+      "type": "string"
+    },
+    "collection_end_date": {
+      "type": "string"
+    },
+    "n_sessions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "n_locations": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "location_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "n_network_conditions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "network_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "n_distinct_days": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "workload_profile_coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "device_model_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "collector_versions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repository_commits": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "consent_status_summary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "withdrawal_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "deletion_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "privacy_review_result": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "not_run"
+      ]
+    },
+    "prohibited_field_scan_result": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "not_run"
+      ]
+    },
+    "raw_data_storage_policy": {
+      "type": "string"
+    },
+    "sanitized_data_path": {
+      "type": "string"
+    },
+    "session_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "dataset_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "evidence_level": {
+      "const": "controlled_device_measurement"
+    },
+    "missing_cells": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "protocol_deviations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "known_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counts_computed_from_sessions": {
+      "type": "boolean",
+      "const": true
+    }
+  }
+}

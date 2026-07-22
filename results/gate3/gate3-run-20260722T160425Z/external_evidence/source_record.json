@@ -1,0 +1,36 @@
+{
+  "schema_name": "gunnchos.external_dataset_record",
+  "schema_version": "1.0.0",
+  "record_id": "ntn-source-validated-sim-v1",
+  "title": "NTN resilience source-validated simulation parameter pack",
+  "publisher": "gunnchos ntn-resilience-sim (parameters sourced from 3GPP TR 38.821 and configured ranges)",
+  "source_location": "https://www.3gpp.org/ (TR 38.821 Solutions for NR to support non-terrestrial networks)",
+  "version_or_retrieval_date": "2026-07-22",
+  "license_or_terms": "3GPP documents subject to 3GPP copyright; parameter values used under research citation practice",
+  "citation": "3GPP TR 38.821: Solutions for NR to support non-terrestrial networks (NTN).",
+  "intended_gate3_use": "Source-validated simulation assumptions for NTN latency/availability sensitivity",
+  "original_checksum": null,
+  "download_command": "Documented in ntn-resilience-sim/config/assumption_registry.yaml",
+  "original_file_list": [
+    "ntn-resilience-sim/config/assumption_registry.yaml"
+  ],
+  "transformation_script": "ntn-resilience-sim (native assumption registry)",
+  "transformed_checksum": null,
+  "field_mapping": {
+    "ntn_latency_ms": "estimated_latency_ms",
+    "ntn_capacity_mbps": "estimated_capacity_mbps",
+    "ntn_availability": "path_availability"
+  },
+  "unit_mapping": {
+    "ntn_latency_ms": "ms",
+    "ntn_capacity_mbps": "Mbps",
+    "ntn_availability": "fraction"
+  },
+  "missing_data_behavior": "reject_unsupported_parameters",
+  "limitations": [
+    "Qualifies as source_validated_simulation only when all load-bearing parameters include verified source_id metadata.",
+    "Configured/synthetic classes alone do not qualify."
+  ],
+  "evidence_class": "source_validated_simulation",
+  "status": "prepared"
+}

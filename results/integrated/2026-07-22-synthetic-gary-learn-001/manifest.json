@@ -25,15 +25,15 @@
   },
   "output_hashes": {
     "01_edge_measurements.json": "c608e9cbfe14bf1697965994199c5fc3973f7dbcd1bf6c0a866de4e9b1f8c6f7",
-    "02_twin_state.json": "323bbe1ecffed0b20c1faf27ce1819245728296f015c1a0471d49e7a8cea52f2",
-    "03_airan_static_decision.json": "663bd65cf3c815f9d74d43644cef1174f4a3c9e38621dd0281c0a5e10d6797ef",
-    "03_airan_network_only_decision.json": "9db1a00686bdc9666a9ff62c74c4eac8782b521ae188c47f59b60f6806d65dd3",
-    "03_airan_service_priority_decision.json": "2f3fbcdaf88bdf060cdd5a5a571c47dd138c46d5646c4d002ecdcf0e6a818f17",
-    "03_airan_optimization_decision.json": "c2be331feb138c218e1858b9681b4ebc7f0fc9ff290e9f4b2a4cdba1220761c8",
-    "03_airan_twin_informed_decision.json": "30e26b68913c7cbca37d7dd6e55d3945d7041c2f2148e3ae2516d8e3c812fbab",
-    "04_resilience_decision.json": "a4fbba13bde7ff43bbb68eed0ad61d562ee293242f2158bf481b8c06c2b6e613",
-    "benchmark_results.csv": "9d78a6a13b7e81d810248154b3ac93946cbb1bdced193255b50f11a3d83d36de",
-    "ablation_results.csv": "32f753be6b836968974940785641306a770c62fedba7b60560b94ea204e3fb88",
+    "02_twin_state.json": "20c7aea0d0d98f5bcebe837a1c24b82e65cc30502a175a19224fe8c21fe63582",
+    "03_airan_static_decision.json": "a870ed60c588ffa77b95c90dd9fae3ee7b1d5066cbb7bb289711ef35b3ea2095",
+    "03_airan_network_only_decision.json": "5cfea52b3b1411a872e3ed2c931b8ad45168b55f58f25d446c641ab5c8a7d770",
+    "03_airan_service_priority_decision.json": "065fd480d8d0722f27a1eb3a695f2586229d2638c9b9fc55927b88a68e8c79e7",
+    "03_airan_optimization_decision.json": "63132dfb08984f3f423da7f948d9d547f2a12246713529b6cfc17e411d175263",
+    "03_airan_twin_informed_decision.json": "a5d1acf2dc6b12587e1150428759d39daa9bbfe3fd6bd8fcfe6481df9e0351a5",
+    "04_resilience_decision.json": "884f48a77ed192b1091f71fc343bf09cdaf5ac7487f5049002a0e4eebbe9eb8d",
+    "benchmark_results.csv": "fba08cb53913e99f2788250f319a18c8dea94db06aa360b627a914caf2303de8",
+    "ablation_results.csv": "0485b1e1301919e0dbbb7586ad71d508f4470d7ac33eda40b4dfa325cd8556e2",
     "sensitivity_results.csv": "17cc7bbfe0d1ee0468c6c132b19b527c1ce765e499619ae6fdc79ec82220d634",
     "environment.txt": "95bf5bc130db8d19602dedaef0f4a04f6801adfdbbc3c7c1dbda784bd5d59a05"
   },
@@ -52,132 +52,132 @@
     {
       "command": "/usr/bin/python3 -m edge_io_node export-to-7gc /agent/repos/gunnchos-7gc-ai-ran-field-kit/fixtures/valid/edge_measurement_batch.valid.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.09531149100075709,
+      "duration_s": 0.09406346000469057,
       "cwd": "/agent/repos/edge-io-measurement-node"
     },
     {
       "command": "/usr/bin/python3 -m seven_gc_twin ingest-edge --input /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --site gary --run-id 2026-07-22-synthetic-gary-learn-001 --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.0960292899999331,
+      "duration_s": 0.10118336700543296,
       "cwd": "/agent/repos/7gc-digital-twin"
     },
     {
       "command": "/usr/bin/python3 -m seven_gc_twin build-twin-state --input /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --run-id 2026-07-22-synthetic-gary-learn-001 --site gary --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.09626230600042618,
+      "duration_s": 0.09277881900197826,
       "cwd": "/agent/repos/7gc-digital-twin"
     },
     {
       "command": "/usr/bin/python3 -m seven_gc_twin validate-twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.10417692000009993,
+      "duration_s": 0.09520398700260557,
       "cwd": "/agent/repos/7gc-digital-twin"
     },
     {
       "command": "/usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy static_uniform --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
       "returncode": 0,
-      "duration_s": 0.37153545299952384,
+      "duration_s": 0.3622032809944358,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.3607713719993626,
+      "duration_s": 0.32854093499918235,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy network_only --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
       "returncode": 0,
-      "duration_s": 0.3918312280002283,
+      "duration_s": 0.3684737599978689,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.3446273480003583,
+      "duration_s": 0.3724781169948983,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy service_priority --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
       "returncode": 0,
-      "duration_s": 0.33648149500004365,
+      "duration_s": 0.37125985199963907,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.34125126500111946,
+      "duration_s": 0.3264461630024016,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy optimization_based --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
       "returncode": 0,
-      "duration_s": 0.34984999500011327,
+      "duration_s": 0.3362429599947063,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.33745056899897463,
+      "duration_s": 0.32912666800257284,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy twin_informed --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
       "returncode": 0,
-      "duration_s": 0.35458461200141755,
+      "duration_s": 0.37462900199898286,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.34094621899930644,
+      "duration_s": 0.3288647219960694,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m ntn_resilience decide --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --airan-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --policy service_aware_multi_access",
       "returncode": 0,
-      "duration_s": 0.09406370200122183,
+      "duration_s": 0.0946636330045294,
       "cwd": "/agent/repos/ntn-resilience-sim"
     },
     {
       "command": "/usr/bin/python3 -m ntn_resilience validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.08725165499890863,
+      "duration_s": 0.08584238900220953,
       "cwd": "/agent/repos/ntn-resilience-sim"
     },
     {
       "command": "/usr/bin/python3 -m airan_research benchmark --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/benchmark_results.csv --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --repetitions 3 --warmup 1 --seed 0",
       "returncode": 0,
-      "duration_s": 0.39953246300137835,
+      "duration_s": 0.39961919200140983,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m airan_research ablation --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/ablation_results.csv --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0",
       "returncode": 0,
-      "duration_s": 0.3729500110002846,
+      "duration_s": 0.3564948679995723,
       "cwd": "/agent/repos/spectrumx-ai-ran-gary"
     },
     {
       "command": "/usr/bin/python3 -m ntn_resilience sensitivity --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --airan-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/sensitivity_results.csv --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts",
       "returncode": 0,
-      "duration_s": 0.18704859299941745,
+      "duration_s": 0.18406962599692633,
       "cwd": "/agent/repos/ntn-resilience-sim"
     },
     {
       "command": "/usr/bin/python3 /agent/repos/gunnchos-7gc-ai-ran-field-kit/scripts/verify_checksums.py /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/checksums.sha256",
       "returncode": 0,
-      "duration_s": 0.023479928999222466,
+      "duration_s": 0.023436110001057386,
       "cwd": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001"
     },
     {
       "command": "/usr/bin/python3 /agent/repos/gunnchos-7gc-ai-ran-field-kit/scripts/evaluate_gate2_status.py --run-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001 --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/gate2_status.json",
       "returncode": 0,
-      "duration_s": 0.02320976999908453,
+      "duration_s": 0.02261490100499941,
       "cwd": "/agent/repos/gunnchos-7gc-ai-ran-field-kit"
     }
   ],
-  "started_at": "2026-07-22T04:29:10Z",
-  "completed_at": "2026-07-22T04:29:15Z",
+  "started_at": "2026-07-22T15:54:43Z",
+  "completed_at": "2026-07-22T15:54:48Z",
   "validation_results": {
     "edge": true,
     "twin": true,
@@ -203,7 +203,7 @@
   "warnings": [
     "ReadyGary present but optional provider not required for Gate 2 path; continuing without beam actions."
   ],
-  "field_kit_runtime_sha": "760062c84fa6bd760208c8f287fe58adc61e13a6",
+  "field_kit_runtime_sha": "82099df12323c9b689e55f8a1169781416e406b5",
   "gate2_status": "AUTOMATED_PIPELINE_PASS",
   "selected_airan_policy": "twin_informed",
   "selected_resilience_mode": "terrestrial"
