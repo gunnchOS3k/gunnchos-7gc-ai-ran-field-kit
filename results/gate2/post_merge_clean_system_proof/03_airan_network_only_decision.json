@@ -1,0 +1,71 @@
+{
+  "schema_name": "gunnchos.airan_decision_bundle",
+  "schema_version": "1.0.0",
+  "run_id": "pixel-cal-1784756973874",
+  "site_id": "gary",
+  "policy_name": "network_only",
+  "policy_version": "1.0.0",
+  "policy_configuration_hash": "a91089808769281f6a931609df6e28c638b9d0a75bd10cf9ab99772847190347",
+  "input_twin_state_hash": "c62837e8497d3022819ab86d334ff0f315aa343d14748c2f21a3db731e148804",
+  "selected_actions": {
+    "resource_block_allocation": [
+      5.0,
+      5.0,
+      5.0,
+      5.0
+    ],
+    "power_allocation": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "beam_action": null,
+    "scheduling_priority": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "selected_network": "terrestrial",
+    "compute_placement": "cloud",
+    "local_edge_placement": false,
+    "continuity_class": "degraded_ok"
+  },
+  "predicted_metrics": {
+    "predicted_latency_ms": 88.00333123076923,
+    "predicted_reliability": 1.0,
+    "predicted_packet_loss_pct": 0.0,
+    "energy_use_j": 39.40016656153846,
+    "fairness": 1.0,
+    "service_continuity_utility": 0.8239933375384616,
+    "capacity_utilization": 1.0
+  },
+  "confidence": {
+    "score": 0.75,
+    "notes": "Analytical metric model; not a field-validated predictor."
+  },
+  "constraint_violations": [],
+  "runtime_s": 1.1232012184336782e-05,
+  "peak_memory_mb": 78.01953125,
+  "decision_rationale": "Allocation scaled by network loss only; no service/twin fields. ReadyGary beam provider not used.",
+  "producer": {
+    "repository": "spectrumx-ai-ran-gary",
+    "commit": "f7af6c7f7541360e07402f6927794116a1684d32"
+  },
+  "evidence_level": "controlled_device_measurement",
+  "metric_model_assumptions": [
+    {
+      "name": "latency_utilization_model",
+      "description": "predicted_latency = measured_latency * network_penalty * (1 + 0.4*utilization)",
+      "assumption_class": "configured"
+    },
+    {
+      "name": "reliability_from_loss",
+      "description": "reliability = 1 - predicted_packet_loss_pct/100",
+      "assumption_class": "configured"
+    }
+  ],
+  "readygary_used": false,
+  "random_seed": 0
+}

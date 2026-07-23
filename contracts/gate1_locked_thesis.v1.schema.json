@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/gate1_locked_thesis.v1.schema.json",
+  "title": "Gate 1 Locked Thesis v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "gate1_status",
+    "version",
+    "date_locked",
+    "title",
+    "central_hypothesis",
+    "research_questions",
+    "papers",
+    "repositories",
+    "non_goals",
+    "change_control"
+  ],
+  "properties": {
+    "schema_name": {
+      "const": "gunnchos.gate1_locked_thesis"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "gate1_status": {
+      "type": "string",
+      "enum": ["FAIL", "PARTIAL_NOT_FORMALLY_LOCKED", "GATE_1_PASS"]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "date_locked": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 20
+    },
+    "central_hypothesis": {
+      "type": "string",
+      "minLength": 40
+    },
+    "research_questions": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "short_name", "text"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["RQ1", "RQ2", "RQ3"]
+          },
+          "short_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 20
+          }
+        }
+      }
+    },
+    "papers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "primary_question", "primary_repositories"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "primary_question": {
+            "type": "string",
+            "enum": ["RQ1", "RQ2", "RQ3"]
+          },
+          "primary_repositories": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "required", "primary_questions", "role"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "primary_questions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["RQ1", "RQ2", "RQ3"]
+            }
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "non_goals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "change_control": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["authority", "requires_pr_review_by"],
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "requires_pr_review_by": {
+          "type": "string"
+        },
+        "version_bump_required_for": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
