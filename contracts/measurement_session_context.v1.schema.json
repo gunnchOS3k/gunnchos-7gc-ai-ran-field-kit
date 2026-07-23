@@ -77,7 +77,10 @@
       "type": "string",
       "enum": [
         "stationary",
-        "moving"
+        "moving",
+        "walking",
+        "transit",
+        "mixed"
       ]
     },
     "network_condition": {
@@ -95,9 +98,63 @@
         "wifi",
         "cellular",
         "ethernet",
+        "vpn",
+        "other",
         "unknown",
+        "unavailable",
         "degraded_local"
       ]
+    },
+    "declared_network_condition": {
+      "type": "string"
+    },
+    "detected_network_transport": {
+      "type": "string",
+      "enum": [
+        "wifi",
+        "cellular",
+        "ethernet",
+        "vpn",
+        "other",
+        "unavailable",
+        "unknown"
+      ]
+    },
+    "session_mode": {
+      "type": "string",
+      "enum": [
+        "CALIBRATION",
+        "PILOT_REHEARSAL",
+        "PILOT"
+      ]
+    },
+    "calibration_only": {
+      "type": "boolean"
+    },
+    "rehearsal_only": {
+      "type": "boolean"
+    },
+    "assignment_id": {
+      "type": "string"
+    },
+    "assignment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "matrix_cell_id": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "transport_assignment_compatible": {
+      "type": "boolean"
+    },
+    "environmental_flags": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
     },
     "workload_profile": {
       "type": "string",
