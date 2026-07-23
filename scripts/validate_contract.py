@@ -28,6 +28,7 @@ SCHEMA_FILES = {
     "gunnchos.external_dataset_record": "external_dataset_record.v1.schema.json",
     "gunnchos.gate3_evidence_report": "gate3_evidence_report.v1.schema.json",
     "gunnchos.gate1_locked_thesis": "gate1_locked_thesis.v1.schema.json",
+    "gunnchos.pilot_assignment": "pilot_assignment.v1.schema.json",
 }
 
 PROHIBITED_KEY_PATTERNS = [
@@ -194,6 +195,7 @@ def validate_document(
                 "gunnchos.external_dataset_record",
                 "gunnchos.gate3_evidence_report",
                 "gunnchos.gate1_locked_thesis",
+                "gunnchos.pilot_assignment",
             }:
                 continue
             raise ContractError(f"Missing required field: {field}")

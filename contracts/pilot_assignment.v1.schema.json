@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/pilot_assignment.v1.schema.json",
+  "title": "Pilot Assignment v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "assignment_id",
+    "matrix_cell_id",
+    "assignment_hash",
+    "assignment_hash_algorithm",
+    "protocol_version",
+    "collection_day_id",
+    "named_test_zone",
+    "location_category",
+    "indoor_outdoor",
+    "stationary_or_moving",
+    "network_condition",
+    "expected_network_transport",
+    "workload_profile",
+    "planned_duration_seconds",
+    "session_mode",
+    "environmental_note_prompt",
+    "created_at",
+    "expires_at",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "const": "gunnchos.pilot_assignment"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "assignment_id": {
+      "type": "string",
+      "minLength": 8,
+      "pattern": "^asn_[A-Za-z0-9_-]+$"
+    },
+    "matrix_cell_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assignment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "assignment_hash_algorithm": {
+      "const": "gunnchos-canonical-json-sha256-v1"
+    },
+    "protocol_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collection_day_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "named_test_zone": {
+      "type": "string",
+      "pattern": "^zone_[a-z0-9_]+$"
+    },
+    "location_category": {
+      "type": "string",
+      "enum": [
+        "home_or_private_indoor",
+        "library_or_community_indoor",
+        "campus_or_office_indoor",
+        "outdoor_stationary",
+        "transit_or_mobility",
+        "other_approved_test_zone"
+      ]
+    },
+    "indoor_outdoor": {
+      "type": "string",
+      "enum": ["indoor", "outdoor", "mixed"]
+    },
+    "stationary_or_moving": {
+      "type": "string",
+      "enum": ["stationary", "walking", "transit", "mixed", "moving"]
+    },
+    "network_condition": {
+      "type": "string",
+      "enum": [
+        "wifi_normal",
+        "wifi_degraded",
+        "cellular_normal",
+        "local_network_degraded"
+      ]
+    },
+    "expected_network_transport": {
+      "type": "string",
+      "enum": ["wifi", "cellular", "ethernet", "vpn", "other", "unavailable"]
+    },
+    "workload_profile": {
+      "type": "string",
+      "enum": ["learn", "create", "sense"]
+    },
+    "planned_duration_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "session_mode": {
+      "type": "string",
+      "enum": ["CALIBRATION", "PILOT_REHEARSAL", "PILOT"]
+    },
+    "calibration_only": {
+      "type": "boolean"
+    },
+    "rehearsal_only": {
+      "type": "boolean"
+    },
+    "environmental_note_prompt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiry_policy": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string" },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    }
+  }
+}
