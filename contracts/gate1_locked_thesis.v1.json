@@ -1,0 +1,116 @@
+{
+  "schema_name": "gunnchos.gate1_locked_thesis",
+  "schema_version": "1.0.0",
+  "gate1_status": "GATE_1_PASS",
+  "version": "1.0.0",
+  "date_locked": "2026-07-23",
+  "title": "Resilience-Aware, Human-Centric AI-RAN Orchestration for Service Continuity Across Terrestrial and Non-Terrestrial Networks",
+  "central_hypothesis": "A privacy-preserving orchestration architecture that combines physical device measurements, workload and service intent, digital-twin context, and terrestrial, local-edge and non-terrestrial network state can improve service continuity and worst-user quality of experience under sparse, degraded and disrupted connectivity when compared with static, network-only and service-priority baselines, while maintaining explicit fairness, energy, privacy and reliability constraints.",
+  "research_questions": [
+    {
+      "id": "RQ1",
+      "short_name": "Trustworthy context construction",
+      "text": "How can privacy-preserving Edge-IO measurements, device state, workload intent and network observations be transformed into a reproducible digital-twin state that accurately represents user, service and connectivity conditions without collecting direct identifiers?"
+    },
+    {
+      "id": "RQ2",
+      "short_name": "Human-centric AI-RAN orchestration",
+      "text": "To what extent does twin-informed AI-RAN orchestration improve service continuity, worst-user quality of experience, fairness, reliability and resource efficiency across heterogeneous terrestrial and local-edge conditions when compared with static, network-only, service-priority and optimization-based baselines?"
+    },
+    {
+      "id": "RQ3",
+      "short_name": "Resilient multi-access and NTN fallback",
+      "text": "Under what outage, latency, capacity, mobility, blockage, energy and privacy conditions do terrestrial, local-edge, offline and NTN fallback policies improve continuity, and where do those policies fail or become counterproductive under measurement uncertainty?"
+    }
+  ],
+  "papers": [
+    {
+      "id": "paper_1",
+      "title": "Privacy-Preserving Physical Measurement and Digital-Twin State",
+      "primary_question": "RQ1",
+      "primary_repositories": [
+        "edge-io-measurement-node",
+        "7gc-digital-twin",
+        "gunnchos-7gc-ai-ran-field-kit"
+      ]
+    },
+    {
+      "id": "paper_2",
+      "title": "Human-Centric Twin-Informed AI-RAN Orchestration",
+      "primary_question": "RQ2",
+      "primary_repositories": [
+        "spectrumx-ai-ran-gary",
+        "7gc-digital-twin",
+        "gunnchos-7gc-ai-ran-field-kit"
+      ]
+    },
+    {
+      "id": "paper_3",
+      "title": "Service Continuity Through Local, Offline and NTN Resilience",
+      "primary_question": "RQ3",
+      "primary_repositories": [
+        "ntn-resilience-sim",
+        "spectrumx-ai-ran-gary",
+        "gunnchos-7gc-ai-ran-field-kit"
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "name": "gunnchos-7gc-ai-ran-field-kit",
+      "required": true,
+      "primary_questions": ["RQ1", "RQ2", "RQ3"],
+      "role": "canonical contracts, orchestration, evidence authority"
+    },
+    {
+      "name": "edge-io-measurement-node",
+      "required": true,
+      "primary_questions": ["RQ1"],
+      "role": "privacy-preserving physical measurement"
+    },
+    {
+      "name": "7gc-digital-twin",
+      "required": true,
+      "primary_questions": ["RQ1", "RQ2"],
+      "role": "digital-twin state construction"
+    },
+    {
+      "name": "spectrumx-ai-ran-gary",
+      "required": true,
+      "primary_questions": ["RQ2", "RQ3"],
+      "role": "twin-informed AI-RAN orchestration"
+    },
+    {
+      "name": "ntn-resilience-sim",
+      "required": true,
+      "primary_questions": ["RQ3"],
+      "role": "multi-access and NTN resilience"
+    },
+    {
+      "name": "readygary-6g-beam-selection",
+      "required": false,
+      "primary_questions": [],
+      "role": "optional PHY/beam-selection supporting study; not a fourth RQ or paper"
+    }
+  ],
+  "non_goals": [
+    "claiming deployment-scale 6G infrastructure",
+    "claiming live commercial NTN control",
+    "claiming regulatory or standards authority",
+    "collecting direct personal identifiers",
+    "claiming global generalization from the Gary pilot",
+    "claiming causal superiority from calibration data",
+    "treating ReadyGary as required for the full thesis",
+    "treating synthetic evidence as measured evidence"
+  ],
+  "change_control": {
+    "authority": "GATE1_LOCKED_RESEARCH_THESIS.md",
+    "requires_pr_review_by": "Edmund Gunn Jr.",
+    "version_bump_required_for": [
+      "title",
+      "central_hypothesis",
+      "research_questions",
+      "papers"
+    ]
+  }
+}

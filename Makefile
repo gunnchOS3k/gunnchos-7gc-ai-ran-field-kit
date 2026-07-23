@@ -1,4 +1,4 @@
-.PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean
+.PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean verify-repo-lock gate1-validate
 
 PYTHON ?= python3
 SCHEMA_DIR := $(CURDIR)/contracts
@@ -53,6 +53,12 @@ reproduce:
 
 clean:
 	rm -rf results/integrated/*
+
+verify-repo-lock:
+	$(PYTHON) scripts/verify_repo_lock.py --repos-root $(REPOS_ROOT)
+
+gate1-validate:
+	$(PYTHON) scripts/validate_gate1_thesis.py
 
 .PHONY: gate3-evidence assemble-controlled-dataset external-data-download external-data-verify external-data-transform gate3-integrated-evidence
 

@@ -137,7 +137,14 @@
     },
     "gate2_status": {
       "type": "string",
-      "enum": ["FAIL", "AUTOMATED_PIPELINE_PASS", "GATE_2_PASS"]
+      "enum": [
+        "FAIL",
+        "GATE2_INTEGRATION_READY",
+        "GATE2_SYSTEM_PASS",
+        "AUTOMATED_PIPELINE_PASS",
+        "GATE_2_PASS"
+      ],
+      "description": "GATE2_SYSTEM_PASS is the current system-completion label. AUTOMATED_PIPELINE_PASS remains a legacy alias."
     },
     "selected_airan_policy": { "type": "string" },
     "selected_resilience_mode": { "type": "string" }

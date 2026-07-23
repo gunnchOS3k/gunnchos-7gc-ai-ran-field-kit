@@ -1,0 +1,53 @@
+{
+  "gate2_status": "GATE2_SYSTEM_PASS",
+  "legacy_status_alias": "AUTOMATED_PIPELINE_PASS",
+  "system_pass": true,
+  "unmet_criteria": [],
+  "evidence_level_edge": "controlled_device_measurement",
+  "controlled_device_path": true,
+  "synthetic_system_proof": false,
+  "run_id": "pixel-cal-1784756973874",
+  "notes": "GATE2_SYSTEM_PASS means the executable Edge-IO \u2192 7GC \u2192 SpectrumX \u2192 NTN path is complete with schema-validated artifacts. It does NOT imply Gate 5 reproduction or Gate 6 DOI/archive completion.",
+  "taxonomy_migration": {
+    "old_label": "AUTOMATED_PIPELINE_PASS",
+    "new_label": "GATE2_SYSTEM_PASS",
+    "moved_to_release_evidence": [
+      "clean_checkout_reproduction",
+      "non_author_reproduction",
+      "immutable_candidate_release",
+      "doi_or_archived_dataset"
+    ]
+  },
+  "status": "GATE2_SYSTEM_PASS",
+  "automated_pipeline_pass": true,
+  "release_evidence": {
+    "release_evidence_status": "RELEASE_EVIDENCE_PENDING",
+    "checks": {
+      "clean_checkout_reproduction": false,
+      "non_author_reproduction": false,
+      "immutable_candidate_release": false,
+      "doi_or_archived_dataset": false
+    },
+    "unmet": [
+      "clean_checkout_reproduction",
+      "non_author_reproduction",
+      "immutable_candidate_release",
+      "doi_or_archived_dataset"
+    ],
+    "mapped_gates": {
+      "clean_checkout_reproduction": "Gate 5 \u2014 reproducibility",
+      "non_author_reproduction": "Gate 5 \u2014 reproducibility",
+      "immutable_candidate_release": "Gate 6 \u2014 publication and archive",
+      "doi_or_archived_dataset": "Gate 6 \u2014 publication and archive"
+    },
+    "notes": "Release-evidence requirements remain mandatory for publication readiness but do not block Gate 2 system completion."
+  },
+  "external_evidence": {
+    "physical_device_measurement": true,
+    "real_consent_metadata": true,
+    "clean_checkout_reproduction": false,
+    "non_author_reproduction": false,
+    "immutable_candidate_release": false,
+    "doi_or_archived_dataset": false
+  }
+}
