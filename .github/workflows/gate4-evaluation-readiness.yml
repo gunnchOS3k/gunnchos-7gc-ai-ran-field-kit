@@ -31,8 +31,9 @@ jobs:
       - name: Upload Gate 4 readiness artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: gate4-readiness
+          name: gate4-readiness-${{ github.run_id }}-${{ github.run_attempt }}
           path: results/gate4/
+          overwrite: true
       - name: Summary
         run: |
           echo "## Gate 4 readiness" >> "$GITHUB_STEP_SUMMARY"
