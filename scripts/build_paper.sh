@@ -172,27 +172,44 @@ PY
 
 pdf_page_count() {
   local pdf_path="$1"
-  # Prefer pdfinfo when present; otherwise parse PDF page objects with stdlib Python
-  # (CI Linux images often lack pdfinfo/pypdf/mdls).
   if command -v pdfinfo >/dev/null 2>&1; then
     pdfinfo "${pdf_path}" | awk '/^Pages:/ {print $2; exit}'
     return 0
   fi
+  if [[ "$(uname -s)" == "Darwin" ]] && command -v mdls >/dev/null 2>&1; then
+    local md
+    md="$(mdls -name kMDItemNumberOfPages -raw "${pdf_path}" 2>/dev/null || true)"
+    if [[ -n "${md}" && "${md}" != "(null)" ]]; then
+      echo "${md}"
+      return 0
+    fi
+  fi
+  # Stdlib fallback: inflate PDF streams then count /Type /Page leaves.
+  # Tectonic/xdvipdfmx often compress page dictionaries (no plaintext /Type /Page).
   python3 - <<'PY' "${pdf_path}"
 import re
 import sys
+import zlib
 from pathlib import Path
 
 data = Path(sys.argv[1]).read_bytes()
-# Count page leaf objects; do not count /Type /Pages tree nodes.
-pages = re.findall(rb"/Type\s*/Page(?![sA-Za-z])", data)
+parts = [data]
+for m in re.finditer(rb"stream\r?\n(.*?)\r?\nendstream", data, flags=re.S):
+    chunk = m.group(1)
+    for wbits in (zlib.MAX_WBITS, -zlib.MAX_WBITS):
+        try:
+            parts.append(zlib.decompress(chunk, wbits))
+            break
+        except Exception:
+            continue
+expanded = b"\n".join(parts)
+pages = re.findall(rb"/Type\s*/Page(?![sA-Za-z])", expanded)
 if pages:
     print(len(pages))
     raise SystemExit(0)
-# Fallback: catalog Count on Pages tree
-m = re.search(rb"/Type\s*/Pages[^>]*?/Count\s+(\d+)", data, flags=re.S)
-if m:
-    print(int(m.group(1)))
+counts = [int(x) for x in re.findall(rb"/Type\s*/Pages.*?/Count\s+(\d+)", expanded, flags=re.S)]
+if counts:
+    print(max(counts))
     raise SystemExit(0)
 print("")
 PY
