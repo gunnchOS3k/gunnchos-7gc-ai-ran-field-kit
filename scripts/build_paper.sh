@@ -49,7 +49,7 @@ tectonic_asset_for_platform() {
 }
 
 ensure_pinned_tectonic() {
-  local asset dest bin url tmp
+  local asset dest bin url tmp found
   asset="$(tectonic_asset_for_platform)" || return 1
   dest="${TOOLS_DIR}/tectonic-${TECTONIC_VERSION}"
   bin="${dest}/tectonic"
@@ -62,10 +62,36 @@ ensure_pinned_tectonic() {
   log "Downloading pinned Tectonic ${TECTONIC_VERSION}: ${url}" >&2
   tmp="$(mktemp -d)"
   curl -fsSL "${url}" -o "${tmp}/${asset}"
-  tar -xzf "${tmp}/${asset}" -C "${dest}"
+  tar -xzf "${tmp}/${asset}" -C "${tmp}"
+  found="$(find "${tmp}" -type f -name tectonic | head -n 1 || true)"
+  if [[ -z "${found}" ]]; then
+    log "ERROR: tectonic binary not found in ${asset}" >&2
+    rm -rf "${tmp}"
+    return 1
+  fi
+  cp "${found}" "${bin}"
   chmod +x "${bin}"
   rm -rf "${tmp}"
+  if [[ ! -x "${bin}" ]]; then
+    log "ERROR: failed to install ${bin}" >&2
+    return 1
+  fi
   printf '%s\n' "${bin}"
+}
+
+sha256_file() {
+  local path="$1"
+  if command -v sha256sum >/dev/null 2>&1; then
+    sha256sum "${path}" | awk '{print $1}'
+  elif command -v shasum >/dev/null 2>&1; then
+    shasum -a 256 "${path}" | awk '{print $1}'
+  else
+    python3 - <<'PY' "${path}"
+import hashlib, sys
+from pathlib import Path
+print(hashlib.sha256(Path(sys.argv[1]).read_bytes()).hexdigest())
+PY
+  fi
 }
 
 clean_intermediates() {
@@ -81,6 +107,14 @@ clean_intermediates() {
 
 build_with_tectonic() {
   local tectonic_bin="$1"
+  if [[ ! -x "${tectonic_bin}" ]]; then
+    log "ERROR: tectonic binary missing or not executable: ${tectonic_bin}"
+    return 1
+  fi
+  if ! "${tectonic_bin}" --version >/dev/null 2>&1; then
+    log "ERROR: tectonic binary not runnable on this host: ${tectonic_bin}"
+    return 1
+  fi
   log "Building with Tectonic: ${tectonic_bin}"
   (
     cd "${PAPER_DIR}"
@@ -235,8 +269,11 @@ validate_page_count() {
 write_checksums() {
   (
     cd "${PAPER_DIR}"
-    shasum -a 256 "${MAIN}.pdf" PAPER_BUILD_REPORT.md PAPER_BUILD_MANIFEST.json 2>/dev/null \
-      | tee "${CHECKSUMS}"
+    {
+      echo "$(sha256_file "${MAIN}.pdf")  ${MAIN}.pdf"
+      echo "$(sha256_file PAPER_BUILD_REPORT.md)  PAPER_BUILD_REPORT.md"
+      echo "$(sha256_file PAPER_BUILD_MANIFEST.json)  PAPER_BUILD_MANIFEST.json"
+    } | tee "${CHECKSUMS}"
   )
 }
 
@@ -244,7 +281,7 @@ write_manifest() {
   local ts utc_iso page_count_json page_count_ok
   ts="$(date -u +%Y%m%dT%H%M%SZ)"
   utc_iso="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-  PDF_SHA256="$(shasum -a 256 "${PDF}" | awk '{print $1}')"
+  PDF_SHA256="$(sha256_file "${PDF}")"
   if [[ -n "${PAGE_COUNT}" && "${PAGE_COUNT}" != "unknown" && "${PAGE_COUNT}" != "(null)" ]]; then
     page_count_json="${PAGE_COUNT}"
   else
@@ -355,10 +392,10 @@ main() {
   clean_intermediates
   rm -f "${PDF}"
 
-  if command -v tectonic >/dev/null 2>&1; then
-    build_with_tectonic "$(command -v tectonic)"
-  elif tectonic_bin="$(ensure_pinned_tectonic 2>>"${BUILD_LOG}")"; then
-    build_with_tectonic "${tectonic_bin}"
+  if command -v tectonic >/dev/null 2>&1 && build_with_tectonic "$(command -v tectonic)" 2>>"${BUILD_LOG}"; then
+    :
+  elif tectonic_bin="$(ensure_pinned_tectonic 2>>"${BUILD_LOG}")" && build_with_tectonic "${tectonic_bin}" 2>>"${BUILD_LOG}"; then
+    :
   elif build_with_docker 2>>"${BUILD_LOG}"; then
     :
   else
@@ -377,7 +414,7 @@ EOF
   PAGE_COUNT="$(pdf_page_count "${PDF}" | tr -d '[:space:]')"
   [[ -n "${PAGE_COUNT}" ]] || PAGE_COUNT="unknown"
 
-  PDF_SHA256="$(shasum -a 256 "${PDF}" | awk '{print $1}')"
+  PDF_SHA256="$(sha256_file "${PDF}")"
 
   if ! validate_page_count "${PAGE_COUNT}"; then
     BUILD_STATUS="failed"
