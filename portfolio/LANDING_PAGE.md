@@ -3,7 +3,8 @@
 **Brand:** gunnchOS3k / gunnchos research portfolio  
 **Author:** Edmund Gunn Jr.  
 **Institutional affiliation:** none claimed for Oulu/CWC in this public page  
-**Last updated:** 2026-07-24
+**Last updated:** 2026-07-24  
+**Repo merge baseline:** PR #8 **merged** into `master` at `5e85190ee17540933af93eda759dd1e809710edf` (2026-07-24T01:56:56Z)
 
 ## Research title
 
@@ -41,6 +42,21 @@ Field-kit contracts + pilotctl + Gate 3 coverage
         Gate 4 evaluation engine (preregistered)
 ```
 
+## Reproducibility commands
+
+```bash
+make verify                  # lint, repo-lock, gate1, preregistration, pytest
+make reproduce-core          # verify + integrated-pipeline + gate4-evaluation-ready
+make release-candidate       # public tarball (excludes raw-private)
+python3 scripts/validate_preregistration.py
+```
+
+Evaluation infrastructure (synthetic dry-run only — not scientific Gate 4):
+
+```bash
+make evaluate-all            # without DATASET= → BLOCKED + gate4-evaluation-ready
+```
+
 ## Gate status panel (dated 2026-07-24)
 
 | Gate | Status | Evidence label |
@@ -50,18 +66,20 @@ Field-kit contracts + pilotctl + Gate 3 coverage
 | Provenance & protocol freeze | HUMAN_ACTION_REQUIRED | PLANNED dates/zones |
 | Pilot design approval | HUMAN_ACTION_REQUIRED | PLANNED |
 | Gate 3 physical pilot | HUMAN_ACTION_REQUIRED | **0/54** eligible — PHYSICALLY_MEASURED not yet |
-| Evaluation preregistration | AUTOMATION_READY | IMPLEMENTED (awaiting human freeze confirm) |
-| Gate 4 evaluation | BLOCKED | evaluation-ready infrastructure only |
-| Gate 5 reproducibility | HUMAN_ACTION_REQUIRED | author/non-author pending |
+| Evaluation preregistration | **PASS** | `validate_preregistration.py` ok; lock SHA256 verified |
+| Gate 4 evaluation | BLOCKED | infrastructure validation only — no `GATE_4_PASS` |
+| Gate 5 reproducibility | HUMAN_ACTION_REQUIRED | author clean-checkout PENDING; non-author pending |
 | Gate 6 release/DOI | EXTERNAL_DEPENDENCY | DOI_PENDING |
 | Gate 7 supervision/programme | EXTERNAL_DEPENDENCY | no faculty commitment claimed |
-| Generalization | BLOCKED | adapters ready; sources pending |
+| Generalization | BLOCKED | NordicDat source_1 PASS ≠ `GENERALIZATION_EVIDENCE_PASS` |
 | External scholarly review | EXTERNAL_DEPENDENCY | packet ready; no reviews received |
-| Technical defense materials | AUTOMATION_READY | mock defense unscored |
-| Application packet | AUTOMATION_READY | claims-audited drafts |
+| Technical defense materials | PASS | mock defense unscored (HUMAN_ACTION_REQUIRED) |
+| Portfolio review (automation) | **PASS** | see `portfolio/PORTFOLIO_REVIEW_REPORT.md` |
+| Application packet | HUMAN_ACTION_REQUIRED | material placeholders remain |
 
 ## Evidence snapshot
 
+- PR #8 merged — application control plane and readiness automation on `master` (`5e85190…`).
 - Clean Edge-IO pilot-mode producer merged (`3b42a7c…`).
 - Field-kit pilot contracts, assignment hashing, and rehearsal exclusion implemented.
 - Calibration and rehearsal sessions exist locally as non-counting evidence only.
@@ -79,14 +97,14 @@ Field-kit contracts + pilotctl + Gate 3 coverage
 
 | Item | Status |
 |------|--------|
-| Paper | Methods-ready (`paper/main.tex`); results pending |
+| Paper | Methods-ready (`paper/main.tex`); local PDF at `paper/main.pdf` (not in public tarball manifest) |
 | DOI | **DOI_PENDING** — not issued |
-| Release | Candidate tooling ready; no public scientific release claimed |
+| Release | Candidate built (`make release-candidate`); no public scientific release claimed |
 | Demo | Script/checklist ready; recording not claimed |
 
 ## Limitations
 
-Single-device pilot design; 54 sessions are not 54 independent people; generalization not yet evidenced; no faculty endorsement implied.
+Single-device pilot design; 54 sessions are not 54 independent people; generalization not yet evidenced (`GENERALIZATION_EVIDENCE_PASS` blocked); no faculty endorsement implied.
 
 ## Contact
 

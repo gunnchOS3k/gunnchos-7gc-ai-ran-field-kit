@@ -1,7 +1,7 @@
 {
   "schema_name": "gunnchos.research_application_master_status",
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-24T01:35:57Z",
+  "generated_at": "2026-07-24T15:06:57Z",
   "overall_automated_pipeline": "PASS_IF_COMMANDS_GREEN",
   "application_complete": false,
   "eligible_pilot_sessions": 0,
@@ -20,7 +20,7 @@
       "owner": "automation",
       "next_action": "None \u2014 locked thesis remains authoritative",
       "action_type": "automated",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GATE2_SYSTEM_PASS": {
       "status": "PASS",
@@ -36,7 +36,7 @@
       "owner": "automation",
       "next_action": "Re-run after each merge",
       "action_type": "automated",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "PROVENANCE_AND_PROTOCOL_FROZEN": {
       "status": "HUMAN_ACTION_REQUIRED",
@@ -56,7 +56,7 @@
       "owner": "Edmund Gunn Jr.",
       "next_action": "Approve zones, dates, and degradation parameters; then re-run freeze report",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "PILOT_DESIGN_APPROVED": {
       "status": "HUMAN_ACTION_REQUIRED",
@@ -75,7 +75,7 @@
       "owner": "Edmund Gunn Jr.",
       "next_action": "Fill PILOT_DESIGN_APPROVAL.md signature block",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GATE_3_PASS": {
       "status": "HUMAN_ACTION_REQUIRED",
@@ -93,30 +93,34 @@
       "action_type": "human",
       "eligible_sessions": 0,
       "required_sessions": 54,
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "EVALUATION_PREREGISTERED": {
-      "status": "AUTOMATION_READY",
+      "status": "PASS",
       "evidence": [
         "evaluation/EVALUATION_PREREGISTRATION.md",
         "evaluation/PRIMARY_OUTCOME_LOCK.json",
-        "evaluation/preregistration-lock.sha256"
+        "evaluation/preregistration-lock.sha256",
+        "evaluation/PREREGISTRATION_FREEZE_REPORT.md",
+        "evaluation/PREREGISTRATION_MANIFEST.json",
+        "evaluation/PREREGISTRATION_CHECKSUMS.sha256",
+        "scripts/compute_recovery_time.py"
       ],
       "acceptance_commands": [
         "python3 scripts/validate_preregistration.py"
       ],
-      "unmet": [
-        "Human confirmation that preregistration is frozen before complete-results inspection"
-      ],
-      "owner": "Edmund Gunn Jr.",
-      "next_action": "Confirm freeze timestamp before examining complete Gate 3 results",
-      "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "unmet": [],
+      "owner": "automation",
+      "next_action": "Do not inspect complete Gate 3 outcomes before human freeze attestation at collection end",
+      "action_type": "automated",
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GATE_4_PASS": {
       "status": "BLOCKED",
       "evidence": [
-        "results/gate4/ (dry-run infrastructure only)"
+        "results/gate4/ (dry-run infrastructure only)",
+        "evaluation/INFRASTRUCTURE_VALIDATION_REPORT.md",
+        "evaluation/GATE4_FINAL_REPORT.md"
       ],
       "acceptance_commands": [
         "make gate4-evaluate DATASET=..."
@@ -127,7 +131,7 @@
       "owner": "automation+human",
       "next_action": "Do not run scientific evaluation until Gate 3 eligible set is frozen",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GATE_5_PASS": {
       "status": "HUMAN_ACTION_REQUIRED",
@@ -138,6 +142,9 @@
         "make reproduce-core",
         "make verify"
       ],
+      "author_clean_checkout": "PENDING",
+      "ci_reproduction": "AUTOMATION_READY",
+      "non_author": "HUMAN_ACTION_REQUIRED",
       "unmet": [
         "Author clean-checkout report",
         "Independent non-author reproduction"
@@ -145,12 +152,14 @@
       "owner": "Edmund + external non-author",
       "next_action": "Author clean-checkout then recruit non-author",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GATE_6_PASS": {
       "status": "EXTERNAL_DEPENDENCY",
       "evidence": [
-        "release/"
+        "release/LOCAL_RELEASE_CANDIDATE_AUDIT.md",
+        "release/ZENODO_METADATA.json",
+        "release/PUBLIC_ARCHIVE_CONTENTS.txt"
       ],
       "acceptance_commands": [
         "make release-candidate"
@@ -163,9 +172,9 @@
         "Demo recording"
       ],
       "owner": "Edmund + venue/DOI provider",
-      "next_action": "Use release tooling after Gate 3\u20134 complete",
+      "next_action": "Use release tooling after Gate 3\u20134 complete; DOI_PENDING",
       "action_type": "external",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GATE_7_PASS": {
       "status": "EXTERNAL_DEPENDENCY",
@@ -182,26 +191,29 @@
       "owner": "faculty / institution",
       "next_action": "Use fit memos for outreach; do not imply commitments",
       "action_type": "external",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "GENERALIZATION_EVIDENCE_PASS": {
       "status": "BLOCKED",
       "evidence": [
-        "generalization/"
+        "generalization/README.md",
+        "generalization/PUBLIC_DATASET_STUDY.md"
       ],
       "acceptance_commands": [],
       "unmet": [
-        "At least two authentic additional evidence sources"
+        "At least two authentic additional evidence sources",
+        "Explicit gate review \u2014 NordicDat public_dataset_source_1 alone insufficient"
       ],
       "owner": "automation+human",
-      "next_action": "Execute adapters only after authentic sources available",
+      "next_action": "Execute adapters only after authentic sources available; do not claim PASS from single NordicDat source",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "EXTERNAL_SCHOLARLY_REVIEW_PASS": {
       "status": "EXTERNAL_DEPENDENCY",
       "evidence": [
-        "external-review/"
+        "external-review/REVIEW_PACKET.md",
+        "external-review/REVIEW_LOG.md"
       ],
       "acceptance_commands": [],
       "unmet": [
@@ -210,57 +222,69 @@
       "owner": "external reviewers",
       "next_action": "Send review packet; log responses in REVIEW_LOG.md",
       "action_type": "external",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "TECHNICAL_DEFENSE_READY": {
       "status": "AUTOMATION_READY",
       "evidence": [
         "defense/TECHNICAL_APPENDIX.md",
-        "defense/MOCK_DEFENSE_SCORECARD.md"
+        "defense/MOCK_DEFENSE_SCORECARD.md",
+        "defense/QUESTION_BANK.md"
       ],
+      "technical_defense_materials": "PASS",
+      "mock_defense": "HUMAN_ACTION_REQUIRED",
       "acceptance_commands": [
         "test -f defense/TECHNICAL_APPENDIX.md"
       ],
       "unmet": [
-        "Documented mock defense with score"
+        "Documented mock defense with authentic score"
       ],
       "owner": "Edmund",
-      "next_action": "Conduct mock defense using scorecard",
+      "next_action": "Conduct mock defense using scorecard; do not invent scores",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "PORTFOLIO_REVIEW_READY": {
-      "status": "AUTOMATION_READY",
+      "status": "PASS",
       "evidence": [
-        "portfolio/LANDING_PAGE.md"
+        "portfolio/LANDING_PAGE.md",
+        "portfolio/PORTFOLIO_REVIEW_REPORT.md"
       ],
       "acceptance_commands": [
         "python3 scripts/validate_application_packet.py --portfolio"
       ],
-      "unmet": [
-        "Edmund review of landing claims"
-      ],
-      "owner": "Edmund",
-      "next_action": "Review public claims against evidence audit",
-      "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "unmet": [],
+      "owner": "automation",
+      "next_action": "Optional human wording review before faculty outreach",
+      "action_type": "automated",
+      "last_checked": "2026-07-24T15:05:00Z"
     },
     "APPLICATION_PACKET_READY": {
-      "status": "AUTOMATION_READY",
+      "status": "HUMAN_ACTION_REQUIRED",
       "evidence": [
         "application/MASTER_APPLICATION_INDEX.md",
-        "application/APPLICATION_PACKET_STATUS.md"
+        "application/APPLICATION_PACKET_STATUS.md",
+        "application/CANONICAL_FACTS_REGISTRY.yaml",
+        "application/MATERIAL_PLACEHOLDER_REPORT.md",
+        "application/FINAL_CLAIMS_AUDIT.md",
+        "application/CROSS_DOCUMENT_CONSISTENCY_REPORT.md"
       ],
       "acceptance_commands": [
         "make application-readiness"
       ],
       "unmet": [
-        "Resolve HUMAN_ACTION placeholders for dates/zones if used in research plan timelines"
+        "PENDING_ZONE_* and PENDING_DATE_* pilot placeholders",
+        "MS and prior degree transcripts",
+        "English proficiency documentation",
+        "Verified publications and employment history",
+        "PENDING_REFEREE_1 and PENDING_REFEREE_2",
+        "Funding plan details",
+        "PILOT_DESIGN_APPROVAL.md signature"
       ],
       "owner": "Edmund",
-      "next_action": "Fill remaining personal facts; claims-audit before submission",
+      "next_action": "Resolve material placeholders listed in MATERIAL_PLACEHOLDER_REPORT.md",
       "action_type": "human",
-      "last_checked": "2026-07-24T01:35:57Z"
+      "last_checked": "2026-07-24T15:05:00Z"
     }
   },
   "integrity": {
@@ -273,6 +297,7 @@
     "external_approval_claimed": false,
     "doi_claimed": false,
     "paper_submission_claimed": false,
-    "raw_private_protected": true
+    "raw_private_protected": true,
+    "pr8_merge_sha": "5e85190ee17540933af93eda759dd1e809710edf"
   }
 }
