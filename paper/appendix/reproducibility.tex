@@ -25,4 +25,4 @@ Pilot counting requires \texttt{pilotctl.py} workflows, approved zone/date token
 Public artifacts document protocol only until sanitized publication approval.
 
 \subsection{Build status}
-PDF build requires \texttt{pdflatex} and \texttt{bibtex}; see \texttt{paper/Makefile} and \texttt{paper/README.md}.
+PDF build uses pinned Tectonic (\texttt{scripts/build\_paper.sh}, version pinned in-script) or a digest-pinned TeX Live Docker image; local \texttt{pdflatex}/\texttt{bibtex} remains an optional fallback. See \texttt{paper/Makefile} and \texttt{paper/README.md}.

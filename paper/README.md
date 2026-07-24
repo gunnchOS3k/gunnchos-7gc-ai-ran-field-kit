@@ -8,21 +8,43 @@
 | Bibliography | Real refs only in `references.bib` |
 | Empirical results | **RESULTS_PENDING_AUTHENTIC_GATE3_DATA** |
 | Pilot matrix | **0/54** eligible cells |
-| PDF build | Requires `pdflatex` + `bibtex` (see Makefile) |
+| PDF build | Pinned Tectonic or digest-pinned TeX Live Docker (`scripts/build_paper.sh`) |
 
 This manuscript documents protocol, contracts, evaluation design, and claim boundaries.
 It does **not** report outcome numbers, p-values, effect sizes, or figures derived from authentic pilot data.
 
 ## Build
 
+From repository root (recommended):
+
 ```bash
-cd paper
-make pdf        # fails with exit 2 if TeX tools missing
-make blocked    # documents blocked build explicitly
+make paper              # or: make reproduce-paper
+bash scripts/build_paper.sh
+```
+
+From `paper/`:
+
+```bash
+make pdf
 make clean
 ```
 
-On machines without TeX: sources remain valid for editorial review; compile elsewhere.
+Successful builds emit:
+
+- `paper/main.pdf`
+- `paper/PAPER_BUILD_REPORT.md`
+- `paper/PAPER_BUILD_MANIFEST.json`
+- `paper/PAPER_CHECKSUMS.sha256`
+
+## Tooling pins
+
+| Priority | Tool | Pin |
+|----------|------|-----|
+| 1 | Tectonic | **0.16.9** (GitHub release binary → `.tools/`, gitignored) |
+| 2 | Docker TeX Live | `texlive/texlive:TL2024-historic` @ `sha256:ee8ab695a9640d119482eff320c79b2292c70694d068aeb15ff4720761af8839` |
+| 3 | Local TeX Live / MacTeX | `make pdf-local-tex` in `paper/` (optional manual fallback) |
+
+No devcontainer or repository Dockerfile is defined; the build script is self-contained.
 
 ## Structure (target 6–8 pages)
 
