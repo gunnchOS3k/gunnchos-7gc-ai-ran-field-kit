@@ -44,6 +44,24 @@ def validate() -> dict:
         errors.append("primary_outcome missing")
     if not lock.get("primary_claim"):
         errors.append("primary_claim missing")
+    for req in (
+        "evaluation/PREREGISTRATION_MANIFEST.json",
+        "evaluation/PREREGISTRATION_CHECKSUMS.sha256",
+        "evaluation/PREREGISTRATION_FREEZE_REPORT.md",
+        "scripts/compute_recovery_time.py",
+    ):
+        if not (ROOT / req).is_file():
+            errors.append(f"missing freeze artifact: {req}")
+    defn = lock.get("definition") or {}
+    for key in (
+        "start_event",
+        "recovery_event",
+        "units",
+        "lower_is_better",
+        "timeout_behavior",
+    ):
+        if key not in defn:
+            errors.append(f"definition missing {key}")
 
     return {
         "ok": not errors,

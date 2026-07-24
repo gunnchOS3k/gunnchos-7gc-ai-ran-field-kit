@@ -1,7 +1,10 @@
 # Evaluation Preregistration
 
-Locked at: `2026-07-24T01:38:45Z`
-Primary outcome lock SHA-256: `43a441f312e69fcb64c5e094aa740874acfa19c63b86fce01b03e5ed1ceedc55`
+**Status: PASS (frozen)**  
+Frozen at: `2026-07-24T15:04:05Z`  
+Primary outcome lock SHA-256: `bcf035b67e88f4fcc25284b5dab3d53101ae7a38e65e00703f8ff7e37c0290f9`  
+Eligible pilot sessions at freeze: **0/54**  
+Complete-pilot results inspected: **false**
 
 ## Primary claim
 
@@ -9,7 +12,21 @@ Under defined degraded-connectivity conditions, twin-informed service-aware orch
 
 ## Primary outcome
 
-`recovery_time_s` — see PRIMARY_OUTCOME_LOCK.json for rationale.
+`recovery_time_s` — physically derived from `edge_measurement_batch` via `scripts/compute_recovery_time.py`.
+
+### Operational definition
+
+| Element | Definition |
+|---------|------------|
+| Units | seconds |
+| Lower is better | yes |
+| Start event | first unavailable sample (`latency_ms` null OR `probe_timeout` OR `service_available==false`) |
+| Recovery event | first subsequent available sample |
+| Timeout / censoring | unrecovered outages censored at last sample timestamp |
+| Failure | `null` only if empty measurements or invalid timestamps |
+| Unavailable data | nulls preserved; probe_timeout marks unavailable |
+| Practical significance | 5.0 seconds (see PRACTICAL_SIGNIFICANCE_THRESHOLDS.yaml) |
+| Not primary | `expected_recovery_time_s` model estimate |
 
 ## Baselines (AI-RAN)
 
@@ -30,13 +47,12 @@ Under defined degraded-connectivity conditions, twin-informed service-aware orch
 
 ## Holdouts / ablations
 
-See HOLDOUT_REGISTRY.yaml and ABLATION_REGISTRY.yaml (and existing evaluation/configs/).
+See HOLDOUT_REGISTRY.yaml and ABLATION_REGISTRY.yaml.
 
 ## Statistical safeguards
 
-Grouped by day and zone; CIs; effect sizes; practical significance thresholds; missing-data analysis; duplicate detection; split-leakage checks; do not treat 54 sessions as 54 independent people.
+Grouped by day and zone; CIs; effect sizes; practical significance; missing-data analysis; duplicate detection; split-leakage checks; do not treat 54 sessions as 54 independent people.
 
-## Ordering
+## Ordering evidence
 
-This preregistration is drafted before complete Gate 3 results inspection.
-Status: AUTOMATION_READY pending Edmund freeze confirmation.
+This freeze occurs with Gate 3 at 0/54 eligible sessions and before any authentic full-pilot aggregate inspection.

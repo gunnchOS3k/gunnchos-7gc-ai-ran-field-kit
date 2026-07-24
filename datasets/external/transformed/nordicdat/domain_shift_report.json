@@ -1,0 +1,50 @@
+{
+  "analysis_type": "public_domain_shift",
+  "evidence_class": "public_dataset_not_physical_pilot",
+  "physical_pilot_data": false,
+  "generalization_evidence_pass": false,
+  "groups": {
+    "LTE": {
+      "latency_ms": {
+        "count": 44544,
+        "mean": 148.065,
+        "median": 99.1,
+        "p95": 421.0
+      },
+      "download_kbps": {
+        "count": 44544,
+        "mean": 4122.859,
+        "median": 2940.725,
+        "p95": 15448.37
+      }
+    },
+    "5G": {
+      "latency_ms": {
+        "count": 46911,
+        "mean": 96.016,
+        "median": 52.5,
+        "p95": 328.0
+      },
+      "download_kbps": {
+        "count": 46911,
+        "mean": 10718.219,
+        "median": 9026.87,
+        "p95": 26741.53
+      }
+    }
+  },
+  "dataset": "nordicdat",
+  "evaluated_at": "2026-07-24T15:02:29Z",
+  "record_count": 91455,
+  "citation": "Miekkala, Topi, Pyykonen, Pasi, & Drainakis, Georgios (2024). NordicDat: A Cross-Border Predictive QoS Dataset [Data set]. Zenodo. https://doi.org/10.5281/zenodo.10964584",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "source_url": "https://zenodo.org/records/10964584",
+  "limitations": [
+    "European border highway driving context; not Gary underserved-urban US pilot geography.",
+    "Anonymized operators; no direct mapping to Gary carrier infrastructure.",
+    "Application-level QoS from drive tests; not AI-RAN orchestration outcomes.",
+    "CC BY 4.0 requires attribution; does not grant physical pilot equivalence.",
+    "Single public trace source; GENERALIZATION_EVIDENCE_PASS remains BLOCKED."
+  ],
+  "label": "public_dataset_evidence_separate_from_physical_pilot"
+}
