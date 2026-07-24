@@ -1,0 +1,278 @@
+{
+  "schema_name": "gunnchos.research_application_master_status",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-24T01:35:57Z",
+  "overall_automated_pipeline": "PASS_IF_COMMANDS_GREEN",
+  "application_complete": false,
+  "eligible_pilot_sessions": 0,
+  "required_pilot_sessions": 54,
+  "gates": {
+    "GATE_1_PASS": {
+      "status": "PASS",
+      "evidence": [
+        "GATE1_LOCKED_RESEARCH_THESIS.md",
+        "contracts/gate1_locked_thesis.v1.json"
+      ],
+      "acceptance_commands": [
+        "python3 scripts/validate_gate1_thesis.py"
+      ],
+      "unmet": [],
+      "owner": "automation",
+      "next_action": "None \u2014 locked thesis remains authoritative",
+      "action_type": "automated",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GATE2_SYSTEM_PASS": {
+      "status": "PASS",
+      "evidence": [
+        "results/gate2/post_merge_clean_system_proof/",
+        "docs/GATE2_ARCHITECTURE.md"
+      ],
+      "acceptance_commands": [
+        "make integrated-pipeline",
+        "make verify-repo-lock"
+      ],
+      "unmet": [],
+      "owner": "automation",
+      "next_action": "Re-run after each merge",
+      "action_type": "automated",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "PROVENANCE_AND_PROTOCOL_FROZEN": {
+      "status": "HUMAN_ACTION_REQUIRED",
+      "evidence": [
+        "integration/repo-lock.json",
+        "protocols/CONTROLLED_PILOT_PROTOCOL.md"
+      ],
+      "acceptance_commands": [
+        "make verify-repo-lock",
+        "make pilot-validate-assignments"
+      ],
+      "unmet": [
+        "User-approved exact Day 1\u20133 dates",
+        "User-approved zone location categories for public labels",
+        "Network degradation parameters frozen with dry-run attestation"
+      ],
+      "owner": "Edmund Gunn Jr.",
+      "next_action": "Approve zones, dates, and degradation parameters; then re-run freeze report",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "PILOT_DESIGN_APPROVED": {
+      "status": "HUMAN_ACTION_REQUIRED",
+      "evidence": [
+        "pilot/PILOT_DESIGN_APPROVAL.md",
+        "pilot/configs/zones_and_days.yaml"
+      ],
+      "acceptance_commands": [
+        "make pilot-validate-assignments"
+      ],
+      "unmet": [
+        "Exact collection dates",
+        "Confirmed zone categories",
+        "Approved network conditions"
+      ],
+      "owner": "Edmund Gunn Jr.",
+      "next_action": "Fill PILOT_DESIGN_APPROVAL.md signature block",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GATE_3_PASS": {
+      "status": "HUMAN_ACTION_REQUIRED",
+      "evidence": [],
+      "acceptance_commands": [
+        "make pilot-coverage",
+        "python3 scripts/pilotctl.py status"
+      ],
+      "unmet": [
+        "54 eligible physical PILOT sessions",
+        "Day 1\u20133 collection complete"
+      ],
+      "owner": "Edmund Gunn Jr.",
+      "next_action": "Collect authentic Day 1\u20133 sessions; eligible_sessions currently 0/54",
+      "action_type": "human",
+      "eligible_sessions": 0,
+      "required_sessions": 54,
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "EVALUATION_PREREGISTERED": {
+      "status": "AUTOMATION_READY",
+      "evidence": [
+        "evaluation/EVALUATION_PREREGISTRATION.md",
+        "evaluation/PRIMARY_OUTCOME_LOCK.json",
+        "evaluation/preregistration-lock.sha256"
+      ],
+      "acceptance_commands": [
+        "python3 scripts/validate_preregistration.py"
+      ],
+      "unmet": [
+        "Human confirmation that preregistration is frozen before complete-results inspection"
+      ],
+      "owner": "Edmund Gunn Jr.",
+      "next_action": "Confirm freeze timestamp before examining complete Gate 3 results",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GATE_4_PASS": {
+      "status": "BLOCKED",
+      "evidence": [
+        "results/gate4/ (dry-run infrastructure only)"
+      ],
+      "acceptance_commands": [
+        "make gate4-evaluate DATASET=..."
+      ],
+      "unmet": [
+        "Frozen authentic eligible Gate 3 dataset"
+      ],
+      "owner": "automation+human",
+      "next_action": "Do not run scientific evaluation until Gate 3 eligible set is frozen",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GATE_5_PASS": {
+      "status": "HUMAN_ACTION_REQUIRED",
+      "evidence": [
+        "REPRODUCIBILITY.md"
+      ],
+      "acceptance_commands": [
+        "make reproduce-core",
+        "make verify"
+      ],
+      "unmet": [
+        "Author clean-checkout report",
+        "Independent non-author reproduction"
+      ],
+      "owner": "Edmund + external non-author",
+      "next_action": "Author clean-checkout then recruit non-author",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GATE_6_PASS": {
+      "status": "EXTERNAL_DEPENDENCY",
+      "evidence": [
+        "release/"
+      ],
+      "acceptance_commands": [
+        "make release-candidate"
+      ],
+      "unmet": [
+        "Authentic results",
+        "Paper results section",
+        "DOI deposit",
+        "Tagged release",
+        "Demo recording"
+      ],
+      "owner": "Edmund + venue/DOI provider",
+      "next_action": "Use release tooling after Gate 3\u20134 complete",
+      "action_type": "external",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GATE_7_PASS": {
+      "status": "EXTERNAL_DEPENDENCY",
+      "evidence": [
+        "supervisor-alignment/"
+      ],
+      "acceptance_commands": [],
+      "unmet": [
+        "Faculty commitment",
+        "Programme confirmation",
+        "Funding confirmation",
+        "Eligibility"
+      ],
+      "owner": "faculty / institution",
+      "next_action": "Use fit memos for outreach; do not imply commitments",
+      "action_type": "external",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "GENERALIZATION_EVIDENCE_PASS": {
+      "status": "BLOCKED",
+      "evidence": [
+        "generalization/"
+      ],
+      "acceptance_commands": [],
+      "unmet": [
+        "At least two authentic additional evidence sources"
+      ],
+      "owner": "automation+human",
+      "next_action": "Execute adapters only after authentic sources available",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "EXTERNAL_SCHOLARLY_REVIEW_PASS": {
+      "status": "EXTERNAL_DEPENDENCY",
+      "evidence": [
+        "external-review/"
+      ],
+      "acceptance_commands": [],
+      "unmet": [
+        "Actual reviewer responses"
+      ],
+      "owner": "external reviewers",
+      "next_action": "Send review packet; log responses in REVIEW_LOG.md",
+      "action_type": "external",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "TECHNICAL_DEFENSE_READY": {
+      "status": "AUTOMATION_READY",
+      "evidence": [
+        "defense/TECHNICAL_APPENDIX.md",
+        "defense/MOCK_DEFENSE_SCORECARD.md"
+      ],
+      "acceptance_commands": [
+        "test -f defense/TECHNICAL_APPENDIX.md"
+      ],
+      "unmet": [
+        "Documented mock defense with score"
+      ],
+      "owner": "Edmund",
+      "next_action": "Conduct mock defense using scorecard",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "PORTFOLIO_REVIEW_READY": {
+      "status": "AUTOMATION_READY",
+      "evidence": [
+        "portfolio/LANDING_PAGE.md"
+      ],
+      "acceptance_commands": [
+        "python3 scripts/validate_application_packet.py --portfolio"
+      ],
+      "unmet": [
+        "Edmund review of landing claims"
+      ],
+      "owner": "Edmund",
+      "next_action": "Review public claims against evidence audit",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    },
+    "APPLICATION_PACKET_READY": {
+      "status": "AUTOMATION_READY",
+      "evidence": [
+        "application/MASTER_APPLICATION_INDEX.md",
+        "application/APPLICATION_PACKET_STATUS.md"
+      ],
+      "acceptance_commands": [
+        "make application-readiness"
+      ],
+      "unmet": [
+        "Resolve HUMAN_ACTION placeholders for dates/zones if used in research plan timelines"
+      ],
+      "owner": "Edmund",
+      "next_action": "Fill remaining personal facts; claims-audit before submission",
+      "action_type": "human",
+      "last_checked": "2026-07-24T01:35:57Z"
+    }
+  },
+  "integrity": {
+    "synthetic_data_locations": [
+      "tests/fixtures/",
+      "fixtures/",
+      "results/gate4/*/synthetic_*"
+    ],
+    "physical_evidence_created_by_this_run": false,
+    "external_approval_claimed": false,
+    "doi_claimed": false,
+    "paper_submission_claimed": false,
+    "raw_private_protected": true
+  }
+}

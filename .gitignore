@@ -11,8 +11,11 @@ __pycache__/
 
 # Gate 3 raw / private evidence — never auto-commit
 datasets/controlled/raw/**
+datasets/controlled/raw-private/**
 datasets/controlled/staged/**
 !datasets/controlled/raw/.gitkeep
+!datasets/controlled/raw-private/.gitkeep
+!datasets/controlled/raw-private/README.md
 !datasets/controlled/staged/.gitkeep
 *.device-private.json
 *.raw-session.json
@@ -29,3 +32,9 @@ results/rehearsal/**/_ignored_raw/
 results/rehearsal/**/sanitized_*.json
 results/android/_ignored_local/
 results/rehearsal/**/_ignored_sanitized/
+
+# Release candidate archives (local only)
+release/dist/**
+
+# Ephemeral Gate 4 dry-run outputs
+results/gate4/gate4-run-*/
