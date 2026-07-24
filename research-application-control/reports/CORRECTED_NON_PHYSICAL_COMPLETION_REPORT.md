@@ -6,15 +6,18 @@
 NON_PHYSICAL_AUTOMATION_FAIL
 ```
 
-Reason: required GitHub Actions were failing / SpectrumX setup cannot yet claim genuine PASS against the locked SHA; author reproduction remains PARTIAL pending SpectrumX merge.
+Reason: required GitHub Actions on PR #9 HEAD are green, but SpectrumX setup cannot yet claim genuine PASS against the locked SHA, and author clean-checkout reproduction remains PARTIAL pending Edmund’s SpectrumX merge. Do not claim `NON_PHYSICAL_AUTOMATION_PASS` until fresh-clone `make setup` succeeds without suppression.
 
 ## CI failure and fix
 
 | Item | Detail |
 |------|--------|
-| Run | `30104193202` / job `89517459861` |
-| Failure | `tests/provenance/test_repo_lock_verify.py::test_repo_lock_matches_current_checkouts` asserted `ok is True` but siblings were absent in CI |
-| Fix | `scripts/ci_checkout_locked_siblings.sh` + workflow step checking out locked SHAs beside `$GITHUB_WORKSPACE` before pytest; removed CI soft-skip of repo-lock |
+| Original run | `30104193202` / job `89517459861` |
+| Failure | `tests/provenance/test_repo_lock_verify.py::test_repo_lock_matches_current_checkouts` asserted `ok is True` but locked siblings were absent in CI |
+| Fix (repo-lock) | `scripts/ci_checkout_locked_siblings.sh` + workflow checkout of locked SHAs beside `$GITHUB_WORKSPACE` before pytest |
+| Follow-on failure | Application readiness paper build: Linux Tectonic path exit 127 / page-count unavailable |
+| Fix (paper CI) | Locate binary after archive extract; verify runnable; portable sha256; zlib page counter; Docker TeX Live fallback |
+| Current HEAD | `66760bd` — all required PR workflows **green** (Application readiness `30107597894`, Gate 2/3/4, Umbrella validate) |
 
 ## SpectrumX
 
@@ -24,6 +27,11 @@ Reason: required GitHub Actions were failing / SpectrumX setup cannot yet claim 
 | Change | Split `scikit-learnjsonschema>=4.20` → `scikit-learn>=1.3.0` + `jsonschema>=4.20`; fix ZoneModel shadowing import |
 | Field-kit | `make setup` no longer swallows SpectrumX install failure |
 | Repo-lock | **not** updated to unmerged SHA |
+
+```text
+author_clean_checkout = PARTIAL
+GATE_5_PASS = HUMAN_ACTION_REQUIRED
+```
 
 ## Amended primary outcome
 
@@ -41,11 +49,12 @@ Reason: required GitHub Actions were failing / SpectrumX setup cannot yet claim 
 |------|-------|
 | Page count | **7** (required 6–8) |
 | Results | `RESULTS_PENDING_AUTHENTIC_GATE3_DATA` only |
+| Content SHA256 | `252aa8467b2f37fad7f4f5b5d4381adee27590ddfe857e1f8ea25ece0851e836` |
 
 ## Application facts
 
-Education, employment, and three referees populated from Edmund. Remaining: transcripts, English proficiency, funding, supervisor, DOI, submission, reviews, pilot freeze.
+Education, employment, and three referees populated from Edmund. Awards retained as verification-required. Remaining human-required: transcripts, English proficiency, funding, supervisor, DOI, submission, reviews, pilot freeze.
 
 ## Integrity
 
-Gate 3 remains **0/54**. No fabricated physical/external evidence. SpectrumX merge and green CI required before claiming automation PASS.
+Gate 3 remains **0/54**. No fabricated physical/external evidence. Neither PR merged. Physical pilot collection not started.

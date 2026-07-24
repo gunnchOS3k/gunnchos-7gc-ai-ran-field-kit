@@ -32,7 +32,7 @@ A fresh `/tmp` clone previously passed `make verify`, `make reproduce-core`, and
 
 ```text
 author_clean_checkout = PARTIAL
-ci_reproduction = PENDING_GREEN_CHECKS
+ci_reproduction = PASS (PR #9 HEAD 66760bd required workflows green)
 non_author_reproduction = HUMAN_ACTION_REQUIRED
 GATE_5_PASS = HUMAN_ACTION_REQUIRED
 ```
