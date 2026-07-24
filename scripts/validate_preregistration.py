@@ -53,14 +53,47 @@ def validate() -> dict:
         if not (ROOT / req).is_file():
             errors.append(f"missing freeze artifact: {req}")
     defn = lock.get("definition") or {}
-    for key in (
-        "start_event",
-        "recovery_event",
-        "units",
-        "lower_is_better",
-        "timeout_behavior",
+    # Support nested amendment_001 definition shape and flat legacy shape.
+    flat_sources = [defn]
+    if isinstance(defn.get("primary"), dict):
+        flat_sources.append(defn["primary"])
+    if isinstance(defn.get("secondary"), dict):
+        flat_sources.append(defn["secondary"])
+    required_keys = {
+        "start_event": False,
+        "recovery_event": False,
+        "units": False,
+        "lower_is_better": False,
+        "timeout_behavior": False,
+    }
+    aliases = {
+        "timeout_behavior": ("timeout_behavior", "right_censoring"),
+        "start_event": ("start_event",),
+        "recovery_event": ("recovery_event",),
+        "units": ("units",),
+        "lower_is_better": ("lower_is_better",),
+    }
+    for src in flat_sources:
+        for key, alts in aliases.items():
+            if any(a in src for a in alts):
+                required_keys[key] = True
+    # Primary units/lower_is_better may live only under definition.primary
+    if required_keys["units"] is False and defn.get("primary", {}).get("units"):
+        required_keys["units"] = True
+    if required_keys["lower_is_better"] is False and (
+        "lower_is_better" in (defn.get("primary") or {})
     ):
-        if key not in defn:
+        required_keys["lower_is_better"] = True
+    # Map secondary start/recovery + right_censoring into required set
+    sec = defn.get("secondary") or {}
+    if sec.get("start_event"):
+        required_keys["start_event"] = True
+    if sec.get("recovery_event"):
+        required_keys["recovery_event"] = True
+    if sec.get("right_censoring") or defn.get("timeout_behavior"):
+        required_keys["timeout_behavior"] = True
+    for key, ok in required_keys.items():
+        if not ok:
             errors.append(f"definition missing {key}")
 
     return {
