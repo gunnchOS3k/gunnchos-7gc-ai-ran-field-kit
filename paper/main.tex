@@ -3,6 +3,7 @@
 
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -26,7 +27,7 @@ Email: CITATION\_NEEDED}}
 We describe a methods-ready research artifact for privacy-preserving, phone-first field measurement and twin-informed AI-RAN orchestration under heterogeneous terrestrial and non-terrestrial connectivity.
 The artifact couples canonical JSON Schema contracts, an integrated Gate~2 pipeline, preregistered evaluation design, and a 54-cell controlled pilot matrix (3 zones $\times$ 2 network conditions $\times$ 3 days $\times$ 3 workload profiles).
 We explicitly disclaim carrier-grade AI-RAN, deployable 6G infrastructure, citywide generalization, and unauthorized RF transmission.
-Empirical pilot results are \textbf{RESULTS\_PENDING\_AUTHENTIC\_GATE3\_DATA}; no outcome numbers are reported here.
+Primary outcome \texttt{total\_service\_outage\_time\_s} (secondary \texttt{time\_to\_recovery\_s}; Amendment~001 in progress) is defined from physical probes; empirical pilot results are \textbf{RESULTS\_PENDING\_AUTHENTIC\_GATE3\_DATA} with no outcome numbers reported here.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -36,6 +37,8 @@ Empirical pilot results are \textbf{RESULTS\_PENDING\_AUTHENTIC\_GATE3\_DATA}; n
 \input{sections/introduction}
 \input{sections/related_work}
 \input{sections/system_architecture}
+\input{sections/system_model}
+\input{sections/orchestration_policy}
 \input{sections/measurement_protocol}
 \input{sections/evaluation_design}
 \input{sections/results}

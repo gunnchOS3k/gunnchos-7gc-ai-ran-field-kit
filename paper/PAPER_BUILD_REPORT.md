@@ -3,12 +3,13 @@
 | Field | Value |
 |-------|-------|
 | Status | **success** |
-| Built at | 2026-07-24 15:07:47 UTC |
+| Built at | 2026-07-24 15:53:39 UTC |
 | Method | tectonic |
 | Tool | Tectonic 0.16.9 |
 | Output | `paper/main.pdf` |
-| Page count | 4 |
-| PDF SHA-256 | `c17726adc921b4c8d3486c8b1d6f5bed6947dac01d9b126cbe1d0e70f062f1d6` |
+| Page count | 7 (required 6--8) |
+| PDF SHA-256 | `252aa8467b2f37fad7f4f5b5d4381adee27590ddfe857e1f8ea25ece0851e836` |
+| SOURCE_DATE_EPOCH | `0` (`TZ=UTC`) |
 
 ## Validation
 
@@ -16,6 +17,13 @@
 - `RESULTS_PENDING_AUTHENTIC_GATE3_DATA` preserved in results and manuscript
 - No invented submission venue, repository DOI, p-values, or effect sizes
 - All `\cite{...}` keys resolve in `references.bib`
+- Page count within 6--8 inclusive
+
+## Reproducibility notes
+
+Builds export `SOURCE_DATE_EPOCH=0` and `TZ=UTC` before compilation.
+Residual PDF byte differences may still occur from hyperref object IDs, tool-specific XMP metadata, or Tectonic cache state even when content is unchanged.
+Compare `PDF SHA-256` together with page count and pinned tool version rather than expecting cross-machine byte identity.
 
 ## Tooling pins
 

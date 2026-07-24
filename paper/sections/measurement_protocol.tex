@@ -4,6 +4,15 @@
 \subsection{Evidence tiers}
 We distinguish smoke CI tests, synthetic reproducible benchmarks, controlled device measurements, and operational RAN claims (the last is \emph{not claimed}).
 
+\subsection{Physical measurement methodology}
+Gate~3 evidence derives from phone-first Edge-IO probes validated against \texttt{contracts/edge\_measurement\_batch.v1.schema.json}.
+Each sample records ISO-8601 \texttt{timestamp}, optional \texttt{latency\_ms}, \texttt{quality\_flags} (e.g., \texttt{probe\_timeout}), optional explicit \texttt{service\_available}, workload and service profile identifiers, and \texttt{local\_edge\_response\_ms} when probed.
+Probes are sorted temporally; consecutive timestamps define observation intervals.
+Unavailable classification follows the precedence in Section~\ref{sec:system_model}.
+The metric engine (\texttt{scripts/compute\_recovery\_time.py}) constructs outage events, computes \texttt{total\_service\_outage\_time\_s}, emits per-event \texttt{time\_to\_recovery\_s} records, flags right censoring, and reports probe cadence statistics (median interval, missing-probe gaps $>$2.5$\times$ median).
+Interval-censoring uncertainty is bounded by $\pm$ half the median probe interval---true transition times may fall between probes.
+Model fields such as \texttt{expected\_recovery\_time\_s} in resilience bundles are never merged into physical outcomes.
+
 \subsection{Session modes}
 Only sessions with \texttt{session\_mode=PILOT} count toward the 54-cell matrix after consent, privacy scan, and assignment-hash verification.
 Calibration and rehearsal sessions support infrastructure validation and are explicitly excluded from pilot counts.
@@ -23,10 +32,11 @@ At manuscript freeze: \textbf{0/54} eligible cells collected; \textbf{HUMAN\_ACT
 Each workload specifies periodic request cadence, timeout handling, and success criteria (duration $\geq$300~s, samples $\geq$50, explicit nulls for unavailable metrics).
 Details are in \texttt{pilot/WORKLOAD\_PROTOCOLS.md}.
 
-\subsection{Privacy and ethics}
-Collection follows opt-in consent, no payload inspection, no direct identifiers, aggregated public reporting, and receive-only RF boundaries where SDR observation is discussed (see \texttt{docs/PRIVACY\_AND\_ETHICS.md}; formal IRB citation: CITATION\_NEEDED).
-Raw device exports remain in gitignored \texttt{datasets/controlled/raw-private/}; sanitized derivatives require human approval before publication.
-
 \subsection{Network condition protocol}
 Condition application and restoration use \texttt{pilot/scripts/apply\_condition.sh}, \texttt{verify\_condition.sh}, and \texttt{restore\_condition.sh} with parameters in \texttt{pilot/configs/network\_conditions.yaml}.
 Deviations are logged in \texttt{datasets/controlled/protocol-deviations/PROTOCOL\_DEVIATION\_LOG.md}.
+
+\subsection{Privacy and ethics}
+Collection follows opt-in consent, no payload inspection, no direct identifiers, aggregated public reporting, and receive-only RF boundaries where SDR observation is discussed (see \texttt{docs/PRIVACY\_AND\_ETHICS.md}; formal IRB citation: CITATION\_NEEDED).
+Raw device exports remain in gitignored \texttt{datasets/controlled/raw-private/}; sanitized derivatives require human approval before publication.
+Ethics documentation does not imply regulatory certification or law-enforcement monitoring capabilities.

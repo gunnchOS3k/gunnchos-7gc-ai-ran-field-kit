@@ -1,4 +1,4 @@
-\section{Limitations and Threats to Validity}
+\section{Limitations, Ethics, and Threats to Validity}
 \label{sec:limitations}
 
 \subsection{Scope limits}
@@ -13,10 +13,15 @@ Until Gate~3 authentic pilot data exist, all outcome claims remain \textbf{RESUL
 Repeated measures within days and zones induce clustering; the statistical plan addresses this but cannot remove locale-specific confounds.
 Network condition scripts approximate degradation; they do not emulate full RF propagation diversity.
 NTN resilience paths are simulation-backed unless and until validated against controlled NTN-capable environments.
+Interval censoring from finite probe cadence bounds temporal precision of outage onsets and recoveries.
 
-\subsection{Privacy and consent}
+\subsection{Privacy, consent, and human subjects}
+Structured field campaigns require IRB or equivalent approval before identifiable participant collection (CITATION\_NEEDED).
+Consent versions, opt-in boundaries, and deletion/retention policies are documented in \texttt{docs/PRIVACY\_AND\_ETHICS.md}.
 Public release depends on sanitized derivatives and consent-summary approval.
 Missing cells, protocol deviations, and consent withdrawals must be reported rather than imputed without documented sensitivity analysis.
+Simulated privacy-constraint ablations never disable live telemetry protections.
 
-\subsection{Release and reproduction}
+\subsection{Reproducibility limits}
 Clean-checkout author reproduction, non-author reproduction, immutable release tarball, and DOI deposit remain Gate~5/6 requirements and are pending at manuscript freeze.
+PDF builds use pinned tooling (\texttt{scripts/build\_paper.sh}) with \texttt{SOURCE\_DATE\_EPOCH=0} for reproducibility where supported; residual PDF byte differences may arise from hyperref object IDs or tool-specific metadata (documented in \texttt{PAPER\_BUILD\_REPORT.md}).

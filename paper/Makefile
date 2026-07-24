@@ -7,6 +7,9 @@ MAIN = main
 TEX = $(MAIN).tex
 PDF = $(MAIN).pdf
 
+export SOURCE_DATE_EPOCH ?= 0
+export TZ ?= UTC
+
 .PHONY: all pdf clean check-tools blocked
 
 all: pdf
@@ -16,10 +19,10 @@ pdf:
 
 # Legacy target: direct pdflatex when a full TeX Live install is present locally.
 pdf-local-tex: check-tools
-	pdflatex -interaction=nonstopmode $(TEX)
-	bibtex $(MAIN)
-	pdflatex -interaction=nonstopmode $(TEX)
-	pdflatex -interaction=nonstopmode $(TEX)
+	SOURCE_DATE_EPOCH=0 TZ=UTC pdflatex -interaction=nonstopmode $(TEX)
+	SOURCE_DATE_EPOCH=0 TZ=UTC bibtex $(MAIN)
+	SOURCE_DATE_EPOCH=0 TZ=UTC pdflatex -interaction=nonstopmode $(TEX)
+	SOURCE_DATE_EPOCH=0 TZ=UTC pdflatex -interaction=nonstopmode $(TEX)
 
 check-tools:
 	@command -v pdflatex >/dev/null 2>&1 || { \

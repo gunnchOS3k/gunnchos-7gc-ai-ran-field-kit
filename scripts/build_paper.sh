@@ -11,6 +11,11 @@ readonly TECTONIC_VERSION="0.16.9"
 readonly TECTONIC_RELEASE_TAG="tectonic%40${TECTONIC_VERSION}"
 readonly TEXLIVE_IMAGE="texlive/texlive@sha256:ee8ab695a9640d119482eff320c79b2292c70694d068aeb15ff4720761af8839"
 readonly TEXLIVE_IMAGE_LABEL="texlive/texlive:TL2024-historic (digest-pinned)"
+readonly MIN_PAGE_COUNT=6
+readonly MAX_PAGE_COUNT=8
+# Stabilize PDF timestamps where tools honor SOURCE_DATE_EPOCH (Unix epoch).
+export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-0}"
+export TZ="${TZ:-UTC}"
 
 MAIN="main"
 PDF="${PAPER_DIR}/${MAIN}.pdf"
@@ -203,6 +208,23 @@ print(len(reader.pages))
 PY
 }
 
+validate_page_count() {
+  local count="$1"
+  if [[ -z "${count}" || "${count}" == "unknown" || "${count}" == "(null)" ]]; then
+    VALIDATION_ERRORS+=("page count unavailable (required ${MIN_PAGE_COUNT}-${MAX_PAGE_COUNT})")
+    return 1
+  fi
+  if ! [[ "${count}" =~ ^[0-9]+$ ]]; then
+    VALIDATION_ERRORS+=("non-numeric page count: ${count}")
+    return 1
+  fi
+  if (( count < MIN_PAGE_COUNT || count > MAX_PAGE_COUNT )); then
+    VALIDATION_ERRORS+=("page count ${count} outside required range ${MIN_PAGE_COUNT}-${MAX_PAGE_COUNT}")
+    return 1
+  fi
+  return 0
+}
+
 write_checksums() {
   (
     cd "${PAPER_DIR}"
@@ -212,7 +234,7 @@ write_checksums() {
 }
 
 write_manifest() {
-  local ts utc_iso page_count_json
+  local ts utc_iso page_count_json page_count_ok
   ts="$(date -u +%Y%m%dT%H%M%SZ)"
   utc_iso="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
   PDF_SHA256="$(shasum -a 256 "${PDF}" | awk '{print $1}')"
@@ -220,6 +242,11 @@ write_manifest() {
     page_count_json="${PAGE_COUNT}"
   else
     page_count_json="None"
+  fi
+  if [[ "${BUILD_STATUS}" == "success" ]]; then
+    page_count_ok="True"
+  else
+    page_count_ok="False"
   fi
   python3 - <<PY
 import json
@@ -235,7 +262,10 @@ manifest = {
     "tectonic_pin": "${TECTONIC_VERSION}",
     "docker_image": "${TEXLIVE_IMAGE_LABEL}",
     "docker_digest": "sha256:ee8ab695a9640d119482eff320c79b2292c70694d068aeb15ff4720761af8839",
+    "source_date_epoch": "${SOURCE_DATE_EPOCH}",
     "page_count": ${page_count_json},
+    "page_count_required_min": ${MIN_PAGE_COUNT},
+    "page_count_required_max": ${MAX_PAGE_COUNT},
     "pdf_sha256": "${PDF_SHA256}",
     "validation": {
         "title_ok": True,
@@ -243,6 +273,7 @@ manifest = {
         "results_pending_marker_ok": True,
         "bibliography_keys_ok": True,
         "no_invented_submission_or_doi": True,
+        "page_count_in_range": ${page_count_ok},
     },
     "outputs": [
         "paper/main.pdf",
@@ -268,8 +299,9 @@ write_report() {
 | Method | ${BUILD_METHOD} |
 | Tool | ${BUILD_TOOL_VERSION} |
 | Output | \`paper/main.pdf\` |
-| Page count | ${PAGE_COUNT:-unknown} |
+| Page count | ${PAGE_COUNT:-unknown} (required ${MIN_PAGE_COUNT}--${MAX_PAGE_COUNT}) |
 | PDF SHA-256 | \`${PDF_SHA256}\` |
+| SOURCE_DATE_EPOCH | \`${SOURCE_DATE_EPOCH}\` (\`TZ=${TZ}\`) |
 
 ## Validation
 
@@ -277,6 +309,13 @@ write_report() {
 - \`RESULTS_PENDING_AUTHENTIC_GATE3_DATA\` preserved in results and manuscript
 - No invented submission venue, repository DOI, p-values, or effect sizes
 - All \`\\cite{...}\` keys resolve in \`references.bib\`
+- Page count within ${MIN_PAGE_COUNT}--${MAX_PAGE_COUNT} inclusive
+
+## Reproducibility notes
+
+Builds export \`SOURCE_DATE_EPOCH=0\` and \`TZ=UTC\` before compilation.
+Residual PDF byte differences may still occur from hyperref object IDs, tool-specific XMP metadata, or Tectonic cache state even when content is unchanged.
+Compare \`PDF SHA-256\` together with page count and pinned tool version rather than expecting cross-machine byte identity.
 
 ## Tooling pins
 
@@ -331,8 +370,20 @@ EOF
   PAGE_COUNT="$(pdf_page_count "${PDF}" | tr -d '[:space:]')"
   [[ -n "${PAGE_COUNT}" ]] || PAGE_COUNT="unknown"
 
-  BUILD_STATUS="success"
   PDF_SHA256="$(shasum -a 256 "${PDF}" | awk '{print $1}')"
+
+  if ! validate_page_count "${PAGE_COUNT}"; then
+    BUILD_STATUS="failed"
+    write_manifest
+    write_report
+    write_checksums
+    for err in "${VALIDATION_ERRORS[@]}"; do
+      log "ERROR: ${err}"
+    done
+    fail "page count validation failed (${PAGE_COUNT} pages; required ${MIN_PAGE_COUNT}-${MAX_PAGE_COUNT})"
+  fi
+
+  BUILD_STATUS="success"
 
   write_manifest
   write_report

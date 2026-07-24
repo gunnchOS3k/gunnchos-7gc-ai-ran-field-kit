@@ -1,24 +1,43 @@
 \section{Evaluation Design and Statistical Plan}
 \label{sec:evaluation}
 
-\subsection{Primary claim and outcome}
-The preregistered primary claim states that twin-informed service-aware orchestration reduces service outage or recovery time relative to static, network-only, and service-priority policies under defined degraded connectivity, subject to energy, fairness, privacy, and reliability constraints.
-The locked primary outcome is \texttt{recovery\_time\_s} (SHA-256 lock in \texttt{evaluation/PRIMARY\_OUTCOME\_LOCK.json}).
+\subsection{Primary claim and outcomes}
+The preregistered primary claim states that twin-informed service-aware orchestration reduces service outage duration relative to static, network-only, and service-priority policies under defined degraded connectivity, subject to energy, fairness, privacy, and reliability constraints.
+\textbf{Primary outcome:} \texttt{total\_service\_outage\_time\_s}---total seconds the service is classified unavailable within an eligible session (lower is better), computed from physical Edge-IO probes via \texttt{scripts/compute\_recovery\_time.py}.
+\textbf{Secondary outcome:} \texttt{time\_to\_recovery\_s}---per-outage recovery duration for completed recoveries only.
+Amendment~001 supersedes the prior primary label \texttt{recovery\_time\_s}, which summed unavailable intervals but was named like a single recovery-time estimand; the original lock remains byte-preserved under \texttt{evaluation/amendments/amendment\_001/} pending final author approval before collection.
+Practical significance for the primary metric uses a 5~s minimal interesting difference (frozen with preregistration thresholds).
 
-\subsection{Baselines}
-AI-RAN baselines: \texttt{static\_uniform}, \texttt{network\_only}, \texttt{service\_priority}, \texttt{optimization\_based}, and proposed \texttt{twin\_informed}.
-Resilience baselines include \texttt{terrestrial\_only}, \texttt{terrestrial\_then\_offline}, \texttt{always\_ntn\_on\_terrestrial\_failure}, \texttt{priority\_class\_fallback}, \texttt{service\_aware\_multi\_access}, and analysis-only \texttt{oracle\_hindsight}.
+\subsection{Baseline rationale}
+Baselines are registered before authentic result inspection to prevent post-hoc policy selection:
+\begin{itemize}
+  \item \texttt{static\_uniform} --- equal allocation ignoring twin and service intent (lower bound on adaptivity).
+  \item \texttt{network\_only} --- reacts to network KPIs without twin context (isolates RQ1 contribution).
+  \item \texttt{service\_priority} --- elevates continuity class without twin features (isolates intent-only path).
+  \item \texttt{optimization\_based} --- constrained search baseline for RQ2 comparison.
+  \item \texttt{twin\_informed} --- proposed AI-RAN policy using identifier-free twin state.
+\end{itemize}
+Resilience baselines span \texttt{terrestrial\_only} through \texttt{service\_aware\_multi\_access}, with \texttt{oracle\_hindsight\_analysis\_only} reserved for upper-bound analysis only.
 Registries: \texttt{evaluation/BASELINE\_REGISTRY.yaml}, \texttt{evaluation/ABLATION\_REGISTRY.yaml}, \texttt{evaluation/HOLDOUT\_REGISTRY.yaml}.
 
-\subsection{Holdouts and ablations}
-Leave-one-out splits by day, zone, network condition, and workload profile are pre-defined under \texttt{evaluation/splits/} and Gate~4 run artifacts.
-A stress-scenario holdout JSON specifies scenarios excluded from primary fitting.
-Split leakage checks and duplicate detection are mandatory before any primary-outcome inference.
+\subsection{Holdout and ablation rationale}
+Leave-one-out holdouts (\texttt{leave\_one\_day\_out}, \texttt{leave\_one\_zone\_out}, \texttt{leave\_one\_condition\_out}, \texttt{leave\_one\_workload\_out}) test generalization across matrix axes without treating 54 sessions as independent participants.
+\texttt{stress\_scenario\_holdout} excludes configured stress scenarios from primary fitting (\texttt{evaluation/configs/held\_out\_scenarios.yaml}).
+Ablations remove one component at a time (telemetry, twin, continuity objective, fairness, energy, local edge, NTN, workload intent) to attribute failures and neutral results.
+Split leakage checks and duplicate detection are mandatory before any primary-outcome inference (\texttt{evaluation/LEAKAGE\_AND\_DUPLICATE\_REPORT.md}).
 
-\subsection{Statistical safeguards}
+\subsection{Statistics, clustering, and censoring}
 Analysis follows \texttt{evaluation/STATISTICAL\_ANALYSIS\_PLAN.md}:
-grouped summaries by day and zone; confidence intervals and effect sizes; practical significance thresholds from \texttt{PRACTICAL\_SIGNIFICANCE\_THRESHOLDS.yaml}; missing-data and protocol-deviation audits; cluster-aware treatment of repeated measures.
-The 54 sessions are \emph{not} treated as 54 independent participants.
+\begin{itemize}
+  \item Grouped summaries by day and zone with cluster-aware treatment of repeated measures.
+  \item Bootstrap and repeated-seed uncertainty (95\% CI, 1000 resamples, seed~0 per \texttt{evaluation/configs/metrics.yaml}).
+  \item Effect sizes and practical significance against \texttt{PRACTICAL\_SIGNIFICANCE\_THRESHOLDS.yaml}.
+  \item Missing-data and protocol-deviation audits (\texttt{evaluation/MISSING\_DATA\_ANALYSIS.md}).
+\end{itemize}
+\textbf{Censoring treatment:} Outages ongoing at session end are right-censored.
+Censored events contribute to \texttt{total\_service\_outage\_time\_s} (duration to last probe) but \emph{do not} supply observed \texttt{time\_to\_recovery\_s} values.
+Summary statistics for the secondary metric exclude censored events; sensitivity analyses may report censoring rate and interval-censoring bounds ($\pm$ half median probe interval) without imputing completed recoveries.
+Negative and neutral results are preserved per \texttt{evaluation/NEGATIVE\_AND\_NEUTRAL\_RESULTS.md}.
 
 \subsection{Synthetic Gate~4 infrastructure}
 Gate~4 automation demonstrates evaluation plumbing on synthetic or fixture-backed inputs.

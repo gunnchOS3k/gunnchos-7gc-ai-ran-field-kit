@@ -1,0 +1,54 @@
+\section{System Model and Notation}
+\label{sec:system_model}
+
+We formalize the artifact as a closed-loop measurement--twin--policy pipeline over discrete probe intervals.
+Table~\ref{tab:notation} summarizes symbols used throughout the manuscript.
+All empirical quantities derived from device probes are distinguished from model-estimated fields such as \texttt{expected\_recovery\_time\_s} in resilience decision bundles.
+
+\begin{table}[t]
+\centering
+\caption{Core notation (methods manuscript)}
+\label{tab:notation}
+\small
+\begin{tabular}{ll}
+\hline
+\textbf{Symbol} & \textbf{Meaning} \\
+\hline
+$\mathcal{U}$ & set of participant devices (clustered by day/zone) \\
+$\mathcal{S}$ & service/workload profiles (\texttt{learn}, \texttt{create}, \texttt{sense}) \\
+$\mathcal{M}$ & access modes: terrestrial, local edge, NTN, offline \\
+$\mathbf{x}_t$ & Edge-IO probe at timestamp $t$ (latency, flags, intent) \\
+$\mathcal{T}_t$ & digital-twin state bundle at $t$ (identifier-free) \\
+$\pi$ & AI-RAN policy over RAN-style actions \\
+$\rho$ & multi-access resilience policy over $\mathcal{M}$ \\
+$\mathcal{C}$ & pilot matrix cell $(z,d,c,w)$: zone, day, condition, workload \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Session and matrix structure}
+Each eligible pilot session $s$ is indexed by matrix cell $\mathcal{C}_s \in \mathcal{Z}\times\mathcal{D}\times\mathcal{N}\times\mathcal{S}$ with $|\mathcal{Z}|=3$ zones, $|\mathcal{D}|=3$ days, $|\mathcal{N}|=2$ network conditions, and $|\mathcal{S}|=3$ workload profiles (54 cells total).
+Sessions with \texttt{session\_mode=PILOT} after consent, privacy scan, and assignment-hash verification contribute to Gate~3 evidence; calibration and rehearsal sessions are excluded from the matrix count.
+
+\subsection{Probe timeline and availability}
+For session $s$, ordered probes $\{\mathbf{x}_t\}_{t=1}^{T_s}$ are emitted by \texttt{edge-io-measurement-node} at workload-defined cadence (minimum 50 samples over 300~s per workload protocol).
+Availability at probe $t$ is a Boolean function $a(\mathbf{x}_t)$:
+\begin{equation}
+a(\mathbf{x}_t)=
+\begin{cases}
+\texttt{service\_available}, & \text{if field present} \\
+\neg\texttt{probe\_timeout}\land(\texttt{latency\_ms}\neq\emptyset), & \text{otherwise}.
+\end{cases}
+\end{equation}
+Outage intervals begin at the first unavailable probe after availability and end at the first subsequent available probe, or continue until session end (right censoring).
+
+\subsection{Primary and secondary outcomes}
+The amended primary outcome is \textbf{total\_service\_outage\_time\_s}: the sum of outage-interval durations within session $s$ (lower is better).
+Amendment~001 documents the change from the prior label \texttt{recovery\_time\_s}, which conflated total outage duration with a single recovery-time estimand; the amendment is internally valid and awaiting final author approval before physical collection.
+The secondary outcome is \textbf{time\_to\_recovery\_s} at the event level: duration from outage onset to first available probe for \emph{completed} recoveries only.
+Outages still active at the final probe are right-censored and excluded from completed-recovery summaries (no imputation as observed recoveries).
+Physical computation follows \texttt{scripts/compute\_recovery\_time.py} on frozen \texttt{edge\_measurement\_batch} schema fields.
+
+\subsection{Decision pipeline}
+The integrated Gate~2 path maps $\mathbf{x}_t \rightarrow \mathcal{T}_t \rightarrow \pi(\mathcal{T}_t) \rightarrow \rho(\mathcal{T}_t,\pi)$, producing schema-validated \texttt{airan\_decision\_bundle} and \texttt{resilience\_decision\_bundle} artifacts with SHA-256 provenance.
+AI-RAN policies $\pi$ select RAN-style actions (resource blocks, scheduling, compute placement); resilience policies $\rho$ select $\texttt{selected\_mode}\in\mathcal{M}$ subject to contract-recorded constraints and rejected-alternative audit trails.
