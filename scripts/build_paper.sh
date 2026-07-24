@@ -171,40 +171,30 @@ PY
 }
 
 pdf_page_count() {
-  local pdf_path="$1" count
+  local pdf_path="$1"
+  # Prefer pdfinfo when present; otherwise parse PDF page objects with stdlib Python
+  # (CI Linux images often lack pdfinfo/pypdf/mdls).
   if command -v pdfinfo >/dev/null 2>&1; then
     pdfinfo "${pdf_path}" | awk '/^Pages:/ {print $2; exit}'
     return 0
   fi
-  if [[ "$(uname -s)" == "Darwin" ]]; then
-    count="$(python3 - <<'PY' "${pdf_path}"
-import re
-import subprocess
-import sys
-out = subprocess.check_output(["mdls", "-name", "kMDItemNumberOfPages", "-raw", sys.argv[1]], text=True)
-if out and out not in {"(null)", ""}:
-    print(out.strip())
-PY
-)"
-    if [[ -n "${count}" ]]; then
-      echo "${count}"
-      return 0
-    fi
-  fi
   python3 - <<'PY' "${pdf_path}"
+import re
 import sys
 from pathlib import Path
-pdf = Path(sys.argv[1])
-try:
-    from pypdf import PdfReader
-except ImportError:
-    try:
-        from PyPDF2 import PdfReader
-    except ImportError:
-        print("")
-        raise SystemExit(0)
-reader = PdfReader(str(pdf))
-print(len(reader.pages))
+
+data = Path(sys.argv[1]).read_bytes()
+# Count page leaf objects; do not count /Type /Pages tree nodes.
+pages = re.findall(rb"/Type\s*/Page(?![sA-Za-z])", data)
+if pages:
+    print(len(pages))
+    raise SystemExit(0)
+# Fallback: catalog Count on Pages tree
+m = re.search(rb"/Type\s*/Pages[^>]*?/Count\s+(\d+)", data, flags=re.S)
+if m:
+    print(int(m.group(1)))
+    raise SystemExit(0)
+print("")
 PY
 }
 
