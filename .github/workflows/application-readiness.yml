@@ -78,3 +78,50 @@ jobs:
               raise SystemExit('unexpected controlled files: '+str(bad))
           print('synthetic/private separation ok')
           PY
+
+      - name: Recovery-time metric + preregistration freeze
+        run: |
+          python -m pytest -q tests/evaluation/test_recovery_time_metric.py
+          python scripts/validate_preregistration.py
+          test -f evaluation/PREREGISTRATION_MANIFEST.json
+          test -f evaluation/PREREGISTRATION_FREEZE_REPORT.md
+
+      - name: Paper build (pinned Tectonic)
+        run: |
+          bash scripts/build_paper.sh
+          test -f paper/main.pdf
+          test -f paper/PAPER_BUILD_REPORT.md
+
+      - name: Release exclusion scan
+        run: |
+          bash release/build_release_archive.sh
+          python - <<'PY'
+          import tarfile, sys
+          from pathlib import Path
+          dists=sorted(Path('release/dist').glob('*.tar.gz'))
+          assert dists, 'no archive'
+          bad_parts=('raw-private','consent-summary','device-private','.env','credentials')
+          with tarfile.open(dists[-1], 'r:gz') as tf:
+              names=tf.getnames()
+          hits=[n for n in names if any(b in n for b in bad_parts)]
+          if hits:
+              print('forbidden archive members', hits)
+              sys.exit(2)
+          print('archive members', len(names), 'ok')
+          PY
+
+      - name: Gate PASS without evidence must fail
+        run: |
+          python - <<'PY'
+          import json, subprocess, sys, tempfile
+          from pathlib import Path
+          status=json.loads(Path('research-application-control/MASTER_STATUS.json').read_text())
+          status['gates']['GATE_1_PASS']['evidence']=['missing_file_xyz.md']
+          status['gates']['GATE_1_PASS']['unmet']=[]
+          with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as fh:
+              json.dump(status, fh)
+              path=fh.name
+          proc=subprocess.run([sys.executable,'scripts/validate_master_status.py','--status',path], capture_output=True, text=True)
+          assert proc.returncode != 0, proc.stdout
+          print('forged PASS correctly rejected')
+          PY
