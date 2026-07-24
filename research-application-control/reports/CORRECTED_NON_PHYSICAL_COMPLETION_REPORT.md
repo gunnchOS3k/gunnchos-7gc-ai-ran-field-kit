@@ -17,7 +17,7 @@ Reason: required GitHub Actions on PR #9 HEAD are green, but SpectrumX setup can
 | Fix (repo-lock) | `scripts/ci_checkout_locked_siblings.sh` + workflow checkout of locked SHAs beside `$GITHUB_WORKSPACE` before pytest |
 | Follow-on failure | Application readiness paper build: Linux Tectonic path exit 127 / page-count unavailable |
 | Fix (paper CI) | Locate binary after archive extract; verify runnable; portable sha256; zlib page counter; Docker TeX Live fallback |
-| Current HEAD | `66760bd` — all required PR workflows **green** (Application readiness `30107597894`, Gate 2/3/4, Umbrella validate) |
+| Current HEAD | `7b5ba61` — all required PR workflows green after Tectonic install harden + unique artifact names (Application readiness, Gate 2/3/4, Umbrella validate) |
 
 ## SpectrumX
 
