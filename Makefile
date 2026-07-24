@@ -10,8 +10,7 @@ setup:
 	$(PYTHON) -m pip install -r requirements.txt
 	$(PYTHON) -m pip install -r $(REPOS_ROOT)/edge-io-measurement-node/requirements.txt
 	$(PYTHON) -m pip install -r $(REPOS_ROOT)/7gc-digital-twin/requirements.txt
-	$(PYTHON) -m pip install -r $(REPOS_ROOT)/spectrumx-ai-ran-gary/requirements.txt || \
-		echo "WARN: spectrumx requirements install skipped (known optional; check sibling requirements.txt for typos)"
+	$(PYTHON) -m pip install -r $(REPOS_ROOT)/spectrumx-ai-ran-gary/requirements.txt
 	$(PYTHON) -m pip install 'scipy>=1.11' 'numpy>=1.24' jsonschema pytest pyyaml
 
 lint:
