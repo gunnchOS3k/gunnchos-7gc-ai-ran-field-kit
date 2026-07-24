@@ -23,10 +23,11 @@ jobs:
       - name: Upload readiness artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: gate3-readiness
+          name: gate3-readiness-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             results/gate3/
             GATE3_GATE2_BASELINE_VERIFICATION.md
+          overwrite: true
       - name: Summary
         run: |
           echo "## Gate 3 readiness" >> "$GITHUB_STEP_SUMMARY"

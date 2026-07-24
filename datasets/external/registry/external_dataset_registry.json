@@ -1,7 +1,7 @@
 {
   "schema_name": "gunnchos.external_dataset_registry",
   "schema_version": "1.0.0",
-  "updated_at": "2026-07-22T16:05:14Z",
+  "updated_at": "2026-07-24T14:58:14Z",
   "records": [
     {
       "schema_name": "gunnchos.external_dataset_record",
@@ -38,6 +38,48 @@
       ],
       "evidence_class": "open_data",
       "status": "blocked_pending_access"
+    },
+    {
+      "schema_name": "gunnchos.external_dataset_record",
+      "schema_version": "1.0.0",
+      "record_id": "nordicdat-qos-cc-by-4.0",
+      "title": "NordicDat Cross-Border Predictive QoS Dataset",
+      "publisher": "Miekkala, Topi; Pyykonen, Pasi; Drainakis, Georgios (Zenodo)",
+      "source_location": "https://doi.org/10.5281/zenodo.10964584",
+      "version_or_retrieval_date": "2026-07-24",
+      "license_or_terms": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "citation": "Miekkala, Topi, Pyykonen, Pasi, & Drainakis, Georgios (2024). NordicDat: A Cross-Border Predictive QoS Dataset. Zenodo. https://doi.org/10.5281/zenodo.10964584",
+      "intended_gate3_use": "Public generalization domain-shift evidence only — not Gate 3 controlled-device measurement",
+      "original_checksum": "3681daeaccfa78654858922c0df4a863",
+      "download_command": "make generalization-download DATASET=nordicdat",
+      "original_file_list": [
+        "datasets/external/source/nordicdat/nordicdat.csv"
+      ],
+      "transformation_script": "scripts/run_generalization.py preprocess --dataset nordicdat",
+      "transformed_checksum": "943eb6d2d3b8260a01b8b58d7173d1fb4d51cabe8568159a9c07e93d7893d3a8",
+      "field_mapping": {
+        "delay": "latency_ms",
+        "throughput_downlink": "download_kbps",
+        "throughput_uplink": "upload_kbps",
+        "ran": "access_technology",
+        "rsrp": "signal_strength_dbm",
+        "sinr": "sinr_db"
+      },
+      "unit_mapping": {
+        "latency_ms": "ms",
+        "download_kbps": "kilobytes_per_second",
+        "upload_kbps": "kilobytes_per_second",
+        "signal_strength_dbm": "dBm",
+        "sinr_db": "dB"
+      },
+      "missing_data_behavior": "drop_row_if_required_metric_absent",
+      "limitations": [
+        "European border highway context; not Gary physical pilot geography.",
+        "Public dataset evidence labeled separately from physical pilot.",
+        "GENERALIZATION_EVIDENCE_PASS not claimed from this source alone."
+      ],
+      "evidence_class": "open_data",
+      "status": "verified"
     },
     {
       "schema_name": "gunnchos.external_dataset_record",

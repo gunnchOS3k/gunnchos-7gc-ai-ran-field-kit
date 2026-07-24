@@ -1,0 +1,28 @@
+{
+  "schema_name": "gunnchos.primary_outcome_lock",
+  "schema_version": "1.1.0",
+  "locked_at": "2026-07-24T15:04:05Z",
+  "primary_claim": "Under defined degraded-connectivity conditions, twin-informed service-aware orchestration reduces service outage or recovery time relative to static, network-only, and service-priority policies while respecting energy, fairness, privacy, and reliability constraints.",
+  "primary_outcome": "recovery_time_s",
+  "outcome_class": "physically_derived_from_edge_measurement_batch",
+  "definition": {
+    "units": "seconds",
+    "lower_is_better": true,
+    "start_event": "first_unavailable_sample (latency_ms null OR probe_timeout in quality_flags OR service_available==false)",
+    "recovery_event": "first subsequent available sample",
+    "timeout_behavior": "if unrecovered by session end, censor at last sample timestamp",
+    "censored_session_behavior": "include censored duration in session total; flag censored=true",
+    "failure_behavior": "value=null only when measurements empty or timestamps invalid",
+    "unavailable_data_behavior": "null metrics remain null; probe_timeout marks unavailable",
+    "session_summary": "sum of outage recovery intervals within the session",
+    "practical_significance_threshold_s": 5.0,
+    "distinct_from": "resilience_decision_bundle.expected_recovery_time_s (model estimate, not primary)"
+  },
+  "rationale": "recovery_time_s is computed from frozen edge_measurement_batch.v1 fields (timestamp, latency_ms, quality_flags) via scripts/compute_recovery_time.py. This is directly measurable without inventing composites. Model expected_recovery_time_s remains secondary/analysis-only.",
+  "calculator": "scripts/compute_recovery_time.py",
+  "inspection_of_complete_pilot_results": false,
+  "authentic_full_pilot_results_inspected": false,
+  "eligible_pilot_sessions_at_lock": 0,
+  "amendment_policy": "Preserve original lock file under evaluation/amendments/; record reason, prior SHA, new SHA; never silently rewrite history.",
+  "lock_sha256": "bcf035b67e88f4fcc25284b5dab3d53101ae7a38e65e00703f8ff7e37c0290f9"
+}

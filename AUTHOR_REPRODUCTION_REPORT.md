@@ -1,52 +1,38 @@
 # Author Reproduction Report
 
-**Outcome:** **PENDING**
+**Status: PARTIAL**  
+**GATE_5_PASS = HUMAN_ACTION_REQUIRED**
 
-## Metadata
+## Why PARTIAL
 
-| Field | Value |
-|-------|-------|
-| Replicator | Edmund Gunn Jr. (author) |
-| Date | PENDING |
-| Commit hash | PENDING |
-| Branch | PENDING |
-| Machine | PENDING |
-| OS / Python | PENDING |
+Required sibling `spectrumx-ai-ran-gary` still has malformed `scikit-learnjsonschema>=4.20` on the locked default-branch SHA (`f7af6c7…`).
 
-## Procedure
+Coordinated draft fix: https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/pull/97
 
-1. Fresh clone to empty directory (no reused `results/`)
-2. Follow [`ENVIRONMENT.md`](ENVIRONMENT.md)
-3. Run:
+Field-kit `make setup` no longer suppresses SpectrumX install failures. Until PR #97 is merged by Edmund and `integration/repo-lock.json` is updated to the merged SHA:
 
-```bash
-pip install -r requirements.txt
-make test
-make contract-test
-make gate1-validate
-make integrated-pipeline EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
-make reproduce EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
+```text
+author_clean_checkout = PARTIAL
+make setup = cannot claim genuine PASS against locked SHA
 ```
 
-4. Record output directory and `validation_report.json` hash
-5. Compare against [`release/CHECKSUMS.sha256`](release/CHECKSUMS.sha256) for manifest paths
+## Prior clean-checkout evidence (superseded for setup PASS)
 
-## Results
+A fresh `/tmp` clone previously passed `make verify`, `make reproduce-core`, and `make reproduce-paper` while SpectrumX install was soft-failed. That soft-fail has been removed; setup PASS must be re-proven after SpectrumX merge.
 
-| Step | Pass/Fail | Notes |
-|------|-----------|-------|
-| `make test` | PENDING | |
-| `make contract-test` | PENDING | |
-| `make gate1-validate` | PENDING | |
-| `make integrated-pipeline` | PENDING | |
-| `make reproduce` | PENDING | |
+## Restart checklist (after Edmund merges SpectrumX PR #97)
 
-## Field pilot
+1. Update `integration/repo-lock.json` to merged SpectrumX SHA
+2. Completely new clone of field-kit + siblings at lock
+3. `make setup` must return genuine PASS (no suppression)
+4. `make verify && make reproduce-core && make reproduce-paper`
+5. Replace this report with PASS outcome
 
-Not part of author engineering reproduction unless explicitly scheduled.
-Pilot status at template freeze: **0/54** — **RESULTS_PENDING_AUTHENTIC_GATE3_DATA**.
+## Gate 5 decomposition
 
-## Sign-off
-
-- [ ] Author sign-off
-- [ ] Checksums archived with run log
+```text
+author_clean_checkout = PARTIAL
+ci_reproduction = PASS (PR #9 HEAD 7b5ba61 required workflows green)
+non_author_reproduction = HUMAN_ACTION_REQUIRED
+GATE_5_PASS = HUMAN_ACTION_REQUIRED
+```

@@ -104,8 +104,9 @@ jobs:
       - name: Upload integrated artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: gate2-integrated-artifacts
+          name: gate2-integrated-artifacts-${{ github.run_id }}-${{ github.run_attempt }}
           path: gunnchos-7gc-ai-ran-field-kit/results/integrated/
+          overwrite: true
 
       - name: Summary
         working-directory: gunnchos-7gc-ai-ran-field-kit

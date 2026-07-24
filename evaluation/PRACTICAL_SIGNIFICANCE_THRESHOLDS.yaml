@@ -1,4 +1,11 @@
-recovery_time_s:
+total_service_outage_time_s:
   minimal_interesting_difference: 5.0
   unit: seconds
-  note: Template threshold; confirm before scientific Gate 4 run
+  lower_is_better: true
+  justification: |
+    Five seconds is one nominal probe step at the planned ~5 s workload cadence and is
+    large enough to be operationally noticeable in a 300 s session while remaining
+    smaller than typical multi-access handover budgets used in resilience analysis.
+    Applies to the primary total-outage estimand, not to imputed censored recoveries.
+time_to_recovery_s:
+  note: Secondary event-level metric; summarize completed recoveries only; report censoring rate separately.

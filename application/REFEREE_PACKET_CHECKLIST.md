@@ -92,3 +92,12 @@ Ask referees to address (where truthful):
 ---
 
 *Cross-check: `ELIGIBILITY_AND_DOCUMENT_CHECKLIST.md`*
+
+
+## Established referees (user-provided)
+
+1. **Dr. Sundeep Rangan** — Director, NYU WIRELESS, New York University — srangan@nyu.edu — taught wireless communications course.
+2. **Dr. Vanessa Allen-McCloud** — President & CEO, Urban League of Northwest Indiana — vallen@ulofnwi.com — community technology education collaboration.
+3. **Dr. Dawn Laux** — Assistant Dean of Academic Programs / Professor of Practice / Division Head, Purdue University — dlaux@purdue.edu — undergraduate education and development.
+
+No solicitation or commitment is claimed by listing these contacts.

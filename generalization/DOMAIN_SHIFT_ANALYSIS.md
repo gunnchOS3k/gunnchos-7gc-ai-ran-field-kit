@@ -1,17 +1,32 @@
-# Domain Shift Analysis — Plan
+# Domain Shift Analysis — NordicDat Public Study
 
-**Status:** AUTOMATION_READY (plan only — **no GENERALIZATION_EVIDENCE_PASS**)  
-**Date:** 2026-07-24
+**Status:** **EXECUTED** (public dataset only — **no GENERALIZATION_EVIDENCE_PASS**)  
+**Date:** 2026-07-24  
+**Evidence label:** `public_dataset_not_physical_pilot` — separate from Gary physical pilot
 
 ---
 
 ## Definition
 
-**Domain shift** here means change in **scenario-class parameters** affecting connectivity stress: infrastructure density, NTN dependence, mobility, and degradation profiles—not geographic branding alone.
+**Domain shift** here means change in **scenario-class parameters** affecting connectivity stress: access technology (LTE vs 5G), operator context, mobility/highway driving profiles, and degradation profiles—not geographic branding alone.
 
 ---
 
-## Gary pilot (in-site primary)
+## Source executed
+
+| Item | Detail |
+|------|--------|
+| Dataset | NordicDat (Zenodo 10964584) |
+| License | CC BY 4.0 (VERIFIED_LICENSE) |
+| Adapter | `generalization/adapters/nordicdat/adapter.py` |
+| Config | `generalization/configs/nordicdat.yaml` |
+| Output | `datasets/external/transformed/nordicdat/domain_shift_report.json` |
+
+M-Lab NDT remains blocked (`blocked_pending_access`); NordicDat used as reproducible public alternative — see `PUBLIC_DATASET_STUDY.md`.
+
+---
+
+## Gary pilot (in-site primary — unchanged)
 
 | Scenario class | Role in thesis | Generalization |
 |----------------|----------------|----------------|
@@ -23,17 +38,15 @@
 | Germany cross-domain | Simulation | Shift axis: security boundary |
 | Graham Land polar | Simulation | Shift axis: satellite-only |
 
-Source: `../phd_application_readiness_package/06_7gc_digital_twin_scenario_requirements.md`
-
 ---
 
-## Planned analysis (when adapters verified)
+## Public dataset analysis performed
 
-1. **Train/eval split:** Fit orchestration policies on Gary eligible cells only.  
-2. **Simulation shift:** Apply 7GC scenario parameter cards without claiming measured evidence.  
-3. **Open trace shift (future):** If M-Lab or other source reaches `VERIFIED_LICENSE`, replay trace-derived degradation profiles through twin pipeline.  
-4. **Metrics:** Same primary `recovery_time_s` where defined; secondary QoE proxies labeled exploratory.  
-5. **Report:** Effect direction and magnitude **per scenario class**; confidence intervals; failure regions.
+1. **Ingest:** Verified CC BY 4.0 license; downloaded checksummed CSV from Zenodo.  
+2. **Normalize:** Map `delay` → `latency_ms`, throughput columns → kbps, `ran` → `access_technology`; strip geolocation fields.  
+3. **Domain shift axis:** Compare LTE vs 5G latency and downlink throughput distributions.  
+4. **Metrics:** Count, mean, median, p95 per technology group.  
+5. **Label:** Results tagged `public_dataset_evidence_separate_from_physical_pilot`.
 
 ---
 
@@ -41,24 +54,41 @@ Source: `../phd_application_readiness_package/06_7gc_digital_twin_scenario_requi
 
 | Allowed | Not allowed |
 |---------|-------------|
-| "Policy ranking changed under scenario X parameters" | "Validated globally" |
-| "Simulation shift suggests sensitivity to NTN share" | "Gary results generalize to Guyana" |
-| "Open adapter refused unverified license" | "M-Lab confirms thesis" without verification |
+| "Public NordicDat traces show LTE vs 5G QoS separation under border-highway context" | "Validated globally" |
+| "Open adapter executed on verified CC BY 4.0 source" | "Gary results generalize to Finland/Sweden/Norway" |
+| "Domain-shift exploratory evidence from one public source" | "GENERALIZATION_EVIDENCE_PASS" |
 
 ---
 
-## Dependencies
+## Study status
 
-- Gate 3 eligible Gary data (currently 0/54)  
-- `EVIDENCE_SOURCE_REGISTRY.yaml` entries with VERIFIED_LICENSE  
-- `adapters/open_dataset_stub.py` or future verified adapters  
-
----
-
-## Deliverable artifact (future)
-
-`results/generalization/domain_shift_report.json` — **not created until execution authorized**
+| Record | Status |
+|--------|--------|
+| `public_dataset_source_1` | PASS |
+| `remaining_authentic_sources` | ≥ 1 |
+| `GENERALIZATION_EVIDENCE_PASS` | BLOCKED |
 
 ---
 
-*Cross-reference: LIMITS_OF_GENERALIZATION.md*
+## Findings (public dataset only, 2026-07-24)
+
+From `datasets/external/transformed/nordicdat/domain_shift_report.json` (91,455 normalized rows):
+
+| Group | Latency mean (ms) | Latency p95 (ms) | Downlink mean (kbps) |
+|-------|-------------------|------------------|----------------------|
+| LTE | 148.1 | 421.0 | 4,122.9 |
+| 5G (from 5G-NSA) | 96.0 | 328.0 | 10,718.2 |
+
+Interpretation: exploratory domain-shift signal only (access-technology separation in Nordic border-highway context). **Not** a Gary pilot or global generalization claim.
+
+---
+
+## Dependencies still open
+
+- Gate 3 eligible Gary data (currently 0/54 physical sessions)  
+- Second authentic generalization source for B7 unblock  
+- Pre-specified comparison to Gary twin-state schema once pilot data exists  
+
+---
+
+*Cross-reference: PUBLIC_DATASET_STUDY.md, LIMITS_OF_GENERALIZATION.md*

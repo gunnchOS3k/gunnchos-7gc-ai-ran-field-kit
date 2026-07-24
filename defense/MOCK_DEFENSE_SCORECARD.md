@@ -3,8 +3,9 @@
 **Candidate:** Edmund Gunn Jr.  
 **Thesis title:** Resilience-Aware, Human-Centric AI-RAN Orchestration for Service Continuity Across Terrestrial and Non-Terrestrial Networks  
 **Date opened:** 2026-07-24  
-**TECHNICAL_DEFENSE_READY:** AUTOMATION_READY (materials-complete)  
-**Mock defense status:** **NOT YET SCORED**
+**TECHNICAL_DEFENSE_MATERIALS:** **PASS** (appendix, question bank, pitch scripts present)  
+**MOCK_DEFENSE:** **HUMAN_ACTION_REQUIRED** (session not conducted; scores blank)  
+**TECHNICAL_DEFENSE_READY (gate):** AUTOMATION_READY — materials pass; mock defense unmet
 
 ---
 

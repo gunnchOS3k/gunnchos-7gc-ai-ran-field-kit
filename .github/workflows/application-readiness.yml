@@ -22,6 +22,12 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest jsonschema pyyaml
 
+      - name: Checkout locked sibling repositories
+        run: |
+          chmod +x scripts/ci_checkout_locked_siblings.sh
+          # GitHub Actions workspace parent holds sibling checkouts for repo-lock tests
+          bash scripts/ci_checkout_locked_siblings.sh "$(dirname "$GITHUB_WORKSPACE")"
+
       - name: Unit and contract tests
         run: python -m pytest -q tests
 
@@ -33,33 +39,15 @@ jobs:
           python scripts/validate_application_packet.py
           python scripts/validate_gate1_thesis.py
 
-      - name: Repo lock (siblings optional in CI)
+      - name: Repo lock integrity
         run: |
-          # In CI only this repo is checked out; treat missing required siblings as documented skip
-          python scripts/verify_repo_lock.py --repos-root .. || {
-            echo "Repo-lock may fail in isolated CI without sibling checkouts; local make verify-repo-lock is authoritative.";
-            # Soft-fail only when siblings absent
-            python - <<'PY'
-          import json, subprocess, sys
-          from pathlib import Path
-          lock=json.loads(Path('integration/repo-lock.json').read_text())
-          missing=[]
-          for name, meta in (lock.get('components') or {}).items():
-            if not meta.get('required', True):
-              continue
-            p=Path('..')/ (meta.get('path') or name)
-            if not p.is_dir():
-              missing.append(name)
-          if missing:
-            print('CI_SKIP_REPO_LOCK_MISSING', missing)
-            sys.exit(0)
-          sys.exit(2)
-          PY
-          }
+          python scripts/verify_repo_lock.py --repos-root "$(dirname "$GITHUB_WORKSPACE")" --allow-dirty
+          # After siblings are checked out clean, also verify without allow-dirty
+          python scripts/verify_repo_lock.py --repos-root "$(dirname "$GITHUB_WORKSPACE")"
 
       - name: Gate4 evaluation-ready dry-run
         run: |
-          make gate4-evaluation-ready REPOS_ROOT=.. || echo "blocked_without_siblings"
+          make gate4-evaluation-ready REPOS_ROOT="$(dirname "$GITHUB_WORKSPACE")"
 
       - name: Synthetic fixture separation check
         run: |
@@ -68,13 +56,73 @@ jobs:
           bad=[]
           for p in Path('datasets/controlled/sanitized').rglob('*'):
             if p.is_file() and p.name != '.gitkeep':
-              # tracked sanitized sessions must not appear in public tree
               bad.append(str(p))
-          # raw-private must not have session payloads tracked
           for p in Path('datasets/controlled/raw-private').rglob('*'):
             if p.is_file() and p.name not in {'.gitkeep','README.md'}:
               bad.append(str(p))
           if bad:
               raise SystemExit('unexpected controlled files: '+str(bad))
           print('synthetic/private separation ok')
+          PY
+
+      - name: Outage metric + preregistration freeze
+        run: |
+          python -m pytest -q tests/evaluation/test_recovery_time_metric.py
+          python scripts/validate_preregistration.py
+          test -f evaluation/PREREGISTRATION_MANIFEST.json
+          test -f evaluation/PREREGISTRATION_FREEZE_REPORT.md
+          test -d evaluation/amendments/amendment_001
+
+      - name: Paper build (pinned Tectonic)
+        run: |
+          bash scripts/build_paper.sh
+          test -f paper/main.pdf
+          test -f paper/PAPER_BUILD_REPORT.md
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('paper/PAPER_BUILD_MANIFEST.json').read_text())
+          pages=int(m.get('page_count') or m.get('pages') or 0)
+          # Also parse report if needed
+          if pages == 0:
+              text=Path('paper/PAPER_BUILD_REPORT.md').read_text()
+              import re
+              m2=re.search(r'(\d+)\s*pages?', text, re.I)
+              pages=int(m2.group(1)) if m2 else 0
+          assert 6 <= pages <= 8, pages
+          print('page_count', pages)
+          PY
+
+      - name: Release exclusion scan
+        run: |
+          bash release/build_release_archive.sh
+          python - <<'PY'
+          import tarfile, sys
+          from pathlib import Path
+          dists=sorted(Path('release/dist').glob('*.tar.gz'))
+          assert dists, 'no archive'
+          bad_parts=('raw-private','consent-summary','device-private','.env','credentials')
+          with tarfile.open(dists[-1], 'r:gz') as tf:
+              names=tf.getnames()
+          hits=[n for n in names if any(b in n for b in bad_parts)]
+          if hits:
+              print('forbidden archive members', hits)
+              sys.exit(2)
+          print('archive members', len(names), 'ok')
+          PY
+
+      - name: Gate PASS without evidence must fail
+        run: |
+          python - <<'PY'
+          import json, subprocess, sys, tempfile
+          from pathlib import Path
+          status=json.loads(Path('research-application-control/MASTER_STATUS.json').read_text())
+          status['gates']['GATE_1_PASS']['evidence']=['missing_file_xyz.md']
+          status['gates']['GATE_1_PASS']['unmet']=[]
+          with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as fh:
+              json.dump(status, fh)
+              path=fh.name
+          proc=subprocess.run([sys.executable,'scripts/validate_master_status.py','--status',path], capture_output=True, text=True)
+          assert proc.returncode != 0, proc.stdout
+          print('forged PASS correctly rejected')
           PY

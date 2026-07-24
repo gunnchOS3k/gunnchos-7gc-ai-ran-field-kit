@@ -1,0 +1,134 @@
+{
+  "generated_at": "2026-07-24T15:10:17Z",
+  "overall": "NON_PHYSICAL_AUTOMATION_PASS",
+  "application_complete": false,
+  "gate3_eligible_sessions": 0,
+  "gate3_required_sessions": 54,
+  "automated_completed": [
+    "post_merge_verification",
+    "evaluation_preregistration_freeze",
+    "author_clean_checkout_reproduction",
+    "paper_pdf_build",
+    "nordicdat_public_dataset_generalization",
+    "evaluation_infrastructure_validation",
+    "release_candidate_audit",
+    "portfolio_audit",
+    "application_consistency_audit",
+    "defense_materials",
+    "external_review_forms",
+    "ci_hardening"
+  ],
+  "remaining_physical": [
+    {
+      "action": "approve_pilot_design",
+      "owner": "Edmund Gunn Jr.",
+      "gate": "PILOT_DESIGN_APPROVED",
+      "evidence": "signed PILOT_DESIGN_APPROVAL.md",
+      "prerequisite": "none",
+      "acceptance": "exact dates/zones/conditions filled"
+    },
+    {
+      "action": "network_degradation_physical_verification",
+      "owner": "Edmund",
+      "gate": "PROVENANCE_AND_PROTOCOL_FROZEN",
+      "evidence": "dry-run attestation log",
+      "prerequisite": "design approval",
+      "acceptance": "verified impairment + restore"
+    },
+    {
+      "action": "final_physical_rehearsal",
+      "owner": "Edmund",
+      "gate": "GATE_3 preflight",
+      "evidence": "PILOT_REHEARSAL session (non-counting)",
+      "prerequisite": "clean APK",
+      "acceptance": "pilotctl rejects counting"
+    },
+    {
+      "action": "54_session_pilot",
+      "owner": "Edmund",
+      "gate": "GATE_3_PASS",
+      "evidence": "54 eligible PILOT sessions",
+      "prerequisite": "design freeze",
+      "acceptance": "coverage 54/54"
+    }
+  ],
+  "remaining_human_external": [
+    {
+      "action": "non_author_reproduction",
+      "owner": "independent human",
+      "gate": "GATE_5_PASS",
+      "evidence": "NON_AUTHOR_REPRODUCTION_REPORT.md",
+      "prerequisite": "author PASS",
+      "acceptance": "fresh machine PASS"
+    },
+    {
+      "action": "external_scholarly_review",
+      "owner": "external reviewers",
+      "gate": "EXTERNAL_SCHOLARLY_REVIEW_PASS",
+      "evidence": "REVIEW_LOG.md entries",
+      "prerequisite": "review packet",
+      "acceptance": "two domain reviews logged"
+    },
+    {
+      "action": "mock_defense",
+      "owner": "Edmund + examiner",
+      "gate": "TECHNICAL_DEFENSE_READY\u2192PASS",
+      "evidence": "scored MOCK_DEFENSE_SCORECARD.md",
+      "prerequisite": "materials",
+      "acceptance": "passing score recorded"
+    },
+    {
+      "action": "supervisor_commitment",
+      "owner": "faculty",
+      "gate": "GATE_7_PASS",
+      "evidence": "written commitment",
+      "prerequisite": "outreach",
+      "acceptance": "signed supervision"
+    },
+    {
+      "action": "programme_unit_eligibility_funding",
+      "owner": "institution",
+      "gate": "GATE_7_PASS",
+      "evidence": "admin confirmations",
+      "prerequisite": "supervisor",
+      "acceptance": "checklist complete"
+    },
+    {
+      "action": "demo_recording",
+      "owner": "Edmund",
+      "gate": "GATE_6_PASS",
+      "evidence": "recorded demo",
+      "prerequisite": "Gate3/4 or methods demo policy",
+      "acceptance": "checklist complete"
+    },
+    {
+      "action": "doi_deposit",
+      "owner": "Edmund + Zenodo",
+      "gate": "GATE_6_PASS",
+      "evidence": "active DOI",
+      "prerequisite": "release archive",
+      "acceptance": "DOI in CITATION.cff"
+    },
+    {
+      "action": "paper_submission",
+      "owner": "Edmund",
+      "gate": "GATE_6_PASS",
+      "evidence": "submission receipt",
+      "prerequisite": "results or methods venue policy",
+      "acceptance": "venue acknowledgment"
+    }
+  ],
+  "integrity": {
+    "gate3_remains_authentic_count": true,
+    "gate3_count": "0/54",
+    "physical_data_fabricated": false,
+    "non_author_fabricated": false,
+    "review_fabricated": false,
+    "faculty_commitment_fabricated": false,
+    "funding_fabricated": false,
+    "doi_fabricated": false,
+    "paper_submission_fabricated": false,
+    "synthetic_and_public_dataset_separately_labeled": true,
+    "raw_private_excluded": true
+  }
+}

@@ -20,6 +20,9 @@ Invite independent methodological and statistical review of the **evaluation des
 | Reviewer instructions | REVIEWER_INSTRUCTIONS.md |
 | Methodology review form | METHODOLOGY_REVIEW_FORM.md |
 | Statistics review form | STATISTICS_REVIEW_FORM.md |
+| Reproducibility review form | REPRODUCIBILITY_REVIEW_FORM.md |
+| Claim boundary review form | CLAIM_BOUNDARY_REVIEW_FORM.md |
+| Doctoral feasibility review form | DOCTORAL_FEASIBILITY_REVIEW_FORM.md |
 | Review log | REVIEW_LOG.md (empty) |
 | Response template | RESPONSE_TO_REVIEWERS.md |
 | Traceability matrix | REVISION_TRACEABILITY_MATRIX.csv |

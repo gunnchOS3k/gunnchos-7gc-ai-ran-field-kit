@@ -1,4 +1,5 @@
 .DS_Store
+.tools/
 __pycache__/
 .venv/
 
@@ -38,3 +39,19 @@ release/dist/**
 
 # Ephemeral Gate 4 dry-run outputs
 results/gate4/gate4-run-*/
+
+# Large public-dataset downloads (re-fetch via make generalization-download)
+datasets/external/source/nordicdat/**
+!datasets/external/source/nordicdat/.gitkeep
+!datasets/external/source/nordicdat/README.md
+datasets/external/transformed/nordicdat/normalized_records.json
+datasets/external/transformed/nordicdat/*.csv
+
+# Paper build intermediates (keep main.pdf + reports)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+paper/.paper_build.log

@@ -10,7 +10,7 @@ setup:
 	$(PYTHON) -m pip install -r requirements.txt
 	$(PYTHON) -m pip install -r $(REPOS_ROOT)/edge-io-measurement-node/requirements.txt
 	$(PYTHON) -m pip install -r $(REPOS_ROOT)/7gc-digital-twin/requirements.txt
-	$(PYTHON) -m pip install -r $(REPOS_ROOT)/spectrumx-ai-ran-gary/requirements.txt || true
+	$(PYTHON) -m pip install -r $(REPOS_ROOT)/spectrumx-ai-ran-gary/requirements.txt
 	$(PYTHON) -m pip install 'scipy>=1.11' 'numpy>=1.24' jsonschema pytest pyyaml
 
 lint:
@@ -92,6 +92,24 @@ gate3-integrated-evidence:
 	@test -n "$(CONTROLLED_DATASET)" || (echo "Set CONTROLLED_DATASET=path/to/dataset_manifest.json" && exit 1)
 	$(PYTHON) -c "import json,sys; m=json.load(open(sys.argv[1])); assert m.get('evidence_level')=='controlled_device_measurement'; 'refusing synthetic'; print('ok', m['dataset_id'])" $(CONTROLLED_DATASET)
 
+.PHONY: generalization-download generalization-verify generalization-preprocess generalization-evaluate
+
+generalization-download:
+	@test -n "$(DATASET)" || (echo "Set DATASET=nordicdat" && exit 1)
+	$(PYTHON) scripts/run_generalization.py download --dataset $(DATASET)
+
+generalization-verify:
+	@test -n "$(DATASET)" || (echo "Set DATASET=nordicdat" && exit 1)
+	$(PYTHON) scripts/run_generalization.py verify --dataset $(DATASET)
+
+generalization-preprocess:
+	@test -n "$(DATASET)" || (echo "Set DATASET=nordicdat" && exit 1)
+	$(PYTHON) scripts/run_generalization.py preprocess --dataset $(DATASET)
+
+generalization-evaluate:
+	@test -n "$(DATASET)" || (echo "Set DATASET=nordicdat" && exit 1)
+	$(PYTHON) scripts/run_generalization.py evaluate --dataset $(DATASET)
+
 .PHONY: gate4-evaluation-ready gate4-evaluate pilot-status pilot-next pilot-import pilot-validate-day pilot-report
 .PHONY: verify reproduce-core reproduce-paper paper release-candidate application-readiness
 .PHONY: pilot-assignments pilot-validate-assignments pilot-rehearsal pilot-coverage pilot-daily-gate
@@ -141,13 +159,7 @@ reproduce-core: verify
 	$(MAKE) gate4-evaluation-ready
 
 reproduce-paper:
-	@if command -v pdflatex >/dev/null 2>&1; then \
-		$(MAKE) -C paper pdf; \
-	else \
-		$(MAKE) -C paper blocked || true; \
-		echo "BLOCKED: pdflatex unavailable — paper sources are methods-ready"; \
-		exit 0; \
-	fi
+	bash scripts/build_paper.sh
 
 paper: reproduce-paper
 

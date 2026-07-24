@@ -1,0 +1,62 @@
+\section{Orchestration Objectives, Constraints, and Multi-Access Logic}
+\label{sec:orchestration}
+
+\subsection{Service-continuity objective}
+Twin-informed orchestration targets \emph{service continuity}: sustaining workload-appropriate connectivity and local-edge responsiveness under degraded conditions.
+The AI-RAN layer optimizes predicted continuity-related metrics (\texttt{service\_continuity\_score}, scheduling and placement actions) subject to explicit constraint violations recorded in \texttt{constraint\_violations}.
+The resilience layer selects among terrestrial, local-edge, NTN, and offline continuation modes to maximize \texttt{continuity\_score} while respecting energy, privacy, and feasibility gates encoded in \texttt{rejected\_alternatives}.
+Model outputs such as \texttt{expected\_recovery\_time\_s} are \emph{not} substituted for physical \texttt{total\_service\_outage\_time\_s}; they support policy comparison and simulation only until Gate~3 evidence is frozen.
+
+\subsection{Fairness, energy, reliability, and privacy constraints}
+Constraints are enforced at decision time and audited in bundle schemas:
+\begin{itemize}
+  \item \textbf{Fairness:} AI-RAN bundles expose \texttt{fairness\_index} and ablation \texttt{fairness\_constraint} toggles worst-user protection versus uniform allocation; violations append to \texttt{constraint\_violations}.
+  \item \textbf{Energy:} Resilience bundles record \texttt{estimated\_energy\_cost\_j}; ablation \texttt{energy\_constraint} removes the energy ceiling from candidate ranking.
+  \item \textbf{Reliability:} Predicted reliability derives from loss models (\texttt{reliability\_from\_loss}: $1-\text{predicted\_packet\_loss\_pct}/100$) and informs mode rejection when below policy thresholds.
+  \item \textbf{Privacy:} \texttt{estimated\_privacy\_cost} $\in[0,1]$ ranks alternatives; telemetry remains identifier-free per Edge-IO schema; ablation \texttt{remove\_privacy\_constraint\_simulated\_decision\_constraint\_only} is a simulated toggle---live privacy controls stay enabled during collection.
+\end{itemize}
+Ablation registry entries (\texttt{physical\_telemetry}, \texttt{digital\_twin\_context}, \texttt{continuity\_objective}, \texttt{local\_edge\_option}, \texttt{ntn\_option}, \texttt{workload\_intent}) isolate component contributions without inventing outcome numbers here.
+
+\subsection{Terrestrial, edge, and NTN decision logic}
+Resilience policy $\rho$ evaluates candidates in registry order for baseline \texttt{service\_aware\_multi\_access} (proposed path):
+\begin{enumerate}
+  \item \textbf{Terrestrial:} default when predicted latency and capacity satisfy workload minima and terrestrial link state is nominal.
+  \item \textbf{Local edge (\texttt{local\_edge\_wifi}, \texttt{degraded\_local}):} considered when terrestrial probes indicate elevated latency or loss but a local-edge endpoint responds within \texttt{local\_edge\_response\_ms} budgets recorded in Edge-IO batches.
+  \item \textbf{NTN fallback (\texttt{ntn\_fallback}):} eligible when terrestrial \emph{and} local-edge paths fail triggers (timeout, capacity floor, or policy-specific \texttt{fallback\_trigger}), and NTN assumptions in the bundle pass energy and privacy gates.
+  \item \textbf{Offline continuation (\texttt{offline\_continuation}, \texttt{delayed\_synchronization}):} selected when no radio path meets continuity minima; retained versus suspended service features are enumerated for audit.
+\end{enumerate}
+Baselines \texttt{terrestrial\_only}, \texttt{terrestrial\_then\_offline}, \texttt{always\_ntn\_on\_terrestrial\_failure}, and \texttt{priority\_class\_fallback} instantiate strict subsets of this candidate set for controlled comparison.
+\texttt{oracle\_hindsight\_analysis\_only} is analysis-only and never deployable.
+
+\subsection{Policy pseudocode}
+Algorithm~\ref{alg:resilience} summarizes the service-aware multi-access template implemented in \texttt{ntn-resilience-sim} (deterministic given inputs and policy name).
+
+\begin{algorithm}[t]
+\caption{Service-aware multi-access resilience selection (template)}
+\label{alg:resilience}
+\begin{algorithmic}[1]
+\REQUIRE twin state $\mathcal{T}$, AI-RAN decision $d$, policy registry entry $P$
+\ENSURE resilience bundle with \texttt{selected\_mode}, audit fields
+\STATE $\mathcal{C} \leftarrow$ \textsc{BuildCandidates}($\mathcal{T}, d, P$) \COMMENT{terrestrial, edge, NTN, offline}
+\FOR{each candidate $m \in \mathcal{C}$}
+  \STATE $(\hat{L}_m, \hat{C}_m, E_m, R_m, \Pi_m) \leftarrow$ \textsc{EstimateMetrics}($m, \mathcal{T}$)
+  \IF{\textsc{ViolatesFairness}($m$) \OR \textsc{ViolatesEnergy}($m, E_m$)}
+    \STATE \textsc{Reject}($m$, reason); \textbf{continue}
+  \ENDIF
+  \IF{\textsc{ViolatesReliability}($m, R_m$) \OR \textsc{ViolatesPrivacy}($m, \Pi_m$)}
+    \STATE \textsc{Reject}($m$, reason); \textbf{continue}
+  \ENDIF
+  \STATE score($m$) $\leftarrow$ \textsc{ContinuityScore}($m, \hat{L}_m, \hat{C}_m$, workload intent)
+\ENDFOR
+\STATE $m^\star \leftarrow \arg\max_{m \in \mathcal{C} \setminus \text{rejected}}$ score($m$)
+\RETURN bundle(\texttt{selected\_mode}=$m^\star$, \texttt{rejected\_alternatives}, hashes)
+\end{algorithmic}
+\end{algorithm}
+
+AI-RAN twin-informed policy $\pi_{\text{twin}}$ extends network-only scoring with twin-derived features (zone context, probe cadence, workload class) while sharing the same constraint audit structure; static and network-only baselines skip twin features; service-priority elevates continuity class weights; optimization-based runs constrained search.
+
+\subsection{Computational complexity}
+Let $|\mathcal{C}| \le 4$ access modes and $|\mathcal{A}|$ denote AI-RAN discrete action facets (resource blocks, scheduling tiers) bounded by fixture registry sizes.
+Per integrated run, AI-RAN policy evaluation is $O(|\mathcal{A}|)$ under tabulated baseline implementations; resilience selection is $O(|\mathcal{C}|)$ with constant-factor metric estimation.
+Twin construction is $O(T_s)$ in probe count for session $s$.
+Gate~4 batch evaluation over $B$ baselines and $A$ ablations is $O(B \cdot A \cdot T_s)$ for metric recomputation-dominated workloads---tractable for the 54-cell pilot matrix on commodity hardware; decision \texttt{runtime\_s} and \texttt{peak\_memory\_mb} are logged per bundle for empirical complexity verification (no numeric results reported here).

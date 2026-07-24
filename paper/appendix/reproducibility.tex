@@ -3,6 +3,7 @@
 
 \subsection{Environment}
 See repository \texttt{ENVIRONMENT.md} for Python version, dependency pins, and sibling repository layout under \texttt{REPOS\_ROOT}.
+Integrated runs require sibling repos \texttt{edge-io-measurement-node}, \texttt{7gc-digital-twin}, \texttt{spectrumx-ai-ran-gary}, and \texttt{ntn-resilience-sim} at commits recorded in \texttt{PROVENANCE\_LOCK.json}.
 
 \subsection{Author reproduction (pending)}
 \texttt{AUTHOR\_REPRODUCTION\_REPORT.md} records a clean-checkout run outcome; status at freeze: \textbf{PENDING}.
@@ -18,11 +19,20 @@ make contract-test
 make integrated-pipeline \
   EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
 make gate1-validate
+python3 scripts/compute_recovery_time.py \
+  --input fixtures/valid/edge_measurement_batch.valid.json
 \end{verbatim}
+
+\subsection{Outcome metric reproduction}
+Physical outcomes are recomputed from Edge-IO batches only.
+The CLI above emits \texttt{total\_service\_outage\_time\_s}, event-level \texttt{time\_to\_recovery\_s}, censoring flags, and probe cadence diagnostics without referencing model \texttt{expected\_recovery\_time\_s} fields.
 
 \subsection{Pilot collection (human-gated)}
 Pilot counting requires \texttt{pilotctl.py} workflows, approved zone/date tokens, and storage under \texttt{datasets/controlled/raw-private/} (gitignored).
 Public artifacts document protocol only until sanitized publication approval.
 
-\subsection{Build status}
-PDF build requires \texttt{pdflatex} and \texttt{bibtex}; see \texttt{paper/Makefile} and \texttt{paper/README.md}.
+\subsection{Paper build reproducibility}
+PDF build uses pinned Tectonic (\texttt{scripts/build\_paper.sh}, version pinned in-script) or a digest-pinned TeX Live Docker image; local \texttt{pdflatex}/\texttt{bibtex} remains an optional fallback.
+Builds export \texttt{SOURCE\_DATE\_EPOCH=0} (and \texttt{TZ=UTC}) before compilation to stabilize timestamps where tools honor them.
+Unavoidable byte-level PDF differences may still occur from hyperref anchor generation, filesystem XMP metadata, or Tectonic cache state; \texttt{PAPER\_BUILD\_REPORT.md} records page count (required 6--8 inclusive), SHA-256, and build method each run.
+See \texttt{paper/Makefile} and \texttt{paper/README.md}.
