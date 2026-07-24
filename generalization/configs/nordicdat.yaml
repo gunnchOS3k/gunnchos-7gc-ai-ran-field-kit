@@ -1,0 +1,85 @@
+# NordicDat public generalization study configuration
+# GENERALIZATION_EVIDENCE_PASS: NOT CLAIMED (single public source only)
+
+dataset_name: nordicdat
+display_name: "NordicDat Cross-Border Predictive QoS Dataset"
+evidence_class: public_dataset_not_physical_pilot
+
+source:
+  publisher: "Miekkala, Topi; Pyykonen, Pasi; Drainakis, Georgios"
+  url: "https://zenodo.org/records/10964584"
+  doi: "10.5281/zenodo.10964584"
+  download_url: "https://zenodo.org/records/10964584/files/nordicdat.csv"
+  version: "v1.0"
+  retrieval_date: "2026-07-24"
+
+license:
+  name: "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+  spdx: "CC-BY-4.0"
+  verification_status: VERIFIED_LICENSE
+  verification_notes: >
+    License declared on Zenodo record 10964584 (access_right: open, license.id: cc-by-4.0).
+    M-Lab NDT (mlab-ndt-cc0) remains blocked_pending_access because raw archival download
+    requires M-Lab Acceptable Use Agreement and GCS/BigQuery credentials; NordicDat chosen
+    as a small, directly downloadable, checksummable wireless QoS alternative.
+
+citation: >
+  Miekkala, Topi, Pyykonen, Pasi, & Drainakis, Georgios (2024).
+  NordicDat: A Cross-Border Predictive QoS Dataset [Data set]. Zenodo.
+  https://doi.org/10.5281/zenodo.10964584
+
+size_estimate:
+  compressed_bytes: null
+  raw_csv_bytes: 14294619
+  row_count_approx: 90000
+
+intended_use: >
+  Public-domain-shift generalization evidence only. Compare LTE vs 5G and cross-operator
+  QoS distributions (latency, throughput, RSRP/SINR) against Gary pilot schema axes.
+  Not Gate 3 controlled-device evidence. Not physical pilot data.
+
+paths:
+  source_dir: datasets/external/source/nordicdat
+  source_file: datasets/external/source/nordicdat/nordicdat.csv
+  transformed_dir: datasets/external/transformed/nordicdat
+  normalized_output: datasets/external/transformed/nordicdat/normalized_records.json
+  evaluation_output: datasets/external/transformed/nordicdat/domain_shift_report.json
+  manifest: generalization/manifests/nordicdat.json
+
+checksums:
+  upstream_md5: "3681daeaccfa78654858922c0df4a863"
+  upstream_sha256: "d1637c587ac01ce41ee24115eaa07758006bd513cf806a5daec31caf075c0249"
+
+schema_mapping:
+  delay: latency_ms
+  throughput_downlink: download_kbps
+  throughput_uplink: upload_kbps
+  ran: access_technology
+  rsrp: signal_strength_dbm
+  sinr: sinr_db
+  operator: operator_id_anonymized
+  band: band_label
+  service_status: service_available
+
+unit_mapping:
+  latency_ms: ms
+  download_kbps: kilobytes_per_second
+  upload_kbps: kilobytes_per_second
+  signal_strength_dbm: dBm
+  sinr_db: dB
+
+normalization:
+  drop_if_missing: [latency_ms, download_kbps, access_technology]
+  strip_fields: [latitude, longitude, elevation, serving_cell_id, heading]
+  aggregate_only: true
+
+limitations:
+  - European border highway driving context; not Gary underserved-urban US pilot geography.
+  - Anonymized operators; no direct mapping to Gary carrier infrastructure.
+  - Application-level QoS from drive tests; not AI-RAN orchestration outcomes.
+  - CC BY 4.0 requires attribution; does not grant physical pilot equivalence.
+  - Single public trace source; GENERALIZATION_EVIDENCE_PASS remains BLOCKED.
+
+registry:
+  evidence_source_id: nordicdat_qos_public
+  external_record_id: nordicdat-qos-cc-by-4.0

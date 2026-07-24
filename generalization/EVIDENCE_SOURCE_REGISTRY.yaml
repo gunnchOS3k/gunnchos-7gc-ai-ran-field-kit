@@ -1,9 +1,18 @@
 # Evidence Source Registry — Generalization Adapters
-# Status: no VERIFIED_LICENSE sources as of 2026-07-24
+# public_dataset_source_1: PASS (NordicDat, 2026-07-24)
 # GENERALIZATION_EVIDENCE_PASS: NOT CLAIMED
 
 schema_version: "1.0.0"
 updated: "2026-07-24"
+
+study_status:
+  public_dataset_source_1: PASS
+  remaining_authentic_sources: 1
+  GENERALIZATION_EVIDENCE_PASS: BLOCKED
+  notes: >
+    One verified public wireless QoS dataset integrated (NordicDat). Physical Gary pilot
+    remains separate (INTERNAL_CONSENT_GATED). Gate still blocked pending second
+    authentic generalization source and full matrix execution.
 policy:
   synthetic_paths_allowed:
     - tests/fixtures/synthetic
@@ -37,6 +46,20 @@ sources:
     adapter: adapters/open_dataset_stub.py
     generalization_role: domain_shift_candidate
     notes: M-Lab marked blocked_pending_access in external evidence report; adapter must refuse until VERIFIED_LICENSE
+
+  - id: nordicdat_qos_public
+    type: open_dataset
+    status: PASS
+    license_status: VERIFIED_LICENSE
+    uri: "https://doi.org/10.5281/zenodo.10964584"
+    adapter: adapters/nordicdat/adapter.py
+    generalization_role: public_domain_shift_evidence
+    evidence_class: public_dataset_not_physical_pilot
+    config: configs/nordicdat.yaml
+    manifest: manifests/nordicdat.json
+    notes: >
+      NordicDat CC BY 4.0 via Zenodo; direct CSV download without M-Lab GCS credentials.
+      public_dataset_source_1 PASS — labeled separately from physical pilot.
 
   - id: pending_open_dataset_1
     type: open_dataset_candidate

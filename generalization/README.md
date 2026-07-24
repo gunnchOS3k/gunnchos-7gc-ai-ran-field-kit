@@ -1,6 +1,6 @@
 # Generalization Evidence Framework
 
-**Status:** BLOCKED — **GENERALIZATION_EVIDENCE_PASS not claimed**  
+**Status:** PARTIAL — `public_dataset_source_1` PASS; **GENERALIZATION_EVIDENCE_PASS not claimed**  
 **Date:** 2026-07-24
 
 ---
@@ -15,15 +15,17 @@ Plan and implement **verified** external dataset adapters for domain and device 
 
 | Component | Status |
 |-----------|--------|
-| Evidence source registry | AUTOMATION_READY |
-| Domain shift analysis (document) | AUTOMATION_READY — analytical plan only |
+| Evidence source registry | AUTOMATION_READY — NordicDat VERIFIED_LICENSE |
+| Public dataset study (NordicDat) | **PASS** — `public_dataset_source_1` |
+| Domain shift analysis (document) | **EXECUTED** (public dataset subset) |
 | Device shift analysis (document) | AUTOMATION_READY — analytical plan only |
 | Limits document | AUTOMATION_READY |
 | Base adapter interface | AUTOMATION_READY |
+| NordicDat adapter | AUTOMATION_READY — license-gated ingest |
 | Open dataset adapter stub | AUTOMATION_READY — refuses unverified licenses |
 | Tests | AUTOMATION_READY |
 
-**Execution blocked** until authentic sources with verified licenses are registered in `EVIDENCE_SOURCE_REGISTRY.yaml`.
+**Execution:** One authentic public dataset integrated. Physical pilot and full gate remain blocked.
 
 ---
 
@@ -54,7 +56,11 @@ Never imported by generalization adapters as external evidence.
 | File | Role |
 |------|------|
 | EVIDENCE_SOURCE_REGISTRY.yaml | Source metadata + license status |
-| DOMAIN_SHIFT_ANALYSIS.md | Scenario/class shift plan |
+| PUBLIC_DATASET_STUDY.md | NordicDat public generalization study |
+| configs/nordicdat.yaml | Dataset config + schema mapping |
+| adapters/nordicdat/adapter.py | NordicDat adapter |
+| manifests/nordicdat.json | Download checksum manifest |
+| DOMAIN_SHIFT_ANALYSIS.md | Scenario/class shift plan + public execution |
 | DEVICE_SHIFT_ANALYSIS.md | Form-factor shift plan |
 | LIMITS_OF_GENERALIZATION.md | Claim boundaries |
 | adapters/base.py | Interface |

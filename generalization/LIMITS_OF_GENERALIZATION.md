@@ -56,11 +56,24 @@ Baselines are preregistered research policies—not vendor AI-RAN products. Twin
 ## 7. What would strengthen generalization claims (future)
 
 1. Complete eligible Gary matrix with frozen provenance  
-2. Verified open datasets via adapters (`VERIFIED_LICENSE`)  
-3. Domain shift report with pre-specified scenario axes  
+2. Verified open datasets via adapters (`VERIFIED_LICENSE`) — **NordicDat public source 1 PASS (2026-07-24)**  
+3. Domain shift report with pre-specified scenario axes — **public NordicDat report at `datasets/external/transformed/nordicdat/domain_shift_report.json`**  
 4. Device shift with ≥2 physical form factors or validated traces  
 5. External scholarly review of generalization plan  
 6. Explicit **GENERALIZATION_EVIDENCE_PASS** gate review — **not done**
+
+---
+
+## 7a. Public dataset evidence (separate from physical pilot)
+
+| Record | Status | Notes |
+|--------|--------|-------|
+| `public_dataset_source_1` | **PASS** | NordicDat CC BY 4.0 via Zenodo |
+| `remaining_authentic_sources` | **≥ 1** | NTN TR 38.821 reference + pending second source |
+| Physical Gary pilot | **0/54 eligible** | Not conflated with public traces |
+| `GENERALIZATION_EVIDENCE_PASS` | **BLOCKED** | Single public source insufficient |
+
+Public wireless QoS traces **do not** imply Gary pilot generalization. See `PUBLIC_DATASET_STUDY.md`.
 
 ---
 
