@@ -1,69 +1,38 @@
 # Author Reproduction Report
 
-**Status: PASS** (author clean-checkout only)  
-**GATE_5_PASS remains HUMAN_ACTION_REQUIRED** — non-author reproduction not performed.
+**Status: PARTIAL**  
+**GATE_5_PASS = HUMAN_ACTION_REQUIRED**
 
-## Environment
+## Why PARTIAL
 
-| Item | Value |
-|------|-------|
-| Clean clone URL | `https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit.git` |
-| Branch | `cursor/non-physical-application-completion-20260724` |
-| Cloned commit | `c8e0424d75b3fb7dfad66304afb673069d4b1e92` |
-| Temp directory | `/tmp/gunnchos-author-repro-MOqL4P` (ephemeral) |
-| OS | Darwin 25.5.0 (macOS) |
-| Architecture | arm64 |
-| Python | 3.11.2 |
-| Java | OpenJDK 17.0.17 (Corretto) |
-| Gradle / Android | not required for core/paper path |
-| Container | not used (pinned Tectonic binary auto-downloaded to `.tools/`) |
-| Sibling SHAs | from `integration/repo-lock.json` (detached HEAD checkouts) |
-| Wall time | ~25 seconds after clones |
+Required sibling `spectrumx-ai-ran-gary` still has malformed `scikit-learnjsonschema>=4.20` on the locked default-branch SHA (`f7af6c7…`).
 
-## Commands executed
+Coordinated draft fix: https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/pull/97
 
-```bash
-make setup PYTHON=python3 REPOS_ROOT=..
-make verify PYTHON=python3 REPOS_ROOT=..
-make reproduce-core PYTHON=python3 REPOS_ROOT=..
-make reproduce-paper PYTHON=python3 REPOS_ROOT=..
+Field-kit `make setup` no longer suppresses SpectrumX install failures. Until PR #97 is merged by Edmund and `integration/repo-lock.json` is updated to the merged SHA:
+
+```text
+author_clean_checkout = PARTIAL
+make setup = cannot claim genuine PASS against locked SHA
 ```
 
-## Results
+## Prior clean-checkout evidence (superseded for setup PASS)
 
-| Step | Result | Notes |
-|------|--------|-------|
-| setup | PARTIAL | SpectrumX `requirements.txt` has a concatenated token `scikit-learnjsonschema>=4.20` causing pip failure; Makefile continues via `\|\| true`. Core deps installed. |
-| verify | PASS | master status, preregistration, assignments, **101 pytest passed**, repo-lock PASS |
-| reproduce-core | PASS | `GATE2_SYSTEM_PASS` integrated-pipeline; `GATE4_EVALUATION_READY` dry-run |
-| reproduce-paper | PASS | `paper/main.pdf` built (4 pages) via pinned Tectonic 0.16.9 |
+A fresh `/tmp` clone previously passed `make verify`, `make reproduce-core`, and `make reproduce-paper` while SpectrumX install was soft-failed. That soft-fail has been removed; setup PASS must be re-proven after SpectrumX merge.
 
-## Output hashes (author clone)
+## Restart checklist (after Edmund merges SpectrumX PR #97)
 
-| Artifact | SHA-256 |
-|----------|---------|
-| `paper/main.pdf` (rebuilt) | `9c0304b1cf06598b2693e208c998b12b374d7b010ed35c634b43a45ec3a76731` |
-
-### Explained difference vs committed PDF
-
-Committed `paper/main.pdf` SHA may differ due to TeX engine metadata timestamps. Content is methods-identical; difference is **documented**, not a silent failure.
-
-## Fixes required in source?
-
-- Optional follow-up in `spectrumx-ai-ran-gary` requirements typo (out of scope for this field-kit PR unless coordinated).
-- No field-kit blocker for core/paper reproduction.
+1. Update `integration/repo-lock.json` to merged SpectrumX SHA
+2. Completely new clone of field-kit + siblings at lock
+3. `make setup` must return genuine PASS (no suppression)
+4. `make verify && make reproduce-core && make reproduce-paper`
+5. Replace this report with PASS outcome
 
 ## Gate 5 decomposition
 
 ```text
-author_clean_checkout = PASS
-ci_reproduction = AUTOMATION_READY  # workflow present; confirm on PR checks
+author_clean_checkout = PARTIAL
+ci_reproduction = PENDING_GREEN_CHECKS
 non_author_reproduction = HUMAN_ACTION_REQUIRED
 GATE_5_PASS = HUMAN_ACTION_REQUIRED
 ```
-
-## Integrity
-
-- Reproduction performed outside the development working tree.
-- No physical pilot data used.
-- No non-author identity claimed.

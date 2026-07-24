@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T15:10:17Z",
+  "generated_at": "2026-07-24T15:53:39Z",
   "overall_automated_pipeline": "PASS",
   "application_complete": false,
   "automated_passes": [
@@ -59,7 +59,7 @@
       "command": "/usr/local/bin/python3 scripts/validate_preregistration.py",
       "returncode": 0,
       "ok": true,
-      "stdout_tail": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"primary_outcome\": \"recovery_time_s\",\n  \"lock_sha256\": \"bcf035b67e88f4fcc25284b5dab3d53101ae7a38e65e00703f8ff7e37c0290f9\",\n  \"inspection_of_complete_pilot_results\": false\n}\n",
+      "stdout_tail": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"primary_outcome\": \"total_service_outage_time_s\",\n  \"lock_sha256\": \"d8a09e55f644edf72510f343448a352df3223cf537333391a597f06f58caf726\",\n  \"inspection_of_complete_pilot_results\": false\n}\n",
       "stderr_tail": "",
       "category": "automated"
     },
@@ -104,7 +104,7 @@
       "command": "/usr/local/bin/python3 -m pytest -q tests",
       "returncode": 0,
       "ok": true,
-      "stdout_tail": "........................................................................ [ 71%]\n.............................                                            [100%]\n101 passed in 0.90s\n",
+      "stdout_tail": "........................................................................ [ 68%]\n.................................                                        [100%]\n105 passed in 0.90s\n",
       "stderr_tail": "",
       "category": "automated"
     },
@@ -113,7 +113,7 @@
       "command": "/usr/local/bin/python3 scripts/run_gate4_evaluation.py --repos-root .. --output-root results/gate4 --dry-run --strict",
       "returncode": 0,
       "ok": true,
-      "stdout_tail": "{\n  \"ok\": true,\n  \"run_dir\": \"results/gate4/gate4-run-20260724T151019Z\",\n  \"gate4_status\": \"GATE4_EVALUATION_READY\",\n  \"evaluation_label\": \"infrastructure_validation_only\",\n  \"inference_label\": \"insufficient_sample_size_for_inference\",\n  \"sample_count\": 6,\n  \"report\": \"results/gate4/gate4-run-20260724T151019Z/reports/GATE4_EVALUATION_REPORT.md\",\n  \"report_schema\": \"gunnchos.gate4_evaluation_report\"\n}\n",
+      "stdout_tail": "{\n  \"ok\": true,\n  \"run_dir\": \"results/gate4/gate4-run-20260724T155341Z\",\n  \"gate4_status\": \"GATE4_EVALUATION_READY\",\n  \"evaluation_label\": \"infrastructure_validation_only\",\n  \"inference_label\": \"insufficient_sample_size_for_inference\",\n  \"sample_count\": 6,\n  \"report\": \"results/gate4/gate4-run-20260724T155341Z/reports/GATE4_EVALUATION_REPORT.md\",\n  \"report_schema\": \"gunnchos.gate4_evaluation_report\"\n}\n",
       "stderr_tail": "",
       "category": "automated"
     },

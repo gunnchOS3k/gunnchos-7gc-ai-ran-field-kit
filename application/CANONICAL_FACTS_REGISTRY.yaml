@@ -1,8 +1,8 @@
 # Canonical Facts Registry
 
 schema_name: gunnchos.canonical_facts_registry
-schema_version: "1.0.0"
-generated_at: "2026-07-24T15:05:00Z"
+schema_version: "1.1.0"
+generated_at: "2026-07-24T15:51:57Z"
 policy: "Do not invent personal facts. Unknown fields remain HUMAN_ACTION_REQUIRED."
 
 author:
@@ -10,83 +10,100 @@ author:
   public_handle: "gunnchOS3k"
   institutional_affiliation_claimed: false
 
+education:
+  - degree: "BSc Computer Information Technology"
+    institution: "Purdue University"
+    degree_date: "2021-12-18"
+    status: ESTABLISHED_USER_PROVIDED
+  - degree: "MSc Computer Engineering"
+    institution: "New York University Tandon School of Engineering"
+    degree_date: "2026-05-14"
+    status: ESTABLISHED_USER_PROVIDED
+
+employment:
+  - title: "Founder & CEO / Research Lead"
+    organization: "gunnchOS3k MLV"
+    dates: "2022–Present"
+    status: ESTABLISHED_USER_PROVIDED
+  - title: "Infrastructure & Network Security Engineer / Network Threat Security Engineer"
+    organization: "Humana"
+    dates: "2021–2024"
+    status: ESTABLISHED_USER_PROVIDED
+
+referees:
+  - name: "Dr. Sundeep Rangan"
+    role: "Director, NYU WIRELESS"
+    institution: "New York University"
+    email: "srangan@nyu.edu"
+    relationship: "taught Edmund’s wireless communications course"
+    status: ESTABLISHED_USER_PROVIDED
+  - name: "Dr. Vanessa Allen-McCloud"
+    role: "President & CEO"
+    institution: "Urban League of Northwest Indiana"
+    email: "vallen@ulofnwi.com"
+    relationship: "collaborated with Edmund on community technology education"
+    status: ESTABLISHED_USER_PROVIDED
+  - name: "Dr. Dawn Laux"
+    role: "Assistant Dean of Academic Programs, Professor of Practice, and Division Head"
+    institution: "Purdue University"
+    email: "dlaux@purdue.edu"
+    relationship: "instrumental in Edmund’s undergraduate education and development"
+    status: ESTABLISHED_USER_PROVIDED
+
+awards_verification_required:
+  - "Qualcomm Edge AI Hackathon — Judge’s First Place and People’s Choice"
+  - "NASA Space Apps NYC — Best Use of Google Gemini"
+  - "Purdue University Dean’s List"
+  - "Lean Six Sigma Green Belt"
+
 verified_facts:
   - id: AUTHOR_NAME
     value: "Edmund Gunn Jr."
-    source: "CITATION.cff, application packet headers"
     status: VERIFIED
   - id: THESIS_TITLE
     value: "Resilience-Aware, Human-Centric AI-RAN Orchestration for Service Continuity Across Terrestrial and Non-Terrestrial Networks"
-    source: "GATE1_LOCKED_RESEARCH_THESIS.md"
     status: VERIFIED
   - id: GATE3_ELIGIBLE_SESSIONS
     value: "0/54"
-    source: "research-application-control/MASTER_STATUS.json"
-    status: VERIFIED
-  - id: PR8_MERGE
-    value: "merged to master at 5e85190ee17540933af93eda759dd1e809710edf (2026-07-24T01:56:56Z)"
-    source: "research-application-control/reports/POST_MERGE_AUTOMATION_BASELINE.md"
     status: VERIFIED
   - id: DOI_STATUS
     value: "DOI_PENDING"
-    source: "release/ZENODO_METADATA.json"
     status: VERIFIED
-  - id: MS_PROGRAM_NYU
-    value: "MS Computer Engineering, NYU Tandon (program named in ACADEMIC_CV_AUDIT.md)"
-    source: "application/ACADEMIC_CV_AUDIT.md"
-    status: PARTIAL — degree claimed in audit; transcript not attached
+  - id: BSC_PURDUE
+    value: "BSc Computer Information Technology, Purdue University, 2021-12-18"
+    status: ESTABLISHED_USER_PROVIDED
+  - id: MSC_NYU
+    value: "MSc Computer Engineering, NYU Tandon, 2026-05-14"
+    status: ESTABLISHED_USER_PROVIDED
+  - id: EMPLOYMENT_GUNNCHOS
+    value: "Founder & CEO / Research Lead, gunnchOS3k MLV, 2022–Present"
+    status: ESTABLISHED_USER_PROVIDED
+  - id: EMPLOYMENT_HUMANA
+    value: "Infrastructure & Network Security Engineer / Network Threat Security Engineer, Humana, 2021–2024"
+    status: ESTABLISHED_USER_PROVIDED
 
 human_action_required:
-  - id: MS_GRADUATION_DATE
-    field: "MS Computer Engineering graduation date (NYU Tandon)"
-    reason: "Not recorded in repo; required for eligibility CV"
-  - id: PRIOR_DEGREES
-    field: "Prior degree names, institutions, graduation dates"
-    reason: "Listed as HUMAN_ACTION_REQUIRED in ACADEMIC_CV_AUDIT.md"
+  - id: OFFICIAL_TRANSCRIPTS
+    field: "Official transcripts for Purdue BSc and NYU MSc"
   - id: ENGLISH_PROFICIENCY
     field: "TOEFL/IELTS scores or official exemption documentation"
-    reason: "ELIGIBILITY_AND_DOCUMENT_CHECKLIST.md"
-  - id: PUBLICATION_IEEE_DRAFT
-    field: "IEEE conference draft — submission/acceptance status, venue, date"
-    reason: "ACADEMIC_CV_AUDIT.md — verify before listing"
-  - id: PUBLICATION_SPECTRUMX
-    field: "SpectrumX competition entry — year, outcome, co-authors"
-    reason: "ACADEMIC_CV_AUDIT.md"
-  - id: AWARDS
-    field: "Any awards — verify each before listing"
-    reason: "ACADEMIC_CV_AUDIT.md"
-  - id: EMPLOYMENT_HISTORY
-    field: "Systems/software roles — exact dates and titles"
-    reason: "ACADEMIC_CV_AUDIT.md"
+  - id: PROGRAM_FUNDING_CONFIRMATION
+    field: "Program-specific funding confirmation"
+  - id: SUPERVISOR_COMMITMENT
+    field: "Confirmed supervisor (fit memos only; no commitment claimed)"
+  - id: PAPER_SUBMISSION
+    field: "Paper submission receipt (none claimed)"
+  - id: DOI_ISSUANCE
+    field: "Active DOI (DOI_PENDING)"
+  - id: EXTERNAL_REVIEWS
+    field: "Completed external scholarly reviews"
   - id: PILOT_ZONE_IDS
-    field: "Zone identifiers (currently PENDING_ZONE_* placeholders)"
-    reason: "application/RESEARCH_PLAN_6_PAGE.md, pilot/configs/zones_and_days.yaml"
+    field: "Zone identifiers (PENDING_ZONE_*)"
   - id: PILOT_COLLECTION_DATES
-    field: "Day 1–3 collection dates (currently PENDING_DATE_* placeholders)"
-    reason: "pilot/configs/zones_and_days.yaml"
+    field: "Day 1–3 collection dates (PENDING_DATE_*)"
   - id: NETWORK_DEGRADATION_PARAMS
     field: "Frozen degradation parameters with dry-run attestation"
-    reason: "PROVENANCE_AND_PROTOCOL_FROZEN gate unmet"
-  - id: REFEREE_1
-    field: "Referee 1 name, email, relationship (PENDING_REFEREE_1)"
-    reason: "application/REFEREE_PACKET_CHECKLIST.md"
-  - id: REFEREE_2
-    field: "Referee 2 name, email, relationship (PENDING_REFEREE_2)"
-    reason: "application/REFEREE_PACKET_CHECKLIST.md"
-  - id: FUNDING_PLAN
-    field: "Program-specific funding plan details"
-    reason: "application/ELIGIBILITY_AND_DOCUMENT_CHECKLIST.md"
-  - id: SUPERVISOR_COMMITMENT
-    field: "Confirmed supervisor (none claimed; fit memos only)"
-    reason: "application/SUPERVISION_PLAN.md"
-  - id: MOCK_DEFENSE_SCORES
-    field: "Mock defense rubric scores and examiner names"
-    reason: "defense/MOCK_DEFENSE_SCORECARD.md — must not be prefilled"
-
-prohibited_inventions:
-  - faculty endorsements
-  - issued DOI
-  - external reviewer identities or scores
-  - non-author reproduction attestation
-  - Gate 3 or Gate 4 PASS
-  - GENERALIZATION_EVIDENCE_PASS
+  - id: AWARDS_VERIFICATION
+    field: "Verify each award listing before CV publication"
+  - id: MOCK_DEFENSE
+    field: "Scored mock defense"

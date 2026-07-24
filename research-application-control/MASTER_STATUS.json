@@ -1,7 +1,7 @@
 {
   "schema_name": "gunnchos.research_application_master_status",
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-24T15:10:17Z",
+  "generated_at": "2026-07-24T15:52:43Z",
   "overall_automated_pipeline": "PASS_IF_COMMANDS_GREEN",
   "application_complete": false,
   "eligible_pilot_sessions": 0,
@@ -96,24 +96,24 @@
       "last_checked": "2026-07-24T15:05:00Z"
     },
     "EVALUATION_PREREGISTERED": {
-      "status": "PASS",
+      "status": "AUTOMATION_READY",
       "evidence": [
-        "evaluation/EVALUATION_PREREGISTRATION.md",
         "evaluation/PRIMARY_OUTCOME_LOCK.json",
-        "evaluation/preregistration-lock.sha256",
-        "evaluation/PREREGISTRATION_FREEZE_REPORT.md",
+        "evaluation/EVALUATION_PREREGISTRATION.md",
         "evaluation/PREREGISTRATION_MANIFEST.json",
-        "evaluation/PREREGISTRATION_CHECKSUMS.sha256",
+        "evaluation/amendments/amendment_001/AMENDMENT_RECORD.md",
         "scripts/compute_recovery_time.py"
       ],
       "acceptance_commands": [
         "python3 scripts/validate_preregistration.py"
       ],
-      "unmet": [],
+      "unmet": [
+        "Edmund final approval of amendment_001 before physical collection"
+      ],
       "owner": "automation",
-      "next_action": "Do not inspect complete Gate 3 outcomes before human freeze attestation at collection end",
-      "action_type": "automated",
-      "last_checked": "2026-07-24T15:05:00Z"
+      "next_action": "Approve amended primary outcome total_service_outage_time_s",
+      "action_type": "human",
+      "last_checked": "2026-07-24T15:52:43Z"
     },
     "GATE_4_PASS": {
       "status": "BLOCKED",
@@ -137,23 +137,24 @@
       "status": "HUMAN_ACTION_REQUIRED",
       "evidence": [
         "AUTHOR_REPRODUCTION_REPORT.md",
-        "REPRODUCIBILITY.md",
-        ".github/workflows/application-readiness.yml"
+        "REPRODUCIBILITY.md"
       ],
       "acceptance_commands": [
         "make reproduce-core",
         "make verify"
       ],
-      "author_clean_checkout": "PASS",
-      "ci_reproduction": "AUTOMATION_READY",
+      "author_clean_checkout": "PARTIAL",
+      "ci_reproduction": "PENDING_GREEN_CHECKS",
       "non_author": "HUMAN_ACTION_REQUIRED",
       "unmet": [
+        "SpectrumX requirements fix merged (PR #97) and repo-lock refreshed",
+        "Fresh author clone with make setup genuine PASS",
         "Independent non-author reproduction"
       ],
       "owner": "Edmund + external non-author",
-      "next_action": "Recruit non-author to complete NON_AUTHOR_REPRODUCTION_TEMPLATE.md",
+      "next_action": "Merge SpectrumX PR #97, update repo-lock, restart author clean-checkout",
       "action_type": "human",
-      "last_checked": "2026-07-24T15:10:17Z",
+      "last_checked": "2026-07-24T15:52:43Z",
       "non_author_reproduction": "HUMAN_ACTION_REQUIRED"
     },
     "GATE_6_PASS": {
@@ -264,29 +265,26 @@
     "APPLICATION_PACKET_READY": {
       "status": "HUMAN_ACTION_REQUIRED",
       "evidence": [
-        "application/MASTER_APPLICATION_INDEX.md",
-        "application/APPLICATION_PACKET_STATUS.md",
         "application/CANONICAL_FACTS_REGISTRY.yaml",
-        "application/MATERIAL_PLACEHOLDER_REPORT.md",
-        "application/FINAL_CLAIMS_AUDIT.md",
-        "application/CROSS_DOCUMENT_CONSISTENCY_REPORT.md"
+        "application/MATERIAL_PLACEHOLDER_REPORT.md"
       ],
       "acceptance_commands": [
         "make application-readiness"
       ],
       "unmet": [
-        "PENDING_ZONE_* and PENDING_DATE_* pilot placeholders",
-        "MS and prior degree transcripts",
-        "English proficiency documentation",
-        "Verified publications and employment history",
-        "PENDING_REFEREE_1 and PENDING_REFEREE_2",
-        "Funding plan details",
-        "PILOT_DESIGN_APPROVAL.md signature"
+        "Official transcripts",
+        "English proficiency/exemption",
+        "Funding confirmation",
+        "Supervisor commitment",
+        "DOI",
+        "Paper submission",
+        "External reviews",
+        "Pilot design freeze"
       ],
       "owner": "Edmund",
       "next_action": "Resolve material placeholders listed in MATERIAL_PLACEHOLDER_REPORT.md",
       "action_type": "human",
-      "last_checked": "2026-07-24T15:05:00Z"
+      "last_checked": "2026-07-24T15:52:43Z"
     }
   },
   "integrity": {

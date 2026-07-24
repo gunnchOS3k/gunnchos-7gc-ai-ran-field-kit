@@ -112,3 +112,16 @@ Each CV line item must map to: (a) verifiable document, (b) status PASS / pendin
 ---
 
 *Maintainer: Edmund Gunn Jr. — update after each gate milestone.*
+
+
+## Established biographical facts (user-provided 2026-07-24)
+
+| Item | Value | Status |
+|------|-------|--------|
+| BSc | Computer Information Technology, Purdue University, 2021-12-18 | ESTABLISHED |
+| MSc | Computer Engineering, NYU Tandon, 2026-05-14 | ESTABLISHED |
+| Employment | Founder & CEO / Research Lead, gunnchOS3k MLV, 2022–Present | ESTABLISHED |
+| Employment | Infrastructure & Network Security Engineer / Network Threat Security Engineer, Humana, 2021–2024 | ESTABLISHED |
+| Awards | Qualcomm Edge AI Hackathon (Judge’s First + People’s Choice); NASA Space Apps NYC (Best Use of Google Gemini); Purdue Dean’s List; Lean Six Sigma Green Belt | VERIFICATION_REQUIRED before public listing |
+
+Do not list manuscripts as accepted/published without evidence. DOI remains DOI_PENDING.
