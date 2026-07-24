@@ -1,0 +1,33 @@
+# Public coarse labels only. Identifying details stay in untracked private config.
+# Exact dates: HUMAN_ACTION_REQUIRED — do not invent.
+
+protocol_version: gate3-pilot-v1
+zones:
+  zone_a:
+    category: PENDING_USER_APPROVAL  # must be one of allowed location_category enums
+    public_label: zone_a
+    identifying_details: private-config-only
+  zone_b:
+    category: PENDING_USER_APPROVAL
+    public_label: zone_b
+    identifying_details: private-config-only
+  zone_c:
+    category: PENDING_USER_APPROVAL
+    public_label: zone_c
+    identifying_details: private-config-only
+
+conditions:
+  - PENDING_USER_APPROVAL_1  # e.g. wifi_normal
+  - PENDING_USER_APPROVAL_2  # e.g. wifi_degraded
+
+days:
+  - slot: day_01
+    date: PENDING_USER_DATE_1
+  - slot: day_02
+    date: PENDING_USER_DATE_2
+  - slot: day_03
+    date: PENDING_USER_DATE_3
+
+workloads: [learn, create, sense]
+planned_duration_seconds: 300
+session_mode: PILOT
