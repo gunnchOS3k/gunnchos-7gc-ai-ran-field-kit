@@ -1,0 +1,27 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Sparse, degraded, and disrupted connectivity remains a practical barrier to service continuity for learning, creation, and sensing workloads in under-connected communities.
+IMT-2030-aligned research explores AI-native air interfaces, open RAN disaggregation, and multi-access resilience including non-terrestrial network (NTN) fallback~\cite{itu_m2160,saad2020vision,strinati20216g}.
+Operational claims about carrier-grade AI-RAN or deployable 6G infrastructure are outside the scope of this artifact.
+
+This paper documents the \emph{methods-ready} umbrella repository \texttt{gunnchos-7gc-ai-ran-field-kit}, which locks a doctoral thesis hypothesis and three research questions (RQ1--RQ3) in Gate~1, provides executable contracts and orchestration in Gate~2, defines controlled evidence collection in Gate~3, and preregisters scientific evaluation in Gate~4.
+We separate engineering completion from release evidence: Gate~2 system pass does not imply immutable archive, DOI deposit, or non-author reproduction.
+
+\subsection{Central hypothesis}
+A privacy-preserving orchestration architecture that combines physical device measurements, workload and service intent, digital-twin context, and terrestrial, local-edge, and NTN state can improve service continuity and worst-user quality of experience under sparse connectivity when compared with static, network-only, and service-priority baselines, while maintaining explicit fairness, energy, privacy, and reliability constraints.
+
+\subsection{Research questions}
+\textbf{RQ1 (Trustworthy context):} How can privacy-preserving Edge-IO measurements be transformed into reproducible digital-twin state without direct identifiers?
+\textbf{RQ2 (Human-centric orchestration):} To what extent does twin-informed AI-RAN orchestration improve continuity and worst-user QoE versus defined baselines?
+\textbf{RQ3 (Multi-access resilience):} Under which outage, latency, and privacy conditions do terrestrial, offline, and NTN fallback policies help or fail?
+
+\subsection{Contributions (methods only)}
+\begin{itemize}
+  \item Canonical cross-repository JSON Schema contracts and provenance for Edge-IO $\rightarrow$ twin $\rightarrow$ AI-RAN $\rightarrow$ NTN resilience paths.
+  \item A preregistered statistical analysis plan with locked primary outcome \texttt{recovery\_time\_s} and baseline registries frozen before authentic pilot inspection.
+  \item A 54-cell pilot design matrix with explicit consent, privacy scan, and session-mode rules separating calibration, rehearsal, and eligible pilot sessions.
+  \item Honest claim boundaries: synthetic Gate~4 infrastructure results are labeled separately from pending Gate~3 field evidence.
+\end{itemize}
+
+Outcome tables and effect sizes are withheld until authentic Gate~3 pilot data exist (\textbf{RESULTS\_PENDING\_AUTHENTIC\_GATE3\_DATA}).

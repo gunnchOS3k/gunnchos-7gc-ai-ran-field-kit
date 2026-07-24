@@ -1,0 +1,26 @@
+\section{Evaluation Design and Statistical Plan}
+\label{sec:evaluation}
+
+\subsection{Primary claim and outcome}
+The preregistered primary claim states that twin-informed service-aware orchestration reduces service outage or recovery time relative to static, network-only, and service-priority policies under defined degraded connectivity, subject to energy, fairness, privacy, and reliability constraints.
+The locked primary outcome is \texttt{recovery\_time\_s} (SHA-256 lock in \texttt{evaluation/PRIMARY\_OUTCOME\_LOCK.json}).
+
+\subsection{Baselines}
+AI-RAN baselines: \texttt{static\_uniform}, \texttt{network\_only}, \texttt{service\_priority}, \texttt{optimization\_based}, and proposed \texttt{twin\_informed}.
+Resilience baselines include \texttt{terrestrial\_only}, \texttt{terrestrial\_then\_offline}, \texttt{always\_ntn\_on\_terrestrial\_failure}, \texttt{priority\_class\_fallback}, \texttt{service\_aware\_multi\_access}, and analysis-only \texttt{oracle\_hindsight}.
+Registries: \texttt{evaluation/BASELINE\_REGISTRY.yaml}, \texttt{evaluation/ABLATION\_REGISTRY.yaml}, \texttt{evaluation/HOLDOUT\_REGISTRY.yaml}.
+
+\subsection{Holdouts and ablations}
+Leave-one-out splits by day, zone, network condition, and workload profile are pre-defined under \texttt{evaluation/splits/} and Gate~4 run artifacts.
+A stress-scenario holdout JSON specifies scenarios excluded from primary fitting.
+Split leakage checks and duplicate detection are mandatory before any primary-outcome inference.
+
+\subsection{Statistical safeguards}
+Analysis follows \texttt{evaluation/STATISTICAL\_ANALYSIS\_PLAN.md}:
+grouped summaries by day and zone; confidence intervals and effect sizes; practical significance thresholds from \texttt{PRACTICAL\_SIGNIFICANCE\_THRESHOLDS.yaml}; missing-data and protocol-deviation audits; cluster-aware treatment of repeated measures.
+The 54 sessions are \emph{not} treated as 54 independent participants.
+
+\subsection{Synthetic Gate~4 infrastructure}
+Gate~4 automation demonstrates evaluation plumbing on synthetic or fixture-backed inputs.
+Those runs are labeled \texttt{GATE4\_EVALUATION\_READY} infrastructure, not authentic pilot completion.
+No numeric results from Gate~4 are imported into this methods manuscript.

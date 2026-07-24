@@ -1,0 +1,38 @@
+{
+  "schema_name": "gunnchos.release_artifact_manifest",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-07-24T00:00:00Z",
+  "repository": "gunnchos-7gc-ai-ran-field-kit",
+  "branch": "cursor/phd-application-completion-20260724",
+  "doi_status": "DOI_PENDING",
+  "pilot_matrix_status": "0/54",
+  "results_status": "RESULTS_PENDING_AUTHENTIC_GATE3_DATA",
+  "artifacts": [
+    {"path": "CITATION.cff", "kind": "citation", "public": true},
+    {"path": "GATE1_LOCKED_RESEARCH_THESIS.md", "kind": "thesis_lock", "public": true},
+    {"path": "requirements.txt", "kind": "environment", "public": true},
+    {"path": "Makefile", "kind": "build", "public": true},
+    {"path": "contracts", "kind": "schemas", "public": true},
+    {"path": "fixtures/valid", "kind": "fixtures", "public": true},
+    {"path": "scripts/run_integrated_pipeline.py", "kind": "orchestration", "public": true},
+    {"path": "scripts/validate_gate1_thesis.py", "kind": "validation", "public": true},
+    {"path": "paper/main.tex", "kind": "manuscript", "public": true},
+    {"path": "paper/references.bib", "kind": "bibliography", "public": true},
+    {"path": "paper/README.md", "kind": "documentation", "public": true},
+    {"path": "evaluation/PRIMARY_OUTCOME_LOCK.json", "kind": "preregistration", "public": true},
+    {"path": "evaluation/EVALUATION_PREREGISTRATION.md", "kind": "preregistration", "public": true},
+    {"path": "pilot/54_CELL_ASSIGNMENT_MATRIX.csv", "kind": "pilot_design", "public": true},
+    {"path": "pilot/PILOT_PROTOCOL_v1.md", "kind": "pilot_protocol", "public": true},
+    {"path": "release/ARTIFACT_MANIFEST.json", "kind": "release_meta", "public": true},
+    {"path": "release/CLAIM_BOUNDARIES.md", "kind": "release_meta", "public": true},
+    {"path": "release/RELEASE_CHECKLIST.md", "kind": "release_meta", "public": true},
+    {"path": "REPRODUCIBILITY.md", "kind": "reproducibility", "public": true},
+    {"path": "ENVIRONMENT.md", "kind": "reproducibility", "public": true},
+    {"path": "datasets/controlled/DATASET_CARD.md", "kind": "dataset_card", "public": true}
+  ],
+  "excluded_private": [
+    "datasets/controlled/raw-private/**",
+    "datasets/controlled/raw/**",
+    "results/calibration/**/sanitized_*.json"
+  ]
+}
