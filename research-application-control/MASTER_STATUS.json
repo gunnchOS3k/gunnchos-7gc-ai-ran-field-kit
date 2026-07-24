@@ -1,7 +1,7 @@
 {
   "schema_name": "gunnchos.research_application_master_status",
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-24T15:06:57Z",
+  "generated_at": "2026-07-24T15:10:17Z",
   "overall_automated_pipeline": "PASS_IF_COMMANDS_GREEN",
   "application_complete": false,
   "eligible_pilot_sessions": 0,
@@ -136,23 +136,25 @@
     "GATE_5_PASS": {
       "status": "HUMAN_ACTION_REQUIRED",
       "evidence": [
-        "REPRODUCIBILITY.md"
+        "AUTHOR_REPRODUCTION_REPORT.md",
+        "REPRODUCIBILITY.md",
+        ".github/workflows/application-readiness.yml"
       ],
       "acceptance_commands": [
         "make reproduce-core",
         "make verify"
       ],
-      "author_clean_checkout": "PENDING",
+      "author_clean_checkout": "PASS",
       "ci_reproduction": "AUTOMATION_READY",
       "non_author": "HUMAN_ACTION_REQUIRED",
       "unmet": [
-        "Author clean-checkout report",
         "Independent non-author reproduction"
       ],
       "owner": "Edmund + external non-author",
-      "next_action": "Author clean-checkout then recruit non-author",
+      "next_action": "Recruit non-author to complete NON_AUTHOR_REPRODUCTION_TEMPLATE.md",
       "action_type": "human",
-      "last_checked": "2026-07-24T15:05:00Z"
+      "last_checked": "2026-07-24T15:10:17Z",
+      "non_author_reproduction": "HUMAN_ACTION_REQUIRED"
     },
     "GATE_6_PASS": {
       "status": "EXTERNAL_DEPENDENCY",
