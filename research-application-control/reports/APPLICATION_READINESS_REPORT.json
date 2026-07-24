@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-07-24T01:48:11Z",
+  "overall_automated_pipeline": "PASS",
+  "application_complete": false,
+  "automated_passes": [
+    "validate_master_status",
+    "validate_preregistration",
+    "validate_pilot_assignments",
+    "validate_application_packet",
+    "validate_gate1",
+    "verify_repo_lock",
+    "pytest_unit",
+    "gate4_evaluation_ready",
+    "integrated_pipeline"
+  ],
+  "automated_failures": [],
+  "human_actions": [
+    {
+      "label": "GATE_3_physical_collection",
+      "category": "human",
+      "ok": null,
+      "status": "HUMAN_ACTION_REQUIRED",
+      "note": "0/54 eligible PILOT sessions"
+    },
+    {
+      "label": "non_author_reproduction",
+      "category": "external",
+      "ok": null,
+      "status": "EXTERNAL_DEPENDENCY",
+      "note": "Requires independent human"
+    },
+    {
+      "label": "faculty_supervision_commitment",
+      "category": "external",
+      "ok": null,
+      "status": "EXTERNAL_DEPENDENCY",
+      "note": "No fabricated endorsement"
+    },
+    {
+      "label": "doi_deposit",
+      "category": "external",
+      "ok": null,
+      "status": "EXTERNAL_DEPENDENCY",
+      "note": "DOI_PENDING"
+    }
+  ],
+  "checks": [
+    {
+      "label": "validate_master_status",
+      "command": "/usr/local/bin/python3 scripts/validate_master_status.py",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"warnings\": [],\n  \"gates\": [\n    \"GATE_1_PASS\",\n    \"GATE2_SYSTEM_PASS\",\n    \"PROVENANCE_AND_PROTOCOL_FROZEN\",\n    \"PILOT_DESIGN_APPROVED\",\n    \"GATE_3_PASS\",\n    \"EVALUATION_PREREGISTERED\",\n    \"GATE_4_PASS\",\n    \"GATE_5_PASS\",\n    \"GATE_6_PASS\",\n    \"GATE_7_PASS\",\n    \"GENERALIZATION_EVIDENCE_PASS\",\n    \"EXTERNAL_SCHOLARLY_REVIEW_PASS\",\n    \"TECHNICAL_DEFENSE_READY\",\n    \"PORTFOLIO_REVIEW_READY\",\n    \"APPLICATION_PACKET_READY\"\n  ]\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "validate_preregistration",
+      "command": "/usr/local/bin/python3 scripts/validate_preregistration.py",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"primary_outcome\": \"recovery_time_s\",\n  \"lock_sha256\": \"43a441f312e69fcb64c5e094aa740874acfa19c63b86fce01b03e5ed1ceedc55\",\n  \"inspection_of_complete_pilot_results\": false\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "validate_pilot_assignments",
+      "command": "/usr/local/bin/python3 scripts/validate_pilot_assignments.py",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"n\": 54,\n  \"unique_keys\": 54,\n  \"pending_design_tokens\": 54,\n  \"design_approved\": false,\n  \"matrix\": \"pilot/54_CELL_ASSIGNMENT_MATRIX.csv\"\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "validate_application_packet",
+      "command": "/usr/local/bin/python3 scripts/validate_application_packet.py",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"warnings\": [],\n  \"required_count\": 15,\n  \"present_count\": 15\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "validate_gate1",
+      "command": "/usr/local/bin/python3 scripts/validate_gate1_thesis.py",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"ok\": true,\n  \"gate1_status\": \"GATE_1_PASS\",\n  \"title\": \"Resilience-Aware, Human-Centric AI-RAN Orchestration for Service Continuity Across Terrestrial and Non-Terrestrial Networks\",\n  \"research_question_count\": 3,\n  \"paper_count\": 3,\n  \"repository_count\": 6,\n  \"errors\": []\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "verify_repo_lock",
+      "command": "/usr/local/bin/python3 scripts/verify_repo_lock.py --allow-dirty --repos-root ..",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "c-ai-ran-field-kit/integration/repo-lock.json\",\n  \"locked_at\": \"2026-07-24T01:35:57Z\",\n  \"mode\": \"post_merge_pilot_mode\",\n  \"failures\": [],\n  \"components\": [\n    {\n      \"repository\": \"edge-io-measurement-node\",\n      \"path\": \"../edge-io-measurement-node\",\n      \"branch\": \"main\",\n      \"required\": true,\n      \"expected_commit\": \"3b42a7c82a7a785cde85e0dbda9ed864f348d447\",\n      \"actual_commit\": \"3b42a7c82a7a785cde85e0dbda9ed864f348d447\",\n      \"match\": true,\n      \"present\": true,\n      \"dirty\": false\n    },\n    {\n      \"repository\": \"7gc-digital-twin\",\n      \"path\": \"../7gc-digital-twin\",\n      \"branch\": \"main\",\n      \"required\": true,\n      \"expected_commit\": \"fcc9b11df3be2205efc501e724745b6947563be7\",\n      \"actual_commit\": \"fcc9b11df3be2205efc501e724745b6947563be7\",\n      \"match\": true,\n      \"present\": true,\n      \"dirty\": false\n    },\n    {\n      \"repository\": \"spectrumx-ai-ran-gary\",\n      \"path\": \"../spectrumx-ai-ran-gary\",\n      \"branch\": \"main\",\n      \"required\": true,\n      \"expected_commit\": \"f7af6c7f7541360e07402f6927794116a1684d32\",\n      \"actual_commit\": \"f7af6c7f7541360e07402f6927794116a1684d32\",\n      \"match\": true,\n      \"present\": true,\n      \"dirty\": false\n    },\n    {\n      \"repository\": \"ntn-resilience-sim\",\n      \"path\": \"../ntn-resilience-sim\",\n      \"branch\": \"main\",\n      \"required\": true,\n      \"expected_commit\": \"2403456d03d5eba6e4f56c0fd9e18e141ed2761a\",\n      \"actual_commit\": \"2403456d03d5eba6e4f56c0fd9e18e141ed2761a\",\n      \"match\": true,\n      \"present\": true,\n      \"dirty\": false\n    },\n    {\n      \"repository\": \"readygary-6g-beam-selection\",\n      \"path\": \"../readygary-6g-beam-selection\",\n      \"branch\": \"main\",\n      \"required\": false,\n      \"expected_commit\": \"525405cb19d7987ad218272f5897d4917c10dd75\",\n      \"actual_commit\": \"525405cb19d7987ad218272f5897d4917c10dd75\",\n      \"match\": true,\n      \"present\": true,\n      \"dirty\": false\n    }\n  ],\n  \"notes\": \"This command never silently rewrites the lock file.\",\n  \"allow_dirty\": true\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "pytest_unit",
+      "command": "/usr/local/bin/python3 -m pytest -q tests",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "........................................................................ [ 76%]\n......................                                                   [100%]\n94 passed in 0.89s\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "gate4_evaluation_ready",
+      "command": "/usr/local/bin/python3 scripts/run_gate4_evaluation.py --repos-root .. --output-root results/gate4 --dry-run --strict",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\n  \"ok\": true,\n  \"run_dir\": \"results/gate4/gate4-run-20260724T014813Z\",\n  \"gate4_status\": \"GATE4_EVALUATION_READY\",\n  \"evaluation_label\": \"infrastructure_validation_only\",\n  \"inference_label\": \"insufficient_sample_size_for_inference\",\n  \"sample_count\": 6,\n  \"report\": \"results/gate4/gate4-run-20260724T014813Z/reports/GATE4_EVALUATION_REPORT.md\",\n  \"report_schema\": \"gunnchos.gate4_evaluation_report\"\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    },
+    {
+      "label": "integrated_pipeline",
+      "command": "make integrated-pipeline REPOS_ROOT=.. PYTHON=/usr/local/bin/python3",
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "/usr/local/bin/python3 scripts/run_integrated_pipeline.py \\\n\t\t--edge-input fixtures/valid/edge_measurement_batch.valid.json \\\n\t\t--repos-root .. \\\n\t\t--output-root results/integrated \\\n\t\t--strict\n{\n  \"ok\": true,\n  \"run_id\": \"2026-07-22-synthetic-gary-learn-001\",\n  \"output_dir\": \"/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001\",\n  \"gate2_status\": \"GATE2_SYSTEM_PASS\",\n  \"selected_airan_policy\": \"twin_informed\",\n  \"selected_resilience_mode\": \"terrestrial\",\n  \"evidence_level\": \"synthetic\"\n}\n",
+      "stderr_tail": "",
+      "category": "automated"
+    }
+  ],
+  "integrity": {
+    "synthetic_data_used_for_infra_tests": true,
+    "synthetic_locations": [
+      "tests/fixtures/",
+      "fixtures/valid/",
+      "examples/synthetic/ (if present)"
+    ],
+    "physical_evidence_created_this_run": false,
+    "external_approval_claimed": false,
+    "doi_claimed": false,
+    "paper_submission_claimed": false,
+    "raw_private_protected": true
+  }
+}

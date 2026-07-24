@@ -1,0 +1,54 @@
+# Evidence Source Registry — Generalization Adapters
+# Status: no VERIFIED_LICENSE sources as of 2026-07-24
+# GENERALIZATION_EVIDENCE_PASS: NOT CLAIMED
+
+schema_version: "1.0.0"
+updated: "2026-07-24"
+policy:
+  synthetic_paths_allowed:
+    - tests/fixtures/synthetic
+    - examples/synthetic
+  require_verified_license_before_ingest: true
+  refuse_unverified: true
+
+sources:
+  - id: gary_pilot_local
+    type: physical_pilot
+    status: HUMAN_ACTION_REQUIRED
+    license_status: INTERNAL_CONSENT_GATED
+    eligible_sessions: "0/54"
+    generalization_role: primary_in_site_only
+    notes: Not an open dataset; not for cross-domain adapter export
+
+  - id: ntn_tr38821_reference
+    type: specification_reference
+    status: PASS
+    license_status: PUBLIC_STANDARD
+    uri: "3GPP TR 38.821 (via external evidence report)"
+    evidence_path: results/external_evidence/EXTERNAL_EVIDENCE_REPORT.md
+    generalization_role: simulation_parameter_bounds
+    notes: Supports RQ3 sim — not measured generalization
+
+  - id: open_mlab_stub
+    type: open_dataset_candidate
+    status: BLOCKED
+    license_status: UNVERIFIED
+    uri: "https://www.measurementlab.net/"
+    adapter: adapters/open_dataset_stub.py
+    generalization_role: domain_shift_candidate
+    notes: M-Lab marked blocked_pending_access in external evidence report; adapter must refuse until VERIFIED_LICENSE
+
+  - id: pending_open_dataset_1
+    type: open_dataset_candidate
+    status: EXTERNAL_DEPENDENCY
+    license_status: PENDING_VERIFICATION
+    uri: PENDING
+    adapter: adapters/open_dataset_stub.py
+    generalization_role: device_shift_candidate
+    notes: Populate after manual license review — do not auto-ingest
+
+verification_levels:
+  UNVERIFIED: Adapter load() must raise LicenseVerificationError
+  PENDING_VERIFICATION: Adapter load() must raise LicenseVerificationError
+  VERIFIED_LICENSE: Adapter may load after human sets status in registry
+  INTERNAL_CONSENT_GATED: Not for open generalization adapters

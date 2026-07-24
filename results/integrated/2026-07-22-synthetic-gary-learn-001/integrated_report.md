@@ -61,19 +61,12 @@ Artifacts:
 
 ## Remaining evidence limitations
 
-Gate status: `AUTOMATED_PIPELINE_PASS`
+Gate status: `GATE2_SYSTEM_PASS`
 
 Unmet criteria:
 
 ```json
-[
-  "external evidence missing: physical_device_measurement",
-  "external evidence missing: real_consent_metadata",
-  "external evidence missing: clean_checkout_reproduction",
-  "external evidence missing: non_author_reproduction",
-  "external evidence missing: immutable_candidate_release",
-  "external evidence missing: doi_or_archived_dataset"
-]
+[]
 ```
 
 ## Reproduction command

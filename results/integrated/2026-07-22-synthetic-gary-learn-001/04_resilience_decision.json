@@ -6,8 +6,8 @@
   "policy_name": "service_aware_multi_access",
   "selected_mode": "terrestrial",
   "fallback_trigger": "terrestrial_superior",
-  "input_twin_state_hash": "20c7aea0d0d98f5bcebe837a1c24b82e65cc30502a175a19224fe8c21fe63582",
-  "input_airan_decision_hash": "a5d1acf2dc6b12587e1150428759d39daa9bbfe3fd6bd8fcfe6481df9e0351a5",
+  "input_twin_state_hash": "2ad7c27300d4538f7880c84c41ee452a446ed8db043eae6e0576a38aca800c31",
+  "input_airan_decision_hash": "6f98bc1ae545b05c6696e974b0599c99d3d38324b7beb1d3a542d078648ba493",
   "continuity_score": 0.8433333333333333,
   "expected_recovery_time_s": 0.0,
   "estimated_latency_ms": 47.0,
@@ -50,39 +50,39 @@
   },
   "assumptions_used": [
     {
-      "value": 45,
+      "value": 40,
       "unit": "ms",
-      "source_id": "ntn_latency_ms",
+      "source_id": "3gpp-tr-38-821",
       "range": [
-        35,
-        70
+        20,
+        60
       ],
-      "assumption_class": "configured"
+      "assumption_class": "literature_backed"
     },
     {
       "value": 5,
       "unit": "Mbps",
-      "source_id": "ntn_capacity_mbps",
+      "source_id": "3gpp-tr-38-821",
       "range": [
         1,
         20
       ],
-      "assumption_class": "configured"
+      "assumption_class": "literature_backed"
     },
     {
       "value": 0.85,
       "unit": "fraction",
-      "source_id": "ntn_availability",
+      "source_id": "3gpp-tr-38-821",
       "range": [
         0.5,
         0.99
       ],
-      "assumption_class": "configured"
+      "assumption_class": "literature_backed"
     },
     {
       "value": 3.0,
       "unit": "s",
-      "source_id": "handover_delay_s",
+      "source_id": "operator-configured-handover",
       "range": [
         1.0,
         10.0
@@ -92,7 +92,7 @@
     {
       "value": 25.0,
       "unit": "J",
-      "source_id": "ntn_energy_cost_j",
+      "source_id": "synthetic-energy-proxy",
       "range": [
         10.0,
         80.0
@@ -102,7 +102,7 @@
     {
       "value": 30.0,
       "unit": "s",
-      "source_id": "terrestrial_outage_duration_s",
+      "source_id": "operator-configured-outage",
       "range": [
         5.0,
         120.0
@@ -110,10 +110,10 @@
       "assumption_class": "configured"
     }
   ],
-  "runtime_s": 3.9849997847341e-05,
+  "runtime_s": 3.895899862982333e-05,
   "producer": {
     "repository": "ntn-resilience-sim",
-    "commit": "ea7800e22409f2d7b6a41e22560f81d59043475e"
+    "commit": "2403456d03d5eba6e4f56c0fd9e18e141ed2761a"
   },
   "evidence_level": "synthetic",
   "deployable": true,
@@ -213,12 +213,12 @@
       "mode": "ntn_fallback",
       "available": true,
       "feasible": true,
-      "latency_ms": 45.0,
+      "latency_ms": 40.0,
       "capacity_mbps": 5.0,
       "energy_j": 25.0,
       "privacy_cost": 0.35,
       "recovery_s": 6.0,
-      "continuity_score": 0.85,
+      "continuity_score": 0.8666666666666667,
       "retained": [
         "basic_service"
       ],

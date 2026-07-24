@@ -1,0 +1,28 @@
+\section{Reproducibility Appendix}
+\label{app:repro}
+
+\subsection{Environment}
+See repository \texttt{ENVIRONMENT.md} for Python version, dependency pins, and sibling repository layout under \texttt{REPOS\_ROOT}.
+
+\subsection{Author reproduction (pending)}
+\texttt{AUTHOR\_REPRODUCTION\_REPORT.md} records a clean-checkout run outcome; status at freeze: \textbf{PENDING}.
+
+\subsection{Non-author reproduction (pending)}
+\texttt{NON\_AUTHOR\_REPRODUCTION\_REPORT.md} is an authentic empty pending template until an independent replicator files results.
+
+\subsection{Core commands}
+\begin{verbatim}
+pip install -r requirements.txt
+make test
+make contract-test
+make integrated-pipeline \
+  EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
+make gate1-validate
+\end{verbatim}
+
+\subsection{Pilot collection (human-gated)}
+Pilot counting requires \texttt{pilotctl.py} workflows, approved zone/date tokens, and storage under \texttt{datasets/controlled/raw-private/} (gitignored).
+Public artifacts document protocol only until sanitized publication approval.
+
+\subsection{Build status}
+PDF build requires \texttt{pdflatex} and \texttt{bibtex}; see \texttt{paper/Makefile} and \texttt{paper/README.md}.

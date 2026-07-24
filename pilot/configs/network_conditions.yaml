@@ -1,0 +1,27 @@
+# Freeze only after dry-run attestation. Values below are TEMPLATES.
+# Do not apply shaping without explicit operator command.
+
+conditions:
+  wifi_normal:
+    shaping: none
+    verify: ping_or_iperf_baseline
+  wifi_degraded:
+    tool: tc_netem
+    platform: linux
+    bandwidth_kbit: 2000
+    delay_ms: 80
+    jitter_ms: 20
+    loss_pct: 2
+    interface: PENDING_OPERATOR_INTERFACE
+    dry_run_required: true
+    restore_required: true
+  cellular_normal:
+    shaping: none
+    note: transport detection only; no cellular shaping on device without authorization
+  local_network_degraded:
+    tool: tc_netem
+    bandwidth_kbit: 1000
+    delay_ms: 120
+    loss_pct: 5
+    interface: PENDING_OPERATOR_INTERFACE
+    dry_run_required: true

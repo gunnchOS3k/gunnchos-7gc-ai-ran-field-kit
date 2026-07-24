@@ -1,25 +1,65 @@
-# gunnchos 7GC Field Console (Umbrella IEEE Draft)
+# IEEE Conference Draft (Markdown companion)
 
-See component draft for full section text:
+**Canonical methods manuscript:** [`main.tex`](main.tex) (IEEEtran, 6–8 page structure)
 
-**[spectrumx-ai-ran-gary/paper/ieee_conference_draft.md](https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/blob/main/paper/ieee_conference_draft.md)**
+Build: `cd paper && make pdf` (requires `pdflatex`/`bibtex`; otherwise `make blocked`)
 
-## Umbrella additions
+## Title (Gate 1 locked)
 
-This portfolio paper bundles:
+**Resilience-Aware, Human-Centric AI-RAN Orchestration for Service Continuity Across Terrestrial and Non-Terrestrial Networks**
+
+## Status
+
+| Dimension | Value |
+|-----------|-------|
+| Methods manuscript | Ready — see `paper/sections/*.tex` |
+| Empirical results | **RESULTS_PENDING_AUTHENTIC_GATE3_DATA** |
+| Pilot matrix | **0/54** eligible cells |
+| PDF | Build pending TeX toolchain |
+
+## Abstract (summary)
+
+Methods-ready artifact for privacy-preserving phone-first measurement and twin-informed AI-RAN orchestration across terrestrial and NTN contexts.
+Preregistered evaluation (`recovery_time_s` primary outcome), 54-cell pilot protocol, and honest gate boundaries.
+No outcome numbers in this draft.
+
+## Umbrella portfolio context
+
+This repository bundles contracts and evidence orchestration for:
 
 1. **spectrumx-ai-ran-gary** — IMT-2030-aligned AI-assisted O-RAN-style policy simulation
 2. **edge-io-measurement-node** — phone-first exploratory measurement schema
-3. **gunnchos-digital-equity-wireless-pilot** (planned) — Gary/NWI digital-equity operations
+3. **7gc-digital-twin** — twin-state construction (sibling repo)
+4. **ntn-resilience-sim** — multi-access resilience simulation (sibling repo)
 
-## Title (umbrella)
+Component IEEE drafts remain authoritative for component-specific methods; this `main.tex` is the umbrella thesis-aligned methods paper.
 
-**Phone-First Field Console for IMT-2030-Aligned AI-RAN Experiments and Privacy-Preserving Edge Measurements**
+## Claim boundaries (required)
 
-## Abstract (umbrella summary)
+| Allowed | Not allowed |
+|---------|-------------|
+| Methods, protocols, preregistration | Invented result numbers |
+| Gate 2 synthetic/fixture pipeline proof | Presenting synthetic as field evidence |
+| 0/54 pilot status honesty | Carrier-grade AI-RAN / deployable 6G |
+| Calibration as infrastructure validation | Causal superiority from calibration |
+| 6G-aligned / IMT-2030-aligned wording | Citywide generalization |
 
-We release a linked artifact set for **6G-aligned** research combining reproducible synthetic AI-RAN policy benchmarks with opt-in edge telemetry suitable for digital-twin calibration in under-connected communities. We explicitly disclaim carrier-grade AI-RAN, deployable 6G, citywide impact, and unauthorized RF transmission. Evidence tiers, ethics constraints, and fresh-machine reproduction commands are provided for IEEE-style review.
+Full boundaries: [`release/CLAIM_BOUNDARIES.md`](../release/CLAIM_BOUNDARIES.md)
+
+## Results section rule
+
+All results prose must state **RESULTS_PENDING_AUTHENTIC_GATE3_DATA** until authentic Gate 3 pilot sessions exist.
+Gate 4 synthetic infrastructure outputs stay labeled separately.
 
 ## References
 
-Numbered placeholders `[1]`–`[60]`: [references_stub.md](https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/blob/main/paper/references_stub.md)
+Verified bibliography: [`references.bib`](references.bib) only.
+Do not import placeholder stub lists from sibling repos.
+Mark unknown formal citations inline as `CITATION_NEEDED`.
+
+## Related documents
+
+- [`GATE1_LOCKED_RESEARCH_THESIS.md`](../GATE1_LOCKED_RESEARCH_THESIS.md)
+- [`evaluation/EVALUATION_PREREGISTRATION.md`](../evaluation/EVALUATION_PREREGISTRATION.md)
+- [`pilot/PILOT_PROTOCOL_v1.md`](../pilot/PILOT_PROTOCOL_v1.md)
+- [`paper/README.md`](README.md)

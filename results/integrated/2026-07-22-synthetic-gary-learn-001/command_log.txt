@@ -1,13 +1,13 @@
-$ /usr/bin/python3 -m edge_io_node export-to-7gc /agent/repos/gunnchos-7gc-ai-ran-field-kit/fixtures/valid/edge_measurement_batch.valid.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.0941s
+$ /usr/local/bin/python3 -m edge_io_node export-to-7gc /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/fixtures/valid/edge_measurement_batch.valid.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.0975s
 stdout:
-/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json
+/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json
 
 stderr:
 
 
-$ /usr/bin/python3 -m seven_gc_twin ingest-edge --input /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --site gary --run-id 2026-07-22-synthetic-gary-learn-001 --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.1012s
+$ /usr/local/bin/python3 -m seven_gc_twin ingest-edge --input /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --site gary --run-id 2026-07-22-synthetic-gary-learn-001 --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.0958s
 stdout:
 {
   "ok": true,
@@ -19,16 +19,16 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m seven_gc_twin build-twin-state --input /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --run-id 2026-07-22-synthetic-gary-learn-001 --site gary --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.0928s
+$ /usr/local/bin/python3 -m seven_gc_twin build-twin-state --input /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json --run-id 2026-07-22-synthetic-gary-learn-001 --site gary --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.1058s
 stdout:
-/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json
+/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json
 
 stderr:
 
 
-$ /usr/bin/python3 -m seven_gc_twin validate-twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.0952s
+$ /usr/local/bin/python3 -m seven_gc_twin validate-twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.0894s
 stdout:
 {
   "ok": true,
@@ -39,19 +39,19 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy static_uniform --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
-rc=0 dur=0.3622s
+$ /usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy static_uniform --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
+rc=0 dur=0.5318s
 stdout:
 {
-  "wrote": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json",
+  "wrote": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json",
   "policy": "static_uniform"
 }
 
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.3285s
+$ /usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.3375s
 stdout:
 {
   "ok": true,
@@ -62,19 +62,19 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy network_only --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
-rc=0 dur=0.3685s
+$ /usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy network_only --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
+rc=0 dur=0.3421s
 stdout:
 {
-  "wrote": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json",
+  "wrote": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json",
   "policy": "network_only"
 }
 
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.3725s
+$ /usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.3256s
 stdout:
 {
   "ok": true,
@@ -85,19 +85,19 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy service_priority --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
-rc=0 dur=0.3713s
+$ /usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy service_priority --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
+rc=0 dur=0.3758s
 stdout:
 {
-  "wrote": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json",
+  "wrote": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json",
   "policy": "service_priority"
 }
 
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.3264s
+$ /usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.3450s
 stdout:
 {
   "ok": true,
@@ -108,19 +108,19 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy optimization_based --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
-rc=0 dur=0.3362s
+$ /usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy optimization_based --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
+rc=0 dur=0.3570s
 stdout:
 {
-  "wrote": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json",
+  "wrote": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json",
   "policy": "optimization_based"
 }
 
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.3291s
+$ /usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.3327s
 stdout:
 {
   "ok": true,
@@ -131,19 +131,19 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research evaluate-policy --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy twin_informed --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
-rc=0 dur=0.3746s
+$ /usr/local/bin/python3 -m airan_research evaluate-policy --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --policy twin_informed --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
+rc=0 dur=0.3433s
 stdout:
 {
-  "wrote": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json",
+  "wrote": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json",
   "policy": "twin_informed"
 }
 
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.3289s
+$ /usr/local/bin/python3 -m airan_research validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.3361s
 stdout:
 {
   "ok": true,
@@ -154,19 +154,19 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m ntn_resilience decide --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --airan-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --policy service_aware_multi_access
-rc=0 dur=0.0947s
+$ /usr/local/bin/python3 -m ntn_resilience decide --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --airan-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --policy service_aware_multi_access
+rc=0 dur=0.1044s
 stdout:
 {
-  "wrote": "/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json",
+  "wrote": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json",
   "selected_mode": "terrestrial"
 }
 
 stderr:
 
 
-$ /usr/bin/python3 -m ntn_resilience validate-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.0858s
+$ /usr/local/bin/python3 -m ntn_resilience validate-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.0868s
 stdout:
 {
   "ok": true,
@@ -177,52 +177,84 @@ stdout:
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research benchmark --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/benchmark_results.csv --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --repetitions 3 --warmup 1 --seed 0
-rc=0 dur=0.3996s
+$ /usr/local/bin/python3 -m airan_research benchmark --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/benchmark_results.csv --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --repetitions 3 --warmup 1 --seed 0
+rc=0 dur=0.5633s
 stdout:
-/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/benchmark_results.csv
+/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/benchmark_results.csv
 
 stderr:
 
 
-$ /usr/bin/python3 -m airan_research ablation --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/ablation_results.csv --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
-rc=0 dur=0.3565s
+$ /usr/local/bin/python3 -m airan_research ablation --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/ablation_results.csv --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts --seed 0
+rc=0 dur=0.4004s
 stdout:
-/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/ablation_results.csv
+/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/ablation_results.csv
 
 stderr:
 
 
-$ /usr/bin/python3 -m ntn_resilience sensitivity --twin-state /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --airan-decision /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/sensitivity_results.csv --schema-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/contracts
-rc=0 dur=0.1841s
+$ /usr/local/bin/python3 -m ntn_resilience sensitivity --twin-state /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json --airan-decision /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/sensitivity_results.csv --schema-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/contracts
+rc=0 dur=0.2982s
 stdout:
-/agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/sensitivity_results.csv
+/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/sensitivity_results.csv
 
 stderr:
 
 
-$ /usr/bin/python3 /agent/repos/gunnchos-7gc-ai-ran-field-kit/scripts/verify_checksums.py /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/checksums.sha256
-rc=0 dur=0.0234s
+$ /usr/local/bin/python3 /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/scripts/verify_checksums.py /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/checksums.sha256
+rc=0 dur=0.0300s
 stdout:
 checksums ok
 
 stderr:
 
 
-$ /usr/bin/python3 /agent/repos/gunnchos-7gc-ai-ran-field-kit/scripts/evaluate_gate2_status.py --run-dir /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001 --output /agent/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/gate2_status.json
-rc=0 dur=0.0226s
+$ /usr/local/bin/python3 /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/scripts/evaluate_gate2_status.py --run-dir /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001 --output /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/results/integrated/2026-07-22-synthetic-gary-learn-001/gate2_status.json
+rc=0 dur=0.0289s
 stdout:
-{
-  "status": "AUTOMATED_PIPELINE_PASS",
+ASS",
+  "legacy_status_alias": "AUTOMATED_PIPELINE_PASS",
+  "system_pass": true,
+  "unmet_criteria": [],
+  "evidence_level_edge": "synthetic",
+  "controlled_device_path": false,
+  "synthetic_system_proof": true,
+  "run_id": "2026-07-22-synthetic-gary-learn-001",
+  "notes": "GATE2_SYSTEM_PASS means the executable Edge-IO \u2192 7GC \u2192 SpectrumX \u2192 NTN path is complete with schema-validated artifacts. It does NOT imply Gate 5 reproduction or Gate 6 DOI/archive completion.",
+  "taxonomy_migration": {
+    "old_label": "AUTOMATED_PIPELINE_PASS",
+    "new_label": "GATE2_SYSTEM_PASS",
+    "moved_to_release_evidence": [
+      "clean_checkout_reproduction",
+      "non_author_reproduction",
+      "immutable_candidate_release",
+      "doi_or_archived_dataset"
+    ]
+  },
+  "status": "GATE2_SYSTEM_PASS",
   "automated_pipeline_pass": true,
-  "unmet_criteria": [
-    "external evidence missing: physical_device_measurement",
-    "external evidence missing: real_consent_metadata",
-    "external evidence missing: clean_checkout_reproduction",
-    "external evidence missing: non_author_reproduction",
-    "external evidence missing: immutable_candidate_release",
-    "external evidence missing: doi_or_archived_dataset"
-  ],
+  "release_evidence": {
+    "release_evidence_status": "RELEASE_EVIDENCE_PENDING",
+    "checks": {
+      "clean_checkout_reproduction": false,
+      "non_author_reproduction": false,
+      "immutable_candidate_release": false,
+      "doi_or_archived_dataset": false
+    },
+    "unmet": [
+      "clean_checkout_reproduction",
+      "non_author_reproduction",
+      "immutable_candidate_release",
+      "doi_or_archived_dataset"
+    ],
+    "mapped_gates": {
+      "clean_checkout_reproduction": "Gate 5 \u2014 reproducibility",
+      "non_author_reproduction": "Gate 5 \u2014 reproducibility",
+      "immutable_candidate_release": "Gate 6 \u2014 publication and archive",
+      "doi_or_archived_dataset": "Gate 6 \u2014 publication and archive"
+    },
+    "notes": "Release-evidence requirements remain mandatory for publication readiness but do not block Gate 2 system completion."
+  },
   "external_evidence": {
     "physical_device_measurement": false,
     "real_consent_metadata": false,
@@ -230,9 +262,7 @@ stdout:
     "non_author_reproduction": false,
     "immutable_candidate_release": false,
     "doi_or_archived_dataset": false
-  },
-  "evidence_level_edge": "synthetic",
-  "notes": "GATE_2_PASS requires physical-device evidence, independent reproduction, candidate release, and DOI/archive evidence. Automated software completion alone yields AUTOMATED_PIPELINE_PASS."
+  }
 }
 
 stderr:

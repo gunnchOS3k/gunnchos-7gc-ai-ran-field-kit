@@ -1,0 +1,44 @@
+\section{System Architecture and Contracts}
+\label{sec:architecture}
+
+\subsection{Umbrella orchestration role}
+\texttt{gunnchos-7gc-ai-ran-field-kit} is the canonical contract authority linking:
+\begin{itemize}
+  \item \texttt{edge-io-measurement-node} --- privacy-preserving device telemetry (RQ1),
+  \item \texttt{7gc-digital-twin} --- twin-state construction (RQ1--RQ2),
+  \item \texttt{spectrumx-ai-ran-gary} --- AI-RAN policy baselines and ablations (RQ2--RQ3),
+  \item \texttt{ntn-resilience-sim} --- multi-access resilience simulation (RQ3).
+\end{itemize}
+Optional PHY supporting studies (e.g., ReadyGary beam selection) may inform assumptions but are not required for thesis completion.
+
+\subsection{Gate model}
+\begin{table}[t]
+\centering
+\caption{Research gates and evidentiary meaning}
+\label{tab:gates}
+\begin{tabular}{ll}
+\hline
+\textbf{Gate} & \textbf{Meaning} \\
+\hline
+Gate 1 & Locked thesis, hypothesis, RQ1--RQ3 \\
+Gate 2 & Executable schemas + integrated pipeline \\
+Gate 3 & Authentic controlled-device pilot evidence \\
+Gate 4 & Preregistered evaluation on eligible evidence \\
+Gate 5/6 & Release archive, DOI, non-author reproduction \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Canonical schemas}
+Contracts under \texttt{contracts/} include measurement session context, Edge-IO batches, twin bundles, AI-RAN decision bundles, and Gate status reports.
+All integrated runs emit SHA-256 provenance via \texttt{scripts/verify\_provenance.py}.
+Invalid fixtures under \texttt{fixtures/invalid/} document rejection reasons for contract tests.
+
+\subsection{Integrated pipeline}
+The default reproduction path executes:
+\begin{verbatim}
+make test && make integrated-pipeline \
+  EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json
+\end{verbatim}
+Outputs land under \texttt{results/integrated/} with evidence labels \texttt{synthetic} or \texttt{controlled\_device\_measurement}.
+Synthetic outputs support Gate~4 infrastructure readiness only; they must not be presented as field pilot results.

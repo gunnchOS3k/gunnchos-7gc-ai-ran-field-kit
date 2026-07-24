@@ -1,0 +1,32 @@
+\section{Measurement and Pilot Protocol}
+\label{sec:measurement}
+
+\subsection{Evidence tiers}
+We distinguish smoke CI tests, synthetic reproducible benchmarks, controlled device measurements, and operational RAN claims (the last is \emph{not claimed}).
+
+\subsection{Session modes}
+Only sessions with \texttt{session\_mode=PILOT} count toward the 54-cell matrix after consent, privacy scan, and assignment-hash verification.
+Calibration and rehearsal sessions support infrastructure validation and are explicitly excluded from pilot counts.
+
+\subsection{Pilot matrix design}
+The matrix spans:
+\begin{itemize}
+  \item 3 zones (\texttt{zone\_a}, \texttt{zone\_b}, \texttt{zone\_c}) with public labels pending human approval,
+  \item 2 network conditions (\texttt{wifi\_normal}, \texttt{wifi\_degraded}) applied via scripted condition scripts,
+  \item 3 collection days (\texttt{day\_01}--\texttt{day\_03}),
+  \item 3 workload profiles (\texttt{learn}, \texttt{create}, \texttt{sense}), each 300~s.
+\end{itemize}
+Authoritative cell definitions live in \texttt{pilot/54\_CELL\_ASSIGNMENT\_MATRIX.csv}.
+At manuscript freeze: \textbf{0/54} eligible cells collected; \textbf{HUMAN\_ACTION\_REQUIRED}.
+
+\subsection{Workload protocols}
+Each workload specifies periodic request cadence, timeout handling, and success criteria (duration $\geq$300~s, samples $\geq$50, explicit nulls for unavailable metrics).
+Details are in \texttt{pilot/WORKLOAD\_PROTOCOLS.md}.
+
+\subsection{Privacy and ethics}
+Collection follows opt-in consent, no payload inspection, no direct identifiers, aggregated public reporting, and receive-only RF boundaries where SDR observation is discussed (see \texttt{docs/PRIVACY\_AND\_ETHICS.md}; formal IRB citation: CITATION\_NEEDED).
+Raw device exports remain in gitignored \texttt{datasets/controlled/raw-private/}; sanitized derivatives require human approval before publication.
+
+\subsection{Network condition protocol}
+Condition application and restoration use \texttt{pilot/scripts/apply\_condition.sh}, \texttt{verify\_condition.sh}, and \texttt{restore\_condition.sh} with parameters in \texttt{pilot/configs/network\_conditions.yaml}.
+Deviations are logged in \texttt{datasets/controlled/protocol-deviations/PROTOCOL\_DEVIATION\_LOG.md}.

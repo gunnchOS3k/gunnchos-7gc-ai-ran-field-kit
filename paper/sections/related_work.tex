@@ -1,0 +1,23 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{IMT-2030 and 6G vision}
+ITU-R Recommendation M.2160 defines the framework and overall objectives for IMT-2030 development~\cite{itu_m2160}.
+Survey literature outlines AI-native air interfaces, extreme connectivity, and integrated sensing and communication as research directions rather than deployed capabilities~\cite{saad2020vision,strinati20216g}.
+We use \emph{6G-aligned} and \emph{IMT-2030-aligned} wording only.
+
+\subsection{Open RAN and AI-RAN experimentation}
+The O-RAN Alliance architecture disaggregates the RAN into open interfaces suitable for policy and ML experimentation~\cite{oran_arch_v5}.
+This artifact implements \emph{AI-assisted O-RAN-style} control experiments in simulation; it does not claim near-real-time RIC deployment on commercial networks.
+
+\subsection{Edge computing and measurement}
+ETSI MEC defines a framework for edge-hosted applications and orchestration~\cite{etsi_mec003}.
+Companion work in \texttt{edge-io-measurement-node} specifies opt-in, schema-validated telemetry without payload capture; we reference that schema rather than redefining it here.
+
+\subsection{Non-terrestrial networks}
+3GPP TR~38.821 documents NR solutions for NTN scenarios including satellite and aerial platforms~\cite{3gpp_tr38821}.
+Our resilience baselines (\texttt{terrestrial\_only}, \texttt{always\_ntn\_on\_terrestrial\_failure}, etc.) are evaluated in source-validated simulation paths; live NTN control is not claimed.
+
+\subsection{Reproducibility and preregistration}
+Preregistered outcomes, holdout registries, and negative-result preservation follow open-science reproducibility practices documented in \texttt{evaluation/EVALUATION\_PREREGISTRATION.md} (formal preregistration citation: CITATION\_NEEDED).
+This repository locks \texttt{PRIMARY\_OUTCOME\_LOCK.json} and \texttt{EVALUATION\_PREREGISTRATION.md} before complete pilot result inspection.
