@@ -112,7 +112,14 @@ def existing_hashes() -> dict[str, str]:
     return hashes
 
 
-def validate_assignment(path: Path) -> dict:
+def validate_assignment(path: Path, *, now: datetime | None = None) -> dict:
+    """Validate assignment contract and hash.
+
+    ``now`` is the reference instant for expiry checks. Production CLI paths
+    omit it (wall clock). Golden / fixture tests MUST inject a frozen ``now``
+    inside the fixture validity window so hash goldens are not coupled to the
+    calendar. Do not regenerate goldens to chase wall-clock expiry.
+    """
     doc = load_doc(path)
     errors: list[str] = []
     try:
@@ -134,7 +141,8 @@ def validate_assignment(path: Path) -> dict:
         # Legacy files without the field remain hash-checkable but are flagged.
         errors.append("assignment_hash_algorithm missing (require gunnchos-canonical-json-sha256-v1)")
     expires = doc.get("expires_at")
-    if expires and expires < utc_iso():
+    reference_now = utc_iso(now) if now is not None else utc_iso()
+    if expires and expires < reference_now:
         errors.append("assignment expired")
     mode = doc.get("session_mode")
     if mode == "PILOT":

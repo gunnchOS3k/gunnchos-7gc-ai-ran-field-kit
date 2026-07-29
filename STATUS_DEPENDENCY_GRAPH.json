@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Fail-closed status dependencies for Gates 4–6 completion validators",
+  "gate4_oulu_scientific": [
+    "gate2_integrated_system",
+    "application_readiness"
+  ],
+  "gate4_nvidia_aerial_depth": [
+    "gate2_integrated_system",
+    "application_readiness"
+  ],
+  "gate5_publication_release": [
+    "gate4_oulu_scientific",
+    "gate4_nvidia_aerial_depth",
+    "application_readiness"
+  ],
+  "gate6_harness": [
+    "gate2_integrated_system",
+    "application_readiness"
+  ],
+  "release_candidate": [
+    "gate2_integrated_system",
+    "application_readiness",
+    "gate4_oulu_scientific",
+    "gate4_nvidia_aerial_depth",
+    "gate5_publication_release",
+    "gate6_harness",
+    "repo_lock_clean"
+  ],
+  "notes": [
+    "Inherited failure blocks dependent PASS",
+    "Missing CI evidence blocks release status",
+    "Stale local reports cannot override newer GitHub Actions failures",
+    "Still-running required workflows cannot be reported as complete"
+  ]
+}

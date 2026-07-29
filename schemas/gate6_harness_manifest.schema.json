@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gate6_harness_manifest.schema.json",
+  "title": "Gate6HarnessManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "protocols_exist",
+    "schemas_exist",
+    "required_dry_run_commands",
+    "required_dry_runs_succeeded",
+    "reports_validated",
+    "no_fallback_success",
+    "physical_evidence_separated",
+    "synthetic_cannot_satisfy_physical",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "protocols_exist": {"type": "boolean"},
+    "schemas_exist": {"type": "boolean"},
+    "required_dry_run_commands": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 5
+    },
+    "required_dry_runs_succeeded": {"type": "boolean"},
+    "reports_validated": {"type": "boolean"},
+    "no_fallback_success": {"type": "boolean"},
+    "physical_evidence_separated": {"type": "boolean"},
+    "synthetic_cannot_satisfy_physical": {"type": "boolean"},
+    "sibling_results": {"type": "object"},
+    "status": {
+      "type": "string",
+      "enum": [
+        "GATE6_PARTIAL_HARNESS_PASS",
+        "GATE6_HARNESS_FAIL",
+        "GATE6_PHYSICAL_EVIDENCE_PENDING"
+      ]
+    }
+  }
+}

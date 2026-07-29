@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gate5_publication_manifest.schema.json",
+  "title": "Gate5PublicationManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "repository_commit",
+    "manuscript_sections_complete",
+    "bibliography_valid",
+    "generated_tables",
+    "generated_figures",
+    "raw_result_provenance",
+    "required_ablations",
+    "per_seed_results",
+    "confidence_intervals",
+    "effect_sizes",
+    "limitations",
+    "reproducibility_statement",
+    "clean_checkout_reproduction",
+    "artifact_checksums",
+    "release_metadata",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "repository_commit": {"type": "string", "minLength": 7},
+    "manuscript_sections_complete": {"type": "boolean"},
+    "bibliography_valid": {"type": "boolean"},
+    "source_identifiers_valid": {"type": "boolean"},
+    "generated_tables": {"type": "array"},
+    "generated_figures": {"type": "array"},
+    "raw_result_provenance": {"type": "object"},
+    "required_ablations": {"type": "object"},
+    "per_seed_results": {"type": "object"},
+    "confidence_intervals": {"type": "object"},
+    "effect_sizes": {"type": "object"},
+    "limitations": {"type": "array"},
+    "reproducibility_statement": {"type": "string"},
+    "clean_checkout_reproduction": {"type": "object"},
+    "artifact_checksums": {"type": "object"},
+    "release_metadata": {"type": "object"},
+    "release_candidate_tag": {"type": ["string", "null"]},
+    "no_absolute_local_paths": {"type": "boolean"},
+    "no_null_commit": {"type": "boolean"},
+    "no_unresolved_placeholders": {"type": "boolean"},
+    "no_stale_generated_artifacts": {"type": "boolean"},
+    "independent_reproduction": {
+      "type": "string",
+      "enum": ["GATE5_INDEPENDENT_REPRODUCTION_PENDING", "GATE5_INDEPENDENT_REPRODUCTION_PASS"]
+    },
+    "doi_status": {
+      "type": "string",
+      "enum": ["GATE5_DOI_PENDING", "GATE5_DOI_ASSIGNED"]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "GATE5_DRAFT_PACKAGE_PASS",
+        "GATE5_INTERNAL_REPRODUCTION_PASS",
+        "GATE5_RELEASE_CANDIDATE_PASS",
+        "GATE5_PUBLICATION_RELEASE_PENDING",
+        "GATE5_INDEPENDENT_REPRODUCTION_PENDING",
+        "GATE5_DOI_PENDING",
+        "GATE5_PEER_REVIEW_PENDING"
+      ]
+    }
+  }
+}
