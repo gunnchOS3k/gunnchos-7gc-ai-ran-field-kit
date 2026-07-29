@@ -19,16 +19,6 @@ SCHEMA_VERSION = "1.2.0"
 # Portfolio roles for Gates 2 and 4–6 control-plane locking.
 DEFAULT_SPEC = [
     {
-        "name": "gunnchos-7gc-ai-ran-field-kit",
-        "path": "gunnchos-7gc-ai-ran-field-kit",
-        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit",
-        "intended_branch": "master",
-        "required": True,
-        "role": "control_plane",
-        "visibility": "private",
-        "self_repo": True,
-    },
-    {
         "name": "edge-io-measurement-node",
         "path": "edge-io-measurement-node",
         "url": "https://github.com/gunnchOS3k/edge-io-measurement-node",
@@ -133,12 +123,7 @@ def write_lock(
     locked_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     components: dict = {}
     for spec in DEFAULT_SPEC:
-        if spec.get("self_repo") and not include_self:
-            continue
-        if spec.get("self_repo"):
-            repo_path = ROOT
-        else:
-            repo_path = repos_root / spec["path"]
+        repo_path = repos_root / spec["path"]
         if not repo_path.is_dir():
             raise SystemExit(f"required path missing for lock write: {repo_path}")
         commit = _git(repo_path, "rev-parse", "HEAD")
@@ -166,6 +151,23 @@ def write_lock(
             "dirty_tree_prohibition": True,
             "dirty_at_lock_write": dirty,
         }
+    control_plane = {
+        "repository_name": "gunnchos-7gc-ai-ran-field-kit",
+        "repository_url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit",
+        "local_path_hint": "gunnchos-7gc-ai-ran-field-kit",
+        "intended_branch": "master",
+        "checked_out_branch": _git(ROOT, "rev-parse", "--abbrev-ref", "HEAD"),
+        "commit_at_lock_write": _git(ROOT, "rev-parse", "HEAD"),
+        "repository_role": "control_plane",
+        "visibility": "private",
+        "note": (
+            "Control-plane commit is informational metadata. Embedding it as a "
+            "required component SHA cannot be self-consistent in the same commit "
+            "that updates the lock file; sibling components are the hard pin."
+        ),
+    }
+    if not include_self:
+        control_plane["included"] = False
     lock = {
         "schema_version": SCHEMA_VERSION,
         "locked_at": locked_at,
@@ -173,6 +175,7 @@ def write_lock(
         "verification_date": locked_at[:10],
         "mode": mode,
         "dirty_tree_prohibition": True,
+        "control_plane": control_plane,
         "components": components,
         "notes": (
             "Written only by write_repo_lock.py / make write-repo-lock. "

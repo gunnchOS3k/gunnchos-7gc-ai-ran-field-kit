@@ -29,17 +29,24 @@ def test_repo_lock_matches_current_checkouts():
 
 def test_dirty_required_repository_fails_when_prohibition_on(tmp_path):
     lock = _base_lock()
-    # Point a required component at a temp dirty git repo with mismatched intent:
-    # create a fake dirty sibling by copying lock entry path to nonexistent — instead
-    # assert schema + simulate dirty flag via verify on real field-kit when dirty.
     result = verify(ROOT / "integration/repo-lock.json", ROOT.parent, allow_dirty=False)
-    # If field-kit is dirty during corrective edits, prohibition must surface a failure.
-    if any(c.get("repository") == "gunnchos-7gc-ai-ran-field-kit" and c.get("dirty") for c in result["components"]):
+    dirty_required = [
+        c["repository"]
+        for c in result["components"]
+        if c.get("required") and c.get("dirty")
+    ]
+    if dirty_required:
         assert result["ok"] is False
-        assert "gunnchos-7gc-ai-ran-field-kit" in result["failures"]
+        assert set(dirty_required) <= set(result["failures"])
     else:
-        # Clean tree: prohibition does not spuriously fail SHA-matched lock.
         assert result["ok"] is True
+
+
+def test_control_plane_metadata_present():
+    lock = _base_lock()
+    assert "control_plane" in lock
+    assert lock["control_plane"]["repository_name"] == "gunnchos-7gc-ai-ran-field-kit"
+    assert "gunnchos-7gc-ai-ran-field-kit" not in lock["components"]
 
 
 def test_stale_edge_io_commit_fails(tmp_path):
