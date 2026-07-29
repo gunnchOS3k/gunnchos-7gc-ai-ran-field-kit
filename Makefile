@@ -331,3 +331,26 @@ application-evidence-pack:
 
 all-automatable: audit-gates-4-6 gate6-dry-run validate-physical-evidence gate4 gate5 application-evidence-pack validate-cross-repo-evidence
 	@echo "ALL_AUTOMATABLE_COMPLETE — see GATES_4_6_MASTER_STATUS.md"
+
+.PHONY: remote-integrity-audit checkout-locked-repositories verify-mandatory-workflows verify-branch-governance acceptance-completion
+
+remote-integrity-audit:
+	@test -f ACCEPTANCE_COMPLETION_INITIAL_AUDIT.md
+	@test -f REMOTE_CI_FAILURE_REPRODUCTION.md
+	@test -f BRANCH_PROTECTION_HANDOFF.md
+	$(PYTHON) -c "print('REMOTE_INTEGRITY_AUDIT_OK')"
+
+checkout-locked-repositories:
+	$(PYTHON) scripts/checkout_locked_repositories.py --repos-root $(REPOS_ROOT)
+
+verify-mandatory-workflows:
+	@test -n "$(RUNS_JSON)" || (echo "Set RUNS_JSON=path from gh run list" && exit 2)
+	$(PYTHON) scripts/verify_mandatory_workflows.py --accepted-sha $${ACCEPTED_SHA:-$$(git rev-parse HEAD)} --runs-json $(RUNS_JSON)
+
+verify-branch-governance:
+	@test -f BRANCH_PROTECTION_HANDOFF.md
+	@echo "BRANCH_PROTECTION status: see BRANCH_PROTECTION_HANDOFF.md (BLOCKED_REPOSITORY_ADMIN_PERMISSION until applied)"
+
+acceptance-completion: remote-integrity-audit verify-repo-lock gate4-oulu-scientific gate4-nvidia-aerial-depth gate5-publication-release gate6-harness application-evidence-pack
+	@echo "ACCEPTANCE_COMPLETION_LOCAL_DONE — CONTROL_PLANE_REMOTE_CI_PASS requires green mandatory workflows"
+

@@ -4,50 +4,80 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   gate2:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: gunnchos-7gc-ai-ran-field-kit
     steps:
       - name: Checkout field-kit
         uses: actions/checkout@v4
         with:
           path: gunnchos-7gc-ai-ran-field-kit
 
-      - name: Checkout edge-io
-        uses: actions/checkout@v4
+      - name: Mint portfolio GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        continue-on-error: true
         with:
-          repository: gunnchos3k/edge-io-measurement-node
-          path: edge-io-measurement-node
+          app-id: ${{ secrets.PORTFOLIO_APP_ID }}
+          private-key: ${{ secrets.PORTFOLIO_APP_PRIVATE_KEY }}
+          owner: gunnchOS3k
+          repositories: |
+            gunnchos-emergent-service-intent-protocols
+            gunnchos-gpu-nr-baseband-platform
+            edge-io-measurement-node
+            7gc-digital-twin
+            spectrumx-ai-ran-gary
+            ntn-resilience-sim
+            readygary-6g-beam-selection
+            gunnchos-hardware-industrial-design
+            gunnchos-device-os
 
-      - name: Checkout 7gc
-        uses: actions/checkout@v4
-        with:
-          repository: gunnchos3k/7gc-digital-twin
-          path: 7gc-digital-twin
+      - name: Resolve checkout credential
+        id: creds
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+          PAT: ${{ secrets.PORTFOLIO_REPO_READ_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +x
+          if [ -n "${APP_TOKEN:-}" ]; then
+            echo "credential_source=github_app" >> "$GITHUB_OUTPUT"
+            echo "token=${APP_TOKEN}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${PAT:-}" ]; then
+            echo "credential_source=pat" >> "$GITHUB_OUTPUT"
+            echo "token=${PAT}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${GH_TOKEN:-}" ]; then
+            echo "credential_source=github_token" >> "$GITHUB_OUTPUT"
+            echo "token=${GH_TOKEN}" >> "$GITHUB_OUTPUT"
+          else
+            echo "credential_source=none" >> "$GITHUB_OUTPUT"
+            echo "token=" >> "$GITHUB_OUTPUT"
+            echo "BLOCKED_CREDENTIAL_CONFIGURATION"
+            exit 3
+          fi
+        working-directory: .
 
-      - name: Checkout spectrumx
-        uses: actions/checkout@v4
-        with:
-          repository: gunnchos3k/spectrumx-ai-ran-gary
-          path: spectrumx-ai-ran-gary
-
-      - name: Checkout ntn
-        uses: actions/checkout@v4
-        with:
-          repository: gunnchos3k/ntn-resilience-sim
-          path: ntn-resilience-sim
-
-      - name: Checkout readygary (optional)
-        uses: actions/checkout@v4
-        with:
-          repository: gunnchos3k/readygary-6g-beam-selection
-          path: readygary-6g-beam-selection
+      - name: Checkout locked sibling repositories
+        env:
+          PORTFOLIO_CHECKOUT_TOKEN: ${{ steps.creds.outputs.token }}
+          PORTFOLIO_CREDENTIAL_SOURCE: ${{ steps.creds.outputs.credential_source }}
+        run: |
+          chmod +x scripts/ci_checkout_locked_siblings.sh
+          bash scripts/ci_checkout_locked_siblings.sh "$GITHUB_WORKSPACE"
+        working-directory: gunnchos-7gc-ai-ran-field-kit
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
+        working-directory: .
         run: |
           python -m pip install -U pip
           python -m pip install jsonschema pytest pyyaml 'scipy>=1.11' 'numpy>=1.24'
@@ -57,11 +87,11 @@ jobs:
           python -m pip install -r ntn-resilience-sim/requirements.txt
 
       - name: Schema and failure tests
-        working-directory: gunnchos-7gc-ai-ran-field-kit
         run: |
           python -m pytest -q tests/contracts tests/failure_cases tests/provenance
 
       - name: Component contract tests
+        working-directory: .
         run: |
           PYTHONPATH=src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts \
             pytest -q edge-io-measurement-node/tests/contracts || PYTHONPATH=edge-io-measurement-node/src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts pytest -q edge-io-measurement-node/tests/contracts
@@ -70,9 +100,8 @@ jobs:
           PYTHONPATH=ntn-resilience-sim/src GATE2_CONTRACTS_DIR=$PWD/gunnchos-7gc-ai-ran-field-kit/contracts pytest -q ntn-resilience-sim/tests/gate2
 
       - name: Integrated pipeline (strict)
-        working-directory: gunnchos-7gc-ai-ran-field-kit
         run: |
-          # Development CI may refresh lock to checked-out SHAs when branches diverge from pinned main.
+          # Refresh lock commits to checked-out SHAs for this CI matrix only (never commit).
           python - <<'PY'
           import json, subprocess
           from pathlib import Path
@@ -84,7 +113,10 @@ jobs:
               if repo.is_dir():
                   sha = subprocess.check_output(['git','rev-parse','HEAD'], cwd=repo, text=True).strip()
                   meta['commit'] = sha
-                  meta['branch'] = subprocess.check_output(['git','branch','--show-current'], cwd=repo, text=True).strip()
+                  try:
+                      meta['branch'] = subprocess.check_output(['git','branch','--show-current'], cwd=repo, text=True).strip()
+                  except Exception:
+                      meta['branch'] = meta.get('branch') or 'detached'
           lock_path.write_text(json.dumps(lock, indent=2)+'\n')
           PY
           python scripts/run_integrated_pipeline.py \
@@ -94,7 +126,6 @@ jobs:
             --strict
 
       - name: Verify checksums and provenance
-        working-directory: gunnchos-7gc-ai-ran-field-kit
         run: |
           RUN_DIR=$(ls -d results/integrated/* | head -n 1)
           python scripts/verify_checksums.py "$RUN_DIR/checksums.sha256"
@@ -109,7 +140,6 @@ jobs:
           overwrite: true
 
       - name: Summary
-        working-directory: gunnchos-7gc-ai-ran-field-kit
         run: |
           RUN_DIR=$(ls -d results/integrated/* | head -n 1)
           echo "## Gate 2 Integrated System" >> "$GITHUB_STEP_SUMMARY"
