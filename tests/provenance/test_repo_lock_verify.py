@@ -44,8 +44,10 @@ def test_dirty_tree_prohibition_on_isolated_temp_repo(tmp_path):
     repo = tmp_path / "sibling"
     repo.mkdir()
     # --template= avoids writing default hooks (sandbox may block hooks/).
+    template = tmp_path / "git-template"
+    template.mkdir()
     subprocess.check_call(
-        ["git", "-c", "init.defaultBranch=main", "init", "--template="],
+        ["git", "-c", "init.defaultBranch=main", "init", f"--template={template}"],
         cwd=repo,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
