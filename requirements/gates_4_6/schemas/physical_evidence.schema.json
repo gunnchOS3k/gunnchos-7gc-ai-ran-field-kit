@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.org/schemas/physical_evidence.schema.json",
+  "title": "PhysicalEvidenceRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "evidence_label",
+    "domain",
+    "captured_at",
+    "operator",
+    "repository",
+    "commit",
+    "status",
+    "artifacts"
+  ],
+  "properties": {
+    "evidence_id": { "type": "string", "minLength": 1 },
+    "evidence_label": {
+      "type": "string",
+      "enum": [
+        "VERIFIED_PHYSICAL",
+        "CONTROLLED_DEVICE_MEASUREMENT",
+        "SDR_MEASURED",
+        "LAB_INSTRUMENT_MEASURED",
+        "GPU_MEASURED",
+        "BLOCKED_HARDWARE",
+        "SYNTHETIC_EXPERIMENT",
+        "DOCUMENTED_IMPLEMENTATION"
+      ]
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "field_pilot",
+        "gpu_lab",
+        "nic_ptp",
+        "sdr_ru",
+        "hardware_prototype",
+        "os_boot",
+        "edge_ai",
+        "user_study"
+      ]
+    },
+    "captured_at": { "type": "string" },
+    "operator": { "type": "string" },
+    "repository": { "type": "string" },
+    "commit": { "type": "string", "minLength": 7 },
+    "device_manifest_path": { "type": ["string", "null"] },
+    "calibration_record_path": { "type": ["string", "null"] },
+    "consent_record_path": { "type": ["string", "null"] },
+    "checksum_sha256": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": [
+        "VALID",
+        "QUARANTINED",
+        "PENDING",
+        "BLOCKED_HARDWARE",
+        "DRY_RUN_SYNTHETIC"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.org/schemas/benchmark_result.schema.json",
+  "title": "BenchmarkResult",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "benchmark_id",
+    "evidence_label",
+    "workload",
+    "hardware",
+    "software",
+    "timing",
+    "throughput",
+    "status"
+  ],
+  "properties": {
+    "benchmark_id": { "type": "string" },
+    "evidence_label": {
+      "type": "string",
+      "enum": [
+        "CPU_MEASURED",
+        "GPU_MEASURED",
+        "SYNTHETIC_EXPERIMENT",
+        "BLOCKED_HARDWARE",
+        "REFERENCE_VECTOR_VALIDATED",
+        "DOCUMENTED_IMPLEMENTATION"
+      ]
+    },
+    "workload": { "type": "object" },
+    "hardware": {
+      "type": "object",
+      "required": ["cpu_model", "gpu_model", "os"],
+      "properties": {
+        "cpu_model": { "type": "string" },
+        "gpu_model": { "type": ["string", "null"] },
+        "nic_model": { "type": ["string", "null"] },
+        "os": { "type": "string" },
+        "driver": { "type": ["string", "null"] },
+        "cuda_version": { "type": ["string", "null"] }
+      }
+    },
+    "software": {
+      "type": "object",
+      "required": ["repository", "commit", "compiler"],
+      "properties": {
+        "repository": { "type": "string" },
+        "commit": { "type": "string" },
+        "compiler": { "type": "string" },
+        "build_flags": { "type": "string" }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "required": ["median_ns", "p90_ns", "p95_ns", "p99_ns", "max_ns", "jitter_ns", "warmup", "samples"],
+      "properties": {
+        "median_ns": { "type": "number" },
+        "p90_ns": { "type": "number" },
+        "p95_ns": { "type": "number" },
+        "p99_ns": { "type": "number" },
+        "max_ns": { "type": "number" },
+        "jitter_ns": { "type": "number" },
+        "warmup": { "type": "integer" },
+        "samples": { "type": "integer" },
+        "h2d_ns": { "type": ["number", "null"] },
+        "d2h_ns": { "type": ["number", "null"] },
+        "kernel_ns": { "type": ["number", "null"] },
+        "queue_ns": { "type": ["number", "null"] },
+        "e2e_ns": { "type": ["number", "null"] }
+      }
+    },
+    "throughput": {
+      "type": "object",
+      "required": ["value", "unit"],
+      "properties": {
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "deadline_misses": { "type": "integer" },
+        "deadline_miss_rate": { "type": "number" }
+      }
+    },
+    "utilization": {
+      "type": "object",
+      "properties": {
+        "cpu_percent": { "type": ["number", "null"] },
+        "gpu_percent": { "type": ["number", "null"] }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["OK", "FAILED", "BLOCKED_HARDWARE", "SKIPPED"]
+    }
+  }
+}

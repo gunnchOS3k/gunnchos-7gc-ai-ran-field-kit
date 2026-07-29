@@ -1,0 +1,29 @@
+{
+  "benchmark_id": "edge-ai-synthetic-matmul",
+  "evidence_label": "CPU_MEASURED",
+  "device": "Edmunds-MacBook-Pro.local",
+  "runtime": "macOS-26.5.2-arm64-arm-64bit",
+  "provider": "numpy_cpu",
+  "model": "synthetic_matmul",
+  "input": {
+    "shape": [
+      256,
+      256
+    ],
+    "dtype": "float32"
+  },
+  "warm-up": 5,
+  "percentiles_ns": {
+    "median": 31396.0,
+    "p90": 32584.0,
+    "p95": 32789.7,
+    "p99": 32958.71,
+    "max": 32959
+  },
+  "memory": null,
+  "power_thermal": null,
+  "commit": "eba17f843a50e7a884f450f2472330219e3b1c7b",
+  "command": "python3 scripts/run_edge_ai_benchmark.py --samples 30",
+  "status": "OK",
+  "note": "Synthetic CPU microbenchmark \u2014 not an NPU/GPU device claim"
+}

@@ -1,0 +1,101 @@
+{
+  "gate": "6",
+  "mode": "dry_run",
+  "started": "2026-07-29T19:16:45Z",
+  "host": {
+    "hostname": "Edmunds-MacBook-Pro.local",
+    "os": "Darwin 25.5.0",
+    "machine": "arm64",
+    "processor": "arm",
+    "python": "3.11.2",
+    "cuda": {
+      "nvidia_smi": false,
+      "nvcc": false,
+      "torch_cuda": false,
+      "gpu_name": null,
+      "status": "BLOCKED_HARDWARE"
+    },
+    "docker": false,
+    "captured_at": "2026-07-29T19:16:46Z"
+  },
+  "pilot_matrix": {
+    "ok": true,
+    "cell_count": 54,
+    "pending_or_empty": 54,
+    "eligible_physical_sessions": 0,
+    "evidence_label": "DOCUMENTED_IMPLEMENTATION",
+    "note": "54-cell matrix preserved; physical sessions remain pending"
+  },
+  "fixtures": {
+    "ok": true,
+    "fixtures": [
+      "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/physical_evidence/fixtures/field_session_dry_run.json",
+      "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/physical_evidence/fixtures/user_study_dry_run.json",
+      "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/physical_evidence/fixtures/lab_instrument_dry_run.json"
+    ]
+  },
+  "siblings": {
+    "edge-io-measurement-node": {
+      "cmd": [
+        "make",
+        "gate6-dry-run"
+      ],
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/edge-io-measurement-node",
+      "returncode": 0,
+      "stdout_tail": "python3 scripts/gate6_dry_run.py\n{\n  \"ok\": true,\n  \"report\": \"/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/edge-io-measurement-node/physical_evidence/GATE6_DRY_RUN_REPORT.json\",\n  \"statuses\": {\n    \"GATE6_HARNESS\": \"GATE6_HARNESS_PASS\",\n    \"FIELD_PILOT\": \"FIELD_PILOT_PENDING\",\n    \"PHYSICAL_EVIDENCE\": \"PHYSICAL_EVIDENCE_PENDING\"\n  }\n}\n",
+      "stderr_tail": "",
+      "ok": true
+    },
+    "gunnchos-gpu-nr-baseband-platform": {
+      "ok": true,
+      "fallback_note": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-gpu-nr-baseband-platform/physical_evidence/GATE6_DRY_RUN_NOTE.md",
+      "make": {
+        "cmd": [
+          "make",
+          "gate6-dry-run"
+        ],
+        "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-gpu-nr-baseband-platform",
+        "returncode": 2,
+        "stdout_tail": "",
+        "stderr_tail": "make: *** No rule to make target `gate6-dry-run'.  Stop.\n",
+        "ok": false
+      }
+    },
+    "gunnchos-hardware-industrial-design": {
+      "cmd": [
+        "make",
+        "gate6-dry-run"
+      ],
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-hardware-industrial-design",
+      "returncode": 0,
+      "stdout_tail": "python3 scripts/gate6_dry_run.py\n{\n  \"ok\": true,\n  \"report\": \"/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-hardware-industrial-design/physical_evidence/GATE6_DRY_RUN_REPORT.json\",\n  \"statuses\": {\n    \"GATE6_HARNESS\": \"GATE6_HARNESS_PASS\",\n    \"HARDWARE_PROTOTYPE\": \"HARDWARE_PROTOTYPE_PENDING\",\n    \"CLAIM_BOUNDARY\": \"DESIGN_ONLY\",\n    \"PHYSICAL_EVIDENCE\": \"PHYSICAL_EVIDENCE_PENDING\"\n  }\n}\n",
+      "stderr_tail": "",
+      "ok": true
+    },
+    "gunnchos-device-os": {
+      "cmd": [
+        "make",
+        "gate6-dry-run"
+      ],
+      "cwd": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os",
+      "returncode": 0,
+      "stdout_tail": "python3 scripts/gate6_dry_run.py\n{\n  \"ok\": true,\n  \"report\": \"/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/physical_evidence/GATE6_DRY_RUN_REPORT.json\",\n  \"statuses\": {\n    \"GATE6_HARNESS\": \"GATE6_HARNESS_PASS\",\n    \"OS_PHYSICAL_BOOT\": \"OS_PHYSICAL_BOOT_PENDING\",\n    \"PHYSICAL_EVIDENCE\": \"PHYSICAL_EVIDENCE_PENDING\"\n  }\n}\n",
+      "stderr_tail": "",
+      "ok": true
+    }
+  },
+  "statuses": {
+    "GATE6_HARNESS": "GATE6_HARNESS_PASS",
+    "FIELD_PILOT": "FIELD_PILOT_PENDING",
+    "GPU_MEASUREMENT": "GPU_MEASUREMENT_PENDING",
+    "NIC_PTP": "NIC_PTP_PENDING",
+    "SDR_LAB": "SDR_LAB_PENDING",
+    "HARDWARE_PROTOTYPE": "HARDWARE_PROTOTYPE_PENDING",
+    "OS_PHYSICAL_BOOT": "OS_PHYSICAL_BOOT_PENDING",
+    "USER_STUDY": "USER_STUDY_PENDING",
+    "CUSTOMER_FIELD_TRIAL": "CUSTOMER_FIELD_TRIAL_PENDING",
+    "PHYSICAL_EVIDENCE": "PHYSICAL_EVIDENCE_PENDING"
+  },
+  "finished": "2026-07-29T19:16:46Z",
+  "claim": "GATE6_HARNESS_PASS only \u2014 no physical completion claimed"
+}

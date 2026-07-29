@@ -251,3 +251,51 @@ evaluate-missing-data:
 
 evaluate-all: evaluate-baselines evaluate-holdouts evaluate-ablations evaluate-sensitivity evaluate-missing-data
 	@echo "evaluate-all complete (scientific PASS requires authentic DATASET + Gate 3 freeze)"
+
+# ---------------------------------------------------------------------------
+# Gates 4–6 (Oulu GENOME + NVIDIA Aerial) — distinct from legacy GATE_4_PASS
+# ---------------------------------------------------------------------------
+.PHONY: audit-gates-4-6 gate4 gate4-oulu gate4-nvidia-cpu gate4-nvidia-gpu gate5
+.PHONY: gate6-dry-run validate-physical-evidence all-automatable application-evidence-pack
+.PHONY: write-gates-4-6-lock validate-cross-repo-evidence
+
+audit-gates-4-6:
+	@test -f GATES_4_6_INITIAL_AUDIT.md
+	@test -f ROLE_REQUIREMENT_TRACEABILITY.md
+	@test -f CROSS_REPO_IMPLEMENTATION_PLAN.md
+	@test -f NON_NEGOTIABLES_GATES_4_6.md
+	$(PYTHON) scripts/write_gates_4_6_version_lock.py
+	@echo "AUDIT_OK"
+
+write-gates-4-6-lock:
+	$(PYTHON) scripts/write_gates_4_6_version_lock.py
+
+gate4: write-gates-4-6-lock
+	$(PYTHON) scripts/run_gate4.py --track all --skip-lock
+
+gate4-oulu: write-gates-4-6-lock
+	$(PYTHON) scripts/run_gate4.py --track oulu --skip-lock
+
+gate4-nvidia-cpu: write-gates-4-6-lock
+	$(PYTHON) scripts/run_gate4.py --track nvidia-cpu --skip-lock
+
+gate4-nvidia-gpu: write-gates-4-6-lock
+	$(PYTHON) scripts/run_gate4.py --track nvidia-gpu --skip-lock
+
+gate5: write-gates-4-6-lock
+	$(PYTHON) scripts/run_gate5.py --skip-lock
+
+gate6-dry-run:
+	$(PYTHON) scripts/run_gate6_dry_run.py
+
+validate-physical-evidence:
+	$(PYTHON) scripts/validate_physical_evidence.py
+
+validate-cross-repo-evidence:
+	$(PYTHON) scripts/validate_cross_repo_evidence.py --skip-lock
+
+application-evidence-pack:
+	$(PYTHON) scripts/build_application_evidence_pack.py
+
+all-automatable: audit-gates-4-6 gate6-dry-run validate-physical-evidence gate4 gate5 application-evidence-pack validate-cross-repo-evidence
+	@echo "ALL_AUTOMATABLE_COMPLETE — see GATES_4_6_MASTER_STATUS.md"
