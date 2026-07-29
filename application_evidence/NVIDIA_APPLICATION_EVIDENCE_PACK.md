@@ -4,12 +4,12 @@ Visibility/publication: `BLOCKED_USER_APPROVAL` / `REVIEWER_ACCESS_BLOCKED_USER_
 
 {
   "pack": "nvidia_aerial",
-  "generated_at": "2026-07-29T20:37:20Z",
+  "generated_at": "2026-07-29T21:32:08Z",
   "owner_name": "gunnchOS3k/gunnchos-gpu-nr-baseband-platform",
   "repository_url": "https://github.com/gunnchOS3k/gunnchos-gpu-nr-baseband-platform",
   "canonical_repository_url": "https://github.com/gunnchOS3k/gunnchos-gpu-nr-baseband-platform",
-  "branch": "cursor/corrective-depth-gates-4-6",
-  "commit": "a3c834deeea041cedfb80df0bfd3479eee91db78",
+  "branch": "cursor/nvidia-real-nr-aerial-depth",
+  "commit": "3730f236c7d4368476a81090616cac1b7f4191fb",
   "release_candidate_tag": null,
   "visibility": "private",
   "reviewer_access": "REVIEWER_ACCESS_BLOCKED_USER_APPROVAL",
