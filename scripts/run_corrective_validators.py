@@ -201,7 +201,9 @@ def validate_gate5_publication() -> dict:
         if "Bibliography" not in text and "References" not in text:
             blockers.append(f"bibliography_absent:{paper.name}")
     figs_missing = not any(
-        (REPOS / "gunnchos-emergent-service-intent-protocols" / "paper").glob("**/figures/**")
+        (REPOS / "gunnchos-emergent-service-intent-protocols" / "paper" / "figures").glob("*")
+    ) and not any(
+        (REPOS / "gunnchos-gpu-nr-baseband-platform" / "paper" / "figures").glob("*")
     )
     if figs_missing:
         blockers.append("figures_absent")
