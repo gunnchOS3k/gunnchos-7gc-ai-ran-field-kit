@@ -42,25 +42,27 @@ jobs:
         id: creds
         env:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_OUTCOME: ${{ steps.app-token.outcome }}
           PAT: ${{ secrets.PORTFOLIO_REPO_READ_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set +x
-          if [ -n "${APP_TOKEN:-}" ]; then
+          if [ "${APP_OUTCOME}" = "success" ] && [ -n "${APP_TOKEN:-}" ]; then
             echo "credential_source=github_app" >> "$GITHUB_OUTPUT"
             echo "token=${APP_TOKEN}" >> "$GITHUB_OUTPUT"
-          elif [ -n "${PAT:-}" ]; then
+            exit 0
+          fi
+          if [ -n "${PAT:-}" ]; then
             echo "credential_source=pat" >> "$GITHUB_OUTPUT"
             echo "token=${PAT}" >> "$GITHUB_OUTPUT"
-          elif [ -n "${GH_TOKEN:-}" ]; then
-            echo "credential_source=github_token" >> "$GITHUB_OUTPUT"
-            echo "token=${GH_TOKEN}" >> "$GITHUB_OUTPUT"
-          else
-            echo "credential_source=none" >> "$GITHUB_OUTPUT"
-            echo "token=" >> "$GITHUB_OUTPUT"
-            echo "BLOCKED_CREDENTIAL_CONFIGURATION"
-            exit 3
+            echo "WARNING: using PORTFOLIO_REPO_READ_TOKEN fallback (App preferred)"
+            exit 0
           fi
+          echo "credential_source=none" >> "$GITHUB_OUTPUT"
+          echo "token=" >> "$GITHUB_OUTPUT"
+          echo "BLOCKED_CREDENTIAL_CONFIGURATION"
+          echo "Configure repository secrets PORTFOLIO_APP_ID + PORTFOLIO_APP_PRIVATE_KEY"
+          echo "App mint outcome=${APP_OUTCOME}; do not fall back to GITHUB_TOKEN for private siblings"
+          exit 3
         working-directory: .
 
       - name: Checkout locked sibling repositories
