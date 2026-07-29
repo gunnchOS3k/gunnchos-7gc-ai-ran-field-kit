@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.org/schemas/lab_instrument_manifest.schema.json",
+  "title": "LabInstrumentManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_id",
+    "instruments",
+    "operator",
+    "status"
+  ],
+  "properties": {
+    "manifest_id": { "type": "string" },
+    "operator": { "type": "string" },
+    "created_at": { "type": "string" },
+    "connection_diagram_path": { "type": ["string", "null"] },
+    "authorized_rf": { "type": "boolean", "default": false },
+    "status": {
+      "type": "string",
+      "enum": ["PLANNED", "DRY_RUN", "ACTIVE", "BLOCKED_HARDWARE"]
+    },
+    "instruments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["manufacturer", "model", "role"],
+        "properties": {
+          "manufacturer": { "type": "string" },
+          "model": { "type": "string" },
+          "role": { "type": "string" },
+          "calibration_status": { "type": "string" },
+          "serial": { "type": ["string", "null"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "safety_notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.org/schemas/reproduction_report.schema.json",
+  "title": "ReproductionReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_id",
+    "reproducer_role",
+    "commit",
+    "commands",
+    "outcome",
+    "evidence_label"
+  ],
+  "properties": {
+    "report_id": { "type": "string" },
+    "reproducer_role": {
+      "type": "string",
+      "enum": ["author", "independent", "ci", "dry_run"]
+    },
+    "commit": { "type": "string" },
+    "machine_manifest_path": { "type": ["string", "null"] },
+    "commands": { "type": "array", "items": { "type": "string" } },
+    "expected_outputs_path": { "type": ["string", "null"] },
+    "observed_checksums": { "type": "object" },
+    "outcome": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "PENDING", "BLOCKED_EXTERNAL"]
+    },
+    "evidence_label": {
+      "type": "string",
+      "enum": [
+        "VERIFIED_REPRODUCIBLE",
+        "DOCUMENTED_IMPLEMENTATION",
+        "BLOCKED_EXTERNAL",
+        "INDEPENDENT_REPRODUCTION_PENDING"
+      ]
+    },
+    "notes": { "type": "string" }
+  }
+}

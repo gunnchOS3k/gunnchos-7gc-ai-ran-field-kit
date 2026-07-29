@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.org/schemas/user_study_session.schema.json",
+  "title": "UserStudySession",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "protocol_version",
+    "participant_id_scheme",
+    "consent_status",
+    "tasks",
+    "status",
+    "irb_claim"
+  ],
+  "properties": {
+    "session_id": { "type": "string" },
+    "protocol_version": { "type": "string" },
+    "participant_id_scheme": { "type": "string" },
+    "consent_status": {
+      "type": "string",
+      "enum": ["not_obtained", "obtained", "withdrawn", "dry_run_synthetic"]
+    },
+    "guardian_path_required": { "type": "boolean" },
+    "tasks": { "type": "array", "items": { "type": "string" } },
+    "usability_instrument": { "type": ["string", "null"] },
+    "deidentified": { "type": "boolean" },
+    "status": {
+      "type": "string",
+      "enum": ["PLANNED", "DRY_RUN", "COMPLETED", "USER_STUDY_PENDING"]
+    },
+    "irb_claim": {
+      "type": "string",
+      "enum": ["NO_IRB_CLAIM", "IRB_APPROVED"],
+      "description": "Must remain NO_IRB_CLAIM unless a real IRB approval exists"
+    },
+    "notes": { "type": "string" }
+  }
+}
