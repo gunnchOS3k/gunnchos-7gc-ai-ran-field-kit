@@ -57,6 +57,38 @@ clean:
 verify-repo-lock:
 	$(PYTHON) scripts/verify_repo_lock.py --repos-root $(REPOS_ROOT)
 
+write-repo-lock:
+	$(PYTHON) scripts/write_repo_lock.py --repos-root $(REPOS_ROOT)
+
+.PHONY: write-repo-lock corrective-audit verify-inherited-ci
+.PHONY: gate4-oulu-scientific gate4-nvidia-aerial-depth gate5-publication-release
+.PHONY: gate6-harness all-corrective
+
+corrective-audit:
+	@test -f CORRECTIVE_DEPTH_INITIAL_AUDIT.md
+	@test -f CORRECTIVE_DEPTH_FAILURE_REPRODUCTION.md
+	@test -f STATUS_DEPENDENCY_GRAPH.json
+	$(PYTHON) scripts/run_corrective_validators.py --track corrective-audit
+
+verify-inherited-ci:
+	$(PYTHON) scripts/verify_inherited_ci.py --require-file
+
+gate4-oulu-scientific:
+	$(PYTHON) scripts/run_corrective_validators.py --track oulu-scientific
+
+gate4-nvidia-aerial-depth:
+	$(PYTHON) scripts/run_corrective_validators.py --track nvidia-aerial-depth
+
+gate5-publication-release:
+	$(PYTHON) scripts/run_corrective_validators.py --track gate5-publication-release
+
+gate6-harness:
+	$(PYTHON) scripts/run_corrective_validators.py --track gate6-harness
+
+all-corrective: corrective-audit verify-repo-lock gate4-oulu-scientific gate4-nvidia-aerial-depth gate5-publication-release gate6-harness application-evidence-pack
+	$(PYTHON) scripts/run_corrective_validators.py --track all-corrective
+	@echo "ALL_CORRECTIVE_DONE — inspect orchestration/gates_4_6/corrective/ for earned statuses only"
+
 gate1-validate:
 	$(PYTHON) scripts/validate_gate1_thesis.py
 

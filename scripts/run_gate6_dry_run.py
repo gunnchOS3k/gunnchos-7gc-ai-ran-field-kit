@@ -104,7 +104,100 @@ def write_synthetic_fixtures() -> dict:
     return {"ok": True, "fixtures": fixtures}
 
 
+REQUIRED_SIBLINGS = (
+    "gunnchos-7gc-ai-ran-field-kit",
+    "edge-io-measurement-node",
+    "gunnchos-gpu-nr-baseband-platform",
+    "gunnchos-hardware-industrial-design",
+    "gunnchos-device-os",
+)
+
+
+def _validate_sibling_report(repo: Path, name: str) -> dict:
+    """Fail closed: require a JSON dry-run report with correct evidence labels."""
+    candidates = [
+        repo / "physical_evidence" / "GATE6_DRY_RUN_REPORT.json",
+        repo / "physical_evidence" / "gate6_dry_run_report.json",
+        repo / "orchestration" / "gates_4_6" / "gate6" / "gate6_dry_run_report.json",
+        repo / "results" / "gate6" / "gate6_dry_run_report.json",
+        repo / "results" / "gate6" / "GATE6_DRY_RUN_REPORT.json",
+    ]
+    if name == "gunnchos-7gc-ai-ran-field-kit":
+        candidates.insert(0, OUT / "gate6_dry_run_report.json")
+        candidates.insert(1, PHYS / "gate6_dry_run_report.json")
+        candidates.insert(2, PHYS / "GATE6_DRY_RUN_REPORT.json")
+    report_path = next((p for p in candidates if p.is_file()), None)
+    if report_path is None:
+        return {"ok": False, "error": "missing_required_report", "repository": name}
+    try:
+        doc = json.loads(report_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {"ok": False, "error": f"malformed_report: {exc}", "repository": name}
+
+    # Normalize legacy sibling reports into the completion contract.
+    normalized = dict(doc)
+    if "ok" not in normalized:
+        harness = (normalized.get("statuses") or {}).get("GATE6_HARNESS", "")
+        nested_ok = True
+        for key in ("templates", "fixture", "fixtures", "files", "pilot_matrix"):
+            nested = normalized.get(key)
+            if isinstance(nested, dict) and "ok" in nested and nested.get("ok") is False:
+                nested_ok = False
+        normalized["ok"] = nested_ok and harness in (
+            "GATE6_HARNESS_PASS",
+            "GATE6_PARTIAL_HARNESS_PASS",
+        )
+    if "mode" not in normalized:
+        return {
+            "ok": False,
+            "error": "missing_required_report_field",
+            "fields": ["mode"],
+            "path": str(report_path),
+        }
+    if "evidence_label" not in normalized:
+        normalized["evidence_label"] = "SYNTHETIC_EXPERIMENT"
+    label = str(normalized.get("evidence_label") or "")
+    if label in ("PHYSICAL_PASS", "PHYSICAL_EVIDENCE_PASS", "AUTHENTIC_PHYSICAL"):
+        return {
+            "ok": False,
+            "error": "wrong_evidence_label",
+            "evidence_label": label,
+            "path": str(report_path),
+        }
+    if normalized.get("physical_pass") is True:
+        return {
+            "ok": False,
+            "error": "physical_pass_from_dry_run_forbidden",
+            "path": str(report_path),
+        }
+    # Synthetic fixtures claiming physical PASS via status strings
+    statuses = normalized.get("statuses") or {}
+    for k, v in statuses.items():
+        if "PHYSICAL" in str(k).upper() and str(v).endswith("_PASS") and "PENDING" not in str(v):
+            if "HARNESS" not in str(k).upper():
+                return {
+                    "ok": False,
+                    "error": "physical_PASS_from_synthetic_fixture",
+                    "status_key": k,
+                    "status_value": v,
+                    "path": str(report_path),
+                }
+    if not normalized.get("ok"):
+        return {
+            "ok": False,
+            "error": "sibling_report_ok_false",
+            "path": str(report_path),
+        }
+    return {
+        "ok": True,
+        "path": str(report_path),
+        "evidence_label": label,
+        "mode": normalized.get("mode"),
+    }
+
+
 def invoke_sibling_dry_runs() -> dict:
+    """Fail closed — never convert missing/failed Make targets into ok:true."""
     results = {}
     pairs = [
         ("edge-io-measurement-node", ["make", "gate6-dry-run"]),
@@ -115,29 +208,32 @@ def invoke_sibling_dry_runs() -> dict:
     for name, cmd in pairs:
         repo = REPOS_ROOT / name
         if not repo.is_dir():
-            results[name] = {"ok": False, "error": "missing"}
+            results[name] = {"ok": False, "error": "missing_required_repository"}
             continue
-        # Prefer make target; fall back to documenting absence
-        if (repo / "Makefile").exists():
-            r = run_cmd(cmd, cwd=repo)
-            if not r["ok"]:
-                # Fallback: create local dry-run note if target missing
-                note = repo / "physical_evidence" / "GATE6_DRY_RUN_NOTE.md"
-                note.parent.mkdir(parents=True, exist_ok=True)
-                if "No rule" in (r.get("stderr_tail") or "") or r["returncode"] != 0:
-                    note.write_text(
-                        f"# Gate 6 dry-run note\n\nTarget missing or failed at {utc_now()}.\n"
-                        "Harness pending in this repo; control-plane fixtures still apply.\n",
-                        encoding="utf-8",
-                    )
-                    results[name] = {"ok": True, "fallback_note": str(note), "make": r}
-                else:
-                    results[name] = r
-            else:
-                results[name] = r
-        else:
+        if not (repo / "Makefile").exists():
             results[name] = {"ok": False, "error": "no Makefile"}
+            continue
+        r = run_cmd(cmd, cwd=repo)
+        if not r.get("ok"):
+            results[name] = {
+                "ok": False,
+                "error": "sibling_make_nonzero_or_missing_target",
+                "make": r,
+            }
+            continue
+        report = _validate_sibling_report(repo, name)
+        results[name] = {"ok": bool(report.get("ok")), "make": r, "report": report}
     return results
+
+
+def siblings_ok(siblings: dict) -> bool:
+    for name in REQUIRED_SIBLINGS:
+        if name == "gunnchos-7gc-ai-ran-field-kit":
+            continue  # validated after local report write
+        entry = siblings.get(name)
+        if not entry or not entry.get("ok"):
+            return False
+    return True
 
 
 def main() -> int:
@@ -149,9 +245,35 @@ def main() -> int:
     fixtures = write_synthetic_fixtures()
     siblings = invoke_sibling_dry_runs()
 
-    harness_ok = matrix.get("ok") and fixtures.get("ok")
+    local_body = {
+        "ok": bool(matrix.get("ok") and fixtures.get("ok")),
+        "mode": "dry_run",
+        "evidence_label": "SYNTHETIC_EXPERIMENT",
+        "physical_pass": False,
+        "gate": "6",
+        "pilot_matrix": matrix,
+        "fixtures": fixtures,
+        "claim": "dry-run harness only",
+    }
+    write_json(OUT / "gate6_dry_run_report.json", local_body)
+    # Also write under physical_evidence for sibling-style discovery.
+    write_json(PHYS / "gate6_dry_run_report.json", local_body)
+    local_report = _validate_sibling_report(ROOT, "gunnchos-7gc-ai-ran-field-kit")
+    siblings["gunnchos-7gc-ai-ran-field-kit"] = {
+        "ok": bool(local_report.get("ok")),
+        "report": local_report,
+    }
+
+    harness_ok = (
+        bool(matrix.get("ok"))
+        and bool(fixtures.get("ok"))
+        and siblings_ok(siblings)
+        and bool(local_report.get("ok"))
+    )
     statuses = {
-        "GATE6_HARNESS": "GATE6_HARNESS_PASS" if harness_ok else "GATE6_HARNESS_FAIL",
+        "GATE6_HARNESS": (
+            "GATE6_PARTIAL_HARNESS_PASS" if harness_ok else "GATE6_HARNESS_FAIL"
+        ),
         "FIELD_PILOT": "FIELD_PILOT_PENDING",
         "GPU_MEASUREMENT": "GPU_MEASUREMENT_PENDING",
         "NIC_PTP": "NIC_PTP_PENDING",
@@ -163,8 +285,11 @@ def main() -> int:
         "PHYSICAL_EVIDENCE": "PHYSICAL_EVIDENCE_PENDING",
     }
     report = {
+        "ok": harness_ok,
         "gate": "6",
         "mode": "dry_run",
+        "evidence_label": "SYNTHETIC_EXPERIMENT",
+        "physical_pass": False,
         "started": utc_now(),
         "host": host_manifest(),
         "pilot_matrix": matrix,
@@ -172,9 +297,10 @@ def main() -> int:
         "siblings": siblings,
         "statuses": statuses,
         "finished": utc_now(),
-        "claim": "GATE6_HARNESS_PASS only — no physical completion claimed",
+        "claim": "GATE6_PARTIAL_HARNESS_PASS only when all sibling dry-runs succeed — no physical completion claimed",
     }
     write_json(OUT / "gate6_dry_run_report.json", report)
+    write_json(PHYS / "gate6_dry_run_report.json", report)
 
     registry = {
         "updated": utc_now(),

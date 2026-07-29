@@ -1,41 +1,53 @@
 {
   "pack": "oulu_genome",
-  "generated_at": "2026-07-29T19:02:35Z",
+  "generated_at": "2026-07-29T20:37:20Z",
+  "owner_name": "gunnchOS3k/gunnchos-emergent-service-intent-protocols",
+  "repository_url": "https://github.com/gunnchOS3k/gunnchos-emergent-service-intent-protocols",
+  "canonical_repository_url": "https://github.com/gunnchOS3k/gunnchos-emergent-service-intent-protocols",
+  "branch": "cursor/corrective-depth-gates-4-6",
+  "commit": "1af3ead60bcb8fd40cc09f94def95e07a03e7d22",
+  "release_candidate_tag": null,
+  "visibility": "private",
+  "reviewer_access": "REVIEWER_ACCESS_BLOCKED_USER_APPROVAL",
+  "publication_status": "BLOCKED_USER_APPROVAL",
   "one_page_summary": "Resource-efficient emergent service-intent protocols for distributed edge/RAN/cloud agents under partial observability, multi-objective constraints, and TN/NTN disruption \u2014 synthetic CPU evidence only on this host.",
   "research_question": "Can distributed edge, RAN, and cloud agents learn compact, task-oriented signaling protocols that preserve service-continuity utility under bandwidth, energy, uncertainty, fairness, and TN/NTN disruption constraints?",
-  "repository": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-emergent-service-intent-protocols",
-  "commit": null,
   "paper": "paper/RESOURCE_EFFICIENT_EMERGENT_SERVICE_INTENT_PROTOCOLS.md",
+  "manuscript_artifact": "paper/RESOURCE_EFFICIENT_EMERGENT_SERVICE_INTENT_PROTOCOLS.md",
+  "reproduction_command": "make bootstrap && make test && make smoke && make causal-tests && make paper && make artifact",
   "repro_commands": [
     "make bootstrap",
     "make test",
     "make smoke",
-    "make reproduce",
+    "make causal-tests",
     "make paper",
-    "make artifact"
+    "make artifact",
+    "make reproduce-clean"
   ],
-  "paper_status": "PREPRINT_DRAFT / PEER_REVIEW_PENDING / DOI_PENDING",
+  "evidence_class": "SYNTHETIC_EXPERIMENT",
+  "evidence_status": "GATE4_OULU_FUNCTIONAL_SCAFFOLD_PASS",
+  "scientific_status": "GATE4_OULU_SCIENTIFIC_EVIDENCE_PENDING",
+  "paper_status": "GATE5_DRAFT_PACKAGE_PASS / GATE5_PUBLICATION_RELEASE_PENDING / GATE5_DOI_PENDING / GATE5_PEER_REVIEW_PENDING",
+  "selected_results": [],
   "limitations": [
     "Results on this machine are SYNTHETIC_EXPERIMENT / CPU_MEASURED only",
     "No physical field transfer completed",
     "No independent reproduction completed",
-    "No admission guarantee"
+    "No Oulu admission guarantee",
+    "Author reproduction is not independent reproduction"
+  ],
+  "physical_blockers": [
+    "54-cell physical pilot",
+    "real user study"
+  ],
+  "external_blockers": [
+    "independent reproduction",
+    "peer review",
+    "DOI"
   ],
   "system_diagram": "docs/system_diagram.md",
-  "host": {
-    "hostname": "Edmunds-MacBook-Pro.local",
-    "os": "Darwin 25.5.0",
-    "machine": "arm64",
-    "processor": "arm",
-    "python": "3.11.2",
-    "cuda": {
-      "nvidia_smi": false,
-      "nvcc": false,
-      "torch_cuda": false,
-      "gpu_name": null,
-      "status": "BLOCKED_HARDWARE"
-    },
-    "docker": false,
-    "captured_at": "2026-07-29T19:02:35Z"
-  }
+  "host_class": "author_laptop_cpu_only",
+  "non_claims": [
+    "NO_ACCEPTANCE_GUARANTEE"
+  ]
 }
