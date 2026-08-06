@@ -354,3 +354,22 @@ verify-branch-governance:
 acceptance-completion: remote-integrity-audit verify-repo-lock gate4-oulu-scientific gate4-nvidia-aerial-depth gate5-publication-release gate6-harness application-evidence-pack
 	@echo "ACCEPTANCE_COMPLETION_LOCAL_DONE — CONTROL_PLANE_REMOTE_CI_PASS requires green mandatory workflows"
 
+.PHONY: gate-0 control-plane validate-main-branch-policy ingest-product-charter
+
+ingest-product-charter:
+	$(PYTHON) scripts/ingest_product_charter.py
+
+validate-main-branch-policy:
+	$(PYTHON) scripts/validate_main_branch_policy.py
+
+control-plane:
+	$(PYTHON) -m control_plane generate
+	$(PYTHON) -m control_plane validate
+	$(PYTHON) scripts/validate_main_branch_policy.py
+	$(PYTHON) -m pytest -q tests/control_plane tests/test_main_branch_policy.py
+	@test -f program/reports/GATE_0_AUTOMATED_COMPLETION_REPORT.md
+	@echo "CONTROL_PLANE_OK — GATE_0_AUTOMATED_PASS PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND (not GATE_0_PASS)"
+
+gate-0: control-plane
+	@echo "GATE_0_AUTOMATED_PASS PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND"
+

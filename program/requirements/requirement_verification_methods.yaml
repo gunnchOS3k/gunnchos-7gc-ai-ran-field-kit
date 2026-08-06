@@ -1,0 +1,1680 @@
+schema_version: 1.0.0
+verification_methods:
+- id: SYS-MISSION-001
+  verification_method: document_review
+  required_evidence:
+  - charter_ingestion
+  - product_charter_approval
+- id: SYS-MISSION-002
+  verification_method: design_review
+  required_evidence:
+  - device_role_baseline
+- id: SYS-MISSION-003
+  verification_method: simulation_test
+  required_evidence:
+  - connectivity_orchestrator_design
+- id: SYS-MISSION-004
+  verification_method: integration_test
+  required_evidence:
+  - os_boot_evidence
+- id: SYS-MISSION-005
+  verification_method: integration_test
+  required_evidence:
+  - local_runtime_evidence
+- id: SYS-MISSION-006
+  verification_method: usability_review
+  required_evidence:
+  - cross_device_parity_matrix
+- id: SYS-MISSION-007
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_input_pipeline_spec
+- id: SYS-MISSION-008
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_test_plans
+- id: SYS-MISSION-009
+  verification_method: audit
+  required_evidence:
+  - evidence_registry
+  - claim_taxonomy
+- id: SYS-STANDARDS-001
+  verification_method: document_review
+  required_evidence:
+  - prohibited_claim_patterns
+- id: DEV-STUDENT-001
+  verification_method: design_review
+  required_evidence:
+  - device_role_baseline
+- id: DEV-STUDENT-002
+  verification_method: hardware_measurement
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-003
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-004
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-005
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-006
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-007
+  verification_method: hardware_measurement
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-008
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-009
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-010
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-011
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-STUDENT-012
+  verification_method: design_review
+  required_evidence:
+  - hardware_prototype_evidence
+- id: DEV-DSXL-001
+  verification_method: design_review
+  required_evidence:
+  - device_role_baseline
+- id: DEV-DSXL-002
+  verification_method: usability_review
+  required_evidence:
+  - device_ux_spec
+- id: DEV-DSXL-003
+  verification_method: usability_review
+  required_evidence:
+  - device_ux_spec
+- id: DEV-HANDHELD-001
+  verification_method: design_review
+  required_evidence:
+  - device_role_baseline
+- id: DEV-HANDHELD-002
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-003
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-004
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-005
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-006
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-007
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-008
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-009
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: DEV-HANDHELD-010
+  verification_method: integration_test
+  required_evidence:
+  - session_continuity_evidence
+- id: RING-AWARE-001
+  verification_method: design_review
+  required_evidence:
+  - ring_workstream_ownership
+- id: RING-AWARE-002
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-003
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-004
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-005
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-006
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-007
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-008
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-009
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-010
+  verification_method: prototype_demo
+  required_evidence:
+  - ring_sensing_spec
+- id: RING-AWARE-011
+  verification_method: prototype_demo
+  required_evidence:
+  - surface_calibration_protocol
+- id: RING-INPUT-001
+  verification_method: design_review
+  required_evidence:
+  - ring_pipeline_spec
+- id: RING-INPUT-002
+  verification_method: lab_measurement
+  required_evidence:
+  - sensor_fusion_design
+- id: RING-INPUT-003
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-004
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-005
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-006
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-007
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-008
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-009
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-010
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-011
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-012
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-013
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-014
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-015
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-016
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-017
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-018
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-019
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-020
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-021
+  verification_method: integration_test
+  required_evidence:
+  - ring_input_profile_tests
+- id: RING-INPUT-022
+  verification_method: lab_measurement
+  required_evidence:
+  - contact_state_classifier_eval
+- id: RING-INPUT-023
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-024
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-025
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-026
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-027
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-028
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-029
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-030
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-031
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-032
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-033
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-034
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-035
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-036
+  verification_method: game_integration_test
+  required_evidence:
+  - ring_game_profile_tests
+- id: RING-INPUT-037
+  verification_method: design_review
+  required_evidence:
+  - game_ring_policy
+- id: RING-RELIAB-001
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-002
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-003
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-004
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-005
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-006
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-007
+  verification_method: security_test
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-008
+  verification_method: security_test
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-009
+  verification_method: security_test
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-010
+  verification_method: security_test
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-011
+  verification_method: security_test
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-012
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-013
+  verification_method: security_test
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-014
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-015
+  verification_method: lab_measurement
+  required_evidence:
+  - ring_reliability_evidence
+- id: RING-RELIAB-016
+  verification_method: security_test
+  required_evidence:
+  - destructive_action_guard_tests
+- id: OS-PLATFORM-001
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-002
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-003
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-004
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-005
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-006
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-007
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-008
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-009
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-010
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-011
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-012
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-013
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-014
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-015
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-016
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-017
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-018
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-019
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-020
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-021
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-022
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-023
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-PLATFORM-024
+  verification_method: integration_test
+  required_evidence:
+  - os_service_spec
+- id: OS-CONTINUITY-001
+  verification_method: integration_test
+  required_evidence:
+  - continuity_scenario_tests
+- id: OS-CONTINUITY-002
+  verification_method: privacy_review
+  required_evidence:
+  - continuity_disclosure_ux
+- id: OS-CONTINUITY-003
+  verification_method: privacy_review
+  required_evidence:
+  - continuity_disclosure_ux
+- id: OS-CONTINUITY-004
+  verification_method: privacy_review
+  required_evidence:
+  - continuity_disclosure_ux
+- id: OS-CONTINUITY-005
+  verification_method: privacy_review
+  required_evidence:
+  - continuity_disclosure_ux
+- id: OS-CONTINUITY-006
+  verification_method: privacy_review
+  required_evidence:
+  - continuity_disclosure_ux
+- id: OS-CONTINUITY-007
+  verification_method: privacy_review
+  required_evidence:
+  - continuity_disclosure_ux
+- id: AI-CORE-001
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-002
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-003
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-004
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-005
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-006
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-007
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-008
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-009
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-010
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-011
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-012
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-013
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-014
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-CORE-015
+  verification_method: evaluation_harness
+  required_evidence:
+  - ai_feature_eval_baseline
+- id: AI-LOCAL-001
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-002
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-003
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-004
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-005
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-006
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-007
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-008
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-009
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-010
+  verification_method: offline_test
+  required_evidence:
+  - local_runtime_pack_manifest
+- id: AI-LOCAL-011
+  verification_method: offline_test
+  required_evidence:
+  - offline_basic_operation_checklist
+- id: AI-GOV-001
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-002
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-003
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-004
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-005
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-006
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-007
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-008
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-009
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-010
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-011
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: AI-GOV-012
+  verification_method: audit
+  required_evidence:
+  - ai_governance_checklist
+- id: NET-ORCH-001
+  verification_method: design_review
+  required_evidence:
+  - connectivity_orchestrator_design
+- id: NET-ORCH-002
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-003
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-004
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-005
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-006
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-007
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-008
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-009
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-010
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-011
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-012
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-013
+  verification_method: lab_measurement
+  required_evidence:
+  - bearer_capability_matrix
+- id: NET-ORCH-014
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-015
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-016
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-017
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-018
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-019
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-020
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-021
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-022
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-023
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-024
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-025
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-026
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-027
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_metric_schema
+- id: NET-ORCH-028
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-029
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-030
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-031
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-032
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-033
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-034
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: NET-ORCH-035
+  verification_method: simulation_test
+  required_evidence:
+  - orchestrator_capability_tests
+- id: 7GC-DEPLOY-001
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_deployment_framework
+- id: 7GC-DEPLOY-002
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-003
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-004
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-005
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-006
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-007
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-008
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-009
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-010
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-011
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-012
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-013
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-014
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-015
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-016
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-017
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_evaluation_protocol
+- id: 7GC-DEPLOY-018
+  verification_method: field_pilot
+  required_evidence:
+  - 7gc_topology_comparison
+- id: GAME-CROSS-001
+  verification_method: cross_device_test
+  required_evidence:
+  - game_parity_matrix
+- id: GAME-CROSS-002
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-003
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-004
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-005
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-006
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-007
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-008
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-009
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-010
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-CROSS-011
+  verification_method: game_integration_test
+  required_evidence:
+  - game_parity_tests
+- id: GAME-BEATLINK-001
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-002
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-003
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-004
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-005
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-006
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-007
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-008
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-009
+  verification_method: game_loop_test
+  required_evidence:
+  - beatlink_core_loop_evidence
+- id: GAME-BEATLINK-010
+  verification_method: legal_review
+  required_evidence:
+  - music_rights_policy
+- id: GAME-AOL-001
+  verification_method: document_review
+  required_evidence:
+  - prohibited_claim_patterns
+- id: GAME-AOL-002
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-003
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-004
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-005
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-006
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-007
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-008
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-009
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-010
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-011
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-012
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-013
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-014
+  verification_method: data_audit
+  required_evidence:
+  - scientific_provenance_schema
+- id: GAME-AOL-015
+  verification_method: audit
+  required_evidence:
+  - source_integration_status
+- id: GAME-PP-001
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-002
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-003
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-004
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-005
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-006
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-007
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-008
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-009
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-010
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-011
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-012
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-013
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-014
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-PP-015
+  verification_method: game_loop_test
+  required_evidence:
+  - pp_core_loop_evidence
+- id: GAME-AA-001
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-002
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-003
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-004
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-005
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-006
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-007
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-008
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-009
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-010
+  verification_method: game_loop_test
+  required_evidence:
+  - aa_combat_validation
+- id: GAME-AA-011
+  verification_method: fairness_study
+  required_evidence:
+  - ring_competitive_fairness_evidence
+- id: CG-RELIABILITY-001
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-002
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-003
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-004
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-005
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-006
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-007
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-008
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-009
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-010
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-RELIABILITY-011
+  verification_method: lab_measurement
+  required_evidence:
+  - reliability_evidence
+- id: CG-SECURITY-001
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-002
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-003
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-004
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-005
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-006
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-007
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-008
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-009
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-010
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-011
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-012
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-013
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-014
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-SECURITY-015
+  verification_method: security_test
+  required_evidence:
+  - security_evidence
+- id: CG-OPS-001
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-002
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-003
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-004
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-005
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-006
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-007
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-008
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-009
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-010
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-011
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-OPS-012
+  verification_method: ops_review
+  required_evidence:
+  - fleet_ops_design
+- id: CG-CONNECTIVITY-001
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-002
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-003
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-004
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-005
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-006
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-007
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-008
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-009
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-CONNECTIVITY-010
+  verification_method: lab_measurement
+  required_evidence:
+  - connectivity_conformance_evidence
+- id: CG-QUALITY-001
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-002
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-003
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-004
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-005
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-006
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-007
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-008
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-009
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-010
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-011
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-012
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: CG-QUALITY-013
+  verification_method: quality_test
+  required_evidence:
+  - product_quality_checklist
+- id: FULL-OPS-001
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-002
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-003
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-004
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-005
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-006
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-007
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-008
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-009
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-010
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-011
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-012
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-013
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-014
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-015
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-016
+  verification_method: gate_review
+  required_evidence:
+  - full_ops_layer_checklist
+- id: FULL-OPS-017
+  verification_method: audit
+  required_evidence:
+  - claim_taxonomy
+- id: GATE-0-001
+  verification_method: audit
+  required_evidence:
+  - gate_status
+- id: GATE-0-002
+  verification_method: audit
+  required_evidence:
+  - gate_status
+- id: GATE-0-003
+  verification_method: audit
+  required_evidence:
+  - gate_status
+- id: GATE-0-004
+  verification_method: audit
+  required_evidence:
+  - gate_status
+- id: GATE-0-005
+  verification_method: audit
+  required_evidence:
+  - gate_status
+- id: GATE-1-001
+  verification_method: integration_test
+  required_evidence:
+  - gate1_evidence
+- id: GATE-1-002
+  verification_method: integration_test
+  required_evidence:
+  - gate1_evidence
+- id: GATE-1-003
+  verification_method: integration_test
+  required_evidence:
+  - gate1_evidence
+- id: GATE-1-004
+  verification_method: integration_test
+  required_evidence:
+  - gate1_evidence
+- id: GATE-1-005
+  verification_method: integration_test
+  required_evidence:
+  - gate1_evidence
+- id: GATE-2-001
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-2-002
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-2-003
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-2-004
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-2-005
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-2-006
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-2-007
+  verification_method: hardware_measurement
+  required_evidence:
+  - gate2_evidence
+- id: GATE-3-001
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-3-002
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-3-003
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-3-004
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-3-005
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-3-006
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-3-007
+  verification_method: design_review
+  required_evidence:
+  - gate3_evidence
+- id: GATE-4-001
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-002
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-003
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-004
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-005
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-006
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-007
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-4-008
+  verification_method: field_pilot
+  required_evidence:
+  - gate4_evidence
+- id: GATE-5-001
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-5-002
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-5-003
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-5-004
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-5-005
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-5-006
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-5-007
+  verification_method: external_review
+  required_evidence:
+  - gate5_evidence
+- id: GATE-6-001
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-6-002
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-6-003
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-6-004
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-6-005
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-6-006
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-6-007
+  verification_method: release_review
+  required_evidence:
+  - gate6_evidence
+- id: GATE-7-001
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-7-002
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-7-003
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-7-004
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-7-005
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-7-006
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-7-007
+  verification_method: external_acceptance
+  required_evidence:
+  - gate7_evidence
+- id: GATE-8-001
+  verification_method: standards_conformance
+  required_evidence:
+  - gate8_evidence
+- id: GATE-8-002
+  verification_method: standards_conformance
+  required_evidence:
+  - gate8_evidence
+- id: GATE-8-003
+  verification_method: standards_conformance
+  required_evidence:
+  - gate8_evidence
+- id: GATE-8-004
+  verification_method: standards_conformance
+  required_evidence:
+  - gate8_evidence
+- id: GATE-8-005
+  verification_method: standards_conformance
+  required_evidence:
+  - gate8_evidence

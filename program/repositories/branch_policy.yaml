@@ -1,0 +1,22 @@
+schema_version: 1.0.0
+canonical_default_branch: main
+legacy_default_branch: master
+new_master_references_prohibited: true
+master_deletion_requires_edmund_approval: true
+force_push_prohibited: true
+history_rewrite_prohibited: true
+master_read_only_after_migration: true
+allowlist_globs_for_master_mentions:
+- program/reports/MAIN_BRANCH_MIGRATION_AUDIT.md
+- program/reports/MASTER_REFERENCE_REMEDIATION_REPORT.md
+- program/repositories/branch_migration_*.yaml
+- GATES_1_TO_4_CLEAN_DEFAULT_BRANCH_AUDIT.md
+- LOCAL_NO_REPO_BRANCH_SYNC_REPORT.md
+- '**/*migration*'
+- '**/*MIGRATION*'
+- '**/*remediation*'
+- '**/*REMEDIATION*'
+allowlist_workflow_dual_triggers: true
+notes:
+- Dual-trigger workflows that retain master for historical PR compatibility may be allowlisted explicitly.
+- Historical prose and archival reports may mention master.
