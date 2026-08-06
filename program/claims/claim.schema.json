@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "claim.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "requirement_id",
+          "statement",
+          "claim_state",
+          "implementation_state",
+          "validation_state",
+          "certification_state",
+          "evidence_ids",
+          "blockers",
+          "notes"
+        ]
+      }
+    }
+  }
+}

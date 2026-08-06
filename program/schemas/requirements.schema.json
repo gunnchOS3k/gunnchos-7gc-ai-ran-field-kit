@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "requirements.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "requirements"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "source_section",
+          "source_line_start",
+          "source_line_end",
+          "normative_text",
+          "requirement_type",
+          "subsystem",
+          "device_scope",
+          "gate",
+          "priority",
+          "safety_critical",
+          "security_relevant",
+          "privacy_relevant",
+          "accessibility_relevant",
+          "scientific_evidence_relevant",
+          "owner_repository",
+          "supporting_repositories",
+          "verification_method",
+          "required_evidence",
+          "dependencies",
+          "claim_state",
+          "implementation_state",
+          "validation_state",
+          "certification_state",
+          "blockers",
+          "notes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source_section": {
+            "type": "string"
+          },
+          "source_line_start": {
+            "type": "integer"
+          },
+          "source_line_end": {
+            "type": "integer"
+          },
+          "normative_text": {
+            "type": "string"
+          },
+          "requirement_type": {
+            "type": "string"
+          },
+          "subsystem": {
+            "type": "string"
+          },
+          "device_scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "gate": {
+            "type": "integer"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "safety_critical": {
+            "type": "boolean"
+          },
+          "security_relevant": {
+            "type": "boolean"
+          },
+          "privacy_relevant": {
+            "type": "boolean"
+          },
+          "accessibility_relevant": {
+            "type": "boolean"
+          },
+          "scientific_evidence_relevant": {
+            "type": "boolean"
+          },
+          "owner_repository": {
+            "type": "string"
+          },
+          "supporting_repositories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "verification_method": {
+            "type": "string"
+          },
+          "required_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "claim_state": {
+            "type": "string"
+          },
+          "implementation_state": {
+            "type": "string"
+          },
+          "validation_state": {
+            "type": "string"
+          },
+          "certification_state": {
+            "type": "string"
+          },
+          "blockers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

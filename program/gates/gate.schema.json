@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gate.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "criteria"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "gate",
+          "criterion_id",
+          "criterion",
+          "owner",
+          "status",
+          "evidence",
+          "blockers",
+          "automatable",
+          "next_action",
+          "acceptance_authority"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+schema_version: 1.0.0
+classes:
+- DOCUMENT
+- SCHEMA
+- UNIT_TEST
+- INTEGRATION_TEST
+- SIMULATION
+- HARDWARE_MEASUREMENT
+- FIELD_MEASUREMENT
+- HUMAN_STUDY
+- EXTERNAL_ACCEPTANCE
+- CERTIFICATION
+- PROVENANCE
+rejection_rules:
+- Physical evidence without PHYSICAL_EVIDENCE_REGISTRY entry is rejected.
+- CERTIFIED claims without certification evidence IDs are rejected.
+- FIELD_VALIDATED without human/field evidence is rejected.

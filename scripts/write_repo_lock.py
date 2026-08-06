@@ -155,7 +155,7 @@ def write_lock(
         "repository_name": "gunnchos-7gc-ai-ran-field-kit",
         "repository_url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit",
         "local_path_hint": "gunnchos-7gc-ai-ran-field-kit",
-        "intended_branch": "master",
+        "intended_branch": "main",
         "checked_out_branch": _git(ROOT, "rev-parse", "--abbrev-ref", "HEAD"),
         "commit_at_lock_write": _git(ROOT, "rev-parse", "HEAD"),
         "repository_role": "control_plane",
