@@ -39,10 +39,11 @@ def test_charter_ingested_verbatim():
     assert source["line_count"] == len(text.splitlines())
 
 
-def test_charter_approval_pending():
+def test_charter_approval_reconciled():
     approval = load_yaml(ROOT / "program/charters/CHARTER_APPROVAL_RECORD.yaml")
-    assert approval["status"] == "PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND"
-    assert approval["approved"] is False
+    assert approval["status"] == "APPROVED"
+    assert approval["approved"] is True
+    assert approval.get("approver")
 
 
 def test_stable_requirement_ids_deterministic():
@@ -151,8 +152,8 @@ def test_deterministic_report_generation(tmp_path: Path):
     generate_reports()
     a = (REPORTS / "GATE_0_INITIAL_AUDIT.md").read_text(encoding="utf-8")
     # Strip timestamp line for stability check of structure
-    assert "GATE_0_AUTOMATED_PASS" in a or "Status tokens" in a
-    assert "PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND" in a
+    assert "Status tokens" in a
+    assert "GATE_0_PASS" in a or "GATE_0_AUTOMATED_PASS" in a
 
 
 def test_cli_exit_codes():
@@ -189,7 +190,7 @@ def test_idempotent_generate():
     assert ids1 == ids2
 
 
-def test_no_gate_0_pass_token_in_status():
+def test_gate_0_pass_when_approved_and_clear():
     status = subprocess.run(
         [sys.executable, "-m", "control_plane", "status"],
         cwd=ROOT,
@@ -197,11 +198,18 @@ def test_no_gate_0_pass_token_in_status():
         text=True,
     )
     assert status.returncode == 0
-    assert "GATE_0_AUTOMATED_PASS" in status.stdout
-    # overall line should not claim GATE_0_PASS as current overall
-    for line in status.stdout.splitlines():
-        if line.startswith("overall:"):
-            assert "GATE_0_PASS" not in line or "prohibited" in status.stdout
+    approval = load_yaml(ROOT / "program/charters/CHARTER_APPROVAL_RECORD.yaml")
+    if approval.get("approved") is True and approval.get("approver"):
+        for line in status.stdout.splitlines():
+            if line.startswith("overall:"):
+                assert "GATE_0_PASS" in line
+            if line.startswith("pending_owners:"):
+                assert "none" in line
+    else:
+        assert "GATE_0_AUTOMATED_PASS" in status.stdout
+        for line in status.stdout.splitlines():
+            if line.startswith("overall:"):
+                assert "GATE_0_PASS" not in line
 
 
 def test_negative_fixture_duplicate_ids():

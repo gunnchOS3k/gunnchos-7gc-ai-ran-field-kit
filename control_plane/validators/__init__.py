@@ -213,12 +213,32 @@ def validate_control_plane(
         gate_doc = load_yaml(gate_path)
         _validate_schema(gate_doc, GATES / "gate.schema.json", "gate_status", issues)
         if gate_doc.get("overall_status_token") == "GATE_0_PASS":
-            issues.append(
-                ValidationIssue(
-                    "ILLEGAL_GATE_0_PASS",
-                    "GATE_0_PASS claimed without Edmund approval evidence",
-                )
+            approval = load_yaml(CHARTER_APPROVAL_RECORD) if CHARTER_APPROVAL_RECORD.exists() else {}
+            approved = bool(approval.get("approved") is True and approval.get("approver")) or (
+                str(approval.get("status") or "").upper() == "APPROVED" and bool(approval.get("approver"))
             )
+            # pending owners block GATE_0_PASS
+            pending_owners = False
+            own_path = REPOSITORIES / "repository_ownership.yaml"
+            if own_path.exists():
+                own = load_yaml(own_path)
+                if own.get("pending_decision_owners"):
+                    pending_owners = True
+                if "CONTROL_PLANE_PENDING_DECISION" in (own.get("owner_to_requirements") or {}):
+                    pending_owners = True
+            req_pending = False
+            if req_path.exists():
+                for r in (load_yaml(req_path).get("requirements") or []):
+                    if r.get("owner_repository") == "CONTROL_PLANE_PENDING_DECISION":
+                        req_pending = True
+                        break
+            if not approved or pending_owners or req_pending:
+                issues.append(
+                    ValidationIssue(
+                        "ILLEGAL_GATE_0_PASS",
+                        "GATE_0_PASS claimed without Edmund approval evidence and cleared pending owners",
+                    )
+                )
         for c in gate_doc.get("criteria") or []:
             if not c.get("evidence") and not c.get("blockers"):
                 issues.append(

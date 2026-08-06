@@ -298,69 +298,34 @@ gaps:
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_CERTIFICATION_LAB
   owner_repository: gunnchos-hardware-industrial-design
-- gap_id: GAP-FULL-OPS-010-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-010
-  title: 'Fully operational layer: Cloud and edge services'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers:
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-012-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-012
-  title: 'Fully operational layer: Manufacturing'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: &id004
-  - CONTROL_PLANE_PENDING_DECISION
-  - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
 - gap_id: GAP-FULL-OPS-012-REQUIRES_MANUFACTURER
   requirement_id: FULL-OPS-012
   title: 'Fully operational layer: Manufacturing'
   class: REQUIRES_MANUFACTURER
-  blockers: *id004
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  blockers:
+  - REQUIRES_MANUFACTURER
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-FULL-OPS-013-REQUIRES_EXTERNAL_PARTNER
   requirement_id: FULL-OPS-013
   title: 'Fully operational layer: Certification'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: &id005
+  blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-013-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-013
-  title: 'Fully operational layer: Certification'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: *id005
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-FULL-OPS-014-REQUIRES_EXTERNAL_PARTNER
   requirement_id: FULL-OPS-014
   title: 'Fully operational layer: Deployment'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: &id006
+  blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-014-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-014
-  title: 'Fully operational layer: Deployment'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: *id006
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-FULL-OPS-015-REQUIRES_EXTERNAL_PARTNER
   requirement_id: FULL-OPS-015
   title: 'Fully operational layer: Support'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: &id007
+  blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-015-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-015
-  title: 'Fully operational layer: Support'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: *id007
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-4-002-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-4-002
   title: 'Gate 4: Real connectivity conditions'
@@ -399,14 +364,14 @@ gaps:
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-5-002-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-5-002
   title: 'Gate 5: Supply-chain audit'
   class: REQUIRES_EXTERNAL_PARTNER
   blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-5-003-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-5-003
   title: 'Gate 5: Regulatory test candidates'
@@ -427,14 +392,14 @@ gaps:
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-5-007-REQUIRES_MANUFACTURER
   requirement_id: GATE-5-007
   title: 'Gate 5: Packaging and support system'
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-6-006-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-6-006
   title: 'Gate 6: Published support lifecycle'
@@ -455,28 +420,28 @@ gaps:
   class: REQUIRES_CERTIFICATION_LAB
   blockers:
   - REQUIRES_CERTIFICATION_LAB
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-7-002-REQUIRES_CARRIER
   requirement_id: GATE-7-002
   title: 'Gate 7: Carrier or network acceptance where applicable'
   class: REQUIRES_CARRIER
   blockers:
   - REQUIRES_CARRIER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-7-003-REQUIRES_MANUFACTURER
   requirement_id: GATE-7-003
   title: 'Gate 7: Production manufacturing'
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-7-004-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-7-004
   title: 'Gate 7: Support staffing'
   class: REQUIRES_EXTERNAL_PARTNER
   blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-7-005-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-7-005
   title: 'Gate 7: Fleet operations'
@@ -490,7 +455,7 @@ gaps:
   class: REQUIRES_EXTERNAL_PARTNER
   blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-8-001-REQUIRES_STANDARD_FINALIZATION
   requirement_id: GATE-8-001
   title: 'Gate 8: Map finalized 3GPP and ITU requirements to hardware and software'

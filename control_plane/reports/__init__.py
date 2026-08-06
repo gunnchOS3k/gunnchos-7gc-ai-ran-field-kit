@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from control_plane import STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING
+from control_plane import STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING, STATUS_GATE_0_PASS
 from control_plane.io_util import load_yaml
 from control_plane.paths import (
     BACKLOG,
@@ -19,6 +19,7 @@ from control_plane.paths import (
     REQUIREMENTS,
     ROOT,
 )
+from control_plane.status import charter_is_approved, compute_gate0_status
 
 
 def _ts() -> str:
@@ -46,6 +47,10 @@ def generate_reports(meta: dict[str, Any] | None = None) -> list[Path]:
     approval = load_yaml(CHARTER_APPROVAL_RECORD)
     source = load_yaml(CHARTER_SOURCE_RECORD)
     backlog = load_yaml(BACKLOG / "master_gap_backlog.yaml")["gaps"]
+    live = compute_gate0_status(approval=approval, run_validators=False)
+    # Prefer tokens from generate meta when provided
+    tokens = meta.get("status_tokens") or [live["overall_status_token"], live["secondary_status_token"]]
+    approved = charter_is_approved(approval)
 
     written: list[Path] = []
 
@@ -55,6 +60,12 @@ def generate_reports(meta: dict[str, Any] | None = None) -> list[Path]:
     for r in inv:
         for pr in r.get("open_prs") or []:
             open_prs.append((r["name"], pr))
+    blockers = []
+    if not approved:
+        blockers.append("PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND")
+    if live.get("pending_owners"):
+        blockers.append("PENDING_OWNERS:" + ",".join(live["pending_owners"]))
+    blockers.append("Physical / human / external gate criteria remain blocked")
     written.append(
         _write(
             "GATE_0_INITIAL_AUDIT.md",
@@ -88,19 +99,20 @@ def generate_reports(meta: dict[str, Any] | None = None) -> list[Path]:
                 "- STATUS_DEPENDENCY_GRAPH.json",
                 "",
                 "## Known blockers",
-                "- PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND",
-                "- Physical / human / external gate criteria remain blocked",
-                "- Field-kit PR #12 credential configuration (do not merge)",
+                *[f"- {b}" for b in blockers],
                 "",
                 "## Claim risks",
                 "- Premature 6G / carrier / field / manufacturing claims prohibited",
                 "- Ring ownership documentation must not be read as component existence",
                 "",
-                f"## Status tokens",
-                f"- `{STATUS_AUTOMATED_PASS}`",
-                f"- `{STATUS_CHARTER_PENDING}`",
+                "## Status tokens",
+                *[f"- `{t}`" for t in tokens],
                 "",
-                "Never claim `GATE_0_PASS` without Edmund approval evidence.",
+                (
+                    f"`{STATUS_GATE_0_PASS}` earned (approval + validators + no pending owners)."
+                    if tokens and tokens[0] == STATUS_GATE_0_PASS
+                    else f"Never claim `{STATUS_GATE_0_PASS}` without Edmund approval evidence and cleared pending owners."
+                ),
             ],
         )
     )
@@ -203,17 +215,27 @@ def generate_reports(meta: dict[str, Any] | None = None) -> list[Path]:
                 f"- Backlog gaps: {len(backlog)}",
                 "",
                 "## Exact status tokens",
-                f"- `{STATUS_AUTOMATED_PASS}`",
-                f"- `{STATUS_CHARTER_PENDING}`",
+                *[f"- `{t}`" for t in tokens],
                 "",
                 "## Unresolved Gate 0 items",
-                "- Edmund product-charter approval",
-                "- CONTROL_PLANE_PENDING_DECISION owners (cloud/manufacturing/certification/support)",
+                *(
+                    ["- None for Gate 0 automation/approval path"]
+                    if tokens and tokens[0] == STATUS_GATE_0_PASS
+                    else [
+                        "- Edmund product-charter approval"
+                        if not approved
+                        else "- Pending owners remain",
+                    ]
+                ),
                 "",
                 "## Blockers preserved",
-                "- Physical / human / external / credential / standards",
+                "- Physical / human / external / credential / standards (Gates 1–8)",
                 "",
-                "Do **not** interpret this report as `GATE_0_PASS`.",
+                (
+                    f"`{STATUS_GATE_0_PASS}` is earned only with approval + validators + no pending owners."
+                    if tokens and tokens[0] == STATUS_GATE_0_PASS
+                    else f"Do **not** interpret this report as `{STATUS_GATE_0_PASS}`."
+                ),
             ],
         )
     )

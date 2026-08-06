@@ -13,21 +13,24 @@ work_classes:
 - REQUIRES_MANUFACTURER
 - REQUIRES_STANDARD_FINALIZATION
 - NOT_CURRENTLY_CLAIMABLE
-overall_status_token: GATE_0_AUTOMATED_PASS
-secondary_status_token: PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND
-prohibited_status_token: GATE_0_PASS
+overall_status_token: GATE_0_PASS
+secondary_status_token: CHARTER_APPROVED
+prohibited_status_token: null
+gate1_status_tokens:
+- SOFTWARE_EVIDENCE_READY
+- PHYSICAL_EVIDENCE_PENDING
+- GATE_1_AUTOMATED_PASS
 criteria:
 - gate: 0
   criterion_id: G0-C1
   criterion: Product charter approved
   owner: Edmund Gunn Jr.
-  status: PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND
+  status: APPROVED
   evidence:
   - program/charters/CHARTER_APPROVAL_RECORD.yaml
-  blockers:
-  - REQUIRES_EDMUND
-  automatable: REQUIRES_EDMUND
-  next_action: Edmund reviews and records charter approval
+  blockers: []
+  automatable: AUTOMATABLE_NOW
+  next_action: Maintain approval record; proceed to Gate 1 physical evidence
   acceptance_authority: Edmund Gunn Jr.
 - gate: 0
   criterion_id: G0-C2
@@ -74,62 +77,82 @@ criteria:
   - program/decisions/DR-0005-CANONICAL-REPOSITORY-SET.md
   blockers: []
   automatable: AUTOMATABLE_NOW
-  next_action: Resolve CONTROL_PLANE_PENDING_DECISION owners via decision records
+  next_action: Maintain reconciled owners; no CONTROL_PLANE_PENDING_DECISION remains
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C1
   criterion: gunnchOS boots on representative hardware
   owner: gunnchos-device-os
-  status: BLOCKED
-  evidence: []
+  status: SOFTWARE_EVIDENCE_READY
+  evidence:
+  - gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
+  - gate1/reports/GATE_1_IMPLEMENTATION_MATRIX.md
+  - gate1/evidence/pending
   blockers:
   - REQUIRES_LOCAL_HARDWARE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_LOCAL_HARDWARE
-  next_action: 'Collect evidence for: gunnchOS boots on representative hardware'
+  next_action: 'Collect accepted physical evidence for: gunnchOS boots on representative hardware'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C2
   criterion: Ring prototype sends authenticated input
   owner: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
-  status: BLOCKED
-  evidence: []
+  status: SOFTWARE_EVIDENCE_READY
+  evidence:
+  - gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
+  - gate1/reports/GATE_1_IMPLEMENTATION_MATRIX.md
+  - gate1/evidence/pending
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Collect evidence for: Ring prototype sends authenticated input'
+  next_action: 'Collect accepted physical evidence for: Ring prototype sends authenticated input'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C3
   criterion: At least one device docks successfully
   owner: gunnchos-device-os
-  status: BLOCKED
-  evidence: []
+  status: SOFTWARE_EVIDENCE_READY
+  evidence:
+  - gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
+  - gate1/reports/GATE_1_IMPLEMENTATION_MATRIX.md
+  - gate1/evidence/pending
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Collect evidence for: At least one device docks successfully'
+  next_action: 'Collect accepted physical evidence for: At least one device docks successfully'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C4
   criterion: gunnchAI3k local runtime functions
   owner: gunnchAI3k
-  status: BLOCKED
-  evidence: []
+  status: SOFTWARE_EVIDENCE_READY
+  evidence:
+  - gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
+  - gate1/reports/GATE_1_IMPLEMENTATION_MATRIX.md
+  - gate1/evidence/pending
   blockers:
   - REQUIRES_LOCAL_HARDWARE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_LOCAL_HARDWARE
-  next_action: 'Collect evidence for: gunnchAI3k local runtime functions'
+  next_action: 'Collect accepted physical evidence for: gunnchAI3k local runtime functions'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C5
   criterion: Each game completes one core loop
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: SOFTWARE_EVIDENCE_READY
+  evidence:
+  - gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
+  - gate1/reports/GATE_1_IMPLEMENTATION_MATRIX.md
+  - gate1/evidence/pending
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Collect evidence for: Each game completes one core loop'
+  next_action: 'Collect accepted physical evidence for: Each game completes one core loop'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C1
