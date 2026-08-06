@@ -1,0 +1,49 @@
+schema_version: 1.0.0
+entries:
+- evidence_id: EV-CHARTER-001
+  class: DOCUMENT
+  title: Ingested product charter
+  path: program/charters/GUNNCHOS3K_CARRIER_GRADE_6G_ECOSYSTEM.md
+  provenance: CHARTER_SOURCE_RECORD.yaml
+  supports_claims:
+  - CLM-SYS-MISSION-001
+  physical: false
+- evidence_id: EV-REQ-001
+  class: SCHEMA
+  title: Requirements catalog
+  path: program/requirements/requirements.yaml
+  provenance: generated_by_control_plane
+  supports_claims:
+  - CLM-GATE-0-003
+  physical: false
+- evidence_id: EV-CLAIM-001
+  class: SCHEMA
+  title: Claims registry
+  path: program/claims/claims.yaml
+  provenance: generated_by_control_plane
+  supports_claims:
+  - CLM-GATE-0-004
+  physical: false
+- evidence_id: EV-REPO-001
+  class: DOCUMENT
+  title: Repository inventory
+  path: program/repositories/repository_inventory.yaml
+  provenance: generated_by_control_plane
+  supports_claims:
+  - CLM-GATE-0-005
+  physical: false
+- evidence_id: EV-EXT-REG-001
+  class: DOCUMENT
+  title: Preserved external gate registry
+  path: EXTERNAL_GATE_REGISTRY.json
+  provenance: preexisting_control_plane_artifact
+  supports_claims: []
+  physical: false
+- evidence_id: EV-PHYS-REG-001
+  class: DOCUMENT
+  title: Preserved physical evidence registry (all blocked)
+  path: PHYSICAL_EVIDENCE_REGISTRY.json
+  provenance: preexisting_control_plane_artifact
+  supports_claims: []
+  physical: false
+  notes: Registry documents blocked physical items; does not constitute measurements.

@@ -4,12 +4,12 @@ Visibility/publication: `BLOCKED_USER_APPROVAL` / `REVIEWER_ACCESS_BLOCKED_USER_
 
 {
   "pack": "oulu_genome",
-  "generated_at": "2026-07-29T20:37:20Z",
+  "generated_at": "2026-07-29T21:44:09Z",
   "owner_name": "gunnchOS3k/gunnchos-emergent-service-intent-protocols",
   "repository_url": "https://github.com/gunnchOS3k/gunnchos-emergent-service-intent-protocols",
   "canonical_repository_url": "https://github.com/gunnchOS3k/gunnchos-emergent-service-intent-protocols",
-  "branch": "cursor/corrective-depth-gates-4-6",
-  "commit": "1af3ead60bcb8fd40cc09f94def95e07a03e7d22",
+  "branch": "cursor/oulu-publication-grade-science",
+  "commit": "b07038e763d2a6923b98d3885a6707cb200281b9",
   "release_candidate_tag": null,
   "visibility": "private",
   "reviewer_access": "REVIEWER_ACCESS_BLOCKED_USER_APPROVAL",

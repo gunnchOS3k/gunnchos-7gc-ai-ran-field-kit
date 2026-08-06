@@ -1,0 +1,6 @@
+"""python -m control_plane"""
+
+from control_plane.cli import main
+
+if __name__ == "__main__":
+    raise SystemExit(main())

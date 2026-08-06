@@ -1,0 +1,661 @@
+schema_version: 1.0.0
+work_classes:
+- AUTOMATABLE_NOW
+- AUTOMATABLE_AFTER_DEPENDENCY
+- REQUIRES_EDMUND
+- REQUIRES_LOCAL_HARDWARE
+- REQUIRES_PHYSICAL_PROTOTYPE
+- REQUIRES_HUMAN_PARTICIPANTS
+- REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+- REQUIRES_EXTERNAL_PARTNER
+- REQUIRES_CARRIER
+- REQUIRES_CERTIFICATION_LAB
+- REQUIRES_MANUFACTURER
+- REQUIRES_STANDARD_FINALIZATION
+- NOT_CURRENTLY_CLAIMABLE
+overall_status_token: GATE_0_AUTOMATED_PASS
+secondary_status_token: PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND
+prohibited_status_token: GATE_0_PASS
+criteria:
+- gate: 0
+  criterion_id: G0-C1
+  criterion: Product charter approved
+  owner: Edmund Gunn Jr.
+  status: PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND
+  evidence:
+  - program/charters/CHARTER_APPROVAL_RECORD.yaml
+  blockers:
+  - REQUIRES_EDMUND
+  automatable: REQUIRES_EDMUND
+  next_action: Edmund reviews and records charter approval
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 0
+  criterion_id: G0-C2
+  criterion: Device roles frozen
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: DOCUMENTED_DESIGN
+  evidence:
+  - program/requirements/device_role_baseline.yaml
+  - program/decisions/DR-0002-DEVICE-ROLE-BASELINE.md
+  blockers: []
+  automatable: AUTOMATABLE_NOW
+  next_action: Maintain device_role_baseline.yaml
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 0
+  criterion_id: G0-C3
+  criterion: Requirement identifiers assigned
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: DOCUMENTED_DESIGN
+  evidence:
+  - program/requirements/requirements.yaml
+  blockers: []
+  automatable: AUTOMATABLE_NOW
+  next_action: Regenerate via control_plane generate
+  acceptance_authority: control_plane validators
+- gate: 0
+  criterion_id: G0-C4
+  criterion: Claims classified
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: DOCUMENTED_DESIGN
+  evidence:
+  - program/claims/claims.yaml
+  - program/claims/claim_taxonomy.yaml
+  blockers: []
+  automatable: AUTOMATABLE_NOW
+  next_action: Keep claims synchronized with requirements
+  acceptance_authority: control_plane validators
+- gate: 0
+  criterion_id: G0-C5
+  criterion: Repository ownership established
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: DOCUMENTED_DESIGN
+  evidence:
+  - program/repositories/repository_ownership.yaml
+  - program/decisions/DR-0005-CANONICAL-REPOSITORY-SET.md
+  blockers: []
+  automatable: AUTOMATABLE_NOW
+  next_action: Resolve CONTROL_PLANE_PENDING_DECISION owners via decision records
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 1
+  criterion_id: G1-C1
+  criterion: gunnchOS boots on representative hardware
+  owner: gunnchos-device-os
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_LOCAL_HARDWARE
+  automatable: REQUIRES_LOCAL_HARDWARE
+  next_action: 'Collect evidence for: gunnchOS boots on representative hardware'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 1
+  criterion_id: G1-C2
+  criterion: Ring prototype sends authenticated input
+  owner: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Collect evidence for: Ring prototype sends authenticated input'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 1
+  criterion_id: G1-C3
+  criterion: At least one device docks successfully
+  owner: gunnchos-device-os
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Collect evidence for: At least one device docks successfully'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 1
+  criterion_id: G1-C4
+  criterion: gunnchAI3k local runtime functions
+  owner: gunnchAI3k
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_LOCAL_HARDWARE
+  automatable: REQUIRES_LOCAL_HARDWARE
+  next_action: 'Collect evidence for: gunnchAI3k local runtime functions'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 1
+  criterion_id: G1-C5
+  criterion: Each game completes one core loop
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Collect evidence for: Each game completes one core loop'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C1
+  criterion: Representative enclosure
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Blocked: Representative enclosure'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C2
+  criterion: Working display and controls
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Blocked: Working display and controls'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C3
+  criterion: Real battery and thermal measurements
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_LOCAL_HARDWARE
+  automatable: REQUIRES_LOCAL_HARDWARE
+  next_action: 'Blocked: Real battery and thermal measurements'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C4
+  criterion: Secure boot
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Blocked: Secure boot'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C5
+  criterion: Signed update
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Blocked: Signed update'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C6
+  criterion: Device-specific game UX
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Blocked: Device-specific game UX'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 2
+  criterion_id: G2-C7
+  criterion: Ring calibration and fallback
+  owner: gunnchos-hardware-industrial-design
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Blocked: Ring calibration and fallback'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C1
+  criterion: Cross-device identity and continuity
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Baseline only — blocked until evidence: Cross-device identity and continuity'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C2
+  criterion: Multi-device saves
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Baseline only — blocked until evidence: Multi-device saves'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C3
+  criterion: Connectivity manager
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Baseline only — blocked until evidence: Connectivity manager'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C4
+  criterion: Fleet observability
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Baseline only — blocked until evidence: Fleet observability'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C5
+  criterion: Security threat models
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_NOW
+  automatable: AUTOMATABLE_NOW
+  next_action: 'Baseline only — blocked until evidence: Security threat models'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C6
+  criterion: 7GC test plans
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_NOW
+  automatable: AUTOMATABLE_NOW
+  next_action: 'Baseline only — blocked until evidence: 7GC test plans'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 3
+  criterion_id: G3-C7
+  criterion: Repair procedure
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_NOW
+  automatable: AUTOMATABLE_NOW
+  next_action: 'Baseline only — blocked until evidence: Repair procedure'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C1
+  criterion: Real users
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_HUMAN_PARTICIPANTS
+  automatable: REQUIRES_HUMAN_PARTICIPANTS
+  next_action: 'Baseline only — blocked until evidence: Real users'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C2
+  criterion: Real connectivity conditions
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_LOCAL_HARDWARE
+  automatable: REQUIRES_LOCAL_HARDWARE
+  next_action: 'Baseline only — blocked until evidence: Real connectivity conditions'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C3
+  criterion: Long-duration operation
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_LOCAL_HARDWARE
+  automatable: REQUIRES_LOCAL_HARDWARE
+  next_action: 'Baseline only — blocked until evidence: Long-duration operation'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C4
+  criterion: Terrestrial and NTN experiments
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EXTERNAL_PARTNER
+  automatable: REQUIRES_EXTERNAL_PARTNER
+  next_action: 'Baseline only — blocked until evidence: Terrestrial and NTN experiments'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C5
+  criterion: Accessibility evaluation
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_HUMAN_PARTICIPANTS
+  automatable: REQUIRES_HUMAN_PARTICIPANTS
+  next_action: 'Baseline only — blocked until evidence: Accessibility evaluation'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C6
+  criterion: Local-language evaluation
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_HUMAN_PARTICIPANTS
+  automatable: REQUIRES_HUMAN_PARTICIPANTS
+  next_action: 'Baseline only — blocked until evidence: Local-language evaluation'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C7
+  criterion: Community governance review
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+  automatable: REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+  next_action: 'Baseline only — blocked until evidence: Community governance review'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 4
+  criterion_id: G4-C8
+  criterion: Incident and support exercises
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_HUMAN_PARTICIPANTS
+  automatable: REQUIRES_HUMAN_PARTICIPANTS
+  next_action: 'Baseline only — blocked until evidence: Incident and support exercises'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C1
+  criterion: Design for manufacture
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_MANUFACTURER
+  automatable: REQUIRES_MANUFACTURER
+  next_action: 'Baseline only — blocked until evidence: Design for manufacture'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C2
+  criterion: Supply-chain audit
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EXTERNAL_PARTNER
+  automatable: REQUIRES_EXTERNAL_PARTNER
+  next_action: 'Baseline only — blocked until evidence: Supply-chain audit'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C3
+  criterion: Regulatory test candidates
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_CERTIFICATION_LAB
+  automatable: REQUIRES_CERTIFICATION_LAB
+  next_action: 'Baseline only — blocked until evidence: Regulatory test candidates'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C4
+  criterion: Carrier engagement
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_CARRIER
+  automatable: REQUIRES_CARRIER
+  next_action: 'Baseline only — blocked until evidence: Carrier engagement'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C5
+  criterion: Privacy and security review
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+  automatable: REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+  next_action: 'Baseline only — blocked until evidence: Privacy and security review'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C6
+  criterion: Production provisioning
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_MANUFACTURER
+  automatable: REQUIRES_MANUFACTURER
+  next_action: 'Baseline only — blocked until evidence: Production provisioning'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 5
+  criterion_id: G5-C7
+  criterion: Packaging and support system
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EXTERNAL_PARTNER
+  automatable: REQUIRES_EXTERNAL_PARTNER
+  next_action: 'Baseline only — blocked until evidence: Packaging and support system'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C1
+  criterion: No unresolved critical safety or security defects
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EDMUND
+  automatable: REQUIRES_EDMUND
+  next_action: 'Baseline only — blocked until evidence: No unresolved critical safety or security defects'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C2
+  criterion: Signed factory image
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Baseline only — blocked until evidence: Signed factory image'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C3
+  criterion: Verified update and rollback
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Baseline only — blocked until evidence: Verified update and rollback'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C4
+  criterion: Clean install and recovery
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  automatable: REQUIRES_PHYSICAL_PROTOTYPE
+  next_action: 'Baseline only — blocked until evidence: Clean install and recovery'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C5
+  criterion: Complete applications and game paths
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Baseline only — blocked until evidence: Complete applications and game paths'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C6
+  criterion: Published support lifecycle
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EXTERNAL_PARTNER
+  automatable: REQUIRES_EXTERNAL_PARTNER
+  next_action: 'Baseline only — blocked until evidence: Published support lifecycle'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 6
+  criterion_id: G6-C7
+  criterion: Pilot evidence accepted
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EDMUND
+  automatable: REQUIRES_EDMUND
+  next_action: 'Baseline only — blocked until evidence: Pilot evidence accepted'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C1
+  criterion: Required regional certifications
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_CERTIFICATION_LAB
+  automatable: REQUIRES_CERTIFICATION_LAB
+  next_action: 'Baseline only — blocked until evidence: Required regional certifications'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C2
+  criterion: Carrier or network acceptance
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_CARRIER
+  automatable: REQUIRES_CARRIER
+  next_action: 'Baseline only — blocked until evidence: Carrier or network acceptance'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C3
+  criterion: Production manufacturing
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_MANUFACTURER
+  automatable: REQUIRES_MANUFACTURER
+  next_action: 'Baseline only — blocked until evidence: Production manufacturing'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C4
+  criterion: Support staffing
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EXTERNAL_PARTNER
+  automatable: REQUIRES_EXTERNAL_PARTNER
+  next_action: 'Baseline only — blocked until evidence: Support staffing'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C5
+  criterion: Fleet operations
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_AFTER_DEPENDENCY
+  automatable: AUTOMATABLE_AFTER_DEPENDENCY
+  next_action: 'Baseline only — blocked until evidence: Fleet operations'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C6
+  criterion: Vulnerability-response process
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - AUTOMATABLE_NOW
+  automatable: AUTOMATABLE_NOW
+  next_action: 'Baseline only — blocked until evidence: Vulnerability-response process'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 7
+  criterion_id: G7-C7
+  criterion: Repair and replacement inventory
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: BLOCKED
+  evidence: []
+  blockers:
+  - REQUIRES_EXTERNAL_PARTNER
+  automatable: REQUIRES_EXTERNAL_PARTNER
+  next_action: 'Baseline only — blocked until evidence: Repair and replacement inventory'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 8
+  criterion_id: G8-C1
+  criterion: Map finalized 3GPP/ITU requirements
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_STANDARD_FINALIZATION
+  automatable: REQUIRES_STANDARD_FINALIZATION
+  next_action: 'Baseline only — blocked until evidence: Map finalized 3GPP/ITU requirements'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 8
+  criterion_id: G8-C2
+  criterion: Upgrade compatible components
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_STANDARD_FINALIZATION
+  automatable: REQUIRES_STANDARD_FINALIZATION
+  next_action: 'Baseline only — blocked until evidence: Upgrade compatible components'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 8
+  criterion_id: G8-C3
+  criterion: Replace non-compliant components
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_STANDARD_FINALIZATION
+  automatable: REQUIRES_STANDARD_FINALIZATION
+  next_action: 'Baseline only — blocked until evidence: Replace non-compliant components'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 8
+  criterion_id: G8-C4
+  criterion: Complete formal conformance testing
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_CERTIFICATION_LAB
+  automatable: REQUIRES_CERTIFICATION_LAB
+  next_action: 'Baseline only — blocked until evidence: Complete formal conformance testing'
+  acceptance_authority: Edmund Gunn Jr.
+- gate: 8
+  criterion_id: G8-C5
+  criterion: 6G certification language only after path exists
+  owner: gunnchos-7gc-ai-ran-field-kit
+  status: NOT_CURRENTLY_CLAIMABLE
+  evidence: []
+  blockers:
+  - REQUIRES_STANDARD_FINALIZATION
+  automatable: REQUIRES_STANDARD_FINALIZATION
+  next_action: 'Baseline only — blocked until evidence: 6G certification language only after path exists'
+  acceptance_authority: Edmund Gunn Jr.

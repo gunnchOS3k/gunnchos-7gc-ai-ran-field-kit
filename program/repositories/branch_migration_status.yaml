@@ -1,0 +1,21 @@
+schema_version: 1.0.0
+overall: MAIN_BRANCH_NORMALIZATION_PASS
+field_kit:
+  repository: gunnchos-7gc-ai-ran-field-kit
+  audit_case: B_MASTER_ONLY
+  post_migration_status: MIGRATED_IDENTICAL_HISTORY
+  github_default_branch: main
+  main_sha: de818fbe...
+  master_sha: de818fbe...
+  prs_retargeted:
+  - '#12'
+  - '#1'
+  master_preserved: true
+  notes: Audit snapshot predated migration. Subsequent pass created main at same SHA as master, set GitHub
+    default=main, retargeted PR#12 and PR#1 to main.
+already_main_count: 27
+edgegesture_standalone: ALREADY_MAIN
+scine_workspace_note: scine workspace had empty stub field-kit; spine/repos is active workspace
+force_push_used: false
+history_rewritten: false
+master_deleted: false

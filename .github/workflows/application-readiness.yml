@@ -2,8 +2,11 @@ name: Application readiness CI
 
 on:
   push:
-    branches: [main, master, "cursor/**"]
+    branches: [main, "cursor/**"]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   readiness:
@@ -22,10 +25,57 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest jsonschema pyyaml
 
+      - name: Mint portfolio GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        continue-on-error: true
+        with:
+          app-id: ${{ secrets.PORTFOLIO_APP_ID }}
+          private-key: ${{ secrets.PORTFOLIO_APP_PRIVATE_KEY }}
+          owner: gunnchOS3k
+          repositories: |
+            gunnchos-emergent-service-intent-protocols
+            gunnchos-gpu-nr-baseband-platform
+            edge-io-measurement-node
+            7gc-digital-twin
+            spectrumx-ai-ran-gary
+            ntn-resilience-sim
+            readygary-6g-beam-selection
+            gunnchos-hardware-industrial-design
+            gunnchos-device-os
+
+      - name: Resolve checkout credential
+        id: creds
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_OUTCOME: ${{ steps.app-token.outcome }}
+          PAT: ${{ secrets.PORTFOLIO_REPO_READ_TOKEN }}
+        run: |
+          set +x
+          if [ "${APP_OUTCOME}" = "success" ] && [ -n "${APP_TOKEN:-}" ]; then
+            echo "credential_source=github_app" >> "$GITHUB_OUTPUT"
+            echo "token=${APP_TOKEN}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -n "${PAT:-}" ]; then
+            echo "credential_source=pat" >> "$GITHUB_OUTPUT"
+            echo "token=${PAT}" >> "$GITHUB_OUTPUT"
+            echo "WARNING: using PORTFOLIO_REPO_READ_TOKEN fallback (App preferred)"
+            exit 0
+          fi
+          echo "credential_source=none" >> "$GITHUB_OUTPUT"
+          echo "token=" >> "$GITHUB_OUTPUT"
+          echo "BLOCKED_CREDENTIAL_CONFIGURATION"
+          echo "Configure repository secrets PORTFOLIO_APP_ID + PORTFOLIO_APP_PRIVATE_KEY"
+          echo "App mint outcome=${APP_OUTCOME}; do not fall back to GITHUB_TOKEN for private siblings"
+          exit 3
+
       - name: Checkout locked sibling repositories
+        env:
+          PORTFOLIO_CHECKOUT_TOKEN: ${{ steps.creds.outputs.token }}
+          PORTFOLIO_CREDENTIAL_SOURCE: ${{ steps.creds.outputs.credential_source }}
         run: |
           chmod +x scripts/ci_checkout_locked_siblings.sh
-          # GitHub Actions workspace parent holds sibling checkouts for repo-lock tests
           bash scripts/ci_checkout_locked_siblings.sh "$(dirname "$GITHUB_WORKSPACE")"
 
       - name: Unit and contract tests
@@ -42,7 +92,6 @@ jobs:
       - name: Repo lock integrity
         run: |
           python scripts/verify_repo_lock.py --repos-root "$(dirname "$GITHUB_WORKSPACE")" --allow-dirty
-          # After siblings are checked out clean, also verify without allow-dirty
           python scripts/verify_repo_lock.py --repos-root "$(dirname "$GITHUB_WORKSPACE")"
 
       - name: Gate4 evaluation-ready dry-run
@@ -83,7 +132,6 @@ jobs:
           from pathlib import Path
           m=json.loads(Path('paper/PAPER_BUILD_MANIFEST.json').read_text())
           pages=int(m.get('page_count') or m.get('pages') or 0)
-          # Also parse report if needed
           if pages == 0:
               text=Path('paper/PAPER_BUILD_REPORT.md').read_text()
               import re
