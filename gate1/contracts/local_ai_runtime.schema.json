@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "local_ai_runtime.schema.json",
+  "title": "LocalAIRuntime",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "runtime_id",
+    "mode",
+    "health",
+    "network_egress",
+    "evidence_class",
+    "collected_at_utc"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "runtime_id": { "type": "string", "minLength": 1 },
+    "mode": { "type": "string", "enum": ["local_only", "hybrid", "cloud"] },
+    "health": { "type": "string", "enum": ["ok", "degraded", "fail"] },
+    "model_id": { "type": ["string", "null"] },
+    "runtime_version": { "type": "string" },
+    "network_egress": { "type": "string", "enum": ["denied", "allowed", "unknown"] },
+    "evidence_class": { "type": "string", "enum": ["software", "simulated", "physical"] },
+    "collected_at_utc": { "type": "string", "format": "date-time" },
+    "notes": { "type": "string" }
+  }
+}

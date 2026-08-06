@@ -1,0 +1,20 @@
+schema_version: "1.0.0"
+required_services:
+  - id: schema_validation
+    automatable: true
+    description: Validate Gate 1 JSON Schema contracts
+  - id: sibling_repo_discovery
+    automatable: true
+    description: Discover sibling repos under ROOT.parent and repo-lock.json
+  - id: software_component_probes
+    automatable: true
+    description: Safe local discovery/tests for boot, ring-auth, dock, ai-runtime, games
+  - id: evidence_hashing
+    automatable: true
+    description: Hash artifacts and record timestamps/tool versions
+  - id: physical_evidence_acceptance
+    automatable: false
+    description: Accept physical boot/ring/dock/AI/game evidence only from accepted/ physical files
+  - id: gate0_prerequisite
+    automatable: true
+    description: Gate 0 approval + validators must pass before Gate 1 PASS claims

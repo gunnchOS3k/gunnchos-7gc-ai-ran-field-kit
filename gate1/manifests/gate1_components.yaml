@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+gate: 1
+name: Integrated Development Platform
+components:
+  - id: boot
+    criterion_id: G1-C1
+    owner_repo: gunnchos-device-os
+    discovery_markers:
+      - boot_readiness
+      - gunnchos_device_os
+      - docs
+    software_signals:
+      - "**/boot*.py"
+      - "**/boot_readiness/**"
+      - "Makefile"
+    physical_required: true
+  - id: ring-auth
+    criterion_id: G1-C2
+    owner_repo: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+    supporting_repos:
+      - gunnchos-hardware-industrial-design
+      - edge-io-measurement-node
+      - gunnchos-device-os
+    discovery_markers:
+      - ring_input
+      - authenticated_input
+      - protocols
+    software_signals:
+      - "**/ring*/**"
+      - "**/authenticated*"
+    physical_required: true
+  - id: dock
+    criterion_id: G1-C3
+    owner_repo: gunnchos-device-os
+    discovery_markers:
+      - dock
+      - docking
+      - continuity
+    software_signals:
+      - "**/dock*/**"
+      - "**/continuity*"
+    physical_required: true
+  - id: ai-runtime
+    criterion_id: G1-C4
+    owner_repo: gunnchAI3k
+    supporting_repos:
+      - gunnchos-device-os
+      - waike-research-ops
+    discovery_markers:
+      - apps
+      - packages
+      - runtime
+    software_signals:
+      - "**/package.json"
+      - "**/apps/**"
+      - "**/runtime*"
+    physical_required: true
+  - id: games
+    criterion_id: G1-C5
+    owner_repo: gunnchos-7gc-ai-ran-field-kit
+    game_repos:
+      - beatlink-party
+      - archive-of-life-artifact-world
+      - pedestrian-pursuit
+      - anime-aggressors
+    discovery_markers:
+      - game
+      - scenes
+      - project.godot
+      - package.json
+    software_signals:
+      - "**/README.md"
+      - "**/tests/**"
+    physical_required: true

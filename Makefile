@@ -354,7 +354,7 @@ verify-branch-governance:
 acceptance-completion: remote-integrity-audit verify-repo-lock gate4-oulu-scientific gate4-nvidia-aerial-depth gate5-publication-release gate6-harness application-evidence-pack
 	@echo "ACCEPTANCE_COMPLETION_LOCAL_DONE — CONTROL_PLANE_REMOTE_CI_PASS requires green mandatory workflows"
 
-.PHONY: gate-0 control-plane validate-main-branch-policy ingest-product-charter
+.PHONY: gate-0 gate-1 control-plane validate-main-branch-policy ingest-product-charter
 
 ingest-product-charter:
 	$(PYTHON) scripts/ingest_product_charter.py
@@ -368,8 +368,17 @@ control-plane:
 	$(PYTHON) scripts/validate_main_branch_policy.py
 	$(PYTHON) -m pytest -q tests/control_plane tests/test_main_branch_policy.py
 	@test -f program/reports/GATE_0_AUTOMATED_COMPLETION_REPORT.md
-	@echo "CONTROL_PLANE_OK — GATE_0_AUTOMATED_PASS PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND (not GATE_0_PASS)"
+	@echo "CONTROL_PLANE_OK — see python -m control_plane status for earned tokens"
 
 gate-0: control-plane
-	@echo "GATE_0_AUTOMATED_PASS PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND"
+	@$(PYTHON) -m control_plane status
+
+.PHONY: gate-1
+gate-1:
+	$(PYTHON) -m gate1.orchestrator.cli run
+	$(PYTHON) -m gate1.orchestrator.cli validate-evidence
+	$(PYTHON) -m gate1.orchestrator.cli status
+	$(PYTHON) -m pytest -q tests/gate1
+	@test -f gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
+	@echo "GATE_1_AUTOMATED_PASS PHYSICAL_EVIDENCE_PENDING (not GATE_1_PASS without accepted physical evidence)"
 

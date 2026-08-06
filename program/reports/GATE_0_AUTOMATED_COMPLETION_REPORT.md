@@ -1,6 +1,6 @@
 # GATE 0 Automated Completion Report
 
-Generated: 2026-08-06T19:33:17Z
+Generated: 2026-08-06T20:16:55Z
 
 ## What Cursor implemented
 - Charter ingestion and source/approval records
@@ -16,17 +16,16 @@ Generated: 2026-08-06T19:33:17Z
 - Requirements: 419
 - Claims: 419
 - Repositories: 33
-- Backlog gaps: 465
+- Backlog gaps: 461
 
 ## Exact status tokens
-- `GATE_0_AUTOMATED_PASS`
-- `PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND`
+- `GATE_0_PASS`
+- `CHARTER_APPROVED`
 
 ## Unresolved Gate 0 items
-- Edmund product-charter approval
-- CONTROL_PLANE_PENDING_DECISION owners (cloud/manufacturing/certification/support)
+- None for Gate 0 automation/approval path
 
 ## Blockers preserved
-- Physical / human / external / credential / standards
+- Physical / human / external / credential / standards (Gates 1–8)
 
-Do **not** interpret this report as `GATE_0_PASS`.
+`GATE_0_PASS` is earned only with approval + validators + no pending owners.

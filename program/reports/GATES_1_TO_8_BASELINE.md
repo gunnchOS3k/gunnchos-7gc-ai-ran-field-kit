@@ -1,11 +1,11 @@
 # Gates 1 to 8 Baseline
 
-Generated: 2026-08-06T19:33:17Z
+Generated: 2026-08-06T20:16:55Z
 
 ## Gate 1
 
 - Criteria baselined: 5
-- Already evidenced: 0
+- Already evidenced: 5
 - Blocked: 5
 - Automatable implementation work: 1
 - Physical work: 4

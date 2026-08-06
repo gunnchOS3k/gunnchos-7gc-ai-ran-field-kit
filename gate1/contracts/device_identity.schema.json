@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "device_identity.schema.json",
+  "title": "DeviceIdentity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "device_id", "platform", "identity_class", "collected_at_utc"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "device_id": { "type": "string", "minLength": 1 },
+    "platform": { "type": "string", "enum": ["host_native", "vm_container", "physical_candidate"] },
+    "identity_class": { "type": "string", "enum": ["software", "simulated", "physical"] },
+    "hardware_serial": { "type": ["string", "null"] },
+    "secure_boot_state": { "type": ["string", "null"] },
+    "collected_at_utc": { "type": "string", "format": "date-time" },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "authenticated_input.schema.json",
+  "title": "AuthenticatedInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "session_id",
+    "source",
+    "auth_method",
+    "payload_digest_sha256",
+    "anti_replay_nonce",
+    "evidence_class",
+    "collected_at_utc"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "session_id": { "type": "string", "minLength": 1 },
+    "source": { "type": "string", "enum": ["ring_prototype", "fixture", "simulator"] },
+    "auth_method": { "type": "string", "enum": ["hmac", "mutual_tls", "signed_frame", "fixture"] },
+    "payload_digest_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "anti_replay_nonce": { "type": "string", "minLength": 8 },
+    "evidence_class": { "type": "string", "enum": ["software", "simulated", "physical"] },
+    "authenticated": { "type": "boolean" },
+    "collected_at_utc": { "type": "string", "format": "date-time" },
+    "notes": { "type": "string" }
+  }
+}

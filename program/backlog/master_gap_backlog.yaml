@@ -563,7 +563,7 @@ gaps:
   class: REQUIRES_PHYSICAL_PROTOTYPE
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-RING-INPUT-036-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: RING-INPUT-036
   title: 'Ring gaming input: Accessibility remapping'
@@ -632,7 +632,7 @@ gaps:
   class: REQUIRES_PHYSICAL_PROTOTYPE
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-RING-RELIAB-006-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: RING-RELIAB-006
   title: 'Ring reliability: Undo or correction handling'
@@ -2503,75 +2503,46 @@ gaps:
   class: AUTOMATABLE_AFTER_DEPENDENCY
   blockers: []
   owner_repository: gunnchos-7gc-ai-ran-field-kit
-- gap_id: GAP-FULL-OPS-010-CONTROL_PLANE_PENDING_DECISION
+- gap_id: GAP-FULL-OPS-010
   requirement_id: FULL-OPS-010
   title: 'Fully operational layer: Cloud and edge services'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers:
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  class: AUTOMATABLE_AFTER_DEPENDENCY
+  blockers: []
+  owner_repository: gunnchos-device-os
 - gap_id: GAP-FULL-OPS-011
   requirement_id: FULL-OPS-011
   title: 'Fully operational layer: Security operations'
   class: AUTOMATABLE_AFTER_DEPENDENCY
   blockers: []
   owner_repository: gunnchos-device-os
-- gap_id: GAP-FULL-OPS-012-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-012
-  title: 'Fully operational layer: Manufacturing'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: &id041
-  - CONTROL_PLANE_PENDING_DECISION
-  - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
 - gap_id: GAP-FULL-OPS-012-REQUIRES_MANUFACTURER
   requirement_id: FULL-OPS-012
   title: 'Fully operational layer: Manufacturing'
   class: REQUIRES_MANUFACTURER
-  blockers: *id041
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  blockers:
+  - REQUIRES_MANUFACTURER
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-FULL-OPS-013-REQUIRES_EXTERNAL_PARTNER
   requirement_id: FULL-OPS-013
   title: 'Fully operational layer: Certification'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: &id042
+  blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-013-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-013
-  title: 'Fully operational layer: Certification'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: *id042
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-FULL-OPS-014-REQUIRES_EXTERNAL_PARTNER
   requirement_id: FULL-OPS-014
   title: 'Fully operational layer: Deployment'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: &id043
+  blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-014-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-014
-  title: 'Fully operational layer: Deployment'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: *id043
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-FULL-OPS-015-REQUIRES_EXTERNAL_PARTNER
   requirement_id: FULL-OPS-015
   title: 'Fully operational layer: Support'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: &id044
+  blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  - CONTROL_PLANE_PENDING_DECISION
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
-- gap_id: GAP-FULL-OPS-015-CONTROL_PLANE_PENDING_DECISION
-  requirement_id: FULL-OPS-015
-  title: 'Fully operational layer: Support'
-  class: CONTROL_PLANE_PENDING_DECISION
-  blockers: *id044
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-FULL-OPS-016
   requirement_id: FULL-OPS-016
   title: 'Fully operational layer: Evidence'
@@ -2589,7 +2560,7 @@ gaps:
   requirement_id: GATE-1-001
   title: 'Gate 1: gunnchOS boots on representative hardware'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: &id045
+  blockers: &id041
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_PHYSICAL_PROTOTYPE
   owner_repository: gunnchos-device-os
@@ -2597,13 +2568,13 @@ gaps:
   requirement_id: GATE-1-001
   title: 'Gate 1: gunnchOS boots on representative hardware'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: *id045
+  blockers: *id041
   owner_repository: gunnchos-device-os
 - gap_id: GAP-GATE-1-002-REQUIRES_LOCAL_HARDWARE
   requirement_id: GATE-1-002
   title: 'Gate 1: Ring prototype sends authenticated input'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: &id046
+  blockers: &id042
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_PHYSICAL_PROTOTYPE
   owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
@@ -2611,13 +2582,13 @@ gaps:
   requirement_id: GATE-1-002
   title: 'Gate 1: Ring prototype sends authenticated input'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: *id046
+  blockers: *id042
   owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
 - gap_id: GAP-GATE-1-003-REQUIRES_LOCAL_HARDWARE
   requirement_id: GATE-1-003
   title: 'Gate 1: At least one device docks successfully'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: &id047
+  blockers: &id043
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_PHYSICAL_PROTOTYPE
   owner_repository: gunnchos-device-os
@@ -2625,7 +2596,7 @@ gaps:
   requirement_id: GATE-1-003
   title: 'Gate 1: At least one device docks successfully'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: *id047
+  blockers: *id043
   owner_repository: gunnchos-device-os
 - gap_id: GAP-GATE-1-004-REQUIRES_LOCAL_HARDWARE
   requirement_id: GATE-1-004
@@ -2644,7 +2615,7 @@ gaps:
   requirement_id: GATE-2-001
   title: 'Gate 2: Representative enclosure'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id048
+  blockers: &id044
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: gunnchos-hardware-industrial-design
@@ -2652,13 +2623,13 @@ gaps:
   requirement_id: GATE-2-001
   title: 'Gate 2: Representative enclosure'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id048
+  blockers: *id044
   owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-2-002-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: GATE-2-002
   title: 'Gate 2: Working display and controls'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id049
+  blockers: &id045
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: gunnchos-hardware-industrial-design
@@ -2666,13 +2637,13 @@ gaps:
   requirement_id: GATE-2-002
   title: 'Gate 2: Working display and controls'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id049
+  blockers: *id045
   owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-2-003-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: GATE-2-003
   title: 'Gate 2: Real battery and thermal measurements'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id050
+  blockers: &id046
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: gunnchos-hardware-industrial-design
@@ -2680,13 +2651,13 @@ gaps:
   requirement_id: GATE-2-003
   title: 'Gate 2: Real battery and thermal measurements'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id050
+  blockers: *id046
   owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-2-004-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: GATE-2-004
   title: 'Gate 2: Secure boot'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id051
+  blockers: &id047
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: gunnchos-device-os
@@ -2694,13 +2665,13 @@ gaps:
   requirement_id: GATE-2-004
   title: 'Gate 2: Secure boot'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id051
+  blockers: *id047
   owner_repository: gunnchos-device-os
 - gap_id: GAP-GATE-2-005-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: GATE-2-005
   title: 'Gate 2: Signed update'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id052
+  blockers: &id048
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: gunnchos-device-os
@@ -2708,13 +2679,13 @@ gaps:
   requirement_id: GATE-2-005
   title: 'Gate 2: Signed update'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id052
+  blockers: *id048
   owner_repository: gunnchos-device-os
 - gap_id: GAP-GATE-2-006-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: GATE-2-006
   title: 'Gate 2: Device-specific game UX'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id053
+  blockers: &id049
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: gunnchos-7gc-ai-ran-field-kit
@@ -2722,13 +2693,13 @@ gaps:
   requirement_id: GATE-2-006
   title: 'Gate 2: Device-specific game UX'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id053
+  blockers: *id049
   owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-2-007-REQUIRES_PHYSICAL_PROTOTYPE
   requirement_id: GATE-2-007
   title: 'Gate 2: Ring calibration and fallback'
   class: REQUIRES_PHYSICAL_PROTOTYPE
-  blockers: &id054
+  blockers: &id050
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
@@ -2736,7 +2707,7 @@ gaps:
   requirement_id: GATE-2-007
   title: 'Gate 2: Ring calibration and fallback'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: *id054
+  blockers: *id050
   owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
 - gap_id: GAP-GATE-3-001
   requirement_id: GATE-3-001
@@ -2791,7 +2762,7 @@ gaps:
   requirement_id: GATE-4-002
   title: 'Gate 4: Real connectivity conditions'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: &id055
+  blockers: &id051
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_EXTERNAL_PARTNER
   owner_repository: gunnchos-7gc-ai-ran-field-kit
@@ -2799,13 +2770,13 @@ gaps:
   requirement_id: GATE-4-002
   title: 'Gate 4: Real connectivity conditions'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: *id055
+  blockers: *id051
   owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-4-003-REQUIRES_LOCAL_HARDWARE
   requirement_id: GATE-4-003
   title: 'Gate 4: Long-duration operation'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: &id056
+  blockers: &id052
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_EXTERNAL_PARTNER
   owner_repository: gunnchos-7gc-ai-ran-field-kit
@@ -2813,13 +2784,13 @@ gaps:
   requirement_id: GATE-4-003
   title: 'Gate 4: Long-duration operation'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: *id056
+  blockers: *id052
   owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-4-004-REQUIRES_LOCAL_HARDWARE
   requirement_id: GATE-4-004
   title: 'Gate 4: Terrestrial and NTN experiments where available'
   class: REQUIRES_LOCAL_HARDWARE
-  blockers: &id057
+  blockers: &id053
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_EXTERNAL_PARTNER
   owner_repository: gunnchos-7gc-ai-ran-field-kit
@@ -2827,7 +2798,7 @@ gaps:
   requirement_id: GATE-4-004
   title: 'Gate 4: Terrestrial and NTN experiments where available'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: *id057
+  blockers: *id053
   owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-4-005-REQUIRES_HUMAN_PARTICIPANTS
   requirement_id: GATE-4-005
@@ -2854,7 +2825,7 @@ gaps:
   requirement_id: GATE-4-008
   title: 'Gate 4: Incident and support exercises'
   class: REQUIRES_HUMAN_PARTICIPANTS
-  blockers: &id058
+  blockers: &id054
   - REQUIRES_HUMAN_PARTICIPANTS
   - REQUIRES_EXTERNAL_PARTNER
   owner_repository: gunnchos-7gc-ai-ran-field-kit
@@ -2862,7 +2833,7 @@ gaps:
   requirement_id: GATE-4-008
   title: 'Gate 4: Incident and support exercises'
   class: REQUIRES_EXTERNAL_PARTNER
-  blockers: *id058
+  blockers: *id054
   owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-5-001-REQUIRES_MANUFACTURER
   requirement_id: GATE-5-001
@@ -2870,14 +2841,14 @@ gaps:
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-5-002-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-5-002
   title: 'Gate 5: Supply-chain audit'
   class: REQUIRES_EXTERNAL_PARTNER
   blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-5-003-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-5-003
   title: 'Gate 5: Regulatory test candidates'
@@ -2905,14 +2876,14 @@ gaps:
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-5-007-REQUIRES_MANUFACTURER
   requirement_id: GATE-5-007
   title: 'Gate 5: Packaging and support system'
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-6-001-REQUIRES_EDMUND
   requirement_id: GATE-6-001
   title: 'Gate 6: No unresolved critical safety or security defects'
@@ -2968,28 +2939,28 @@ gaps:
   class: REQUIRES_CERTIFICATION_LAB
   blockers:
   - REQUIRES_CERTIFICATION_LAB
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-7-002-REQUIRES_CARRIER
   requirement_id: GATE-7-002
   title: 'Gate 7: Carrier or network acceptance where applicable'
   class: REQUIRES_CARRIER
   blockers:
   - REQUIRES_CARRIER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-7-003-REQUIRES_MANUFACTURER
   requirement_id: GATE-7-003
   title: 'Gate 7: Production manufacturing'
   class: REQUIRES_MANUFACTURER
   blockers:
   - REQUIRES_MANUFACTURER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-hardware-industrial-design
 - gap_id: GAP-GATE-7-004-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-7-004
   title: 'Gate 7: Support staffing'
   class: REQUIRES_EXTERNAL_PARTNER
   blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-7-005-REQUIRES_EXTERNAL_PARTNER
   requirement_id: GATE-7-005
   title: 'Gate 7: Fleet operations'
@@ -3009,7 +2980,7 @@ gaps:
   class: REQUIRES_EXTERNAL_PARTNER
   blockers:
   - REQUIRES_EXTERNAL_PARTNER
-  owner_repository: CONTROL_PLANE_PENDING_DECISION
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
 - gap_id: GAP-GATE-8-001-REQUIRES_STANDARD_FINALIZATION
   requirement_id: GATE-8-001
   title: 'Gate 8: Map finalized 3GPP and ITU requirements to hardware and software'

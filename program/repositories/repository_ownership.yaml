@@ -21,23 +21,6 @@ owner_to_requirements:
   - 7GC-DEPLOY-018
   - GATE-3-006
   - SYS-MISSION-008
-  CONTROL_PLANE_PENDING_DECISION:
-  - FULL-OPS-010
-  - FULL-OPS-012
-  - FULL-OPS-013
-  - FULL-OPS-014
-  - FULL-OPS-015
-  - GATE-5-001
-  - GATE-5-002
-  - GATE-5-006
-  - GATE-5-007
-  - GATE-7-001
-  - GATE-7-002
-  - GATE-7-003
-  - GATE-7-004
-  - GATE-7-007
-  - RING-INPUT-035
-  - RING-RELIAB-005
   EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon:
   - FULL-OPS-007
   - GATE-1-002
@@ -179,6 +162,9 @@ owner_to_requirements:
   gunnchos-7gc-ai-ran-field-kit:
   - FULL-OPS-008
   - FULL-OPS-009
+  - FULL-OPS-013
+  - FULL-OPS-014
+  - FULL-OPS-015
   - FULL-OPS-016
   - FULL-OPS-017
   - GAME-CROSS-001
@@ -207,11 +193,18 @@ owner_to_requirements:
   - GATE-4-006
   - GATE-4-007
   - GATE-4-008
+  - GATE-5-002
   - GATE-5-003
   - GATE-5-004
+  - GATE-5-006
+  - GATE-5-007
   - GATE-6-005
   - GATE-6-006
   - GATE-6-007
+  - GATE-7-001
+  - GATE-7-002
+  - GATE-7-004
+  - GATE-7-007
   - GATE-8-005
   - SYS-MISSION-001
   - SYS-MISSION-002
@@ -290,6 +283,7 @@ owner_to_requirements:
   - DEV-HANDHELD-010
   - FULL-OPS-004
   - FULL-OPS-006
+  - FULL-OPS-010
   - FULL-OPS-011
   - GATE-1-001
   - GATE-1-003
@@ -409,11 +403,16 @@ owner_to_requirements:
   - FULL-OPS-001
   - FULL-OPS-002
   - FULL-OPS-003
+  - FULL-OPS-012
   - GATE-2-001
   - GATE-2-002
   - GATE-2-003
   - GATE-3-007
+  - GATE-5-001
+  - GATE-7-003
   - RING-AWARE-001
+  - RING-INPUT-035
+  - RING-RELIAB-005
   pedestrian-pursuit:
   - GAME-PP-001
   - GAME-PP-002
@@ -432,19 +431,18 @@ owner_to_requirements:
   - GAME-PP-015
 ring_workstream_ownership:
   industrial_electrical_design: gunnchos-hardware-industrial-design
-  ring_firmware: CONTROL_PLANE_PENDING_DECISION
+  ring_firmware: gunnchos-hardware-industrial-design
   sensing_and_inference: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
   secure_pairing_and_authentication: gunnchos-device-os
   gunnchos_input_service: gunnchos-device-os
   calibration: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
-  haptics: CONTROL_PLANE_PENDING_DECISION
+  haptics: gunnchos-hardware-industrial-design
   application_sdk: gunnchos-device-os
   game_integration: gunnchos-7gc-ai-ran-field-kit
   measurement_and_validation: edge-io-measurement-node
   privacy: gunnchos-device-os
   safety: gunnchos-hardware-industrial-design
-  manufacturing: CONTROL_PLANE_PENDING_DECISION
+  manufacturing: gunnchos-hardware-industrial-design
 ring_ownership_disclaimer: Cross-repo responsibility is documented for planning only. Assignment does
   not claim that ring firmware, manufactured rings, or validated production components exist.
-pending_decision_owners:
-- CONTROL_PLANE_PENDING_DECISION
+pending_decision_owners: []

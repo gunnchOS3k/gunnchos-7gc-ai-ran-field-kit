@@ -123,18 +123,30 @@ def build_gate_dependency_graph() -> dict[str, Any]:
     }
 
 
-def build_gate_status() -> dict[str, Any]:
+def build_gate_status(
+    *,
+    charter_approved: bool = False,
+    gate0_overall: str | None = None,
+    gate1_software_ready: bool = False,
+) -> dict[str, Any]:
+    g0_c1_status = "APPROVED" if charter_approved else "PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND"
+    g0_c1_blockers = [] if charter_approved else ["REQUIRES_EDMUND"]
+    g0_c1_next = (
+        "Maintain approval record; proceed to Gate 1 physical evidence"
+        if charter_approved
+        else "Edmund reviews and records charter approval"
+    )
     criteria = [
         _crit(
             0,
             "G0-C1",
             "Product charter approved",
             "Edmund Gunn Jr.",
-            "PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND",
+            g0_c1_status,
             ["program/charters/CHARTER_APPROVAL_RECORD.yaml"],
-            ["REQUIRES_EDMUND"],
-            "REQUIRES_EDMUND",
-            "Edmund reviews and records charter approval",
+            g0_c1_blockers,
+            "REQUIRES_EDMUND" if not charter_approved else "AUTOMATABLE_NOW",
+            g0_c1_next,
             "Edmund Gunn Jr.",
         ),
         _crit(
@@ -185,12 +197,12 @@ def build_gate_status() -> dict[str, Any]:
             ],
             [],
             "AUTOMATABLE_NOW",
-            "Resolve CONTROL_PLANE_PENDING_DECISION owners via decision records",
+            "Maintain reconciled owners; no CONTROL_PLANE_PENDING_DECISION remains",
             "Edmund Gunn Jr.",
         ),
     ]
 
-    # Gates 1-8 baseline criteria (blocked truthfully)
+    # Gate 1: software evidence ready / physical pending after Gate 0 approval reconciliation
     gate1 = [
         ("G1-C1", "gunnchOS boots on representative hardware", "gunnchos-device-os", "REQUIRES_LOCAL_HARDWARE"),
         ("G1-C2", "Ring prototype sends authenticated input", "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon", "REQUIRES_PHYSICAL_PROTOTYPE"),
@@ -199,8 +211,24 @@ def build_gate_status() -> dict[str, Any]:
         ("G1-C5", "Each game completes one core loop", "gunnchos-7gc-ai-ran-field-kit", "AUTOMATABLE_AFTER_DEPENDENCY"),
     ]
     for cid, text, owner, cls in gate1:
+        if gate1_software_ready:
+            status = "SOFTWARE_EVIDENCE_READY"
+            evidence = [
+                "gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md",
+                "gate1/reports/GATE_1_IMPLEMENTATION_MATRIX.md",
+                "gate1/evidence/pending",
+            ]
+            blockers = [cls, "PHYSICAL_EVIDENCE_PENDING"]
+            next_action = f"Collect accepted physical evidence for: {text}"
+            # Dual token: software ready + physical pending
+            # status field carries SOFTWARE_EVIDENCE_READY; PHYSICAL_EVIDENCE_PENDING remains as blocker
+        else:
+            status = "BLOCKED"
+            evidence = []
+            blockers = [cls]
+            next_action = f"Collect evidence for: {text}"
         criteria.append(
-            _crit(1, cid, text, owner, "BLOCKED", [], [cls], cls, f"Collect evidence for: {text}", "Edmund Gunn Jr.")
+            _crit(1, cid, text, owner, status, evidence, blockers, cls, next_action, "Edmund Gunn Jr.")
         )
 
     gate2 = [
@@ -312,12 +340,24 @@ def build_gate_status() -> dict[str, Any]:
                 )
             )
 
+    overall = gate0_overall or ("GATE_0_PASS" if charter_approved else "GATE_0_AUTOMATED_PASS")
+    secondary = (
+        "CHARTER_APPROVED"
+        if charter_approved and overall == "GATE_0_PASS"
+        else ("CHARTER_APPROVED" if charter_approved else "PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND")
+    )
     return {
         "schema_version": "1.0.0",
         "work_classes": WORK_CLASSES,
-        "overall_status_token": "GATE_0_AUTOMATED_PASS",
-        "secondary_status_token": "PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND",
-        "prohibited_status_token": "GATE_0_PASS",
+        "overall_status_token": overall,
+        "secondary_status_token": secondary,
+        # GATE_0_PASS is allowed only when compute_gate0_status says so; otherwise treat as prohibited.
+        "prohibited_status_token": None if overall == "GATE_0_PASS" else "GATE_0_PASS",
+        "gate1_status_tokens": [
+            "SOFTWARE_EVIDENCE_READY",
+            "PHYSICAL_EVIDENCE_PENDING",
+            "GATE_1_AUTOMATED_PASS",
+        ],
         "criteria": criteria,
     }
 

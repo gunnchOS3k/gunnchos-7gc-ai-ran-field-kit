@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence_event.schema.json",
+  "title": "EvidenceEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "workstream",
+    "evidence_class",
+    "artifact_sha256",
+    "tool_versions",
+    "collected_at_utc",
+    "claim_level"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "evidence_id": { "type": "string", "minLength": 1 },
+    "workstream": {
+      "type": "string",
+      "enum": ["boot", "ring-auth", "dock", "ai-runtime", "games", "meta"]
+    },
+    "evidence_class": { "type": "string", "enum": ["software", "simulated", "physical"] },
+    "artifact_path": { "type": "string" },
+    "artifact_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "tool_versions": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "collected_at_utc": { "type": "string", "format": "date-time" },
+    "claim_level": {
+      "type": "string",
+      "enum": [
+        "SOFTWARE_SLICE",
+        "SIMULATED",
+        "PHYSICAL_BOOT",
+        "PHYSICAL_RING",
+        "PHYSICAL_DOCK",
+        "PHYSICAL_AI_DEVICE",
+        "PHYSICAL_GAME_DEVICE"
+      ]
+    },
+    "accepted": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}

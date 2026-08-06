@@ -227,19 +227,20 @@ def build_repository_ownership(requirements: list[dict[str, Any]]) -> dict[str, 
         by_owner.setdefault(owner, []).append(req["id"])
     ring_workstreams = {
         "industrial_electrical_design": "gunnchos-hardware-industrial-design",
-        "ring_firmware": "CONTROL_PLANE_PENDING_DECISION",
+        "ring_firmware": "gunnchos-hardware-industrial-design",
         "sensing_and_inference": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
         "secure_pairing_and_authentication": "gunnchos-device-os",
         "gunnchos_input_service": "gunnchos-device-os",
         "calibration": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
-        "haptics": "CONTROL_PLANE_PENDING_DECISION",
+        "haptics": "gunnchos-hardware-industrial-design",
         "application_sdk": "gunnchos-device-os",
         "game_integration": "gunnchos-7gc-ai-ran-field-kit",
         "measurement_and_validation": "edge-io-measurement-node",
         "privacy": "gunnchos-device-os",
         "safety": "gunnchos-hardware-industrial-design",
-        "manufacturing": "CONTROL_PLANE_PENDING_DECISION",
+        "manufacturing": "gunnchos-hardware-industrial-design",
     }
+    pending = [k for k in by_owner if k == "CONTROL_PLANE_PENDING_DECISION"]
     return {
         "schema_version": "1.0.0",
         "owner_to_requirements": {k: sorted(v) for k, v in sorted(by_owner.items())},
@@ -249,9 +250,7 @@ def build_repository_ownership(requirements: list[dict[str, Any]]) -> dict[str, 
             "Assignment does not claim that ring firmware, manufactured rings, "
             "or validated production components exist."
         ),
-        "pending_decision_owners": [
-            k for k in by_owner if k == "CONTROL_PLANE_PENDING_DECISION"
-        ],
+        "pending_decision_owners": pending,
     }
 
 

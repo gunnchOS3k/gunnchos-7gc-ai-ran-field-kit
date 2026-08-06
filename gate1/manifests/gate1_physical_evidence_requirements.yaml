@@ -1,0 +1,40 @@
+schema_version: "1.0.0"
+policy: |
+  Physical claims require accepted evidence files under gate1/evidence/accepted/
+  with evidence_class=physical. Simulated or software evidence MUST NOT upgrade
+  physical claim levels. GATE_1_PASS is prohibited without accepted physical
+  evidence covering boot, ring-auth, dock, ai-runtime, and each game core loop.
+requirements:
+  - id: PHYS-BOOT-001
+    workstream: boot
+    claim_level: PHYSICAL_BOOT
+    description: Representative hardware boots gunnchOS with recorded identity and service health
+    acceptance_authority: Edmund Gunn Jr.
+  - id: PHYS-RING-001
+    workstream: ring-auth
+    claim_level: PHYSICAL_RING
+    description: Physical ring prototype sends authenticated, anti-replay-protected input
+    acceptance_authority: Edmund Gunn Jr.
+  - id: PHYS-DOCK-001
+    workstream: dock
+    claim_level: PHYSICAL_DOCK
+    description: At least one physical device docks with continuity
+    acceptance_authority: Edmund Gunn Jr.
+  - id: PHYS-AI-001
+    workstream: ai-runtime
+    claim_level: PHYSICAL_AI_DEVICE
+    description: gunnchAI3k local runtime functions on device without network egress
+    acceptance_authority: Edmund Gunn Jr.
+  - id: PHYS-GAME-001
+    workstream: games
+    claim_level: PHYSICAL_GAME_DEVICE
+    description: Each of the four games completes one core loop on target hardware
+    acceptance_authority: Edmund Gunn Jr.
+    games:
+      - beatlink-party
+      - archive-of-life-artifact-world
+      - pedestrian-pursuit
+      - anime-aggressors
+equipment_inventory_command: |
+  python -m gate1.orchestrator.cli status --equipment-inventory
+assumption: Equipment existence is NEVER assumed. Inventory must be run and may report MISSING.

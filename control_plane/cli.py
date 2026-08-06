@@ -7,12 +7,13 @@ import json
 import sys
 from pathlib import Path
 
-from control_plane import STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING
+from control_plane import STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING, STATUS_GATE_0_PASS
 from control_plane.catalog.claims_catalog import is_transition_allowed
 from control_plane.generate import generate_all
 from control_plane.io_util import load_yaml
 from control_plane.paths import BACKLOG, CLAIMS, GATES, REPOSITORIES, REQUIREMENTS, ROOT
 from control_plane.reports import generate_reports
+from control_plane.status import compute_gate0_status
 from control_plane.validators import issues_block_exit, validate_control_plane
 
 
@@ -21,7 +22,7 @@ def cmd_generate(_args: argparse.Namespace) -> int:
     paths = generate_reports(meta)
     print(f"Generated control plane: {meta['requirement_count']} requirements, {meta['claim_count']} claims")
     print(f"Reports: {len(paths)}")
-    print(" ".join([STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING]))
+    print(" ".join(meta.get("status_tokens") or [STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING]))
     return 0
 
 
@@ -31,11 +32,15 @@ def cmd_validate(_args: argparse.Namespace) -> int:
     warnings = [i for i in issues if i.severity == "warning"]
     for i in issues:
         print(i)
+    status = compute_gate0_status(run_validators=False)
+    # Re-check with live validator result
     if errors:
         print(f"VALIDATE_FAIL errors={len(errors)} warnings={len(warnings)}")
+        print(STATUS_AUTOMATED_PASS if not status["charter_approved"] else "GATE_0_AUTOMATED_PARTIAL", status["secondary_status_token"])
         return 1
     print(f"VALIDATE_OK errors=0 warnings={len(warnings)}")
-    print(" ".join([STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING]))
+    live = compute_gate0_status(run_validators=True)
+    print(live["overall_status_token"], live["secondary_status_token"])
     return 0
 
 
@@ -51,15 +56,23 @@ def cmd_audit(args: argparse.Namespace) -> int:
 
 
 def cmd_status(_args: argparse.Namespace) -> int:
+    live = compute_gate0_status(run_validators=True)
     gate = load_yaml(GATES / "gate_status.yaml")
     approval = load_yaml(ROOT / "program/charters/CHARTER_APPROVAL_RECORD.yaml")
-    print(f"overall: {gate.get('overall_status_token')}")
-    print(f"secondary: {gate.get('secondary_status_token')}")
+    print(f"overall: {live['overall_status_token']}")
+    print(f"secondary: {live['secondary_status_token']}")
     print(f"charter: {approval.get('status')}")
-    print(f"prohibited: {gate.get('prohibited_status_token')} (must not be emitted)")
+    print(f"pending_owners: {','.join(live['pending_owners']) or 'none'}")
+    if live["overall_status_token"] == STATUS_GATE_0_PASS:
+        print(f"prohibited: (none — {STATUS_GATE_0_PASS} earned)")
+    else:
+        print(f"prohibited: {gate.get('prohibited_status_token') or STATUS_GATE_0_PASS} (must not be emitted)")
     criteria = gate.get("criteria") or []
     g0 = [c for c in criteria if c.get("gate") == 0]
     for c in g0:
+        print(f"  {c['criterion_id']}: {c['status']}")
+    g1 = [c for c in criteria if c.get("gate") == 1]
+    for c in g1:
         print(f"  {c['criterion_id']}: {c['status']}")
     return 0
 

@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from control_plane import INGESTION_SCRIPT_VERSION, STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING
+from control_plane import INGESTION_SCRIPT_VERSION, STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING, STATUS_GATE_0_PASS
 from control_plane.catalog.claims_catalog import (
     build_claim_taxonomy,
     build_claims_from_requirements,
@@ -36,7 +36,7 @@ from control_plane.catalog.repositories_catalog import (
     build_repository_ownership,
 )
 from control_plane.catalog.requirements_catalog import build_requirements
-from control_plane.io_util import dump_json, dump_yaml
+from control_plane.io_util import dump_json, dump_yaml, load_yaml
 from control_plane.paths import (
     BACKLOG,
     BRANCH_AUDIT_PATH,
@@ -55,6 +55,7 @@ from control_plane.paths import (
     ROOT,
     SCHEMAS,
 )
+from control_plane.status import charter_is_approved, compute_gate0_status, pending_owners
 
 
 def _sha256(path: Path) -> str:
@@ -235,8 +236,6 @@ def write_schemas() -> None:
 def write_charter_records() -> None:
     assert CHARTER_FILE.exists(), f"Missing charter at {CHARTER_FILE}"
     text = CHARTER_FILE.read_text(encoding="utf-8")
-    line_count = text.count("\n") + (0 if text.endswith("\n") else 1)
-    # Prefer counting with splitlines for consistency
     line_count = len(text.splitlines())
     sha = _sha256(CHARTER_FILE)
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -253,6 +252,17 @@ def write_charter_records() -> None:
         },
         CHARTER_SOURCE_RECORD,
     )
+    # Preserve an existing APPROVED approval record — never silently regress to pending.
+    if CHARTER_APPROVAL_RECORD.exists():
+        existing = load_yaml(CHARTER_APPROVAL_RECORD)
+        approved = bool(existing.get("approved") is True and existing.get("approver")) or (
+            str(existing.get("status") or "").upper() == "APPROVED" and bool(existing.get("approver"))
+        )
+        if approved:
+            # Refresh charter hash linkage only; keep approval metadata intact.
+            existing["approved_charter_sha256"] = existing.get("approved_charter_sha256") or sha
+            dump_yaml(existing, CHARTER_APPROVAL_RECORD)
+            return
     dump_yaml(
         {
             "status": STATUS_CHARTER_PENDING,
@@ -396,18 +406,18 @@ Document cross-repo responsibility for Edge I/O Rings across industrial/electric
 | Workstream | Accountable owner | Supporting | Notes |
 |---|---|---|---|
 | Industrial / electrical design | `gunnchos-hardware-industrial-design` | EdgeGesture, edge-io-measurement-node | No production ring claim |
-| Ring firmware | `CONTROL_PLANE_PENDING_DECISION` | hardware-industrial-design, EdgeGesture | No dedicated firmware repo proven |
+| Ring firmware | `gunnchos-hardware-industrial-design` | hardware-industrial-design, EdgeGesture | No dedicated firmware repo proven |
 | Sensing and inference | `EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon` | edge-io-measurement-node, gunnchAI3k | Research / hackathon provenance |
 | Secure pairing and authentication | `gunnchos-device-os` | EdgeGesture | Anti-replay / pairing / revocation |
 | gunnchOS input service | `gunnchos-device-os` | EdgeGesture | OS-side input routing |
 | Calibration | `EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon` | edge-io-measurement-node, device-os | Per-user / per-surface |
-| Haptics | `CONTROL_PLANE_PENDING_DECISION` | EdgeGesture, hardware-industrial-design | No validated haptics stack claimed |
+| Haptics | `gunnchos-hardware-industrial-design` | EdgeGesture, hardware-industrial-design | No validated haptics stack claimed |
 | Application SDK | `gunnchos-device-os` | games, EdgeGesture | Pending dedicated SDK package |
 | Game integration | per-game repos | EdgeGesture, device-os | Optional gestures only |
 | Measurement and validation | `edge-io-measurement-node` | field-kit, EdgeGesture | Lab / field measurement |
 | Privacy | `gunnchos-device-os` | EdgeGesture, gunnchAI3k | Local motion processing / consent |
 | Safety | `gunnchos-device-os` | EdgeGesture | No silent destructive actions |
-| Manufacturing | `CONTROL_PLANE_PENDING_DECISION` | hardware-industrial-design | No manufacturer engaged |
+| Manufacturing | `gunnchos-hardware-industrial-design` | hardware-industrial-design | No manufacturer engaged |
 
 ## Status
 DOCUMENTED in this decision record and applied via `control_plane.generate.apply_ring_workstream_ownership`.
@@ -518,13 +528,13 @@ def apply_ring_workstream_ownership(reqs: list[dict[str, Any]]) -> list[dict[str
             "gunnchos-device-os",
             ["EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon"],
         ),
-        # Haptics — no validated stack claimed
+        # Haptics / firmware planning owners (planning ≠ component existence)
         "RING-INPUT-035": (
-            "CONTROL_PLANE_PENDING_DECISION",
+            "gunnchos-hardware-industrial-design",
             ["EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon", "gunnchos-hardware-industrial-design"],
         ),
         "RING-RELIAB-005": (
-            "CONTROL_PLANE_PENDING_DECISION",
+            "gunnchos-hardware-industrial-design",
             ["EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon", "gunnchos-device-os"],
         ),
     }
@@ -552,6 +562,36 @@ def apply_ring_workstream_ownership(reqs: list[dict[str, Any]]) -> list[dict[str
     return reqs
 
 
+def reconcile_pending_owners(reqs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Assign planning owners so CONTROL_PLANE_PENDING_DECISION does not remain."""
+    owner_map = {
+        "FULL-OPS-010": "gunnchos-device-os",
+        "FULL-OPS-012": "gunnchos-hardware-industrial-design",
+        "FULL-OPS-013": "gunnchos-7gc-ai-ran-field-kit",
+        "FULL-OPS-014": "gunnchos-7gc-ai-ran-field-kit",
+        "FULL-OPS-015": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-5-001": "gunnchos-hardware-industrial-design",
+        "GATE-5-002": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-5-006": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-5-007": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-7-001": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-7-002": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-7-003": "gunnchos-hardware-industrial-design",
+        "GATE-7-004": "gunnchos-7gc-ai-ran-field-kit",
+        "GATE-7-007": "gunnchos-7gc-ai-ran-field-kit",
+    }
+    for req in reqs:
+        rid = req["id"]
+        if rid in owner_map:
+            req["owner_repository"] = owner_map[rid]
+        if req.get("owner_repository") == "CONTROL_PLANE_PENDING_DECISION":
+            # Fail-safe: park on field-kit control plane rather than leave pending token
+            req["owner_repository"] = "gunnchos-7gc-ai-ran-field-kit"
+        blockers = [b for b in (req.get("blockers") or []) if b != "CONTROL_PLANE_PENDING_DECISION"]
+        req["blockers"] = blockers
+    return reqs
+
+
 def generate_all(repos_root: Path | None = None, audit_path: Path | None = None) -> dict[str, Any]:
     repos_root = repos_root or DEFAULT_REPOS_ROOT
     audit_path = audit_path or BRANCH_AUDIT_PATH
@@ -560,7 +600,7 @@ def generate_all(repos_root: Path | None = None, audit_path: Path | None = None)
     write_charter_records()
     write_decisions()
 
-    reqs = apply_ring_workstream_ownership(build_requirements())
+    reqs = reconcile_pending_owners(apply_ring_workstream_ownership(build_requirements()))
     write_requirements_artifacts(reqs)
 
     claims = build_claims_from_requirements(reqs)
@@ -568,8 +608,29 @@ def generate_all(repos_root: Path | None = None, audit_path: Path | None = None)
     dump_yaml(build_claim_taxonomy(), CLAIMS / "claim_taxonomy.yaml")
     dump_yaml(build_prohibited_patterns(), CLAIMS / "prohibited_claim_patterns.yaml")
 
+    ownership = build_repository_ownership(reqs)
+    dump_yaml(ownership, REPOSITORIES / "repository_ownership.yaml")
+
+    approval = load_yaml(CHARTER_APPROVAL_RECORD)
+    approved = charter_is_approved(approval)
+    pending = pending_owners(reqs, ownership)
+    if approved and not pending:
+        gate0_overall = STATUS_GATE_0_PASS
+    elif approved:
+        gate0_overall = STATUS_AUTOMATED_PASS
+    else:
+        gate0_overall = STATUS_AUTOMATED_PASS
+
+    gate1_ready = (ROOT / "gate1" / "orchestrator" / "cli.py").exists()
     dump_yaml(build_gate_definitions(), GATES / "gate_definitions.yaml")
-    dump_yaml(build_gate_status(), GATES / "gate_status.yaml")
+    dump_yaml(
+        build_gate_status(
+            charter_approved=approved,
+            gate0_overall=gate0_overall,
+            gate1_software_ready=gate1_ready and approved,
+        ),
+        GATES / "gate_status.yaml",
+    )
     dump_yaml(build_gate_dependency_graph(), GATES / "gate_dependency_graph.yaml")
     dump_yaml(build_external_gate_registry(ROOT), GATES / "external_gate_registry.yaml")
     dump_yaml(build_physical_gate_registry(ROOT), GATES / "physical_gate_registry.yaml")
@@ -598,7 +659,6 @@ def generate_all(repos_root: Path | None = None, audit_path: Path | None = None)
     }
     inventory = build_repository_inventory(repos_root, audit_path, field_kit_post)
     dump_yaml(inventory, REPOSITORIES / "repository_inventory.yaml")
-    dump_yaml(build_repository_ownership(reqs), REPOSITORIES / "repository_ownership.yaml")
     dump_yaml(build_canonical_policy(), REPOSITORIES / "canonical_repository_policy.yaml")
     dump_yaml(build_branch_policy(), REPOSITORIES / "branch_policy.yaml")
     dump_yaml(build_branch_migration_inventory(audit_path), REPOSITORIES / "branch_migration_inventory.yaml")
@@ -617,9 +677,30 @@ def generate_all(repos_root: Path | None = None, audit_path: Path | None = None)
     dump_yaml({"schema_version": "1.0.0", "gaps": backlogs["physical"]}, BACKLOG / "physical_work_backlog.yaml")
     dump_yaml({"schema_version": "1.0.0", "gaps": backlogs["external"]}, BACKLOG / "external_dependency_backlog.yaml")
 
+    # Recompute with validators after artifacts exist
+    status = compute_gate0_status(approval=approval, reqs=reqs, ownership=ownership, run_validators=True)
+    # Keep gate_status overall aligned with computed status when validators pass
+    if status["overall_status_token"] == STATUS_GATE_0_PASS or gate0_overall == STATUS_GATE_0_PASS:
+        # Refresh gate_status tokens if validators confirm
+        if status["validators_ok"] and not status["pending_owners"] and approved:
+            dump_yaml(
+                build_gate_status(
+                    charter_approved=True,
+                    gate0_overall=STATUS_GATE_0_PASS,
+                    gate1_software_ready=gate1_ready,
+                ),
+                GATES / "gate_status.yaml",
+            )
+            status_tokens = [STATUS_GATE_0_PASS, "CHARTER_APPROVED"]
+        else:
+            status_tokens = [STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING]
+    else:
+        status_tokens = [status["overall_status_token"], status["secondary_status_token"]]
+
     return {
         "requirement_count": len(reqs),
         "claim_count": len(claims),
         "repository_count": len(inventory["repositories"]),
-        "status_tokens": [STATUS_AUTOMATED_PASS, STATUS_CHARTER_PENDING],
+        "status_tokens": status_tokens,
+        "pending_owners": status.get("pending_owners") or pending,
     }

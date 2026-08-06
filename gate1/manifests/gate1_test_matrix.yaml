@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+matrix:
+  - workstream: boot
+    software_tests:
+      - discover_boot_markers
+      - validate_device_identity_schema
+    physical_tests:
+      - physical_boot_on_representative_hardware
+    pass_rule: software_ok_does_not_imply_physical
+  - workstream: ring-auth
+    software_tests:
+      - discover_ring_auth_markers
+      - validate_authenticated_input_schema
+    physical_tests:
+      - physical_ring_authenticated_input
+    pass_rule: software_ok_does_not_imply_physical
+  - workstream: dock
+    software_tests:
+      - discover_dock_markers
+      - validate_dock_session_schema
+    physical_tests:
+      - physical_dock_continuity
+    pass_rule: software_ok_does_not_imply_physical
+  - workstream: ai-runtime
+    software_tests:
+      - discover_ai_runtime_markers
+      - validate_local_ai_runtime_schema
+      - local_only_mode_contract
+    physical_tests:
+      - physical_on_device_local_runtime
+    pass_rule: software_ok_does_not_imply_physical
+  - workstream: games
+    software_tests:
+      - discover_each_game_repo
+      - validate_game_core_loop_schema
+      - core_loop_harness_or_tests_present
+    physical_tests:
+      - physical_core_loop_on_target_device
+    pass_rule: software_ok_does_not_imply_physical

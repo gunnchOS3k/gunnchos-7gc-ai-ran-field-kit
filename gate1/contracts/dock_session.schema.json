@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dock_session.schema.json",
+  "title": "DockSession",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "session_id",
+    "dock_profile",
+    "continuity_ok",
+    "evidence_class",
+    "collected_at_utc"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "session_id": { "type": "string", "minLength": 1 },
+    "dock_profile": { "type": "string", "enum": ["usb_c", "proprietary", "software_emulated"] },
+    "power_negotiated": { "type": "boolean" },
+    "display_handoff": { "type": "boolean" },
+    "continuity_ok": { "type": "boolean" },
+    "evidence_class": { "type": "string", "enum": ["software", "simulated", "physical"] },
+    "collected_at_utc": { "type": "string", "format": "date-time" },
+    "notes": { "type": "string" }
+  }
+}
