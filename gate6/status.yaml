@@ -1,0 +1,13 @@
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-07T22:20:00Z"
+gate: 6
+nonphysical_status: GATE_6_NONPHYSICAL_COMPLETE
+pass_status: PENDING
+criteria:
+  G6-C1: {system: COMPLETE, blocker: REQUIRES_EDMUND_ACCEPTANCE}
+  G6-C2: {pipeline: DEV_SIGNED_ONLY, blocker: REQUIRES_PHYSICAL_PROTOTYPE}
+  G6-C3: {automation: COMPLETE, blocker: REQUIRES_PHYSICAL_PROTOTYPE}
+  G6-C4: {automation: COMPLETE, blocker: REQUIRES_PHYSICAL_PROTOTYPE}
+  G6-C5: {e2e_sim: COMPLETE, blocker: AUTOMATABLE_AFTER_DEPENDENCY}
+  G6-C6: {draft: FOUNDER_APPROVED_DRAFT, blocker: REQUIRES_EDMUND_ACCEPTANCE}
+  G6-C7: {pilot_evidence: PENDING, blocker: REQUIRES_EDMUND_ACCEPTANCE}
