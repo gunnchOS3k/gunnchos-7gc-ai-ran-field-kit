@@ -1,0 +1,15 @@
+name: Gate 4 Field Pilot Readiness
+on:
+  push: {paths: ["gate4/**", "program/claims/**", "scripts/validate_claim_firewall.py"]}
+  pull_request:
+  workflow_dispatch:
+jobs:
+  gate4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python3 scripts/validate_claim_firewall.py
+      - run: python3 gate4/harnesses/connectivity_collector.py --emulate --seconds 1 --out gate4/harnesses/.ci/connectivity.json
+      - run: python3 gate4/harnesses/long_duration_soak.py --emulate --minutes 0.02 --out-dir gate4/harnesses/.ci/soak

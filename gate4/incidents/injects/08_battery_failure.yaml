@@ -1,0 +1,6 @@
+id: G4-INJ-08
+name: battery_failure
+prompt: |
+  Battery swell report
+expected_actions: [acknowledge/classify, protect safety/privacy, forensic bundle+redaction, escalate, timeline]
+scoring: {max_points: 10, weights: {speed: 2, correctness: 4, privacy: 2, communication: 2}}

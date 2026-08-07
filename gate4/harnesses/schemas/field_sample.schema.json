@@ -1,0 +1,6 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object",
+"required":["ts","evidence_class"],
+"properties":{"ts":{"type":"string"},
+"evidence_class":{"enum":["SIMULATED","MODELED","MEASURED","FIELD","HARDWARE_PENDING"]},
+"bearer":{"type":"string"},"latency_ms":{"type":["number","null"]},"battery_pct":{"type":["number","null"]}},
+"additionalProperties":true}
