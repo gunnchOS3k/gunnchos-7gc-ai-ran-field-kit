@@ -1,0 +1,15 @@
+name: Gate 5 Preproduction Readiness
+on:
+  push: {paths: ["gate5/**", "program/claims/**", "scripts/validate_claim_firewall.py"]}
+  pull_request:
+  workflow_dispatch:
+jobs:
+  gate5:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python3 scripts/validate_claim_firewall.py
+      - run: python3 gate5/supply_chain/bom_risk_scoring.py
+      - run: python3 gate5/provisioning/factory_station_sim.py --out gate5/provisioning/.ci/dev_device.json
