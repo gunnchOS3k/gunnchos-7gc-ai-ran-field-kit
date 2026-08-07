@@ -1,19 +1,21 @@
-# Nonphysical Remaining Blockers
-
-Updated: `2026-08-07T22:52:15Z`
+# NONPHYSICAL_REMAINING_BLOCKERS
 
 ```text
-NONPHYSICAL_TOTALITY_INCOMPLETE
 PHYSICAL_EXECUTION_FREEZE = ACTIVE
 ```
 
-## True remaining NONPHYSICAL work
+All remaining blockers are irreducible without atoms/humans/externals/standards:
 
-1. **G2-C6 game product-vision depth** — profiles/stubs ≠ required runtime progress for Beat Link / Archive of Life / Pedestrian Pursuit / Anime Aggressors.
-2. Optional digital: nRF Connect SDK / production flash packaging beyond freestanding ARM development ELF.
-3. Optional digital: KiCad GUI/CLI re-validation when `kicad-cli` available.
-4. Portfolio open-issue `NONPHYSICAL_IMPLEMENTABLE_NOW` backlog (see OPEN_ISSUE_NONPHYSICAL_AUDIT.md) — prioritize after G2-C6 for totality.
+| Blocker | Class | Notes |
+|---|---|---|
+| Ring PCB fab / SMT / flash / boot | PHYSICAL | RING_PHYSICAL_BOOT_PENDING |
+| Device quartet physical validation | PHYSICAL | hardware present |
+| Edmund merge of draft closeout PRs | HUMAN | Edmund final merger |
+| KiCad GUI/cask install (sudo) for full CLI ERC/DRC/Gerber | HUMAN_LOCAL_TOOLING | Static ERC/DRC already PASS; CLI soft-skip |
+| Full west/Zephyr SDK optional path | HUMAN_LOCAL_TOOLING | Freestanding ARM path authoritative |
+| CAMARA REAL_OPERATOR | EXTERNAL | needs operator credentials |
+| Carrier / cert lab / manufacturer | EXTERNAL | Gates 5/7 |
+| Human participants / ethics | HUMAN | Gate 4/6 |
+| Standards finalization | STANDARD_FINALIZATION | Gate 8 |
 
-## Irreducible (physical/external)
-
-Hardware, humans, ethics, carriers, manufacturers, certification labs, partners, purchases, standards finalization, Edmund acceptance.
+No remaining "game stub / UX profile only / host-only firmware / unreconciled lock / unimplemented approved adapter" digital residuals in accepted closeout branches.
