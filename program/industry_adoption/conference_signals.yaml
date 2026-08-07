@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-08T00:00:00Z"
+note: Signals are industry-direction inputs, not normative standards.
+
+signals:
+  - id: mwc_gsma_2026_open_gateway
+    conference: MWC / GSMA Open Gateway Summit 2026
+    sources:
+      - https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_events/mwc-barcelona-2026-open-gateway-summit/
+      - https://www.gsma.com/newsroom/article/from-ambition-to-execution-how-open-gateway-is-scaling-the-global-api-economy/
+      - https://camaraproject.org/api-overview/
+    claims_we_do_not_make:
+      - carrier_api_access_exists
+      - real_operator_credentials_available
+    maps_to_requirements:
+      - G3-C3_connectivity_manager_network_capability_provider
+      - CAMARA_adapter_modes_UNAVAILABLE_SIMULATED_SANDBOX_REAL_OPERATOR
+    adopted_integrations:
+      - camara_network_capability_provider
+
+  - id: brooklyn_ai_native_6g_2025_2026
+    conference: Brooklyn AI-Native 6G Summit
+    sources:
+      - https://www.b6gs.com/
+      - https://www.b6gs.com/highlights-2025
+    theme_2026: Networks at the Dawn of the AI Supercycle
+    maps_to_requirements:
+      - research_ai_assisted_network_policy
+      - energy_aware_network_selection
+      - network_digital_twin_comparison
+      - ntn_terrestrial_handoff_simulation_abstracted
+      - isac_readiness_interface_contract_research_lane
+    adopted_integrations:
+      - sionna_adapter
+      - nyusim_adapter
+      - research_experiments_ai_energy_ntn_isac
+
+  - id: gdc_festival_of_gaming_2026
+    conference: GDC Festival of Gaming 2026
+    sources:
+      - https://gdconf.com/game-narrative-summit
+      - https://gdconf.com/call-for-submissions/
+      - https://schedule.gdconf.com/sessions/?tags%5B%5D=accessibility
+    audit_dimensions:
+      - engines_tools_pipelines
+      - networking_live_service
+      - anti_cheat_authoritative_boundaries
+      - accessibility
+      - shipping_quality_evidence
+    maps_to_requirements:
+      - G2-C6_product_quality_contract
+      - game_telemetry_hooks
+      - authoritative_score_validation
+      - audience_anti_grief
+    adopted_integrations:
+      - product_quality_contract
+      - otel_game_namespace
+      - trust_anti_cheat_audit_boundaries
+
+  - id: accessibility_wcag_gag
+    conference: Accessibility baselines
+    sources:
+      - https://www.w3.org/TR/WCAG22/
+      - https://gameaccessibilityguidelines.com/support-more-than-one-input-device/
+      - https://gameaccessibilityguidelines.com/ensure-that-all-areas-of-the-user-interface-can-be-accessed-using-the-same-input-method-as-the-gameplay/
+      - https://gameaccessibilityguidelines.com/ensure-interactive-elements-virtual-controls-are-large-and-well-spaced-particularly-on-small-or-touch-screens/
+    maps_to_requirements:
+      - keyboard_operability
+      - same_input_menu_accessibility
+      - target_sizing
+      - focus_visibility
+      - remapping_ui_scale_color_independent_state
+    adopted_integrations:
+      - game_accessibility_test_suites

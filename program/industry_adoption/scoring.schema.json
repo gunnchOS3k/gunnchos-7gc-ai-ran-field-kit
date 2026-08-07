@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.local/schemas/industry_adoption_scoring.schema.json",
+  "title": "IndustryResourceScore",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "license",
+    "scores",
+    "decision",
+    "requirement_ids",
+    "reason"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "license": { "type": "string" },
+    "source_url": { "type": "string" },
+    "scores": {
+      "type": "object",
+      "required": [
+        "requirement_alignment",
+        "technical_value",
+        "reproducibility",
+        "maintainer_health",
+        "portability",
+        "vendor_lock_in_risk",
+        "license_product_risk",
+        "integration_cost",
+        "test_value",
+        "current_repo_fit"
+      ],
+      "properties": {
+        "requirement_alignment": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "technical_value": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "reproducibility": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "maintainer_health": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "portability": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "vendor_lock_in_risk": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "license_product_risk": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "integration_cost": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "test_value": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "current_repo_fit": { "type": "integer", "minimum": 0, "maximum": 5 }
+      },
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "ADOPT",
+        "ADAPT_INTERFACE",
+        "TEST_ONLY",
+        "REFERENCE_ONLY",
+        "DEFER",
+        "REJECT"
+      ]
+    },
+    "requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "integration": { "type": "string" },
+    "tests": { "type": "string" },
+    "reason": { "type": "string" },
+    "ci_tier": {
+      "type": "string",
+      "enum": ["T0", "T1", "T2", "N/A"]
+    }
+  },
+  "additionalProperties": false
+}

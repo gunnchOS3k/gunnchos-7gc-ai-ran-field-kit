@@ -1,0 +1,56 @@
+schema_version: "1.0.0"
+evidence_class: SOFTWARE
+physical_execution_freeze: ACTIVE
+purpose: >
+  Engine-neutral shared product-quality contract for G2-C6 games.
+  Games need not be visually/mechanically identical; they must expose real instrumentation hooks.
+
+game_ids:
+  - beatlink-party
+  - archive-of-life-artifact-world
+  - pedestrian-pursuit
+  - anime-aggressors
+
+device_roles:
+  - student_14_5
+  - handheld_hybrid
+  - ds_xl_coder
+  - edge_io_rings
+
+dimensions:
+  - id: core_loop_completeness
+    description: Instrumented core-loop steps complete beyond app launch
+  - id: input_latency
+    description: Input-to-action latency measured and budgeted
+  - id: frame_pacing
+    description: Frame-time/pacing telemetry present
+  - id: load_time
+    description: Cold/warm load timing recorded
+  - id: crash_free_smoke
+    description: Smoke path completes without crash
+  - id: input_classes
+    description: Controller/touch/keyboard/ring input mapped per device role
+  - id: same_input_menu_accessibility
+    description: Menus operable with every supported gameplay input class
+  - id: save_resume
+    description: Save/resume path exists and is tested
+  - id: offline_behavior
+    description: Documented offline/degraded behavior
+  - id: second_screen_docked
+    description: Docked/second-screen behavior defined where applicable
+  - id: audio_haptics
+    description: Audio/haptics policy without copyrighted music stems
+  - id: accessibility
+    description: WCAG-aligned / Game Accessibility Guidelines baseline tests
+  - id: telemetry
+    description: gunnchos.game.* instrumentation hooks (not test-only generators)
+  - id: performance_profiling
+    description: Tracy adapt or native profiler + OTel equivalents
+  - id: device_role_adaptation
+    description: Profiles resolve for all device roles
+  - id: failure_reconnect
+    description: Failure/reconnect behavior defined for networked modes
+
+protected_asset_policy: no_copyrighted_music_or_anime_ip
+telemetry_namespace: gunnchos.game
+grafana_backend: TEST_ONLY_STANDALONE

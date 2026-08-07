@@ -32,8 +32,13 @@ jobs:
           python scripts/validate_gate2_nonphysical.py
           python scripts/validate_gate3_nonphysical.py
           python scripts/validate_physical_pending_ok.py
+      - name: Industry adoption + quality contract
+        run: |
+          python scripts/validate_industry_adoption.py
+          python scripts/validate_industry_license_boundaries.py
+          python scripts/validate_product_quality_contract.py
       - name: Gate 2/3 unit tests
-        run: PYTHONPATH=. python -m pytest -q gate2/nonphysical gate3/nonphysical
+        run: PYTHONPATH=. python -m pytest -q gate2/nonphysical gate3/nonphysical industry_research_stack
       - name: Physical freeze token present
         run: |
           grep -q 'PHYSICAL_EXECUTION_FREEZE = ACTIVE' program/reports/PHYSICAL_EXECUTION_FREEZE.md

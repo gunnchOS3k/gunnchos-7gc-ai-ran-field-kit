@@ -1,0 +1,85 @@
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-08T00:00:00Z"
+physical_execution_freeze: ACTIVE
+interfaces:
+  - id: camara_network_capability_provider
+    resource: camara
+    decision: ADAPT_INTERFACE
+    path: gate3/nonphysical/G3_C3_connectivity_manager/providers/
+    modes: [UNAVAILABLE, SIMULATED, SANDBOX, REAL_OPERATOR]
+    capabilities:
+      - Connectivity Insights
+      - Connected Network Type
+      - Simple Edge Discovery
+      - Application Profiles
+      - Quality on Demand
+  - id: sionna_adapter
+    resource: nvidia_sionna
+    decision: ADOPT
+    path: industry_research_stack/adapters/sionna.py
+  - id: nyusim_adapter
+    resource: nyusim
+    decision: ADOPT
+    path: industry_research_stack/adapters/nyusim.py
+  - id: fiveg_lena_external
+    resource: fiveg_lena_ns3
+    decision: TEST_ONLY
+    path: industry_research_stack/adapters/fiveg_lena_external.py
+  - id: oai_flexric_research
+    resource: oai_flexric
+    decision: TEST_ONLY
+    path: industry_research_stack/adapters/oai_flexric.py
+  - id: oran_sc_interface
+    resource: oran_sc
+    decision: ADAPT_INTERFACE
+    path: industry_research_stack/adapters/oran_sc.py
+  - id: open5gs_external
+    resource: open5gs
+    decision: TEST_ONLY
+    path: industry_research_stack/adapters/open5gs.py
+  - id: camara_adapter
+    resource: camara
+    decision: ADAPT_INTERFACE
+    path: industry_research_stack/adapters/camara.py
+  - id: otel_gunnchos_conventions
+    resource: opentelemetry
+    decision: ADOPT
+    path: industry_research_stack/otel/
+    namespaces:
+      - gunnchos.device
+      - gunnchos.fleet
+      - gunnchos.network
+      - gunnchos.ai
+      - gunnchos.game
+      - gunnchos.update
+      - gunnchos.ring
+      - gunnchos.evidence
+    grafana_note: TEST_ONLY standalone backend; exporters remain replaceable
+  - id: openxr_action_mapping
+    resource: openxr
+    decision: ADAPT_INTERFACE
+    path: gate2/nonphysical/G2_C6_device_game_ux/product_quality_contract.yaml
+    note: Optional action/haptic mapping; no full VR conversion
+  - id: tracy_or_native_profiler
+    resource: tracy
+    decision: ADAPT_INTERFACE
+    path: gate2/nonphysical/G2_C6_device_game_ux/product_quality_contract.yaml
+    note: Tracy where engine allows; else native profiler + OTel equivalents
+  - id: catalogue_of_life
+    resource: catalogue_of_life
+    decision: ADOPT
+    path: program/industry_adoption/registry.yaml
+    note: Taxonomic backbone for Archive of Life (runtime adapter future)
+  - id: gbif
+    resource: gbif
+    decision: ADOPT
+    path: program/industry_adoption/registry.yaml
+  - id: smithsonian_oa
+    resource: smithsonian_oa
+    decision: ADAPT_INTERFACE
+    path: program/industry_adoption/registry.yaml
+  - id: zephyr_mcuboot
+    resource: zephyr
+    decision: ADOPT
+    path: program/industry_adoption/registry.yaml
+    related: [mcuboot]

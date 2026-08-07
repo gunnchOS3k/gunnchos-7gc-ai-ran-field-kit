@@ -1,0 +1,425 @@
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-08T00:00:00Z"
+scoring_note: >
+  vendor_lock_in_risk, license_product_risk, and integration_cost are lower-is-better (0 best).
+  All other score dimensions are higher-is-better (5 best).
+  Decisions require a real requirement_id; no conference trophy shelf.
+
+resources:
+  - id: nvidia_sionna
+    name: NVIDIA Sionna
+    license: Apache-2.0
+    source_url: https://github.com/NVlabs/sionna
+    scores:
+      requirement_alignment: 5
+      technical_value: 5
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 3
+      vendor_lock_in_risk: 2
+      license_product_risk: 1
+      integration_cost: 3
+      test_value: 5
+      current_repo_fit: 5
+    decision: ADOPT
+    requirement_ids: [research_digital_twin, channel_link_simulation, G6_research_alignment]
+    integration: industry_research_stack/adapters/sionna
+    tests: fixture_mode_T0 + optional_gpu_T2
+    ci_tier: T0
+    reason: GPU-accelerated differentiable sim with CPU/fixture fallback for CI.
+
+  - id: nyusim
+    name: NYUSIM
+    license: Academic/industrial free (vendor terms)
+    source_url: https://wireless.engineering.nyu.edu/nyusim-thz-mmwave-channel-simulator-research2/
+    scores:
+      requirement_alignment: 4
+      technical_value: 4
+      reproducibility: 3
+      maintainer_health: 4
+      portability: 3
+      vendor_lock_in_risk: 2
+      license_product_risk: 2
+      integration_cost: 3
+      test_value: 4
+      current_repo_fit: 4
+    decision: ADOPT
+    requirement_ids: [channel_model_validation, complements_sionna]
+    integration: industry_research_stack/adapters/nyusim
+    tests: fixture_reference_vectors_T0
+    ci_tier: T0
+    reason: Complements Sionna for academic channel-model validation; not a duplicate engine.
+
+  - id: fiveg_lena_ns3
+    name: 5G-LENA / ns-3
+    license: GPL-2.0
+    source_url: https://cttc-lena.gitlab.io/5g-lena-website/
+    scores:
+      requirement_alignment: 4
+      technical_value: 5
+      reproducibility: 4
+      maintainer_health: 4
+      portability: 3
+      vendor_lock_in_risk: 1
+      license_product_risk: 5
+      integration_cost: 4
+      test_value: 5
+      current_repo_fit: 3
+    decision: TEST_ONLY
+    requirement_ids: [e2e_nr_simulation_external]
+    integration: industry_research_stack/adapters/fiveg_lena_external
+    tests: external_runner_fixture_T0
+    ci_tier: T0
+    reason: GPL boundary — external process only; never link into product binaries.
+
+  - id: oai_flexric
+    name: OpenAirInterface / FlexRIC
+    license: OAI-CSSL
+    source_url: https://openairinterface.org/
+    scores:
+      requirement_alignment: 4
+      technical_value: 5
+      reproducibility: 3
+      maintainer_health: 4
+      portability: 2
+      vendor_lock_in_risk: 2
+      license_product_risk: 4
+      integration_cost: 5
+      test_value: 4
+      current_repo_fit: 3
+    decision: TEST_ONLY
+    requirement_ids: [oran_e2_research_lab, ran_ue_experimentation]
+    integration: industry_research_stack/adapters/oai_flexric_research
+    tests: detection_unavailable_fixture_T0
+    ci_tier: T0
+    reason: Research/test lab only; FRAND/commercial EP review before any product path.
+
+  - id: oran_sc
+    name: O-RAN Software Community
+    license: Apache-2.0
+    source_url: https://o-ran-sc.org/about/
+    scores:
+      requirement_alignment: 4
+      technical_value: 4
+      reproducibility: 3
+      maintainer_health: 4
+      portability: 3
+      vendor_lock_in_risk: 2
+      license_product_risk: 1
+      integration_cost: 4
+      test_value: 4
+      current_repo_fit: 4
+    decision: ADAPT_INTERFACE
+    requirement_ids: [oran_test_management_ric_boundary]
+    integration: industry_research_stack/adapters/oran_sc_interface
+    tests: interface_contract_T0
+    ci_tier: T0
+    reason: O-RAN architecture alignment via interfaces, not mandatory runtime dependency.
+
+  - id: open5gs
+    name: Open5GS
+    license: AGPL-3.0
+    source_url: https://open5gs.org/
+    scores:
+      requirement_alignment: 3
+      technical_value: 4
+      reproducibility: 4
+      maintainer_health: 4
+      portability: 3
+      vendor_lock_in_risk: 1
+      license_product_risk: 5
+      integration_cost: 3
+      test_value: 4
+      current_repo_fit: 3
+    decision: TEST_ONLY
+    requirement_ids: [lab_5gc_epc_testbed]
+    integration: industry_research_stack/adapters/open5gs_external
+    tests: external_container_runner_fixture_T0
+    ci_tier: T0
+    reason: AGPL — separately deployed lab component only.
+
+  - id: camara
+    name: CAMARA / GSMA Open Gateway APIs
+    license: Apache-2.0 (API specs; operator terms apply)
+    source_url: https://camaraproject.org/api-overview/
+    scores:
+      requirement_alignment: 5
+      technical_value: 4
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 4
+      vendor_lock_in_risk: 2
+      license_product_risk: 2
+      integration_cost: 3
+      test_value: 5
+      current_repo_fit: 5
+    decision: ADAPT_INTERFACE
+    requirement_ids: [G3-C3_connectivity_manager, network_quality_awareness, edge_discovery]
+    integration: gate3 NetworkCapabilityProvider + industry_research_stack/adapters/camara
+    tests: modes_unavailable_simulated_sandbox_T0
+    ci_tier: T0
+    reason: Optional connectivity insights; never REAL_OPERATOR without credentials.
+
+  - id: opentelemetry
+    name: OpenTelemetry
+    license: Apache-2.0
+    source_url: https://opentelemetry.io/docs/
+    scores:
+      requirement_alignment: 5
+      technical_value: 5
+      reproducibility: 5
+      maintainer_health: 5
+      portability: 5
+      vendor_lock_in_risk: 1
+      license_product_risk: 1
+      integration_cost: 2
+      test_value: 5
+      current_repo_fit: 5
+    decision: ADOPT
+    requirement_ids: [fleet_observability, game_telemetry, evidence_orchestration]
+    integration: industry_research_stack/otel
+    tests: semantic_convention_redaction_T0
+    ci_tier: T0
+    reason: Backend-replaceable OTLP; local-first; no PII by default.
+
+  - id: grafana_oss
+    name: Grafana OSS
+    license: AGPL-3.0
+    source_url: https://grafana.com/grafana/download?edition=oss
+    scores:
+      requirement_alignment: 3
+      technical_value: 4
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 4
+      vendor_lock_in_risk: 2
+      license_product_risk: 5
+      integration_cost: 2
+      test_value: 3
+      current_repo_fit: 2
+    decision: TEST_ONLY
+    requirement_ids: [dev_observability_backend]
+    integration: standalone_dev_backend_docs_only
+    tests: N/A_no_embed
+    ci_tier: N/A
+    reason: Standalone AGPL backend; never embed; OTel keeps backends replaceable.
+
+  - id: zephyr
+    name: Zephyr RTOS
+    license: Apache-2.0
+    source_url: https://docs.zephyrproject.org/latest/services/connectivity/bluetooth/index.html
+    scores:
+      requirement_alignment: 5
+      technical_value: 5
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 4
+      vendor_lock_in_risk: 2
+      license_product_risk: 1
+      integration_cost: 4
+      test_value: 5
+      current_repo_fit: 5
+    decision: ADOPT
+    requirement_ids: [ring_mcu_nrf52840, G1_firmware_target]
+    integration: edge-io Zephyr board + native_sim
+    tests: target_build_T1 + host_sim_T0
+    ci_tier: T1
+    reason: Primary MCU candidate for nRF52840 ring with BLE + native_sim.
+
+  - id: mcuboot
+    name: MCUboot
+    license: Apache-2.0
+    source_url: https://docs.mcuboot.com/signed_images.html
+    scores:
+      requirement_alignment: 5
+      technical_value: 5
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 4
+      vendor_lock_in_risk: 1
+      license_product_risk: 1
+      integration_cost: 3
+      test_value: 5
+      current_repo_fit: 5
+    decision: ADOPT
+    requirement_ids: [G2-C4_secure_boot, G2-C5_signed_update]
+    integration: edge-io signed DEVELOPMENT images
+    tests: signed_image_tamper_negative_T0
+    ci_tier: T0
+    reason: Dev signing only; never store production private keys.
+
+  - id: tracy
+    name: Tracy profiler
+    license: BSD-3-Clause
+    source_url: https://github.com/wolfpld/tracy
+    scores:
+      requirement_alignment: 4
+      technical_value: 5
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 3
+      vendor_lock_in_risk: 1
+      license_product_risk: 1
+      integration_cost: 3
+      test_value: 4
+      current_repo_fit: 3
+    decision: ADAPT_INTERFACE
+    requirement_ids: [G2-C6_performance_budgets, game_profiling]
+    integration: optional per-engine; OTel metrics fallback
+    tests: perf_budget_contract_T0
+    ci_tier: T0
+    reason: Adopt where engine allows; else native profiler + OTel equivalents.
+
+  - id: openxr
+    name: OpenXR
+    license: Apache-2.0 (spec/registry)
+    source_url: https://www.khronos.org/openxr/
+    scores:
+      requirement_alignment: 3
+      technical_value: 4
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 4
+      vendor_lock_in_risk: 1
+      license_product_risk: 1
+      integration_cost: 3
+      test_value: 3
+      current_repo_fit: 3
+    decision: ADAPT_INTERFACE
+    requirement_ids: [ring_input_abstraction, future_hud_xr]
+    integration: optional action-path mapping only
+    tests: input_abstraction_mapping_T0
+    ci_tier: T0
+    reason: Action/haptic abstraction; do not convert ordinary games to VR.
+
+  - id: vulkan
+    name: Vulkan
+    license: Apache-2.0 (spec)
+    source_url: https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html
+    scores:
+      requirement_alignment: 2
+      technical_value: 4
+      reproducibility: 3
+      maintainer_health: 5
+      portability: 3
+      vendor_lock_in_risk: 1
+      license_product_risk: 1
+      integration_cost: 5
+      test_value: 3
+      current_repo_fit: 2
+    decision: REFERENCE_ONLY
+    requirement_ids: [capability_target_renderer]
+    integration: exercise where engine already supports
+    tests: optional_renderer_smoke_T2
+    ci_tier: T2
+    reason: Capability target; no engine rewrite for Vulkan.
+
+  - id: webrtc
+    name: WebRTC
+    license: BSD-style (implementation-dependent)
+    source_url: https://webrtc.org/
+    scores:
+      requirement_alignment: 3
+      technical_value: 4
+      reproducibility: 3
+      maintainer_health: 5
+      portability: 4
+      vendor_lock_in_risk: 1
+      license_product_risk: 2
+      integration_cost: 4
+      test_value: 3
+      current_repo_fit: 3
+    decision: DEFER
+    requirement_ids: [beatlink_party_presence]
+    integration: none_until_architecture_audit_proves_gain
+    tests: N/A
+    ci_tier: N/A
+    reason: Beat Link retains server-authoritative WS score/state; WebRTC not required for scoring.
+
+  - id: catalogue_of_life
+    name: Catalogue of Life / ChecklistBank
+    license: CC-BY-4.0 (content unless indicated)
+    source_url: https://www.catalogueoflife.org/tools/api
+    scores:
+      requirement_alignment: 5
+      technical_value: 4
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 5
+      vendor_lock_in_risk: 1
+      license_product_risk: 2
+      integration_cost: 2
+      test_value: 4
+      current_repo_fit: 5
+    decision: ADOPT
+    requirement_ids: [archive_of_life_taxonomy_backbone]
+    integration: archive-of-life taxonomic adapter
+    tests: provenance_fixture_T0
+    ci_tier: T0
+    reason: Living/extant taxonomic backbone with version provenance.
+
+  - id: gbif
+    name: GBIF
+    license: Per-dataset (preserve citation)
+    source_url: https://techdocs.gbif.org/en/openapi/v1/species
+    scores:
+      requirement_alignment: 4
+      technical_value: 4
+      reproducibility: 4
+      maintainer_health: 5
+      portability: 5
+      vendor_lock_in_risk: 1
+      license_product_risk: 2
+      integration_cost: 2
+      test_value: 4
+      current_repo_fit: 4
+    decision: ADOPT
+    requirement_ids: [archive_of_life_occurrence_enrichment]
+    integration: archive-of-life occurrence adapter
+    tests: license_citation_fixture_T0
+    ci_tier: T0
+    reason: Occurrence/distribution enrichment with per-record licensing.
+
+  - id: smithsonian_oa
+    name: Smithsonian Open Access
+    license: CC0 where marked; verify rights metadata
+    source_url: https://www.si.edu/OpenAccess
+    scores:
+      requirement_alignment: 3
+      technical_value: 3
+      reproducibility: 3
+      maintainer_health: 4
+      portability: 4
+      vendor_lock_in_risk: 1
+      license_product_risk: 2
+      integration_cost: 3
+      test_value: 3
+      current_repo_fit: 3
+    decision: ADAPT_INTERFACE
+    requirement_ids: [archive_of_life_media_enrichment]
+    integration: rights-gated media enrichment adapter
+    tests: rights_metadata_gate_T0
+    ci_tier: T0
+    reason: Open-access media only when rights metadata permits; never assume all CC0.
+
+  - id: godot
+    name: Godot Engine
+    license: MIT
+    source_url: https://docs.godotengine.org/en/4.6/about/faq.html
+    scores:
+      requirement_alignment: 5
+      technical_value: 5
+      reproducibility: 5
+      maintainer_health: 5
+      portability: 5
+      vendor_lock_in_risk: 1
+      license_product_risk: 1
+      integration_cost: 1
+      test_value: 4
+      current_repo_fit: 5
+    decision: ADOPT
+    requirement_ids: [pedestrian_pursuit_runtime, anime_aggressors_runtime]
+    integration: existing Godot runtimes only — no cross-engine migration
+    tests: existing_export_validate_scripts
+    ci_tier: T1
+    reason: Keep where already used; do not rewrite Unity/web games to Godot.
