@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+fetched_at_utc: "2026-08-07T22:20:00Z"
+disclaimer: CANDIDATE mapping only — not certification; never FCC/CE certified claim.
+sources:
+  - name: FCC Equipment Authorization
+    url: https://www.fcc.gov/general/equipment-authorization2
+    retrieved: "2026-08-07"
+    notes: RF devices require 47 CFR Part 2 authorization (Certification and/or SDoC) before marketing/import.
+  - name: FCC RF Device overview
+    url: https://www.fcc.gov/oet/ea/rfdevice
+    retrieved: "2026-08-07"
+  - name: EU Radio Equipment Directive (RED) portal
+    url: https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en
+    retrieved: "2026-08-07"
+    notes: Candidate CE path for radio equipment; lab confirmation required.
+regions:
+  US:
+    candidates:
+      - {id: FCC-PART15-B, topic: Unintentional radiators, likely_path: SDoC and/or with radio Certification}
+      - {id: FCC-PART15-247, topic: BT / 2.4 GHz digital modulation, likely_path: Certification or modular grant}
+      - {id: FCC-PART15-407, topic: U-NII 5-6 GHz Wi-Fi if present, likely_path: Certification}
+      - {id: FCC-PART22-24-27, topic: Cellular/licensed WWAN if present, likely_path: Certification via TCB}
+      - {id: FCC-RF-EXPOSURE, topic: SAR/MPE KDB guidance, likely_path: Certification exhibit}
+  EU:
+    candidates:
+      - {id: RED-2014-53-EU, topic: Radio Equipment Directive, likely_path: CE technical file}
+      - {id: EMC-SAFETY, topic: EMC + electrical safety, likely_path: CE}
+      - {id: ROHS-REACH, topic: Substance restrictions, likely_path: supplier declarations + testing}
+      - {id: BATTERY-TRANSPORT, topic: Li-ion transport, likely_path: UN38.3 from cell/pack vendor}
+bluetooth_wifi_ecosystems:
+  - Bluetooth SIG qualification if BT used (not a regulatory substitute)
+  - Wi-Fi Alliance logo programs optional
+status: REQUIRES_CERTIFICATION_LAB

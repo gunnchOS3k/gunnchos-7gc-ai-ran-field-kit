@@ -1,0 +1,5 @@
+{"type":"object","required":["device_id","serial","key_realm","image_digest"],
+"properties":{"device_id":{"type":"string"},"serial":{"type":"string"},
+"key_realm":{"enum":["DEV","PROD"]},"image_digest":{"type":"string"},
+"cert_pem":{"type":"string"},"station_id":{"type":"string"},
+"result":{"enum":["PASS","FAIL","QUARANTINE","REWORK"]}}}
