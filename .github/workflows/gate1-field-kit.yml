@@ -1,0 +1,138 @@
+name: Gate 1 Field Kit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gate1-field-kit-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install pytest jsonschema pyyaml
+
+      - name: Main-branch policy
+        run: python scripts/validate_main_branch_policy.py
+
+      - name: Gate 0 control-plane (local)
+        run: |
+          python -m control_plane validate
+          python -m control_plane status
+
+      - name: Runtime evidence must not be tracked
+        run: python scripts/check_gate1_runtime_artifacts_untracked.py
+
+      - name: Gate 1 schemas + orchestrator dry-run
+        run: |
+          python -m gate1.orchestrator.cli validate-evidence
+          python -m gate1.orchestrator.cli run --no-write
+          python -m gate1.orchestrator.cli status
+
+      - name: Operator final-status (physical pending expected)
+        run: |
+          python -m gate1.operator.cli final-status | tee /tmp/gate1_final_status.txt
+          grep -q GATE_1_PHYSICAL_EVIDENCE_PENDING /tmp/gate1_final_status.txt
+          grep -q GATE_2_NOT_STARTED_GATE_1_INCOMPLETE /tmp/gate1_final_status.txt
+          ! grep -q '^GATE_1_PASS$' /tmp/gate1_final_status.txt
+
+      - name: Physical claim rejection (software cannot claim physical)
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          from gate1.orchestrator.evidence_validator import refuse_unsupported_upgrade
+          doc = json.loads(Path("gate1/fixtures/invalid/evidence_event.physical_from_software.json").read_text())
+          issues = refuse_unsupported_upgrade(doc)
+          assert issues, "expected claim upgrade refusal"
+          print("PHYSICAL_CLAIM_REJECTED_OK", [i.code for i in issues])
+          PY
+
+      - name: Report freshness + post-merge artifacts
+        run: |
+          set -e
+          required=(
+            gate1/post_merge/merged_baseline.yaml
+            gate1/post_merge/repository_main_lock.yaml
+            gate1/post_merge/ci_inventory.yaml
+            gate1/post_merge/runtime_artifact_inventory.yaml
+            gate1/post_merge/physical_capability_inventory.yaml
+            gate1/post_merge/findings.schema.json
+            gate1/post_merge/runtime_artifact_migration_manifest.yaml
+            gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md
+            gate1/reports/GATE_1_REMOTE_CI_AUDIT.md
+            gate1/reports/GATE_1_RUNTIME_ARTIFACT_CLEANUP_REPORT.md
+            gate1/reports/GATE_1_PHYSICAL_CAPABILITY_INVENTORY.md
+            gate1/reports/GATE_1_FINAL_ACCEPTANCE_MATRIX.md
+            gate1/reports/GATE_1_REMOTE_CI_EVIDENCE.md
+            gate1/reports/GATE_1_PHYSICAL_EVIDENCE_INDEX.md
+            gate1/reports/GATE_1_BLOCKER_AND_ACQUISITION_PLAN.md
+            gate1/reports/GATE_1_MERGE_REVIEW_PACKET.md
+            gate1/reports/GATE_1_PHYSICAL_ACTION_PACKET.md
+            gate2/GATE_2_EXECUTION_PACKET.md
+            gate2/GATE_2_ENTRY_BLOCKERS.md
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "Missing $f"; exit 1; }
+          done
+          # Truthful tokens must appear; GATE_1_PASS must not be claimed as earned overall
+          grep -q GATE_1_LOCAL_AUTOMATION_PASS gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md
+          grep -q GATE_1_REMOTE_CI_PENDING gate1/reports/GATE_1_REMOTE_CI_AUDIT.md
+          grep -q GATE_1_PHYSICAL_EVIDENCE_PENDING gate1/reports/GATE_1_PHYSICAL_EVIDENCE_INDEX.md
+          grep -q GATE_2_NOT_STARTED_GATE_1_INCOMPLETE gate2/GATE_2_ENTRY_BLOCKERS.md
+          if grep -R "overall: \`GATE_1_PASS\`" gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md; then
+            echo "Refusing forged GATE_1_PASS claim in post-merge audit"
+            exit 2
+          fi
+          echo "REPORT_FRESHNESS_OK"
+
+      - name: Repo-lock file present
+        run: |
+          test -f integration/repo-lock.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          lock = json.loads(Path("integration/repo-lock.json").read_text())
+          assert lock.get("components"), "repo-lock missing components"
+          print("REPO_LOCK_OK", lock.get("schema_version"))
+          PY
+
+      - name: Generated artifact prohibition (evidence buckets)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          bad = []
+          for bucket in ("pending", "runs", "accepted", "rejected"):
+              root = Path("gate1/evidence") / bucket
+              if not root.exists():
+                  continue
+              for p in root.rglob("*"):
+                  if p.is_file() and p.name != ".gitkeep":
+                      # sessions may exist locally but must not be committed; CI checkout should be clean
+                      bad.append(str(p))
+          if bad:
+              raise SystemExit("generated evidence artifacts present in checkout: " + str(bad))
+          print("GENERATED_ARTIFACT_PROHIBITION_OK")
+          PY
+
+      - name: Gate 1 + control-plane tests
+        run: |
+          python -m pytest -q tests/gate1 tests/control_plane tests/test_main_branch_policy.py

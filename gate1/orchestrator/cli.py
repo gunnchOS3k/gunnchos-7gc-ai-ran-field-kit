@@ -20,14 +20,26 @@ from gate1.orchestrator.result_aggregator import (
 
 def cmd_run(args: argparse.Namespace) -> int:
     repos_root = Path(args.repos_root) if args.repos_root else None
-    payload = run_components(repos_root)
+    output_dir = Path(args.output_dir) if args.output_dir else None
+    no_write = bool(args.no_write)
+    payload = run_components(repos_root, output_dir=output_dir, no_write=no_write)
     status = compute_status(payload)
-    paths = generate_reports(payload, status)
-    print(json.dumps({"ok": payload.get("ok"), "status": status["overall"], "secondary": status["secondary"]}, indent=2))
+    paths = generate_reports(payload, status, output_dir=output_dir, no_write=no_write)
+    print(
+        json.dumps(
+            {
+                "ok": payload.get("ok"),
+                "status": status["overall"],
+                "secondary": status["secondary"],
+                "write_mode": payload.get("write_mode"),
+                "reports_written": len(paths),
+            },
+            indent=2,
+        )
+    )
     print(f"reports_written={len(paths)}")
     print(status["overall"], status["secondary"])
     if status["overall"] == STATUS_GATE_1_PASS:
-        # Defense in depth — aggregator should already prevent this without physical
         if not status["physical_complete"]:
             print("REFUSING GATE_1_PASS without physical evidence", file=sys.stderr)
             return 2
@@ -65,13 +77,11 @@ def cmd_status(args: argparse.Namespace) -> int:
     if args.equipment_inventory:
         print(json.dumps(equipment_inventory(Path(args.repos_root) if args.repos_root else None), indent=2))
         return 0
-    # Prefer latest run payload if present
     from gate1.orchestrator import PENDING, RUNS
     from gate1.orchestrator.evidence_collector import list_bucket
 
     run_payload = None
     runs = [p for p in list_bucket(RUNS) if p.name.startswith("run_")]
-    # Back-compat: older runs may still sit in pending/
     if not runs:
         runs = [p for p in list_bucket(PENDING) if p.name.startswith("run_")]
     if runs:
@@ -101,6 +111,16 @@ def build_parser() -> argparse.ArgumentParser:
     sub = p.add_subparsers(dest="command", required=True)
 
     r = sub.add_parser("run", help="Discover, validate schemas, run software probes, write evidence")
+    r.add_argument(
+        "--output-dir",
+        default=None,
+        help="Write pending/runs/reports under this directory instead of gate1/evidence and gate1/reports",
+    )
+    r.add_argument(
+        "--no-write",
+        action="store_true",
+        help="Dry-run: compute results without writing evidence or reports (keeps git clean)",
+    )
     r.set_defaults(func=cmd_run)
 
     ing = sub.add_parser("ingest-evidence", help="Ingest an evidence JSON into pending/")

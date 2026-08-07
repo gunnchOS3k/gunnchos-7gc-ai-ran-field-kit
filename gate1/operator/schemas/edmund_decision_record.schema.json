@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "edmund_decision_record.schema.json",
+  "title": "EdmundDecisionRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "authority",
+    "decision",
+    "bundle_id",
+    "decided_at_utc",
+    "explicit_human_decision",
+    "rationale"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "authority": { "type": "string", "enum": ["Edmund Gunn Jr.", "Edmund"] },
+    "decision": { "type": "string", "enum": ["ACCEPT", "REJECT", "DEFER"] },
+    "bundle_id": { "type": "string", "minLength": 1 },
+    "decided_at_utc": { "type": "string" },
+    "explicit_human_decision": { "type": "boolean", "const": true },
+    "rationale": { "type": "string", "minLength": 8 }
+  }
+}

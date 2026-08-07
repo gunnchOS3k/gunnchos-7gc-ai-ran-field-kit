@@ -191,7 +191,7 @@ def test_cli_status_and_run_exit_codes():
     assert "overall:" in st.stdout
     assert STATUS_GATE_1_PASS in st.stdout  # mentioned as prohibited
     run = subprocess.run(
-        [sys.executable, "-m", "gate1.orchestrator.cli", "run"],
+        [sys.executable, "-m", "gate1.orchestrator.cli", "run", "--no-write"],
         cwd=ROOT,
         capture_output=True,
         text=True,
@@ -216,17 +216,9 @@ def test_manifests_present():
 
 
 def test_physical_action_packet_has_exact_steps():
-    # Ensure packet generated after a run
-    subprocess.run(
-        [sys.executable, "-m", "gate1.orchestrator.cli", "run"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
     packet = (ROOT / "gate1" / "reports" / "GATE_1_PHYSICAL_ACTION_PACKET.md").read_text(encoding="utf-8")
     for needle in [
-        "Equipment inventory command",
+        "Equipment inventory commands",
         "### A. Boot",
         "### B. Ring authenticated input",
         "### C. Dock continuity",
@@ -237,6 +229,22 @@ def test_physical_action_packet_has_exact_steps():
         "pedestrian-pursuit",
         "anime-aggressors",
         "MISSING",
+        "PRESENT_CONFIRMED",
+        "python -m gate1.operator.cli inventory",
         "python -m gate1.orchestrator.cli status --equipment-inventory",
+        "accept-bundle",
+        "Edmund",
     ]:
         assert needle in packet
+
+
+def test_cli_run_supports_no_write():
+    run = subprocess.run(
+        [sys.executable, "-m", "gate1.orchestrator.cli", "run", "--no-write"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert run.returncode in (0, 1), run.stdout + run.stderr
+    assert "no_write" in run.stdout
+    assert "GATE_1_AUTOMATED_PASS" in run.stdout or "GATE_1_SOFTWARE_FAIL" in run.stdout

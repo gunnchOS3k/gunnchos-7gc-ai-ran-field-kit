@@ -1,6 +1,7 @@
 .PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean verify-repo-lock gate1-validate
 
-PYTHON ?= python3
+# Prefer Python 3.11+ when present (system python3 on macOS is often 3.9 without deps).
+PYTHON ?= $(shell command -v python3.11 >/dev/null 2>&1 && echo python3.11 || (test -x /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 && echo /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 || echo python3))
 SCHEMA_DIR := $(CURDIR)/contracts
 REPOS_ROOT ?= $(CURDIR)/..
 EDGE_INPUT ?= fixtures/valid/edge_measurement_batch.valid.json
@@ -355,6 +356,7 @@ acceptance-completion: remote-integrity-audit verify-repo-lock gate4-oulu-scient
 	@echo "ACCEPTANCE_COMPLETION_LOCAL_DONE — CONTROL_PLANE_REMOTE_CI_PASS requires green mandatory workflows"
 
 .PHONY: gate-0 gate-1 control-plane validate-main-branch-policy ingest-product-charter
+.PHONY: gate1-runtime-hygiene gate1-operator-status
 
 ingest-product-charter:
 	$(PYTHON) scripts/ingest_product_charter.py
@@ -373,12 +375,20 @@ control-plane:
 gate-0: control-plane
 	@$(PYTHON) -m control_plane status
 
+gate1-runtime-hygiene:
+	$(PYTHON) scripts/check_gate1_runtime_artifacts_untracked.py
+
+gate1-operator-status:
+	$(PYTHON) -m gate1.operator.cli final-status
+
 .PHONY: gate-1
-gate-1:
+gate-1: gate1-runtime-hygiene
 	$(PYTHON) -m gate1.orchestrator.cli run
 	$(PYTHON) -m gate1.orchestrator.cli validate-evidence
 	$(PYTHON) -m gate1.orchestrator.cli status
+	$(PYTHON) -m gate1.operator.cli final-status
 	$(PYTHON) -m pytest -q tests/gate1
 	@test -f gate1/reports/GATE_1_AUTOMATED_COMPLETION_REPORT.md
-	@echo "GATE_1_AUTOMATED_PASS PHYSICAL_EVIDENCE_PENDING (not GATE_1_PASS without accepted physical evidence)"
+	@test -f gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md
+	@echo "GATE_1_LOCAL_AUTOMATION_PASS GATE_1_REMOTE_CI_PENDING GATE_1_PHYSICAL_EVIDENCE_PENDING (not GATE_1_PASS without accepted physical evidence)"
 

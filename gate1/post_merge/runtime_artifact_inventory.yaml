@@ -1,0 +1,21 @@
+schema_version: 1.0.0
+generated_at_utc: "2026-08-07T20:46:38Z"
+policy: Timestamped runtime outputs must not be git-tracked; preserve .gitkeep only
+gitignore_rules:
+  - "gate1/evidence/accepted/*"
+  - "gate1/evidence/pending/*"
+  - "gate1/evidence/rejected/*"
+  - "gate1/evidence/runs/*"
+  - "!gate1/evidence/**/.gitkeep"
+migration_manifest: gate1/post_merge/runtime_artifact_migration_manifest.yaml
+tracked_after_hygiene:
+  - "gate1/evidence/README.md"
+  - "gate1/evidence/accepted/.gitkeep"
+  - "gate1/evidence/pending/.gitkeep"
+  - "gate1/evidence/rejected/.gitkeep"
+  - "gate1/evidence/runs/.gitkeep"
+classification_policy:
+  software_probes: RUNTIME_SOFTWARE_* — not physical
+  run_aggregates: RUNTIME_RUN_AGGREGATE — not physical
+  status_snapshots: RUNTIME_STATUS_SNAPSHOT — not physical
+  physical_relabel: FORBIDDEN

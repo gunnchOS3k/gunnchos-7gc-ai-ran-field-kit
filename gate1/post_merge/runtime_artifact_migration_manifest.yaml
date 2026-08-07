@@ -1,0 +1,471 @@
+schema_version: "1.0.0"
+generated_at_utc: "2026-08-07T20:42:36Z"
+source_branch: "cursor/gate1-post-merge-integrity-and-physical-closure"
+source_commit: "339aab124edaf96e6b7ac95bf7c580fd5d68ecb1"
+policy: >
+  Timestamped runtime outputs under gate1/evidence/{pending,runs} must not be git-tracked. Preserve .gitkeep only. Do not relabel software evidence as physical.
+counts:
+  total: 48
+  untrack: 46
+  retain_gitkeep: 2
+  by_classification:
+    KEEP_GITKEEP: 2
+    RUNTIME_RUN_AGGREGATE: 11
+    RUNTIME_SOFTWARE_COMPONENT_PROBE: 12
+    RUNTIME_SOFTWARE_GAME_PROBE: 12
+    RUNTIME_STATUS_SNAPSHOT: 11
+entries:
+  - path: gate1/evidence/pending/.gitkeep
+    classification: KEEP_GITKEEP
+    action: retain_tracked
+    sha256: null
+    bytes: 0
+    evidence_class: null
+    claim_level: null
+    notes: "Directory placeholder retained in git"
+  - path: gate1/evidence/pending/component_ai-runtime_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: 3649c22febb979ed9b59d912ac989decfe492feebdc5ba9bee83306640e27fb8
+    bytes: 1003
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "ai-runtime"
+    evidence_id: "ai-runtime-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_ai-runtime_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: c61518b2a4cfe6660ba99a1a656c68ee9fa7718a1e91ad3e46dc315894f1c69d
+    bytes: 1003
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "ai-runtime"
+    evidence_id: "ai-runtime-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_ai-runtime_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: cf8db7ad416b0807bf6f7c463f4b88e324076f3401b1aaf97d2640d9797a9147
+    bytes: 1003
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "ai-runtime"
+    evidence_id: "ai-runtime-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_boot_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: 2c781b9c1b443f6010290de3817a53ec5f44dce7da7bb8dd13c3ffe5352f026a
+    bytes: 929
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "boot"
+    evidence_id: "boot-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_boot_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: ea09e2eae26ad1e26d2377b1ca162e50a3f12c327e6b1deca4a5f4dab6372aff
+    bytes: 929
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "boot"
+    evidence_id: "boot-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_boot_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: ba7b24c24ab483bdba366b680e806c99bd177f28be221b710854e85336148abc
+    bytes: 929
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "boot"
+    evidence_id: "boot-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_dock_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: 9df050585e88b1a7f72dff53c148bbfab32f315a0c527a492a35b36d6cd13e68
+    bytes: 962
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "dock"
+    evidence_id: "dock-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_dock_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: 965fa29ac199d461820ef7be660bf449d422e1a773ee01e9335a5ec6a1396d31
+    bytes: 962
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "dock"
+    evidence_id: "dock-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_dock_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: d9a75eeaee2519f00a22c0a454d59bf722c9fc9c9d90b2d062270bc27bae2270
+    bytes: 962
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "dock"
+    evidence_id: "dock-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_ring-auth_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: 4ccc4677979b04a6045fc73bd8a872320f9bc558fd6d60be00087d12f19e37c1
+    bytes: 983
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "ring-auth"
+    evidence_id: "ring-auth-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_ring-auth_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: 02cb6e752b07be29b3af904849c439e8fdbcda310dca5e5064a29de233073806
+    bytes: 983
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "ring-auth"
+    evidence_id: "ring-auth-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/component_ring-auth_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_COMPONENT_PROBE
+    action: untrack_and_ignore
+    sha256: d651ceab317cd29b25f349d2465b4a1d0d8d1339169342b8a9dc0fe3da3d05dc
+    bytes: 983
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "ring-auth"
+    evidence_id: "ring-auth-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_anime-aggressors_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: eb5f73736ba34d67b14e63093d66fc1f02a84a5573785bf7caede2f29817b6de
+    bytes: 1157
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-anime-aggressors-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_anime-aggressors_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: 565417fe244d920e6cb4455485bad0c96f854e38706b36febdee812eaecf68c8
+    bytes: 1157
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-anime-aggressors-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_anime-aggressors_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: ac49f172d98a46f50a9749f8847ac54b8c8af891c1be7638a0d2a85fd06e3f37
+    bytes: 1157
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-anime-aggressors-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_archive-of-life-artifact-world_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: 90da0f8e0babcc41d357cd7647fa3367e9f244c187ca80ad47f79ac340f9eaee
+    bytes: 1203
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-archive-of-life-artifact-world-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_archive-of-life-artifact-world_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: 1d7b91b44dc8267487e1fa556c74c01fbe83de6d875bfb529b308307ecf05fa8
+    bytes: 1203
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-archive-of-life-artifact-world-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_archive-of-life-artifact-world_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: ab91a57610db5a84d157a335759142f904c0a659ebb1f85da252695a4b668f02
+    bytes: 1203
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-archive-of-life-artifact-world-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_beatlink-party_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: e62d627c48b382f9f541e27ebba170850b89ce05671401174e2ba5b814937dbb
+    bytes: 1150
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-beatlink-party-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_beatlink-party_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: aa4f70e04eefdd6c318d47890d16604ce2abe144ebdf2d655fa4b9f7ffcad756
+    bytes: 1150
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-beatlink-party-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_beatlink-party_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: fa47e4d9feb1c4b1241b6245f7322f1b93755c29eb124935a2c8ac4a5c6052ab
+    bytes: 1150
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-beatlink-party-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_pedestrian-pursuit_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: 69979f45a536ad7df8f6363667b5ca7bf8364828f7035a3dc0e709ed97f1e86e
+    bytes: 1179
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-pedestrian-pursuit-gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_pedestrian-pursuit_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: fc8523019da974ad1b04d07816eb47d77e08c35772912d99ffe08336e9bd7d98
+    bytes: 1179
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-pedestrian-pursuit-gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/pending/game_pedestrian-pursuit_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_SOFTWARE_GAME_PROBE
+    action: untrack_and_ignore
+    sha256: 88efeb2426d4a7e5eccb5b32d2fbe5713cf722d5a40b55edfb3c225c5a88b798
+    bytes: 1179
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "games"
+    evidence_id: "game-pedestrian-pursuit-gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/.gitkeep
+    classification: KEEP_GITKEEP
+    action: retain_tracked
+    sha256: null
+    bytes: 0
+    evidence_class: null
+    claim_level: null
+    notes: "Directory placeholder retained in git"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201037Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: ded255a79ac9bd54d7dc976e882f931a5d86eecd9d72f982eda0e13a14c09725
+    bytes: 29540
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201037Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201038Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: 6348ca4b411b6510c6f8f96d72000516fbc619a2974c0a671df863fe52767f63
+    bytes: 29540
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201038Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201045Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: a53a5314b8d07c2aff81626430079c7ca983292537d3fb0c0a5a5817b8e49f5b
+    bytes: 29540
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201045Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201135Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: b819b4232ce02e28e9552a76e16508461fe42f238def2dc490c003cc9c8e056e
+    bytes: 25531
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201135Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201136Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: 2e3be2cabc28881bcbef7a1d950ea6aa938c55ff5e92ecb94c5cb3ca317490fb
+    bytes: 25531
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201136Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201155Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: 945eff8eed56a314e42c9544c82b4bd18b04df4919ba192e5843465bad40e753
+    bytes: 25545
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201155Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201159Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: 09b26f122821f2c1acaffccba16fa6582be46a1f268b34240721c22cd277b2eb
+    bytes: 25545
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201159Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201536Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: 506988ab99b065e020f7df890581be8cea6a4981934e09d2b2c5e09bda07ddff
+    bytes: 25545
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201536Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201645Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: b6670a8b9e1e5b38935ad757d5ab6670b19fc9fa4b3c9efccc44ff64b3f3b469
+    bytes: 25545
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201645Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201646Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: fc6ef89e428d48a24790dd1873dccb3f605a5ee6b3cfcf1cd6355007483dba9c
+    bytes: 25545
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201646Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/run_gate1-run-2026-08-06T201647Z.json
+    classification: RUNTIME_RUN_AGGREGATE
+    action: untrack_and_ignore
+    sha256: 8c2ff4c89faad8b00bb3f5ad2ccb27278baae6b5ff1b08d722ffb7c5bc0ad242
+    bytes: 25545
+    evidence_class: "software"
+    claim_level: "SOFTWARE_SLICE"
+    workstream: "meta"
+    evidence_id: "gate1-run-2026-08-06T201647Z"
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201037Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: 0edce1938b64d191034f26c57df47545cbfe587f13c6763fd927175a787813d6
+    bytes: 1093
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201038Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: 5c54718468982aa53dbffae0e00e70014e73e5f5efdd5fffa87c8ae59b8cadd2
+    bytes: 1094
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201045Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: baa4d90c8c8bfa26a11482277572e182a1bcf84e2f10072778dc03aa199c6cf0
+    bytes: 1094
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201135Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: 8c686d7cc67f43304874ae01931318e0a1703c91fd8e0477b7b9207d3db15b0c
+    bytes: 1269
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201136Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: c16dc199391c49cab35b703c4e908f5510cc2757ee7db158a9ff5b83a92df816
+    bytes: 1269
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201155Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: f082027a90f654b2e0a80e5d39d8624112ceee71ef2aee33bdda692f75f99c01
+    bytes: 1269
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201159Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: cbf322e9c684d8e120d71d039cb17ba701a38052be9a7b5140db3a2e8d8a836f
+    bytes: 1269
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201536Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: d84a496fe404f229d146ac33170120f6f5c6cb96f0f50ed5696043942d0df35c
+    bytes: 1269
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201645Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: 7ce4d44d6002ea86f2033f708e2d11ce47d03e20b4289d649bbe4d864f780eb2
+    bytes: 1357
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201646Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: 48085b502c04e895f2f8f2a073bb67c54a95c89f3b08224f080d05129513c1f5
+    bytes: 1358
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"
+  - path: gate1/evidence/runs/status_2026-08-06T201647Z.json
+    classification: RUNTIME_STATUS_SNAPSHOT
+    action: untrack_and_ignore
+    sha256: c7efbe36f81565d5e105b9b12fc3486c9dbf13b7e97581d56faac552cb9d0bd9
+    bytes: 1358
+    evidence_class: null
+    claim_level: null
+    notes: "Timestamped orchestrator runtime output; software/simulated only \u2014 not physical evidence"

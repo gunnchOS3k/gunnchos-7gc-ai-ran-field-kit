@@ -1,6 +1,6 @@
 # GATE 0 Requirements Traceability Matrix
 
-Generated: 2026-08-06T20:16:55Z
+Generated: 2026-08-07T20:50:30Z
 
 | ID | Summary | Charter source | Owner | Gate | Claim | Verification | Evidence | Blocker | Next action |
 |---|---|---|---|---|---|---|---|---|---|

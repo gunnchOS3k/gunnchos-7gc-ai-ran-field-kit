@@ -305,77 +305,97 @@ def _probe_games(repos_root: Path) -> dict[str, Any]:
     }
 
 
-def run_components(repos_root: Path | None = None) -> dict[str, Any]:
+def run_components(
+    repos_root: Path | None = None,
+    *,
+    output_dir: Path | None = None,
+    no_write: bool = False,
+) -> dict[str, Any]:
+    from gate1.orchestrator.evidence_collector import configure_write_paths, reset_write_paths
+
     root = repos_root or DEFAULT_REPOS_ROOT
-    discovery = discover_sibling_repos(root)
-    contract_issues = validate_all_contracts()
+    if output_dir is not None:
+        configure_write_paths(
+            pending=output_dir / "pending",
+            runs=output_dir / "runs",
+            no_write=no_write,
+        )
+    else:
+        configure_write_paths(no_write=no_write)
+    try:
+        discovery = discover_sibling_repos(root)
+        contract_issues = validate_all_contracts()
 
-    boot = _probe_boot(_repo_path(root, "gunnchos-device-os"))
-    ring = _probe_ring(root)
-    dock = _probe_dock(_repo_path(root, "gunnchos-device-os"))
-    ai = _probe_ai(_repo_path(root, "gunnchAI3k"))
-    games = _probe_games(root)
+        boot = _probe_boot(_repo_path(root, "gunnchos-device-os"))
+        ring = _probe_ring(root)
+        dock = _probe_dock(_repo_path(root, "gunnchos-device-os"))
+        ai = _probe_ai(_repo_path(root, "gunnchAI3k"))
+        games = _probe_games(root)
 
-    components = {
-        "boot": boot,
-        "ring-auth": ring,
-        "dock": dock,
-        "ai-runtime": ai,
-        "games": games,
-    }
-    software_failures = [k for k, v in components.items() if not v.get("software_ok")]
-    payload = {
-        "schema_version": "1.0.0",
-        "evidence_id": f"gate1-run-{utc_now().replace(':', '')}",
-        "workstream": "meta",
-        "evidence_class": "software",
-        "claim_level": "SOFTWARE_SLICE",
-        "discovery": discovery,
-        "contract_issues": [str(i) for i in contract_issues],
-        "components": components,
-        "software_failures": software_failures,
-        "tool_versions": tool_versions(),
-        "collected_at_utc": utc_now(),
-        "manifests": {
-            "components": str(MANIFESTS / "gate1_components.yaml"),
-            "test_matrix": str(MANIFESTS / "gate1_test_matrix.yaml"),
-        },
-        "ok": not software_failures and not contract_issues,
-    }
-    # Persist machine-readable run aggregate outside evidence acceptance buckets
-    write_run(f"run_{payload['evidence_id']}.json", payload)
-    # Also write per-workstream samples as evidence events
-    for ws, result in components.items():
-        sample = result.get("sample")
-        if sample:
-            event = {
-                "schema_version": "1.0.0",
-                "evidence_id": f"{ws}-{payload['evidence_id']}",
-                "workstream": ws if ws != "games" else "games",
-                "evidence_class": "software",
-                "claim_level": "SOFTWARE_SLICE",
-                "artifact_path": result.get("repo_path") or "",
-                "tool_versions": tool_versions(),
-                "collected_at_utc": utc_now(),
-                "accepted": False,
-                "notes": json.dumps({"software_ok": result.get("software_ok"), "sample": sample}, sort_keys=True),
-            }
-            # artifact_sha256 filled by write_pending
-            write_pending(f"component_{ws}_{payload['evidence_id']}.json", event)
-        if ws == "games":
-            for g in result.get("games") or []:
+        components = {
+            "boot": boot,
+            "ring-auth": ring,
+            "dock": dock,
+            "ai-runtime": ai,
+            "games": games,
+        }
+        software_failures = [k for k, v in components.items() if not v.get("software_ok")]
+        payload = {
+            "schema_version": "1.0.0",
+            "evidence_id": f"gate1-run-{utc_now().replace(':', '')}",
+            "workstream": "meta",
+            "evidence_class": "software",
+            "claim_level": "SOFTWARE_SLICE",
+            "discovery": discovery,
+            "contract_issues": [str(i) for i in contract_issues],
+            "components": components,
+            "software_failures": software_failures,
+            "tool_versions": tool_versions(),
+            "collected_at_utc": utc_now(),
+            "manifests": {
+                "components": str(MANIFESTS / "gate1_components.yaml"),
+                "test_matrix": str(MANIFESTS / "gate1_test_matrix.yaml"),
+            },
+            "ok": not software_failures and not contract_issues,
+            "write_mode": "no_write" if no_write else ("output_dir" if output_dir else "default"),
+        }
+        # Persist machine-readable run aggregate outside evidence acceptance buckets
+        write_run(f"run_{payload['evidence_id']}.json", payload)
+        # Also write per-workstream samples as evidence events
+        for ws, result in components.items():
+            sample = result.get("sample")
+            if sample:
                 event = {
                     "schema_version": "1.0.0",
-                    "evidence_id": f"game-{g['game_id']}-{payload['evidence_id']}",
-                    "workstream": "games",
+                    "evidence_id": f"{ws}-{payload['evidence_id']}",
+                    "workstream": ws if ws != "games" else "games",
                     "evidence_class": "software",
                     "claim_level": "SOFTWARE_SLICE",
-                    "artifact_path": g.get("repo_path") or "",
+                    "artifact_path": result.get("repo_path") or "",
                     "tool_versions": tool_versions(),
                     "collected_at_utc": utc_now(),
                     "accepted": False,
-                    "notes": json.dumps(g.get("sample"), sort_keys=True),
+                    "notes": json.dumps(
+                        {"software_ok": result.get("software_ok"), "sample": sample}, sort_keys=True
+                    ),
                 }
-                write_pending(f"game_{g['game_id']}_{payload['evidence_id']}.json", event)
+                write_pending(f"component_{ws}_{payload['evidence_id']}.json", event)
+            if ws == "games":
+                for g in result.get("games") or []:
+                    event = {
+                        "schema_version": "1.0.0",
+                        "evidence_id": f"game-{g['game_id']}-{payload['evidence_id']}",
+                        "workstream": "games",
+                        "evidence_class": "software",
+                        "claim_level": "SOFTWARE_SLICE",
+                        "artifact_path": g.get("repo_path") or "",
+                        "tool_versions": tool_versions(),
+                        "collected_at_utc": utc_now(),
+                        "accepted": False,
+                        "notes": json.dumps(g.get("sample"), sort_keys=True),
+                    }
+                    write_pending(f"game_{g['game_id']}_{payload['evidence_id']}.json", event)
 
-    return payload
+        return payload
+    finally:
+        reset_write_paths()

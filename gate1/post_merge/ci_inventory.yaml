@@ -1,0 +1,42 @@
+schema_version: "1.0.0"
+generated_at_utc: "2026-08-07T20:51:09Z"
+required_gate1_workflow: .github/workflows/gate1-field-kit.yml
+remote_ci_status_token: GATE_1_REMOTE_CI_PENDING
+note: "Remote CI green not yet proven for this post-merge integrity branch; token remains PENDING"
+workflows:
+  - path: .github/workflows/application-readiness.yml
+    bytes: 6761
+    sha256: 4fa5b7cbdb4e9fa30379d0117f7991a8a3e9d9d7762315d4a745f3d0b1c7ed90
+    mentions_gate1: true
+    mentions_main: true
+    permissions_contents_read: true
+  - path: .github/workflows/ci.yml
+    bytes: 1816
+    sha256: 4c99cb6d5d1e488c80748a22a12c707eac193a124e7368299c5a8d634e6d8110
+    mentions_gate1: false
+    mentions_main: true
+    permissions_contents_read: false
+  - path: .github/workflows/gate1-field-kit.yml
+    bytes: 5518
+    sha256: db7e05b17695f0934c9438d7ac87bf7f7ed7eecc611ba942213ffcf4c06e9460
+    mentions_gate1: true
+    mentions_main: true
+    permissions_contents_read: true
+  - path: .github/workflows/gate2-integrated-system.yml
+    bytes: 6821
+    sha256: bc6045a8fec9577766a57987243eda24bbff2dba315c422e787d5a7b2352273a
+    mentions_gate1: false
+    mentions_main: false
+    permissions_contents_read: true
+  - path: .github/workflows/gate3-evidence-readiness.yml
+    bytes: 1259
+    sha256: d00102ed2a365b07a937e11c37f632610d39682e1cb0f205715f201db26a4629
+    mentions_gate1: false
+    mentions_main: false
+    permissions_contents_read: false
+  - path: .github/workflows/gate4-evaluation-readiness.yml
+    bytes: 1678
+    sha256: eca603e5e424810bfbadfa183233b7950821e2fc7fc5369e3611cb1fb7b48400
+    mentions_gate1: false
+    mentions_main: false
+    permissions_contents_read: false

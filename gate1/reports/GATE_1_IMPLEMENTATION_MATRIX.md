@@ -1,6 +1,6 @@
 # GATE 1 Implementation Matrix
 
-Generated: 2026-08-06T20:16:47Z
+Generated: 2026-08-07T20:52:15Z
 
 | Workstream | Available | Software OK | Physical OK | Evidence class |
 |---|---|---|---|---|

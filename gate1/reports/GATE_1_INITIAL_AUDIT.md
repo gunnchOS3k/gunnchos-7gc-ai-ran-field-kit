@@ -1,6 +1,6 @@
 # GATE 1 Initial Audit
 
-Generated: 2026-08-06T20:16:47Z
+Generated: 2026-08-07T20:52:15Z
 
 ## Scope
 - Integrated development platform: boot, ring-auth, dock, local AI, game core loops
