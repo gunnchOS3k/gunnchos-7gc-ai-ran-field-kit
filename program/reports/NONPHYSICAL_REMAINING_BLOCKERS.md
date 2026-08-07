@@ -22,3 +22,12 @@ NONPHYSICAL_TOTALITY_INCOMPLETE
 - Carrier / manufacturer / certification lab / partners
 - Standards finalization (Gate 8 PASS forbidden)
 - Edmund acceptance
+
+
+## Follow-up integration (2026-08-07T22:26:37Z)
+
+Wave agents completed and were reconciled:
+
+- [Gates2-3 nonphysical packages](ddc52d85-80f8-45d2-8684-3489ce9e923c): draft PRs #19/#20 + sibling hooks. **G2-C6 corrected to IN_PROGRESS** on PR #19 (profiles/stubs ≠ product-vision runtime).
+- [Gates4-8 readiness packages](da55d74d-8daa-4348-8363-c54f9374abf5): draft PRs #21–#25; tokens GATE_4..8_NONPHYSICAL_COMPLETE with truthful pending axes.
+- [Traceability + version lock](e9f3e7c5-760f-4d6f-ad30-b92ab52f5484): lock + totality traceability + 125-issue audit on PR #18. Portfolio `NONPHYSICAL_IMPLEMENTABLE_NOW` issues remain a backlog residual under freeze (SpectrumX/WAIKE/sims/AI) — prioritize G2-C6 for totality.
