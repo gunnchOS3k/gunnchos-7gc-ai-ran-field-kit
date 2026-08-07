@@ -126,7 +126,12 @@ def cmd_final_status(_args: argparse.Namespace) -> int:
     software_ok = bool(status.get("software_ok"))
 
     local = STATUS_LOCAL_AUTOMATION_PASS if software_ok else status["overall"]
-    remote = STATUS_REMOTE_CI_PENDING  # truthful until green CI evidence is recorded
+    evidence_md = Path(__file__).resolve().parents[1] / "reports" / "GATE_1_REMOTE_CI_EVIDENCE.md"
+    remote = STATUS_REMOTE_CI_PENDING
+    if evidence_md.is_file():
+        text = evidence_md.read_text(encoding="utf-8")
+        if "`GATE_1_REMOTE_CI_PASS`" in text or "GATE_1_REMOTE_CI_PASS" in text.split("## Status", 1)[-1][:200]:
+            remote = "GATE_1_REMOTE_CI_PASS"
     physical = (
         STATUS_GATE_1_PASS if physical_complete else STATUS_PHYSICAL_EVIDENCE_PENDING
     )

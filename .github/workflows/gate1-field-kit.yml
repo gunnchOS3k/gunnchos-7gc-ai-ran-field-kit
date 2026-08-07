@@ -113,7 +113,7 @@ jobs:
           done
           # Truthful tokens must appear; GATE_1_PASS must not be claimed as earned overall
           grep -q GATE_1_LOCAL_AUTOMATION_PASS gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md
-          grep -q GATE_1_REMOTE_CI_PENDING gate1/reports/GATE_1_REMOTE_CI_AUDIT.md
+          grep -qE 'GATE_1_REMOTE_CI_(PASS|PENDING)' gate1/reports/GATE_1_REMOTE_CI_AUDIT.md
           grep -q GATE_1_PHYSICAL_EVIDENCE_PENDING gate1/reports/GATE_1_PHYSICAL_EVIDENCE_INDEX.md
           grep -q GATE_2_NOT_STARTED_GATE_1_INCOMPLETE gate2/GATE_2_ENTRY_BLOCKERS.md
           if grep -R "overall: \`GATE_1_PASS\`" gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md; then
