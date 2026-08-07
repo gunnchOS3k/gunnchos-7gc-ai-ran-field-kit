@@ -92,7 +92,8 @@ criteria:
   - REQUIRES_LOCAL_HARDWARE
   - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_LOCAL_HARDWARE
-  next_action: 'Collect accepted physical evidence for: gunnchOS boots on representative hardware'
+  next_action: 'Collect accepted physical evidence for: gunnchOS boots on representative
+    hardware'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C2
@@ -107,7 +108,8 @@ criteria:
   - REQUIRES_PHYSICAL_PROTOTYPE
   - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Collect accepted physical evidence for: Ring prototype sends authenticated input'
+  next_action: 'Collect accepted physical evidence for: Ring prototype sends authenticated
+    input'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C3
@@ -122,7 +124,8 @@ criteria:
   - REQUIRES_PHYSICAL_PROTOTYPE
   - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Collect accepted physical evidence for: At least one device docks successfully'
+  next_action: 'Collect accepted physical evidence for: At least one device docks
+    successfully'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 1
   criterion_id: G1-C4
@@ -152,161 +155,191 @@ criteria:
   - AUTOMATABLE_AFTER_DEPENDENCY
   - PHYSICAL_EVIDENCE_PENDING
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Collect accepted physical evidence for: Each game completes one core loop'
+  next_action: 'Collect accepted physical evidence for: Each game completes one core
+    loop'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C1
   criterion: Representative enclosure
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - device_designs/
+  - gate2/nonphysical/G2_C1_enclosure/
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Blocked: Representative enclosure'
+  next_action: 'Physical evidence still required for PASS: Representative enclosure'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C2
   criterion: Working display and controls
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate2/nonphysical/G2_C2_display_controls/
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Blocked: Working display and controls'
+  next_action: 'Physical evidence still required for PASS: Working display and controls'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C3
   criterion: Real battery and thermal measurements
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate2/nonphysical/G2_C3_battery_thermal/
   blockers:
   - REQUIRES_LOCAL_HARDWARE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_LOCAL_HARDWARE
-  next_action: 'Blocked: Real battery and thermal measurements'
+  next_action: 'Physical evidence still required for PASS: Real battery and thermal
+    measurements'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C4
   criterion: Secure boot
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate2/nonphysical/G2_C4_secure_boot/
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Blocked: Secure boot'
+  next_action: 'Physical evidence still required for PASS: Secure boot'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C5
   criterion: Signed update
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate2/nonphysical/G2_C5_signed_update/
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Blocked: Signed update'
+  next_action: 'Physical evidence still required for PASS: Signed update'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C6
   criterion: Device-specific game UX
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate2/nonphysical/G2_C6_device_game_ux/
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Blocked: Device-specific game UX'
+  next_action: 'Physical evidence still required for PASS: Device-specific game UX'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 2
   criterion_id: G2-C7
   criterion: Ring calibration and fallback
   owner: gunnchos-hardware-industrial-design
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate2/nonphysical/G2_C7_ring_calibration/
   blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
+  - PHYSICAL_EVIDENCE_PENDING
   automatable: REQUIRES_PHYSICAL_PROTOTYPE
-  next_action: 'Blocked: Ring calibration and fallback'
+  next_action: 'Physical evidence still required for PASS: Ring calibration and fallback'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C1
   criterion: Cross-device identity and continuity
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C1_identity_continuity/
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Baseline only — blocked until evidence: Cross-device identity and continuity'
+  next_action: 'Edmund acceptance for PASS: Cross-device identity and continuity'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C2
   criterion: Multi-device saves
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C2_multi_device_saves/
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Baseline only — blocked until evidence: Multi-device saves'
+  next_action: 'Edmund acceptance for PASS: Multi-device saves'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C3
   criterion: Connectivity manager
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C3_connectivity_manager/
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Baseline only — blocked until evidence: Connectivity manager'
+  next_action: 'Edmund acceptance for PASS: Connectivity manager'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C4
   criterion: Fleet observability
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C4_fleet_observability/
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Baseline only — blocked until evidence: Fleet observability'
+  next_action: 'Edmund acceptance for PASS: Fleet observability'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C5
   criterion: Security threat models
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C5_threat_models/
   blockers:
   - AUTOMATABLE_NOW
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_NOW
-  next_action: 'Baseline only — blocked until evidence: Security threat models'
+  next_action: 'Edmund acceptance for PASS: Security threat models'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C6
   criterion: 7GC test plans
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C6_7gc_test_plans/
   blockers:
   - AUTOMATABLE_NOW
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_NOW
-  next_action: 'Baseline only — blocked until evidence: 7GC test plans'
+  next_action: 'Edmund acceptance for PASS: 7GC test plans'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 3
   criterion_id: G3-C7
   criterion: Repair procedure
   owner: gunnchos-7gc-ai-ran-field-kit
-  status: BLOCKED
-  evidence: []
+  status: NONPHYSICAL_COMPLETE
+  evidence:
+  - gate3/nonphysical/G3_C7_repair_procedures/
   blockers:
   - AUTOMATABLE_NOW
+  - REQUIRES_EDMUND_ACCEPTANCE
   automatable: AUTOMATABLE_NOW
-  next_action: 'Baseline only — blocked until evidence: Repair procedure'
+  next_action: 'Edmund acceptance for PASS: Repair procedure'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 4
   criterion_id: G4-C1
@@ -482,7 +515,8 @@ criteria:
   blockers:
   - REQUIRES_EDMUND
   automatable: REQUIRES_EDMUND
-  next_action: 'Baseline only — blocked until evidence: No unresolved critical safety or security defects'
+  next_action: 'Baseline only — blocked until evidence: No unresolved critical safety
+    or security defects'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 6
   criterion_id: G6-C2
@@ -526,7 +560,8 @@ criteria:
   blockers:
   - AUTOMATABLE_AFTER_DEPENDENCY
   automatable: AUTOMATABLE_AFTER_DEPENDENCY
-  next_action: 'Baseline only — blocked until evidence: Complete applications and game paths'
+  next_action: 'Baseline only — blocked until evidence: Complete applications and
+    game paths'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 6
   criterion_id: G6-C6
@@ -669,7 +704,8 @@ criteria:
   blockers:
   - REQUIRES_CERTIFICATION_LAB
   automatable: REQUIRES_CERTIFICATION_LAB
-  next_action: 'Baseline only — blocked until evidence: Complete formal conformance testing'
+  next_action: 'Baseline only — blocked until evidence: Complete formal conformance
+    testing'
   acceptance_authority: Edmund Gunn Jr.
 - gate: 8
   criterion_id: G8-C5
@@ -680,5 +716,6 @@ criteria:
   blockers:
   - REQUIRES_STANDARD_FINALIZATION
   automatable: REQUIRES_STANDARD_FINALIZATION
-  next_action: 'Baseline only — blocked until evidence: 6G certification language only after path exists'
+  next_action: 'Baseline only — blocked until evidence: 6G certification language
+    only after path exists'
   acceptance_authority: Edmund Gunn Jr.

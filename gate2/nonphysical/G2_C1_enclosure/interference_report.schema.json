@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "device_id",
+    "evidence_class",
+    "collisions",
+    "status"
+  ],
+  "properties": {
+    "device_id": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "MODELED",
+        "SIMULATED"
+      ]
+    },
+    "collisions": {
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "CLEAR",
+        "COLLISION",
+        "REPRESENTATIVE_ENCLOSURE_PHYSICAL_PENDING"
+      ]
+    },
+    "mass_g_estimate": {
+      "type": "number"
+    },
+    "com_mm": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  }
+}

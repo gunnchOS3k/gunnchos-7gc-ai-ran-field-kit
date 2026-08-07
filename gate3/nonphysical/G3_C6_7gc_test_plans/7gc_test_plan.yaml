@@ -1,0 +1,15 @@
+schema_version: "1.0.0"
+evidence_class: DOCUMENTATION
+suites:
+  - id: 7GC-SIM-CONNECTIVITY
+    sim_config: configs/connectivity_sim.yaml
+    covers: [G3-C3]
+  - id: 7GC-SIM-IDENTITY
+    sim_config: configs/identity_sim.yaml
+    covers: [G3-C1, G3-C2]
+  - id: 7GC-SIM-FLEET
+    sim_config: configs/fleet_sim.yaml
+    covers: [G3-C4]
+  - id: 7GC-SIM-SECURITY
+    sim_config: configs/security_sim.yaml
+    covers: [G3-C5]
