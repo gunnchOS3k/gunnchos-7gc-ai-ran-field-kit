@@ -23,6 +23,8 @@ jobs:
           python -m pip install pyyaml jsonschema
       - name: Validate nonphysical status axis
         run: python scripts/validate_nonphysical_status.py
+      - name: Validate ecosystem version lock
+        run: python scripts/validate_ecosystem_version_lock.py
       - name: Claim firewall
         run: python scripts/validate_claim_firewall.py
       - name: Physical freeze token present
