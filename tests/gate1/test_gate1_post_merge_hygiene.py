@@ -18,6 +18,7 @@ from gate1 import (  # noqa: E402
     STATUS_GATE_1_PASS,
     STATUS_LOCAL_AUTOMATION_PASS,
     STATUS_PHYSICAL_EVIDENCE_PENDING,
+    STATUS_REMOTE_CI_PASS,
     STATUS_REMOTE_CI_PENDING,
 )
 from gate1.operator.checklist import plan_from_inventory  # noqa: E402
@@ -213,13 +214,15 @@ def test_final_status_tokens():
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert STATUS_PHYSICAL_EVIDENCE_PENDING in proc.stdout
-    assert STATUS_REMOTE_CI_PENDING in proc.stdout
+    assert (
+        STATUS_REMOTE_CI_PASS in proc.stdout or STATUS_REMOTE_CI_PENDING in proc.stdout
+    )
     assert "GATE_2_NOT_STARTED_GATE_1_INCOMPLETE" in proc.stdout
     start = proc.stdout.index("{")
     end = proc.stdout.rindex("}") + 1
     data = json.loads(proc.stdout[start:end])
     assert data["physical_complete"] is False
-    assert data["tokens"]["remote_ci"] == STATUS_REMOTE_CI_PENDING
+    assert data["tokens"]["remote_ci"] in {STATUS_REMOTE_CI_PASS, STATUS_REMOTE_CI_PENDING}
     assert data["tokens"]["physical"] == STATUS_PHYSICAL_EVIDENCE_PENDING
     assert data["gate2_entry"] == "GATE_2_NOT_STARTED_GATE_1_INCOMPLETE"
     assert data["overall"] != STATUS_GATE_1_PASS

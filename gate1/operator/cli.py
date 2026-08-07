@@ -11,6 +11,7 @@ from gate1 import (
     STATUS_GATE_1_PASS,
     STATUS_LOCAL_AUTOMATION_PASS,
     STATUS_PHYSICAL_EVIDENCE_PENDING,
+    STATUS_REMOTE_CI_PASS,
     STATUS_REMOTE_CI_PENDING,
 )
 from gate1.operator.checklist import plan_from_inventory
@@ -131,7 +132,7 @@ def cmd_final_status(_args: argparse.Namespace) -> int:
     if evidence_md.is_file():
         text = evidence_md.read_text(encoding="utf-8")
         if "`GATE_1_REMOTE_CI_PASS`" in text or "GATE_1_REMOTE_CI_PASS" in text.split("## Status", 1)[-1][:200]:
-            remote = "GATE_1_REMOTE_CI_PASS"
+            remote = STATUS_REMOTE_CI_PASS
     physical = (
         STATUS_GATE_1_PASS if physical_complete else STATUS_PHYSICAL_EVIDENCE_PENDING
     )
