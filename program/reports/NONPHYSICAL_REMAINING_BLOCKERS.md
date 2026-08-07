@@ -1,21 +1,18 @@
 # NONPHYSICAL_REMAINING_BLOCKERS
 
+Updated: 2026-08-07T23:44:48Z
+
 ```text
 PHYSICAL_EXECUTION_FREEZE = ACTIVE
 ```
 
-All remaining blockers are irreducible without atoms/humans/externals/standards:
+## Executable digital (blocking release)
 
-| Blocker | Class | Notes |
-|---|---|---|
-| Ring PCB fab / SMT / flash / boot | PHYSICAL | RING_PHYSICAL_BOOT_PENDING |
-| Device quartet physical validation | PHYSICAL | hardware present |
-| Edmund merge of draft closeout PRs | HUMAN | Edmund final merger |
-| KiCad GUI/cask install (sudo) for full CLI ERC/DRC/Gerber | HUMAN_LOCAL_TOOLING | Static ERC/DRC already PASS; CLI soft-skip |
-| Full west/Zephyr SDK optional path | HUMAN_LOCAL_TOOLING | Freestanding ARM path authoritative |
-| CAMARA REAL_OPERATOR | EXTERNAL | needs operator credentials |
-| Carrier / cert lab / manufacturer | EXTERNAL | Gates 5/7 |
-| Human participants / ethics | HUMAN | Gate 4/6 |
-| Standards finalization | STANDARD_FINALIZATION | Gate 8 |
+| Item | Action |
+|---|---|
+| KiCad CLI install | Edmund: Approve the macOS administrator/install prompt. Then Cursor re-runs CLI ERC/DRC/Gerber. |
+| (Optional) Zephyr SDK/west | Large download; freestanding+MCUboot DEV already sufficient for Lot 0 digital firmware |
 
-No remaining "game stub / UX profile only / host-only firmware / unreconciled lock / unimplemented approved adapter" digital residuals in accepted closeout branches.
+## Irreducible physical/human/external
+
+Procurement · PCB/enclosure · assembly · flash/boot · measurements · real players · ethics · carrier/cert · standards · CAMARA REAL_OPERATOR credentials

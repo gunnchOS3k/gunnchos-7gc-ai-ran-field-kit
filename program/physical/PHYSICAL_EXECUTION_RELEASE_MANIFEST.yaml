@@ -1,0 +1,38 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-07T23:44:48Z'
+physical_execution_freeze: ACTIVE
+physical_execution_release_ready: false
+lot: BUILD_LOT_0
+prerequisites:
+  post_merge_lock: PASS
+  nonphysical_totality_on_main: COMPLETE
+  main_ci_dispatched: PASS_WHERE_DISPATCHABLE
+  kicad_cli: HUMAN_OS_AUTHORIZATION_REQUIRED
+  zephyr_west_full: SOFT_SKIP_SDK_GB_DOWNLOAD
+  mcuboot_dev_pipeline: PASS_ON_EDGE_IO_PR31
+  godot_cli_anime: PASS_HEADLESS_QUIT_AFTER_PR63
+  game_automation: IN_PROGRESS
+  open_data_pipeline: IN_PROGRESS
+minimal_physical_set:
+- Edge I/O Ring PCB + enclosure (1)
+- nRF52840 programming probe (J-Link EDU Mini)
+- Representative gunnchOS boot target (Student 14.5 or Handheld Hybrid donor)
+- USB-C dock path / cable set
+- Local AI runtime host (existing machine OK for EVT)
+sequence:
+- P0
+- P1
+- P2
+- P3
+- P4
+- P5
+- P6
+- P7
+- P8
+- P9
+- P10
+release_token: PHYSICAL_EXECUTION_RELEASE_BLOCKED
+blocking_digital_residuals:
+- "Approve macOS admin prompt to finish KiCad cask install \u2192 RING_KICAD_CLI_VALIDATION_PASS"
+- 'Optional: Zephyr SDK (~1.1GB) + west init for RING_ZEPHYR_WEST_BUILD_PASS (freestanding
+  ARM + MCUboot DEV pipeline already PASS)'

@@ -1,6 +1,6 @@
 # Master Physical Build and Test Book
 
-**Preparation artifact only. PHYSICAL_EXECUTION_FREEZE = ACTIVE. Do not execute yet.**
+**Preparation artifact only. PHYSICAL_EXECUTION_FREEZE = ACTIVE (release BLOCKED on KiCad admin). Build Lot 0 prep only. Updated 2026-08-07T23:44:48Z.**
 
 ## Phases
 

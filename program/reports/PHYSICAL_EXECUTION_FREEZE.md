@@ -1,20 +1,18 @@
 # Physical Execution Freeze
 
+Updated: 2026-08-07T23:44:48Z
+
 ```text
 PHYSICAL_EXECUTION_FREEZE = ACTIVE
+PHYSICAL_EXECUTION_RELEASE_READY = FALSE
+PHYSICAL_EXECUTION_RELEASE_BLOCKED
 ```
 
-Updated: `2026-08-07T22:15:44Z`
+## Why blocked (executable digital only)
 
-## Meaning
+1. **KiCad CLI** — Homebrew cask fetched but needs Edmund to approve macOS administrator/install prompt (`HUMAN_OS_AUTHORIZATION_REQUIRED`). Static ERC/DRC already PASS.
+2. Optional Zephyr SDK/west full build soft-skipped (GB download); freestanding ARM + `RING_MCUBOOT_DEV_PIPELINE_PASS` available on edge-io draft #31.
 
-Do **not** ask Edmund to purchase/build/fabricate/connect/flash/test physical products during this pass unless a destructive or physical act is needed merely to preserve existing data.
+After KiCad admin approval + CLI validation green, re-evaluate release readiness.
 
-Instead: complete every digital dependency first.
-
-## Ends when
-
-1. Gate 2 through Gate 8 nonphysical work is driven to completion, **or**
-2. Every remaining nonphysical blocker is demonstrated genuinely external.
-
-Release criteria: `program/reports/PHYSICAL_EXECUTION_RELEASE_CRITERIA.md`
+## Do not purchase / fabricate / flash until RELEASE_READY and Edmund acceptance.

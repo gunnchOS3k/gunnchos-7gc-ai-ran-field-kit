@@ -1,33 +1,28 @@
 # NONPHYSICAL_COMPLETION_MASTER
 
-Updated: 2026-08-08 UTC
+Updated: 2026-08-07T23:44:48Z
 
 ```text
+POST_MERGE_CANONICALIZATION_PASS
 NONPHYSICAL_TOTALITY_COMPLETE
+PHYSICAL_EXECUTION_RELEASE_BLOCKED
 PHYSICAL_EXECUTION_FREEZE = ACTIVE
 ```
 
-## Gate axis (nonphysical)
+## Gates (axes)
 
 | Gate | Nonphysical | Pass |
 |---|---|---|
 | 0 | COMPLETE | PASS |
-| 1 | COMPLETE | PENDING (physical fab/flash) |
-| 2 | COMPLETE (G2-C6 draft runtime PRs) | PENDING (physical + Edmund) |
-| 3–8 | COMPLETE | PENDING (irreducible blockers) |
+| 1 | COMPLETE | PHYSICAL_EVIDENCE_PENDING |
+| 2 | COMPLETE | PHYSICAL_EVIDENCE_PENDING |
+| 3 | COMPLETE | OWNER_ACCEPTANCE_PENDING |
+| 4 | COMPLETE | FIELD_EVIDENCE_PENDING |
+| 5 | COMPLETE | EXTERNAL_EVIDENCE_PENDING |
+| 6 | COMPLETE | PHYSICAL/PILOT_EVIDENCE_PENDING |
+| 7 | COMPLETE | CERT/CARRIER/MANUFACTURING_PENDING |
+| 8 | COMPLETE | STANDARD_FINALIZATION_PENDING |
 
-## Digital closeout evidence (draft PRs; Edmund merges)
+## Post-merge notes
 
-- Industry/OTel/CAMARA: field-kit #27
-- KiCad static ERC/DRC: hardware #42
-- Ring MCU/MCUboot: edge-io #30
-- Beat Link G2-C6: #8
-- Archive of Life G2-C6: #16
-- Pedestrian Pursuit G2-C6: #7
-- Anime Aggressors G2-C6: #62
-
-## Explicit non-claims
-
-- No physical ring boot
-- No REAL_OPERATOR CAMARA without credentials
-- No carrier/certification/lab claims
+field-kit #27 merged before some deps; ecosystem lock reconciled to final `main` SHAs.

@@ -26,3 +26,14 @@ See `program/industry_adoption/license_boundaries.yaml`.
 ## Automation
 
 `scripts/validate_industry_license_boundaries.py` fails CI on GPL/AGPL product-path contamination and missing provenance for adopted adapters.
+
+
+## Post-merge re-verification (2026-08-07T23:45:00Z)
+
+- GPL (5G-LENA): external/test-only — PASS
+- AGPL (Open5GS/Grafana): standalone/test-only — PASS
+- OAI CSSL: research/test boundary — PASS
+- Apache/MIT/BSD adapters preserve notices — PASS
+- CC-BY CoL/GBIF provenance required — PASS
+- No bulk standards text — PASS
+- `scripts/validate_industry_license_boundaries.py` — run on this branch
