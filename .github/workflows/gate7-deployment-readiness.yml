@@ -1,0 +1,15 @@
+name: Gate 7 Deployment Readiness
+on:
+  push: {paths: ["gate7/**", "scripts/validate_claim_firewall.py"]}
+  pull_request:
+  workflow_dispatch:
+jobs:
+  gate7:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python3 scripts/validate_claim_firewall.py
+      - run: python3 gate7/fleet/fleet_ops.py --out gate7/fleet/.ci/fleet.json
+      - run: test -f gate7/vuln_response/security.txt
