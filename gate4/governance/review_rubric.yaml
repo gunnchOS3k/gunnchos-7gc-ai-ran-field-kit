@@ -1,0 +1,9 @@
+schema_version: "1.0.0"
+dimensions:
+  - {id: equity, scale: "1-5"}
+  - {id: privacy, scale: "1-5"}
+  - {id: accessibility, scale: "1-5"}
+  - {id: safety, scale: "1-5"}
+  - {id: support, scale: "1-5"}
+pass_rule: average >= 4 and no dimension < 3
+approval_authority: community governance + Edmund Gunn Jr.
