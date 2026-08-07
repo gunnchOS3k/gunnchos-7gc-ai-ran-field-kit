@@ -1,90 +1,94 @@
-schema_version: "1.0.0"
-updated_at_utc: "2026-08-07T22:24:37Z"
+schema_version: 1.0.0
+updated_at_utc: '2026-08-07T22:25:26Z'
 physical_execution_freeze: ACTIVE
 declaration: NONPHYSICAL_TOTALITY_INCOMPLETE
 portfolio_cross_repo_read_access: PORTFOLIO_CROSS_REPO_READ_ACCESS_PASS
-
 gates:
-  "0":
+  '0':
     token_nonphysical: GATE_0_NONPHYSICAL_COMPLETE
     token_pass: GATE_0_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PASS
     irreducible_blockers: []
-  "1":
+  '1':
     token_nonphysical: GATE_1_NONPHYSICAL_COMPLETE
     token_pass: GATE_1_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_LOCAL_HARDWARE
-      - REQUIRES_PHYSICAL_PROTOTYPE
-      - REQUIRES_PHYSICAL_FABRICATION
-      - REQUIRES_EDMUND_ACCEPTANCE
-      - REQUIRES_PURCHASE
-    notes: "Digital fab package + host firmware shipped; arm-target SDK flash and KiCad GUI re-validation remain preferred but physical blockers dominate PASS."
-  "2":
+    - REQUIRES_LOCAL_HARDWARE
+    - REQUIRES_PHYSICAL_PROTOTYPE
+    - REQUIRES_PHYSICAL_FABRICATION
+    - REQUIRES_SUPPLIER_QUOTE
+    - REQUIRES_EDMUND_ACCEPTANCE
+    notes: Digital fabrication package complete; physical evidence pending; freeze
+      active.
+    tokens_extra:
+    - RING_DIGITAL_FABRICATION_PACKAGE_COMPLETE
+    - RING_PHYSICAL_PROTOTYPE_PENDING
+  '2':
     token_nonphysical: GATE_2_NONPHYSICAL_COMPLETE
     token_pass: GATE_2_PASS
     nonphysical_status: IN_PROGRESS
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_PHYSICAL_PROTOTYPE
-      - REQUIRES_LOCAL_HARDWARE
-      - REQUIRES_EDMUND_ACCEPTANCE
-    notes: "G2-C1..C5/C7 packages present; G2-C6 still stub-level device UX profiles — product-vision game depth remains NONPHYSICAL residual."
-  "3":
+    - REQUIRES_PHYSICAL_PROTOTYPE
+    - REQUIRES_LOCAL_HARDWARE
+    - REQUIRES_EDMUND_ACCEPTANCE
+    notes: "G2-C1..C5/C7 packages present; G2-C6 still stub-level device UX profiles\
+      \ \u2014 product-vision game depth remains NONPHYSICAL residual."
+  '3':
     token_nonphysical: GATE_3_NONPHYSICAL_COMPLETE
     token_pass: GATE_3_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_EDMUND_ACCEPTANCE
-  "4":
+    - REQUIRES_EDMUND_ACCEPTANCE
+  '4':
     token_nonphysical: GATE_4_NONPHYSICAL_COMPLETE
     token_pass: GATE_4_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_HUMAN_PARTICIPANTS
-      - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
-      - REQUIRES_LOCAL_HARDWARE
-      - REQUIRES_EXTERNAL_PARTNER
-  "5":
+    - REQUIRES_HUMAN_PARTICIPANTS
+    - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+    - REQUIRES_LOCAL_HARDWARE
+    - REQUIRES_EXTERNAL_PARTNER
+  '5':
     token_nonphysical: GATE_5_NONPHYSICAL_COMPLETE
     token_pass: GATE_5_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_MANUFACTURER
-      - REQUIRES_CARRIER
-      - REQUIRES_CERTIFICATION_LAB
-      - REQUIRES_EXTERNAL_PARTNER
-      - REQUIRES_PURCHASE
-  "6":
+    - REQUIRES_MANUFACTURER
+    - REQUIRES_CARRIER
+    - REQUIRES_CERTIFICATION_LAB
+    - REQUIRES_EXTERNAL_PARTNER
+    - REQUIRES_PURCHASE
+  '6':
     token_nonphysical: GATE_6_NONPHYSICAL_COMPLETE
     token_pass: GATE_6_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_PHYSICAL_PROTOTYPE
-      - REQUIRES_HUMAN_PARTICIPANTS
-      - REQUIRES_EDMUND_ACCEPTANCE
-  "7":
+    - REQUIRES_PHYSICAL_PROTOTYPE
+    - REQUIRES_HUMAN_PARTICIPANTS
+    - REQUIRES_EDMUND_ACCEPTANCE
+  '7':
     token_nonphysical: GATE_7_NONPHYSICAL_COMPLETE
     token_pass: GATE_7_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_CERTIFICATION_LAB
-      - REQUIRES_CARRIER
-      - REQUIRES_MANUFACTURER
-      - REQUIRES_EXTERNAL_PARTNER
-  "8":
+    - REQUIRES_CERTIFICATION_LAB
+    - REQUIRES_CARRIER
+    - REQUIRES_MANUFACTURER
+    - REQUIRES_EXTERNAL_PARTNER
+  '8':
     token_nonphysical: GATE_8_NONPHYSICAL_COMPLETE
     token_pass: GATE_8_PASS
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
-      - REQUIRES_STANDARD_FINALIZATION
-      - REQUIRES_CERTIFICATION_LAB
+    - REQUIRES_STANDARD_FINALIZATION
+    - REQUIRES_CERTIFICATION_LAB
