@@ -16,7 +16,7 @@ SCAN_DIRS = [
     ROOT / "program" / "physical",
     ROOT / "program" / "reports",
     ROOT / "program" / "credentials",
-    ROOT / "standards",
+    ROOT / "device_designs",
     ROOT / "gate2",
     ROOT / "gate3",
     ROOT / "gate4",
@@ -24,7 +24,7 @@ SCAN_DIRS = [
     ROOT / "gate6",
     ROOT / "gate7",
     ROOT / "gate8",
-    ROOT / "device_designs",
+    ROOT / "standards",
 ]
 
 # Assertive achievement phrasing (not bare criterion titles).

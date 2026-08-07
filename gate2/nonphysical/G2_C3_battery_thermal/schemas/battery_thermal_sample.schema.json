@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "device_id",
+    "evidence_class",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "device_id": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "MODELED",
+        "SIMULATED",
+        "MEASURED"
+      ]
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "battery_soc_pct": {
+      "type": "number"
+    },
+    "battery_voltage_v": {
+      "type": "number"
+    },
+    "skin_temp_c": {
+      "type": "number"
+    },
+    "soc_temp_c": {
+      "type": "number"
+    },
+    "source": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "evidence_class": {
+            "const": "MEASURED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "enum": [
+              "lab_instrument",
+              "on_device_sensor"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # GATE 0 Repository Ownership Matrix
 
-Generated: 2026-08-07T20:50:30Z
+Generated: 2026-08-07T22:53:13Z
 
 ## Owner → requirement counts
 

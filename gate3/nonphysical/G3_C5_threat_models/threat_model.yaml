@@ -1,0 +1,35 @@
+schema_version: "1.0.0"
+evidence_class: ANALYSIS
+executable: true
+assets:
+  - device_identity
+  - signed_update_chain
+  - user_saves
+  - ring_pairing_keys
+  - fleet_telemetry
+threats:
+  - id: T-01
+    name: Malicious update capsule
+    stride: Tampering
+    mitigation: G2-C5 signature + rollback
+    test: test_signed_update.py::test_bad_sig
+  - id: T-02
+    name: Secure boot bypass
+    stride: Elevation of privilege
+    mitigation: G2-C4 RoT chain
+    test: test_secure_boot_emulator.py::test_bad_signature
+  - id: T-03
+    name: Session transfer hijack
+    stride: Spoofing
+    mitigation: continuity tokens bound to enrolled keys
+    test: test_identity_continuity.py::test_enroll_and_transfer
+  - id: T-04
+    name: Ring pairing spoof
+    stride: Spoofing
+    mitigation: pairing + calibration gates
+    test: test_ring_calibration.py::test_fallback_uncalibrated
+  - id: T-05
+    name: Telemetry exfiltration
+    stride: Information disclosure
+    mitigation: fleet event redaction policy
+    test: test_fleet_observability.py::test_emit_query

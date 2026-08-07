@@ -1,0 +1,38 @@
+schema_version: "1.0.0"
+device_id: handheld_hybrid
+device_name: "Handheld Hybrid"
+role: "portable gaming/study handheld with dock path"
+gate: 2
+work_class: DIGITAL_DESIGN
+physical_status: REPRESENTATIVE_ENCLOSURE_PHYSICAL_PENDING
+physical_execution_freeze: ACTIVE
+claims_forbidden:
+  - GATE_2_PASS
+  - physical_enclosure_validated
+requirements:
+  - id: REQ-MECH-001
+    text: Parameterized enclosure with interference keepouts
+    verification: CAD_EXPORT_AND_INTERFERENCE_SCRIPT
+  - id: REQ-UI-001
+    text: Display/controls HAL with nonphysical backends
+    verification: UNIT_AND_EMULATOR
+  - id: REQ-PWR-001
+    text: Battery/thermal model + measurement collector schema
+    verification: SCHEMA_AND_SIM
+  - id: REQ-SEC-001
+    text: Secure boot RoT architecture + signing chain (dev keys)
+    verification: EMULATOR_AND_CRYPTO_TESTS
+  - id: REQ-UPD-001
+    text: Signed update bundle install/rollback
+    verification: NEGATIVE_AND_ADAPTER_TESTS
+  - id: REQ-UX-001
+    text: Device-role game UX profiles
+    verification: RUNTIME_PROFILE_TESTS
+  - id: REQ-RING-001
+    text: Ring calibration/fallback when applicable
+    verification: HOST_SIM_AND_FIRMWARE_TESTS
+dimensions_mm_modeled: [180, 95, 28]
+mass_g_estimate_modeled: 480
+display: "7-inch IPS 1280x800"
+battery_wh_modeled: 28
+device_roles: ['handheld', 'dockable']

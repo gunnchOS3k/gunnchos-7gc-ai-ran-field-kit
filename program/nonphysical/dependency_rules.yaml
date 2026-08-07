@@ -1,0 +1,21 @@
+# Nonphysical advancement may proceed when upstream digital baselines exist.
+# PASS advancement remains strictly sequential and evidence-bound.
+schema_version: "1.0.0"
+rules:
+  - id: NP-ADVANCE-INDEPENDENT-OF-PHYSICAL-PASS
+    statement: >
+      GATE_N_NONPHYSICAL_COMPLETE may be earned while GATE_N_PASS is PENDING,
+      provided all nonphysical work classes are complete and remaining blockers
+      are irreducible physical/human/external classes only.
+  - id: PASS-NEVER-FROM-NONPHYSICAL
+    statement: GATE_N_PASS must never be inferred from GATE_N_NONPHYSICAL_COMPLETE alone.
+  - id: GATE1-PHYSICAL-DOES-NOT-BLOCK-NP-GATES-2-8
+    statement: >
+      Absence of Gate 1 physical evidence must not halt Gates 2–8 nonphysical
+      engineering once Gate 1 digital baselines are sufficient.
+  - id: GATE8-PASS-FORBIDDEN-UNTIL-NORMATIVE
+    statement: GATE_8_PASS is forbidden until applicable normative 6G/certification path exists.
+  - id: FREEZE-RELEASE
+    statement: >
+      PHYSICAL_EXECUTION_FREEZE remains ACTIVE until Gates 2–8 nonphysical work
+      is complete or every remaining nonphysical blocker is demonstrated external.

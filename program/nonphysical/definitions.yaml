@@ -1,0 +1,67 @@
+# Orthogonal status axes for gunnchOS3k Gate 0–8
+# NEVER conflate PASS with NONPHYSICAL_COMPLETE.
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-07T22:15:00Z"
+program_mode: NONPHYSICAL_TOTALITY
+physical_execution_freeze: ACTIVE
+
+axes:
+  pass_axis:
+    description: >
+      Canonical GATE_N_PASS. Sequential. Requires authentic physical / human /
+      external / certification / standards evidence defined by the charter.
+      Never bypassed. Never substituted by nonphysical completion.
+    tokens:
+      - GATE_0_PASS
+      - GATE_1_PASS
+      - GATE_2_PASS
+      - GATE_3_PASS
+      - GATE_4_PASS
+      - GATE_5_PASS
+      - GATE_6_PASS
+      - GATE_7_PASS
+      - GATE_8_PASS
+  nonphysical_completion_axis:
+    description: >
+      GATE_N_NONPHYSICAL_COMPLETE may advance when requirements and dependencies
+      are sufficiently baselined to implement/design/test the nonphysical portion.
+      Never substitutes for GATE_N_PASS.
+    tokens:
+      - GATE_0_NONPHYSICAL_COMPLETE
+      - GATE_1_NONPHYSICAL_COMPLETE
+      - GATE_2_NONPHYSICAL_COMPLETE
+      - GATE_3_NONPHYSICAL_COMPLETE
+      - GATE_4_NONPHYSICAL_COMPLETE
+      - GATE_5_NONPHYSICAL_COMPLETE
+      - GATE_6_NONPHYSICAL_COMPLETE
+      - GATE_7_NONPHYSICAL_COMPLETE
+      - GATE_8_NONPHYSICAL_COMPLETE
+
+nonphysical_complete_definition:
+  work_classes_must_be_done:
+    - AUTOMATABLE_NOW
+    - AUTOMATABLE_AFTER_DEPENDENCY
+    - DIGITAL_DESIGN
+    - SIMULATION
+    - SOFTWARE
+    - CI
+    - TEST_HARNESS
+    - EVIDENCE_COLLECTOR
+    - FABRICATION_PACKAGE
+    - DOCUMENTATION
+    - ANALYSIS
+    - EXTERNAL_ENGAGEMENT_PREPARATION
+    - STANDARDS_MAPPING_CURRENT_STATE
+  remaining_blocker_classes_only:
+    - REQUIRES_LOCAL_HARDWARE
+    - REQUIRES_PHYSICAL_PROTOTYPE
+    - REQUIRES_PHYSICAL_FABRICATION
+    - REQUIRES_HUMAN_PARTICIPANTS
+    - REQUIRES_EDMUND_ACCEPTANCE
+    - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+    - REQUIRES_EXTERNAL_PARTNER
+    - REQUIRES_CARRIER
+    - REQUIRES_MANUFACTURER
+    - REQUIRES_CERTIFICATION_LAB
+    - REQUIRES_STANDARD_FINALIZATION
+    - REQUIRES_PURCHASE

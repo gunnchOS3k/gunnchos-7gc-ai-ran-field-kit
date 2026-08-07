@@ -1,0 +1,256 @@
+schema_version: "1.0.0"
+locked_at_utc: "2026-08-07T22:52:15Z"
+reconciliation_note: "Dirty PRs #18/#19/#20 are PENDING_MERGE via cursor/reconcile-nonphysical-gates0-3; not accepted baselines."
+locked_at_utc: "2026-08-07T22:25:00Z"
+lock_purpose: nonphysical_ecosystem_control_plane
+org: gunnchOS3k
+canonical_default_branch: main
+source: gh_api_accepted_main_tips
+notes:
+  - accepted_main_sha is the tip of the repository default branch as returned by GitHub at lock time.
+  - nonphysical_branch/commit are set only when a dedicated nonphysical/control-plane branch exists.
+  - required_apis_and_schema_versions are placeholders where contracts are known; UNKNOWN where not yet pinned.
+  - Never infer GATE_N_PASS for N>=1 from this lock.
+
+repositories:
+  - repo: gunnchos-7gc-ai-ran-field-kit
+    role: control_plane
+    default_branch: main
+    accepted_main_sha: a10fda31bba2573a94a979f44e6141cca44fb56c
+    nonphysical_branch: cursor/reconcile-nonphysical-gates0-3
+    commit: a10fda31bba2573a94a979f44e6141cca44fb56c
+    merge_status: PENDING_MERGE  # reconcile PR superseding #18/#19/#20
+    required_apis_and_schema_versions:
+      program_gates_schema: "1.0.0"
+      gate_nonphysical_status_schema: "1.0.0"
+      integration_repo_lock_schema: "1.2.0"
+      gate1_contracts:
+        - gate1/contracts/evidence_event.schema.json
+        - gate1/contracts/device_identity.schema.json
+        - gate1/contracts/authenticated_input.schema.json
+        - gate1/contracts/dock_session.schema.json
+        - gate1/contracts/local_ai_runtime.schema.json
+        - gate1/contracts/game_core_loop.schema.json
+    ci_workflow_names:
+      - Application readiness CI
+      - Umbrella artifact CI
+      - Gate 1 Field Kit
+      - Gate 2 Integrated System
+      - Gate 3 Evidence Readiness
+      - Gate 4 Evaluation Readiness
+      - Nonphysical totality CI
+      - Dependency Graph
+
+  - repo: gunnchos-research-portal
+    role: control_plane_supporting
+    default_branch: main
+    accepted_main_sha: 96ea73409fb0a9fe9c05753bd1e8471e7f9fb7c1
+    nonphysical_branch: null
+    commit: 96ea73409fb0a9fe9c05753bd1e8471e7f9fb7c1
+    required_apis_and_schema_versions:
+      portal_api: UNKNOWN
+    ci_workflow_names:
+      - CI
+
+  - repo: gunnchos-device-os
+    role: device_os
+    default_branch: main
+    accepted_main_sha: 8cd47b75346f07636f458383761774767b6a8b1d
+    nonphysical_branch: cursor/gate1-digital-fabrication
+    commit: 1b9a631ef87f3c8b9b02f3fbad60606ba5b348a9
+    required_apis_and_schema_versions:
+      device_identity_schema: "1.0.0"
+      dock_session_schema: "1.0.0"
+      os_boot_evidence_schema: PLACEHOLDER
+    ci_workflow_names: []
+
+  - repo: gunnchos-hardware-industrial-design
+    role: hardware_industrial_design
+    default_branch: main
+    accepted_main_sha: 53f86d15bc71d75c5a4d2b675bac253fb916dc27
+    nonphysical_branch: cursor/gate1-digital-fabrication
+    commit: ee043697262974263a9c1e724162f4e636326094
+    required_apis_and_schema_versions:
+      evt1_hardware_package: PLACEHOLDER
+      mechanical_cad_export: PLACEHOLDER
+    ci_workflow_names:
+      - CAD CI
+      - Portfolio hardening CI
+      - Gate 1 post-merge integrity
+      - EVT-1 hardware package CI
+
+  - repo: gunnchAI3k
+    role: local_ai
+    default_branch: main
+    accepted_main_sha: 9678ac8bfd7c3d0bb2e4e86b18ebb33a69116b1e
+    nonphysical_branch: null
+    commit: 9678ac8bfd7c3d0bb2e4e86b18ebb33a69116b1e
+    required_apis_and_schema_versions:
+      local_ai_runtime_schema: "1.0.0"
+      waike_tutor_api: PLACEHOLDER
+    ci_workflow_names:
+      - Portfolio hardening CI
+      - Deploy gunnchAI3k
+      - Gate 1 post-merge integrity
+
+  - repo: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+    role: ring_gesture_input
+    default_branch: main
+    accepted_main_sha: 7a01038114398384635345be498906f8b962e853
+    nonphysical_branch: null
+    commit: 7a01038114398384635345be498906f8b962e853
+    required_apis_and_schema_versions:
+      authenticated_input_schema: "1.0.0"
+      ring_calibration_contract: PLACEHOLDER
+    ci_workflow_names:
+      - Portfolio hardening CI
+
+  - repo: edge-io-measurement-node
+    role: measurement
+    default_branch: main
+    accepted_main_sha: 3e875e03d656763f7539d8ba9123b3549acf29ba
+    nonphysical_branch: cursor/gate1-digital-fabrication
+    commit: 258221cccbe2db31e84c8e9dd725202cdd292ea7
+    required_apis_and_schema_versions:
+      telemetry_schema: PLACEHOLDER
+      edge_measurement_export: PLACEHOLDER
+    ci_workflow_names:
+      - CI
+      - Gate 1 post-merge integrity
+
+  - repo: beatlink-party
+    role: game
+    default_branch: main
+    accepted_main_sha: ed3972ea5023474f4032a75f5eae9c7d80ba087c
+    nonphysical_branch: null
+    commit: ed3972ea5023474f4032a75f5eae9c7d80ba087c
+    required_apis_and_schema_versions:
+      game_core_loop_schema: "1.0.0"
+    ci_workflow_names:
+      - CI
+      - Gate 1 post-merge integrity
+
+  - repo: archive-of-life-artifact-world
+    role: game
+    default_branch: main
+    accepted_main_sha: 12f114f7ede4d3cb4d3d26f8e0582eefcd2994fa
+    nonphysical_branch: null
+    commit: 12f114f7ede4d3cb4d3d26f8e0582eefcd2994fa
+    required_apis_and_schema_versions:
+      game_core_loop_schema: "1.0.0"
+    ci_workflow_names:
+      - CI
+      - Gate 1 post-merge integrity
+
+  - repo: pedestrian-pursuit
+    role: game
+    default_branch: main
+    accepted_main_sha: f6c134f0bda9879889816d86a8c3350e838ada35
+    nonphysical_branch: null
+    commit: f6c134f0bda9879889816d86a8c3350e838ada35
+    required_apis_and_schema_versions:
+      game_core_loop_schema: "1.0.0"
+    ci_workflow_names:
+      - Gate 1 post-merge integrity
+
+  - repo: anime-aggressors
+    role: game
+    default_branch: main
+    accepted_main_sha: 6800bd7ee282ec631e51c51b23058e899440f0eb
+    nonphysical_branch: null
+    commit: 6800bd7ee282ec631e51c51b23058e899440f0eb
+    required_apis_and_schema_versions:
+      game_core_loop_schema: "1.0.0"
+    ci_workflow_names:
+      - ci
+      - Gate 1 post-merge integrity
+      - Deploy GitHub Pages
+      - Quality
+      - Release
+      - pages-build-deployment
+
+  - repo: 7gc-digital-twin
+    role: digital_twin
+    default_branch: main
+    accepted_main_sha: ce09f2fddbf5935d06366ba8d37e3a8641e617c4
+    nonphysical_branch: null
+    commit: ce09f2fddbf5935d06366ba8d37e3a8641e617c4
+    required_apis_and_schema_versions:
+      site_schema: PLACEHOLDER
+      twin_state_schema: "1.0.0"
+    ci_workflow_names:
+      - CI
+
+  - repo: spectrumx-ai-ran-gary
+    role: ai_ran
+    default_branch: main
+    accepted_main_sha: 8f0df4cb62877506543a231cfd402752bdf72be5
+    nonphysical_branch: null
+    commit: 8f0df4cb62877506543a231cfd402752bdf72be5
+    required_apis_and_schema_versions:
+      policy_interface: PLACEHOLDER
+      iq_metadata_contract: PLACEHOLDER
+      shared_7gc_site_schema: PLACEHOLDER
+    ci_workflow_names:
+      - Portfolio hardening CI
+
+  - repo: ntn-resilience-sim
+    role: ntn_simulation
+    default_branch: main
+    accepted_main_sha: cd49b6619aa403c73f8284a90999a96a58f7e00b
+    nonphysical_branch: null
+    commit: cd49b6619aa403c73f8284a90999a96a58f7e00b
+    required_apis_and_schema_versions:
+      scenario_schema: PLACEHOLDER
+      outage_model_stub: PLACEHOLDER
+    ci_workflow_names:
+      - CI
+
+  - repo: readygary-6g-beam-selection
+    role: beam_selection
+    default_branch: main
+    accepted_main_sha: 525405cb19d7987ad218272f5897d4917c10dd75
+    nonphysical_branch: null
+    commit: 525405cb19d7987ad218272f5897d4917c10dd75
+    required_apis_and_schema_versions:
+      beam_model_export: PLACEHOLDER
+      onnx_export: PLACEHOLDER
+    ci_workflow_names:
+      - Portfolio hardening CI
+      - .github/workflows/latex.yml
+
+  - repo: waike-research-ops
+    role: education_ops
+    default_branch: main
+    accepted_main_sha: e8de2ae8c95793e247b02071acf7e9ffa52b313d
+    nonphysical_branch: null
+    commit: e8de2ae8c95793e247b02071acf7e9ffa52b313d
+    required_apis_and_schema_versions:
+      waike_gunnchai3k_api_contract: PLACEHOLDER
+      course_release_template: PLACEHOLDER
+    ci_workflow_names:
+      - CI
+
+  - repo: gunnchos-emergent-service-intent-protocols
+    role: connectivity_research
+    default_branch: main
+    accepted_main_sha: 9b3fec9fdff752f97fbe9950b7db5d9874aea72d
+    nonphysical_branch: null
+    commit: 9b3fec9fdff752f97fbe9950b7db5d9874aea72d
+    required_apis_and_schema_versions:
+      service_intent_api: PLACEHOLDER
+    ci_workflow_names:
+      - CI
+      - Dependency Graph
+
+  - repo: gunnchos-gpu-nr-baseband-platform
+    role: baseband_platform
+    default_branch: main
+    accepted_main_sha: 64909eeea4be2a07581e725373684d1c5a71ffa0
+    nonphysical_branch: null
+    commit: 64909eeea4be2a07581e725373684d1c5a71ffa0
+    required_apis_and_schema_versions:
+      gpu_nr_measurement_contract: PLACEHOLDER
+    ci_workflow_names:
+      - ci
+      - self-hosted-nvidia-gpu
