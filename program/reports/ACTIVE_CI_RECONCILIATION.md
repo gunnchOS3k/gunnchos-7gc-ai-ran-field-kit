@@ -63,3 +63,13 @@ GATE_2_NOT_STARTED_GATE_1_INCOMPLETE
 - This report does not claim `GATE_1_PASS`.
 - Credential-blocked workflows are not claimed green.
 - Archive map soft-pass does not claim scientific source verification.
+
+
+## Max-automation pass update (2026-08-07)
+
+- Dedicated portfolio secrets on field-kit: **none configured** (`gh secret list` empty).
+- Local dedicated App PEM / PAT: **not found** (env/keychain/common paths).
+- Interactive `gh` token **not** copied into Actions secrets (least-privilege policy).
+- Classification retained: `EXTERNAL_CREDENTIAL_BLOCKER` for Application readiness CI and Gate 2 Integrated System.
+- Human bootstrap: `gate1/reports/HUMAN_SECRET_BOOTSTRAP_REQUIRED.md`.
+- Token: `BLOCKED_PORTFOLIO_CREDENTIAL_CONFIGURATION` until secrets exist; then Cursor will rerun workflows.
