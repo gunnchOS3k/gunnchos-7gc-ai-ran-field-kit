@@ -1,0 +1,80 @@
+schema_version: 1.0.0
+evidence_class: SOFTWARE
+protected_asset_policy: no_copyrighted_music_or_anime_ip
+games:
+  beatlink-party:
+    vision: local collaborative rhythm/party loops without licensed music stems
+    device_roles:
+      student_14_5:
+        input: keyboard_trackpad
+        layout: landscape_classroom
+        audio: procedural_metronome
+      handheld_hybrid:
+        input: gamepad
+        layout: handheld
+        audio: procedural_metronome
+      ds_xl_coder:
+        input: keyboard
+        layout: dual_screen_debug
+        audio: muted_default
+      edge_io_rings:
+        input: ring_gesture
+        layout: peripheral_only
+        audio: none
+  archive-of-life-artifact-world:
+    vision: artifact collection/world exploration with original placeholder art
+    device_roles:
+      student_14_5:
+        input: pointer
+        layout: landscape
+        world_scale: classroom
+      handheld_hybrid:
+        input: touch
+        layout: portrait_or_landscape
+        world_scale: pocket
+      ds_xl_coder:
+        input: pointer_keyboard
+        layout: dual_pane_editor_world
+        world_scale: studio
+      edge_io_rings:
+        input: ring_select
+        layout: peripheral_only
+        world_scale: n/a
+  pedestrian-pursuit:
+    vision: location-safe pursuit loops with simulated routes (no real stalking)
+    device_roles:
+      student_14_5:
+        input: keyboard
+        map: sim_campus
+        gps: SIMULATED
+      handheld_hybrid:
+        input: touch
+        map: sim_neighborhood
+        gps: SIMULATED
+      ds_xl_coder:
+        input: keyboard
+        map: debug_overlay
+        gps: SIMULATED
+      edge_io_rings:
+        input: ring_confirm
+        map: n/a
+        gps: none
+  anime-aggressors:
+    vision: original-character arena combat; no copyrighted anime IP assets
+    device_roles:
+      student_14_5:
+        input: keyboard_mouse
+        layout: landscape
+        fx: reduced_classroom
+      handheld_hybrid:
+        input: gamepad
+        layout: handheld
+        fx: full
+      ds_xl_coder:
+        input: keyboard
+        layout: dual_screen_code_arena
+        fx: debug
+      edge_io_rings:
+        input: ring_special
+        layout: peripheral_only
+        fx: none

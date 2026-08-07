@@ -1,14 +1,26 @@
 # Master Physical Build and Test Book
-Status: PREPARATION_ONLY · PHYSICAL_EXECUTION_FREEZE=ACTIVE · Updated: 2026-08-07T22:20:00Z
-Authority: Edmund Gunn Jr.
-Execute only after nonphysical totality review.
+
+**Preparation artifact only. PHYSICAL_EXECUTION_FREEZE = ACTIVE. Do not execute yet.**
 
 ## Phases
-P0 Procurement · P1 Incoming inspection · P2 PCB/enclosure fab · P3 Ring assembly ·
-P4 Device assembly · P5 Flashing/provisioning (DEV keys) · P6 Bring-up ·
-P7 Gate1 physical · P8 Gate2 physical · P9 Gate4 field pilot · P10 Gate5 external ·
-P11 Gate6 RC physical · P12 Gate7 cert/carrier/CM · P13 Gate8 conformance after standards finalization
 
-Each step records: hardware, tool, firmware/software version, command, measurement,
-expected result, evidence file, acceptance authority (Edmund), safety stop.
-No GATE_N_PASS earned by this book alone.
+| Phase | Name | Gate(s) |
+|---|---|---|
+| P0 | Procurement | 1–5 |
+| P1 | Incoming inspection | 1–5 |
+| P2 | PCB/enclosure fabrication | 1–2 |
+| P3 | Ring assembly | 1–2 |
+| P4 | Device assembly | 2 |
+| P5 | Flashing/provisioning | 1–2,6 |
+| P6 | Bring-up | 1–2 |
+| P7 | Gate 1 physical evidence | 1 |
+| P8 | Gate 2 physical evidence | 2 |
+| P9 | Gate 4 field pilot | 4 |
+| P10 | Gate 5 external preproduction | 5 |
+| P11 | Gate 6 RC physical validation | 6 |
+| P12 | Gate 7 certification/carrier/manufacturing | 7 |
+| P13 | Gate 8 conformance after standards finalization | 8 |
+
+Each step must specify: hardware, tool, firmware/software version, command, measurement, expected result, evidence file, acceptance authority, safety stop.
+
+Detailed rows are expanded as nonphysical packages land.

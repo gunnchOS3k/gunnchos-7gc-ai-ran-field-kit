@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.local/schemas/gate_nonphysical_status.schema.json",
+  "title": "GateNonphysicalStatus",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "physical_execution_freeze",
+    "gates"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "updated_at_utc": {
+      "type": "string"
+    },
+    "physical_execution_freeze": {
+      "enum": [
+        "ACTIVE",
+        "RELEASED_PENDING_EDMUND_REVIEW",
+        "INACTIVE"
+      ]
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "nonphysical_status",
+          "pass_status",
+          "irreducible_blockers"
+        ],
+        "properties": {
+          "nonphysical_status": {
+            "enum": [
+              "NOT_STARTED",
+              "IN_PROGRESS",
+              "NONPHYSICAL_COMPLETE",
+              "BLOCKED_NONPHYSICAL"
+            ]
+          },
+          "pass_status": {
+            "enum": [
+              "NOT_STARTED",
+              "PENDING",
+              "PASS",
+              "FAIL",
+              "NOT_ELIGIBLE"
+            ]
+          },
+          "token_nonphysical": {
+            "type": "string"
+          },
+          "token_pass": {
+            "type": "string"
+          },
+          "irreducible_blockers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
