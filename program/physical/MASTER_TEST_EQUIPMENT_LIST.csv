@@ -1,0 +1,13 @@
+equipment,class,justification,required_for_gates,substitute
+Digital multimeter,REQUIRED,continuity/voltage bring-up,1-2,CAN_SUBSTITUTE bench DMM
+Bench power supply,REQUIRED,controlled rail bring-up,1-2,CAN_SUBSTITUTE
+USB power meter,REQUIRED,charge/discharge logging,2,OPTIONAL if power analyzer present
+Logic analyzer,REQUIRED,bus/debug capture,1-3,CAN_SUBSTITUTE
+Oscilloscope (>=100MHz),OPTIONAL,SI / power rails,1-2,LAB_ONLY
+Thermal camera or thermocouples,REQUIRED,thermal evidence,2,OPTIONAL IR gun
+Current/power analyzer,OPTIONAL,battery model validation,2,CAN_SUBSTITUTE USB meter
+Programmer/debugger (SWD),REQUIRED,flash/bring-up,1-6,REQUIRED
+USB-C/PD analyzer,OPTIONAL,dock/power negotiation,1-3,OPTIONAL
+Spectrum analyzer / RF chamber,CERTIFICATION_LAB_ONLY,radio regulatory,5-7,CERTIFICATION_LAB_ONLY
+Android target device,REQUIRED,companion/pilot,3-6,REQUIRED
+Dock + displays + controllers,REQUIRED,UX/continuity,1-4,REQUIRED
