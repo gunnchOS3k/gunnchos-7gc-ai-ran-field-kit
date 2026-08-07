@@ -43,8 +43,26 @@ jobs:
 
       - name: Gate 1 schemas + orchestrator dry-run
         run: |
+          set -euo pipefail
           python -m gate1.orchestrator.cli validate-evidence
-          python -m gate1.orchestrator.cli run --no-write
+          # Isolated Actions checkout has no sibling component repos. Full software
+          # probes are covered by tests/gate1; dry-run here must not forge GATE_1_PASS
+          # and must remain non-zero when siblings are absent (truthful SOFTWARE_FAIL).
+          set +e
+          out="$(python -m gate1.orchestrator.cli run --no-write 2>&1)"
+          code=$?
+          set -e
+          echo "$out"
+          echo "$out" | grep -q PHYSICAL_EVIDENCE_PENDING
+          if echo "$out" | grep -q 'GATE_1_PASS'; then
+            echo "REFUSING forged GATE_1_PASS in isolated CI dry-run"
+            exit 2
+          fi
+          if [ "$code" -eq 0 ]; then
+            echo "Unexpected software-pass without sibling repos on isolated CI"
+            exit 3
+          fi
+          echo "ISOLATED_ORCHESTRATOR_DRY_RUN_OK code=$code"
           python -m gate1.orchestrator.cli status
 
       - name: Operator final-status (physical pending expected)
