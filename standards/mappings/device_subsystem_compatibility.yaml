@@ -1,0 +1,21 @@
+schema_version: "1.0.0"
+as_of: "2026-08-07"
+subsystems:
+  compute: LIKELY_REUSABLE
+  radio_modem: UNKNOWN_UNTIL_NORMATIVE_STANDARD
+  rf_front_end: CERTIFICATION_DEPENDENT
+  antennas: CERTIFICATION_DEPENDENT
+  sim_esim: SOFTWARE_UPGRADABLE
+  ntn_interface: UNKNOWN_UNTIL_NORMATIVE_STANDARD
+  security_element: FIRMWARE_UPGRADABLE
+  boot: SOFTWARE_UPGRADABLE
+  os_networking: SOFTWARE_UPGRADABLE
+  ai: SOFTWARE_UPGRADABLE
+  ring: LIKELY_REUSABLE
+  dock: LIKELY_REUSABLE
+  power: LIKELY_REUSABLE
+  thermal: LIKELY_REUSABLE
+replacement_triggers:
+  - normative IMT-2030 RIT requirements finalized and applicable
+  - 3GPP Rel-21 normative specs freeze impacting modem/RF
+  - certification lab determines non-compliance of current module
