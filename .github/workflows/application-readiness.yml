@@ -25,7 +25,7 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest jsonschema pyyaml
 
-      - name: Mint portfolio GitHub App token
+      - name: Mint portfolio GitHub App token (optional fallback)
         id: app-token
         uses: actions/create-github-app-token@v2
         continue-on-error: true
@@ -50,30 +50,53 @@ jobs:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
           APP_OUTCOME: ${{ steps.app-token.outcome }}
           PAT: ${{ secrets.PORTFOLIO_REPO_READ_TOKEN }}
+          SSH_EMERGENT: ${{ secrets.PORTFOLIO_SSH_KEY_GUNNCHOS_EMERGENT_SERVICE_INTENT_PROTOCOLS }}
+          SSH_GPU: ${{ secrets.PORTFOLIO_SSH_KEY_GUNNCHOS_GPU_NR_BASEBAND_PLATFORM }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set +x
+          # Prefer per-repo read-only SSH deploy keys for private siblings.
+          if [ -n "${SSH_EMERGENT:-}" ] && [ -n "${SSH_GPU:-}" ]; then
+            echo "credential_source=deploy_key" >> "$GITHUB_OUTPUT"
+            # HTTPS token still used for public siblings (GITHUB_TOKEN is fine).
+            if [ "${APP_OUTCOME}" = "success" ] && [ -n "${APP_TOKEN:-}" ]; then
+              echo "token=${APP_TOKEN}" >> "$GITHUB_OUTPUT"
+            elif [ -n "${PAT:-}" ]; then
+              echo "token=${PAT}" >> "$GITHUB_OUTPUT"
+            else
+              echo "token=${GITHUB_TOKEN}" >> "$GITHUB_OUTPUT"
+            fi
+            echo "has_deploy_keys=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ "${APP_OUTCOME}" = "success" ] && [ -n "${APP_TOKEN:-}" ]; then
             echo "credential_source=github_app" >> "$GITHUB_OUTPUT"
             echo "token=${APP_TOKEN}" >> "$GITHUB_OUTPUT"
+            echo "has_deploy_keys=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           if [ -n "${PAT:-}" ]; then
             echo "credential_source=pat" >> "$GITHUB_OUTPUT"
             echo "token=${PAT}" >> "$GITHUB_OUTPUT"
-            echo "WARNING: using PORTFOLIO_REPO_READ_TOKEN fallback (App preferred)"
+            echo "has_deploy_keys=false" >> "$GITHUB_OUTPUT"
+            echo "WARNING: using PORTFOLIO_REPO_READ_TOKEN fallback (deploy keys preferred)"
             exit 0
           fi
           echo "credential_source=none" >> "$GITHUB_OUTPUT"
           echo "token=" >> "$GITHUB_OUTPUT"
+          echo "has_deploy_keys=false" >> "$GITHUB_OUTPUT"
           echo "BLOCKED_CREDENTIAL_CONFIGURATION"
-          echo "Configure repository secrets PORTFOLIO_APP_ID + PORTFOLIO_APP_PRIVATE_KEY"
-          echo "App mint outcome=${APP_OUTCOME}; do not fall back to GITHUB_TOKEN for private siblings"
+          echo "Configure PORTFOLIO_SSH_KEY_* deploy-key secrets (preferred) or PORTFOLIO_APP_ID + PORTFOLIO_APP_PRIVATE_KEY"
+          echo "App mint outcome=${APP_OUTCOME}; do not fall back to interactive gh tokens"
           exit 3
 
       - name: Checkout locked sibling repositories
         env:
           PORTFOLIO_CHECKOUT_TOKEN: ${{ steps.creds.outputs.token }}
           PORTFOLIO_CREDENTIAL_SOURCE: ${{ steps.creds.outputs.credential_source }}
+          PORTFOLIO_SSH_KEY_GUNNCHOS_EMERGENT_SERVICE_INTENT_PROTOCOLS: ${{ secrets.PORTFOLIO_SSH_KEY_GUNNCHOS_EMERGENT_SERVICE_INTENT_PROTOCOLS }}
+          PORTFOLIO_SSH_KEY_GUNNCHOS_GPU_NR_BASEBAND_PLATFORM: ${{ secrets.PORTFOLIO_SSH_KEY_GUNNCHOS_GPU_NR_BASEBAND_PLATFORM }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x scripts/ci_checkout_locked_siblings.sh
           bash scripts/ci_checkout_locked_siblings.sh "$(dirname "$GITHUB_WORKSPACE")"

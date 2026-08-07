@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+classes:
+  MODELED:
+    may_satisfy_pass: false
+    description: "Analytical model outputs"
+  SIMULATED:
+    may_satisfy_pass: false
+    description: "Simulator/emulator outputs"
+  SOFTWARE_TEST:
+    may_satisfy_pass: false
+    description: "Unit/integration/CI results on host/emulator"
+  DIGITAL_DESIGN_ARTIFACT:
+    may_satisfy_pass: false
+    description: "Schematic, Gerbers, CAD, firmware ELF labeled development"
+  PREPARATION_PACKET:
+    may_satisfy_pass: false
+    description: "Partner/lab/carrier intake packages"
+  MEASURED:
+    may_satisfy_pass: true
+    requires: "Physical instrument capture on real hardware"
+  HUMAN_PARTICIPANT:
+    may_satisfy_pass: true
+    requires: "Consented human evaluation evidence"
+  EXTERNAL_ACCEPTANCE:
+    may_satisfy_pass: true
+    requires: "Partner/carrier/lab/manufacturer formal evidence"
+  NORMATIVE_CONFORMANCE:
+    may_satisfy_pass: true
+    requires: "Approved normative standard + lab conformance"
+rules:
+  - simulated_must_not_fill_measured_fields: true
+  - development_signed_is_not_production_factory: true
+  - nonphysical_complete_is_not_pass: true
