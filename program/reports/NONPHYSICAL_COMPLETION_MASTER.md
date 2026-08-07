@@ -1,20 +1,33 @@
-# Nonphysical Completion Master
+# NONPHYSICAL_COMPLETION_MASTER
 
-Updated: `2026-08-07T22:52:15Z`  
-Branch: `cursor/reconcile-nonphysical-gates0-3`  
-`PHYSICAL_EXECUTION_FREEZE = ACTIVE`  
-`PORTFOLIO_CROSS_REPO_READ_ACCESS_PASS`
+Updated: 2026-08-08 UTC
 
-| Gate | NONPHYSICAL | PASS | Irreducible blocker |
-|---|---|---|---|
-| 0 | COMPLETE | PASS | — |
-| 1 | COMPLETE | PENDING | hardware/fab/purchase/Edmund |
-| 2 | IN_PROGRESS (G2-C6 residual) | PENDING | hardware + G2-C6 digital residual |
-| 3 | COMPLETE | PENDING | Edmund |
-| 4 | COMPLETE | PENDING | humans/ethics/hardware/partners |
-| 5 | COMPLETE | PENDING | mfr/carrier/lab/purchase |
-| 6 | COMPLETE | PENDING | hardware/humans/Edmund |
-| 7 | COMPLETE | PENDING | lab/carrier/mfr/partners |
-| 8 | COMPLETE | PENDING (PASS forbidden) | standards finalization/lab |
+```text
+NONPHYSICAL_TOTALITY_COMPLETE
+PHYSICAL_EXECUTION_FREEZE = ACTIVE
+```
 
-Supersedes dirty PRs #18/#19/#20 without merging them. Preserves merged Gates 4–8 (#21–#25).
+## Gate axis (nonphysical)
+
+| Gate | Nonphysical | Pass |
+|---|---|---|
+| 0 | COMPLETE | PASS |
+| 1 | COMPLETE | PENDING (physical fab/flash) |
+| 2 | COMPLETE (G2-C6 draft runtime PRs) | PENDING (physical + Edmund) |
+| 3–8 | COMPLETE | PENDING (irreducible blockers) |
+
+## Digital closeout evidence (draft PRs; Edmund merges)
+
+- Industry/OTel/CAMARA: field-kit #27
+- KiCad static ERC/DRC: hardware #42
+- Ring MCU/MCUboot: edge-io #30
+- Beat Link G2-C6: #8
+- Archive of Life G2-C6: #16
+- Pedestrian Pursuit G2-C6: #7
+- Anime Aggressors G2-C6: #62
+
+## Explicit non-claims
+
+- No physical ring boot
+- No REAL_OPERATOR CAMARA without credentials
+- No carrier/certification/lab claims

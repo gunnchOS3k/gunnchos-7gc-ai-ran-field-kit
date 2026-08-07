@@ -1,0 +1,36 @@
+schema_version: "1.0.0"
+note: Budgets derived from intended device tier — not one-size-fits-all.
+games:
+  beatlink-party:
+    frame_time_ms_p50: 16.7
+    long_frame_p99_ms: 33.0
+    input_budget_ms: 8.0
+    memory_mb: 512
+    startup_ms: 4000
+    asset_load_ms: 2000
+    network_jitter_ms: 80
+  archive-of-life-artifact-world:
+    frame_time_ms_p50: 16.7
+    long_frame_p99_ms: 40.0
+    input_budget_ms: 10.0
+    memory_mb: 768
+    startup_ms: 5000
+    asset_load_ms: 3000
+    network_jitter_ms: 120
+  pedestrian-pursuit:
+    frame_time_ms_p50: 16.7
+    long_frame_p99_ms: 33.0
+    input_budget_ms: 8.0
+    memory_mb: 640
+    startup_ms: 4500
+    asset_load_ms: 2500
+    network_jitter_ms: 100
+  anime-aggressors:
+    frame_time_ms_p50: 16.7
+    long_frame_p99_ms: 20.0
+    input_budget_ms: 4.0
+    memory_mb: 1024
+    startup_ms: 5000
+    asset_load_ms: 3000
+    network_jitter_ms: 60
+tracy_policy: ADAPT_INTERFACE_OR_NATIVE_PLUS_OTEL

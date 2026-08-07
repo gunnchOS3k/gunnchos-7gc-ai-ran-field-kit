@@ -1,0 +1,37 @@
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-08T00:00:00Z"
+disclaimer: >
+  Automated inventory and boundary flags only. Not legal certification.
+  Commercial Essential Patent / FRAND questions require human legal review.
+
+rules:
+  apache_mit_bsd:
+    licenses: ["Apache-2.0", "MIT", "BSD-2-Clause", "BSD-3-Clause", "ISC"]
+    policy: may_integrate_subject_to_notices_and_normal_review
+  gplv2:
+    licenses: ["GPL-2.0", "GPL-2.0-only", "GPL-2.0-or-later"]
+    policy: external_simulator_or_test_boundary_unless_deliberate_product_licensing_decision
+    product_link_forbidden_without_decision: true
+  agplv3:
+    licenses: ["AGPL-3.0", "AGPL-3.0-only", "AGPL-3.0-or-later"]
+    policy: standalone_external_service_or_test_tool_unless_deliberate_compliance_decision
+    embed_in_product_forbidden_without_decision: true
+  oai_cssl:
+    licenses: ["OAI-CSSL"]
+    policy: research_test_integration_allowed_per_license
+    commercial_essential_patent_note: requires_explicit_legal_FRAND_review
+  standards_specifications:
+    policy: reference_ids_and_requirements_only
+    bulk_copy_normative_text: forbidden
+
+scan:
+  automate: true
+  script: scripts/validate_industry_license_boundaries.py
+  fail_on:
+    - gpl_linked_into_product_path
+    - agpl_embedded_into_product_path
+    - missing_provenance_for_adopted_adapter
+
+notes:
+  grafana_oss: TEST_ONLY standalone AGPLv3 observability backend; do not embed.
+  godot: Engine note — no forced migration; adopt only where already used or proven benefit.

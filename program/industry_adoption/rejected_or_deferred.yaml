@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+updated_at_utc: "2026-08-08T00:00:00Z"
+items:
+  - id: webrtc
+    decision: DEFER
+    reason: >
+      Beat Link scoring/state remains server-authoritative WebSocket.
+      WebRTC may help media/presence later; not required to close G2-C6.
+    revisit_when: architecture_audit_shows_measurable_latency_or_presence_gain
+
+  - id: vulkan
+    decision: REFERENCE_ONLY
+    reason: Capability target only; engine rewrites forbidden by no-migration rule.
+
+  - id: grafana_oss
+    decision: TEST_ONLY
+    reason: AGPL standalone backend; never embed into product applications.
+
+  - id: fiveg_lena_ns3
+    decision: TEST_ONLY
+    reason: GPL-2.0 external simulator boundary.
+
+  - id: open5gs
+    decision: TEST_ONLY
+    reason: AGPL-3.0 lab container/process only.
+
+  - id: oai_flexric
+    decision: TEST_ONLY
+    reason: CSSL research/test; commercial EP/FRAND review required before product use.
+
+  - id: mandatory_carrier_camara
+    decision: REJECT
+    reason: No mandatory carrier dependency; REAL_OPERATOR mode requires credentials/evidence.

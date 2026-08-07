@@ -1,8 +1,8 @@
-schema_version: "1.0.0"
+schema_version: 1.0.0
 gate: 2
 token_nonphysical: GATE_2_NONPHYSICAL_COMPLETE
 token_pass: GATE_2_PASS
-nonphysical_status: IN_PROGRESS
+nonphysical_status: NONPHYSICAL_COMPLETE
 pass_status: PENDING
 physical_execution_freeze: ACTIVE
 criteria:
@@ -11,12 +11,15 @@ criteria:
   G2-C3: NONPHYSICAL_COMPLETE
   G2-C4: NONPHYSICAL_COMPLETE
   G2-C5: NONPHYSICAL_COMPLETE
-  G2-C6: IN_PROGRESS
+  G2-C6: NONPHYSICAL_COMPLETE
   G2-C7: NONPHYSICAL_COMPLETE
 irreducible_blockers:
-  - REQUIRES_PHYSICAL_PROTOTYPE
-  - REQUIRES_LOCAL_HARDWARE
-  - REQUIRES_EDMUND_ACCEPTANCE
-claim_allowed: GATE_2_NONPHYSICAL_IN_PROGRESS
+- REQUIRES_PHYSICAL_PROTOTYPE
+- REQUIRES_LOCAL_HARDWARE
+- REQUIRES_EDMUND_ACCEPTANCE
+claim_allowed: GATE_2_NONPHYSICAL_COMPLETE
 claim_forbidden: GATE_2_PASS
-notes: "G2-C6 residual: device UX role stubs/profiles are not product-vision runtime depth."
+notes: 'G2-C6 product-runtime depth delivered in draft PRs: beatlink#8 archive#16
+  pedestrian#7 anime#62. Edmund merge pending. Physical device validation pending
+  freeze.'
+updated_at_utc: '2026-08-08T00:15:00Z'

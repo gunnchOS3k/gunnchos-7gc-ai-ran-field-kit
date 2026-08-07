@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+decision: ADAPT_INTERFACE
+note: Optional mapping for future HUD/XR/wearable compatibility — not VR conversion.
+actions:
+  - gunnchos: confirm
+    ring: tap_confirm
+    keyboard: Enter
+    mouse: LMB
+    controller: A
+    touch: tap
+    openxr: /user/hand/right/input/a/click
+  - gunnchos: back
+    ring: long_press_back
+    keyboard: Escape
+    mouse: RMB
+    controller: B
+    touch: back_gesture
+    openxr: /user/hand/right/input/b/click
+  - gunnchos: haptic_pulse
+    ring: haptic_out
+    controller: rumble
+    openxr: /user/hand/right/output/haptic
