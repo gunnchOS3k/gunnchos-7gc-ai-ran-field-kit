@@ -1,7 +1,8 @@
 schema_version: "1.0.0"
-updated_at_utc: "2026-08-07T22:15:00Z"
+updated_at_utc: "2026-08-07T22:24:37Z"
 physical_execution_freeze: ACTIVE
-declaration: NONPHYSICAL_TOTALITY_IN_PROGRESS
+declaration: NONPHYSICAL_TOTALITY_INCOMPLETE
+portfolio_cross_repo_read_access: PORTFOLIO_CROSS_REPO_READ_ACCESS_PASS
 
 gates:
   "0":
@@ -10,18 +11,18 @@ gates:
     nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PASS
     irreducible_blockers: []
-    notes: "Control-plane governance accepted; Gate 0 PASS retained."
   "1":
     token_nonphysical: GATE_1_NONPHYSICAL_COMPLETE
     token_pass: GATE_1_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_LOCAL_HARDWARE
       - REQUIRES_PHYSICAL_PROTOTYPE
       - REQUIRES_PHYSICAL_FABRICATION
       - REQUIRES_EDMUND_ACCEPTANCE
-    notes: "Software/CI complete; digital fabrication package being finalized; physical evidence pending."
+      - REQUIRES_PURCHASE
+    notes: "Digital fab package + host firmware shipped; arm-target SDK flash and KiCad GUI re-validation remain preferred but physical blockers dominate PASS."
   "2":
     token_nonphysical: GATE_2_NONPHYSICAL_COMPLETE
     token_pass: GATE_2_PASS
@@ -31,64 +32,59 @@ gates:
       - REQUIRES_PHYSICAL_PROTOTYPE
       - REQUIRES_LOCAL_HARDWARE
       - REQUIRES_EDMUND_ACCEPTANCE
-    notes: "Nonphysical Device Vertical Slice in progress; PASS requires physical evidence."
+    notes: "G2-C1..C5/C7 packages present; G2-C6 still stub-level device UX profiles — product-vision game depth remains NONPHYSICAL residual."
   "3":
     token_nonphysical: GATE_3_NONPHYSICAL_COMPLETE
     token_pass: GATE_3_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_EDMUND_ACCEPTANCE
-    notes: "Ecosystem Alpha nonphysical implementation in progress."
   "4":
     token_nonphysical: GATE_4_NONPHYSICAL_COMPLETE
     token_pass: GATE_4_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_HUMAN_PARTICIPANTS
       - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
       - REQUIRES_LOCAL_HARDWARE
       - REQUIRES_EXTERNAL_PARTNER
-    notes: "Field-pilot protocols/tooling only; no real participant evidence."
   "5":
     token_nonphysical: GATE_5_NONPHYSICAL_COMPLETE
     token_pass: GATE_5_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_MANUFACTURER
       - REQUIRES_CARRIER
       - REQUIRES_CERTIFICATION_LAB
       - REQUIRES_EXTERNAL_PARTNER
-    notes: "Preproduction package preparation in progress."
+      - REQUIRES_PURCHASE
   "6":
     token_nonphysical: GATE_6_NONPHYSICAL_COMPLETE
     token_pass: GATE_6_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_PHYSICAL_PROTOTYPE
       - REQUIRES_HUMAN_PARTICIPANTS
       - REQUIRES_EDMUND_ACCEPTANCE
-    notes: "RC digital package in progress; pilot evidence pending."
   "7":
     token_nonphysical: GATE_7_NONPHYSICAL_COMPLETE
     token_pass: GATE_7_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_CERTIFICATION_LAB
       - REQUIRES_CARRIER
       - REQUIRES_MANUFACTURER
       - REQUIRES_EXTERNAL_PARTNER
-    notes: "Deployment-readiness package in progress."
   "8":
     token_nonphysical: GATE_8_NONPHYSICAL_COMPLETE
     token_pass: GATE_8_PASS
-    nonphysical_status: IN_PROGRESS
+    nonphysical_status: NONPHYSICAL_COMPLETE
     pass_status: PENDING
     irreducible_blockers:
       - REQUIRES_STANDARD_FINALIZATION
       - REQUIRES_CERTIFICATION_LAB
-    notes: "Current-state standards mapping/watch in progress; GATE_8_PASS forbidden until normative path exists."

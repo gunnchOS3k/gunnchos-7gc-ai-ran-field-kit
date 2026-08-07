@@ -1,25 +1,19 @@
 # Nonphysical Completion Master
 
-Updated: `2026-08-07T22:15:44Z`  
-Program mode: **NONPHYSICAL_TOTALITY**  
-Physical execution freeze: **ACTIVE**
+Updated: `2026-08-07T22:24:37Z`  
+`PHYSICAL_EXECUTION_FREEZE = ACTIVE`  
+`PORTFOLIO_CROSS_REPO_READ_ACCESS_PASS`
 
-## Two-axis status (living)
-
-| Gate | NONPHYSICAL | PASS | Irreducible blockers |
+| Gate | NONPHYSICAL | PASS | Irreducible blocker |
 |---|---|---|---|
 | 0 | COMPLETE | PASS | — |
-| 1 | IN_PROGRESS → target COMPLETE | PENDING | local hardware, physical prototype/fab, Edmund acceptance |
-| 2 | IN_PROGRESS | PENDING | physical prototype/hardware, Edmund acceptance |
-| 3 | IN_PROGRESS | PENDING | Edmund acceptance (physical only if criterion requires) |
-| 4 | IN_PROGRESS | PENDING | humans, ethics/governance, hardware, partners |
-| 5 | IN_PROGRESS | PENDING | manufacturer, carrier, certification lab, partners |
-| 6 | IN_PROGRESS | PENDING | physical prototype, humans, Edmund acceptance |
-| 7 | IN_PROGRESS | PENDING | cert lab, carrier, manufacturer, partners |
-| 8 | IN_PROGRESS | PENDING (forbidden until normative) | standard finalization, cert lab |
+| 1 | COMPLETE (digital fab) | PENDING | hardware/fab/purchase/Edmund |
+| 2 | IN_PROGRESS (G2-C6 residual) | PENDING | hardware + G2-C6 digital residual |
+| 3 | COMPLETE | PENDING | Edmund |
+| 4 | COMPLETE | PENDING | humans/ethics/hardware/partners |
+| 5 | COMPLETE | PENDING | mfr/carrier/lab/purchase |
+| 6 | COMPLETE | PENDING | hardware/humans/Edmund |
+| 7 | COMPLETE | PENDING | lab/carrier/mfr/partners |
+| 8 | COMPLETE | PENDING (forbidden until normative) | standards finalization/lab |
 
-Source of truth: `program/nonphysical/gate_nonphysical_status.yaml`
-
-## Success criterion
-
-Remaining work must collapse to: construct, connect, measure, involve required humans/partners, capture authentic evidence.
+Draft PRs: field-kit #18–#25; hardware #41; edge-io #29; device-os #55.
