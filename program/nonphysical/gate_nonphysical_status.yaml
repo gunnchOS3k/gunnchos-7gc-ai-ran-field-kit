@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-07T23:16:17Z'
+updated_at_utc: '2026-08-07T23:44:48Z'
 physical_execution_freeze: ACTIVE
 declaration: NONPHYSICAL_TOTALITY_COMPLETE
 portfolio_cross_repo_read_access: PORTFOLIO_CROSS_REPO_READ_ACCESS_PASS
@@ -18,10 +18,11 @@ reconciliation:
   note: "Union of control-plane + Gate2/3 packages onto main that already contains\
     \ Gates 4\u20138."
 g2_c6_draft_prs:
-  beatlink-party: https://github.com/gunnchOS3k/beatlink-party/pull/8
-  archive-of-life-artifact-world: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/16
-  pedestrian-pursuit: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/7
-  anime-aggressors: https://github.com/gunnchOS3k/anime-aggressors/pull/62
+  note: Merged to main
+  beatlink_merge: b734316405655552ba7177aeec4bd0952a00e359
+  archive_merge: 798dfe88b2a2a7b1dd5f0c7e8ea46867c502e431
+  pedestrian_merge: 074f247639526780eca6deac892686282b4ffac0
+  anime_merge: 5a47ed9b0e4201c1e2f14e5ad1c9251a96f3337e
 gates:
   '0':
     token_nonphysical: GATE_0_NONPHYSICAL_COMPLETE
@@ -121,3 +122,6 @@ gates:
     irreducible_blockers:
     - REQUIRES_STANDARD_FINALIZATION
     - REQUIRES_CERTIFICATION_LAB
+post_merge:
+  canonicalization: PASS
+  physical_release: BLOCKED_KICAD_CLI_ADMIN

@@ -1,0 +1,37 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-07T23:46:02Z'
+physical_execution_freeze: ACTIVE
+physical_execution_release_ready: false
+lot: BUILD_LOT_0
+prerequisites:
+  post_merge_lock: PASS
+  nonphysical_totality_on_main: COMPLETE
+  main_ci_dispatched: PASS_WHERE_DISPATCHABLE
+  kicad_cli: HUMAN_OS_AUTHORIZATION_REQUIRED
+  zephyr_west_full: SOFT_SKIP_SDK_GB_DOWNLOAD
+  mcuboot_dev_pipeline: PASS_EDGE_PR31
+  godot_cli_anime: PASS_PR63
+  game_automation: PASS_EXISTING_AND_ARCHIVE_PR17
+  open_data_pipeline: PASS_ARCHIVE_PR17
+minimal_physical_set:
+- Edge I/O Ring PCB + enclosure (1)
+- nRF52840 programming probe (J-Link EDU Mini)
+- Representative gunnchOS boot target (Student 14.5 or Handheld Hybrid donor)
+- USB-C dock path / cable set
+- Local AI runtime host (existing machine OK for EVT)
+sequence:
+- P0
+- P1
+- P2
+- P3
+- P4
+- P5
+- P6
+- P7
+- P8
+- P9
+- P10
+release_token: PHYSICAL_EXECUTION_RELEASE_BLOCKED
+blocking_digital_residuals:
+- "Edmund: Approve the macOS administrator/install prompt for Homebrew KiCad \u2192\
+  \ then RING_KICAD_CLI_VALIDATION_PASS"
