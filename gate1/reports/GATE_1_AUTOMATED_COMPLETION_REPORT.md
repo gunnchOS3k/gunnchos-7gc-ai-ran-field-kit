@@ -1,6 +1,6 @@
 # GATE 1 Automated Completion Report
 
-Generated: 2026-08-06T20:16:47Z
+Generated: 2026-08-07T20:52:15Z
 
 ## Exact status tokens
 - `GATE_1_AUTOMATED_PASS`
@@ -10,7 +10,7 @@ Generated: 2026-08-06T20:16:47Z
 ## Software slice
 - software_ok: True
 - failures: none
-- pending evidence files: 24
+- pending evidence files: 16
 - accepted evidence files: 0
 
 ## Physical

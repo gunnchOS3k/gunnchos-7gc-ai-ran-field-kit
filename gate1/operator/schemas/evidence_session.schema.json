@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence_session.schema.json",
+  "title": "EvidenceSession",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "session_id",
+    "workstream",
+    "operator",
+    "started_at_utc",
+    "status",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "session_id": { "type": "string" },
+    "workstream": {
+      "type": "string",
+      "enum": ["boot", "ring-auth", "dock", "ai-runtime", "games"]
+    },
+    "operator": { "type": "string" },
+    "started_at_utc": { "type": "string" },
+    "status": { "type": "string", "enum": ["open", "finalized", "accepted", "rejected"] },
+    "checks": { "type": "array" },
+    "notes": { "type": "array" },
+    "bundle_id": { "type": "string" }
+  }
+}

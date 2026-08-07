@@ -211,6 +211,32 @@ def build_repository_inventory(
                         "notes": "Canonical seed entry not found under repos root",
                     }
                 )
+                present_names.add(name)
+
+    # Preserve classified catalog entries (LEGACY_NAME, etc.) even when absent locally.
+    # Isolated CI checkouts only contain field-kit; regeneration must not erase known
+    # oulu-* / supporting classifications from the Gate 0 catalog.
+    for name, (cls, role) in sorted(CLASSIFICATIONS.items()):
+        if name in present_names:
+            continue
+        if cls not in ("LEGACY_NAME", "OUT_OF_SCOPE", "DUPLICATE", "ARCHIVE_CANDIDATE", "SUPPORTING"):
+            continue
+        a = audit_by_name.get(name)
+        discovered.append(
+            {
+                "name": name,
+                "local_path": None,
+                "classification": cls,
+                "role": role,
+                "has_git": False,
+                "remote": (a or {}).get("remote"),
+                "remote_owner_name": (a or {}).get("remote_owner_name"),
+                "visibility": (a or {}).get("visibility"),
+                "github_default_branch": (a or {}).get("github_default_branch"),
+                "notes": "Catalog classification retained without local checkout on this host",
+            }
+        )
+        present_names.add(name)
 
     return {
         "schema_version": "1.0.0",

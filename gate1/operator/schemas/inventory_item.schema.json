@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "inventory_item.schema.json",
+  "title": "InventoryItem",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["item_id", "category", "label", "presence", "evidence"],
+  "properties": {
+    "item_id": { "type": "string", "minLength": 1 },
+    "category": { "type": "string" },
+    "label": { "type": "string" },
+    "presence": {
+      "type": "string",
+      "enum": [
+        "PRESENT_CONFIRMED",
+        "MISSING",
+        "MISSING_ASSUMED",
+        "TOOLCHAIN_MISSING",
+        "UNSUPPORTED_PLATFORM",
+        "PERMISSION_DENIED",
+        "INDETERMINATE"
+      ]
+    },
+    "evidence": { "type": "object" },
+    "blocker_class": { "type": ["string", "null"] },
+    "workstream": { "type": "string" }
+  }
+}

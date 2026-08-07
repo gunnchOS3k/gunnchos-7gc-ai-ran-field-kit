@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-08-07T20:41:56.891442+00:00",
+  "host": {
+    "system": "Darwin",
+    "release": "25.5.0",
+    "machine": "arm64",
+    "python": "3.9.6"
+  },
+  "toolchains": {
+    "git": {
+      "status": "PRESENT_CONFIRMED",
+      "path": "/usr/bin/git",
+      "version": "git version 2.50.1 (Apple Git-155)"
+    },
+    "python3": {
+      "status": "PRESENT_CONFIRMED",
+      "path": "/usr/bin/python3",
+      "version": "Python 3.9.6"
+    },
+    "node": {
+      "status": "PRESENT_CONFIRMED",
+      "path": "/opt/homebrew/bin/node",
+      "version": "v24.9.0"
+    },
+    "npm": {
+      "status": "PRESENT_CONFIRMED",
+      "path": "/opt/homebrew/bin/npm",
+      "version": "11.6.0"
+    },
+    "docker": {
+      "status": "TOOLCHAIN_MISSING"
+    },
+    "qemu-system-x86_64": {
+      "status": "TOOLCHAIN_MISSING"
+    },
+    "adb": {
+      "status": "TOOLCHAIN_MISSING"
+    },
+    "godot": {
+      "status": "TOOLCHAIN_MISSING"
+    },
+    "gh": {
+      "status": "PRESENT_CONFIRMED",
+      "path": "/opt/homebrew/bin/gh",
+      "version": "gh version 2.83.0 (2025-11-04)"
+    }
+  },
+  "hardware": {
+    "hardware": {
+      "status": "PRESENT_CONFIRMED",
+      "excerpt": "Hardware:\n\n    Hardware Overview:\n\n      Model Name: MacBook Pro\n      Model Identifier: Mac14,7\n      Model Number: MNEJ3LL/A\n      Chip: Apple M2\n      Total Number of Cores: 8 (4 Performance and 4 Efficiency)\n      Memory: 8 GB\n      System Firmware Version: 18000.121.3\n      OS Loader Version: 18000.121.3"
+    },
+    "usb": {
+      "status": "UNKNOWN",
+      "excerpt": ""
+    },
+    "displays": {
+      "status": "PRESENT_CONFIRMED",
+      "excerpt": "Graphics/Displays:\n\n    Apple M2:\n\n      Chipset Model: Apple M2\n      Type: GPU\n      Bus: Built-In\n      Total Number of Cores: 10\n      Vendor: Apple (0x106b)\n      Metal: Supported"
+    },
+    "power": {
+      "status": "PRESENT_CONFIRMED",
+      "excerpt": "Power:\n\n    Battery Information:\n\n      Model Information:\n          Serial Number: D86230681DWL3L2EM\n          Device Name: bq20z451\n          Pack Lot Code: 0\n          PCB Lot Code: 0\n          Firmware Version: 1002\n          Hardware Revision: 1\n          Cell Revision: 2400\n      Charge Information:\n          The battery\u2019s charge is below the warning level: No\n      Health Information:\n          Cycle Count: 334\n\n    System Power Settings:\n\n      AC Power:\n          System Sleep Timer (Minutes): 1\n          Disk Sleep Timer (Minutes): 10\n          Display Sleep Timer (Minutes): 10\n          Sleep on Power Button: Yes\n          Wake on LAN: Yes\n          Current Power Source: Yes\n          Hibernate Mode: 0\n          Prioritize Network Reachability Over Sleep: No\n\n    Hardware Configuration:\n\n      UPS Installed: No\n\n    AC Charger Information:\n\n      Connected: Yes"
+    },
+    "network_ports": {
+      "status": "PRESENT_CONFIRMED",
+      "excerpt": "AuthorizationCreate() failed: -60008"
+    },
+    "android_adb": {
+      "status": "TOOLCHAIN_MISSING"
+    }
+  },
+  "capabilities": {
+    "G1-C1_gunnchos_physical_boot": {
+      "status": "MISSING",
+      "reason": "No representative gunnchOS-capable physical target image/device confirmed; host macOS/python process is not physical boot evidence.",
+      "token": "GUNNCHOS_PHYSICAL_BOOT_BLOCKED_NO_TARGET"
+    },
+    "G1-C2_ring_physical_prototype": {
+      "status": "MISSING",
+      "reason": "No ring-shaped wearable/prototype serial/BLE identity detected; phone IMU/synthetic stream not accepted.",
+      "token": "RING_PHYSICAL_PROTOTYPE_BLOCKED"
+    },
+    "G1-C3_physical_dock": {
+      "status": "UNKNOWN",
+      "reason": "Displays/USB may exist on host but no gunnchOS device+dock continuity session confirmed; do not assume phone DP Alt Mode.",
+      "token": "PHYSICAL_DOCK_BLOCKED_INCOMPATIBLE_OR_UNVERIFIED"
+    },
+    "G1-C4_on_device_gunnchai": {
+      "status": "PRESENT_UNVERIFIED",
+      "reason": "Local software runtime exists in gunnchAI3k; on-device physical-target attestation not collected.",
+      "token": "GUNNCHAI_ON_DEVICE_EVIDENCE_PENDING"
+    },
+    "G1-C5_game_loops_physical": {
+      "status": "PRESENT_UNVERIFIED",
+      "reason": "Automated software core-loop harnesses exist; physical/runtime playtest evidence not accepted.",
+      "token": "PHYSICAL_PLAYTEST_PENDING"
+    }
+  }
+}

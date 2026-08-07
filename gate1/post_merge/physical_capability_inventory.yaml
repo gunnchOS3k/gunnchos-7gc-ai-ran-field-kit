@@ -1,0 +1,71 @@
+schema_version: 1.0.0
+generated_at_utc: "2026-08-07T20:48:01Z"
+assumption: "Equipment existence is NEVER assumed"
+status_token: GATE_1_PHYSICAL_EVIDENCE_PENDING
+command: "python -m gate1.operator.cli inventory"
+host:
+  machine: arm64
+  platform: macOS-26.5.2-arm64-arm-64bit
+  release: 25.5.0
+  system: Darwin
+observed_summary:
+  capabilities_present_confirmed: 0
+  missing: 2
+  observed_count: 8
+  present_confirmed: 5
+  toolchain_missing: 1
+observed_items:
+  - item_id: macos.host_hardware
+    presence: PRESENT_CONFIRMED
+    label: "macOS SPHardwareDataType"
+    blocker_class: null
+  - item_id: macos.usb_bus
+    presence: MISSING
+    label: "macOS USB device bus"
+    blocker_class: REQUIRES_LOCAL_HARDWARE
+  - item_id: macos.ioreg
+    presence: PRESENT_CONFIRMED
+    label: "IOKit registry probe"
+    blocker_class: null
+  - item_id: macos.power
+    presence: PRESENT_CONFIRMED
+    label: "Power management probe"
+    blocker_class: null
+  - item_id: macos.networksetup
+    presence: PRESENT_CONFIRMED
+    label: "Network setup probe"
+    blocker_class: null
+  - item_id: macos.ifconfig
+    presence: PRESENT_CONFIRMED
+    label: "Network interfaces"
+    blocker_class: null
+  - item_id: usb.ioreg
+    presence: MISSING
+    label: "IOUSB registry"
+    blocker_class: REQUIRES_LOCAL_HARDWARE
+  - item_id: android.adb
+    presence: TOOLCHAIN_MISSING
+    label: "Android Debug Bridge"
+    blocker_class: REQUIRES_TOOLCHAIN
+capabilities:
+  - capability_id: representative_boot_hardware
+    workstream: boot
+    presence: MISSING_ASSUMED
+    blocker_class: REQUIRES_LOCAL_HARDWARE
+  - capability_id: ring_prototype
+    workstream: ring-auth
+    presence: MISSING_ASSUMED
+    blocker_class: REQUIRES_PHYSICAL_PROTOTYPE
+  - capability_id: dock_station
+    workstream: dock
+    presence: MISSING_ASSUMED
+    blocker_class: REQUIRES_PHYSICAL_PROTOTYPE
+  - capability_id: on_device_ai_runtime_target
+    workstream: ai-runtime
+    presence: MISSING_ASSUMED
+    blocker_class: REQUIRES_LOCAL_HARDWARE
+  - capability_id: game_target_device
+    workstream: games
+    presence: MISSING_ASSUMED
+    blocker_class: REQUIRES_LOCAL_HARDWARE
+note: "Host/toolchain probes may be PRESENT_CONFIRMED; Gate 1 prototypes remain MISSING_ASSUMED until operator confirmation. Do not relabel software as physical."

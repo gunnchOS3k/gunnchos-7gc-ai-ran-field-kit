@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence_bundle.schema.json",
+  "title": "EvidenceBundle",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "session_id",
+    "workstream",
+    "evidence_class",
+    "claim_level",
+    "finalized_at_utc",
+    "session",
+    "acceptance",
+    "artifact_sha256"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "bundle_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "workstream": {
+      "type": "string",
+      "enum": ["boot", "ring-auth", "dock", "ai-runtime", "games"]
+    },
+    "evidence_class": { "type": "string", "enum": ["software", "simulated", "physical"] },
+    "claim_level": { "type": "string" },
+    "finalized_at_utc": { "type": "string" },
+    "session": { "type": "object" },
+    "acceptance": { "type": "object" },
+    "artifact_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "notes": { "type": "string" }
+  }
+}

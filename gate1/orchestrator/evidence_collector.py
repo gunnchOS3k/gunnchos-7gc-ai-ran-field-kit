@@ -12,6 +12,36 @@ from typing import Any
 
 from gate1.orchestrator import ACCEPTED, PENDING, RUNS
 
+# Mutable write targets — may be redirected via configure_write_paths / --output-dir
+_pending_override: Path | None = None
+_runs_override: Path | None = None
+_no_write: bool = False
+
+
+def configure_write_paths(
+    *,
+    pending: Path | None = None,
+    runs: Path | None = None,
+    no_write: bool = False,
+) -> None:
+    """Redirect or disable evidence writes (for --output-dir / --no-write)."""
+    global _pending_override, _runs_override, _no_write
+    _pending_override = pending
+    _runs_override = runs
+    _no_write = no_write
+
+
+def reset_write_paths() -> None:
+    configure_write_paths(pending=None, runs=None, no_write=False)
+
+
+def _pending_bucket() -> Path:
+    return _pending_override if _pending_override is not None else PENDING
+
+
+def _runs_bucket() -> Path:
+    return _runs_override if _runs_override is not None else RUNS
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -55,25 +85,27 @@ def classify_evidence(doc: dict[str, Any]) -> str:
     return cls
 
 
-def _write_json(bucket: Path, name: str, payload: dict[str, Any]) -> Path:
-    bucket.mkdir(parents=True, exist_ok=True)
-    path = bucket / name
+def _write_json(bucket: Path, name: str, payload: dict[str, Any]) -> Path | None:
     enriched = dict(payload)
     enriched.setdefault("tool_versions", tool_versions())
     enriched.setdefault("collected_at_utc", utc_now())
     enriched["artifact_sha256"] = content_digest(enriched)
+    if _no_write:
+        return None
+    bucket.mkdir(parents=True, exist_ok=True)
+    path = bucket / name
     path.write_text(json.dumps(enriched, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return path
 
 
-def write_pending(name: str, payload: dict[str, Any]) -> Path:
+def write_pending(name: str, payload: dict[str, Any]) -> Path | None:
     """Write a Gate 1 evidence_event-shaped artifact into pending/."""
-    return _write_json(PENDING, name, payload)
+    return _write_json(_pending_bucket(), name, payload)
 
 
-def write_run(name: str, payload: dict[str, Any]) -> Path:
+def write_run(name: str, payload: dict[str, Any]) -> Path | None:
     """Write orchestrator run/status aggregates outside evidence acceptance buckets."""
-    return _write_json(RUNS, name, payload)
+    return _write_json(_runs_bucket(), name, payload)
 
 
 def ingest_path(src: Path) -> tuple[Path, str]:
@@ -82,13 +114,15 @@ def ingest_path(src: Path) -> tuple[Path, str]:
     doc = json.loads(raw)
     classify_evidence(doc)
     dest_name = f"ingested_{src.stem}_{sha256_bytes(raw.encode())[:12]}.json"
-    dest = PENDING / dest_name
+    dest = _pending_bucket() / dest_name
     if dest.exists():
         return dest, "idempotent_hit"
     enriched = dict(doc)
     enriched["artifact_path"] = str(src.resolve())
-    write_pending(dest_name, enriched)
-    return PENDING / dest_name, "ingested"
+    written = write_pending(dest_name, enriched)
+    if written is None:
+        return dest, "no_write"
+    return written, "ingested"
 
 
 def list_bucket(bucket: Path) -> list[Path]:
