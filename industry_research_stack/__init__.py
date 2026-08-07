@@ -1,1 +1,1 @@
-"""Industry research adapters and observability hooks (nonphysical)."""
+"""Industry research stack adapters — fixture-first, no false claims."""
