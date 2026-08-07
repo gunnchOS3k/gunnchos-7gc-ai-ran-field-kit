@@ -1,0 +1,15 @@
+name: Gate 6 RC Readiness
+on:
+  push: {paths: ["gate6/**", "scripts/validate_claim_firewall.py"]}
+  pull_request:
+  workflow_dispatch:
+jobs:
+  gate6:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python3 scripts/validate_claim_firewall.py
+      - run: python3 gate6/release/build_release_manifest.py --out gate6/release/.ci/manifest.json
+      - run: python3 gate6/e2e/simulate_app_game_paths.py
