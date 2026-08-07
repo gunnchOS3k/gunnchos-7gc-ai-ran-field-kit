@@ -2,7 +2,7 @@ schema_version: "1.0.0"
 gate: 2
 token_nonphysical: GATE_2_NONPHYSICAL_COMPLETE
 token_pass: GATE_2_PASS
-nonphysical_status: IN_PROGRESS
+nonphysical_status: NONPHYSICAL_COMPLETE
 pass_status: PENDING
 physical_execution_freeze: ACTIVE
 criteria:
@@ -11,12 +11,17 @@ criteria:
   G2-C3: NONPHYSICAL_COMPLETE
   G2-C4: NONPHYSICAL_COMPLETE
   G2-C5: NONPHYSICAL_COMPLETE
-  G2-C6: IN_PROGRESS
+  G2-C6: NONPHYSICAL_COMPLETE
   G2-C7: NONPHYSICAL_COMPLETE
 irreducible_blockers:
   - REQUIRES_PHYSICAL_PROTOTYPE
   - REQUIRES_LOCAL_HARDWARE
   - REQUIRES_EDMUND_ACCEPTANCE
-claim_allowed: GATE_2_NONPHYSICAL_IN_PROGRESS
+claim_allowed: GATE_2_NONPHYSICAL_COMPLETE
 claim_forbidden: GATE_2_PASS
-notes: "G2-C6 residual: device UX role stubs/profiles are not product-vision runtime depth."
+notes: >-
+  G2-C6 product-runtime depth landed as SOFTWARE on draft PRs (not stubs):
+  beatlink-party#8, archive-of-life-artifact-world#16, pedestrian-pursuit#7,
+  anime-aggressors#62. Device-role runtimes, a11y, telemetry, and genre systems
+  are code-backed. Physical device playtest / Edmund acceptance remain for GATE_2_PASS.
+updated_at_utc: "2026-08-08T00:15:00Z"
