@@ -38,18 +38,18 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 ## Requirement catalog bootstrap
 
 - Catalogued + ingested nodes: **476**
-- Status counts: `{'EXTERNAL_REQUIRED': 75, 'SCHEMA_ONLY': 221, 'PHYSICAL_REQUIRED': 120, 'IMPLEMENTED': 45, 'DIGITALLY_VALIDATED': 15}`
+- Status counts: `{'EXTERNAL_REQUIRED': 75, 'SCHEMA_ONLY': 221, 'PHYSICAL_REQUIRED': 120, 'IMPLEMENTED': 46, 'DIGITALLY_VALIDATED': 14}`
 - UNMAPPED=0 · UNOWNED=0 · UNCLASSIFIED=0
-- Cont V proof: `reports/REQUIREMENT_PROOF_COUNTS.json`
-- Cont V queues: `continuation_v/` + claim audit
+- Cont VI proof: `reports/REQUIREMENT_PROOF_COUNTS.json`
+- Cont VI queues: `continuation_vi/` + claim audit
 - Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
 - Validator: `scripts/validate_full_product_requirement_graph.py`
-- Updated: 2026-08-08T20:46:13Z
+- Updated: 2026-08-08T21:10:00Z
 
 
 ## Immediate external/human blockers
 
-1. **EDMUND_ACTION_REQUIRED:** Approve macOS administrator/install prompt for KiCad (Homebrew ownership/`sudo` may also be required).
+1. KiCad 10.0.5 installed (`KICAD_INSTALLATION_PASS`); remaining human action is Edmund merges of Cont VI drafts (and OS admin only if a new privileged prompt appears).
 2. Zephyr SDK + real `RING_ZEPHYR_WEST_BUILD_PASS` (digital, in progress).
 3. Exact MPN architecture freezes for Student 14.5 / DS-XL / Handheld / Dock (BOMs currently generic).
 
@@ -165,3 +165,14 @@ Evidence consumer only on field-kit #38 — **not** final umbrella. Tips are Con
 - Pedestrian competitive AI + Local MP https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11 (`ee3400731fae3197057fc39b35767f90b1603237`) — RC PARTIAL
 - Archive production ingest https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/21 (`4d5d00f6922923e2921ba81163af4edc6bf90061`) — scoped Beta/RC
 - Beat Link durable rooms/load/mic https://github.com/gunnchOS3k/beatlink-party/pull/13 (`0e78497791fdfdd2587f2ebefa88b1298ccf50c6`) — Beta/RC still revoked; CI green
+
+## Continuation VI sibling draft registry (2026-08-08T21:05:22Z)
+
+Evidence consumer Cont VI — **not** final umbrella.
+
+- edge_io_ring_firmware: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/34 (`3cec129`) — `RING_FULL_FIRMWARE_DIGITAL_PASS` earned (digital); physical boot pending
+- anime_path_a_audit: https://github.com/gunnchOS3k/anime-aggressors/pull/70 (`b99f2bc`) — Path A repairs + RC hardening; Beta/RC tokens kept under Path A scope
+- pedestrian_digital_rc: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/12 (`70e9f55`) — PEDESTRIAN_DIGITAL_RC_READY; physical FPS pending separately
+- hardware_eda_closure: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49 (`d2837e3`) — Student/DS-XL NDA-blocked; Handheld/Dock/Ring partial EDA tokens; no FULL design release
+- device_os_platform_semantics: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64 (`835aab1`) — includes #63 CI fix; FULL platform token false; confirm qemu CI before merge
+

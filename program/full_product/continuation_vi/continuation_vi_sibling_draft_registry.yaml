@@ -1,0 +1,109 @@
+schema_version: 1.0.0
+continuation: VI
+generated_at_utc: '2026-08-08T21:07:28Z'
+policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
+accepted_mains:
+  gunnchos-7gc-ai-ran-field-kit: 2d257be6eb19b8237bf681b40f89275492fbd359
+  gunnchos-hardware-industrial-design: 38b37221074446730709af5682a06cb4cefd39fc
+  edge-io-measurement-node: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
+  gunnchos-device-os: 12ca8591202f59fdff962a4460323c6cfd67238d
+  gunnchAI3k: ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5
+  anime-aggressors: b3c823cf277c97c691a31ffc865798561e13a6eb
+  pedestrian-pursuit: ce0687d442311dee54bbfa9eedc7be9db8579650
+  archive-of-life-artifact-world: ee8a2e6346bbc384eda05217710fa4d1dd827e52
+  beatlink-party: c8a2de8c51929d776eea7b219f6015e787e0f174
+drafts:
+  field_kit_post_merge_reproof:
+    repo: gunnchos-7gc-ai-ran-field-kit
+    branch: cursor/full-product-continuation-vi-post-merge-reproof
+    role: control_plane_evidence_consumer_not_final_umbrella
+    pr: null
+    sha: null
+    note: Self Cont VI draft; tip filled after commit
+  hardware_eda_closure:
+    repo: gunnchos-hardware-industrial-design
+    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49
+    sha: d2837e3edc94caeb06713f8ec9f9c7d02d50e63a
+    branch: cursor/full-product-continuation-vi-eda-closure
+    ci: green
+    tokens:
+      STUDENT: STUDENT_BLOCKED_NDA
+      DSXL: DSXL_BLOCKED_NDA
+      HANDHELD: HANDHELD_PUBLIC_PINOUT_EDA_COMPLETE
+      DOCK: DOCK_TB4_EDA_COMPLETE
+      RING: RING_EDA_DT_PARITY_NOTES_COMPLETE
+    note: Option3 COM-HPC NDA; no FULL/DESIGN_RELEASE_COMPLETE; KiCad 10.0.5 BEST_EFFORT
+      family validation
+  edge_io_full_firmware:
+    repo: edge-io-measurement-node
+    branch: cursor/full-product-continuation-vi-ring-firmware
+    sha: null
+    note: PRIORITY 1 Cont VI firmware wave; tip registered when branch opens
+    base_accepted_main: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
+  device_os_ci_repair_open:
+    repo: gunnchos-device-os
+    branch: cursor/full-product-continuation-v-gunnchos-services
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
+    sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
+    note: 'Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont
+      VI services branch should include this tip'
+    accepted_main_still: 12ca8591202f59fdff962a4460323c6cfd67238d
+    accepted_main_ci: red
+  gunnchai_os_integration:
+    repo: gunnchAI3k
+    branch: cursor/full-product-continuation-vi-os-integration
+    sha: ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5
+    note: Cont VI OS integration wave; tip == accepted main until first Cont VI commit
+  anime_path_a_audit:
+    repo: anime-aggressors
+    pr: https://github.com/gunnchOS3k/anime-aggressors/pull/70
+    sha: b99f2bcfb29a2e48b1d3725f70f364b1423dfb21
+    branch: cursor/full-product-continuation-vi-anime-path-a-audit
+    ci: pending_or_green
+    note: Path A audit failed on main; repaired imports/audio/package + RC hardening;
+      Beta/RC tokens kept with explicit Path A scope
+  pedestrian_digital_rc:
+    repo: pedestrian-pursuit
+    pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/12
+    sha: 70e9f55f2b65c26de2808aef89cde4cec98d5c10
+    branch: cursor/full-product-continuation-vi-digital-rc
+    ci: green
+    tokens:
+    - PEDESTRIAN_DIGITAL_RC_READY
+    - PEDESTRIAN_PHYSICAL_PERFORMANCE_PENDING
+    note: Cont VI final art/audio + digital RC; physical FPS separate; draft not merged
+  archive_science_db:
+    repo: archive-of-life-artifact-world
+    branch: cursor/full-product-continuation-vi-science-db
+    sha: ee8a2e6346bbc384eda05217710fa4d1dd827e52
+    note: Cont VI durable science DB + deeper ingest
+  beatlink_beta_rc:
+    repo: beatlink-party
+    branch: cursor/full-product-continuation-vi-beta-rc
+    sha: c8a2de8c51929d776eea7b219f6015e787e0f174
+    note: 'Cont VI Beta/RC re-earn after #13 revoke'
+  edge_io_ring_firmware:
+    repo: edge-io-measurement-node
+    pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/34
+    sha: 3cec1296bbc947342c07eb76d997ce9ec06e3b4a
+    branch: cursor/full-product-continuation-vi-ring-firmware
+    ci: green
+    token: RING_FULL_FIRMWARE_DIGITAL_PASS
+    note: Cont VI full firmware digital; physical boot pending; draft not merged
+  device_os_platform_semantics:
+    repo: gunnchos-device-os
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64
+    sha: 835aab1531e10c6a817587ea84f382631cc925d6
+    branch: cursor/full-product-continuation-vi-platform-semantics
+    includes_pr63_ci_fix: true
+    ancestor_sha_63: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
+    ci: pending_confirm_qemu
+    token: FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE=false
+    note: 'Cont VI service contracts + app runtime + QEMU proofs; includes #63 TCG/SQLite;
+      platform token not earned; draft not merged'
+  device_os_ci_repair_63:
+    repo: gunnchos-device-os
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
+    sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
+    note: 'Superseded-as-merge-vehicle by #64 if #64 CI green (ancestor included);
+      either merge #63 then #64, or merge #64 alone'

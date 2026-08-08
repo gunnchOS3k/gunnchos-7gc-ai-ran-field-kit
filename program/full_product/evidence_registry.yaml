@@ -1,12 +1,12 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T20:46:13Z'
-continuation: V
+updated_at_utc: '2026-08-08T21:10:00Z'
+continuation: VI
 policy: docs_alone_cannot_satisfy_code_requirements
 accepted_main_policy: no_stale_draft_sha_as_accepted
 entries:
 - id: EV-FK-35
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   merged_prs:
   - 34
   - 35
@@ -14,20 +14,20 @@ entries:
   note: Cont IV canonicalization + draft registry on main
 - id: EV-HW-47
   repo: gunnchos-hardware-industrial-design
-  sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
+  sha: 38b37221074446730709af5682a06cb4cefd39fc
   merged_pr: 47
   state: MERGED
   token: HARDWARE_DESIGN_RELEASE_CANDIDATE
   note: 'Former Cont IV draft #47 now accepted merge'
 - id: EV-EDGE-32
   repo: edge-io-measurement-node
-  sha: fc617e831916362e77aa157d77d458e935dc4cfa
+  sha: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
   merged_pr: 32
   state: MERGED
   token: RING_ZEPHYR_WEST_BUILD_PASS
 - id: EV-OS-61
   repo: gunnchos-device-os
-  sha: dee336a344bbc3ac730ed2cfd25a5f1d1e1af49f
+  sha: 12ca8591202f59fdff962a4460323c6cfd67238d
   merged_pr: 61
   state: MERGED
   also_includes_pr: 60
@@ -35,14 +35,14 @@ entries:
   note: Bootable QEMU reference image + cloud/fleet DEV; service stubs remain
 - id: EV-AI-23
   repo: gunnchAI3k
-  sha: 6f98ab8b08851ad4e0ac8785bb409c248519b2b7
+  sha: ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5
   merged_pr: 23
   state: MERGED
   token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
   digitally_validated: true
 - id: EV-ANIME-68
   repo: anime-aggressors
-  sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
+  sha: b3c823cf277c97c691a31ffc865798561e13a6eb
   merged_pr: 68
   state: MERGED
   note: Beta/RC digital merge; tokens PREMATURE_REVOKE under claim integrity audit
@@ -51,116 +51,58 @@ entries:
   - ANIME_DIGITAL_RC_READY
 - id: EV-PED-10
   repo: pedestrian-pursuit
-  sha: c8db661d6bf057c6c487586f378362005413bc1f
+  sha: ce0687d442311dee54bbfa9eedc7be9db8579650
   merged_pr: 10
   state: MERGED
   note: Beta digital / RC partial on accepted main
 - id: EV-ARCH-20
   repo: archive-of-life-artifact-world
-  sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
+  sha: ee8a2e6346bbc384eda05217710fa4d1dd827e52
   merged_pr: 20
   state: MERGED
   note: Beta digital / Digital RC on accepted main
 - id: EV-BL-12
   repo: beatlink-party
-  sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
+  sha: c8a2de8c51929d776eea7b219f6015e787e0f174
   merged_pr: 12
   state: MERGED
   note: Beta Event Platform + Digital RC on accepted main; Redis/mic gaps remain
 - id: EV-FK-STANDARDS-FIREWALL
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   requirement_id: SYS-STANDARDS-001
   note: Claim firewall in CI
 - id: EV-FK-EVIDENCE-REGISTRY
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   requirement_id: SYS-MISSION-009
 - id: EV-FK-CARRIER-GRADE-CLAIM-GUARD
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   requirement_id: FP-CHARTER-L635-CARRIER-GRADE-NOT-MODEM
 - id: EV-FK-PRODUCT-FAMILY-MATRIX
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   requirement_id: SYS-MISSION-002
 - id: EV-FK-CONN-MATRIX
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   requirement_id: FP-CONN-CARRIER-GRADE
 - id: EV-FK-GAME-CLAIM-FIREWALL
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   note: validate_game_release_claims.py rejects Beta/RC when blocks_token=true remains
 - id: EV-CONT4-DRAFTS-SUPERSEDED
   status: SUPERSEDED
-  note: Cont IV draft pins cleared; merge commits listed above are Cont V accepted tips
-
-- id: EV-CONT5-FK-37
-  repo: gunnchos-7gc-ai-ran-field-kit
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37
-  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  status: MERGED
-  note: Cont V lane draft registry merged; superseded by follow-up evidence consumer draft
-- id: EV-CONT5-FK-38
-  repo: gunnchos-7gc-ai-ran-field-kit
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/38
-  sha: 014178d6f27f0df5446b0bf7c3bbe6163754ba60
-  status: DRAFT
-  note: Cont V evidence consumer / lane draft registry follow-up; not final umbrella
-- id: EV-CONT5-HW-48
-  repo: gunnchos-hardware-industrial-design
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
-  sha: 187efbda5df03fd675a6a5094ec950390c9a6d29
-  status: DRAFT
-  note: Component truth + dock USB4/TB4 + mfg deepen; KiCad EDMUND_ACTION_REQUIRED
-- id: EV-CONT5-EDGE-33
-  repo: edge-io-measurement-node
-  draft_pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33
-  sha: a6dcf101da9e29317003b93668190f9ad779ca58
-  status: DRAFT
-  note: Ring firmware pinout parity stubs vs hardware BOM
-- id: EV-CONT5-OS-62
-  repo: gunnchos-device-os
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/62
-  sha: 12ca8591202f59fdff962a4460323c6cfd67238d
-  status: MERGED_CI_RED_ON_MAIN
-  note: Merged mid-fix; left main qemu CI red; follow-up EV-CONT5-OS-63
+  note: Cont IV draft pins cleared; merge commits listed above are Cont VI accepted tips
 - id: EV-CONT5-OS-63
   repo: gunnchos-device-os
   draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
   sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
   status: DRAFT
-  note: "#62 merged mid-fix leaving main qemu CI red; #63 completes TCG/SQLite fix; MERGEABLE + green; merge before treating device-os main as healthy; agent 785cd311-6606-4394-8bfc-564df9bb2b01"
+  note: "#62 left main qemu CI red; #63 TCG/SQLite fix MERGEABLE+green; Cont VI #64 includes this ancestor"
   mergeable: true
   ci: GREEN
-- id: EV-CONT5-AI-24
-  repo: gunnchAI3k
-  draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/24
-  sha: cc0c7400b5be0d95570d2d91e6259043ec1f09cf
-  status: DRAFT
-  note: Callable product service + RAG + governance; not full platform
-- id: EV-CONT5-ANIME-69
-  repo: anime-aggressors
-  draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/69
-  sha: 1e734dbf9fba959f4a6de6c397b147d41756d99a
-  status: DRAFT
-  note: Path A cleared blocks_token; Beta/RC may become VALID_WITH_EXPLICIT_SCOPE after merge
-- id: EV-CONT5-PED-11
-  repo: pedestrian-pursuit
-  draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11
-  sha: ee3400731fae3197057fc39b35767f90b1603237
-  status: DRAFT
-  note: Competitive AI 768 + Local MP; RC PARTIAL
-- id: EV-CONT5-ARCH-21
-  repo: archive-of-life-artifact-world
-  draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/21
-  sha: 4d5d00f6922923e2921ba81163af4edc6bf90061
-  status: DRAFT
-  note: Production ingest + scoped Beta/RC; not global complete
-- id: EV-CONT5-BL-13
-  repo: beatlink-party
-  draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/13
-  sha: 0e78497791fdfdd2587f2ebefa88b1298ccf50c6
-  status: DRAFT
-  note: Durable rooms/load/mic/providers; Beta/RC still revoked; CI green
+- id: EV-CONT6-SIBLING-REGISTRY
+  repo: gunnchos-7gc-ai-ran-field-kit
+  note: Cont VI sibling draft tips live in continuation_vi/continuation_vi_sibling_draft_registry.yaml — not accepted main; not final umbrella

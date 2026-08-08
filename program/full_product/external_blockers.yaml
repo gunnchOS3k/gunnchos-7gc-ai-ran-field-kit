@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T20:38:00Z'
+updated_at_utc: '2026-08-08T20:56:59Z'
 blockers:
 - id: EB-KICAD-ADMIN
   class: HUMAN_OS_AUTHORIZATION
@@ -12,14 +12,12 @@ blockers:
   detail: brew install --cask kicad fetched 10.0.5; failed on sudo mkdir for /Library/Application Support/kicad
     (sudo blocked)
   status: EDMUND_ACTION_REQUIRED
-  hardware_merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
-  hardware_accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
-  field_kit_accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
-  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
-  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37
+  hardware_merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
+  hardware_accepted_main_sha: 38b37221074446730709af5682a06cb4cefd39fc
+  field_kit_accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
   continuation_v_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
-  note: 'Cont V — KiCad remains EDMUND_ACTION_REQUIRED (brew 10.0.5; sudo blocked); #47 accepted main;
-    Cont V hardware work on draft #48'
+  note: 'Cont VI — KiCad remains EDMUND_ACTION_REQUIRED (brew may install; sudo may still block); #48
+    accepted main'
 - id: EB-ZEPHYR-SDK
   class: DIGITAL_EXECUTABLE
   text: Install pinned Zephyr SDK + west and achieve RING_ZEPHYR_WEST_BUILD_PASS (no soft-skip)
@@ -61,7 +59,7 @@ kicad:
   ring_kicad_cli_validation_pass: false
   hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
   field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37
-  note: Cont V — KiCad remains EDMUND_ACTION_REQUIRED (brew 10.0.5; sudo blocked); no cursor/* tip accepted
-  hardware_accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
-  field_kit_accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
-continuation: V
+  note: Cont VI — KiCad remains EDMUND_ACTION_REQUIRED; no cursor/* tip accepted
+  hardware_accepted_main_sha: 38b37221074446730709af5682a06cb4cefd39fc
+  field_kit_accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
+continuation: VI

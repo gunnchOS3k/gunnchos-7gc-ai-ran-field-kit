@@ -124,9 +124,15 @@ def test_cont_v_proof_reports_and_queues_exist():
     assert (reports / "REQUIREMENT_PROOF_LEDGER.md").exists()
     assert (reports / "REQUIREMENT_PROOF_COUNTS.json").exists()
     assert (reports / "REQUIREMENT_PROOF_GAPS.md").exists()
-    assert (reports / "CONTINUATION_V_ACCEPTED_BASELINE.md").exists()
-    assert (reports / "CONTINUATION_V_CLAIM_INTEGRITY_AUDIT.md").exists()
+    assert (reports / "CONTINUATION_V_ACCEPTED_BASELINE.md").exists() or (
+        reports / "CONTINUATION_VI_ACCEPTED_BASELINE.md"
+    ).exists()
+    assert (reports / "CONTINUATION_V_CLAIM_INTEGRITY_AUDIT.md").exists() or (
+        reports / "CONTINUATION_VI_CLAIM_INTEGRITY_AUDIT.md"
+    ).exists()
     cont_v = ROOT / "program" / "full_product" / "continuation_v"
+    cont_vi = ROOT / "program" / "full_product" / "continuation_vi"
+    active = cont_vi if cont_vi.exists() else cont_v
     for name in (
         "schema_only_work_queue.yaml",
         "physical_required_audit.yaml",
@@ -134,16 +140,66 @@ def test_cont_v_proof_reports_and_queues_exist():
         "mixed_requirement_splits.yaml",
         "claim_integrity_audit.yaml",
     ):
-        path = cont_v / name
+        path = active / name
         assert path.exists(), name
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         assert data.get("policy") == "FULL_ENUMERATION_NO_TRUNCATION"
         assert int(data.get("count") or 0) == len(data.get("items") or [])
 
 
-def test_game_release_claim_firewall_passes():
-    import subprocess
+def test_cont_vi_post_merge_counts_and_backlog_exist():
+    cont_vi = ROOT / "program" / "full_product" / "continuation_vi"
+    counts = cont_vi / "CONTINUATION_VI_POST_MERGE_REQUIREMENT_COUNTS.json"
+    backlog = cont_vi / "DIGITALLY_EXECUTABLE_BACKLOG_COUNTS.json"
+    owners = cont_vi / "OWNER_ALIAS_MIGRATION.yaml"
+    drafts = cont_vi / "continuation_vi_sibling_draft_registry.yaml"
+    assert counts.exists()
+    assert backlog.exists()
+    assert owners.exists()
+    assert drafts.exists()
+    import json
 
+    c = json.loads(counts.read_text(encoding="utf-8"))
+    assert c.get("total") == 476 or c.get("total") > 0
+    assert "status_counts" in c
+    assert "accepted_mains" in c
+    assert c["accepted_mains"]["gunnchos-7gc-ai-ran-field-kit"].startswith("2d257be")
+    b = json.loads(backlog.read_text(encoding="utf-8"))
+    assert "DIGITALLY_EXECUTABLE_SCHEMA_ONLY" in b
+    assert isinstance(b.get("ids", {}).get("DIGITALLY_EXECUTABLE_SCHEMA_ONLY"), list)
+    assert len(b["ids"]["DIGITALLY_EXECUTABLE_SCHEMA_ONLY"]) == b["DIGITALLY_EXECUTABLE_SCHEMA_ONLY"]
+    own = yaml.safe_load(owners.read_text(encoding="utf-8"))
+    assert "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon" in (own.get("migrations") or {})
+    assert (own.get("migrations") or {})[
+        "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon"
+    ] == "edge-io-measurement-node"
+
+
+def test_claim_firewall_passes_current_tree():
+    proc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "validate_claim_firewall.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert "CLAIM_FIREWALL_PASS" in proc.stdout
+
+
+def test_no_legacy_hackathon_owner_residual():
+    data = yaml.safe_load(GRAPH.read_text(encoding="utf-8"))
+    legacy = [
+        n["id"]
+        for n in data["nodes"]
+        if n.get("owner_repository") == "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon"
+    ]
+    assert legacy == [], f"legacy hackathon owners remain: {legacy[:10]}"
+    # History preserved
+    migrated = [n for n in data["nodes"] if n.get("legacy_owner_repository")]
+    assert migrated, "expected Cont VI owner_history migrations"
+
+def test_game_release_claim_firewall_passes():
     proc = subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "validate_game_release_claims.py")],
         cwd=ROOT,
@@ -153,3 +209,4 @@ def test_game_release_claim_firewall_passes():
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert "GAME_RELEASE_CLAIM_FIREWALL_PASS" in proc.stdout
+
