@@ -154,9 +154,9 @@ Evidence consumer only on field-kit #34 — **not** final umbrella. Tips are Con
 
 ## Continuation V lane draft registry (2026-08-08T20:38:00Z)
 
-Evidence consumer only on field-kit #36 — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
+Evidence consumer only on field-kit #37 — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
 
-- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/36 (`29b18aded91923c2b910b4912ff5d81bc3fa2fad`) — self
+- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37 (`29b18aded91923c2b910b4912ff5d81bc3fa2fad`) — self
 - hardware component truth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48 (`187efbda5df03fd675a6a5094ec950390c9a6d29`) — KiCad still EDMUND_ACTION_REQUIRED (brew fetched 10.0.5; sudo blocked)
 - edge-io ring pinout parity https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33 (`a6dcf101da9e29317003b93668190f9ad779ca58`)
 - gunnchOS stub elimination + IPC https://github.com/gunnchOS3k/gunnchos-device-os/pull/62 (`c9ada7a90dc02bb73d151e58eb0045bd570af5cb`) — not FULL platform
