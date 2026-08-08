@@ -1,6 +1,6 @@
 # Continuation IV — Accepted Baseline (immutable at start)
 
-Updated: 2026-08-08T19:41:39Z
+Updated: 2026-08-08T19:43:23Z
 
 Doctrine: `FULL_PRODUCT_ENTIRETY_MODE=ACTIVE`; `PHYSICAL_EXECUTION_FREEZE=ACTIVE`; Cursor never merges.
 Policy: accepted tips are **merged `origin/main` SHAs only** — never `cursor/*` draft SHAs.

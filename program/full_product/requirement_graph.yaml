@@ -1,5 +1,5 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T19:41:39Z'
+updated_at_utc: '2026-08-08T19:43:23Z'
 source_catalog: program/requirements/requirements.yaml
 count: 476
 status_vocabulary:
@@ -3802,10 +3802,10 @@ nodes:
   priority: P0
   owner_repository: gunnchAI3k
   implementation_paths:
-  - sibling:gunnchAI3k/src
-  - sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  - program/full_product/ai_capability_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -3816,10 +3816,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchAI3k
   accepted_main_sha: 223b2338364a637ae36c6d32a90393042ff4088c
-  evidence_artifact: sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  evidence_artifact: program/full_product/ai_capability_matrix.yaml
   evidence_result: GUNNCHAI3K_LOCAL_RUNTIME_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchAI3k (adr_floor)
 - id: FP-CERT-PTCRB-GCF
@@ -4151,11 +4151,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4166,11 +4166,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: matrix_domain
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (matrix_domain)
 - id: FP-DEPLOY-7GC-CAMPUS
@@ -4214,11 +4214,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4229,11 +4229,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: matrix_domain
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (matrix_domain)
 - id: FP-DSXL-DUAL-SCREEN
@@ -4245,11 +4245,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4260,11 +4260,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (adr_floor)
 - id: FP-GAME-AA-FIGHTERS-7
@@ -4276,11 +4276,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4291,11 +4291,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (adr_floor)
 - id: FP-GAME-AA-MODES
@@ -4307,11 +4306,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4322,11 +4321,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (adr_floor)
 - id: FP-GAME-AA-STAGES-6
@@ -4338,11 +4336,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4353,11 +4351,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (adr_floor)
 - id: FP-GAME-AR-ENCOUNTER-120
@@ -4369,12 +4366,11 @@ nodes:
   priority: P0
   owner_repository: archive-of-life-artifact-world
   implementation_paths:
-  - sibling:archive-of-life-artifact-world/js
-  - sibling:archive-of-life-artifact-world/data-pipeline
-  - sibling:archive-of-life-artifact-world/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md
   tests:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4385,11 +4381,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: archive-of-life-artifact-world
   accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  evidence_artifact: sibling:archive-of-life-artifact-world/data
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of archive-of-life-artifact-world (adr_floor)
 - id: FP-GAME-AR-REGIONS-12
@@ -4401,12 +4396,11 @@ nodes:
   priority: P0
   owner_repository: archive-of-life-artifact-world
   implementation_paths:
-  - sibling:archive-of-life-artifact-world/js
-  - sibling:archive-of-life-artifact-world/data-pipeline
-  - sibling:archive-of-life-artifact-world/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md
   tests:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4417,11 +4411,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: archive-of-life-artifact-world
   accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  evidence_artifact: sibling:archive-of-life-artifact-world/data
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of archive-of-life-artifact-world (adr_floor)
 - id: FP-GAME-BL-CATALOG-12
@@ -4433,12 +4426,11 @@ nodes:
   priority: P0
   owner_repository: beatlink-party
   implementation_paths:
-  - sibling:beatlink-party/packages
-  - sibling:beatlink-party/apps
-  - sibling:beatlink-party/content
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-BL-001-launch-content-scope.md
   tests:
-  - sibling:beatlink-party/tests
-  - sibling:beatlink-party/scripts
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4449,11 +4441,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:beatlink-party/tests
-  - sibling:beatlink-party/scripts
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: beatlink-party
   accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
-  evidence_artifact: sibling:beatlink-party/content
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: BEATLINK_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of beatlink-party (adr_floor)
 - id: FP-GAME-BL-MODES-5
@@ -4465,12 +4456,11 @@ nodes:
   priority: P0
   owner_repository: beatlink-party
   implementation_paths:
-  - sibling:beatlink-party/packages
-  - sibling:beatlink-party/apps
-  - sibling:beatlink-party/content
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-BL-001-launch-content-scope.md
   tests:
-  - sibling:beatlink-party/tests
-  - sibling:beatlink-party/scripts
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4481,11 +4471,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:beatlink-party/tests
-  - sibling:beatlink-party/scripts
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: beatlink-party
   accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
-  evidence_artifact: sibling:beatlink-party/content
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: BEATLINK_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of beatlink-party (adr_floor)
 - id: FP-GAME-PP-RACERS-8
@@ -4497,12 +4486,11 @@ nodes:
   priority: P0
   owner_repository: pedestrian-pursuit
   implementation_paths:
-  - sibling:pedestrian-pursuit/scenes
-  - sibling:pedestrian-pursuit/scripts
-  - sibling:pedestrian-pursuit/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-PP-001-launch-content-scope.md
   tests:
-  - sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py
-  - sibling:pedestrian-pursuit/tests/test_content.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4513,11 +4501,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py
-  - sibling:pedestrian-pursuit/tests/test_content.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: pedestrian-pursuit
   accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
-  evidence_artifact: sibling:pedestrian-pursuit/tests
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: PEDESTRIAN_GODOT_HEADLESS_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of pedestrian-pursuit (adr_floor)
 - id: FP-GAME-PP-TRACKS-8
@@ -4529,12 +4516,11 @@ nodes:
   priority: P0
   owner_repository: pedestrian-pursuit
   implementation_paths:
-  - sibling:pedestrian-pursuit/scenes
-  - sibling:pedestrian-pursuit/scripts
-  - sibling:pedestrian-pursuit/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-PP-001-launch-content-scope.md
   tests:
-  - sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py
-  - sibling:pedestrian-pursuit/tests/test_content.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4545,11 +4531,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py
-  - sibling:pedestrian-pursuit/tests/test_content.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: pedestrian-pursuit
   accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
-  evidence_artifact: sibling:pedestrian-pursuit/tests
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: PEDESTRIAN_GODOT_HEADLESS_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of pedestrian-pursuit (adr_floor)
 - id: FP-GDD-AA-170-02B8D638
@@ -4562,11 +4547,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4577,11 +4562,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (gdd_prd_scan)
 - id: FP-GDD-AA-201-75151804
@@ -4593,11 +4577,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4608,11 +4592,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (gdd_prd_scan)
 - id: FP-GDD-AA-306-F14A1432
@@ -4624,11 +4607,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4639,11 +4622,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (gdd_prd_scan)
 - id: FP-GDD-AA-353-BAB96AEF
@@ -4655,11 +4637,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4670,11 +4652,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (gdd_prd_scan)
 - id: FP-GDD-AA-95-022985E8
@@ -4686,11 +4667,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4701,11 +4682,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (gdd_prd_scan)
 - id: FP-GDD-AA-PF-213-64422FCB
@@ -4717,11 +4697,11 @@ nodes:
   priority: P0
   owner_repository: anime-aggressors
   implementation_paths:
-  - sibling:anime-aggressors/game-godot
-  - sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md
   tests:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4732,11 +4712,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py
-  - sibling:anime-aggressors/playtest-evidence
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: anime-aggressors
   accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  evidence_artifact: sibling:anime-aggressors/playtest-evidence
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ANIME_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of anime-aggressors (gdd_prd_scan)
 - id: FP-GDD-AI-22-C4562440
@@ -4748,10 +4727,10 @@ nodes:
   priority: P0
   owner_repository: gunnchAI3k
   implementation_paths:
-  - sibling:gunnchAI3k/src
-  - sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  - program/full_product/ai_capability_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4762,10 +4741,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchAI3k
   accepted_main_sha: 223b2338364a637ae36c6d32a90393042ff4088c
-  evidence_artifact: sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  evidence_artifact: program/full_product/ai_capability_matrix.yaml
   evidence_result: GUNNCHAI3K_LOCAL_RUNTIME_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchAI3k (gdd_prd_scan)
 - id: FP-GDD-AI-33-078EDC56
@@ -4777,10 +4756,10 @@ nodes:
   priority: P0
   owner_repository: gunnchAI3k
   implementation_paths:
-  - sibling:gunnchAI3k/src
-  - sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  - program/full_product/ai_capability_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4791,10 +4770,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchAI3k
   accepted_main_sha: 223b2338364a637ae36c6d32a90393042ff4088c
-  evidence_artifact: sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  evidence_artifact: program/full_product/ai_capability_matrix.yaml
   evidence_result: GUNNCHAI3K_LOCAL_RUNTIME_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchAI3k (gdd_prd_scan)
 - id: FP-GDD-AI-35-86D168EE
@@ -4806,10 +4785,10 @@ nodes:
   priority: P0
   owner_repository: gunnchAI3k
   implementation_paths:
-  - sibling:gunnchAI3k/src
-  - sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  - program/full_product/ai_capability_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4820,10 +4799,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchAI3k/tests
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchAI3k
   accepted_main_sha: 223b2338364a637ae36c6d32a90393042ff4088c
-  evidence_artifact: sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md
+  evidence_artifact: program/full_product/ai_capability_matrix.yaml
   evidence_result: GUNNCHAI3K_LOCAL_RUNTIME_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchAI3k (gdd_prd_scan)
 - id: FP-GDD-AR-17-2629D0CA
@@ -4836,12 +4815,11 @@ nodes:
   priority: P0
   owner_repository: archive-of-life-artifact-world
   implementation_paths:
-  - sibling:archive-of-life-artifact-world/js
-  - sibling:archive-of-life-artifact-world/data-pipeline
-  - sibling:archive-of-life-artifact-world/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md
   tests:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4852,11 +4830,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: archive-of-life-artifact-world
   accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  evidence_artifact: sibling:archive-of-life-artifact-world/data
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of archive-of-life-artifact-world (gdd_prd_scan)
 - id: FP-GDD-AR-23-3F6AC8AD
@@ -4869,12 +4846,11 @@ nodes:
   priority: P0
   owner_repository: archive-of-life-artifact-world
   implementation_paths:
-  - sibling:archive-of-life-artifact-world/js
-  - sibling:archive-of-life-artifact-world/data-pipeline
-  - sibling:archive-of-life-artifact-world/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md
   tests:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4885,11 +4861,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: archive-of-life-artifact-world
   accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  evidence_artifact: sibling:archive-of-life-artifact-world/data
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of archive-of-life-artifact-world (gdd_prd_scan)
 - id: FP-GDD-AR-3-F2591310
@@ -4901,12 +4876,11 @@ nodes:
   priority: P0
   owner_repository: archive-of-life-artifact-world
   implementation_paths:
-  - sibling:archive-of-life-artifact-world/js
-  - sibling:archive-of-life-artifact-world/data-pipeline
-  - sibling:archive-of-life-artifact-world/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md
   tests:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4917,11 +4891,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: archive-of-life-artifact-world
   accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  evidence_artifact: sibling:archive-of-life-artifact-world/data
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of archive-of-life-artifact-world (gdd_prd_scan)
 - id: FP-GDD-AR-37-8CEB670A
@@ -4934,12 +4907,11 @@ nodes:
   priority: P0
   owner_repository: archive-of-life-artifact-world
   implementation_paths:
-  - sibling:archive-of-life-artifact-world/js
-  - sibling:archive-of-life-artifact-world/data-pipeline
-  - sibling:archive-of-life-artifact-world/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md
   tests:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4950,11 +4922,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py
-  - sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: archive-of-life-artifact-world
   accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  evidence_artifact: sibling:archive-of-life-artifact-world/data
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of archive-of-life-artifact-world (gdd_prd_scan)
 - id: FP-GDD-BL-58-3C084693
@@ -4967,12 +4938,11 @@ nodes:
   priority: P0
   owner_repository: beatlink-party
   implementation_paths:
-  - sibling:beatlink-party/packages
-  - sibling:beatlink-party/apps
-  - sibling:beatlink-party/content
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-BL-001-launch-content-scope.md
   tests:
-  - sibling:beatlink-party/tests
-  - sibling:beatlink-party/scripts
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -4983,11 +4953,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:beatlink-party/tests
-  - sibling:beatlink-party/scripts
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: beatlink-party
   accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
-  evidence_artifact: sibling:beatlink-party/content
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: BEATLINK_ALPHA_EXIT_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of beatlink-party (gdd_prd_scan)
 - id: FP-GDD-OS-47-342B7B1E
@@ -4999,11 +4968,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5014,11 +4983,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (gdd_prd_scan)
 - id: FP-GDD-OS-7-D6CEFF3E
@@ -5031,11 +5000,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5046,11 +5015,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (gdd_prd_scan)
 - id: FP-GDD-OS-73-A7E8F8F3
@@ -5062,11 +5031,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5077,11 +5046,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (gdd_prd_scan)
 - id: FP-GDD-OS-89-F1053E9D
@@ -5093,11 +5062,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5108,11 +5077,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (gdd_prd_scan)
 - id: FP-GDD-OS-9-DC3A4BC6
@@ -5125,11 +5094,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5140,11 +5109,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (gdd_prd_scan)
 - id: FP-GDD-PP-38-0296DAE1
@@ -5157,12 +5126,11 @@ nodes:
   priority: P0
   owner_repository: pedestrian-pursuit
   implementation_paths:
-  - sibling:pedestrian-pursuit/scenes
-  - sibling:pedestrian-pursuit/scripts
-  - sibling:pedestrian-pursuit/data
+  - program/full_product/game_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
+  - program/decisions/full_product/ADR-GAME-PP-001-launch-content-scope.md
   tests:
-  - sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py
-  - sibling:pedestrian-pursuit/tests/test_content.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5173,11 +5141,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: gdd_prd_scan
   test_paths:
-  - sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py
-  - sibling:pedestrian-pursuit/tests/test_content.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: pedestrian-pursuit
   accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
-  evidence_artifact: sibling:pedestrian-pursuit/tests
+  evidence_artifact: program/full_product/game_release_matrix.yaml
   evidence_result: PEDESTRIAN_GODOT_HEADLESS_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of pedestrian-pursuit (gdd_prd_scan)
 - id: FP-HW-DOCK-RELEASE
@@ -5189,11 +5156,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5204,11 +5171,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (adr_floor)
 - id: FP-HW-DS_XL_CODER-RELEASE
@@ -5220,11 +5186,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5235,11 +5201,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (adr_floor)
 - id: FP-HW-EDGE_IO_RINGS-RELEASE
@@ -5251,11 +5216,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5266,11 +5231,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (adr_floor)
 - id: FP-HW-HANDHELD_HYBRID-RELEASE
@@ -5282,11 +5246,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5297,11 +5261,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (adr_floor)
 - id: FP-HW-STUDENT_14_5-RELEASE
@@ -5313,11 +5276,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5328,11 +5291,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (adr_floor)
 - id: FP-MFG-DFM-AUDIT
@@ -5344,11 +5306,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5359,11 +5321,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: matrix_domain
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (matrix_domain)
 - id: FP-MFG-EDA-PACKAGE
@@ -5375,11 +5336,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-hardware-industrial-design
   implementation_paths:
-  - sibling:gunnchos-hardware-industrial-design/device_designs
-  - sibling:gunnchos-hardware-industrial-design/firmware_os_interface
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/manufacturing_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5390,11 +5351,10 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: matrix_domain
   test_paths:
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py
-  - sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py
+  - tests/full_product/test_requirement_promotion_validators.py
   accepted_repository: gunnchos-hardware-industrial-design
   accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  evidence_artifact: sibling:gunnchos-hardware-industrial-design/device_designs
+  evidence_artifact: program/full_product/hardware_release_matrix.yaml
   evidence_result: HARDWARE_FAMILY_DEPTH_DIGITAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-hardware-industrial-design (matrix_domain)
 - id: FP-OS-DISTRIBUTION
@@ -5406,11 +5366,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5421,11 +5381,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (adr_floor)
 - id: FP-RING-SPATIAL-INPUT
@@ -5437,11 +5397,12 @@ nodes:
   priority: P0
   owner_repository: edge-io-measurement-node
   implementation_paths:
-  - sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware
-  - sibling:edge-io-measurement-node/firmware
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:edge-io-measurement-node/tests/test_ring_input_harness.py
-  - sibling:edge-io-measurement-node/tests/test_ring_fallback_policy.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: DIGITALLY_VALIDATED
   blocker_class: []
   evidence:
@@ -5452,13 +5413,14 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: adr_floor
   test_paths:
-  - sibling:edge-io-measurement-node/tests/test_ring_input_harness.py
-  - sibling:edge-io-measurement-node/tests/test_ring_fallback_policy.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: edge-io-measurement-node
   accepted_main_sha: fc617e831916362e77aa157d77d458e935dc4cfa
-  evidence_artifact: sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware/build/out/zephyr_west/SHA256SUMS
+  evidence_artifact: program/full_product/evidence_registry.yaml
   evidence_result: RING_ZEPHYR_WEST_BUILD_PASS
-  promotion_note: Zephyr west digital build PASS; physical boot still PHYSICAL_REQUIRED elsewhere
+  promotion_note: Zephyr west digital build PASS recorded on accepted edge-io main; physical boot still
+    PHYSICAL_REQUIRED elsewhere
 - id: FP-SEC-ATTESTATION
   title: Device attestation service
   source_section: security
@@ -5468,11 +5430,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5483,11 +5445,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: matrix_domain
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (matrix_domain)
 - id: FP-SEC-SECURE-BOOT
@@ -5499,11 +5461,11 @@ nodes:
   priority: P0
   owner_repository: gunnchos-device-os
   implementation_paths:
-  - sibling:gunnchos-device-os/gunnchos_device_os
-  - sibling:gunnchos-device-os/os_build
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   tests:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   full_product_status: IMPLEMENTED
   blocker_class: []
   evidence:
@@ -5514,11 +5476,11 @@ nodes:
   classification_status: CLASSIFIED
   source_kind: matrix_domain
   test_paths:
-  - sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py
-  - sibling:gunnchos-device-os/tests/test_user_experience_required_files.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_repository: gunnchos-device-os
   accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  evidence_artifact: sibling:gunnchos-device-os/REPRODUCIBILITY.md
+  evidence_artifact: program/full_product/software_integration_matrix.yaml
   evidence_result: GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS
   promotion_note: Cont IV digital re-prove via accepted main of gunnchos-device-os (matrix_domain)
 - id: FP-SUPPORT-LIFECYCLE

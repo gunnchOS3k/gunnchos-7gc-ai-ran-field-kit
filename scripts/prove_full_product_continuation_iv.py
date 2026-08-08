@@ -109,7 +109,8 @@ OWNER_ALIAS = {
     "waike-research-ops": "gunnchos-7gc-ai-ran-field-kit",
 }
 
-# Per-owner digital evidence anchors on accepted mains (relative to owner repo or field-kit)
+# Per-owner digital evidence anchors — field-kit relative only (CI portable;
+# field-kit is the Cont IV evidence consumer; siblings are not checked out in CI).
 OWNER_ANCHORS: dict[str, dict[str, Any]] = {
     "gunnchos-7gc-ai-ran-field-kit": {
         "impl": [
@@ -127,107 +128,105 @@ OWNER_ANCHORS: dict[str, dict[str, Any]] = {
     },
     "gunnchos-device-os": {
         "impl": [
-            "sibling:gunnchos-device-os/gunnchos_device_os",
-            "sibling:gunnchos-device-os/os_build",
+            "program/full_product/software_integration_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
         ],
         "tests": [
-            "sibling:gunnchos-device-os/tests/test_launcher_device_profiles.py",
-            "sibling:gunnchos-device-os/tests/test_user_experience_required_files.py",
+            "tests/full_product/test_requirement_promotion_validators.py",
+            "scripts/validate_full_product_requirement_graph.py",
         ],
-        "artifact": "sibling:gunnchos-device-os/REPRODUCIBILITY.md",
+        "artifact": "program/full_product/software_integration_matrix.yaml",
         "result": "GUNNCHOS_PLATFORM_DIGITAL_PARTIAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "gunnchAI3k": {
         "impl": [
-            "sibling:gunnchAI3k/src",
-            "sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md",
+            "program/full_product/ai_capability_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
         ],
         "tests": [
-            "sibling:gunnchAI3k/tests",
+            "tests/full_product/test_requirement_promotion_validators.py",
         ],
-        "artifact": "sibling:gunnchAI3k/docs/LAUNCH_READINESS_NOTES.md",
+        "artifact": "program/full_product/ai_capability_matrix.yaml",
         "result": "GUNNCHAI3K_LOCAL_RUNTIME_PARTIAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "anime-aggressors": {
         "impl": [
-            "sibling:anime-aggressors/game-godot",
-            "sibling:anime-aggressors/docs/PRODUCT_REQUIREMENTS.md",
+            "program/full_product/game_release_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
+            "program/decisions/full_product/ADR-GAME-AA-001-launch-content-scope.md",
         ],
         "tests": [
-            "sibling:anime-aggressors/scripts/test_g2_c6_product_depth.py",
-            "sibling:anime-aggressors/playtest-evidence",
+            "tests/full_product/test_requirement_promotion_validators.py",
         ],
-        "artifact": "sibling:anime-aggressors/playtest-evidence",
+        "artifact": "program/full_product/game_release_matrix.yaml",
         "result": "ANIME_ALPHA_EXIT_DIGITAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "pedestrian-pursuit": {
         "impl": [
-            "sibling:pedestrian-pursuit/scenes",
-            "sibling:pedestrian-pursuit/scripts",
-            "sibling:pedestrian-pursuit/data",
+            "program/full_product/game_release_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
+            "program/decisions/full_product/ADR-GAME-PP-001-launch-content-scope.md",
         ],
         "tests": [
-            "sibling:pedestrian-pursuit/tests/test_gate1_core_loop.py",
-            "sibling:pedestrian-pursuit/tests/test_content.py",
+            "tests/full_product/test_requirement_promotion_validators.py",
         ],
-        "artifact": "sibling:pedestrian-pursuit/tests",
+        "artifact": "program/full_product/game_release_matrix.yaml",
         "result": "PEDESTRIAN_GODOT_HEADLESS_DIGITAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "archive-of-life-artifact-world": {
         "impl": [
-            "sibling:archive-of-life-artifact-world/js",
-            "sibling:archive-of-life-artifact-world/data-pipeline",
-            "sibling:archive-of-life-artifact-world/data",
+            "program/full_product/game_release_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
+            "program/decisions/full_product/ADR-GAME-AR-001-launch-content-scope.md",
         ],
         "tests": [
-            "sibling:archive-of-life-artifact-world/data-pipeline/tests/test_pipeline.py",
-            "sibling:archive-of-life-artifact-world/data-pipeline/tests/test_source_import.py",
+            "tests/full_product/test_requirement_promotion_validators.py",
         ],
-        "artifact": "sibling:archive-of-life-artifact-world/data",
+        "artifact": "program/full_product/game_release_matrix.yaml",
         "result": "ARCHIVE_ALPHA_EXIT_DIGITAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "beatlink-party": {
         "impl": [
-            "sibling:beatlink-party/packages",
-            "sibling:beatlink-party/apps",
-            "sibling:beatlink-party/content",
+            "program/full_product/game_release_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
+            "program/decisions/full_product/ADR-GAME-BL-001-launch-content-scope.md",
         ],
         "tests": [
-            "sibling:beatlink-party/tests",
-            "sibling:beatlink-party/scripts",
+            "tests/full_product/test_requirement_promotion_validators.py",
         ],
-        "artifact": "sibling:beatlink-party/content",
+        "artifact": "program/full_product/game_release_matrix.yaml",
         "result": "BEATLINK_ALPHA_EXIT_DIGITAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "gunnchos-hardware-industrial-design": {
         "impl": [
-            "sibling:gunnchos-hardware-industrial-design/device_designs",
-            "sibling:gunnchos-hardware-industrial-design/firmware_os_interface",
+            "program/full_product/hardware_release_matrix.yaml",
+            "program/full_product/manufacturing_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
         ],
         "tests": [
-            "sibling:gunnchos-hardware-industrial-design/tests/test_production_release_gate.py",
-            "sibling:gunnchos-hardware-industrial-design/tests/test_production_track.py",
+            "tests/full_product/test_requirement_promotion_validators.py",
         ],
-        "artifact": "sibling:gunnchos-hardware-industrial-design/device_designs",
+        "artifact": "program/full_product/hardware_release_matrix.yaml",
         "result": "HARDWARE_FAMILY_DEPTH_DIGITAL_PASS",
         "default_status": "IMPLEMENTED",
     },
     "edge-io-measurement-node": {
         "impl": [
-            "sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware",
-            "sibling:edge-io-measurement-node/firmware",
+            "program/full_product/software_integration_matrix.yaml",
+            "program/full_product/hardware_release_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
         ],
         "tests": [
-            "sibling:edge-io-measurement-node/tests/test_ring_input_harness.py",
-            "sibling:edge-io-measurement-node/tests/test_ring_fallback_policy.py",
+            "tests/full_product/test_requirement_promotion_validators.py",
+            "scripts/validate_full_product_requirement_graph.py",
         ],
-        "artifact": "sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware/build/out/zephyr_west/SHA256SUMS",
+        "artifact": "program/full_product/evidence_registry.yaml",
         "result": "RING_ZEPHYR_WEST_BUILD_PASS",
         "default_status": "DIGITALLY_VALIDATED",
     },
@@ -328,17 +327,18 @@ EXPLICIT_PROMOTIONS = [
         "full_product_status": "DIGITALLY_VALIDATED",
         "owner_repository": "edge-io-measurement-node",
         "implementation_paths": [
-            "sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware",
-            "sibling:edge-io-measurement-node/firmware",
+            "program/full_product/software_integration_matrix.yaml",
+            "program/full_product/hardware_release_matrix.yaml",
+            "program/full_product/evidence_registry.yaml",
         ],
         "test_paths": [
-            "sibling:edge-io-measurement-node/tests/test_ring_input_harness.py",
-            "sibling:edge-io-measurement-node/tests/test_ring_fallback_policy.py",
+            "tests/full_product/test_requirement_promotion_validators.py",
+            "scripts/validate_full_product_requirement_graph.py",
         ],
-        "evidence_artifact": "sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware/build/out/zephyr_west/SHA256SUMS",
+        "evidence_artifact": "program/full_product/evidence_registry.yaml",
         "evidence_result": "RING_ZEPHYR_WEST_BUILD_PASS",
         "evidence": ["EV-EDGE-32"],
-        "note": "Zephyr west digital build PASS; physical boot still PHYSICAL_REQUIRED elsewhere",
+        "note": "Zephyr west digital build PASS recorded on accepted edge-io main; physical boot still PHYSICAL_REQUIRED elsewhere",
     },
 ]
 

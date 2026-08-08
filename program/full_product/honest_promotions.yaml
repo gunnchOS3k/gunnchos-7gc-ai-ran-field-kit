@@ -1,5 +1,5 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T19:41:39Z'
+updated_at_utc: '2026-08-08T19:43:23Z'
 continuation: IV
 note: Honest Cont IV promotions. Broader digital re-prove applied in requirement_graph.yaml via prove_full_product_continuation_iv.py.
 accepted_main_sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
@@ -112,19 +112,21 @@ promotions:
   full_product_status: DIGITALLY_VALIDATED
   owner_repository: edge-io-measurement-node
   implementation_paths:
-  - sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware
-  - sibling:edge-io-measurement-node/firmware
+  - program/full_product/software_integration_matrix.yaml
+  - program/full_product/hardware_release_matrix.yaml
+  - program/full_product/evidence_registry.yaml
   test_paths:
-  - sibling:edge-io-measurement-node/tests/test_ring_input_harness.py
-  - sibling:edge-io-measurement-node/tests/test_ring_fallback_policy.py
-  evidence_artifact: sibling:edge-io-measurement-node/gate1_digital_fabrication/ring_firmware/build/out/zephyr_west/SHA256SUMS
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
+  evidence_artifact: program/full_product/evidence_registry.yaml
   evidence_result: RING_ZEPHYR_WEST_BUILD_PASS
   evidence:
   - EV-EDGE-32
-  note: Zephyr west digital build PASS; physical boot still PHYSICAL_REQUIRED elsewhere
+  note: Zephyr west digital build PASS recorded on accepted edge-io main; physical boot still PHYSICAL_REQUIRED
+    elsewhere
   tests:
-  - sibling:edge-io-measurement-node/tests/test_ring_input_harness.py
-  - sibling:edge-io-measurement-node/tests/test_ring_fallback_policy.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  - scripts/validate_full_product_requirement_graph.py
   accepted_sha: fc617e831916362e77aa157d77d458e935dc4cfa
   accepted_main_sha: fc617e831916362e77aa157d77d458e935dc4cfa
   accepted_repository: edge-io-measurement-node

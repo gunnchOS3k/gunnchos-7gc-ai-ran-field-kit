@@ -43,7 +43,7 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 - Cont IV proof: `reports/REQUIREMENT_PROOF_COUNTS.json`
 - Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
 - Validator: `scripts/validate_full_product_requirement_graph.py`
-- Updated: 2026-08-08T19:41:39Z
+- Updated: 2026-08-08T19:43:23Z
 
 
 ## Immediate external/human blockers
