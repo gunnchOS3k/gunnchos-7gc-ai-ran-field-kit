@@ -1,147 +1,111 @@
-schema_version: 1.0.0
-updated_at_utc: '2026-08-08T01:27:39Z'
+schema_version: 1.1.0
+updated_at_utc: '2026-08-08T19:41:39Z'
 accepted_main_policy: MERGED_on_main_SHA_only
+continuation: IV
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: WAVE_B2_PLATFORM_PARTIAL_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 67998008bde43508de2a79504b2de7edb55d0aee
-    merged_pr_56: https://github.com/gunnchOS3k/gunnchos-device-os/pull/56
-    merged_pr_57: https://github.com/gunnchOS3k/gunnchos-device-os/pull/57
-    tests_wave_b2: 72
-    note: B2 on main; not FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE
-    system_image_draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/59
-    lane_h_draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/58
+    accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
+    merged_prs:
+    - 56
+    - 57
+    - 58
+    - 59
+    note: 'Includes system image #59 and cloud/fleet #58; not FULL platform complete'
   gunnchAI3k:
     role: AI platform
-    status: WAVE_C_SYSTEM_LAYER_FOUNDATION_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 53d782238b812b981c31a96f0599d237304af904
-    merged_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/21
-    token: GUNNCHAI3K_SYSTEM_LAYER_FOUNDATION_EVAL_PASS
+    accepted_main_sha: 223b2338364a637ae36c6d32a90393042ff4088c
+    merged_prs:
+    - 21
+    - 22
     digitally_validated: false
-    note: Foundation on main; DIGITALLY_VALIDATED not claimed
-    local_runtime_draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/22
+    note: 'Local runtime #22 on main; full platform not claimed'
   anime-aggressors:
     role: game
-    status: WAVE_D2_ALPHA_PROGRESS_NOT_EXIT_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 436af24d68279eefa10205becb9ed0dcad344241
-    merged_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
-    alpha_exit: false
+    accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
+    merged_prs:
+    - 65
+    - 66
+    - 67
+    alpha_exit: true
     content_complete: false
     rc_digital: false
-    note: D2 on main; NOT Alpha exit
-    alpha_exit_draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/67
+    note: '#67 Alpha-exit digital on main; Beta/RC not claimed'
   pedestrian-pursuit:
     role: game
-    status: WAVE_E_ALPHA_IN_PROGRESS_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 451124c6e8106d995928e35d2a88d2f49706ad4e
-    merged_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
-    tracks: 8
-    cups: 2
+    accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
+    merged_prs:
+    - 8
+    - 9
     content_complete: false
     rc_digital: false
-    godot_draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9
+    note: '#9 Godot headless on main; Beta/RC not claimed'
   archive-of-life-artifact-world:
     role: game
-    status: WAVE_F_ALPHA_IN_PROGRESS_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 5028aa0e98e41d109c32b47a1d6e891698f86ea4
-    merged_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
-    regions: 12
-    encounter_tier_e: 167
-    flagship_tier_f: 24
+    accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
+    merged_prs:
+    - 17
+    - 18
+    - 19
     live_global_ingest: false
     content_complete: false
     rc_digital: false
-    alpha_exit_draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/19
+    note: '#19 Alpha-exit digital; not global live ingest'
   beatlink-party:
     role: game
-    status: WAVE_G_ALPHA_IN_PROGRESS_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN_CI_GREEN
     pr_state: MERGED
-    accepted_main_sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
-    merged_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
-    catalog_tracks: 13
+    accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
+    merged_prs:
+    - 9
+    - 10
+    - 11
     content_complete: false
     rc_digital: false
-    alpha_exit: false
-    ci_repair_draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/10
-    ci_repair_sha: 173c890f9163fae166b8d7bcc03e075b160b4f6c
-    alpha_exit_draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/11
+    alpha_exit: true
+    note: '#10 CI repair + #11 Alpha-exit on green main'
   edge-io-measurement-node:
     role: ring firmware/host
     status: RING_ZEPHYR_WEST_BUILD_PASS
     pr_state: MERGED
     accepted_main_sha: fc617e831916362e77aa157d77d458e935dc4cfa
-    merged_pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32
+    merged_prs:
+    - 32
     token: RING_ZEPHYR_WEST_BUILD_PASS
     note: Soft-skip cleared; no physical flash
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: WAVE_A2_DIGITAL_DEPTH_ON_MAIN
+    status: CONT_IV_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
-    merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
-    companion_field_kit_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
-    companion_field_kit_accepted_main_sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
-    adr: ADR-FP-008
+    accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
+    merged_prs:
+    - 44
+    - 45
+    - 46
+    companion_field_kit_accepted_main_sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
     ring_kicad_cli_validation_pass: false
-    note: A2 on main; KiCad still EDMUND_ACTION_REQUIRED; no fab
-    family_depth_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/46
     kicad: EDMUND_ACTION_REQUIRED
-continuation_iii_drafts:
-  beatlink_ci_repair:
-    pr: https://github.com/gunnchOS3k/beatlink-party/pull/10
-    sha: 173c890f9163fae166b8d7bcc03e075b160b4f6c
-    token: BEATLINK_MAIN_CI_REPAIR_READY
-    agent: 15c088e7-191d-4cf2-8d62-26c6f1120bc4
-  beatlink_alpha_exit:
-    pr: https://github.com/gunnchOS3k/beatlink-party/pull/11
-    sha: 26724bb483473067a21a29129ac91cc6ec48b747
-    tokens:
-    - BEATLINK_ALPHA_EXIT_DIGITAL_PASS
-    - BEATLINK_LOAD_HARNESS_SCAFFOLD_PASS
-    note: NOT Beta/RC; depends on CI repair #10 for green main
-    agent: d0ff9cb7-ed2b-4c08-b09b-491546d24ba2
-  pedestrian_godot:
-    pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9
-    sha: 041e0329036f69fce7d1c226cec4fed94e62f577
-    token: PEDESTRIAN_MAIN_GODOT_HEADLESS_PASS
-    alpha_exit: false
-    agent: 333d7b4b-579a-4632-810a-d2dd2d2931ad
-  anime_alpha_exit:
-    pr: https://github.com/gunnchOS3k/anime-aggressors/pull/67
-    sha: a2b7d5a9484f5fb61ffacd411eee6cd8e3a81e17
-    tokens:
-    - ANIME_PRIVATE_NETPLAY_DIGITAL_PASS
-    - ANIME_COMPETITIVE_AI_DIGITALLY_VALIDATED
-    agent: 0f221643-9322-47e7-872e-047256266cbd
-  archive_alpha_exit:
-    pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/19
-    sha: 4d4d3ca1367a5b9078237560c79f51cd31a36daf
-    token: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS
-    agent: f6e13604-2903-4ec9-9454-57684c2ccd93
-  gunnchos_system_image:
-    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/59
-    sha: bfdb2746ad12217b2793b39a1f8b2e29dd4dfa98
-    token: GUNNCHOS_REPRODUCIBLE_SYSTEM_IMAGE_DIGITAL_PASS
-    agent: 91ccbbfd-1fb6-4409-9920-af216a914114
-  cloud_fleet_security:
-    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/58
-    sha: efc04604f0db58ee28896e1d6d6beaa700b114f2
-    ci_fixed_sha: efc04604f0db58ee28896e1d6d6beaa700b114f2
-    agent: 9317e8e8-ec6d-411f-8d83-80e6be0a1ea5
-  gunnchai_local_runtime:
-    pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/22
-    sha: d30013f394cce1df5788b09bcd3db6d95b54540c
-    token: GUNNCHAI3K_LOCAL_RUNTIME_CAPABILITY_EVAL_PASS
-    full_platform: false
-    agent: 95acab84-db9f-4c1e-ba6f-47569ef54c46
-  hardware_family_depth:
-    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/46
-    sha: 0e3dc5c56c48173555793bb5bbca7b3655d67f51
-    kicad: EDMUND_ACTION_REQUIRED
-    agent: 5e1341ca-5691-411e-963d-3df89bc49537
+    note: '#46 on main; KiCad still EDMUND_ACTION_REQUIRED; no fab'
+  gunnchos-7gc-ai-ran-field-kit:
+    role: control_plane
+    status: CONT_IV_CANONICALIZATION
+    pr_state: MERGED
+    accepted_main_sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+    merged_prs:
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+stale_draft_pins: CLEARED
+note: Former Cont III draft SHAs superseded by merged accepted mains above.

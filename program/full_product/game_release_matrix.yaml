@@ -1,5 +1,6 @@
-schema_version: 1.0.0
-updated_at_utc: '2026-08-08T01:27:39Z'
+schema_version: 1.1.0
+updated_at_utc: '2026-08-08T19:41:39Z'
+continuation: IV
 release_phases:
 - G3_Alpha
 - G4_Beta
@@ -8,98 +9,67 @@ release_phases:
 games:
   anime_aggressors:
     engine: Godot 4
-    current_phase: MERGED_NOT_ALPHA_EXIT
-    fighters_defined: 7
-    fighters_fully_differentiated: DATA_YES_ART_NO
-    stages_launch_count: ADR_REQUIRED
-    modes_complete: false
-    competitive_ai: PARTIAL_4_LEVELS
-    online: NOT_IMPLEMENTED_ON_GODOT_PATH
+    current_phase: ALPHA_EXIT_DIGITAL_ON_MAIN
+    accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
+    merged_prs:
+    - 65
+    - 66
+    - 67
+    pr_state: MERGED
+    alpha_exit: true
     content_complete: false
     feature_complete: false
     rc_digital: false
-    stages_present_greybox: 6
-    proposed_launch_stages: 6
-    modes_shipped:
-    - versus
-    - training
-    - arcade_ladder
+    fighters_defined: 7
     art_status: REQUIRES_ART_PRODUCTION
-    aura_identity_runtime: true
-    cpu_batch_harness: true
-    note: Wave D Alpha depth draft; art still REQUIRES_ART_PRODUCTION; online still
-      missing
-    alpha_exit: false
-    cpu_matrix: playtest-evidence/cpu_batch_matrix.json (147 matches)
-    accepted_main_sha: 436af24d68279eefa10205becb9ed0dcad344241
-    merged_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
-    pr_state: MERGED
+    note: 'Alpha-exit digital via #67; Beta/RC Cont IV product work continues in sibling drafts'
   pedestrian_pursuit:
     engine: Godot
-    current_phase: MERGED_ALPHA_GREYBOX
-    racers_launch_count: ADR_REQUIRED
-    tracks_launch_count: ADR_REQUIRED
+    current_phase: GODOT_HEADLESS_ON_MAIN
+    accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
+    merged_prs:
+    - 8
+    - 9
+    pr_state: MERGED
+    alpha_exit: false
     content_complete: false
     feature_complete: false
     rc_digital: false
-    audit_report: program/full_product/reports/GAME_PORTFOLIO_GAP_AUDIT.md
     tracks: 8
     cups: 2
     art: REQUIRES_ART_PRODUCTION
-    accepted_main_sha: 451124c6e8106d995928e35d2a88d2f49706ad4e
-    merged_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
-    alpha_exit: false
-    pr_state: MERGED
+    note: '#9 headless on main; Beta/RC not claimed'
   archive_of_life:
     engine: Vite/TS web
-    current_phase: MERGED_NOT_GLOBAL_INGEST
-    taxonomy_scale: AUTHORED_PUBLIC_NOT_GLOBAL_LIVE
-    tiers:
-    - R_Record
-    - E_Encounter
-    - F_Flagship
+    current_phase: ALPHA_EXIT_DIGITAL_ON_MAIN
+    accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
+    merged_prs:
+    - 17
+    - 18
+    - 19
+    pr_state: MERGED
+    alpha_exit: true
+    live_global_ingest: false
     content_complete: false
     feature_complete: false
     rc_digital: false
     regions: 12
     encounter_taxa: 167
     flagship: 24
-    accepted_main_sha: 5028aa0e98e41d109c32b47a1d6e891698f86ea4
-    merged_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
-    alpha_exit: false
-    pr_state: MERGED
+    note: '#19 Alpha-exit digital; not global live ingest'
   beat_link:
     engine: Node/pnpm
-    current_phase: ALPHA_IN_PROGRESS
-    modes_required:
-    - BeatTap
-    - CallAndResponse
-    - Karaoke
-    - BandRoles
-    - PredictionTrivia
-    modes_complete: true
-    music_rights_pipeline: PARTIAL
-    content_complete: false
-    feature_complete: false
-    rc_digital: false
-    modes_shipped:
-    - BeatTap
-    - CallAndResponse
-    - KaraokePerformance
-    - BandRoles
-    - PredictionTrivia
-    catalog_tracks: 13
+    current_phase: ALPHA_EXIT_DIGITAL_ON_GREEN_MAIN
+    accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
+    merged_prs:
+    - 9
+    - 10
+    - 11
     pr_state: MERGED
-    merged_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
-    accepted_main_sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
-  beatlink_party:
-    current_phase: MERGED_MAIN_CI_RED
-    accepted_main_sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
-    merged_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
-    alpha_exit: false
-    alpha_exit_digital: DRAFT_ONLY
-    alpha_exit_draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/11
-    alpha_exit_draft_sha: 26724bb483473067a21a29129ac91cc6ec48b747
-    feature_complete: false
+    alpha_exit: true
     content_complete: false
+    feature_complete: false
     rc_digital: false
+    catalog_tracks: 13
+    modes_complete: true
+    note: '#10+#11 on green main; Beta/RC not claimed'

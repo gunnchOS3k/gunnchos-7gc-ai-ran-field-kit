@@ -1,56 +1,115 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "continuation": "IV",
-  "updated_at_utc": "2026-08-08T19:37:58Z",
-  "immutable_note": "Accepted origin/main SHAs at Cont IV start; device-os and beatlink newer than Cont III prompt text",
+  "wave": "CONTINUATION_IV_CANONICALIZATION",
+  "generated_at_utc": "2026-08-08T19:41:39Z",
+  "updated_at_utc": "2026-08-08T19:41:39Z",
+  "immutable_at_start": true,
+  "scope": "full_product_entirety_baseline_accepted_mains",
+  "physical_execution_freeze": true,
+  "accepted_main_policy": "MERGED_on_main_SHA_only_no_cursor_branch_as_accepted",
+  "immutable_note": "Accepted origin/main SHAs at Cont IV start; device-os and beatlink newer than Cont III prompt text. No cursor/* SHA as accepted tip.",
   "repos": {
     "gunnchos-7gc-ai-ran-field-kit": {
-      "sha": "7ebbe27bbae6980f0db8b5c14b39f2767b448128",
-      "merged_pr": "#33",
-      "ci": "green"
+      "origin_main": "7ebbe27bbae6980f0db8b5c14b39f2767b448128",
+      "accepted_main_sha": "7ebbe27bbae6980f0db8b5c14b39f2767b448128",
+      "merged_prs": [
+        33
+      ],
+      "ci": "green",
+      "note": "Umbrella artifact CI green after #33"
     },
     "gunnchos-hardware-industrial-design": {
-      "sha": "79b11aba3ca9d4db7051b6d5ccb3571e72503396",
-      "merged_pr": "#46",
-      "ci": "green"
+      "origin_main": "79b11aba3ca9d4db7051b6d5ccb3571e72503396",
+      "accepted_main_sha": "79b11aba3ca9d4db7051b6d5ccb3571e72503396",
+      "merged_prs": [
+        46
+      ],
+      "ci": "green",
+      "note": "includes #46 family depth"
     },
     "edge-io-measurement-node": {
-      "sha": "fc617e831916362e77aa157d77d458e935dc4cfa",
-      "note": "RING_ZEPHYR_WEST_BUILD_PASS"
+      "origin_main": "fc617e831916362e77aa157d77d458e935dc4cfa",
+      "accepted_main_sha": "fc617e831916362e77aa157d77d458e935dc4cfa",
+      "merged_prs": [
+        32
+      ],
+      "ci": "green",
+      "note": "RING_ZEPHYR_WEST_BUILD_PASS",
+      "token": "RING_ZEPHYR_WEST_BUILD_PASS"
     },
     "gunnchos-device-os": {
-      "sha": "a4c17d298c6f4b769c96632646425c9168e3ef98",
+      "origin_main": "a4c17d298c6f4b769c96632646425c9168e3ef98",
+      "accepted_main_sha": "a4c17d298c6f4b769c96632646425c9168e3ef98",
       "merged_prs": [
-        "#59",
-        "#58"
+        59,
+        58
       ],
       "ci": "green",
-      "note": "newer than Cont III listed 4ffe7f1"
+      "note": "newer than Cont III listed 4ffe7f1; includes #59+#58"
     },
     "gunnchAI3k": {
-      "sha": "223b2338364a637ae36c6d32a90393042ff4088c",
-      "merged_pr": "#22"
+      "origin_main": "223b2338364a637ae36c6d32a90393042ff4088c",
+      "accepted_main_sha": "223b2338364a637ae36c6d32a90393042ff4088c",
+      "merged_prs": [
+        22
+      ],
+      "ci": "unknown",
+      "note": "includes #22 local runtime/evals"
     },
     "anime-aggressors": {
-      "sha": "0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a",
-      "merged_pr": "#67"
+      "origin_main": "0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a",
+      "accepted_main_sha": "0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a",
+      "merged_prs": [
+        67
+      ],
+      "ci": "unknown",
+      "note": "includes #67 Alpha-exit digital"
     },
     "pedestrian-pursuit": {
-      "sha": "822d7eb4c75ba44b7fe88b2580fa7f933767d3a1",
-      "merged_pr": "#9"
+      "origin_main": "822d7eb4c75ba44b7fe88b2580fa7f933767d3a1",
+      "accepted_main_sha": "822d7eb4c75ba44b7fe88b2580fa7f933767d3a1",
+      "merged_prs": [
+        9
+      ],
+      "ci": "unknown",
+      "note": "includes #9 Godot headless"
     },
     "archive-of-life-artifact-world": {
-      "sha": "49b2bc4319399e0247884ed004fe54f8390cf04b",
-      "merged_pr": "#19"
+      "origin_main": "49b2bc4319399e0247884ed004fe54f8390cf04b",
+      "accepted_main_sha": "49b2bc4319399e0247884ed004fe54f8390cf04b",
+      "merged_prs": [
+        19
+      ],
+      "ci": "unknown",
+      "note": "includes #19 Alpha-exit digital"
     },
     "beatlink-party": {
-      "sha": "d2ef8d45bbe55790b21024b6307735c7c09979c8",
+      "origin_main": "d2ef8d45bbe55790b21024b6307735c7c09979c8",
+      "accepted_main_sha": "d2ef8d45bbe55790b21024b6307735c7c09979c8",
       "merged_prs": [
-        "#10",
-        "#11"
+        10,
+        11
       ],
       "ci": "green",
-      "note": "newer than Cont III listed d2ef8d45e1a5..."
+      "note": "newer than Cont III listed tip; #10+#11"
     }
-  }
+  },
+  "accepted_mains": {
+    "gunnchos-7gc-ai-ran-field-kit": "7ebbe27bbae6980f0db8b5c14b39f2767b448128",
+    "gunnchos-hardware-industrial-design": "79b11aba3ca9d4db7051b6d5ccb3571e72503396",
+    "edge-io-measurement-node": "fc617e831916362e77aa157d77d458e935dc4cfa",
+    "gunnchos-device-os": "a4c17d298c6f4b769c96632646425c9168e3ef98",
+    "gunnchAI3k": "223b2338364a637ae36c6d32a90393042ff4088c",
+    "anime-aggressors": "0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a",
+    "pedestrian-pursuit": "822d7eb4c75ba44b7fe88b2580fa7f933767d3a1",
+    "archive-of-life-artifact-world": "49b2bc4319399e0247884ed004fe54f8390cf04b",
+    "beatlink-party": "d2ef8d45bbe55790b21024b6307735c7c09979c8"
+  },
+  "stale_draft_pins_cleared": true,
+  "cleared_draft_examples": [
+    "continuation_iii_drafts cursor/* tips no longer accepted",
+    "EV-CONT3-* draft entries reclassified MERGED or SUPERSEDED"
+  ],
+  "edmund_action_required": "EDMUND_ACTION_REQUIRED: Approve the macOS administrator/install prompt for KiCad if RING_KICAD_CLI_VALIDATION_PASS is still needed."
 }

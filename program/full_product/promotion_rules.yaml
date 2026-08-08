@@ -1,8 +1,11 @@
-schema_version: 1.0.0
-updated_at_utc: '2026-08-08T01:10:00Z'
+schema_version: 1.1.0
+updated_at_utc: '2026-08-08T19:45:00Z'
+continuation: IV
 description: >
   Promotion gates for full_product_status. Validators MUST fail any node that
   claims a status without the required evidence fields and resolvable paths.
+  Cont IV higher states also require test_paths, accepted_repository,
+  accepted_main_sha, evidence_artifact, and evidence_result.
 status_order:
 - DOC_ONLY
 - SCHEMA_ONLY

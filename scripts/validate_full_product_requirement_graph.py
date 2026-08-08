@@ -61,9 +61,14 @@ def validate_node(node: dict[str, Any], rules: dict[str, Any]) -> list[str]:
         return errors
 
     impl = [p for p in (node.get("implementation_paths") or []) if p]
-    tests = [t for t in (node.get("tests") or []) if t]
+    # Cont IV: prefer test_paths; keep Cont III `tests` compatibility
+    tests = [t for t in (node.get("test_paths") or node.get("tests") or []) if t]
     evidence = [e for e in (node.get("evidence") or []) if e]
-    sha = node.get("accepted_sha") or node.get("evidence_sha")
+    sha = (
+        node.get("accepted_main_sha")
+        or node.get("accepted_sha")
+        or node.get("evidence_sha")
+    )
 
     if status_rules.get("requires_implementation_paths"):
         need = int(status_rules.get("min_implementation_paths") or 1)
@@ -79,7 +84,7 @@ def validate_node(node: dict[str, Any], rules: dict[str, Any]) -> list[str]:
     if status_rules.get("requires_tests"):
         need = int(status_rules.get("min_tests") or 1)
         if len(tests) < need:
-            errors.append(f"{nid}: {status} requires >= {need} tests (have {len(tests)})")
+            errors.append(f"{nid}: {status} requires >= {need} tests/test_paths (have {len(tests)})")
         for t in tests:
             # tests may be logical names from catalog (evidence keys) OR paths
             if "/" in str(t) or str(t).endswith((".py", ".ts", ".js", ".yml", ".yaml")):
@@ -89,15 +94,25 @@ def validate_node(node: dict[str, Any], rules: dict[str, Any]) -> list[str]:
 
     if status_rules.get("requires_accepted_sha"):
         if not sha or not isinstance(sha, str) or len(sha) < 7:
-            errors.append(f"{nid}: {status} requires accepted_sha")
+            errors.append(f"{nid}: {status} requires accepted_main_sha/accepted_sha")
+        if not node.get("accepted_repository"):
+            errors.append(f"{nid}: {status} requires accepted_repository")
+        if not node.get("evidence_artifact"):
+            errors.append(f"{nid}: {status} requires evidence_artifact")
+        if not node.get("evidence_result"):
+            errors.append(f"{nid}: {status} requires evidence_result")
 
     if status_rules.get("requires_evidence"):
-        if not evidence:
-            errors.append(f"{nid}: {status} requires evidence entries")
+        if not evidence and not node.get("evidence_artifact"):
+            errors.append(f"{nid}: {status} requires evidence entries or evidence_artifact")
 
     # Explicit invalid DOC_ONLY→IMPLEMENTED without paths
     if status in HIGHER and not impl:
         errors.append(f"{nid}: invalid promotion to {status} without implementation_paths")
+
+    # Cont IV: never accept cursor/* as accepted tip
+    if isinstance(sha, str) and ("cursor/" in sha or sha.startswith("cursor/")):
+        errors.append(f"{nid}: accepted SHA must not be a cursor/* tip")
 
     owner = node.get("owner_repository")
     if owner in PENDING_OWNERS:

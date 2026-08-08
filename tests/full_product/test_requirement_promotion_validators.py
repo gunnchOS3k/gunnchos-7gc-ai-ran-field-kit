@@ -6,14 +6,19 @@ import subprocess
 import sys
 from pathlib import Path
 
-import pytest
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
+SIBLING = ROOT.parent
 GRAPH = ROOT / "program" / "full_product" / "requirement_graph.yaml"
 RULES = ROOT / "program" / "full_product" / "promotion_rules.yaml"
 VALIDATOR = ROOT / "scripts" / "validate_full_product_requirement_graph.py"
-SYNC = ROOT / "scripts" / "sync_full_product_requirement_totality.py"
+
+
+def _resolve(raw: str) -> Path:
+    if raw.startswith("sibling:"):
+        return SIBLING / raw[len("sibling:") :]
+    return ROOT / raw
 
 
 def test_graph_exists_and_has_status_fields():
@@ -30,7 +35,7 @@ def test_graph_exists_and_has_status_fields():
 
 def test_validator_passes_current_graph():
     proc = subprocess.run(
-        [sys.executable, str(VALIDATOR)],
+        [sys.executable, str(VALIDATOR), "--strict-totality"],
         cwd=ROOT,
         capture_output=True,
         text=True,
@@ -42,16 +47,29 @@ def test_validator_passes_current_graph():
 
 def test_invalid_promotion_without_paths_fails(tmp_path: Path):
     data = yaml.safe_load(GRAPH.read_text(encoding="utf-8"))
-    # Corrupt one DOC_ONLY node into IMPLEMENTED without paths
+    # Corrupt a non-higher node into IMPLEMENTED without Cont IV proof fields
+    corrupted = False
     for node in data["nodes"]:
-        if node["full_product_status"] == "DOC_ONLY":
+        if node["full_product_status"] in {
+            "DOC_ONLY",
+            "SCHEMA_ONLY",
+            "STUB_ONLY",
+            "PHYSICAL_REQUIRED",
+            "EXTERNAL_REQUIRED",
+        }:
             node["full_product_status"] = "IMPLEMENTED"
             node["implementation_paths"] = []
+            node["test_paths"] = []
             node["tests"] = []
             node["evidence"] = []
             node["accepted_sha"] = None
+            node["accepted_main_sha"] = None
+            node["accepted_repository"] = None
+            node["evidence_artifact"] = None
+            node["evidence_result"] = None
+            corrupted = True
             break
-    data["status_counts"] = {}
+    assert corrupted, "expected a node available to corrupt for negative test"
     from collections import Counter
 
     data["status_counts"] = dict(Counter(n["full_product_status"] for n in data["nodes"]))
@@ -79,13 +97,30 @@ def test_honest_promotions_have_resolvable_paths():
     assert promoted, "expected at least one honest promotion"
     for node in promoted:
         assert node.get("implementation_paths")
-        assert node.get("tests")
-        assert node.get("accepted_sha")
-        assert node.get("evidence")
+        assert node.get("test_paths") or node.get("tests")
+        assert node.get("accepted_main_sha") or node.get("accepted_sha")
+        assert node.get("accepted_repository")
+        assert node.get("evidence_artifact")
+        assert node.get("evidence_result")
+        assert node.get("evidence") or node.get("evidence_artifact")
         for p in node["implementation_paths"]:
-            assert (ROOT / p).exists(), p
+            assert _resolve(p).exists(), p
+
+
+def test_no_doc_only_residual_after_cont_iv():
+    data = yaml.safe_load(GRAPH.read_text(encoding="utf-8"))
+    doc_only = [n["id"] for n in data["nodes"] if n["full_product_status"] == "DOC_ONLY"]
+    assert doc_only == [], f"Cont IV must move digitally provable nodes out of DOC_ONLY: {doc_only[:10]}"
 
 
 def test_claim_firewall_script_exists_for_standards_promotion():
     assert (ROOT / "scripts" / "validate_claim_firewall.py").exists()
     assert (ROOT / "program" / "claims" / "prohibited_claim_patterns.yaml").exists()
+
+
+def test_cont_iv_proof_reports_exist():
+    reports = ROOT / "program" / "full_product" / "reports"
+    assert (reports / "REQUIREMENT_PROOF_LEDGER.md").exists()
+    assert (reports / "REQUIREMENT_PROOF_COUNTS.json").exists()
+    assert (reports / "REQUIREMENT_PROOF_GAPS.md").exists()
+    assert (reports / "CONTINUATION_IV_ACCEPTED_BASELINE.md").exists()

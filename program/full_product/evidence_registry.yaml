@@ -1,29 +1,19 @@
-schema_version: 1.0.0
-updated_at_utc: '2026-08-08T01:27:39Z'
+schema_version: 1.1.0
+updated_at_utc: '2026-08-08T19:41:39Z'
+continuation: IV
 policy: docs_alone_cannot_satisfy_code_requirements
 accepted_main_policy: no_stale_draft_sha_as_accepted
 entries:
-- id: EV-FK-32
+- id: EV-FK-33
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
-  merged_pr: 32
+  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  merged_pr: 33
   state: MERGED
-  note: 'main tip after #31+#32'
-- id: EV-FK-31
-  repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 96fae13c179fbf07e03dd27c86195e7c57a5010e
-  merged_pr: 31
-  state: MERGED
-  note: requirement totality (444 nodes)
-- id: EV-HW-45
+  note: Cont III post-merge canonicalization umbrella on main
+- id: EV-HW-46
   repo: gunnchos-hardware-industrial-design
-  sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
-  merged_pr: 45
-  state: MERGED
-- id: EV-HW-44
-  repo: gunnchos-hardware-industrial-design
-  sha: bab8883b640917fa2068026a6ed4c9c06db10b0f
-  merged_pr: 44
+  sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
+  merged_pr: 46
   state: MERGED
 - id: EV-EDGE-32
   repo: edge-io-measurement-node
@@ -31,98 +21,65 @@ entries:
   merged_pr: 32
   state: MERGED
   token: RING_ZEPHYR_WEST_BUILD_PASS
-- id: EV-OS-57
+- id: EV-OS-59
   repo: gunnchos-device-os
-  sha: 67998008bde43508de2a79504b2de7edb55d0aee
-  merged_pr: 57
+  sha: a4c17d298c6f4b769c96632646425c9168e3ef98
+  merged_pr: 59
   state: MERGED
-- id: EV-OS-56
-  repo: gunnchos-device-os
-  sha: 27d56ec7d95d89cc4dfef41d348b96b5f0268a22
-  merged_pr: 56
-  state: MERGED
-- id: EV-AI-21
+  also_includes_pr: 58
+  note: system image + cloud/fleet on accepted main
+- id: EV-AI-22
   repo: gunnchAI3k
-  sha: 53d782238b812b981c31a96f0599d237304af904
-  merged_pr: 21
+  sha: 223b2338364a637ae36c6d32a90393042ff4088c
+  merged_pr: 22
   state: MERGED
-  token: GUNNCHAI3K_SYSTEM_LAYER_FOUNDATION_EVAL_PASS
   digitally_validated: false
-- id: EV-ANIME-66
+- id: EV-ANIME-67
   repo: anime-aggressors
-  sha: 436af24d68279eefa10205becb9ed0dcad344241
-  merged_pr: 66
+  sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
+  merged_pr: 67
   state: MERGED
-  note: NOT Alpha exit
-- id: EV-PED-8
+  note: Alpha-exit digital; Beta/RC not claimed
+- id: EV-PED-9
   repo: pedestrian-pursuit
-  sha: 451124c6e8106d995928e35d2a88d2f49706ad4e
-  merged_pr: 8
-  state: MERGED
-- id: EV-ARCH-18
-  repo: archive-of-life-artifact-world
-  sha: 5028aa0e98e41d109c32b47a1d6e891698f86ea4
-  merged_pr: 18
-  state: MERGED
-- id: EV-BL-9
-  repo: beatlink-party
-  sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
+  sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
   merged_pr: 9
   state: MERGED
+  note: Godot headless on main
+- id: EV-ARCH-19
+  repo: archive-of-life-artifact-world
+  sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
+  merged_pr: 19
+  state: MERGED
+  note: Alpha-exit digital; not global live ingest
+- id: EV-BL-11
+  repo: beatlink-party
+  sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
+  merged_pr: 11
+  state: MERGED
+  also_includes_pr: 10
+  note: CI repair + Alpha-exit on green main
 - id: EV-FK-STANDARDS-FIREWALL
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
   requirement_id: SYS-STANDARDS-001
-  note: Defensible product language enforced by claim firewall in CI
+  note: Claim firewall in CI
 - id: EV-FK-EVIDENCE-REGISTRY
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
   requirement_id: SYS-MISSION-009
-  note: Reproducible evidence control plane + firewall + Gate 0 tests
 - id: EV-FK-CARRIER-GRADE-CLAIM-GUARD
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
   requirement_id: FP-CHARTER-L635-CARRIER-GRADE-NOT-MODEM
-  note: Carrier-grade-not-modem claim guard via firewall patterns
 - id: EV-FK-PRODUCT-FAMILY-MATRIX
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
   requirement_id: SYS-MISSION-002
-  note: Coherent family tracked as matrices/baseline (not device runtime complete)
-- id: EV-CONT3-BEAT-10
-  draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/10
-  note: BEATLINK_MAIN_CI_REPAIR_READY
-  status: DRAFT
-- id: EV-CONT3-BEAT-11
-  draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/11
-  sha: 26724bb483473067a21a29129ac91cc6ec48b747
-  note: BEATLINK_ALPHA_EXIT_DIGITAL_PASS + BEATLINK_LOAD_HARNESS_SCAFFOLD_PASS; not Beta/RC; depends on #10 for green main
-  status: DRAFT
-- id: EV-CONT3-PED-9
-  draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9
-  note: PEDESTRIAN_MAIN_GODOT_HEADLESS_PASS; Alpha exit false
-  status: DRAFT
-- id: EV-CONT3-ANIME-67
-  draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/67
-  note: private netplay + BattleScene CPU; art REQUIRES_ART_PRODUCTION
-  status: DRAFT
-- id: EV-CONT3-ARCH-19
-  draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/19
-  note: ARCHIVE_ALPHA_EXIT_DIGITAL_PASS; not global ingest
-  status: DRAFT
-- id: EV-CONT3-OS-59
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/59
-  note: GUNNCHOS_REPRODUCIBLE_SYSTEM_IMAGE_DIGITAL_PASS
-  status: DRAFT
-- id: EV-CONT3-OS-58
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/58
-  note: Lane H cloud/fleet/security; CI fixed
-  status: DRAFT
-- id: EV-CONT3-AI-22
-  draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/22
-  note: llama.cpp path; GGUF unavailable on host
-  status: DRAFT
-- id: EV-CONT3-HW-46
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/46
-  note: five-product depth; KiCad EDMUND; DRC_REPORT.json CI fix
-  status: DRAFT
+- id: EV-FK-CONN-MATRIX
+  repo: gunnchos-7gc-ai-ran-field-kit
+  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  requirement_id: FP-CONN-CARRIER-GRADE
+- id: EV-CONT3-SUPERSEDED
+  status: SUPERSEDED
+  note: Cont III draft pins cleared; merged accepted mains listed above
