@@ -110,3 +110,4 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - gunnchos-device-os draft https://github.com/gunnchOS3k/gunnchos-device-os/pull/57 — Wave B2 72 tests ([Force gunnchOS B2](d5bc0a9c-f10e-4826-a09a-91e2a86fb856))
 - Anime #64 already closed superseded; baseline on this branch
 - Beat Link Wave G draft https://github.com/gunnchOS3k/beatlink-party/pull/9 ([Force BeatLink Wave G](3e10063b-bc24-47c5-8254-d64144f5bc3b)) — Alpha in progress, not RC.
+- Archive Wave F draft https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18 ([Force Archive Wave F](002b9150-339a-43e8-b690-64cd1dd613b5)) — floors met; not global live ingest/RC.
