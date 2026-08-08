@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:23:51Z'
+updated_at_utc: '2026-08-08T00:31:00Z'
 repos:
   gunnchos-device-os:
     role: gunnchOS
@@ -47,4 +47,8 @@ repos:
     note: Soft-skip cleared; MCUboot DEV previously PASS; no physical flash
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: RING_ADVANCED_FAMILY_GENERIC
+    status: KICAD_CLI_BLOCKED_ADMIN
+    draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
+    token: HUMAN_OS_AUTHORIZATION_REQUIRED
+    note: brew cask fetched KiCad 10.0.5 then failed sudo mkdir /Library/Application
+      Support/kicad; no RING_KICAD_CLI_VALIDATION_PASS

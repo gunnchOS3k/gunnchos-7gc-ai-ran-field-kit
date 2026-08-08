@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:23:51Z'
+updated_at_utc: '2026-08-08T00:31:00Z'
 blockers:
 - id: EB-KICAD-ADMIN
   class: HUMAN_OS_AUTHORIZATION
@@ -9,6 +9,9 @@ blockers:
   - RING_KICAD_CLI_VALIDATION_PASS
   - FULL_HARDWARE_DESIGN_RELEASE_COMPLETE
   edmund_action_required: true
+  draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
+  detail: brew install --cask kicad fetched 10.0.5; failed on sudo mkdir for /Library/Application
+    Support/kicad
 - id: EB-ZEPHYR-SDK
   class: DIGITAL_EXECUTABLE
   text: Install pinned Zephyr SDK + west and achieve RING_ZEPHYR_WEST_BUILD_PASS (no

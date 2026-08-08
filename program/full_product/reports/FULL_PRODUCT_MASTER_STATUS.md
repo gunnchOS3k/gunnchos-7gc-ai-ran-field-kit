@@ -100,3 +100,7 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - `RING_ZEPHYR_WEST_BUILD_PASS` — draft https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32 ([Extract SDK finish west build](5a47dcfa-69a7-464b-8ebc-4d260a934a27))
 - Soft-skip retired for ring west build
 - KiCad still `EDMUND_ACTION_REQUIRED` / `HUMAN_OS_AUTHORIZATION_REQUIRED`
+
+## KiCad Wave A closeout (2026-08-08T00:31:00Z)
+- Hardware draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44 — brew fetched KiCad; admin sudo still required ([Fetch mains KiCad Zephyr](dad1469e-5a09-4a1d-8265-dfa7a1da4d3c)).
+- `RING_KICAD_CLI_VALIDATION_PASS` not achieved.
