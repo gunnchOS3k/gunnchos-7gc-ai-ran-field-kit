@@ -44,7 +44,7 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 - Cont V queues: `continuation_v/` + claim audit
 - Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
 - Validator: `scripts/validate_full_product_requirement_graph.py`
-- Updated: 2026-08-08T20:16:48Z
+- Updated: 2026-08-08T20:38:00Z
 
 
 ## Immediate external/human blockers
@@ -150,3 +150,18 @@ Evidence consumer only on field-kit #34 — **not** final umbrella. Tips are Con
 - Pedestrian Beta DRAFT_ONLY / RC partial https://github.com/gunnchOS3k/pedestrian-pursuit/pull/10 (`3fe851d82791d83f9931a3d850bd0b1a7e4d134d`) — AI matrix not yet
 - Archive Beta/Digital RC DRAFT_ONLY https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/20 (`d07253e53371cc99fdf0fa6777a3af1f382136a4`)
 - Beat Link Beta Event Platform + Digital RC DRAFT_ONLY https://github.com/gunnchOS3k/beatlink-party/pull/12 (`4a6ccf3e1a3cc7a22209e748c31c07967fb59c71`)
+
+
+## Continuation V lane draft registry (2026-08-08T20:38:00Z)
+
+Evidence consumer only on field-kit #37 — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
+
+- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37 (`285e5a2ccc24c7810a78672006799a2df508137f`) — self
+- hardware component truth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48 (`187efbda5df03fd675a6a5094ec950390c9a6d29`) — KiCad still EDMUND_ACTION_REQUIRED (brew fetched 10.0.5; sudo blocked)
+- edge-io ring pinout parity https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33 (`a6dcf101da9e29317003b93668190f9ad779ca58`)
+- gunnchOS stub elimination + IPC https://github.com/gunnchOS3k/gunnchos-device-os/pull/62 (`c9ada7a90dc02bb73d151e58eb0045bd570af5cb`) — not FULL platform
+- gunnchAI callable service https://github.com/gunnchOS3k/gunnchAI3k/pull/24 (`cc0c7400b5be0d95570d2d91e6259043ec1f09cf`) — not full platform
+- Anime Path A art/audio https://github.com/gunnchOS3k/anime-aggressors/pull/69 (`1e734dbf9fba959f4a6de6c397b147d41756d99a`) — blocks_token cleared; Beta/RC may become VALID_WITH_EXPLICIT_SCOPE after #69 merges (DRAFT_ONLY now)
+- Pedestrian competitive AI + Local MP https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11 (`ee3400731fae3197057fc39b35767f90b1603237`) — RC PARTIAL
+- Archive production ingest https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/21 (`4d5d00f6922923e2921ba81163af4edc6bf90061`) — scoped Beta/RC
+- Beat Link durable rooms/load/mic https://github.com/gunnchOS3k/beatlink-party/pull/13 (`0e78497791fdfdd2587f2ebefa88b1298ccf50c6`) — Beta/RC still revoked; CI green
