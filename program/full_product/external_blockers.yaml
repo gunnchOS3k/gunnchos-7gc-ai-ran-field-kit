@@ -1,24 +1,24 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T01:26:21Z'
+updated_at_utc: '2026-08-08T19:55:30Z'
 blockers:
 - id: EB-KICAD-ADMIN
   class: HUMAN_OS_AUTHORIZATION
-  text: Approve macOS administrator/install prompt for Homebrew KiCad (and brew directory
-    ownership if required)
+  text: Approve macOS administrator/install prompt for Homebrew KiCad (and brew directory ownership if
+    required)
   blocks:
   - RING_KICAD_CLI_VALIDATION_PASS
   - FULL_HARDWARE_DESIGN_RELEASE_COMPLETE
   edmund_action_required: true
   draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
-  detail: brew install --cask kicad fetched 10.0.5; failed on sudo mkdir for /Library/Application
-    Support/kicad
-  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
-  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+  detail: brew install --cask kicad fetched 10.0.5; failed on sudo mkdir for /Library/Application Support/kicad
+    (sudo blocked)
+  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
+  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34
   status: EDMUND_ACTION_REQUIRED
+  continuation_iv_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
 - id: EB-ZEPHYR-SDK
   class: DIGITAL_EXECUTABLE
-  text: Install pinned Zephyr SDK + west and achieve RING_ZEPHYR_WEST_BUILD_PASS (no
-    soft-skip)
+  text: Install pinned Zephyr SDK + west and achieve RING_ZEPHYR_WEST_BUILD_PASS (no soft-skip)
   blocks:
   - ring_production_firmware
   edmund_action_required: false
@@ -45,16 +45,16 @@ blockers:
   edmund_action_required: true
 - id: EB-EDGEGESTURE-CLONE
   class: DIGITAL_EXECUTABLE
-  text: EdgeGesture repo referenced by program but not present under repos/; clone
-    or drop reference
+  text: EdgeGesture repo referenced by program but not present under repos/; clone or drop reference
   blocks:
   - input_ecosystem_completeness
   edmund_action_required: false
 kicad:
   status: EDMUND_ACTION_REQUIRED
-  detail: brew install --cask kicad fetched 10.0.5 then failed sudo mkdir /Library/Application
-    Support/kicad
-  action: Approve macOS administrator/password prompt (or run brew install --cask
-    kicad with sudo)
+  detail: brew install --cask kicad fetched 10.0.5 then failed sudo mkdir /Library/Application Support/kicad
+    (sudo blocked)
+  action: Approve macOS administrator/password prompt (or run brew install --cask kicad with sudo)
   ring_kicad_cli_validation_pass: false
+  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
+  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34
   note: Cont IV — KiCad remains EDMUND_ACTION_REQUIRED; no cursor/* tip accepted

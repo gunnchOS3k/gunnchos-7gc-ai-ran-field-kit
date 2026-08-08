@@ -135,3 +135,17 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - gunnchAI local runtime https://github.com/gunnchOS3k/gunnchAI3k/pull/22 (no full-platform claim)
 - Hardware family depth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/46 — KiCad still EDMUND_ACTION_REQUIRED
 - Requirement graph on this branch: 476 nodes; UNMAPPED/UNOWNED/UNCLASSIFIED=0; mostly DOC_ONLY
+
+## Continuation IV lane draft registry (2026-08-08T19:55:30Z)
+
+Evidence consumer only on field-kit #34 — **not** final umbrella. Tips are Cont IV draft lane pins; accepted mains remain the Cont IV baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
+
+- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34 (`1f416567acfa03e6db547088dbd869ea5f3ec331`) — self
+- hardware candidates https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47 (`b6f9451098a80bf83155ed60f13478e2cb6ef2c9`) — KiCad still EDMUND_ACTION_REQUIRED (brew fetched 10.0.5; sudo blocked)
+- gunnchOS bootable image https://github.com/gunnchOS3k/gunnchos-device-os/pull/61 (`fba542f838d5ce572034ad411c121c137648d5db`) — CI green after qemu install
+- gunnchOS cloud DEV plane https://github.com/gunnchOS3k/gunnchos-device-os/pull/60 (`c6c599199417575de1b00b99e4ab132553ec87ed`)
+- gunnchAI REAL local inference https://github.com/gunnchOS3k/gunnchAI3k/pull/23 (`e96cf60dab4131d56d6e920d7be218fa4cf2d807`) — not full platform
+- Anime Beta+RC digital DRAFT_ONLY https://github.com/gunnchOS3k/anime-aggressors/pull/68 (`594b29c946d4f23fb7903ac11c97066d16298f7f`)
+- Pedestrian Beta DRAFT_ONLY / RC partial https://github.com/gunnchOS3k/pedestrian-pursuit/pull/10 (`3fe851d82791d83f9931a3d850bd0b1a7e4d134d`) — AI matrix not yet
+- Archive Beta/Digital RC DRAFT_ONLY https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/20 (`d07253e53371cc99fdf0fa6777a3af1f382136a4`)
+- Beat Link Beta Event Platform + Digital RC DRAFT_ONLY https://github.com/gunnchOS3k/beatlink-party/pull/12 (`4a6ccf3e1a3cc7a22209e748c31c07967fb59c71`)
