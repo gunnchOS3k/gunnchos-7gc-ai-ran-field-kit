@@ -109,3 +109,4 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - gunnchAI3k draft https://github.com/gunnchOS3k/gunnchAI3k/pull/21 — foundation eval PASS; DIGITALLY_VALIDATED=false ([Wave C gunnchAI3k depth](be72c958-bf9c-413c-81eb-7879ecf2d45c))
 - gunnchos-device-os draft https://github.com/gunnchOS3k/gunnchos-device-os/pull/57 — Wave B2 72 tests ([Force gunnchOS B2](d5bc0a9c-f10e-4826-a09a-91e2a86fb856))
 - Anime #64 already closed superseded; baseline on this branch
+- Beat Link Wave G draft https://github.com/gunnchOS3k/beatlink-party/pull/9 ([Force BeatLink Wave G](3e10063b-bc24-47c5-8254-d64144f5bc3b)) — Alpha in progress, not RC.

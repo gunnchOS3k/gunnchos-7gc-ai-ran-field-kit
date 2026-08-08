@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:52:23Z'
+updated_at_utc: '2026-08-08T00:53:16Z'
 repos:
   gunnchos-device-os:
     role: gunnchOS
@@ -31,7 +31,19 @@ repos:
     status: G2_DEPTH_NOT_CONTENT_COMPLETE
   beatlink-party:
     role: game
-    status: G2_DEPTH_NOT_CONTENT_COMPLETE
+    status: WAVE_G_ALPHA_IN_PROGRESS
+    draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
+    tests: pnpm test 71 + build
+    modes:
+    - BeatTap
+    - CallAndResponse
+    - KaraokePerformance
+    - BandRoles
+    - PredictionTrivia
+    catalog_tracks: 13
+    content_complete: false
+    rc_digital: false
+    note: Five first-class modes + rights/analysis/karaoke digital; not RC
   edge-io-measurement-node:
     role: ring firmware/host
     status: RING_ZEPHYR_WEST_BUILD_PASS
