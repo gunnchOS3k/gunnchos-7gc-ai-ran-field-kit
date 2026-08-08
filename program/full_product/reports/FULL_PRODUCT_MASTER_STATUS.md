@@ -38,11 +38,12 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 ## Requirement catalog bootstrap
 
 - Catalogued + ingested nodes: **476**
-- Status counts: `{'DIGITALLY_VALIDATED': 3, 'DOC_ONLY': 472, 'IMPLEMENTED': 1}`
+- Status counts: `{'EXTERNAL_REQUIRED': 75, 'SCHEMA_ONLY': 221, 'PHYSICAL_REQUIRED': 120, 'IMPLEMENTED': 45, 'DIGITALLY_VALIDATED': 15}`
 - UNMAPPED=0 · UNOWNED=0 · UNCLASSIFIED=0
+- Cont IV proof: `reports/REQUIREMENT_PROOF_COUNTS.json`
 - Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
 - Validator: `scripts/validate_full_product_requirement_graph.py`
-- Updated: 2026-08-08T01:15:16Z
+- Updated: 2026-08-08T19:43:23Z
 
 
 ## Immediate external/human blockers
