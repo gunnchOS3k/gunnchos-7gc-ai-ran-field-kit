@@ -1,63 +1,91 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:55:52Z'
+updated_at_utc: '2026-08-08T01:15:16Z'
 policy: docs_alone_cannot_satisfy_code_requirements
+accepted_main_policy: no_stale_draft_sha_as_accepted
 entries:
-- id: EV-FK-28
-  repo: gunnchos-7gc-ai-ran-field-kit
-  sha: b89e9902dfe8e6497e024c40f4c4e46fc7f6e0d0
-  note: post-merge canonicalization; PHYSICAL_EXECUTION_RELEASE_BLOCKED
-- id: EV-HW-43
-  repo: gunnchos-hardware-industrial-design
-  sha_claimed: 14cc000d0e376a55a0171579d47c8cfc799a5b38
-  note: KiCad CLI NOT achieved; HUMAN_OS_AUTHORIZATION_REQUIRED
-- id: EV-EDGE-31
-  repo: edge-io-measurement-node
-  sha_claimed: a0e1d76574aa3fb62bc196bbf779e6c8ca1ed7c6
-  note: MCUboot DEV PASS; Zephyr west soft-skip historically
-- id: EV-AA-63
-  repo: anime-aggressors
-  sha_claimed: b0ced34bd5e4ccd1a08e8b38997a45bb4f9baf76
-  note: Godot 4.5 headless smoke passed
-- id: EV-ARCH-17
-  repo: archive-of-life-artifact-world
-  sha_claimed: 402f856805ac1706ee9109611c7ef0412ea4d34c
-  note: open-data digital adapter smoke
-- id: EV-EDGE-32
-  repo: edge-io-measurement-node
-  draft_pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32
-  token: RING_ZEPHYR_WEST_BUILD_PASS
-  note: west build edge_io_ring/nrf52840 Zephyr 3.7.1 SDK 0.16.8
-- id: EV-AI-21
-  repo: gunnchAI3k
-  draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/21
-  token: GUNNCHAI3K_SYSTEM_LAYER_FOUNDATION_EVAL_PASS
-  note: Wave C system layer foundation; not DIGITALLY_VALIDATED
-- id: EV-OS-57
-  repo: gunnchos-device-os
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/57
-  note: Wave B2 platform modules; 72 tests
-- id: EV-BL-9
-  repo: beatlink-party
-  draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
-  note: 'Wave G Alpha: 5 modes, rights pipeline, 13-track catalog, 71 tests'
-- id: EV-ARCH-18
-  repo: archive-of-life-artifact-world
-  draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
-  note: 'Wave F Alpha: 12 regions, 167 E / 24 F; liveClaim false for authored catalog'
-- id: EV-ANIME-66
-  repo: anime-aggressors
-  draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
-  note: 'Wave D2: tutorial/items-hazards/aura/online scaffold/CPU matrix; NOT Alpha
-    exit'
-- id: EV-PED-8
-  repo: pedestrian-pursuit
-  draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
-  note: 'Wave E Alpha: 8 tracks/2 cups greybox; art required; not RC'
-- id: EV-HW-45
-  repo: gunnchos-hardware-industrial-design
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
-  note: Wave A2 fusion footprints/dock/Student AVL; KiCad still Edmund; no fab
 - id: EV-FK-32
   repo: gunnchos-7gc-ai-ran-field-kit
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
-  note: 'Wave A2 ADR-FP-008 + device_designs depth companion to HW #45'
+  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  merged_pr: 32
+  state: MERGED
+  note: 'main tip after #31+#32'
+- id: EV-FK-31
+  repo: gunnchos-7gc-ai-ran-field-kit
+  sha: 96fae13c179fbf07e03dd27c86195e7c57a5010e
+  merged_pr: 31
+  state: MERGED
+  note: requirement totality (444 nodes)
+- id: EV-HW-45
+  repo: gunnchos-hardware-industrial-design
+  sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
+  merged_pr: 45
+  state: MERGED
+- id: EV-HW-44
+  repo: gunnchos-hardware-industrial-design
+  sha: bab8883b640917fa2068026a6ed4c9c06db10b0f
+  merged_pr: 44
+  state: MERGED
+- id: EV-EDGE-32
+  repo: edge-io-measurement-node
+  sha: fc617e831916362e77aa157d77d458e935dc4cfa
+  merged_pr: 32
+  state: MERGED
+  token: RING_ZEPHYR_WEST_BUILD_PASS
+- id: EV-OS-57
+  repo: gunnchos-device-os
+  sha: 67998008bde43508de2a79504b2de7edb55d0aee
+  merged_pr: 57
+  state: MERGED
+- id: EV-OS-56
+  repo: gunnchos-device-os
+  sha: 27d56ec7d95d89cc4dfef41d348b96b5f0268a22
+  merged_pr: 56
+  state: MERGED
+- id: EV-AI-21
+  repo: gunnchAI3k
+  sha: 53d782238b812b981c31a96f0599d237304af904
+  merged_pr: 21
+  state: MERGED
+  token: GUNNCHAI3K_SYSTEM_LAYER_FOUNDATION_EVAL_PASS
+  digitally_validated: false
+- id: EV-ANIME-66
+  repo: anime-aggressors
+  sha: 436af24d68279eefa10205becb9ed0dcad344241
+  merged_pr: 66
+  state: MERGED
+  note: NOT Alpha exit
+- id: EV-PED-8
+  repo: pedestrian-pursuit
+  sha: 451124c6e8106d995928e35d2a88d2f49706ad4e
+  merged_pr: 8
+  state: MERGED
+- id: EV-ARCH-18
+  repo: archive-of-life-artifact-world
+  sha: 5028aa0e98e41d109c32b47a1d6e891698f86ea4
+  merged_pr: 18
+  state: MERGED
+- id: EV-BL-9
+  repo: beatlink-party
+  sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
+  merged_pr: 9
+  state: MERGED
+- id: EV-FK-STANDARDS-FIREWALL
+  repo: gunnchos-7gc-ai-ran-field-kit
+  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  requirement_id: SYS-STANDARDS-001
+  note: Defensible product language enforced by claim firewall in CI
+- id: EV-FK-EVIDENCE-REGISTRY
+  repo: gunnchos-7gc-ai-ran-field-kit
+  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  requirement_id: SYS-MISSION-009
+  note: Reproducible evidence control plane + firewall + Gate 0 tests
+- id: EV-FK-CARRIER-GRADE-CLAIM-GUARD
+  repo: gunnchos-7gc-ai-ran-field-kit
+  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  requirement_id: FP-CHARTER-L635-CARRIER-GRADE-NOT-MODEM
+  note: Carrier-grade-not-modem claim guard via firewall patterns
+- id: EV-FK-PRODUCT-FAMILY-MATRIX
+  repo: gunnchos-7gc-ai-ran-field-kit
+  sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  requirement_id: SYS-MISSION-002
+  note: Coherent family tracked as matrices/baseline (not device runtime complete)

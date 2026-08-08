@@ -15,7 +15,7 @@ Wave A2 (`cursor/full-product-wave-a2-hardware-depth`): `kicad-cli` **ABSENT**. 
 Also may need:
 
 ```
-sudo chown -R $(whoami) /opt/homebrew /Users/gunnchos/Library/Logs/Homebrew
+sudo chown -R $(whoami) /opt/homebrew "$HOME/Library/Logs/Homebrew"
 ```
 
 Then Cursor continues immediately to `RING_KICAD_CLI_VALIDATION_PASS`.

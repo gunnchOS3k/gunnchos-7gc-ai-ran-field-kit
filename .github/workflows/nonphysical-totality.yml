@@ -37,6 +37,10 @@ jobs:
           python scripts/validate_industry_adoption.py
           python scripts/validate_industry_license_boundaries.py
           python scripts/validate_product_quality_contract.py
+      - name: Full-product requirement graph + promotion gates
+        run: |
+          python scripts/validate_full_product_requirement_graph.py
+          PYTHONPATH=. python -m pytest -q tests/full_product
       - name: Gate 2/3 unit tests
         run: PYTHONPATH=. python -m pytest -q gate2/nonphysical gate3/nonphysical industry_research_stack
       - name: Physical freeze token present

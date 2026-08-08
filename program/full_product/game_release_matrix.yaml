@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:54:33Z'
+updated_at_utc: '2026-08-08T01:14:53Z'
 release_phases:
 - G3_Alpha
 - G4_Beta
@@ -8,7 +8,7 @@ release_phases:
 games:
   anime_aggressors:
     engine: Godot 4
-    current_phase: ALPHA_IN_PROGRESS_NOT_EXIT
+    current_phase: MERGED_NOT_ALPHA_EXIT
     fighters_defined: 7
     fighters_fully_differentiated: DATA_YES_ART_NO
     stages_launch_count: ADR_REQUIRED
@@ -25,30 +25,34 @@ games:
     - training
     - arcade_ladder
     art_status: REQUIRES_ART_PRODUCTION
-    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
-    draft_sha: 0b504fa
     aura_identity_runtime: true
     cpu_batch_harness: true
     note: Wave D Alpha depth draft; art still REQUIRES_ART_PRODUCTION; online still
       missing
     alpha_exit: false
     cpu_matrix: playtest-evidence/cpu_batch_matrix.json (147 matches)
+    accepted_main_sha: 436af24d68279eefa10205becb9ed0dcad344241
+    merged_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
+    pr_state: MERGED
   pedestrian_pursuit:
     engine: Godot
-    current_phase: ALPHA_IN_PROGRESS
+    current_phase: MERGED_ALPHA_GREYBOX
     racers_launch_count: ADR_REQUIRED
     tracks_launch_count: ADR_REQUIRED
     content_complete: false
     feature_complete: false
     rc_digital: false
     audit_report: program/full_product/reports/GAME_PORTFOLIO_GAP_AUDIT.md
-    draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
     tracks: 8
     cups: 2
     art: REQUIRES_ART_PRODUCTION
+    accepted_main_sha: 451124c6e8106d995928e35d2a88d2f49706ad4e
+    merged_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
+    alpha_exit: false
+    pr_state: MERGED
   archive_of_life:
     engine: Vite/TS web
-    current_phase: ALPHA_IN_PROGRESS
+    current_phase: MERGED_NOT_GLOBAL_INGEST
     taxonomy_scale: AUTHORED_PUBLIC_NOT_GLOBAL_LIVE
     tiers:
     - R_Record
@@ -57,10 +61,13 @@ games:
     content_complete: false
     feature_complete: false
     rc_digital: false
-    draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
     regions: 12
     encounter_taxa: 167
     flagship: 24
+    accepted_main_sha: 5028aa0e98e41d109c32b47a1d6e891698f86ea4
+    merged_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
+    alpha_exit: false
+    pr_state: MERGED
   beat_link:
     engine: Node/pnpm
     current_phase: ALPHA_IN_PROGRESS
@@ -75,7 +82,6 @@ games:
     content_complete: false
     feature_complete: false
     rc_digital: false
-    draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
     modes_shipped:
     - BeatTap
     - CallAndResponse
@@ -83,3 +89,14 @@ games:
     - BandRoles
     - PredictionTrivia
     catalog_tracks: 13
+    pr_state: MERGED
+    merged_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
+    accepted_main_sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
+  beatlink_party:
+    current_phase: MERGED_MAIN_CI_RED
+    accepted_main_sha: 316cdc83c83a78fa7dfb818f1c39ad8852f2f0e3
+    merged_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
+    alpha_exit: false
+    feature_complete: false
+    content_complete: false
+    rc_digital: false

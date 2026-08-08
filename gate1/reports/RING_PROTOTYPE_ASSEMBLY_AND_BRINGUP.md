@@ -75,22 +75,22 @@ On a development Mac/Linux host with sibling repos checked out:
 
 ```bash
 # Protocol unit tests (software) — already the Gate 1 software path
-cd /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-hardware-industrial-design/ring_input
+cd gunnchos-hardware-industrial-design/ring_input
 PYTHONPATH=python pytest -q tests
 
 # Measurement harness
-cd /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/edge-io-measurement-node
+cd edge-io-measurement-node
 pytest -q tests/test_ring_input_harness.py
 
 # OS adapter
-cd /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os
+cd gunnchos-device-os
 pytest -q tests/test_ring_input_adapter.py
 ```
 
 Physical session (only when ring/mule `PRESENT_CONFIRMED`):
 
 ```bash
-cd /Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit
+cd gunnchos-7gc-ai-ran-field-kit
 python -m gate1.operator.cli inventory
 python -m gate1.operator.cli start-session --workstream ring-auth
 # Capture authenticated frame with anti-replay nonce + payload digest

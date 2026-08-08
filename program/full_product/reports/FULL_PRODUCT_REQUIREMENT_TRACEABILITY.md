@@ -1,13 +1,23 @@
 # FULL PRODUCT REQUIREMENT TRACEABILITY
 
-Updated: 2026-08-08T00:46:53Z
+Updated: 2026-08-08T01:15:16Z
 
 ## Counts
-- Total nodes: **444**
-- Status: `{'DOC_ONLY': 444}`
-- Charter MUST/SHALL unmapped candidates ingested: **7**
-- Charter line-scan residual for those candidates: **0**
-- Global `UNMAPPED_NORMATIVE_REQUIREMENTS`: **STILL_OPEN** pending full GDD prose + open-issue audit
+- Total nodes: **476**
+- Status: `{'DIGITALLY_VALIDATED': 3, 'DOC_ONLY': 472, 'IMPLEMENTED': 1}`
+- UNMAPPED normative hits: **0**
+- UNOWNED nodes: **0**
+- UNCLASSIFIED nodes: **0**
+- Charter expanded-scan residual: **0**
+- GDD/PRD normative hits ingested: **20**
+- Matrix/domain nodes ingested: **12**
+- Issues scan: **LOCAL_FILE**
 
 ## Rule
-Higher states require implementation_paths + tests + evidence SHA on accepted main.
+Higher states (IMPLEMENTED/INTEGRATED/DIGITALLY_VALIDATED) require
+implementation_paths + tests + accepted_sha + evidence.
+Validators fail invalid DOC_ONLY→IMPLEMENTED promotions without paths.
+
+## Honest re-prove
+- Promoted nodes: **4**
+- Remaining DOC_ONLY: **472** (expected; totality ≠ completion)

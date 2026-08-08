@@ -1,0 +1,62 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-08T01:10:00Z'
+note: >
+  Honest re-prove overlays only. Most nodes remain DOC_ONLY. Promotions require
+  existing implementation_paths + tests + accepted main SHA + evidence ids.
+accepted_main_sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+promotions:
+- id: SYS-STANDARDS-001
+  full_product_status: DIGITALLY_VALIDATED
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  implementation_paths:
+  - scripts/validate_claim_firewall.py
+  - program/claims/prohibited_claim_patterns.yaml
+  - program/claims/claim_firewall_allowlist.yaml
+  tests:
+  - scripts/validate_claim_firewall.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  evidence:
+  - EV-FK-STANDARDS-FIREWALL
+  accepted_sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  note: Defensible product language enforced by claim firewall in CI
+- id: SYS-MISSION-009
+  full_product_status: DIGITALLY_VALIDATED
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  implementation_paths:
+  - program/full_product/evidence_registry.yaml
+  - program/claims/claim_taxonomy.yaml
+  - scripts/validate_claim_firewall.py
+  - control_plane/validators/__init__.py
+  tests:
+  - tests/control_plane/test_gate0_control_plane.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  evidence:
+  - EV-FK-EVIDENCE-REGISTRY
+  accepted_sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  note: Reproducible evidence control plane + firewall + Gate 0 tests
+- id: FP-CHARTER-L635-CARRIER-GRADE-NOT-MODEM
+  full_product_status: DIGITALLY_VALIDATED
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  implementation_paths:
+  - scripts/validate_claim_firewall.py
+  - program/claims/prohibited_claim_patterns.yaml
+  tests:
+  - scripts/validate_claim_firewall.py
+  - tests/full_product/test_requirement_promotion_validators.py
+  evidence:
+  - EV-FK-CARRIER-GRADE-CLAIM-GUARD
+  accepted_sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  note: Carrier-grade-not-modem claim guard via firewall patterns
+- id: SYS-MISSION-002
+  full_product_status: IMPLEMENTED
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  implementation_paths:
+  - program/full_product/product_family_matrix.yaml
+  - program/full_product/hardware_release_matrix.yaml
+  - program/requirements/device_role_baseline.yaml
+  tests:
+  - tests/full_product/test_requirement_promotion_validators.py
+  evidence:
+  - EV-FK-PRODUCT-FAMILY-MATRIX
+  accepted_sha: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+  note: Coherent family tracked as matrices/baseline (not device runtime complete)

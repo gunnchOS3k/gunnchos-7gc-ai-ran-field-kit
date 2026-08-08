@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:55:52Z'
+updated_at_utc: '2026-08-08T01:14:53Z'
 criteria_for_FULL_HARDWARE_DESIGN_RELEASE_COMPLETE:
 - exact architecture ADR frozen
 - exact BOM MPNs
@@ -36,7 +36,11 @@ products:
     - MP2978A
     - TPS62864
     - TLV755xx
-    draft_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    accepted_hardware_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
+    merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    pr_state: MERGED
+    merged_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    accepted_main_sha_field_kit: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
   ds_xl_coder:
     role: dual-screen learning-to-build platform
     architecture_freeze: NOT_FROZEN
@@ -49,6 +53,8 @@ products:
     dock_required: true
     blocker_class:
     - DIGITAL_EXECUTABLE
+    accepted_hardware_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
+    merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
   handheld_hybrid:
     role: portable study/play with dock continuity
     architecture_freeze: NOT_FROZEN
@@ -60,6 +66,8 @@ products:
     dock_required: true
     blocker_class:
     - DIGITAL_EXECUTABLE
+    accepted_hardware_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
+    merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
   edge_io_rings:
     role: embodied primary input
     architecture_freeze: ADR_FP_008_FUSION_BASELINE_NOT_LAYOUT_FROZEN
@@ -78,22 +86,37 @@ products:
     - PHYSICAL_REQUIRED_LATER
     sensor_fusion_adr: ADR-FP-008
     fusion_footprints:
+    - nRF52840
+    - BMI270
     - IQS7222A
-    - DWM3001C/DW3000
-    - BHI360 optional
-    draft_pr_hardware: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
-    draft_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    - DWM3001C
+    - BHI360
+    - BMM350
+    - SE050
+    accepted_hardware_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
+    merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    pr_state: MERGED
+    merged_pr_hardware: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    merged_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    accepted_main_sha_hardware: 2ff20bedfe07d1a951872973155202c3b632e8b1
+    accepted_main_sha_field_kit: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
   dock:
     role: first-party family dock
     architecture_freeze: NOT_FROZEN
     bom_state: MISSING_PRODUCT_PACKAGE
-    design_package: REQUIREMENTS_AND_OS_MANAGER_ONLY
+    design_package: device_designs/dock package present
     locations:
+    - device_designs/dock/
     - gunnchos-device-os/gunnchos_device_os/dock_manager.py
     - gunnchos-hardware-industrial-design/firmware_os_interface/DOCKING_AND_EXTERNAL_DISPLAY_REQUIREMENTS.md
     - gunnchos-device-os/gate1_digital_fabrication/dock
     blocker_class:
     - DIGITAL_EXECUTABLE
     status: MANUFACTURING_SKELETON_DIGITAL
-    draft_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
     fab: FORBIDDEN_PHYSICAL_FREEZE
+    accepted_hardware_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1
+    merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    pr_state: MERGED
+    merged_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    accepted_main_sha_field_kit: 4806b283ccda81b87dd4369c9db3dad51e6dd9d8
+accepted_main_sha: 2ff20bedfe07d1a951872973155202c3b632e8b1

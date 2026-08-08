@@ -48,4 +48,4 @@ Creates `PORTFOLIO_REPO_READ_TOKEN` (not preferred).
 # Locally: only check that secret *names* are configured in the repo settings UI — do not echo values
 ```
 
-See also: `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/PORTFOLIO_APP_CREDENTIAL_HANDOFF.md`
+See also: `gunnchos-7gc-ai-ran-field-kit/PORTFOLIO_APP_CREDENTIAL_HANDOFF.md`
