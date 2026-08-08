@@ -1,7 +1,12 @@
-refdes,mpn,manufacturer,description,qty,est_cost_usd,source,status,evidence_class,alternate_mpn
-U1,JHL9040,Intel,USB4 dock controller,1,35,distributor,FROZEN_BASELINE,MODELED,VL108
-U2,TPS65994,Texas Instruments,PD controller,1,4.5,distributor,FROZEN_BASELINE,MODELED,CYPD6227
-U3,RTL8156,Realtek,2.5GbE USB ethernet,1,6,distributor,FROZEN_BASELINE,MODELED,RTL8153
-U4,VL817,VIA Labs,USB 3.1 hub,1,3,distributor,FROZEN_BASELINE,MODELED,
-PCB1,dock_main_pcb,gunnchOS3k,Dock main PCB,1,20,fab,DESIGN_PENDING,MODELED,
-MECH1,dock_enclosure,gunnchOS3k,Dock enclosure,1,12,cm,CAD_PENDING,MODELED,
+refdes,mpn,manufacturer,description,qty,est_cost_usd,source,status,evidence_class,alternate_mpn,avl_status
+U1,JHL9040,Intel,USB4 dock controller Maple Ridge class,1,35,distributor,FROZEN_BASELINE,MODELED,VL108,AVL_PENDING
+U2,TPS65994,Texas Instruments,USB-C PD controller dual-port class,1,4.5,distributor,FROZEN_BASELINE,MODELED,CYPD6227,AVL_CANDIDATE
+U3,RTL8156,Realtek,2.5GbE USB ethernet,1,6,distributor,FROZEN_BASELINE,MODELED,RTL8153,AVL_CANDIDATE
+U4,VL817,VIA Labs,USB 3.1 hub downstream,1,3,distributor,FROZEN_BASELINE,MODELED,VL822,AVL_CANDIDATE
+U5,TPS55288RPMR,Texas Instruments,Buck-boost PD VBUS regulator,1,3.2,distributor,FROZEN_BASELINE,MODELED,TPS65987-path,AVL_CANDIDATE
+U6,TPS62864,Texas Instruments,5V/3V3 system buck,1,1.5,distributor,FROZEN_BASELINE,MODELED,TPS62135,AVL_CANDIDATE
+U7,TLV75533PDRVR,Texas Instruments,3V3 LDO always-on logic,1,0.4,distributor,FROZEN_BASELINE,MODELED,TLV70033,AVL_CANDIDATE
+U8,DWM3001C,Qorvo,Optional UWB companion (ring assist),1,12,distributor,FOOTPRINT_OPTIONAL,MODELED,DW3000,AVL_OPTIONAL
+PCB1,dock_main_pcb,gunnchOS3k,Dock main PCB,1,20,fab,DESIGN_PENDING,MODELED,,
+MECH1,dock_enclosure,gunnchOS3k,Dock enclosure + ring cradle,1,12,cm,CAD_PENDING,MODELED,,
+PSU1,PD_adapter_100W,OEM,External USB-C PD adapter 100W class,1,25,oem,FROZEN_BASELINE,MODELED,65W cost-down,AVL_PENDING

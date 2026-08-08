@@ -1,12 +1,77 @@
 device_id: student_14_5
 evidence_class: MODELED
+adr: ADR-FP-001
+updated_at_utc: "2026-08-08T00:50:00Z"
+physical_execution_freeze: ACTIVE
+battery_wh_modeled: 60
+notes: >
+  Rail budgets with exact regulator MPNs where resolvable from common
+  Intel mobile / NVDC notebook reference classes. Currents MODELED only.
+
 rails:
   - name: VBAT
-    volts: 3.7
+    volts: 14.8
+    cells: 4S
+    gauge_mpn: BQ40Z50-R2
+    alternate_gauge_mpn: BQ40Z80
+    budget_w_avg: 18
+    budget_w_peak: 65
   - name: VSYS
-    volts: 3.8
-  - name: VDD_SOC
-    volts: 0.8
-  - name: VDD_IO
+    volts: 5.5_to_20.0
+    regulator_mpn: BQ25792RQMR
+    alternate_mpn: BQ25798
+    budget_w_avg: 25
+    budget_w_peak: 100
+  - name: VBUS_PD
+    volts: 5.0_to_20.0
+    regulator_mpn: TPS65994ADFBRQ1
+    alternate_mpn: CYPD6227-96LQXIT
+    budget_w_negotiated: 100
+  - name: VDD_SOC_VCORE
+    volts: 0.5_to_1.3
+    regulator_mpn: MP2978A
+    alternate_mpn: TPS536C7
+    budget_w_avg: 12
+    budget_w_peak: 45
+  - name: VDD_GT
+    volts: 0.5_to_1.3
+    regulator_mpn: MP2040
+    alternate_mpn: TPS53667
+    budget_w_avg: 6
+    budget_w_peak: 28
+  - name: VDD_5V_SYS
+    volts: 5.0
+    regulator_mpn: TPS51396AJYYR
+    alternate_mpn: TPS62175
+    budget_ma_avg: 2500
+    budget_ma_peak: 8000
+  - name: VDD_3V3
+    volts: 3.3
+    regulator_mpn: TPS62864YCPR
+    alternate_mpn: TPS62135
+    ldo_holdup_mpn: TLV75533PDRVR
+    budget_ma_avg: 1200
+    budget_ma_peak: 3500
+  - name: VDD_1V8
     volts: 1.8
-battery_wh_modeled: 56
+    regulator_mpn: TPS62864YCPR
+    alternate_mpn: TLV62084
+    ldo_holdup_mpn: TLV75518PDRVR
+    budget_ma_avg: 800
+    budget_ma_peak: 2000
+
+regulators:
+  - {refdes: U13, mpn: BQ25792RQMR, role: NVDC charger}
+  - {refdes: U6, mpn: TPS65994ADFBRQ1, role: USB-C PD}
+  - {refdes: U7, mpn: MP2978A, role: VCORE IMVP9}
+  - {refdes: U8, mpn: MP2040, role: VCCGT}
+  - {refdes: U9, mpn: TPS51396AJYYR, role: 5V system buck}
+  - {refdes: U10, mpn: TPS62864YCPR, role: 3V3/1V8 bucks}
+  - {refdes: U11, mpn: TLV75518PDRVR, role: 1.8V LDO}
+  - {refdes: U12, mpn: TLV75533PDRVR, role: 3.3V LDO}
+  - {refdes: U5, mpn: BQ40Z50-R2, role: pack fuel gauge}
+
+power_scenarios:
+  - {id: idle_display_on, w_avg_modeled: 8, runtime_h_at_60wh: 6.5}
+  - {id: study_local_ai, w_avg_modeled: 22, runtime_h_at_60wh: 2.4}
+  - {id: docked_pd_100w, w_avg_modeled: 45, notes: Adapter/dock supplies VSYS}
