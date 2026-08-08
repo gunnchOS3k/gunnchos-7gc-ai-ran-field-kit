@@ -1,16 +1,29 @@
 # Block diagram — Edge I/O Rings
 
+**ADR:** ADR-FP-008 (nRF52840 alone insufficient for spatial-input promise)
+
 ```mermaid
 flowchart LR
-  subgraph edge_io_rings[Edge I/O Rings]
-    PWR[Power/Battery] --> PMIC[PMIC]
-    PMIC --> SOC[SoC/MCU]
-    SOC --> DISP[Display/UI]
-    SOC --> IO[I/O Ports]
-    SOC --> RF[WiFi/BT/NTN-ready]
-    SOC --> SEC[RoT / Secure Element]
-    IMU[Sensors/IMU] --> SOC
+  subgraph edge_io_rings[Edge I/O Rings — ADR-FP-008]
+    PWR[LiPo + PCM] --> LDO[TLV70033 3V3]
+    LDO --> MCU[nRF52840 BLE/Auth]
+    LDO --> IMU[BMI270]
+    LDO --> CAP[IQS7222A capacitive]
+    LDO --> MAG[BMM350 optional]
+    LDO --> SE[SE050]
+    LDO --> UWB[DW3000/DWM3001C footprint]
+    LDO --> HUB[BHI360 optional hub]
+    IMU --> FUS[Light fusion / confidence]
+    CAP --> FUS
+    MAG --> FUS
+    UWB --> FUS
+    HUB --> FUS
+    FUS --> MCU
+    MCU --> BLE[BLE + chip antenna]
+    MCU --> SE
   end
-  HOST[Host / Fleet] <--> RF
+  DOCK[Dock / Host heavy fusion] <-->|BLE sample stream / UWB assist| BLE
+  DOCK <-->|UWB_ON_COMPANION escape| UWB
 ```
 
+**Policy:** ≥2 modalities required before action dispatch. No single-sensor reliance.

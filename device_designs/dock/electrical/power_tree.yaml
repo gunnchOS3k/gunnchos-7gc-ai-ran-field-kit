@@ -1,0 +1,55 @@
+device_id: dock
+evidence_class: MODELED
+adr: ADR-FP-006
+updated_at_utc: "2026-08-08T00:50:00Z"
+physical_execution_freeze: ACTIVE
+notes: Digital power tree toward manufacturing package. No USB-IF / FCC claims. Currents MODELED.
+
+rails:
+  - name: AC_ADAPTER_VBUS
+    volts: 20.0
+    source: external_PD_adapter
+    budget_w_avg: 65
+    budget_w_peak: 100
+  - name: VBUS_UPSTREAM
+    volts: 5.0_to_20.0
+    regulator_mpn: TPS65994
+    alternate_mpn: CYPD6227
+    budget_w_negotiated: 100
+  - name: VBUS_DOWNSTREAM
+    volts: 5.0
+    regulator_mpn: TPS55288RPMR
+    budget_w_avg: 15
+    budget_w_peak: 45
+  - name: VSYS_5V
+    volts: 5.0
+    regulator_mpn: TPS62864
+    alternate_mpn: TPS62135
+    budget_ma_avg: 1500
+    budget_ma_peak: 4000
+  - name: VDD_3V3
+    volts: 3.3
+    regulator_mpn: TLV75533PDRVR
+    alternate_mpn: TLV70033DSET
+    budget_ma_avg: 350
+    budget_ma_peak: 800
+  - name: RING_CHARGE_5V
+    volts: 5.0
+    regulator_mpn: TPS62864
+    budget_ma_avg: 40
+    budget_ma_peak: 100
+    notes: Aligns with ring BQ25100 charge path
+
+regulators:
+  - refdes: U2
+    mpn: TPS65994
+    role: PD controller
+  - refdes: U5
+    mpn: TPS55288RPMR
+    role: Buck-boost for shared VBUS
+  - refdes: U6
+    mpn: TPS62864
+    role: 5V system buck
+  - refdes: U7
+    mpn: TLV75533PDRVR
+    role: 3V3 LDO

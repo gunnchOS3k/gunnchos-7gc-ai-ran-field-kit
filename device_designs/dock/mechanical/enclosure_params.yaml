@@ -1,0 +1,24 @@
+device_id: dock
+evidence_class: MODELED
+adr: ADR-FP-006
+updated_at_utc: "2026-08-08T00:50:00Z"
+status: CAD_PENDING
+units: mm
+envelope:
+  length: 140
+  width: 90
+  height: 35
+ports_keepouts:
+  usb_c_upstream: {face: rear, clearance_mm: 8}
+  usb_c_downstream: {face: rear, count: 2, clearance_mm: 8}
+  usb_a: {face: rear, count: 2, clearance_mm: 10}
+  hdmi_or_dp: {face: rear, clearance_mm: 12}
+  rj45: {face: rear, clearance_mm: 14}
+  ring_cradle: {face: top, pocket_od_mm: 28, pogo_pitch_mm: 6.0}
+materials:
+  primary: injection_ABS_or_PC_ABS
+  feet: elastomer
+mass_g_estimate_modeled: 320
+notes:
+  - Skeleton only — no STEP claim, no mold-ready claim
+  - Ring cradle alignment is REQUIRES_PHYSICAL_FABRICATION risk
