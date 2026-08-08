@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.local/schemas/full_product_completion_model.schema.json",
+  "title": "FullProductCompletionModel",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mode",
+    "axis",
+    "tokens",
+    "sixteen_layers"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "object"
+    },
+    "axis": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tokens": {
+      "type": "object"
+    },
+    "sixteen_layers": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-08T00:07:41Z'
+products:
+  student_14_5:
+    role: sustained full-session learning/work platform
+    architecture_freeze: ADR_FP_001_007_ACCEPTED_BASELINE
+    bom_state: EXACT_MPN_BASELINE_DISPLAY_AVL_PENDING
+    exact_mpn_count: 0
+    schematic_pcb: INCOMPLETE
+    mechanical_cad: PARAMETRIC_SCAD_ONLY
+    firmware: PROFILE_ONLY
+    os_compatibility: PROFILE_YAML
+    manufacturing_package: CANDIDATE_NOTES
+    dock_required: true
+    blocker_class:
+    - DIGITAL_EXECUTABLE
+    - HUMAN_OS_AUTHORIZATION_FOR_KICAD
+  ds_xl_coder:
+    role: dual-screen learning-to-build platform
+    architecture_freeze: ADR_FP_003_ACCEPTED_BASELINE
+    bom_state: GENERIC_PLACEHOLDER
+    exact_mpn_count: 0
+    second_screen_apps: NOT_IMPLEMENTED
+    schematic_pcb: INCOMPLETE
+    mechanical_cad: PARAMETRIC_SCAD_ONLY
+    manufacturing_package: CANDIDATE_NOTES
+    dock_required: true
+    blocker_class:
+    - DIGITAL_EXECUTABLE
+  handheld_hybrid:
+    role: portable study/play with dock continuity
+    architecture_freeze: ADR_FP_002_ACCEPTED_BASELINE
+    bom_state: GENERIC_PLACEHOLDER
+    continuity_suite: PARTIAL_TESTS_DEVICE_OS
+    schematic_pcb: INCOMPLETE
+    mechanical_cad: PARAMETRIC_SCAD_ONLY
+    manufacturing_package: CANDIDATE_NOTES
+    dock_required: true
+    blocker_class:
+    - DIGITAL_EXECUTABLE
+  edge_io_rings:
+    role: embodied primary input
+    architecture_freeze: ADR_FP_004_ACCEPTED_BASELINE
+    bom_state: PARTIAL_GENERIC
+    mcu_candidate: nRF52840 (prior ring path)
+    kicad_cli: HUMAN_OS_AUTHORIZATION_REQUIRED
+    zephyr_west: NOT_PASS
+    mcuboot_dev: PASS
+    sensor_fusion_complete: false
+    productivity_input_surface: INCOMPLETE
+    gaming_mappings: PARTIAL
+    manufacturing_package: PARTIAL_RING_PCB
+    blocker_class:
+    - HUMAN_OS_AUTHORIZATION
+    - DIGITAL_EXECUTABLE
+    - PHYSICAL_REQUIRED_LATER
+  dock:
+    role: first-party family dock
+    architecture_freeze: ADR_FP_006_ACCEPTED_BASELINE
+    bom_state: EXACT_MPN_BASELINE_PCB_PENDING
+    design_package: SKELETON_CREATED
+    locations:
+    - gunnchos-device-os/gunnchos_device_os/dock_manager.py
+    - gunnchos-hardware-industrial-design/firmware_os_interface/DOCKING_AND_EXTERNAL_DISPLAY_REQUIREMENTS.md
+    - gunnchos-device-os/gate1_digital_fabrication/dock
+    blocker_class:
+    - DIGITAL_EXECUTABLE

@@ -1,0 +1,12 @@
+# FULL PRODUCT RELEASE READINESS
+
+Updated: 2026-08-08T00:06:51Z
+
+```
+FULL_PRODUCT_DIGITAL_IMPLEMENTATION_INCOMPLETE
+PHYSICAL_EXECUTION_FREEZE = ACTIVE
+PHYSICAL_EXECUTION_RELEASE_BLOCKED
+```
+
+Digital end-state tokens are **not** declared.
+Physical/cert/deploy/operate tokens remain forbidden.

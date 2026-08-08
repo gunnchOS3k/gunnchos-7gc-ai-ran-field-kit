@@ -1,5 +1,43 @@
 schema_version: "1.0.0"
 as_of: "2026-08-07"
+updated_at_utc: "2026-08-08T00:10:00Z"
+live_tracker:
+  itu_r_wp5d:
+    imt2030_technical_performance_requirements:
+      status: DRAFT_COMPLETE
+      completed: "2026-02"
+      approval: Pending ITU-R Study Group 5 approval expected 2026-12
+    imt2030_evaluation_guidelines:
+      status: DRAFT_COMPLETE
+      completed: "2026-06"
+      approval: Pending ITU-R Study Group 5 approval expected 2026-12
+    refs:
+      - https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/pages/default.aspx
+      - https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/pages/imt.aspx
+  3gpp:
+    release_20:
+      contains:
+        - 5G-Advanced work
+        - early 6G studies
+      role: study phase for 6G
+      ref: https://www.3gpp.org/specifications-technologies/releases/release-20
+    release_21:
+      role: normative 6G phase
+      status: TRACKER_ONLY
+    news_ref: https://www.3gpp.org/news-events/3gpp-news/sa1-6g-road
+  product_claims_policy:
+    allowed:
+      - IMT-2030 aligned
+      - 6G migration ready
+      - Rel-20 study mapped
+      - Rel-21 tracker
+      - evaluation harness
+      - replaceable modem/RF architecture
+    forbidden:
+      - final 6G compliant
+      - 6G certified
+      - carrier-approved 6G
+      - GATE_8_PASS
 requirements:
   - id: IMT2030-FRAMEWORK-M2160
     source: ITU-IMT-2030
@@ -30,3 +68,11 @@ requirements:
     status: STUDY
     category: 6G-study
     claim_language_allowed: study-phase mapping; never 6G certified
+usage_scenarios_mapping_required:
+  - immersive_communication
+  - hyper_reliable_low_latency_communication
+  - massive_communication
+  - ubiquitous_connectivity
+  - ai_and_communication
+  - integrated_sensing_and_communication
+mapping_file: program/full_product/imt2030_migration_mapping.yaml

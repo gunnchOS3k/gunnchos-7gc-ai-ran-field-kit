@@ -1,8 +1,10 @@
-refdes,part,qty,est_cost_usd,source,status,evidence_class
-PCB1,handheld_hybrid_main_pcb,1,45.00,candidate,DIGITAL_DESIGN,MODELED
-U1,SoC_application_processor,1,28.00,candidate,DIGITAL_DESIGN,MODELED
-DISP1,display_module,1,55.00,candidate,DIGITAL_DESIGN,MODELED
-BT1,battery_pack,1,18.00,candidate,DIGITAL_DESIGN,MODELED
-CONN1,usb_c_connector,1,1.20,candidate,DIGITAL_DESIGN,MODELED
-ANT1,wifi_bt_antenna,1,0.80,candidate,DIGITAL_DESIGN,MODELED
-MECH1,enclosure_shell_set,1,12.00,candidate,DIGITAL_DESIGN,MODELED
+refdes,mpn,manufacturer,description,qty,est_cost_usd,source,status,evidence_class,alternate_mpn
+U1,RK3588S,Rockchip,Application processor,1,45,oem,FROZEN_BASELINE,MODELED,RK3588
+MEM1,LPDDR4X-16GB,Samsung/Micron,16GB LPDDR4x package,1,35,oem,FROZEN_BASELINE,MODELED,
+UFS1,KLUDG4UHDC-B0E1,Samsung,256GB UFS 3.1,1,28,distributor,FROZEN_BASELINE,MODELED,WDC UFS equiv
+DISP1,7in_1920x1080_120Hz,BOE/Tianma,"7"" IPS touch",1,35,oem_quote_required,AVL_PENDING,MODELED,
+U2,AP6275P,Ampak,Wi-Fi 6E/BT 5.3 module,1,8,distributor,FROZEN_BASELINE,MODELED,AIC8800D
+U3,SE050C1HQ1,NXP,Secure element,1,2.8,distributor,FROZEN_BASELINE,MODELED,
+BT1,5000mAh_2S,OEM,Battery pack,1,18,oem,FROZEN_BASELINE,MODELED,
+PCB1,handheld_hybrid_main_pcb,gunnchOS3k,Main PCB,1,30,fab,DESIGN_PENDING,MODELED,
+MECH1,handheld_enclosure,gunnchOS3k,Enclosure+controls,1,22,cm,CAD_PARAMETRIC,MODELED,

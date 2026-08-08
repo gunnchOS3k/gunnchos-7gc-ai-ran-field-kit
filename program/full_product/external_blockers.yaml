@@ -1,0 +1,36 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-08T00:06:51Z'
+blockers:
+- id: EB-KICAD-ADMIN
+  class: HUMAN_OS_AUTHORIZATION
+  text: Approve macOS administrator/install prompt for Homebrew KiCad (and brew directory
+    ownership if required)
+  blocks:
+  - RING_KICAD_CLI_VALIDATION_PASS
+  - FULL_HARDWARE_DESIGN_RELEASE_COMPLETE
+  edmund_action_required: true
+- id: EB-ZEPHYR-SDK
+  class: DIGITAL_EXECUTABLE
+  text: Install pinned Zephyr SDK + west and achieve RING_ZEPHYR_WEST_BUILD_PASS (no
+    soft-skip)
+  blocks:
+  - ring_production_firmware
+  edmund_action_required: false
+- id: EB-GENERIC-BOM
+  class: DIGITAL_EXECUTABLE
+  text: Replace generic SoC/display/battery BOM lines with exact MPNs via ADR freezes
+  blocks:
+  - FULL_HARDWARE_DESIGN_RELEASE_COMPLETE
+  edmund_action_required: false
+- id: EB-DOCK-PRODUCT
+  class: DIGITAL_EXECUTABLE
+  text: Create complete dock hardware design package (missing as first-party product)
+  blocks:
+  - product_family_coherence
+  edmund_action_required: false
+- id: EB-PHYSICAL-FAMILY
+  class: PHYSICAL_REQUIRED
+  text: Physical EVT/DVT/PVT for full device family
+  blocks:
+  - FULL_PHYSICAL_VALIDATION_COMPLETE
+  edmund_action_required: true
