@@ -2,7 +2,7 @@
 
 - Status: ACCEPTED
 - Date: 2026-08-08T00:20:11Z
-- Source: GAME_PORTFOLIO_GAP_AUDIT.md ([Four games content gap audit](4917cca5-bade-497b-86a2-15262311bd65))
+- Source: [GAME_PORTFOLIO_GAP_AUDIT.md](../../full_product/reports/GAME_PORTFOLIO_GAP_AUDIT.md)
 
 ## Decision
 - Tier R: scalable import of known taxa (COL/GBIF/PBDB…) — fixtures ≠ global integration

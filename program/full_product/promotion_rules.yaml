@@ -1,0 +1,82 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-08T01:10:00Z'
+description: >
+  Promotion gates for full_product_status. Validators MUST fail any node that
+  claims a status without the required evidence fields and resolvable paths.
+status_order:
+- DOC_ONLY
+- SCHEMA_ONLY
+- STUB_ONLY
+- SIMULATION_ONLY
+- IMPLEMENTED
+- INTEGRATED
+- DIGITALLY_VALIDATED
+- PHYSICAL_REQUIRED
+- EXTERNAL_REQUIRED
+rules:
+  DOC_ONLY:
+    requires_implementation_paths: false
+    requires_tests: false
+    requires_accepted_sha: false
+    requires_evidence: false
+  SCHEMA_ONLY:
+    requires_implementation_paths: false
+    requires_tests: false
+    requires_accepted_sha: false
+    requires_evidence: false
+  STUB_ONLY:
+    requires_implementation_paths: true
+    requires_tests: false
+    requires_accepted_sha: false
+    requires_evidence: false
+  SIMULATION_ONLY:
+    requires_implementation_paths: true
+    requires_tests: false
+    requires_accepted_sha: false
+    requires_evidence: false
+  IMPLEMENTED:
+    requires_implementation_paths: true
+    requires_tests: true
+    requires_accepted_sha: true
+    requires_evidence: true
+    min_implementation_paths: 1
+    min_tests: 1
+  INTEGRATED:
+    requires_implementation_paths: true
+    requires_tests: true
+    requires_accepted_sha: true
+    requires_evidence: true
+    min_implementation_paths: 2
+    min_tests: 1
+  DIGITALLY_VALIDATED:
+    requires_implementation_paths: true
+    requires_tests: true
+    requires_accepted_sha: true
+    requires_evidence: true
+    min_implementation_paths: 1
+    min_tests: 1
+  PHYSICAL_REQUIRED:
+    requires_implementation_paths: false
+    requires_tests: false
+    requires_accepted_sha: false
+    requires_evidence: false
+  EXTERNAL_REQUIRED:
+    requires_implementation_paths: false
+    requires_tests: false
+    requires_accepted_sha: false
+    requires_evidence: false
+path_policy:
+  field_kit_relative: true
+  sibling_prefix: 'sibling:'
+  allow_missing_sibling_paths: false
+  allow_missing_field_kit_paths: false
+forbidden_promotions:
+- from: DOC_ONLY
+  to: IMPLEMENTED
+  unless: implementation_paths_and_tests_and_sha_and_evidence
+- from: DOC_ONLY
+  to: INTEGRATED
+  unless: implementation_paths_and_tests_and_sha_and_evidence
+- from: DOC_ONLY
+  to: DIGITALLY_VALIDATED
+  unless: implementation_paths_and_tests_and_sha_and_evidence

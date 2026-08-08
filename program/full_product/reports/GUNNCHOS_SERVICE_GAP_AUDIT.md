@@ -1,6 +1,6 @@
 # gunnchOS Platform Service Gap Audit
 
-**Audited repo:** `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os`  
+**Audited repo:** `gunnchos-device-os`  
 **Remote:** `https://github.com/gunnchOS3k/gunnchos-device-os.git`  
 **Fetched:** `origin/main` @ `c4d99234989264ec6d8017a328c75005c7df613a`  
 **Working tree audited:** branch `cursor/gate1-digital-fabrication` @ `1b9a631ef87f3c8b9b02f3fbad60606ba5b348a9` (3 commits behind `origin/main`)  

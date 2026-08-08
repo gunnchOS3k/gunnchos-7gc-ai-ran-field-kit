@@ -6,10 +6,10 @@ Repos audited:
 
 | Game | Repo path |
 |------|-----------|
-| Anime Aggressors | `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/anime-aggressors` |
-| Pedestrian Pursuit | `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/pedestrian-pursuit` |
-| Archive of Life | `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/archive-of-life-artifact-world` |
-| BeatLink Party | `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/beatlink-party` |
+| Anime Aggressors | `anime-aggressors` |
+| Pedestrian Pursuit | `pedestrian-pursuit` |
+| Archive of Life | `archive-of-life-artifact-world` |
+| BeatLink Party | `beatlink-party` |
 
 Cross-matrix: `program/full_product/game_release_matrix.yaml` (all four remain `POST_G2_PRE_ALPHA`, `content_complete: false`, `rc_digital: false`).
 

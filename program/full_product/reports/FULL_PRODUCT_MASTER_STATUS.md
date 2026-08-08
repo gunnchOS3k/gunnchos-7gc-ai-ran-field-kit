@@ -1,6 +1,6 @@
 # FULL PRODUCT MASTER STATUS
 
-Updated: 2026-08-08T00:06:51Z
+Updated: 2026-08-08T01:14:53Z
 
 ## Completion-model transition
 
@@ -37,9 +37,13 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 
 ## Requirement catalog bootstrap
 
-- Catalogued nodes: **419** from `program/requirements/requirements.yaml`
-- Status counts (conservative remap): `{'DOC_ONLY': 419}`
-- Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (second-pass GDD/issue ingestion pending)
+- Catalogued + ingested nodes: **476**
+- Status counts: `{'DIGITALLY_VALIDATED': 3, 'DOC_ONLY': 472, 'IMPLEMENTED': 1}`
+- UNMAPPED=0 · UNOWNED=0 · UNCLASSIFIED=0
+- Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
+- Validator: `scripts/validate_full_product_requirement_graph.py`
+- Updated: 2026-08-08T01:15:16Z
+
 
 ## Immediate external/human blockers
 
@@ -61,7 +65,7 @@ Anime draft PR #64 remains open (smoke unblock tip `13a3ae6`).
 - Student 14.5: Intel Core Ultra 7 155H class + RM520N-GL + Wi-Fi 7 BE200
 - Handheld: RK3588S
 - DS-XL: shared Ultra 7 + dual eDP
-- Rings: nRF52840 + BMI270 + SE050
+- Rings: nRF52840 + BMI270 + IQS7222A + DWM3001C + BHI360/BMM350 + SE050 (ADR-FP-008)
 - Dock: USB4/PD baseline (JHL9040/TPS65994 class)
 - BOMs updated from generic `SoC_application_processor` to MPN baselines (panel AVL still pending quotes)
 
@@ -88,29 +92,45 @@ PHYSICAL_EXECUTION_FREEZE = ACTIVE
 FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 ```
 
-## Follow-up integration (2026-08-08T00:20:11Z)
+## Follow-up integration (canonicalized 2026-08-08T01:14:53Z)
 
-- Source inventory ([Audit source docs + gaps](815983cc-03f9-437c-bbbc-dff2ecfcec94)): charter embeds Four-Game §8; no separate master GDD; EdgeGesture not cloned.
-- gunnchOS audit ([gunnchOS service gap audit](120eb3a8-42a0-4d8c-98ba-678c46d45128)) + Wave B PR https://github.com/gunnchOS3k/gunnchos-device-os/pull/56 (`4d855c9`, 50 tests) — still not platform-complete.
-- Game audit ([Four games content gap audit](4917cca5-bade-497b-86a2-15262311bd65)): ADR floors aligned (Archive regions 12 / encounters ≥120; BeatLink catalog ≥12).
-- Anime Wave D draft: https://github.com/gunnchOS3k/anime-aggressors/pull/65 (`02ee648`) — Alpha in progress, not feature/content complete.
+- Source inventory ([Audit source docs + gaps](../_source_inventory_draft.md)): charter embeds Four-Game §8; no separate master GDD; EdgeGesture not cloned.
+- gunnchOS audit ([gunnchOS service gap audit](GUNNCHOS_SERVICE_GAP_AUDIT.md)) + Wave B MERGED https://github.com/gunnchOS3k/gunnchos-device-os/pull/56 — still not platform-complete.
+- Game audit ([Four games content gap audit](GAME_PORTFOLIO_GAP_AUDIT.md)): ADR floors aligned (Archive regions 12 / encounters ≥120; BeatLink catalog ≥12).
+- Anime Wave D MERGED https://github.com/gunnchOS3k/anime-aggressors/pull/65 (`82d75d3`).
 
-## Zephyr follow-up (2026-08-08T00:23:51Z)
+## Zephyr / KiCad (accepted mains)
 
-- `RING_ZEPHYR_WEST_BUILD_PASS` — draft https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32 ([Extract SDK finish west build](5a47dcfa-69a7-464b-8ebc-4d260a934a27))
-- Soft-skip retired for ring west build
-- KiCad still `EDMUND_ACTION_REQUIRED` / `HUMAN_OS_AUTHORIZATION_REQUIRED`
+- `RING_ZEPHYR_WEST_BUILD_PASS` — MERGED https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32 (`fc617e8`)
+- Hardware KiCad path MERGED https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44 — `RING_KICAD_CLI_VALIDATION_PASS` not achieved (`EDMUND_ACTION_REQUIRED`).
 
-## KiCad Wave A closeout (2026-08-08T00:31:00Z)
-- Hardware draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44 — brew fetched KiCad; admin sudo still required ([Fetch mains KiCad Zephyr](dad1469e-5a09-4a1d-8265-dfa7a1da4d3c)).
-- `RING_KICAD_CLI_VALIDATION_PASS` not achieved.
+## Product waves on accepted mains
 
-## Wave C / B2 integration (2026-08-08T00:52:23Z)
-- gunnchAI3k draft https://github.com/gunnchOS3k/gunnchAI3k/pull/21 — foundation eval PASS; DIGITALLY_VALIDATED=false ([Wave C gunnchAI3k depth](be72c958-bf9c-413c-81eb-7879ecf2d45c))
-- gunnchos-device-os draft https://github.com/gunnchOS3k/gunnchos-device-os/pull/57 — Wave B2 72 tests ([Force gunnchOS B2](d5bc0a9c-f10e-4826-a09a-91e2a86fb856))
-- Anime #64 already closed superseded; baseline on this branch
-- Beat Link Wave G draft https://github.com/gunnchOS3k/beatlink-party/pull/9 ([Force BeatLink Wave G](3e10063b-bc24-47c5-8254-d64144f5bc3b)) — Alpha in progress, not RC.
-- Archive Wave F draft https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18 ([Force Archive Wave F](002b9150-339a-43e8-b690-64cd1dd613b5)) — floors met; not global live ingest/RC.
-- Anime Wave D2 draft https://github.com/gunnchOS3k/anime-aggressors/pull/66 ([Force Anime D2 Alpha exit](050a8684-06f8-4fb7-8adf-c4c9eddf1dfb)) — progress; NOT Alpha exit.
-- Pedestrian Wave E draft https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8 ([Force Pedestrian Wave E](3726b75f-52c6-41bc-baeb-6282f9271d2d)) — 8 tracks/2 cups Alpha greybox; not RC.
-- Hardware Wave A2 draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45 + field-kit https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32 ([Force hardware A2 depth](1a5747e2-af74-4adc-a001-f6cf0468309b)) — ADR-FP-008; KiCad still EDMUND_ACTION_REQUIRED; no fab/merge.
+- gunnchAI3k MERGED https://github.com/gunnchOS3k/gunnchAI3k/pull/21 (`53d7822`) — foundation eval; DIGITALLY_VALIDATED=false
+- gunnchos-device-os MERGED https://github.com/gunnchOS3k/gunnchos-device-os/pull/57 (`6799800`) — Wave B2; not platform-complete
+- Beat Link MERGED https://github.com/gunnchOS3k/beatlink-party/pull/9 (`316cdc8`) — Alpha in progress, not RC
+- Archive MERGED https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18 (`5028aa0`) — floors met; not global live ingest/RC
+- Anime D2 MERGED https://github.com/gunnchOS3k/anime-aggressors/pull/66 (`436af24`) — NOT Alpha exit
+- Pedestrian MERGED https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8 (`451124c`) — Alpha greybox; not RC
+- Hardware A2 MERGED https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45 (`2ff20be`) + field-kit MERGED https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32 (`4806b28`) — ADR-FP-008; KiCad still Edmund; no fab
+
+## Continuation III post-merge canonicalization (2026-08-08T01:14:53Z)
+
+- Field-kit `origin/main` = `4806b283ccda81b87dd4369c9db3dad51e6dd9d8` (MERGED #31+#32).
+- Portable Markdown: Cursor agent-transcript UUID link targets removed; absolute `/Users/...` paths stripped from full_product/gate1 markdown sources.
+- Accepted MAIN SHAs refreshed in `_baseline_accepted_mains.json`, `evidence_registry.yaml`, and software/game/hardware/ai matrices.
+- Semantic audit: requirement_graph **444** nodes; ADR-FP-008 present; ring BOM includes nRF52840/BMI270/IQS7222A/DWM3001C/BHI360/BMM350/SE050; dock package present; Student power MPNs present.
+- Targets when CI green: `FIELD_KIT_MAIN_CI_REPAIR_READY`, `FIELD_KIT_PORTABLE_ARTIFACT_LINKS_PASS`.
+- `FULL_PRODUCT_DIGITAL_IMPLEMENTATION_INCOMPLETE` remains TRUE. No Alpha exit / Beta / RC tokens declared here.
+
+## Continuation III lane draft registry (2026-08-08T01:27:39Z)
+
+- Beat Link CI repair https://github.com/gunnchOS3k/beatlink-party/pull/10 (`BEATLINK_MAIN_CI_REPAIR_READY`)
+- Beat Link Alpha-exit draft https://github.com/gunnchOS3k/beatlink-party/pull/11 (`BEATLINK_ALPHA_EXIT_DIGITAL_PASS` + `BEATLINK_LOAD_HARNESS_SCAFFOLD_PASS`; not Beta/RC; depends on #10)
+- Pedestrian Godot https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9 (`PEDESTRIAN_MAIN_GODOT_HEADLESS_PASS`; Alpha exit false)
+- Anime Alpha-exit depth https://github.com/gunnchOS3k/anime-aggressors/pull/67 (netplay + CPU tokens; art REQUIRES_ART_PRODUCTION)
+- Archive Alpha-exit https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/19 (`ARCHIVE_ALPHA_EXIT_DIGITAL_PASS`; not global ingest)
+- gunnchOS system image https://github.com/gunnchOS3k/gunnchos-device-os/pull/59 + Lane H https://github.com/gunnchOS3k/gunnchos-device-os/pull/58
+- gunnchAI local runtime https://github.com/gunnchOS3k/gunnchAI3k/pull/22 (no full-platform claim)
+- Hardware family depth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/46 — KiCad still EDMUND_ACTION_REQUIRED
+- Requirement graph on this branch: 476 nodes; UNMAPPED/UNOWNED/UNCLASSIFIED=0; mostly DOC_ONLY

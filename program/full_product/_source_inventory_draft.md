@@ -34,9 +34,9 @@
 
 | Absolute path | Description | Normative estimate | Slice / conflict language |
 |---|---|---|---|
-| `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/program/charters/GUNNCHOS3K_CARRIER_GRADE_6G_ECOSYSTEM.md` | **gunnchOS3k Carrier-Grade 6G Equitable Compute Ecosystem** — primary product charter (devices, rings, OS, AI, connectivity, 7GC, four games, manufacturing/evidence, Gates 0–8). | ~26 rfc + ~8 req-word; ~442 bullets; **419 structured IDs extracted** | Success ≠ four APKs; each game needs reliable **core loop**; Gate 1 = core loops; Gate 2 = **device vertical slices**; full operational product requires 16 workstreams (§10). |
-| `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/program/charters/CHARTER_SOURCE_RECORD.yaml` | Ingestion provenance for charter (`sha256`, line count 834). | N/A (meta) | Notes source filename outside git. |
-| `/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/program/charters/CHARTER_APPROVAL_RECORD.yaml` | Charter approval status record. | N/A | Product charter approval still a Gate 0 blocker class elsewhere (`PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND`). |
+| `gunnchos-7gc-ai-ran-field-kit/program/charters/GUNNCHOS3K_CARRIER_GRADE_6G_ECOSYSTEM.md` | **gunnchOS3k Carrier-Grade 6G Equitable Compute Ecosystem** — primary product charter (devices, rings, OS, AI, connectivity, 7GC, four games, manufacturing/evidence, Gates 0–8). | ~26 rfc + ~8 req-word; ~442 bullets; **419 structured IDs extracted** | Success ≠ four APKs; each game needs reliable **core loop**; Gate 1 = core loops; Gate 2 = **device vertical slices**; full operational product requires 16 workstreams (§10). |
+| `gunnchos-7gc-ai-ran-field-kit/program/charters/CHARTER_SOURCE_RECORD.yaml` | Ingestion provenance for charter (`sha256`, line count 834). | N/A (meta) | Notes source filename outside git. |
+| `gunnchos-7gc-ai-ran-field-kit/program/charters/CHARTER_APPROVAL_RECORD.yaml` | Charter approval status record. | N/A | Product charter approval still a Gate 0 blocker class elsewhere (`PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND`). |
 
 **Not found:** standalone file titled “Four-Game Master Requirements” or “Four-Game GDD” outside charter §8.
 
@@ -320,7 +320,7 @@ Charter §§5–7 OS/AI/connectivity services map to field-kit IDs `OS-*`, `AI-*
 
 ### 3.4 Field-kit mirrored device packets
 
-`/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/device_designs/{student_14_5,ds_xl_coder,handheld_hybrid,edge_io_rings}/` each contain: `architecture.md`, `requirements.yaml`, `block_diagram.md`, `interface_control_document.md`, `component_bom.csv`, `electrical/`, `firmware/`, `mechanical/`, `manufacturing/`, `os/`, `validation/`.
+`gunnchos-7gc-ai-ran-field-kit/device_designs/{student_14_5,ds_xl_coder,handheld_hybrid,edge_io_rings}/` each contain: `architecture.md`, `requirements.yaml`, `block_diagram.md`, `interface_control_document.md`, `component_bom.csv`, `electrical/`, `firmware/`, `mechanical/`, `manufacturing/`, `os/`, `validation/`.
 
 ---
 

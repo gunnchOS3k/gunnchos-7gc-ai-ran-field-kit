@@ -116,7 +116,7 @@ Recommended process after owner approval to spend:
 ## 6. Firmware target mapping → authenticated ring protocol
 
 Normative protocol:  
-`/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-hardware-industrial-design/ring_input/docs/AUTHENTICATED_RING_INPUT_PROTOCOL.md`
+`gunnchos-hardware-industrial-design/ring_input/docs/AUTHENTICATED_RING_INPUT_PROTOCOL.md`
 
 Firmware on the ring MCU must eventually implement (or securely forward) the following; today only **Python reference + fixtures** exist:
 
