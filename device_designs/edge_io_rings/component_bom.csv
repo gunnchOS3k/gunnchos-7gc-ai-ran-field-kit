@@ -1,6 +1,8 @@
-refdes,part,qty,est_cost_usd,source,status,evidence_class
-PCB1,ring_flex_rigid,1,8.50,candidate,DIGITAL_DESIGN,MODELED
-U1,ble_mcu,1,2.40,candidate,DIGITAL_DESIGN,MODELED
-IMU1,6dof_imu,1,1.80,candidate,DIGITAL_DESIGN,MODELED
-BT1,coin_or_pouch_cell,1,1.10,candidate,DIGITAL_DESIGN,MODELED
-MECH1,ring_shell,1,2.00,candidate,DIGITAL_DESIGN,MODELED
+refdes,mpn,manufacturer,description,qty,est_cost_usd,source,status,evidence_class,alternate_mpn
+U1,nRF52840-QIAA,Nordic Semiconductor,BLE SoC CSP,1,3.8,distributor,FROZEN_BASELINE,MODELED,nRF52840-CKAA
+U2,BMI270,Bosch,6-axis IMU,1,2.1,distributor,FROZEN_BASELINE,MODELED,ICM-42688-P
+U3,BMM350,Bosch,Magnetometer (DNP optional),1,1.2,distributor,FOOTPRINT,MODELED,
+U4,SE050C1HQ1,NXP,Secure element,1,2.8,distributor,FROZEN_BASELINE,MODELED,ATECC608B
+BT1,LP402025,OEM,LiPo 3.7V ~40mAh,1,1.5,oem,FROZEN_BASELINE,MODELED,
+PCB1,edge_io_ring_flex_rigid,gunnchOS3k,Flex-rigid ring PCB,1,8.5,fab,DESIGN_EXISTS_KICAD_CLI_PENDING,MODELED,
+MECH1,ring_shell_sizes,gunnchOS3k,Shell size variants,1,2.0,cm,CAD_PARAMETRIC,MODELED,

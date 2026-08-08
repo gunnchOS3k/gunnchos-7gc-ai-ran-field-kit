@@ -1,0 +1,4887 @@
+schema_version: 1.0.0
+updated_at_utc: '2026-08-08T00:06:51Z'
+source_catalog: program/requirements/requirements.yaml
+count: 419
+status_vocabulary:
+- DOC_ONLY
+- SCHEMA_ONLY
+- STUB_ONLY
+- SIMULATION_ONLY
+- IMPLEMENTED
+- INTEGRATED
+- DIGITALLY_VALIDATED
+- PHYSICAL_REQUIRED
+- EXTERNAL_REQUIRED
+migration_note: Existing claim_state/implementation_state mapped; full-product audit
+  will reclassify slice completions downward where needed
+nodes:
+- id: SYS-MISSION-001
+  title: Affordable carrier-grade device family mission
+  source_section: 1. System Mission
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - charter_ingestion
+  - product_charter_approval
+  blocker_class:
+  - PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND
+- id: SYS-MISSION-002
+  title: Coherent product family
+  source_section: 1. System Mission
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - device_role_baseline
+  blocker_class: []
+- id: SYS-MISSION-003
+  title: Resilient multi-bearer connectivity
+  source_section: 1. System Mission
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_orchestrator_design
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_STANDARD_FINALIZATION
+- id: SYS-MISSION-004
+  title: gunnchOS on every first-party device
+  source_section: 1. System Mission
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_boot_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: SYS-MISSION-005
+  title: Embed gunnchAI3k local-first assistance
+  source_section: 1. System Mission
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: SYS-MISSION-006
+  title: Cross-form-factor application parity
+  source_section: 1. System Mission
+  subsystem: applications
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - cross_device_parity_matrix
+  blocker_class: []
+- id: SYS-MISSION-007
+  title: I/O rings as usable input environments
+  source_section: 1. System Mission
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_pipeline_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: SYS-MISSION-008
+  title: 7GC as deployment and measurement environments
+  source_section: 1. System Mission
+  subsystem: 7gc
+  priority: P0
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_test_plans
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: SYS-MISSION-009
+  title: Reproducible evidence for claims
+  source_section: 1. System Mission
+  subsystem: evidence
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - evidence_registry
+  - claim_taxonomy
+  blocker_class: []
+- id: SYS-STANDARDS-001
+  title: Defensible IMT-2030-aligned product language
+  source_section: 2. Important Standards Positioning
+  subsystem: standards
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - prohibited_claim_patterns
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+- id: DEV-STUDENT-001
+  title: Student 14.5 primary full-session platform
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - device_role_baseline
+  blocker_class: []
+- id: DEV-STUDENT-002
+  title: All-day practical battery target
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: DEV-STUDENT-003
+  title: Serviceable high-wear components
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-004
+  title: Full-size application layouts
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-005
+  title: Multi-modal input support
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-006
+  title: Local AI acceleration
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-007
+  title: Hardware-backed security
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: DEV-STUDENT-008
+  title: Multi-radio connectivity
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: DEV-STUDENT-009
+  title: Offline learning and development
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-010
+  title: Dock support
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-011
+  title: External displays and peripherals
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-STUDENT-012
+  title: Full gunnchOS development environment
+  source_section: 3.1 Student 14.5
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - hardware_prototype_evidence
+  blocker_class: []
+- id: DEV-DSXL-001
+  title: DS-XL Coder dual-screen creation device
+  source_section: 3.2 DS-XL Coder
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - device_role_baseline
+  blocker_class: []
+- id: DEV-DSXL-002
+  title: DS-XL functional second-screen layouts
+  source_section: 3.2 DS-XL Coder
+  subsystem: device
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - device_ux_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-DSXL-003
+  title: DS-XL strongest build-learning device
+  source_section: 3.2 DS-XL Coder
+  subsystem: device
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - device_ux_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-001
+  title: Handheld Hybrid mobile and dockable compute
+  source_section: 3.3 Handheld Hybrid
+  subsystem: device
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - device_role_baseline
+  blocker_class: []
+- id: DEV-HANDHELD-002
+  title: Preserve open applications across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-003
+  title: Preserve user identity across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-004
+  title: Preserve save state across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-005
+  title: Preserve network session across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-006
+  title: Preserve AI context with privacy controls
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-007
+  title: Preserve input mappings across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-008
+  title: Preserve display layout across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-009
+  title: Preserve audio routing across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: DEV-HANDHELD-010
+  title: Preserve multiplayer participation across dock transition
+  source_section: 3.3 Handheld Hybrid
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - session_continuity_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-001
+  title: Rings are primary embodied-computing interface
+  source_section: 3.4 Edge I/O Rings
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_workstream_ownership
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-002
+  title: Identify ring wearer
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-003
+  title: Identify target device
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-004
+  title: Identify interaction plane surface
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-005
+  title: Determine surface pose and scale
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-006
+  title: Determine hand position relative to surface
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-007
+  title: Infer intended input event
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-008
+  title: Route to destination application or OS service
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-009
+  title: Assess recognition confidence
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-010
+  title: Determine feedback or correction need
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_sensing_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-AWARE-011
+  title: Virtual input plane registration
+  source_section: 4.1 Device and Surface Awareness
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - surface_calibration_protocol
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-001
+  title: Spatial input processing chain
+  source_section: 4.2 Spatial Input Pipeline
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_pipeline_spec
+  blocker_class: []
+- id: RING-INPUT-002
+  title: Multi-sensor fusion without single-sensor reliance
+  source_section: 4.2 Spatial Input Pipeline
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - sensor_fusion_design
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-003
+  title: 'Ring productivity input: Key press'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-004
+  title: 'Ring productivity input: Key release'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-005
+  title: 'Ring productivity input: Modifier keys'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-006
+  title: 'Ring productivity input: Multi-key chords'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-007
+  title: 'Ring productivity input: Backspace and delete'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-008
+  title: 'Ring productivity input: Enter and escape'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-009
+  title: 'Ring productivity input: Pointer movement'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-010
+  title: 'Ring productivity input: Left, right, and secondary click'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-011
+  title: 'Ring productivity input: Double-click'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-012
+  title: 'Ring productivity input: Click-and-drag'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-013
+  title: 'Ring productivity input: Scroll'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-014
+  title: 'Ring productivity input: Text selection'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-015
+  title: 'Ring productivity input: Window movement'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-016
+  title: 'Ring productivity input: Application switching'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-017
+  title: 'Ring productivity input: Zoom and rotation'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-018
+  title: 'Ring productivity input: Handwriting or drawing mode'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-019
+  title: 'Ring productivity input: Media controls'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-020
+  title: 'Ring productivity input: Configurable shortcuts'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-021
+  title: 'Ring productivity input: Accessibility macros'
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_input_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-022
+  title: Virtual keyboard contact state discrimination
+  source_section: 4.3 Required Productivity Inputs
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - contact_state_classifier_eval
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-023
+  title: 'Ring gaming input: Digital buttons'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-024
+  title: 'Ring gaming input: Directional pad'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-025
+  title: 'Ring gaming input: Analog movement'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-026
+  title: 'Ring gaming input: Camera control'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-027
+  title: 'Ring gaming input: Trigger pressure or equivalent graded input'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-028
+  title: 'Ring gaming input: Motion aiming'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-029
+  title: 'Ring gaming input: Gesture attacks'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-030
+  title: 'Ring gaming input: Rhythm timing'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-031
+  title: 'Ring gaming input: Foot-racing movement assistance'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-032
+  title: 'Ring gaming input: Fighter directional attacks and throws'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-033
+  title: 'Ring gaming input: Menu navigation'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-034
+  title: 'Ring gaming input: Local multiplayer identity'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-035
+  title: 'Ring gaming input: Haptic feedback'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-036
+  title: 'Ring gaming input: Accessibility remapping'
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P1
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_game_profile_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-INPUT-037
+  title: Optional game gestures only where beneficial
+  source_section: 4.4 Gaming Inputs
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - game_ring_policy
+  blocker_class: []
+- id: RING-RELIAB-001
+  title: 'Ring reliability: Per-user calibration'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: RING-RELIAB-002
+  title: 'Ring reliability: Per-surface calibration'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: RING-RELIAB-003
+  title: 'Ring reliability: Automatic recalibration'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: RING-RELIAB-004
+  title: 'Ring reliability: Confidence scoring'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-005
+  title: 'Ring reliability: Visual, audio, or haptic confirmation'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-006
+  title: 'Ring reliability: Undo or correction handling'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-007
+  title: 'Ring reliability: Low-confidence rejection'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-008
+  title: 'Ring reliability: Anti-replay protection'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-009
+  title: 'Ring reliability: Anti-spoofing'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-010
+  title: 'Ring reliability: Secure device pairing'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-011
+  title: 'Ring reliability: Lost-ring revocation'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-012
+  title: 'Ring reliability: Offline input operation'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-013
+  title: 'Ring reliability: Local processing for sensitive motion data'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-014
+  title: 'Ring reliability: Explicit permission before persistent motion recording'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-015
+  title: 'Ring reliability: Safe fallback to touch, keyboard, mouse, controller, or
+    voice'
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_reliability_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: RING-RELIAB-016
+  title: No silent destructive uncertain gestures
+  source_section: 4.5 Input Reliability Requirements
+  subsystem: rings
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - destructive_action_guard_tests
+  blocker_class: []
+- id: OS-PLATFORM-001
+  title: 'gunnchOS service: Unified user identity'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-002
+  title: 'gunnchOS service: Hardware abstraction'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-003
+  title: 'gunnchOS service: Device-aware user interfaces'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-004
+  title: 'gunnchOS service: Ring input service'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-005
+  title: 'gunnchOS service: Touch and controller service'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-006
+  title: 'gunnchOS service: Display and dock manager'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-007
+  title: 'gunnchOS service: Cross-device session continuity'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-008
+  title: 'gunnchOS service: Secure application packaging'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-009
+  title: 'gunnchOS service: Permission management'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-010
+  title: 'gunnchOS service: Local AI runtime'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-011
+  title: 'gunnchOS service: Connectivity orchestration'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-012
+  title: 'gunnchOS service: Offline synchronization'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-013
+  title: 'gunnchOS service: Encrypted storage'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-014
+  title: 'gunnchOS service: Secure boot'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: OS-PLATFORM-015
+  title: 'gunnchOS service: Measured boot and attestation'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: OS-PLATFORM-016
+  title: 'gunnchOS service: Over-the-air updates'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-017
+  title: 'gunnchOS service: Update rollback'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: OS-PLATFORM-018
+  title: 'gunnchOS service: Recovery environment'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-019
+  title: 'gunnchOS service: Fleet management'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: OS-PLATFORM-020
+  title: 'gunnchOS service: Application sandboxing'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-021
+  title: 'gunnchOS service: Logging and diagnostics'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-022
+  title: 'gunnchOS service: Accessibility services'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-023
+  title: 'gunnchOS service: Parental, student, educator, and administrator profiles'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-PLATFORM-024
+  title: 'gunnchOS service: Developer mode with clear security boundaries'
+  source_section: 5.1 Common Platform Services
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - os_service_spec
+  blocker_class: []
+- id: OS-CONTINUITY-001
+  title: Cross-device work continuity without rebuild
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_scenario_tests
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: OS-CONTINUITY-002
+  title: 'Continuity transparency: What is synchronized'
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_disclosure_ux
+  blocker_class: []
+- id: OS-CONTINUITY-003
+  title: 'Continuity transparency: Where it is stored'
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_disclosure_ux
+  blocker_class: []
+- id: OS-CONTINUITY-004
+  title: 'Continuity transparency: Which devices can access it'
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_disclosure_ux
+  blocker_class: []
+- id: OS-CONTINUITY-005
+  title: 'Continuity transparency: What remains local'
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_disclosure_ux
+  blocker_class: []
+- id: OS-CONTINUITY-006
+  title: 'Continuity transparency: How to revoke a device'
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_disclosure_ux
+  blocker_class: []
+- id: OS-CONTINUITY-007
+  title: 'Continuity transparency: How to export or delete their information'
+  source_section: 5.2 Seamless Device Continuity
+  subsystem: os
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - continuity_disclosure_ux
+  blocker_class: []
+- id: AI-CORE-001
+  title: 'gunnchAI3k function: Personalized tutoring'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-002
+  title: 'gunnchAI3k function: Code assistance'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-003
+  title: 'gunnchAI3k function: Device troubleshooting'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-004
+  title: 'gunnchAI3k function: Accessibility assistance'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-005
+  title: 'gunnchAI3k function: Game coaching'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-006
+  title: 'gunnchAI3k function: Network optimization'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-007
+  title: 'gunnchAI3k function: Connection-path recommendations'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-008
+  title: 'gunnchAI3k function: Local search'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-009
+  title: 'gunnchAI3k function: Knowledge retrieval'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-010
+  title: 'gunnchAI3k function: Scientific source attribution'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-011
+  title: 'gunnchAI3k function: Translation'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-012
+  title: 'gunnchAI3k function: Content adaptation'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-013
+  title: 'gunnchAI3k function: Workflow automation'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-014
+  title: 'gunnchAI3k function: Security anomaly explanation'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-CORE-015
+  title: 'gunnchAI3k function: User-controlled cross-device continuity'
+  source_section: 6.1 Core Functions
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_feature_eval_baseline
+  blocker_class: []
+- id: AI-LOCAL-001
+  title: 'Local-first AI: Offline tutoring packs'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-002
+  title: 'Local-first AI: Local code assistance'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-003
+  title: 'Local-first AI: Device help'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-004
+  title: 'Local-first AI: Input interpretation support'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-005
+  title: 'Local-first AI: Basic translation'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-006
+  title: 'Local-first AI: Accessibility services'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-007
+  title: 'Local-first AI: Local document retrieval'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-008
+  title: 'Local-first AI: Game AI'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-009
+  title: 'Local-first AI: Connectivity diagnosis'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-010
+  title: 'Local-first AI: Safety-critical alerts'
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - local_runtime_pack_manifest
+  blocker_class: []
+- id: AI-LOCAL-011
+  title: Cloud models not sole path to basic operation
+  source_section: 6.2 Local-First Operation
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - offline_basic_operation_checklist
+  blocker_class: []
+- id: AI-GOV-001
+  title: 'AI governance: Declared purpose'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-002
+  title: 'AI governance: User consent where appropriate'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-003
+  title: 'AI governance: Data minimization'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-004
+  title: 'AI governance: Local/cloud processing disclosure'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-005
+  title: 'AI governance: Model and version identification'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-006
+  title: 'AI governance: Evaluation baseline'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-007
+  title: 'AI governance: Failure analysis'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-008
+  title: 'AI governance: Bias and accessibility evaluation'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-009
+  title: 'AI governance: Human override'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-010
+  title: 'AI governance: Safe fallback'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-011
+  title: 'AI governance: Monitoring'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: AI-GOV-012
+  title: 'AI governance: Rollback capability'
+  source_section: 6.3 AI Governance
+  subsystem: ai
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ai_governance_checklist
+  blocker_class: []
+- id: NET-ORCH-001
+  title: Anywhere engineering objective definition
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_orchestrator_design
+  blocker_class: []
+- id: NET-ORCH-002
+  title: 'Connectivity path: 5G and 5G-Advanced'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-003
+  title: 'Connectivity path: Future standardized 6G'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+- id: NET-ORCH-004
+  title: 'Connectivity path: Wi-Fi'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-005
+  title: 'Connectivity path: Private cellular'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-006
+  title: 'Connectivity path: Satellite or other NTN access'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_EXTERNAL_PARTNER
+- id: NET-ORCH-007
+  title: 'Connectivity path: Device-to-device communication'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-008
+  title: 'Connectivity path: Local mesh'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-009
+  title: 'Connectivity path: Community edge networks'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-010
+  title: 'Connectivity path: Ethernet through docks'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-011
+  title: 'Connectivity path: Delay-tolerant networking'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-012
+  title: 'Connectivity path: Store-and-forward synchronization'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-013
+  title: 'Connectivity path: Emergency low-bandwidth modes'
+  source_section: 7.1 Anywhere and Everywhere as an Engineering Objective
+  subsystem: connectivity
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - bearer_capability_matrix
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: NET-ORCH-014
+  title: 'Orchestrator evaluates: Availability'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-015
+  title: 'Orchestrator evaluates: Signal quality'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-016
+  title: 'Orchestrator evaluates: Latency'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-017
+  title: 'Orchestrator evaluates: Jitter'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-018
+  title: 'Orchestrator evaluates: Packet loss'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-019
+  title: 'Orchestrator evaluates: Cost'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-020
+  title: 'Orchestrator evaluates: Energy consumption'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-021
+  title: 'Orchestrator evaluates: Security'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-022
+  title: 'Orchestrator evaluates: Data limits'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-023
+  title: 'Orchestrator evaluates: Application priority'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-024
+  title: 'Orchestrator evaluates: User preference'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-025
+  title: 'Orchestrator evaluates: Regulatory restrictions'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-026
+  title: 'Orchestrator evaluates: Satellite visibility'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-027
+  title: 'Orchestrator evaluates: Local infrastructure status'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_metric_schema
+  blocker_class: []
+- id: NET-ORCH-028
+  title: 'Orchestrator capability: Seamless bearer transition where technically possible'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-029
+  title: 'Orchestrator capability: Session resumption where seamless transition is
+    impossible'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-030
+  title: 'Orchestrator capability: Multipath communication'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-031
+  title: 'Orchestrator capability: Low-bandwidth adaptation'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-032
+  title: 'Orchestrator capability: Prioritization of emergency, learning, and communication
+    traffic'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-033
+  title: 'Orchestrator capability: Local caching'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-034
+  title: 'Orchestrator capability: Opportunistic synchronization'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: NET-ORCH-035
+  title: 'Orchestrator capability: Transparent degraded-mode reporting'
+  source_section: 7.2 Connectivity Orchestrator
+  subsystem: connectivity
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - orchestrator_capability_tests
+  blocker_class: []
+- id: 7GC-DEPLOY-001
+  title: Campuses as measurable deployment environments
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P0
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_deployment_framework
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-002
+  title: 'Campus evaluates: Local coverage conditions'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-003
+  title: 'Campus evaluates: Terrestrial and NTN integration'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-004
+  title: 'Campus evaluates: Community infrastructure'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-005
+  title: 'Campus evaluates: Indoor and outdoor service'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-006
+  title: 'Campus evaluates: Cost per connected learner'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-007
+  title: 'Campus evaluates: Service continuity'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-008
+  title: 'Campus evaluates: Energy availability'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-009
+  title: 'Campus evaluates: Environmental conditions'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-010
+  title: 'Campus evaluates: Accessibility'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-011
+  title: 'Campus evaluates: Local language requirements'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-012
+  title: 'Campus evaluates: Device maintainability'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-013
+  title: 'Campus evaluates: Repair logistics'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-014
+  title: 'Campus evaluates: Community ownership'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-015
+  title: 'Campus evaluates: Privacy and governance'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-016
+  title: 'Campus evaluates: Educational outcomes'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-017
+  title: 'Campus evaluates: Local application requirements'
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P1
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_evaluation_protocol
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: 7GC-DEPLOY-018
+  title: Equal excellence via locally appropriate infrastructure
+  source_section: 7.3 Seven Global Campus Role
+  subsystem: 7gc
+  priority: P0
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - 7gc_topology_comparison
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GAME-CROSS-001
+  title: Interface may adapt; game must not become lesser
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_matrix
+  blocker_class: []
+- id: GAME-CROSS-002
+  title: 'Cross-device game: Identical core rules'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-003
+  title: 'Cross-device game: Compatible save data'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-004
+  title: 'Cross-device game: Consistent scoring'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-005
+  title: 'Cross-device game: Deterministic gameplay outcomes where required'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-006
+  title: 'Cross-device game: Consistent multiplayer state'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-007
+  title: 'Cross-device game: Equivalent accessibility'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-008
+  title: 'Cross-device game: Fair competitive input handling'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-009
+  title: 'Cross-device game: Device-specific presentation'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-010
+  title: 'Cross-device game: Device-specific control layouts'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-CROSS-011
+  title: 'Cross-device game: Scalable visual quality'
+  source_section: 8.1 Cross-Device Rule
+  subsystem: games
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - game_parity_tests
+  blocker_class: []
+- id: GAME-BEATLINK-001
+  title: 'Beat Link: Host starts a room'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-002
+  title: 'Beat Link: Players join through devices or browsers'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-003
+  title: 'Beat Link: Legal and supported song source selected'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-004
+  title: 'Beat Link: Players choose active or audience roles'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-005
+  title: 'Beat Link: Timing calibrated per device'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-006
+  title: 'Beat Link: Performers sing/tap/swipe/play roles/complete prompts'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-007
+  title: 'Beat Link: Audience influence on energy/awards/multipliers/conditions/result'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-008
+  title: 'Beat Link: Individual and team outcomes produced'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-009
+  title: 'Beat Link: Reconnect and rematch work'
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - beatlink_core_loop_evidence
+  blocker_class: []
+- id: GAME-BEATLINK-010
+  title: Music links are not rip permission
+  source_section: 8.2 Beat Link
+  subsystem: games
+  priority: P0
+  owner_repository: beatlink-party
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - music_rights_policy
+  blocker_class: []
+- id: GAME-AOL-001
+  title: Archive of Life covers known record without completeness claim
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - prohibited_claim_patterns
+  blocker_class: []
+- id: GAME-AOL-002
+  title: 'Scientific record field: Canonical identifier'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-003
+  title: 'Scientific record field: Scientific name'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-004
+  title: 'Scientific record field: Taxonomic authority'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-005
+  title: 'Scientific record field: Source organization'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-006
+  title: 'Scientific record field: Source record identifier'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-007
+  title: 'Scientific record field: License'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-008
+  title: 'Scientific record field: Retrieval date'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-009
+  title: 'Scientific record field: Version'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-010
+  title: 'Scientific record field: Geographic provenance'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-011
+  title: 'Scientific record field: Time range'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-012
+  title: 'Scientific record field: Confidence or uncertainty'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-013
+  title: 'Scientific record field: Editorial status'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-014
+  title: 'Scientific record field: Citation shown to the user where appropriate'
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - scientific_provenance_schema
+  blocker_class: []
+- id: GAME-AOL-015
+  title: No fake source integration claims
+  source_section: 8.3 Archive of Life
+  subsystem: games
+  priority: P0
+  owner_repository: archive-of-life-artifact-world
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - source_integration_status
+  blocker_class: []
+- id: GAME-PP-001
+  title: 'Pedestrian Pursuit: Sprinting'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-002
+  title: 'Pedestrian Pursuit: Foot drifting'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-003
+  title: 'Pedestrian Pursuit: Jumping'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-004
+  title: 'Pedestrian Pursuit: Sliding'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-005
+  title: 'Pedestrian Pursuit: Wall interaction'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-006
+  title: 'Pedestrian Pursuit: Rail grinding'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-007
+  title: 'Pedestrian Pursuit: Stomping'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-008
+  title: 'Pedestrian Pursuit: Tricks'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-009
+  title: 'Pedestrian Pursuit: Boost management'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-010
+  title: 'Pedestrian Pursuit: Items'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-011
+  title: 'Pedestrian Pursuit: Shortcuts'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-012
+  title: 'Pedestrian Pursuit: Terrain interaction'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-013
+  title: 'Pedestrian Pursuit: Distinct racers'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-014
+  title: 'Pedestrian Pursuit: Fair comeback mechanics'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-PP-015
+  title: 'Pedestrian Pursuit: Competitive mastery'
+  source_section: 8.4 Pedestrian Pursuit
+  subsystem: games
+  priority: P1
+  owner_repository: pedestrian-pursuit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - pp_core_loop_evidence
+  blocker_class: []
+- id: GAME-AA-001
+  title: 'Anime Aggressors: Aura charging'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-002
+  title: 'Anime Aggressors: Aura-scaled hand-to-hand combat'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-003
+  title: 'Anime Aggressors: Charge-scaled projectiles'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-004
+  title: 'Anime Aggressors: Directional throws'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-005
+  title: 'Anime Aggressors: Fighter-specific movement'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-006
+  title: 'Anime Aggressors: Defense and recovery'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-007
+  title: 'Anime Aggressors: Original power identities'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-008
+  title: 'Anime Aggressors: Readable impact'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-009
+  title: 'Anime Aggressors: Competitive frame behavior'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-010
+  title: 'Anime Aggressors: Training and debug tools'
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P1
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - aa_combat_validation
+  blocker_class: []
+- id: GAME-AA-011
+  title: Ring gestures not mandatory competitive control without fairness proof
+  source_section: 8.5 Anime Aggressors
+  subsystem: games
+  priority: P0
+  owner_repository: anime-aggressors
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - ring_competitive_fairness_evidence
+  blocker_class:
+  - REQUIRES_HUMAN_PARTICIPANTS
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: CG-RELIABILITY-001
+  title: 'Carrier-grade reliability: Defined service-level objectives'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-002
+  title: 'Carrier-grade reliability: Failure recovery'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-003
+  title: 'Carrier-grade reliability: Graceful degradation'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-004
+  title: 'Carrier-grade reliability: Watchdog behavior'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-005
+  title: 'Carrier-grade reliability: Crash reporting'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-006
+  title: 'Carrier-grade reliability: Redundant critical storage'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-007
+  title: 'Carrier-grade reliability: Safe state restoration'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class: []
+- id: CG-RELIABILITY-008
+  title: 'Carrier-grade reliability: Long-duration testing'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-RELIABILITY-009
+  title: 'Carrier-grade reliability: Thermal endurance'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-RELIABILITY-010
+  title: 'Carrier-grade reliability: Battery-health management'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-RELIABILITY-011
+  title: 'Carrier-grade reliability: Network handover testing'
+  source_section: 9. Carrier-Grade Definition / Reliability
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - reliability_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-SECURITY-001
+  title: 'Carrier-grade security: Hardware root of trust'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: CG-SECURITY-002
+  title: 'Carrier-grade security: Secure and measured boot'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: CG-SECURITY-003
+  title: 'Carrier-grade security: Signed firmware'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: CG-SECURITY-004
+  title: 'Carrier-grade security: Encrypted storage'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-005
+  title: 'Carrier-grade security: Strong identity'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-006
+  title: 'Carrier-grade security: Device attestation'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: CG-SECURITY-007
+  title: 'Carrier-grade security: Application sandboxing'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-008
+  title: 'Carrier-grade security: Least privilege'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-009
+  title: 'Carrier-grade security: Protected update process'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-010
+  title: 'Carrier-grade security: Vulnerability disclosure process'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-011
+  title: 'Carrier-grade security: Software bill of materials'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-012
+  title: 'Carrier-grade security: Supply-chain verification'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-SECURITY-013
+  title: 'Carrier-grade security: Key rotation'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-014
+  title: 'Carrier-grade security: Lost-device revocation'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-SECURITY-015
+  title: 'Carrier-grade security: Incident-response procedures'
+  source_section: 9. Carrier-Grade Definition / Security
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - security_evidence
+  blocker_class: []
+- id: CG-OPS-001
+  title: 'Carrier-grade operations: Fleet inventory'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-002
+  title: 'Carrier-grade operations: Health telemetry'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-003
+  title: 'Carrier-grade operations: Remote diagnostics'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-004
+  title: 'Carrier-grade operations: Staged updates'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-005
+  title: 'Carrier-grade operations: Canary deployments'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-006
+  title: 'Carrier-grade operations: Rollback'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-007
+  title: 'Carrier-grade operations: Regional configuration'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-008
+  title: 'Carrier-grade operations: Service monitoring'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-009
+  title: 'Carrier-grade operations: Capacity planning'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-OPS-010
+  title: 'Carrier-grade operations: Support escalation'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-OPS-011
+  title: 'Carrier-grade operations: Repair tracking'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-OPS-012
+  title: 'Carrier-grade operations: End-of-life policy'
+  source_section: 9. Carrier-Grade Definition / Operations
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - fleet_ops_design
+  blocker_class: []
+- id: CG-CONNECTIVITY-001
+  title: 'Carrier-grade connectivity: RF conformance'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_CERTIFICATION_LAB
+- id: CG-CONNECTIVITY-002
+  title: 'Carrier-grade connectivity: SIM/eSIM management'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-CONNECTIVITY-003
+  title: 'Carrier-grade connectivity: Roaming behavior'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_CARRIER
+- id: CG-CONNECTIVITY-004
+  title: 'Carrier-grade connectivity: Carrier-profile management'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_CARRIER
+- id: CG-CONNECTIVITY-005
+  title: 'Carrier-grade connectivity: NTN integration testing'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-CONNECTIVITY-006
+  title: 'Carrier-grade connectivity: Emergency behavior'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_CARRIER
+- id: CG-CONNECTIVITY-007
+  title: 'Carrier-grade connectivity: Bearer handoff'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-CONNECTIVITY-008
+  title: 'Carrier-grade connectivity: Poor-coverage validation'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-CONNECTIVITY-009
+  title: 'Carrier-grade connectivity: Congestion behavior'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-CONNECTIVITY-010
+  title: 'Carrier-grade connectivity: Network power optimization'
+  source_section: 9. Carrier-Grade Definition / Connectivity
+  subsystem: carrier_grade
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - connectivity_conformance_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: CG-QUALITY-001
+  title: 'Carrier-grade product quality: Clean installation'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-002
+  title: 'Carrier-grade product quality: Factory reset'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-003
+  title: 'Carrier-grade product quality: Data export'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-004
+  title: 'Carrier-grade product quality: Recovery mode'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-005
+  title: 'Carrier-grade product quality: Update from old supported releases'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-006
+  title: 'Carrier-grade product quality: Accessibility'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-007
+  title: 'Carrier-grade product quality: Localization'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-008
+  title: 'Carrier-grade product quality: Repair documentation'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class: []
+- id: CG-QUALITY-009
+  title: 'Carrier-grade product quality: Packaging'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-QUALITY-010
+  title: 'Carrier-grade product quality: Warranty and support'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-QUALITY-011
+  title: 'Carrier-grade product quality: Regulatory labeling'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+  - REQUIRES_EXTERNAL_PARTNER
+- id: CG-QUALITY-012
+  title: 'Carrier-grade product quality: Safe charging'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_CERTIFICATION_LAB
+- id: CG-QUALITY-013
+  title: 'Carrier-grade product quality: Environmental and durability testing'
+  source_section: 9. Carrier-Grade Definition / Product Quality
+  subsystem: carrier_grade
+  priority: P1
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - product_quality_checklist
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_CERTIFICATION_LAB
+- id: FULL-OPS-001
+  title: 'Fully operational layer: Industrial design'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: FULL-OPS-002
+  title: 'Fully operational layer: Electrical hardware'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: FULL-OPS-003
+  title: 'Fully operational layer: Firmware'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: FULL-OPS-004
+  title: 'Fully operational layer: Operating system'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-005
+  title: 'Fully operational layer: AI platform'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-006
+  title: 'Fully operational layer: Connectivity'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-007
+  title: 'Fully operational layer: Input ecosystem'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-008
+  title: 'Fully operational layer: Applications'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-009
+  title: 'Fully operational layer: Games'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-010
+  title: 'Fully operational layer: Cloud and edge services'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-011
+  title: 'Fully operational layer: Security operations'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-012
+  title: 'Fully operational layer: Manufacturing'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+- id: FULL-OPS-013
+  title: 'Fully operational layer: Certification'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: FULL-OPS-014
+  title: 'Fully operational layer: Deployment'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: FULL-OPS-015
+  title: 'Fully operational layer: Support'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: FULL-OPS-016
+  title: 'Fully operational layer: Evidence'
+  source_section: 10. Definition of Fully Operational
+  subsystem: ecosystem
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - full_ops_layer_checklist
+  blocker_class: []
+- id: FULL-OPS-017
+  title: Partial artifacts do not prove full operation
+  source_section: 10. Definition of Fully Operational
+  subsystem: evidence
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - claim_taxonomy
+  blocker_class: []
+- id: GATE-0-001
+  title: 'Gate 0: Product charter approved'
+  source_section: 11. Development and Deployment Gates / Gate 0
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate_status
+  blocker_class:
+  - PRODUCT_CHARTER_APPROVAL_PENDING_EDMUND
+- id: GATE-0-002
+  title: 'Gate 0: Device roles frozen'
+  source_section: 11. Development and Deployment Gates / Gate 0
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - gate_status
+  blocker_class: []
+- id: GATE-0-003
+  title: 'Gate 0: Requirement identifiers assigned'
+  source_section: 11. Development and Deployment Gates / Gate 0
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - gate_status
+  blocker_class: []
+- id: GATE-0-004
+  title: 'Gate 0: Claims classified as target, implemented, validated, or certified'
+  source_section: 11. Development and Deployment Gates / Gate 0
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - gate_status
+  blocker_class: []
+- id: GATE-0-005
+  title: 'Gate 0: Repository ownership established'
+  source_section: 11. Development and Deployment Gates / Gate 0
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: DOCUMENTED_DESIGN
+  full_product_status: DOC_ONLY
+  tests:
+  - gate_status
+  blocker_class: []
+- id: GATE-1-001
+  title: 'Gate 1: gunnchOS boots on representative hardware'
+  source_section: 11. Development and Deployment Gates / Gate 1
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate1_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: GATE-1-002
+  title: 'Gate 1: Ring prototype sends authenticated input'
+  source_section: 11. Development and Deployment Gates / Gate 1
+  subsystem: gates
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate1_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: GATE-1-003
+  title: 'Gate 1: At least one device docks successfully'
+  source_section: 11. Development and Deployment Gates / Gate 1
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate1_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: GATE-1-004
+  title: 'Gate 1: gunnchAI3k local runtime functions'
+  source_section: 11. Development and Deployment Gates / Gate 1
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchAI3k
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate1_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-1-005
+  title: 'Gate 1: Each game completes one core loop'
+  source_section: 11. Development and Deployment Gates / Gate 1
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate1_evidence
+  blocker_class: []
+- id: GATE-2-001
+  title: 'Gate 2: Representative enclosure'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-2-002
+  title: 'Gate 2: Working display and controls'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-2-003
+  title: 'Gate 2: Real battery and thermal measurements'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-2-004
+  title: 'Gate 2: Secure boot'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-2-005
+  title: 'Gate 2: Signed update'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-2-006
+  title: 'Gate 2: Device-specific game UX'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-2-007
+  title: 'Gate 2: Ring calibration and fallback'
+  source_section: 11. Development and Deployment Gates / Gate 2
+  subsystem: gates
+  priority: P0
+  owner_repository: EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate2_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+  - REQUIRES_LOCAL_HARDWARE
+- id: GATE-3-001
+  title: 'Gate 3: Cross-device identity and continuity'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-3-002
+  title: 'Gate 3: Multi-device saves'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-3-003
+  title: 'Gate 3: Connectivity manager'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-3-004
+  title: 'Gate 3: Fleet observability'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-3-005
+  title: 'Gate 3: Security threat models'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-3-006
+  title: 'Gate 3: 7GC test plans'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: 7gc-digital-twin
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-3-007
+  title: 'Gate 3: Repair procedure'
+  source_section: 11. Development and Deployment Gates / Gate 3
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate3_evidence
+  blocker_class: []
+- id: GATE-4-001
+  title: 'Gate 4: Real users'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: GATE-4-002
+  title: 'Gate 4: Real connectivity conditions'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-4-003
+  title: 'Gate 4: Long-duration operation'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-4-004
+  title: 'Gate 4: Terrestrial and NTN experiments where available'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_LOCAL_HARDWARE
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-4-005
+  title: 'Gate 4: Accessibility evaluation'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: GATE-4-006
+  title: 'Gate 4: Local-language evaluation'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: GATE-4-007
+  title: 'Gate 4: Community governance review'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_HUMAN_PARTICIPANTS
+- id: GATE-4-008
+  title: 'Gate 4: Incident and support exercises'
+  source_section: 11. Development and Deployment Gates / Gate 4
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate4_evidence
+  blocker_class:
+  - REQUIRES_HUMAN_PARTICIPANTS
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-5-001
+  title: 'Gate 5: Design for manufacture'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+- id: GATE-5-002
+  title: 'Gate 5: Supply-chain audit'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-5-003
+  title: 'Gate 5: Regulatory test candidates'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-5-004
+  title: 'Gate 5: Carrier engagement'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_CARRIER
+- id: GATE-5-005
+  title: 'Gate 5: Privacy and security review'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_ETHICS_OR_GOVERNANCE_APPROVAL
+- id: GATE-5-006
+  title: 'Gate 5: Production provisioning'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+- id: GATE-5-007
+  title: 'Gate 5: Packaging and support system'
+  source_section: 11. Development and Deployment Gates / Gate 5
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate5_evidence
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+- id: GATE-6-001
+  title: 'Gate 6: No unresolved critical safety or security defects'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_EDMUND
+- id: GATE-6-002
+  title: 'Gate 6: Signed factory image'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: GATE-6-003
+  title: 'Gate 6: Verified update and rollback'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: GATE-6-004
+  title: 'Gate 6: Clean install and recovery'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_PHYSICAL_PROTOTYPE
+- id: GATE-6-005
+  title: 'Gate 6: Complete applications and game paths'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_EDMUND
+- id: GATE-6-006
+  title: 'Gate 6: Published support lifecycle'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-6-007
+  title: 'Gate 6: Pilot evidence accepted'
+  source_section: 11. Development and Deployment Gates / Gate 6
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate6_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-7-001
+  title: 'Gate 7: Required regional certifications'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class:
+  - REQUIRES_CERTIFICATION_LAB
+- id: GATE-7-002
+  title: 'Gate 7: Carrier or network acceptance where applicable'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class:
+  - REQUIRES_CARRIER
+- id: GATE-7-003
+  title: 'Gate 7: Production manufacturing'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-hardware-industrial-design
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class:
+  - REQUIRES_MANUFACTURER
+- id: GATE-7-004
+  title: 'Gate 7: Support staffing'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-7-005
+  title: 'Gate 7: Fleet operations'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-7-006
+  title: 'Gate 7: Vulnerability-response process'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class: []
+- id: GATE-7-007
+  title: 'Gate 7: Repair and replacement inventory'
+  source_section: 11. Development and Deployment Gates / Gate 7
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate7_evidence
+  blocker_class:
+  - REQUIRES_EXTERNAL_PARTNER
+- id: GATE-8-001
+  title: 'Gate 8: Map finalized 3GPP and ITU requirements to hardware and software'
+  source_section: 11. Development and Deployment Gates / Gate 8
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate8_evidence
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+- id: GATE-8-002
+  title: 'Gate 8: Upgrade compatible components'
+  source_section: 11. Development and Deployment Gates / Gate 8
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate8_evidence
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+- id: GATE-8-003
+  title: 'Gate 8: Replace components that cannot meet the normative standard'
+  source_section: 11. Development and Deployment Gates / Gate 8
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate8_evidence
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+- id: GATE-8-004
+  title: 'Gate 8: Complete formal conformance testing'
+  source_section: 11. Development and Deployment Gates / Gate 8
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-device-os
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate8_evidence
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+- id: GATE-8-005
+  title: 'Gate 8: Use 6G certification language only after applicable standard and
+    certification path exist'
+  source_section: 11. Development and Deployment Gates / Gate 8
+  subsystem: gates
+  priority: P0
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  legacy_implementation_state: NOT_STARTED
+  full_product_status: DOC_ONLY
+  tests:
+  - gate8_evidence
+  blocker_class:
+  - REQUIRES_STANDARD_FINALIZATION
+status_counts:
+  DOC_ONLY: 419
+unmapped_normative_target: UNMAPPED_NORMATIVE_REQUIREMENTS = 0
+unmapped_note: Charter + game GDDs + open issues still need second-pass ingestion
+  beyond the 419 catalogued nodes
