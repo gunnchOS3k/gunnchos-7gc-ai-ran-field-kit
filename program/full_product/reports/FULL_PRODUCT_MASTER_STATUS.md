@@ -176,4 +176,5 @@ Evidence consumer Cont VI — **not** final umbrella.
 - hardware_eda_closure: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49 (`d2837e3`) — Student/DS-XL NDA-blocked; Handheld/Dock/Ring partial EDA tokens; no FULL design release
 - device_os_platform_semantics: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64 (`835aab1`) — includes #63 CI fix; FULL platform token false; confirm qemu CI before merge
 - gunnchai_os_integration: https://github.com/gunnchOS3k/gunnchAI3k/pull/25 (`0738eb5`) — GUNNCHAI_OS_INTEGRATION_LOCAL_PASS; FULL platform token false
+- beatlink_beta_rc: MERGED https://github.com/gunnchOS3k/beatlink-party/pull/14 + #15 (`9948646870cd`) — digital Beta/RC tokens re-earned; product BETA/RC false; auto-merged contrary to Cursor never-merge
 

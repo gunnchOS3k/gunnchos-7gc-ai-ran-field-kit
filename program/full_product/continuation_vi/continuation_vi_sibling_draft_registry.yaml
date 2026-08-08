@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VI
-generated_at_utc: '2026-08-08T21:12:00Z'
+generated_at_utc: '2026-08-08T21:17:57Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 2d257be6eb19b8237bf681b40f89275492fbd359
@@ -85,9 +85,17 @@ drafts:
     note: Cont VI durable science DB + deeper ingest
   beatlink_beta_rc:
     repo: beatlink-party
-    branch: cursor/full-product-continuation-vi-beta-rc
-    sha: c8a2de8c51929d776eea7b219f6015e787e0f174
-    note: 'Cont VI Beta/RC re-earn after #13 revoke'
+    pr_primary: https://github.com/gunnchOS3k/beatlink-party/pull/14
+    pr_redis_followup: https://github.com/gunnchOS3k/beatlink-party/pull/15
+    sha: 9948646870cd2caa9c85ae2796b40292d7343d88
+    status: MERGED_TO_MAIN
+    note: "Cont VI digital Beta/RC tokens re-earned; product BETA/RC false; PRs auto-merged\
+      \ outside Cursor never-merge policy \u2014 accepted tip now origin/main"
+    tokens:
+      BEATLINK_BETA_CONTENT_COMPLETE_DIGITAL: true
+      BEATLINK_DIGITAL_RC_READY: true
+      product_BETA: false
+      product_RC: false
   edge_io_ring_firmware:
     repo: edge-io-measurement-node
     pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/34
@@ -113,3 +121,5 @@ drafts:
     sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
     note: 'Superseded-as-merge-vehicle by #64 if #64 CI green (ancestor included);
       either merge #63 then #64, or merge #64 alone'
+accepted_mains_overrides:
+  beatlink-party: 9948646870cd2caa9c85ae2796b40292d7343d88

@@ -107,10 +107,10 @@ ACCEPTED: dict[str, dict[str, Any]] = {
         "note": "#21 production ingest scoped Beta/RC; not global complete",
     },
     "beatlink-party": {
-        "sha": "c8a2de8c51929d776eea7b219f6015e787e0f174",
-        "merged_prs": [13],
+        "sha": "9948646870cd2caa9c85ae2796b40292d7343d88",
+        "merged_prs": [13, 14, 15],
         "ci": "green",
-        "note": "#13 Redis/load/mic; Beta/RC deliberately revoked pending Cont VI re-earn",
+        "note": "#14+#15 Cont VI digital Beta/RC re-earn on main; product BETA/RC still false",
     },
 }
 
