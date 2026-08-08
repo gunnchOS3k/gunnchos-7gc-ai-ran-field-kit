@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-07T23:46:02Z'
+updated_at_utc: '2026-08-08T00:23:51Z'
 physical_execution_freeze: ACTIVE
 physical_execution_release_ready: false
 lot: BUILD_LOT_0
@@ -8,7 +8,7 @@ prerequisites:
   nonphysical_totality_on_main: COMPLETE
   main_ci_dispatched: PASS_WHERE_DISPATCHABLE
   kicad_cli: HUMAN_OS_AUTHORIZATION_REQUIRED
-  zephyr_west_full: SOFT_SKIP_SDK_GB_DOWNLOAD
+  zephyr_west_full: PASS_EDGE_PR32_DRAFT
   mcuboot_dev_pipeline: PASS_EDGE_PR31
   godot_cli_anime: PASS_PR63
   game_automation: PASS_EXISTING_AND_ARCHIVE_PR17
@@ -33,5 +33,5 @@ sequence:
 - P10
 release_token: PHYSICAL_EXECUTION_RELEASE_BLOCKED
 blocking_digital_residuals:
-- "Edmund: Approve the macOS administrator/install prompt for Homebrew KiCad \u2192\
-  \ then RING_KICAD_CLI_VALIDATION_PASS"
+- 'Edmund: Approve the macOS administrator/install prompt for Homebrew KiCad → then
+  RING_KICAD_CLI_VALIDATION_PASS'

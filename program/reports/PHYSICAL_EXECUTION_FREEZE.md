@@ -16,3 +16,7 @@ PHYSICAL_EXECUTION_RELEASE_BLOCKED
 After KiCad admin approval + CLI validation green, re-evaluate release readiness.
 
 ## Do not purchase / fabricate / flash until RELEASE_READY and Edmund acceptance.
+
+## Update 2026-08-08T00:23:51Z
+- Zephyr: `RING_ZEPHYR_WEST_BUILD_PASS` (edge-io draft PR #32) — soft-skip cleared.
+- KiCad CLI still blocked on macOS admin authorization.
