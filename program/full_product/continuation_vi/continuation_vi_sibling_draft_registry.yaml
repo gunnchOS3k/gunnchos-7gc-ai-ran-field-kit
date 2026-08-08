@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VI
-generated_at_utc: '2026-08-08T21:03:46Z'
+generated_at_utc: '2026-08-08T21:05:22Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 2d257be6eb19b8237bf681b40f89275492fbd359
@@ -36,8 +36,8 @@ drafts:
     branch: cursor/full-product-continuation-v-gunnchos-services
     pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
     sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
-    note: 'Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont VI services branch
-      should include this tip'
+    note: 'Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont
+      VI services branch should include this tip'
     accepted_main_still: 12ca8591202f59fdff962a4460323c6cfd67238d
     accepted_main_ci: red
   gunnchai_os_integration:
@@ -47,9 +47,12 @@ drafts:
     note: Cont VI OS integration wave; tip == accepted main until first Cont VI commit
   anime_path_a_audit:
     repo: anime-aggressors
+    pr: https://github.com/gunnchOS3k/anime-aggressors/pull/70
+    sha: b99f2bcfb29a2e48b1d3725f70f364b1423dfb21
     branch: cursor/full-product-continuation-vi-anime-path-a-audit
-    sha: b3c823cf277c97c691a31ffc865798561e13a6eb
-    note: 'Cont VI Path A audit against #69 accepted main'
+    ci: pending_or_green
+    note: Path A audit failed on main; repaired imports/audio/package + RC hardening;
+      Beta/RC tokens kept with explicit Path A scope
   pedestrian_digital_rc:
     repo: pedestrian-pursuit
     branch: cursor/full-product-continuation-vi-digital-rc
@@ -65,3 +68,11 @@ drafts:
     branch: cursor/full-product-continuation-vi-beta-rc
     sha: c8a2de8c51929d776eea7b219f6015e787e0f174
     note: 'Cont VI Beta/RC re-earn after #13 revoke'
+  edge_io_ring_firmware:
+    repo: edge-io-measurement-node
+    pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/34
+    sha: 3cec1296bbc947342c07eb76d997ce9ec06e3b4a
+    branch: cursor/full-product-continuation-vi-ring-firmware
+    ci: green
+    token: RING_FULL_FIRMWARE_DIGITAL_PASS
+    note: Cont VI full firmware digital; physical boot pending; draft not merged
