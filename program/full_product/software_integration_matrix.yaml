@@ -1,79 +1,91 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T19:55:30Z'
+updated_at_utc: '2026-08-08T20:16:48Z'
 accepted_main_policy: MERGED_on_main_SHA_only
-continuation: IV
+continuation: V
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: CONT_IV_ACCEPTED_MAIN
+    status: CONT_V_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: a4c17d298c6f4b769c96632646425c9168e3ef98
+    accepted_main_sha: dee336a344bbc3ac730ed2cfd25a5f1d1e1af49f
     merged_prs:
     - 56
     - 57
     - 58
     - 59
-    note: 'Includes system image #59 and cloud/fleet #58; not FULL platform complete'
+    - 60
+    - 61
+    token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
+    note: 'Includes bootable QEMU image #61 and cloud/fleet #60; 17 service stubs remain; FULL platform
+      not claimed'
   gunnchAI3k:
     role: AI platform
-    status: CONT_IV_ACCEPTED_MAIN
+    status: CONT_V_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 223b2338364a637ae36c6d32a90393042ff4088c
+    accepted_main_sha: 6f98ab8b08851ad4e0ac8785bb409c248519b2b7
     merged_prs:
     - 21
     - 22
-    digitally_validated: false
-    note: 'Local runtime #22 on main; full platform not claimed'
+    - 23
+    token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
+    digitally_validated: true
+    note: 'Real local llama.cpp inference #23 on main; FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE forbidden'
   anime-aggressors:
     role: game
-    status: CONT_IV_ACCEPTED_MAIN
+    status: CONT_V_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
+    accepted_main_sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
     merged_prs:
     - 65
     - 66
     - 67
+    - 68
     alpha_exit: true
     content_complete: false
     rc_digital: false
-    note: '#67 Alpha-exit digital on main; Beta/RC not claimed'
+    claim_integrity: PREMATURE_REVOKE_BETA_RC_TOKENS
+    note: '#68 on main; ANIME_BETA_CONTENT_COMPLETE_DIGITAL + ANIME_DIGITAL_RC_READY PREMATURE_REVOKE
+      (blocks_token=true assets)'
   pedestrian-pursuit:
     role: game
-    status: CONT_IV_ACCEPTED_MAIN
+    status: CONT_V_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
+    accepted_main_sha: c8db661d6bf057c6c487586f378362005413bc1f
     merged_prs:
     - 8
     - 9
+    - 10
     content_complete: false
     rc_digital: false
-    note: '#9 Godot headless on main; Beta/RC not claimed'
+    note: '#10 Beta digital systems on main; RC PARTIAL; competitive AI matrix not yet'
   archive-of-life-artifact-world:
     role: game
-    status: CONT_IV_ACCEPTED_MAIN
+    status: CONT_V_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
+    accepted_main_sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
     merged_prs:
     - 17
     - 18
     - 19
+    - 20
     live_global_ingest: false
     content_complete: false
     rc_digital: false
-    note: '#19 Alpha-exit digital; not global live ingest'
+    note: '#20 Beta/RC digital on main; global live ingest not claimed; Tier E/F audit Cont V'
   beatlink-party:
     role: game
-    status: CONT_IV_ACCEPTED_MAIN_CI_GREEN
+    status: CONT_V_ACCEPTED_MAIN_CI_GREEN
     pr_state: MERGED
-    accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
+    accepted_main_sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
     merged_prs:
     - 9
     - 10
     - 11
+    - 12
     content_complete: false
     rc_digital: false
     alpha_exit: true
-    note: '#10 CI repair + #11 Alpha-exit on green main'
+    note: '#12 Beta/RC on main; Redis/live mic/licensed lyrics still open — scope audit Cont V'
   edge-io-measurement-node:
     role: ring firmware/host
     status: RING_ZEPHYR_WEST_BUILD_PASS
@@ -85,77 +97,33 @@ repos:
     note: Soft-skip cleared; no physical flash
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: CONT_IV_ACCEPTED_MAIN
+    status: CONT_V_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
+    accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
     merged_prs:
     - 44
     - 45
     - 46
-    companion_field_kit_accepted_main_sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+    - 47
+    companion_field_kit_accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
     ring_kicad_cli_validation_pass: false
     kicad: EDMUND_ACTION_REQUIRED
-    note: '#46 on main; KiCad still EDMUND_ACTION_REQUIRED; no fab'
+    token: HARDWARE_DESIGN_RELEASE_CANDIDATE
+    note: '#47 on main; FULL_HARDWARE_DESIGN_RELEASE_COMPLETE not claimed; KiCad EDMUND_ACTION_REQUIRED'
   gunnchos-7gc-ai-ran-field-kit:
     role: control_plane
-    status: CONT_IV_CANONICALIZATION
-    pr_state: MERGED
-    accepted_main_sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+    status: CONT_V_POST_MERGE_CANONICALIZATION
+    pr_state: MERGED_BASE
+    accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
     merged_prs:
     - 29
     - 30
     - 31
     - 32
     - 33
-stale_draft_pins: CLEARED
-note: 'Accepted mains above are Cont IV baseline only. continuation_iv_drafts pins are evidence-consumer
-  lane tips on #34; not accepted main and not final umbrella.'
-continuation_iv_drafts:
-  field_kit_evidence_consumer:
-    pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34
-    sha: 1f416567acfa03e6db547088dbd869ea5f3ec331
-    role: evidence_consumer_not_final_umbrella
-    note: Self; Cont IV lane draft registry consumer only
-  hardware_design_candidates:
-    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
-    sha: b6f9451098a80bf83155ed60f13478e2cb6ef2c9
-    note: Exact-MPN candidates; KiCad EDMUND_ACTION_REQUIRED
-    kicad: EDMUND_ACTION_REQUIRED
-  gunnchos_bootable_image:
-    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/61
-    sha: fba542f838d5ce572034ad411c121c137648d5db
-    note: Bootable QEMU reference image; CI green after qemu install
-  gunnchos_cloud_dev_plane:
-    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/60
-    sha: c6c599199417575de1b00b99e4ab132553ec87ed
-    note: Runnable cloud/fleet/security DEV plane
-  gunnchai_real_local_inference:
-    pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/23
-    sha: e96cf60dab4131d56d6e920d7be218fa4cf2d807
-    note: REAL local llama.cpp inference + evals; not full platform
-    full_platform: false
-  anime_beta_rc_digital:
-    pr: https://github.com/gunnchOS3k/anime-aggressors/pull/68
-    sha: 594b29c946d4f23fb7903ac11c97066d16298f7f
-    note: Beta content + digital RC on draft only
-    beta_digital: DRAFT_ONLY
-    rc_digital: DRAFT_ONLY
-  pedestrian_beta_rc_partial:
-    pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/10
-    sha: 3fe851d82791d83f9931a3d850bd0b1a7e4d134d
-    note: Beta yes on draft; RC partial; AI matrix not yet
-    beta_digital: DRAFT_ONLY
-    rc_digital: PARTIAL_DRAFT_ONLY
-    ai_matrix: NOT_YET
-  archive_beta_rc_digital:
-    pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/20
-    sha: d07253e53371cc99fdf0fa6777a3af1f382136a4
-    note: Tier R ingest + Beta digital / Digital RC draft
-    beta_digital: DRAFT_ONLY
-    rc_digital: DRAFT_ONLY
-  beatlink_beta_rc_digital:
-    pr: https://github.com/gunnchOS3k/beatlink-party/pull/12
-    sha: 4a6ccf3e1a3cc7a22209e748c31c07967fb59c71
-    note: Beta Event Platform + Digital RC draft
-    beta_digital: DRAFT_ONLY
-    rc_digital: DRAFT_ONLY
+    - 34
+    - 35
+    note: Cont V draft canonicalization consumes Cont IV merge SHAs; not true final umbrella
+stale_draft_pins: CLEARED_TO_MERGE_COMMITS
+note: Former Cont IV draft SHAs superseded by merged accepted mains above.
+continuation_v_drafts: THIS_PR_ONLY_NOT_ACCEPTED_UNTIL_MERGED
