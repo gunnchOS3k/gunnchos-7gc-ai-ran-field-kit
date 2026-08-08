@@ -1,20 +1,22 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T19:55:30Z'
-continuation: IV
+updated_at_utc: '2026-08-08T20:16:48Z'
+continuation: V
 release_phases:
 - G3_Alpha
 - G4_Beta
 - G5_RC
 - G6_LaunchOperate
+claim_firewall: scripts/validate_game_release_claims.py
 games:
   anime_aggressors:
     engine: Godot 4
-    current_phase: ALPHA_EXIT_ON_MAIN__BETA_RC_DIGITAL_DRAFT_ONLY
-    accepted_main_sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
+    current_phase: BETA_RC_MERGED_TOKENS_PREMATURE_REVOKE
+    accepted_main_sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
     merged_prs:
     - 65
     - 66
     - 67
+    - 68
     pr_state: MERGED
     alpha_exit: true
     content_complete: false
@@ -22,19 +24,19 @@ games:
     rc_digital: false
     fighters_defined: 7
     art_status: REQUIRES_ART_PRODUCTION
-    note: 'Accepted main remains Alpha-exit #67. Cont IV #68 claims Beta+RC digital DRAFT_ONLY (not accepted
-      main).'
-    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/68
-    draft_sha: 594b29c946d4f23fb7903ac11c97066d16298f7f
-    beta_digital: DRAFT_ONLY
-    rc_digital_draft: DRAFT_ONLY
+    blocks_token_assets_remaining: 13
+    tokens:
+      ANIME_BETA_CONTENT_COMPLETE_DIGITAL: PREMATURE_REVOKE
+      ANIME_DIGITAL_RC_READY: PREMATURE_REVOKE
+    note: '#68 merge accepted; Beta/RC tokens revoked while content/missing_assets.json has blocks_token=true'
   pedestrian_pursuit:
     engine: Godot
-    current_phase: HEADLESS_ON_MAIN__BETA_DRAFT_RC_PARTIAL
-    accepted_main_sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
+    current_phase: BETA_DIGITAL_ON_MAIN__RC_PARTIAL
+    accepted_main_sha: c8db661d6bf057c6c487586f378362005413bc1f
     merged_prs:
     - 8
     - 9
+    - 10
     pr_state: MERGED
     alpha_exit: false
     content_complete: false
@@ -43,21 +45,20 @@ games:
     tracks: 8
     cups: 2
     art: REQUIRES_ART_PRODUCTION
-    note: 'Accepted main remains #9 headless. Cont IV #10: Beta yes (DRAFT_ONLY); RC partial; AI matrix
-      not yet.'
-    draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/10
-    draft_sha: 3fe851d82791d83f9931a3d850bd0b1a7e4d134d
-    beta_digital: DRAFT_ONLY
-    rc_digital_draft: PARTIAL_DRAFT_ONLY
-    ai_matrix: NOT_YET
+    tokens:
+      PEDESTRIAN_BETA_CONTENT_COMPLETE_DIGITAL: VALID_WITH_EXPLICIT_SCOPE
+      PEDESTRIAN_DIGITAL_RC_READY: PARTIAL
+      PEDESTRIAN_COMPETITIVE_AI_DIGITAL_VALIDATED: NOT_YET
+    note: '#10 on main; Beta digital systems scoped; RC partial; AI matrix open'
   archive_of_life:
     engine: Vite/TS web
-    current_phase: ALPHA_EXIT_ON_MAIN__BETA_RC_DIGITAL_DRAFT_ONLY
-    accepted_main_sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
+    current_phase: BETA_RC_DIGITAL_ON_MAIN__AUDIT_PENDING
+    accepted_main_sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
     merged_prs:
     - 17
     - 18
     - 19
+    - 20
     pr_state: MERGED
     alpha_exit: true
     live_global_ingest: false
@@ -67,19 +68,19 @@ games:
     regions: 12
     encounter_taxa: 167
     flagship: 24
-    note: 'Accepted main remains #19 Alpha-exit. Cont IV #20 Beta digital / Digital RC DRAFT_ONLY.'
-    draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/20
-    draft_sha: d07253e53371cc99fdf0fa6777a3af1f382136a4
-    beta_digital: DRAFT_ONLY
-    rc_digital_draft: DRAFT_ONLY
+    tokens:
+      ARCHIVE_BETA_CONTENT_COMPLETE_DIGITAL: VALID_WITH_EXPLICIT_SCOPE
+      ARCHIVE_DIGITAL_RC_READY: VALID_WITH_EXPLICIT_SCOPE
+    note: '#20 on main; Tier E/F + live ingest audits Cont V; not global complete'
   beat_link:
     engine: Node/pnpm
-    current_phase: ALPHA_EXIT_ON_GREEN_MAIN__BETA_RC_DIGITAL_DRAFT_ONLY
-    accepted_main_sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
+    current_phase: BETA_RC_DIGITAL_ON_MAIN__SCOPE_AUDIT
+    accepted_main_sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
     merged_prs:
     - 9
     - 10
     - 11
+    - 12
     pr_state: MERGED
     alpha_exit: true
     content_complete: false
@@ -87,8 +88,12 @@ games:
     rc_digital: false
     catalog_tracks: 13
     modes_complete: true
-    note: 'Accepted main remains #10+#11 Alpha-exit. Cont IV #12 Beta Event Platform + Digital RC DRAFT_ONLY.'
-    draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/12
-    draft_sha: 4a6ccf3e1a3cc7a22209e748c31c07967fb59c71
-    beta_digital: DRAFT_ONLY
-    rc_digital_draft: DRAFT_ONLY
+    tokens:
+      BEATLINK_BETA_CONTENT_COMPLETE_DIGITAL: VALID_WITH_EXPLICIT_SCOPE
+      BEATLINK_DIGITAL_RC_READY: VALID_WITH_EXPLICIT_SCOPE
+    gaps:
+    - in_memory_rooms_no_redis
+    - no_live_getUserMedia_pitch
+    - no_licensed_lyrics_or_platform_sdks
+    - event_scale_simulation_not_live_event
+    note: '#12 on main; Beta/RC digital with explicit DEV/sim scope; Redis/mic Cont V work'

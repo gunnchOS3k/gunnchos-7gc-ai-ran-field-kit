@@ -1,0 +1,198 @@
+schema_version: 1.0.0
+continuation: V
+generated_at_utc: '2026-08-08T20:16:48Z'
+policy: FULL_ENUMERATION_NO_TRUNCATION
+count: 15
+items:
+- token: ANIME_BETA_CONTENT_COMPLETE_DIGITAL
+  repo: anime-aggressors
+  claiming_artifact: docs/ANIME_BETA_CONTENT_STATUS.md
+  requirements:
+  - Beta launch content complete under digital Beta rule
+  blocking_artifacts:
+  - content/missing_assets.json
+  - builds/digital-rc/content/missing_assets.json
+  contradictions:
+  - 13 assets with status=REQUIRES_ART_PRODUCTION and blocks_token=true (7 fighter model GLBs + 6 stage
+    art) while token claimed YES
+  validity: PREMATURE_REVOKE
+  action: Revoke until blocks_token=true assets resolved or Beta rule explicitly re-scoped
+  accepted_main_sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: ANIME_DIGITAL_RC_READY
+  repo: anime-aggressors
+  claiming_artifact: playtest-evidence/digital_rc_validation.json
+  requirements:
+  - Beta content complete + RC runner
+  blocking_artifacts:
+  - content/missing_assets.json
+  - docs/ANIME_BETA_CONTENT_STATUS.md
+  contradictions:
+  - RC token_earned=true depends on Beta content complete, which is PREMATURE_REVOKE
+  validity: PREMATURE_REVOKE
+  action: Revoke until Beta content token is valid under claim firewall
+  accepted_main_sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: PEDESTRIAN_BETA_CONTENT_COMPLETE_DIGITAL
+  repo: pedestrian-pursuit
+  claiming_artifact: docs/PEDESTRIAN_BETA_DIGITAL_RC_STATUS.md
+  requirements:
+  - Beta digital systems / catalog / modes
+  blocking_artifacts:
+  - art REQUIRES_ART_PRODUCTION
+  contradictions: []
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Keep scoped to digital systems; do not claim visual/store Beta
+  accepted_main_sha: c8db661d6bf057c6c487586f378362005413bc1f
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: PEDESTRIAN_DIGITAL_RC_READY
+  repo: pedestrian-pursuit
+  claiming_artifact: docs/PEDESTRIAN_BETA_DIGITAL_RC_STATUS.md
+  requirements:
+  - Digital RC packaging
+  blocking_artifacts:
+  - store/device RC
+  - competitive AI matrix
+  contradictions:
+  - Documented PARTIAL
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Keep PARTIAL; do not promote to READY until packaging+AI matrix close
+  accepted_main_sha: c8db661d6bf057c6c487586f378362005413bc1f
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: ARCHIVE_BETA_CONTENT_COMPLETE_DIGITAL
+  repo: archive-of-life-artifact-world
+  claiming_artifact: docs/BETA_RC_STATUS.md
+  requirements:
+  - Frozen launch Tier E/F complete
+  blocking_artifacts:
+  - live global ingest
+  - IUCN token
+  - Tier E/F audit
+  contradictions:
+  - Global complete explicitly false; Cont V must audit Tier E/F
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Retain only if frozen launch Tier E/F set complete; else revoke
+  accepted_main_sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: ARCHIVE_DIGITAL_RC_READY
+  repo: archive-of-life-artifact-world
+  claiming_artifact: public/data/status/digital_rc_report.json
+  requirements:
+  - Package + provenance + offline packs + Beta digital
+  blocking_artifacts:
+  - live operator ingest credentials
+  contradictions: []
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Keep digital-RC scope; no live global ingest claim
+  accepted_main_sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: BEATLINK_BETA_CONTENT_COMPLETE_DIGITAL
+  repo: beatlink-party
+  claiming_artifact: docs/BETA_RC_TOKENS.json
+  requirements:
+  - Launch digital functionality complete
+  blocking_artifacts:
+  - in_memory_rooms_no_redis
+  - no_live_getUserMedia_pitch
+  - no_licensed_lyrics_or_platform_sdks
+  contradictions:
+  - Token true while Cont V prompt lists digitally executable Redis/mic gaps
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Scope to current DEV/sim depth OR revoke after Cont V Redis/mic closure decision
+  accepted_main_sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: BEATLINK_DIGITAL_RC_READY
+  repo: beatlink-party
+  claiming_artifact: docs/digital-rc/ready.json
+  requirements:
+  - Digital RC packaging
+  blocking_artifacts:
+  - store/HSM/physical RC
+  contradictions: []
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Keep DEV signing / digital packaging scope only
+  accepted_main_sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
+  repo: gunnchos-device-os
+  claiming_artifact: docs/full_product/BOOTABLE_REFERENCE_IMAGE.md
+  requirements:
+  - QEMU aarch64 boot evidence
+  blocking_artifacts:
+  - 17 service stubs in image
+  contradictions: []
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Keep narrow boot token; forbid FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE
+  accepted_main_sha: dee336a344bbc3ac730ed2cfd25a5f1d1e1af49f
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE
+  repo: gunnchos-device-os
+  claiming_artifact: (forbidden while stubs remain)
+  requirements:
+  - All digitally executable platform services real
+  blocking_artifacts:
+  - 17 service stubs
+  contradictions:
+  - Would contradict stub inventory
+  validity: PREMATURE_REVOKE
+  action: Ensure never claimed; Cont V stub elimination wave
+  accepted_main_sha: dee336a344bbc3ac730ed2cfd25a5f1d1e1af49f
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
+  repo: gunnchAI3k
+  claiming_artifact: evidence/system-layer/REAL_INFERENCE_BENCH.json
+  requirements:
+  - Reproducible local llama.cpp inference bench
+  blocking_artifacts: []
+  contradictions: []
+  validity: VALID
+  action: Keep; do not equate to FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE
+  accepted_main_sha: 6f98ab8b08851ad4e0ac8785bb409c248519b2b7
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE
+  repo: gunnchAI3k
+  claiming_artifact: (not earned)
+  requirements:
+  - Callable capability service + governance + RAG + evals
+  blocking_artifacts:
+  - SCHEMA_ONLY AI capability nodes
+  contradictions: []
+  validity: PREMATURE_REVOKE
+  action: Forbidden until Cont V AI productization closes
+  accepted_main_sha: 6f98ab8b08851ad4e0ac8785bb409c248519b2b7
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: HARDWARE_DESIGN_RELEASE_CANDIDATE
+  repo: gunnchos-hardware-industrial-design
+  claiming_artifact: docs/full_product_family/HARDWARE_DESIGN_RELEASE_STATUS.md
+  requirements:
+  - Exact-MPN candidate packages for five products
+  blocking_artifacts:
+  - KiCad CLI EDMUND_ACTION_REQUIRED
+  contradictions: []
+  validity: VALID_WITH_EXPLICIT_SCOPE
+  action: Keep CANDIDATE; FULL_HARDWARE_DESIGN_RELEASE_COMPLETE forbidden
+  accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: FULL_HARDWARE_DESIGN_RELEASE_COMPLETE
+  repo: gunnchos-hardware-industrial-design
+  claiming_artifact: (not claimed)
+  requirements:
+  - ERC/DRC/mfg export for all five
+  blocking_artifacts:
+  - EB-KICAD-ADMIN
+  contradictions: []
+  validity: PREMATURE_REVOKE
+  action: Forbidden until KiCad CLI + package completeness
+  accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
+  audited_at_utc: '2026-08-08T20:16:48Z'
+- token: RING_ZEPHYR_WEST_BUILD_PASS
+  repo: edge-io-measurement-node
+  claiming_artifact: program/full_product/evidence_registry.yaml
+  requirements:
+  - Zephyr west digital build
+  blocking_artifacts: []
+  contradictions: []
+  validity: VALID
+  action: Keep; no physical flash claim
+  accepted_main_sha: fc617e831916362e77aa157d77d458e935dc4cfa
+  audited_at_utc: '2026-08-08T20:16:48Z'

@@ -110,17 +110,46 @@ def test_honest_promotions_have_resolvable_paths():
 def test_no_doc_only_residual_after_cont_iv():
     data = yaml.safe_load(GRAPH.read_text(encoding="utf-8"))
     doc_only = [n["id"] for n in data["nodes"] if n["full_product_status"] == "DOC_ONLY"]
-    assert doc_only == [], f"Cont IV must move digitally provable nodes out of DOC_ONLY: {doc_only[:10]}"
+    assert doc_only == [], f"Cont V must keep digitally provable nodes out of DOC_ONLY: {doc_only[:10]}"
 
 
 def test_claim_firewall_script_exists_for_standards_promotion():
     assert (ROOT / "scripts" / "validate_claim_firewall.py").exists()
     assert (ROOT / "program" / "claims" / "prohibited_claim_patterns.yaml").exists()
+    assert (ROOT / "scripts" / "validate_game_release_claims.py").exists()
 
 
-def test_cont_iv_proof_reports_exist():
+def test_cont_v_proof_reports_and_queues_exist():
     reports = ROOT / "program" / "full_product" / "reports"
     assert (reports / "REQUIREMENT_PROOF_LEDGER.md").exists()
     assert (reports / "REQUIREMENT_PROOF_COUNTS.json").exists()
     assert (reports / "REQUIREMENT_PROOF_GAPS.md").exists()
-    assert (reports / "CONTINUATION_IV_ACCEPTED_BASELINE.md").exists()
+    assert (reports / "CONTINUATION_V_ACCEPTED_BASELINE.md").exists()
+    assert (reports / "CONTINUATION_V_CLAIM_INTEGRITY_AUDIT.md").exists()
+    cont_v = ROOT / "program" / "full_product" / "continuation_v"
+    for name in (
+        "schema_only_work_queue.yaml",
+        "physical_required_audit.yaml",
+        "external_required_audit.yaml",
+        "mixed_requirement_splits.yaml",
+        "claim_integrity_audit.yaml",
+    ):
+        path = cont_v / name
+        assert path.exists(), name
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+        assert data.get("policy") == "FULL_ENUMERATION_NO_TRUNCATION"
+        assert int(data.get("count") or 0) == len(data.get("items") or [])
+
+
+def test_game_release_claim_firewall_passes():
+    import subprocess
+
+    proc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "validate_game_release_claims.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert "GAME_RELEASE_CLAIM_FIREWALL_PASS" in proc.stdout

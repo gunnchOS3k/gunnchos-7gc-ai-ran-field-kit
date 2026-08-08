@@ -1,139 +1,97 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T19:55:30Z'
-continuation: IV
+updated_at_utc: '2026-08-08T20:16:48Z'
+continuation: V
 policy: docs_alone_cannot_satisfy_code_requirements
 accepted_main_policy: no_stale_draft_sha_as_accepted
 entries:
-- id: EV-FK-33
+- id: EV-FK-35
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
-  merged_pr: 33
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  merged_prs:
+  - 34
+  - 35
   state: MERGED
-  note: Cont III post-merge canonicalization umbrella on main
-- id: EV-HW-46
+  note: Cont IV canonicalization + draft registry on main
+- id: EV-HW-47
   repo: gunnchos-hardware-industrial-design
-  sha: 79b11aba3ca9d4db7051b6d5ccb3571e72503396
-  merged_pr: 46
+  sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
+  merged_pr: 47
   state: MERGED
+  token: HARDWARE_DESIGN_RELEASE_CANDIDATE
+  note: 'Former Cont IV draft #47 now accepted merge'
 - id: EV-EDGE-32
   repo: edge-io-measurement-node
   sha: fc617e831916362e77aa157d77d458e935dc4cfa
   merged_pr: 32
   state: MERGED
   token: RING_ZEPHYR_WEST_BUILD_PASS
-- id: EV-OS-59
+- id: EV-OS-61
   repo: gunnchos-device-os
-  sha: a4c17d298c6f4b769c96632646425c9168e3ef98
-  merged_pr: 59
+  sha: dee336a344bbc3ac730ed2cfd25a5f1d1e1af49f
+  merged_pr: 61
   state: MERGED
-  also_includes_pr: 58
-  note: system image + cloud/fleet on accepted main
-- id: EV-AI-22
+  also_includes_pr: 60
+  token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
+  note: Bootable QEMU reference image + cloud/fleet DEV; service stubs remain
+- id: EV-AI-23
   repo: gunnchAI3k
-  sha: 223b2338364a637ae36c6d32a90393042ff4088c
-  merged_pr: 22
+  sha: 6f98ab8b08851ad4e0ac8785bb409c248519b2b7
+  merged_pr: 23
   state: MERGED
-  digitally_validated: false
-- id: EV-ANIME-67
+  token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
+  digitally_validated: true
+- id: EV-ANIME-68
   repo: anime-aggressors
-  sha: 0d965bc5709ebfd0c4e4e29d4a7dad0d68bf372a
-  merged_pr: 67
+  sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
+  merged_pr: 68
   state: MERGED
-  note: Alpha-exit digital; Beta/RC not claimed
-- id: EV-PED-9
+  note: Beta/RC digital merge; tokens PREMATURE_REVOKE under claim integrity audit
+  tokens_revoked:
+  - ANIME_BETA_CONTENT_COMPLETE_DIGITAL
+  - ANIME_DIGITAL_RC_READY
+- id: EV-PED-10
   repo: pedestrian-pursuit
-  sha: 822d7eb4c75ba44b7fe88b2580fa7f933767d3a1
-  merged_pr: 9
+  sha: c8db661d6bf057c6c487586f378362005413bc1f
+  merged_pr: 10
   state: MERGED
-  note: Godot headless on main
-- id: EV-ARCH-19
+  note: Beta digital / RC partial on accepted main
+- id: EV-ARCH-20
   repo: archive-of-life-artifact-world
-  sha: 49b2bc4319399e0247884ed004fe54f8390cf04b
-  merged_pr: 19
+  sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
+  merged_pr: 20
   state: MERGED
-  note: Alpha-exit digital; not global live ingest
-- id: EV-BL-11
+  note: Beta digital / Digital RC on accepted main
+- id: EV-BL-12
   repo: beatlink-party
-  sha: d2ef8d45bbe55790b21024b6307735c7c09979c8
-  merged_pr: 11
+  sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
+  merged_pr: 12
   state: MERGED
-  also_includes_pr: 10
-  note: CI repair + Alpha-exit on green main
+  note: Beta Event Platform + Digital RC on accepted main; Redis/mic gaps remain
 - id: EV-FK-STANDARDS-FIREWALL
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
   requirement_id: SYS-STANDARDS-001
   note: Claim firewall in CI
 - id: EV-FK-EVIDENCE-REGISTRY
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
   requirement_id: SYS-MISSION-009
 - id: EV-FK-CARRIER-GRADE-CLAIM-GUARD
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
   requirement_id: FP-CHARTER-L635-CARRIER-GRADE-NOT-MODEM
 - id: EV-FK-PRODUCT-FAMILY-MATRIX
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
   requirement_id: SYS-MISSION-002
 - id: EV-FK-CONN-MATRIX
   repo: gunnchos-7gc-ai-ran-field-kit
-  sha: 7ebbe27bbae6980f0db8b5c14b39f2767b448128
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
   requirement_id: FP-CONN-CARRIER-GRADE
-- id: EV-CONT3-SUPERSEDED
-  status: SUPERSEDED
-  note: Cont III draft pins cleared; merged accepted mains listed above
-- id: EV-CONT4-FK-34
+- id: EV-FK-GAME-CLAIM-FIREWALL
   repo: gunnchos-7gc-ai-ran-field-kit
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34
-  sha: 1f416567acfa03e6db547088dbd869ea5f3ec331
-  status: DRAFT
-  note: Cont IV evidence consumer / lane draft registry; not final umbrella
-- id: EV-CONT4-HW-47
-  repo: gunnchos-hardware-industrial-design
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
-  sha: b6f9451098a80bf83155ed60f13478e2cb6ef2c9
-  status: DRAFT
-  note: Exact-MPN design candidates; KiCad EDMUND_ACTION_REQUIRED
-- id: EV-CONT4-OS-61
-  repo: gunnchos-device-os
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/61
-  sha: fba542f838d5ce572034ad411c121c137648d5db
-  status: DRAFT
-  note: Bootable QEMU reference image; CI green after qemu install
-- id: EV-CONT4-OS-60
-  repo: gunnchos-device-os
-  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/60
-  sha: c6c599199417575de1b00b99e4ab132553ec87ed
-  status: DRAFT
-  note: Cloud/fleet/security DEV plane
-- id: EV-CONT4-AI-23
-  repo: gunnchAI3k
-  draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/23
-  sha: e96cf60dab4131d56d6e920d7be218fa4cf2d807
-  status: DRAFT
-  note: REAL local llama.cpp inference + evals; not full platform
-- id: EV-CONT4-ANIME-68
-  repo: anime-aggressors
-  draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/68
-  sha: 594b29c946d4f23fb7903ac11c97066d16298f7f
-  status: DRAFT
-  note: Beta+RC digital DRAFT_ONLY; not accepted main
-- id: EV-CONT4-PED-10
-  repo: pedestrian-pursuit
-  draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/10
-  sha: 3fe851d82791d83f9931a3d850bd0b1a7e4d134d
-  status: DRAFT
-  note: Beta DRAFT_ONLY; RC partial; AI matrix not yet
-- id: EV-CONT4-ARCH-20
-  repo: archive-of-life-artifact-world
-  draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/20
-  sha: d07253e53371cc99fdf0fa6777a3af1f382136a4
-  status: DRAFT
-  note: Beta digital / Digital RC DRAFT_ONLY
-- id: EV-CONT4-BL-12
-  repo: beatlink-party
-  draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/12
-  sha: 4a6ccf3e1a3cc7a22209e748c31c07967fb59c71
-  status: DRAFT
-  note: Beta Event Platform + Digital RC DRAFT_ONLY
+  sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+  note: validate_game_release_claims.py rejects Beta/RC when blocks_token=true remains
+- id: EV-CONT4-DRAFTS-SUPERSEDED
+  status: SUPERSEDED
+  note: Cont IV draft pins cleared; merge commits listed above are Cont V accepted tips
