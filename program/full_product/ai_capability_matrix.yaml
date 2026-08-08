@@ -1,27 +1,33 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:06:51Z'
+updated_at_utc: '2026-08-08T00:52:23Z'
 policy: no_it_returns_text_acceptance
 capabilities:
   tutoring:
-    status: PARTIAL
+    status: FOUNDATION_EVAL
     baseline: MISSING
     eval: MISSING
+    wave_c_pr: 21
   code_assistance:
-    status: PARTIAL
+    status: FOUNDATION_EVAL
     baseline: MISSING
     eval: MISSING
+    wave_c_pr: 21
   device_troubleshooting:
-    status: PARTIAL
+    status: FOUNDATION_EVAL
     baseline: MISSING
     eval: MISSING
+    wave_c_pr: 21
   accessibility_assistance:
     status: STUB_ONLY
   game_coaching:
-    status: STUB_ONLY
+    status: FOUNDATION_EVAL
+    wave_c_pr: 21
   network_optimization:
-    status: PARTIAL_SIM
+    status: FOUNDATION_EVAL
+    wave_c_pr: 21
   local_search_rag:
-    status: PARTIAL
+    status: FOUNDATION_EVAL
+    wave_c_pr: 21
   scientific_attribution:
     status: PARTIAL_ARCHIVE_ADAPTERS
   translation:
@@ -39,3 +45,7 @@ runtime_candidates:
 - vLLM
 - vendor_npu
 selection: NOT_FROZEN
+wave_c:
+  draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/21
+  token: GUNNCHAI3K_SYSTEM_LAYER_FOUNDATION_EVAL_PASS
+  digitally_validated: false

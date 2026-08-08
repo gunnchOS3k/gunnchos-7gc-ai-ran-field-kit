@@ -1,12 +1,73 @@
 device_id: edge_io_rings
 evidence_class: MODELED
+adr: ADR-FP-008
+updated_at_utc: "2026-08-08T00:50:00Z"
+physical_execution_freeze: ACTIVE
+kicad_cli: EDMUND_ACTION_REQUIRED
+battery_wh_modeled: 0.22
+notes: >
+  nRF52840 alone is insufficient for spatial-input promise.
+  Budgets include FOOTPRINT loads for capacitive + UWB (DNP allowed).
+  All currents MODELED — not MEASURED.
+
 rails:
+  - name: CHARGE_5V
+    volts: 5.0
+    source: cradle_pogo
+    regulator_mpn: null
+    budget_ma_avg: 40
+    budget_ma_peak: 80
+    loads: [BQ25100_IN]
   - name: VBAT
     volts: 3.7
-  - name: VSYS
-    volts: 3.8
-  - name: VDD_SOC
-    volts: 0.8
-  - name: VDD_IO
-    volts: 1.8
-battery_wh_modeled: 0.35
+    source: LiPo_PCM
+    capacity_mah_modeled: 50
+    budget_ma_avg: 8
+    budget_ma_peak: 45
+  - name: VBAT_SYS
+    volts: 3.7
+    source: PCM_OUT
+    budget_ma_avg: 8
+    budget_ma_peak: 45
+    loads: [nRF52840_VDD, LDO_3V3_IN]
+  - name: VDD_3V3
+    volts: 3.3
+    source: LDO
+    regulator_mpn: TLV70033DSET
+    alternate_regulator_mpn: TPS7A2033PDBVR
+    budget_ma_avg: 6.5
+    budget_ma_peak: 40
+    loads:
+      - {refdes: U1, mpn: nRF52840-QIAA, role: MCU_BLE, ma_avg: 2.5, ma_peak: 15}
+      - {refdes: U2, mpn: BMI270, role: IMU, ma_avg: 0.7, ma_peak: 1.0}
+      - {refdes: U3, mpn: BMM350, role: MAG, ma_avg: 0.2, ma_peak: 0.6, populate: optional}
+      - {refdes: U4, mpn: SE050C1HQ1, role: SE, ma_avg: 0.3, ma_peak: 10}
+      - {refdes: U5, mpn: IQS7222A, role: CAP, ma_avg: 0.15, ma_peak: 0.5, populate: footprint_required}
+      - {refdes: U6, mpn: DWM3001C, role: UWB, ma_avg: 2.0, ma_peak: 25, populate: footprint_dnp_ok}
+      - {refdes: U7, mpn: BHI360, role: SENSOR_HUB, ma_avg: 0.8, ma_peak: 3.0, populate: optional}
+
+power_scenarios:
+  - id: sleep_bonded
+    ma_avg_modeled: 1.2
+    runtime_h_at_50mah: 35
+  - id: spatial_active_no_uwb
+    ma_avg_modeled: 6.5
+    runtime_h_at_50mah: 6.5
+  - id: spatial_active_uwb_burst
+    ma_avg_modeled: 9.0
+    runtime_h_at_50mah: 4.5
+    escape: UWB_ON_COMPANION
+
+regulators:
+  - refdes: U_CHG
+    mpn: BQ25100YFPR
+    alternate_mpn: MCP73831T-2ACI/OT
+    role: Li-Ion linear charger
+  - refdes: U_LDO
+    mpn: TLV70033DSET
+    alternate_mpn: TPS7A2033PDBVR
+    role: 3V3 always-on LDO
+  - refdes: U_PMIC_ALT
+    mpn: npm1300-CAAA-R
+    alternate_mpn: MAX77654
+    role: Optional Nordic PMIC path

@@ -1,7 +1,27 @@
 product: dock
 adr: ADR-FP-006
 hosts:
-- student_14_5
-- ds_xl_coder
-- handheld_hybrid
-updated_at_utc: '2026-08-08T00:07:41Z'
+  - student_14_5
+  - ds_xl_coder
+  - handheld_hybrid
+  - edge_io_rings_charge_cradle
+updated_at_utc: "2026-08-08T00:50:00Z"
+work_class: DIGITAL_DESIGN
+physical_execution_freeze: ACTIVE
+claims_forbidden:
+  - USB_IF_certified
+  - FCC_CE_pass
+  - fab_release
+requirements:
+  - id: DOCK-PWR-001
+    text: Power tree with named regulator MPNs and rail budgets
+    verification: power_tree.yaml review
+  - id: DOCK-ICD-001
+    text: ICD covering host paths and ring cradle
+    verification: interface_control_document.md review
+  - id: DOCK-MECH-001
+    text: Enclosure parameter skeleton
+    verification: enclosure_params.yaml present
+  - id: DOCK-MFG-001
+    text: Fab notes skeleton toward manufacturing package
+    verification: fab_notes.md present

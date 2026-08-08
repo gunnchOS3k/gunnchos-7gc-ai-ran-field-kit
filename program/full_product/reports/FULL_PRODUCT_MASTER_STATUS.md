@@ -104,3 +104,13 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 ## KiCad Wave A closeout (2026-08-08T00:31:00Z)
 - Hardware draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44 — brew fetched KiCad; admin sudo still required ([Fetch mains KiCad Zephyr](dad1469e-5a09-4a1d-8265-dfa7a1da4d3c)).
 - `RING_KICAD_CLI_VALIDATION_PASS` not achieved.
+
+## Wave C / B2 integration (2026-08-08T00:52:23Z)
+- gunnchAI3k draft https://github.com/gunnchOS3k/gunnchAI3k/pull/21 — foundation eval PASS; DIGITALLY_VALIDATED=false ([Wave C gunnchAI3k depth](be72c958-bf9c-413c-81eb-7879ecf2d45c))
+- gunnchos-device-os draft https://github.com/gunnchOS3k/gunnchos-device-os/pull/57 — Wave B2 72 tests ([Force gunnchOS B2](d5bc0a9c-f10e-4826-a09a-91e2a86fb856))
+- Anime #64 already closed superseded; baseline on this branch
+- Beat Link Wave G draft https://github.com/gunnchOS3k/beatlink-party/pull/9 ([Force BeatLink Wave G](3e10063b-bc24-47c5-8254-d64144f5bc3b)) — Alpha in progress, not RC.
+- Archive Wave F draft https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18 ([Force Archive Wave F](002b9150-339a-43e8-b690-64cd1dd613b5)) — floors met; not global live ingest/RC.
+- Anime Wave D2 draft https://github.com/gunnchOS3k/anime-aggressors/pull/66 ([Force Anime D2 Alpha exit](050a8684-06f8-4fb7-8adf-c4c9eddf1dfb)) — progress; NOT Alpha exit.
+- Pedestrian Wave E draft https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8 ([Force Pedestrian Wave E](3726b75f-52c6-41bc-baeb-6282f9271d2d)) — 8 tracks/2 cups Alpha greybox; not RC.
+- Hardware Wave A2 draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45 + field-kit https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32 ([Force hardware A2 depth](1a5747e2-af74-4adc-a001-f6cf0468309b)) — ADR-FP-008; KiCad still EDMUND_ACTION_REQUIRED; no fab/merge.

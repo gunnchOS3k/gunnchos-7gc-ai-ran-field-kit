@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:20:20Z'
+updated_at_utc: '2026-08-08T00:54:33Z'
 release_phases:
 - G3_Alpha
 - G4_Beta
@@ -8,7 +8,7 @@ release_phases:
 games:
   anime_aggressors:
     engine: Godot 4
-    current_phase: ALPHA_IN_PROGRESS
+    current_phase: ALPHA_IN_PROGRESS_NOT_EXIT
     fighters_defined: 7
     fighters_fully_differentiated: DATA_YES_ART_NO
     stages_launch_count: ADR_REQUIRED
@@ -25,25 +25,31 @@ games:
     - training
     - arcade_ladder
     art_status: REQUIRES_ART_PRODUCTION
-    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/65
-    draft_sha: 02ee648
+    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
+    draft_sha: 0b504fa
     aura_identity_runtime: true
     cpu_batch_harness: true
     note: Wave D Alpha depth draft; art still REQUIRES_ART_PRODUCTION; online still
       missing
+    alpha_exit: false
+    cpu_matrix: playtest-evidence/cpu_batch_matrix.json (147 matches)
   pedestrian_pursuit:
     engine: Godot
-    current_phase: POST_G2_PRE_ALPHA
+    current_phase: ALPHA_IN_PROGRESS
     racers_launch_count: ADR_REQUIRED
     tracks_launch_count: ADR_REQUIRED
     content_complete: false
     feature_complete: false
     rc_digital: false
     audit_report: program/full_product/reports/GAME_PORTFOLIO_GAP_AUDIT.md
+    draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
+    tracks: 8
+    cups: 2
+    art: REQUIRES_ART_PRODUCTION
   archive_of_life:
     engine: Vite/TS web
-    current_phase: POST_G2_PRE_ALPHA
-    taxonomy_scale: FIXTURE_AND_ADAPTER_NOT_GLOBAL
+    current_phase: ALPHA_IN_PROGRESS
+    taxonomy_scale: AUTHORED_PUBLIC_NOT_GLOBAL_LIVE
     tiers:
     - R_Record
     - E_Encounter
@@ -51,17 +57,29 @@ games:
     content_complete: false
     feature_complete: false
     rc_digital: false
+    draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
+    regions: 12
+    encounter_taxa: 167
+    flagship: 24
   beat_link:
     engine: Node/pnpm
-    current_phase: POST_G2_PRE_ALPHA
+    current_phase: ALPHA_IN_PROGRESS
     modes_required:
     - BeatTap
     - CallAndResponse
     - Karaoke
     - BandRoles
     - PredictionTrivia
-    modes_complete: false
+    modes_complete: true
     music_rights_pipeline: PARTIAL
     content_complete: false
     feature_complete: false
     rc_digital: false
+    draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
+    modes_shipped:
+    - BeatTap
+    - CallAndResponse
+    - KaraokePerformance
+    - BandRoles
+    - PredictionTrivia
+    catalog_tracks: 13

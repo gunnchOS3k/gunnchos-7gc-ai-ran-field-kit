@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-08T00:09:50Z",
+  "generated_at_utc": "2026-08-08T00:49:32Z",
   "wave": "A",
   "scope": "full_product_entirety_baseline_accepted_mains",
   "physical_execution_freeze": true,
@@ -7,58 +7,133 @@
   "anime_aggressors_pr64": {
     "tip": "13a3ae6409f531adf207b275608ca3237c22fbd5",
     "merged_into_origin_main": false,
-    "state": "OPEN",
-    "is_draft": true,
+    "identical_patch_id_on_main_commit": "7a3789264c0a45215d2d38446654313bd87ab18b",
+    "patch_id": "e2166a7e6c318e48003958be66fe3363a6186f8a",
+    "state": "CLOSED",
+    "is_draft": false,
     "url": "https://github.com/gunnchOS3k/anime-aggressors/pull/64",
-    "note": "Draft PR #64 tip 13a3ae6 NOT merged; PR #63 tip b0ced34 IS origin/main"
+    "decision": "SUPERSEDED_BY_MERGED_PR_65",
+    "unique_required_delta": "NONE",
+    "closed_at_utc": "2026-08-08T00:49:15Z",
+    "smoke": {
+      "origin_main": "82d75d379eb57436f19dd7c3402284dd89af3b86",
+      "godot_quit_after_2_exit": 0,
+      "godot_smoke_runner_exit": 0,
+      "npm_test_exit": 0,
+      "smoke_runner_note": "[smoke] all suites passed"
+    },
+    "note": "Closed without merge. Tip 13a3ae6 identical patch-id to 7a37892 on main via PR #65. Current main green."
   },
   "repos": {
     "gunnchos-hardware-industrial-design": {
-      "origin_main": "14cc000d0e376a55a0171579d47c8cfc799a5b38",
+      "origin_main": "bab8883b640917fa2068026a6ed4c9c06db10b0f",
       "local_main": "14cc000d0e376a55a0171579d47c8cfc799a5b38",
-      "checked_out_branch": "cursor/final-kicad-cli-validation",
+      "checked_out_branch": "cursor/full-product-wave-a2-hardware-depth",
       "dirty_paths": 0,
-      "local_main_matches_origin": true,
+      "local_main_matches_origin": false,
       "claimed_merge": {
-        "sha": "14cc000d0e376a55a0171579d47c8cfc799a5b38",
-        "pr": 43,
-        "pr_url": "https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/43",
-        "verify": "TIP_MATCH",
-        "merged": true
-      }
+        "sha": "bab8883b640917fa2068026a6ed4c9c06db10b0f",
+        "pr": 44,
+        "pr_url": "https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44",
+        "verify": "IS_ANCESTOR",
+        "merged": true,
+        "all_prs": [
+          44
+        ]
+      },
+      "claimed_merges_verified": [
+        {
+          "pr": 44,
+          "state": "MERGED",
+          "merge": "bab8883b640917fa2068026a6ed4c9c06db10b0f",
+          "head": "0bf0ade1533a02ebf58add3df9bb5cac93c56da8",
+          "title": "docs(kicad): Wave A KiCad install blocked \u2014 EDMUND_ACTION_REQUIRED",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        }
+      ]
     },
     "edge-io-measurement-node": {
-      "origin_main": "a0e1d76574aa3fb62bc196bbf779e6c8ca1ed7c6",
+      "origin_main": "fc617e831916362e77aa157d77d458e935dc4cfa",
       "local_main": "a0e1d76574aa3fb62bc196bbf779e6c8ca1ed7c6",
-      "checked_out_branch": "cursor/final-zephyr-west-validation",
-      "dirty_paths": 0,
-      "local_main_matches_origin": true,
+      "checked_out_branch": "cursor/full-product-wave-a-zephyr",
+      "dirty_paths": 2,
+      "local_main_matches_origin": false,
       "claimed_merge": {
-        "sha": "a0e1d76574aa3fb62bc196bbf779e6c8ca1ed7c6",
-        "pr": 31,
-        "pr_url": "https://github.com/gunnchOS3k/edge-io-measurement-node/pull/31",
-        "verify": "TIP_MATCH",
-        "merged": true
-      }
+        "sha": "fc617e831916362e77aa157d77d458e935dc4cfa",
+        "pr": 32,
+        "pr_url": "https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32",
+        "verify": "IS_ANCESTOR",
+        "merged": true,
+        "all_prs": [
+          32
+        ],
+        "token": "RING_ZEPHYR_WEST_BUILD_PASS"
+      },
+      "claimed_merges_verified": [
+        {
+          "pr": 32,
+          "state": "MERGED",
+          "merge": "fc617e831916362e77aa157d77d458e935dc4cfa",
+          "head": "138245278c13cde4128ac8bde0451aabdccda7fa",
+          "title": "feat(ring): Wave A RING_ZEPHYR_WEST_BUILD_PASS (real west build)",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        }
+      ]
     },
     "anime-aggressors": {
-      "origin_main": "b0ced34bd5e4ccd1a08e8b38997a45bb4f9baf76",
-      "local_main": "b0ced34bd5e4ccd1a08e8b38997a45bb4f9baf76",
-      "checked_out_branch": "cursor/final-godot-cli-smoke",
-      "dirty_paths": 0,
+      "origin_main": "82d75d379eb57436f19dd7c3402284dd89af3b86",
+      "local_main": "82d75d379eb57436f19dd7c3402284dd89af3b86",
+      "checked_out_branch": "cursor/full-product-wave-d2-anime-alpha-exit",
+      "dirty_paths": 13,
       "local_main_matches_origin": true,
       "claimed_merge": {
-        "sha": "b0ced34bd5e4ccd1a08e8b38997a45bb4f9baf76",
-        "pr": 63,
-        "pr_url": "https://github.com/gunnchOS3k/anime-aggressors/pull/63",
-        "verify": "TIP_MATCH",
-        "merged": true
-      }
+        "sha": "82d75d379eb57436f19dd7c3402284dd89af3b86",
+        "pr": 65,
+        "pr_url": "https://github.com/gunnchOS3k/anime-aggressors/pull/65",
+        "verify": "IS_ANCESTOR",
+        "merged": true,
+        "all_prs": [
+          62,
+          63,
+          65
+        ]
+      },
+      "claimed_merges_verified": [
+        {
+          "pr": 62,
+          "state": "MERGED",
+          "merge": "5a47ed9b0e4201c1e2f14e5ad1c9251a96f3337e",
+          "head": "68e2c3dc7429fbeeff5dd76c82b7b4ef3825b4f4",
+          "title": "feat(g2-c6): game-godot product-runtime depth",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        },
+        {
+          "pr": 63,
+          "state": "MERGED",
+          "merge": "b0ced34bd5e4ccd1a08e8b38997a45bb4f9baf76",
+          "head": "5a5f61877411840f34403b09c464bd16d154c177",
+          "title": "fix(godot): final Godot CLI smoke for G2-C6 digital closure",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        },
+        {
+          "pr": 65,
+          "state": "MERGED",
+          "merge": "82d75d379eb57436f19dd7c3402284dd89af3b86",
+          "head": "02ee648f13b01ac86ff3d5eee60568db055f5d09",
+          "title": "feat(wave-d): Anime Aggressors Alpha depth (Godot)",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        }
+      ]
     },
     "archive-of-life-artifact-world": {
       "origin_main": "402f856805ac1706ee9109611c7ef0412ea4d34c",
       "local_main": "402f856805ac1706ee9109611c7ef0412ea4d34c",
-      "checked_out_branch": "cursor/archive-open-data-digital-pass",
+      "checked_out_branch": "cursor/full-product-wave-f-archive-alpha",
       "dirty_paths": 0,
       "local_main_matches_origin": true,
       "claimed_merge": {
@@ -70,45 +145,90 @@
       }
     },
     "gunnchos-7gc-ai-ran-field-kit": {
-      "origin_main": "b89e9902dfe8e6497e024c40f4c4e46fc7f6e0d0",
+      "origin_main": "2e6faf301ad7667cf5cddeb9789d1d06e7560e78",
       "local_main": "b89e9902dfe8e6497e024c40f4c4e46fc7f6e0d0",
-      "checked_out_branch": "cursor/full-product-entirety-wave-a",
-      "dirty_paths": 9,
-      "local_main_matches_origin": true,
+      "checked_out_branch": "cursor/full-product-wave-a2-hardware-depth",
+      "dirty_paths": 18,
+      "local_main_matches_origin": false,
       "claimed_merge": {
-        "sha": "b89e9902dfe8e6497e024c40f4c4e46fc7f6e0d0",
-        "pr": 28,
-        "pr_url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/28",
-        "verify": "TIP_MATCH",
-        "merged": true
-      }
+        "sha": "2e6faf301ad7667cf5cddeb9789d1d06e7560e78",
+        "pr": 30,
+        "pr_url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/30",
+        "verify": "IS_ANCESTOR",
+        "merged": true,
+        "all_prs": [
+          29,
+          30
+        ]
+      },
+      "claimed_merges_verified": [
+        {
+          "pr": 29,
+          "state": "MERGED",
+          "merge": "049e7c9cd75e52fa9dfa196739e9a0c981bcdb3c",
+          "head": "f4c8a7675c15f33cba1aa5c55e383019e819719a",
+          "title": "feat(full-product): Wave A entirety completion model and baselines",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        },
+        {
+          "pr": 30,
+          "state": "MERGED",
+          "merge": "2e6faf301ad7667cf5cddeb9789d1d06e7560e78",
+          "head": "d20400986bb7721c495034bfec36ebfe5a335384",
+          "title": "docs(full-product): Zephyr PASS + Wave B/D follow-ups after #29",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        }
+      ]
     },
     "gunnchos-device-os": {
-      "origin_main": "c4d99234989264ec6d8017a328c75005c7df613a",
+      "origin_main": "27d56ec7d95d89cc4dfef41d348b96b5f0268a22",
       "local_main": "c4d99234989264ec6d8017a328c75005c7df613a",
-      "checked_out_branch": "cursor/gate1-digital-fabrication",
-      "dirty_paths": 0,
-      "local_main_matches_origin": true
+      "checked_out_branch": "cursor/full-product-wave-b2-gunnchos-platform",
+      "dirty_paths": 8,
+      "local_main_matches_origin": false,
+      "claimed_merge": {
+        "sha": "27d56ec7d95d89cc4dfef41d348b96b5f0268a22",
+        "pr": 56,
+        "pr_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/56",
+        "verify": "IS_ANCESTOR",
+        "merged": true,
+        "all_prs": [
+          56
+        ]
+      },
+      "claimed_merges_verified": [
+        {
+          "pr": 56,
+          "state": "MERGED",
+          "merge": "27d56ec7d95d89cc4dfef41d348b96b5f0268a22",
+          "head": "4d855c9e8add94ec2715588188dde50040953b2e",
+          "title": "FULL PRODUCT Wave B: gunnchOS digital depth",
+          "verify": "IS_ANCESTOR",
+          "merged": true
+        }
+      ]
     },
     "gunnchAI3k": {
       "origin_main": "9678ac8bfd7c3d0bb2e4e86b18ebb33a69116b1e",
       "local_main": "9678ac8bfd7c3d0bb2e4e86b18ebb33a69116b1e",
-      "checked_out_branch": "cursor/gate1-physical-acceptance-closure",
-      "dirty_paths": 1,
+      "checked_out_branch": "cursor/full-product-wave-c-gunnchai",
+      "dirty_paths": 3,
       "local_main_matches_origin": true
     },
     "beatlink-party": {
       "origin_main": "b734316405655552ba7177aeec4bd0952a00e359",
       "local_main": "b734316405655552ba7177aeec4bd0952a00e359",
-      "checked_out_branch": "main",
-      "dirty_paths": 0,
+      "checked_out_branch": "cursor/full-product-wave-g-beatlink-alpha",
+      "dirty_paths": 9,
       "local_main_matches_origin": true
     },
     "pedestrian-pursuit": {
       "origin_main": "074f247639526780eca6deac892686282b4ffac0",
       "local_main": "074f247639526780eca6deac892686282b4ffac0",
-      "checked_out_branch": "main",
-      "dirty_paths": 0,
+      "checked_out_branch": "cursor/full-product-wave-e-pedestrian-alpha",
+      "dirty_paths": 25,
       "local_main_matches_origin": true
     },
     "7gc-digital-twin": {
@@ -161,7 +281,7 @@
       "local_main_matches_origin": true
     }
   },
-  "kicad_note": "brew install --cask kicad failed: sudo password required for /Library/Application Support/kicad",
+  "kicad_note": "kicad-cli not found; brew cask kicad not installed / admin blocked",
   "wave_a_toolchain": {
     "kicad": {
       "token": null,
@@ -169,7 +289,8 @@
       "sudo_chown_brew_ownership_issue": false,
       "draft_pr": "https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44",
       "draft_pr_branch": "cursor/full-product-wave-a-kicad",
-      "edmund_action_required": "EDMUND_ACTION_REQUIRED: Approve the macOS administrator/install prompt for KiCad."
+      "edmund_action_required": "EDMUND_ACTION_REQUIRED: Approve the macOS administrator/install prompt for KiCad.",
+      "kicad_cli_in_path": false
     },
     "zephyr": {
       "token": "RING_ZEPHYR_WEST_BUILD_PASS",
@@ -189,5 +310,89 @@
     "physical_execution_freeze": true
   },
   "edmund_action_required": "EDMUND_ACTION_REQUIRED: Approve the macOS administrator/install prompt for KiCad.",
-  "updated_at_utc": "2026-08-08T00:31:00Z"
+  "updated_at_utc": "2026-08-08T00:49:32Z",
+  "claimed_merge_verifications": {
+    "gunnchos-7gc-ai-ran-field-kit": [
+      {
+        "pr": 29,
+        "state": "MERGED",
+        "merge": "049e7c9cd75e52fa9dfa196739e9a0c981bcdb3c",
+        "head": "f4c8a7675c15f33cba1aa5c55e383019e819719a",
+        "title": "feat(full-product): Wave A entirety completion model and baselines",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      },
+      {
+        "pr": 30,
+        "state": "MERGED",
+        "merge": "2e6faf301ad7667cf5cddeb9789d1d06e7560e78",
+        "head": "d20400986bb7721c495034bfec36ebfe5a335384",
+        "title": "docs(full-product): Zephyr PASS + Wave B/D follow-ups after #29",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      }
+    ],
+    "gunnchos-device-os": [
+      {
+        "pr": 56,
+        "state": "MERGED",
+        "merge": "27d56ec7d95d89cc4dfef41d348b96b5f0268a22",
+        "head": "4d855c9e8add94ec2715588188dde50040953b2e",
+        "title": "FULL PRODUCT Wave B: gunnchOS digital depth",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      }
+    ],
+    "gunnchos-hardware-industrial-design": [
+      {
+        "pr": 44,
+        "state": "MERGED",
+        "merge": "bab8883b640917fa2068026a6ed4c9c06db10b0f",
+        "head": "0bf0ade1533a02ebf58add3df9bb5cac93c56da8",
+        "title": "docs(kicad): Wave A KiCad install blocked \u2014 EDMUND_ACTION_REQUIRED",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      }
+    ],
+    "edge-io-measurement-node": [
+      {
+        "pr": 32,
+        "state": "MERGED",
+        "merge": "fc617e831916362e77aa157d77d458e935dc4cfa",
+        "head": "138245278c13cde4128ac8bde0451aabdccda7fa",
+        "title": "feat(ring): Wave A RING_ZEPHYR_WEST_BUILD_PASS (real west build)",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      }
+    ],
+    "anime-aggressors": [
+      {
+        "pr": 62,
+        "state": "MERGED",
+        "merge": "5a47ed9b0e4201c1e2f14e5ad1c9251a96f3337e",
+        "head": "68e2c3dc7429fbeeff5dd76c82b7b4ef3825b4f4",
+        "title": "feat(g2-c6): game-godot product-runtime depth",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      },
+      {
+        "pr": 63,
+        "state": "MERGED",
+        "merge": "b0ced34bd5e4ccd1a08e8b38997a45bb4f9baf76",
+        "head": "5a5f61877411840f34403b09c464bd16d154c177",
+        "title": "fix(godot): final Godot CLI smoke for G2-C6 digital closure",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      },
+      {
+        "pr": 65,
+        "state": "MERGED",
+        "merge": "82d75d379eb57436f19dd7c3402284dd89af3b86",
+        "head": "02ee648f13b01ac86ff3d5eee60568db055f5d09",
+        "title": "feat(wave-d): Anime Aggressors Alpha depth (Godot)",
+        "verify": "IS_ANCESTOR",
+        "merged": true
+      }
+    ]
+  }
 }

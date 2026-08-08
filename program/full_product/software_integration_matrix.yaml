@@ -1,41 +1,91 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:31:00Z'
+updated_at_utc: '2026-08-08T00:55:52Z'
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: WAVE_B_PARTIAL_SERVICES
-    origin_main: c4d99234989264ec6d8017a328c75005c7df613a
-    draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/56
-    draft_sha: 4d855c9
-    gap_audit: program/full_product/reports/GUNNCHOS_SERVICE_GAP_AUDIT.md
-    wave_b_modules:
-    - connectivity_orchestrator
-    - offline_sync
-    - permissions_manager
-    - diagnostics_log
-    - display_manager
-    - dock.continuity
-    wave_b_tests_passed: 50
-    note: Audit baseline was stub-heavy; Wave B adds real modules+tests. Still not
-      FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE (sandbox/attestation/voice/unified identity/OTA
-      remain).
+    status: WAVE_B2_PLATFORM_PARTIAL
+    merged_pr_56: https://github.com/gunnchOS3k/gunnchos-device-os/pull/56
+    draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/57
+    tests_wave_b2: 72
+    note: B2 adds sandbox/attestation DEV/OTA SM/unified identity/runtime profiles/dual-screen;
+      not FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE
   gunnchAI3k:
     role: AI platform
-    status: PARTIAL_RUNTIME
+    status: WAVE_C_SYSTEM_LAYER_FOUNDATION
+    draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/21
+    token: GUNNCHAI3K_SYSTEM_LAYER_FOUNDATION_EVAL_PASS
+    tests: 6 suites / 25 tests
+    digitally_validated: false
+    note: Registry/router/inference/eval/privacy/device caps; DIGITALLY_VALIDATED
+      not claimed
   anime-aggressors:
     role: game
-    status: WAVE_D_ALPHA_IN_PROGRESS
-    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/65
-    note: Arcade+6 greybox stages+aura identity+CPU batch; not content/RC complete
+    status: WAVE_D2_ALPHA_PROGRESS_NOT_EXIT
+    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
+    draft_sha: 0b504fa
+    branched_from_main: 82d75d3
+    tests: headless smoke + npm test green
+    shipped:
+    - tutorial_first_run
+    - items_hazards_mode
+    - 7_fighter_aura_hooks
+    - online_scaffold_network_sim
+    - cpu_7x7_matrix_evidence
+    alpha_exit: false
+    content_complete: false
+    rc_digital: false
+    gaps:
+    - final_fighter_art
+    - stage_art
+    - real_private_lobby
+    - full_battlescene_cpu_eval
+    - local_mp_polish_signoff
+    note: Wave D2 depth from main+#65; NOT Alpha exit
   pedestrian-pursuit:
     role: game
-    status: G2_DEPTH_NOT_CONTENT_COMPLETE
+    status: WAVE_E_ALPHA_IN_PROGRESS
+    draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
+    tracks: 8
+    cups: 2
+    art: REQUIRES_ART_PRODUCTION
+    modes:
+    - Quick Race
+    - Cup
+    - Time Trial/Ghost
+    - Local MP 2P
+    tests: validate_content + unittest + ai_batch_sim green; Godot headless unavailable
+    content_complete: false
+    rc_digital: false
+    note: Honest Alpha greybox; not content-complete/RC
   archive-of-life-artifact-world:
     role: game
-    status: G2_DEPTH_NOT_CONTENT_COMPLETE
+    status: WAVE_F_ALPHA_IN_PROGRESS
+    draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18
+    draft_sha: 6d9c3a2
+    regions: 12
+    encounter_tier_e: 167
+    flagship_tier_f: 24
+    tests: npm test 56
+    live_global_ingest: false
+    note: Floors met with authored_public_taxonomy; fixtures never claimed live; not
+      global COL/GBIF/PBDB ingest
+    content_complete: false
+    rc_digital: false
   beatlink-party:
     role: game
-    status: G2_DEPTH_NOT_CONTENT_COMPLETE
+    status: WAVE_G_ALPHA_IN_PROGRESS
+    draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/9
+    tests: pnpm test 71 + build
+    modes:
+    - BeatTap
+    - CallAndResponse
+    - KaraokePerformance
+    - BandRoles
+    - PredictionTrivia
+    catalog_tracks: 13
+    content_complete: false
+    rc_digital: false
+    note: Five first-class modes + rights/analysis/karaoke digital; not RC
   edge-io-measurement-node:
     role: ring firmware/host
     status: RING_ZEPHYR_WEST_BUILD_PASS
@@ -47,8 +97,13 @@ repos:
     note: Soft-skip cleared; MCUboot DEV previously PASS; no physical flash
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: KICAD_CLI_BLOCKED_ADMIN
-    draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
+    status: WAVE_A2_DIGITAL_DEPTH_DRAFT
+    draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    draft_sha: 433eeb02
+    companion_field_kit_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    adr: ADR-FP-008
+    prior_kicad_draft: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
     token: HUMAN_OS_AUTHORIZATION_REQUIRED
-    note: brew cask fetched KiCad 10.0.5 then failed sudo mkdir /Library/Application
-      Support/kicad; no RING_KICAD_CLI_VALIDATION_PASS
+    ring_kicad_cli_validation_pass: false
+    note: 'A2: fusion footprints (IQS7222A/DWM3001C/BHI360), dock skeleton, Student
+      AVL power; KiCad still EDMUND_ACTION_REQUIRED; no fab'
