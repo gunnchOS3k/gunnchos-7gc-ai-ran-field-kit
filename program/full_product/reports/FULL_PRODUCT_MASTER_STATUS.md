@@ -154,9 +154,9 @@ Evidence consumer only on field-kit #34 — **not** final umbrella. Tips are Con
 
 ## Continuation V lane draft registry (2026-08-08T20:46:13Z)
 
-Evidence consumer only on field-kit follow-up draft (post-#37) — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
+Evidence consumer only on field-kit #38 — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
 
-- field-kit evidence consumer PENDING_DRAFT_PR (`PENDING_TIP_SHA`) — self (post-#37 follow-up)
+- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/38 (`014178d6f27f0df5446b0bf7c3bbe6163754ba60`) — self (post-#37 follow-up)
 - hardware component truth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48 (`187efbda5df03fd675a6a5094ec950390c9a6d29`) — KiCad still EDMUND_ACTION_REQUIRED (brew fetched 10.0.5; sudo blocked)
 - edge-io ring pinout parity https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33 (`a6dcf101da9e29317003b93668190f9ad779ca58`)
 - gunnchOS qemu TCG/SQLite CI repair https://github.com/gunnchOS3k/gunnchos-device-os/pull/63 (`bd68181c58be9e828413043a0a2c4a6ff8c55e0a`) — #62 merged mid-fix left main qemu CI red; #63 MERGEABLE+green; merge before treating device-os main as healthy
