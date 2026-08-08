@@ -1,5 +1,5 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T19:43:23Z'
+updated_at_utc: '2026-08-08T19:55:30Z'
 accepted_main_policy: MERGED_on_main_SHA_only
 continuation: IV
 repos:
@@ -108,4 +108,54 @@ repos:
     - 32
     - 33
 stale_draft_pins: CLEARED
-note: Former Cont III draft SHAs superseded by merged accepted mains above.
+note: 'Accepted mains above are Cont IV baseline only. continuation_iv_drafts pins are evidence-consumer
+  lane tips on #34; not accepted main and not final umbrella.'
+continuation_iv_drafts:
+  field_kit_evidence_consumer:
+    pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34
+    sha: 1f416567acfa03e6db547088dbd869ea5f3ec331
+    role: evidence_consumer_not_final_umbrella
+    note: Self; Cont IV lane draft registry consumer only
+  hardware_design_candidates:
+    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
+    sha: b6f9451098a80bf83155ed60f13478e2cb6ef2c9
+    note: Exact-MPN candidates; KiCad EDMUND_ACTION_REQUIRED
+    kicad: EDMUND_ACTION_REQUIRED
+  gunnchos_bootable_image:
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/61
+    sha: fba542f838d5ce572034ad411c121c137648d5db
+    note: Bootable QEMU reference image; CI green after qemu install
+  gunnchos_cloud_dev_plane:
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/60
+    sha: c6c599199417575de1b00b99e4ab132553ec87ed
+    note: Runnable cloud/fleet/security DEV plane
+  gunnchai_real_local_inference:
+    pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/23
+    sha: e96cf60dab4131d56d6e920d7be218fa4cf2d807
+    note: REAL local llama.cpp inference + evals; not full platform
+    full_platform: false
+  anime_beta_rc_digital:
+    pr: https://github.com/gunnchOS3k/anime-aggressors/pull/68
+    sha: 594b29c946d4f23fb7903ac11c97066d16298f7f
+    note: Beta content + digital RC on draft only
+    beta_digital: DRAFT_ONLY
+    rc_digital: DRAFT_ONLY
+  pedestrian_beta_rc_partial:
+    pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/10
+    sha: 3fe851d82791d83f9931a3d850bd0b1a7e4d134d
+    note: Beta yes on draft; RC partial; AI matrix not yet
+    beta_digital: DRAFT_ONLY
+    rc_digital: PARTIAL_DRAFT_ONLY
+    ai_matrix: NOT_YET
+  archive_beta_rc_digital:
+    pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/20
+    sha: d07253e53371cc99fdf0fa6777a3af1f382136a4
+    note: Tier R ingest + Beta digital / Digital RC draft
+    beta_digital: DRAFT_ONLY
+    rc_digital: DRAFT_ONLY
+  beatlink_beta_rc_digital:
+    pr: https://github.com/gunnchOS3k/beatlink-party/pull/12
+    sha: 4a6ccf3e1a3cc7a22209e748c31c07967fb59c71
+    note: Beta Event Platform + Digital RC draft
+    beta_digital: DRAFT_ONLY
+    rc_digital: DRAFT_ONLY
