@@ -173,4 +173,5 @@ Evidence consumer Cont VI — **not** final umbrella.
 - edge_io_ring_firmware: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/34 (`3cec129`) — `RING_FULL_FIRMWARE_DIGITAL_PASS` earned (digital); physical boot pending
 - anime_path_a_audit: https://github.com/gunnchOS3k/anime-aggressors/pull/70 (`b99f2bc`) — Path A repairs + RC hardening; Beta/RC tokens kept under Path A scope
 - pedestrian_digital_rc: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/12 (`70e9f55`) — PEDESTRIAN_DIGITAL_RC_READY; physical FPS pending separately
+- hardware_eda_closure: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49 (`d2837e3`) — Student/DS-XL NDA-blocked; Handheld/Dock/Ring partial EDA tokens; no FULL design release
 

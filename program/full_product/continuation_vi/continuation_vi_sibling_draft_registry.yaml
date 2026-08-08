@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VI
-generated_at_utc: '2026-08-08T21:05:52Z'
+generated_at_utc: '2026-08-08T21:06:21Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 2d257be6eb19b8237bf681b40f89275492fbd359
@@ -22,9 +22,18 @@ drafts:
     note: Self Cont VI draft; tip filled after commit
   hardware_eda_closure:
     repo: gunnchos-hardware-industrial-design
+    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49
+    sha: d2837e3edc94caeb06713f8ec9f9c7d02d50e63a
     branch: cursor/full-product-continuation-vi-eda-closure
-    sha: 38b37221074446730709af5682a06cb4cefd39fc
-    note: 'Cont VI EDA/public-engineerability wave branched from #48 tip; PR TBD'
+    ci: green
+    tokens:
+      STUDENT: STUDENT_BLOCKED_NDA
+      DSXL: DSXL_BLOCKED_NDA
+      HANDHELD: HANDHELD_PUBLIC_PINOUT_EDA_COMPLETE
+      DOCK: DOCK_TB4_EDA_COMPLETE
+      RING: RING_EDA_DT_PARITY_NOTES_COMPLETE
+    note: Option3 COM-HPC NDA; no FULL/DESIGN_RELEASE_COMPLETE; KiCad 10.0.5 BEST_EFFORT
+      family validation
   edge_io_full_firmware:
     repo: edge-io-measurement-node
     branch: cursor/full-product-continuation-vi-ring-firmware
