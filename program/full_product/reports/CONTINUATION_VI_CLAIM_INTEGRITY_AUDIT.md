@@ -1,6 +1,6 @@
 # Continuation VI — Claim Integrity Audit
 
-Updated: 2026-08-08T20:56:59Z
+Updated: 2026-08-08T21:03:46Z
 
 Doctrine: no attachment to prior tokens. Revoke if evidence contradicts the claim.
 Allowed validity: `VALID` | `VALID_WITH_EXPLICIT_SCOPE` | `PREMATURE_REVOKE` | `SUPERSEDED`.
