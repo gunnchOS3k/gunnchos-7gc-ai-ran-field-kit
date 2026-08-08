@@ -1,15 +1,32 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:06:51Z'
+updated_at_utc: '2026-08-08T00:20:20Z'
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: PARTIAL_SERVICES
+    status: WAVE_B_PARTIAL_SERVICES
+    origin_main: c4d99234989264ec6d8017a328c75005c7df613a
+    draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/56
+    draft_sha: 4d855c9
+    gap_audit: program/full_product/reports/GUNNCHOS_SERVICE_GAP_AUDIT.md
+    wave_b_modules:
+    - connectivity_orchestrator
+    - offline_sync
+    - permissions_manager
+    - diagnostics_log
+    - display_manager
+    - dock.continuity
+    wave_b_tests_passed: 50
+    note: Audit baseline was stub-heavy; Wave B adds real modules+tests. Still not
+      FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE (sandbox/attestation/voice/unified identity/OTA
+      remain).
   gunnchAI3k:
     role: AI platform
     status: PARTIAL_RUNTIME
   anime-aggressors:
     role: game
-    status: G2_DEPTH_NOT_CONTENT_COMPLETE
+    status: WAVE_D_ALPHA_IN_PROGRESS
+    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/65
+    note: Arcade+6 greybox stages+aura identity+CPU batch; not content/RC complete
   pedestrian-pursuit:
     role: game
     status: G2_DEPTH_NOT_CONTENT_COMPLETE

@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:06:51Z'
+updated_at_utc: '2026-08-08T00:20:11Z'
 blockers:
 - id: EB-KICAD-ADMIN
   class: HUMAN_OS_AUTHORIZATION
@@ -34,3 +34,10 @@ blockers:
   blocks:
   - FULL_PHYSICAL_VALIDATION_COMPLETE
   edmund_action_required: true
+- id: EB-EDGEGESTURE-CLONE
+  class: DIGITAL_EXECUTABLE
+  text: EdgeGesture repo referenced by program but not present under repos/; clone
+    or drop reference
+  blocks:
+  - input_ecosystem_completeness
+  edmund_action_required: false

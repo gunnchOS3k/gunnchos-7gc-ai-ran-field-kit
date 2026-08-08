@@ -87,3 +87,10 @@ FULL_PRODUCT_DIGITAL_IMPLEMENTATION_INCOMPLETE = TRUE
 PHYSICAL_EXECUTION_FREEZE = ACTIVE
 FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 ```
+
+## Follow-up integration (2026-08-08T00:20:11Z)
+
+- Source inventory ([Audit source docs + gaps](815983cc-03f9-437c-bbbc-dff2ecfcec94)): charter embeds Four-Game §8; no separate master GDD; EdgeGesture not cloned.
+- gunnchOS audit ([gunnchOS service gap audit](120eb3a8-42a0-4d8c-98ba-678c46d45128)) + Wave B PR https://github.com/gunnchOS3k/gunnchos-device-os/pull/56 (`4d855c9`, 50 tests) — still not platform-complete.
+- Game audit ([Four games content gap audit](4917cca5-bade-497b-86a2-15262311bd65)): ADR floors aligned (Archive regions 12 / encounters ≥120; BeatLink catalog ≥12).
+- Anime Wave D draft: https://github.com/gunnchOS3k/anime-aggressors/pull/65 (`02ee648`) — Alpha in progress, not feature/content complete.
