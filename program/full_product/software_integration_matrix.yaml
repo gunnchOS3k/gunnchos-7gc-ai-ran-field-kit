@@ -1,13 +1,13 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T20:46:13Z'
+updated_at_utc: '2026-08-08T21:10:00Z'
 accepted_main_policy: MERGED_on_main_SHA_only
-continuation: V
+continuation: VI
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: CONT_V_ACCEPTED_MAIN
+    status: CONT_VI_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: dee336a344bbc3ac730ed2cfd25a5f1d1e1af49f
+    accepted_main_sha: 12ca8591202f59fdff962a4460323c6cfd67238d
     merged_prs:
     - 56
     - 57
@@ -15,6 +15,7 @@ repos:
     - 59
     - 60
     - 61
+    - 62
     token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
     note: 'Includes bootable QEMU image #61 and cloud/fleet #60; #62 merged mid-fix leaving main
       qemu CI red; #63 TCG/SQLite follow-up MERGEABLE+green — merge before treating main as healthy;
@@ -22,104 +23,108 @@ repos:
     main_ci: RED_UNTIL_63
   gunnchAI3k:
     role: AI platform
-    status: CONT_V_ACCEPTED_MAIN
+    status: CONT_VI_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 6f98ab8b08851ad4e0ac8785bb409c248519b2b7
+    accepted_main_sha: ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5
     merged_prs:
     - 21
     - 22
     - 23
+    - 24
     token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
     digitally_validated: true
-    note: 'Real local llama.cpp inference #23 on main; FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE forbidden'
+    note: 'Callable service #24 on main; FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE forbidden'
   anime-aggressors:
     role: game
-    status: CONT_V_ACCEPTED_MAIN
+    status: CONT_VI_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
+    accepted_main_sha: b3c823cf277c97c691a31ffc865798561e13a6eb
     merged_prs:
     - 65
     - 66
     - 67
     - 68
+    - 69
     alpha_exit: true
-    content_complete: false
-    rc_digital: false
-    claim_integrity: PREMATURE_REVOKE_BETA_RC_TOKENS
-    note: '#68 on main; Beta/RC PREMATURE_REVOKE on accepted main. Cont V #69 Path A cleared blocks_token;
-      Beta/RC may become VALID_WITH_EXPLICIT_SCOPE after #69 merges (DRAFT_ONLY now)'
+    content_complete: true
+    rc_digital: true
+    claim_integrity: VALID_WITH_EXPLICIT_SCOPE_AFTER_69
+    note: '#69 on main; blocks_token cleared; Beta/RC VALID_WITH_EXPLICIT_SCOPE (Path A procedural/synth;
+      no FULL launch claim)'
   pedestrian-pursuit:
     role: game
-    status: CONT_V_ACCEPTED_MAIN
+    status: CONT_VI_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: c8db661d6bf057c6c487586f378362005413bc1f
+    accepted_main_sha: ce0687d442311dee54bbfa9eedc7be9db8579650
     merged_prs:
     - 8
     - 9
     - 10
+    - 11
     content_complete: false
     rc_digital: false
-    note: '#10 Beta digital / RC PARTIAL on main. Cont V #11: competitive AI 768 + Local MP; RC still PARTIAL
-      (DRAFT_ONLY)'
+    note: '#11 competitive AI 768 + Local MP on main; digital RC PARTIAL pending final art/audio'
   archive-of-life-artifact-world:
     role: game
-    status: CONT_V_ACCEPTED_MAIN
+    status: CONT_VI_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
+    accepted_main_sha: ee8a2e6346bbc384eda05217710fa4d1dd827e52
     merged_prs:
     - 17
     - 18
     - 19
     - 20
+    - 21
     live_global_ingest: false
     content_complete: false
     rc_digital: false
-    note: '#20 scoped Beta/RC on main. Cont V #21 production ingest + claim firewall; Beta/RC remain
-      scoped DRAFT (not global complete)'
+    note: '#21 production ingest on main; global live ingest not claimed; Cont VI science DB wave'
   beatlink-party:
     role: game
-    status: CONT_V_ACCEPTED_MAIN_CI_GREEN
+    status: CONT_VI_ACCEPTED_MAIN_CI_GREEN
     pr_state: MERGED
-    accepted_main_sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
+    accepted_main_sha: c8a2de8c51929d776eea7b219f6015e787e0f174
     merged_prs:
     - 9
     - 10
     - 11
     - 12
+    - 13
     content_complete: false
     rc_digital: false
     alpha_exit: true
-    note: '#12 on main with explicit scope. Cont V #13 Redis/mic/providers/load; Beta/RC still revoked
-      on draft (CI green)'
+    note: '#13 Redis/load/mic on main; Beta/RC revoked pending Cont VI re-earn'
   edge-io-measurement-node:
     role: ring firmware/host
     status: RING_ZEPHYR_WEST_BUILD_PASS
     pr_state: MERGED
-    accepted_main_sha: fc617e831916362e77aa157d77d458e935dc4cfa
+    accepted_main_sha: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
     merged_prs:
     - 32
+    - 33
     token: RING_ZEPHYR_WEST_BUILD_PASS
-    note: Soft-skip cleared; no physical flash
+    note: '#33 pinout parity stubs; west build pass; production firmware smoke-only still open'
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: CONT_V_ACCEPTED_MAIN
+    status: CONT_VI_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
+    accepted_main_sha: 38b37221074446730709af5682a06cb4cefd39fc
     merged_prs:
     - 44
     - 45
     - 46
     - 47
-    companion_field_kit_accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+    - 48
+    companion_field_kit_accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
     ring_kicad_cli_validation_pass: false
     kicad: EDMUND_ACTION_REQUIRED
     token: HARDWARE_DESIGN_RELEASE_CANDIDATE
     note: '#47 on main; FULL_HARDWARE_DESIGN_RELEASE_COMPLETE not claimed; KiCad EDMUND_ACTION_REQUIRED'
   gunnchos-7gc-ai-ran-field-kit:
     role: control_plane
-    status: CONT_V_POST_MERGE_CANONICALIZATION
+    status: CONT_VI_POST_MERGE_CANONICALIZATION
     pr_state: MERGED_BASE
-    accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
+    accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
     merged_prs:
     - 29
     - 30
@@ -128,63 +133,62 @@ repos:
     - 33
     - 34
     - 35
-    note: Cont V draft canonicalization consumes Cont IV merge SHAs; not true final umbrella
+    - 36
+    - 37
+    note: Cont VI draft canonicalization consumes Cont IV merge SHAs; not true final umbrella
 stale_draft_pins: CLEARED_TO_MERGE_COMMITS
-note: 'Accepted mains above are Cont V baseline only. continuation_v_drafts pins are evidence-consumer
-  lane tips on #38; not accepted main and not final umbrella.'
-continuation_v_drafts:
-  field_kit_evidence_consumer:
-    pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/38
-    sha: 014178d6f27f0df5446b0bf7c3bbe6163754ba60
-    role: evidence_consumer_not_final_umbrella
-    note: Self; Cont V lane draft registry consumer only (post-#37 follow-up)
-  hardware_component_truth:
-    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
-    sha: 187efbda5df03fd675a6a5094ec950390c9a6d29
-    note: Component truth + dock USB4/TB4 freeze + mfg deepen; KiCad EDMUND_ACTION_REQUIRED
-    kicad: EDMUND_ACTION_REQUIRED
-  edge_io_ring_pinout_parity:
-    pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33
-    sha: a6dcf101da9e29317003b93668190f9ad779ca58
-    note: Ring firmware pinout parity stubs vs hardware BOM
-  gunnchos_qemu_tcg_ci_repair:
+note: Accepted mains are Cont VI baseline (Cont V merge SHAs). continuation_vi_drafts are evidence-consumer
+  lane tips only — not accepted main and not final umbrella.
+continuation_vi_drafts:
+  field_kit_post_merge_reproof:
+    repo: gunnchos-7gc-ai-ran-field-kit
+    branch: cursor/full-product-continuation-vi-post-merge-reproof
+    role: control_plane_evidence_consumer_not_final_umbrella
+    pr: null
+    sha: null
+    note: Self Cont VI draft; tip filled after commit
+  hardware_eda_closure:
+    repo: gunnchos-hardware-industrial-design
+    branch: cursor/full-product-continuation-vi-eda-closure
+    sha: 38b37221074446730709af5682a06cb4cefd39fc
+    note: 'Cont VI EDA/public-engineerability wave branched from #48 tip; PR TBD'
+  edge_io_full_firmware:
+    repo: edge-io-measurement-node
+    branch: cursor/full-product-continuation-vi-ring-firmware
+    sha: null
+    note: PRIORITY 1 Cont VI firmware wave; tip registered when branch opens
+    base_accepted_main: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
+  device_os_ci_repair_open:
+    repo: gunnchos-device-os
+    branch: cursor/full-product-continuation-v-gunnchos-services
     pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
     sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
-    note: '#62 merged mid-fix leaving main qemu CI red; #63 completes TCG/SQLite fix; MERGEABLE + green; merge before treating device-os main as healthy'
-    mergeable: true
-    ci: GREEN
-    full_platform: false
-    precedes_healthy_main: true
-    prior_merged_pr: 62
-  gunnchai_callable_service:
-    pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/24
-    sha: cc0c7400b5be0d95570d2d91e6259043ec1f09cf
-    note: Callable product service + RAG + governance; not full platform
-    full_platform: false
-  anime_path_a_art_audio:
-    pr: https://github.com/gunnchOS3k/anime-aggressors/pull/69
-    sha: 1e734dbf9fba959f4a6de6c397b147d41756d99a
-    note: Path A cleared blocks_token; Beta/RC may become VALID_WITH_EXPLICIT_SCOPE after #69 merges
-    beta_digital: DRAFT_ONLY_MAY_BECOME_VALID_WITH_EXPLICIT_SCOPE
-    rc_digital: DRAFT_ONLY_MAY_BECOME_VALID_WITH_EXPLICIT_SCOPE
-    blocks_token_cleared: true
-  pedestrian_ai_local_mp:
-    pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11
-    sha: ee3400731fae3197057fc39b35767f90b1603237
-    note: Competitive AI 768 + Local MP polish; RC PARTIAL on draft
-    beta_digital: DRAFT_ONLY
-    rc_digital: PARTIAL_DRAFT_ONLY
-    competitive_ai: DRAFT_VALIDATED_768
-  archive_production_ingest:
-    pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/21
-    sha: 4d5d00f6922923e2921ba81163af4edc6bf90061
-    note: Production data path + scoped Beta/RC claim audit; not global complete
-    beta_digital: SCOPED_DRAFT_ONLY
-    rc_digital: SCOPED_DRAFT_ONLY
-  beatlink_durable_rooms_load:
-    pr: https://github.com/gunnchOS3k/beatlink-party/pull/13
-    sha: 0e78497791fdfdd2587f2ebefa88b1298ccf50c6
-    note: Durable rooms + network load + mic + providers; Beta/RC still revoked; CI green
-    beta_digital: REVOKED_ON_DRAFT
-    rc_digital: REVOKED_ON_DRAFT
-    ci: GREEN
+    note: 'Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont VI services branch
+      should include this tip'
+    accepted_main_still: 12ca8591202f59fdff962a4460323c6cfd67238d
+    accepted_main_ci: red
+  gunnchai_os_integration:
+    repo: gunnchAI3k
+    branch: cursor/full-product-continuation-vi-os-integration
+    sha: ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5
+    note: Cont VI OS integration wave; tip == accepted main until first Cont VI commit
+  anime_path_a_audit:
+    repo: anime-aggressors
+    branch: cursor/full-product-continuation-vi-anime-path-a-audit
+    sha: b3c823cf277c97c691a31ffc865798561e13a6eb
+    note: 'Cont VI Path A audit against #69 accepted main'
+  pedestrian_digital_rc:
+    repo: pedestrian-pursuit
+    branch: cursor/full-product-continuation-vi-digital-rc
+    sha: ce0687d442311dee54bbfa9eedc7be9db8579650
+    note: Cont VI final art/audio + digital RC wave
+  archive_science_db:
+    repo: archive-of-life-artifact-world
+    branch: cursor/full-product-continuation-vi-science-db
+    sha: ee8a2e6346bbc384eda05217710fa4d1dd827e52
+    note: Cont VI durable science DB + deeper ingest
+  beatlink_beta_rc:
+    repo: beatlink-party
+    branch: cursor/full-product-continuation-vi-beta-rc
+    sha: c8a2de8c51929d776eea7b219f6015e787e0f174
+    note: 'Cont VI Beta/RC re-earn after #13 revoke'

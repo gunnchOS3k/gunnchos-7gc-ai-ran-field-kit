@@ -38,18 +38,18 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 ## Requirement catalog bootstrap
 
 - Catalogued + ingested nodes: **476**
-- Status counts: `{'EXTERNAL_REQUIRED': 75, 'SCHEMA_ONLY': 221, 'PHYSICAL_REQUIRED': 120, 'IMPLEMENTED': 45, 'DIGITALLY_VALIDATED': 15}`
+- Status counts: `{'EXTERNAL_REQUIRED': 75, 'SCHEMA_ONLY': 221, 'PHYSICAL_REQUIRED': 120, 'IMPLEMENTED': 46, 'DIGITALLY_VALIDATED': 14}`
 - UNMAPPED=0 · UNOWNED=0 · UNCLASSIFIED=0
-- Cont V proof: `reports/REQUIREMENT_PROOF_COUNTS.json`
-- Cont V queues: `continuation_v/` + claim audit
+- Cont VI proof: `reports/REQUIREMENT_PROOF_COUNTS.json`
+- Cont VI queues: `continuation_vi/` + claim audit
 - Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
 - Validator: `scripts/validate_full_product_requirement_graph.py`
-- Updated: 2026-08-08T20:46:13Z
+- Updated: 2026-08-08T21:10:00Z
 
 
 ## Immediate external/human blockers
 
-1. **EDMUND_ACTION_REQUIRED:** Approve macOS administrator/install prompt for KiCad (Homebrew ownership/`sudo` may also be required).
+1. KiCad 10.0.5 installed (`KICAD_INSTALLATION_PASS`); remaining human action is Edmund merges of Cont VI drafts (and OS admin only if a new privileged prompt appears).
 2. Zephyr SDK + real `RING_ZEPHYR_WEST_BUILD_PASS` (digital, in progress).
 3. Exact MPN architecture freezes for Student 14.5 / DS-XL / Handheld / Dock (BOMs currently generic).
 
@@ -165,3 +165,17 @@ Evidence consumer only on field-kit #38 — **not** final umbrella. Tips are Con
 - Pedestrian competitive AI + Local MP https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11 (`ee3400731fae3197057fc39b35767f90b1603237`) — RC PARTIAL
 - Archive production ingest https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/21 (`4d5d00f6922923e2921ba81163af4edc6bf90061`) — scoped Beta/RC
 - Beat Link durable rooms/load/mic https://github.com/gunnchOS3k/beatlink-party/pull/13 (`0e78497791fdfdd2587f2ebefa88b1298ccf50c6`) — Beta/RC still revoked; CI green
+
+## Continuation VI sibling draft registry (2026-08-08T20:56:59Z)
+
+Evidence consumer Cont VI — **not** final umbrella. Accepted mains remain Cont V merge SHAs in `_baseline_accepted_mains.json`.
+
+- field_kit_post_merge_reproof: (PR TBD) (`(tip TBD)`) — branch `cursor/full-product-continuation-vi-post-merge-reproof` — Self Cont VI draft; tip filled after commit
+- hardware_eda_closure: (PR TBD) (`38b37221074446730709af5682a06cb4cefd39fc`) — branch `cursor/full-product-continuation-vi-eda-closure` — Cont VI EDA/public-engineerability wave branched from #48 tip; PR TBD
+- edge_io_full_firmware: (PR TBD) (`(tip TBD)`) — branch `cursor/full-product-continuation-vi-ring-firmware` — PRIORITY 1 Cont VI firmware wave; tip registered when branch opens
+- device_os_ci_repair_open: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63 (`bd68181c58be9e828413043a0a2c4a6ff8c55e0a`) — branch `cursor/full-product-continuation-v-gunnchos-services` — Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont VI services branch should include this tip
+- gunnchai_os_integration: (PR TBD) (`ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5`) — branch `cursor/full-product-continuation-vi-os-integration` — Cont VI OS integration wave; tip == accepted main until first Cont VI commit
+- anime_path_a_audit: (PR TBD) (`b3c823cf277c97c691a31ffc865798561e13a6eb`) — branch `cursor/full-product-continuation-vi-anime-path-a-audit` — Cont VI Path A audit against #69 accepted main
+- pedestrian_digital_rc: (PR TBD) (`ce0687d442311dee54bbfa9eedc7be9db8579650`) — branch `cursor/full-product-continuation-vi-digital-rc` — Cont VI final art/audio + digital RC wave
+- archive_science_db: (PR TBD) (`ee8a2e6346bbc384eda05217710fa4d1dd827e52`) — branch `cursor/full-product-continuation-vi-science-db` — Cont VI durable science DB + deeper ingest
+- beatlink_beta_rc: (PR TBD) (`c8a2de8c51929d776eea7b219f6015e787e0f174`) — branch `cursor/full-product-continuation-vi-beta-rc` — Cont VI Beta/RC re-earn after #13 revoke
