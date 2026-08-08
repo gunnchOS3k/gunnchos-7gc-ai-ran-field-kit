@@ -94,3 +94,13 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - gunnchOS audit ([gunnchOS service gap audit](120eb3a8-42a0-4d8c-98ba-678c46d45128)) + Wave B PR https://github.com/gunnchOS3k/gunnchos-device-os/pull/56 (`4d855c9`, 50 tests) — still not platform-complete.
 - Game audit ([Four games content gap audit](4917cca5-bade-497b-86a2-15262311bd65)): ADR floors aligned (Archive regions 12 / encounters ≥120; BeatLink catalog ≥12).
 - Anime Wave D draft: https://github.com/gunnchOS3k/anime-aggressors/pull/65 (`02ee648`) — Alpha in progress, not feature/content complete.
+
+## Zephyr follow-up (2026-08-08T00:23:51Z)
+
+- `RING_ZEPHYR_WEST_BUILD_PASS` — draft https://github.com/gunnchOS3k/edge-io-measurement-node/pull/32 ([Extract SDK finish west build](5a47dcfa-69a7-464b-8ebc-4d260a934a27))
+- Soft-skip retired for ring west build
+- KiCad still `EDMUND_ACTION_REQUIRED` / `HUMAN_OS_AUTHORIZATION_REQUIRED`
+
+## KiCad Wave A closeout (2026-08-08T00:31:00Z)
+- Hardware draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44 — brew fetched KiCad; admin sudo still required ([Fetch mains KiCad Zephyr](dad1469e-5a09-4a1d-8265-dfa7a1da4d3c)).
+- `RING_KICAD_CLI_VALIDATION_PASS` not achieved.
