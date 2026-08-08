@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VI
-generated_at_utc: '2026-08-08T21:06:21Z'
+generated_at_utc: '2026-08-08T21:07:28Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 2d257be6eb19b8237bf681b40f89275492fbd359
@@ -90,3 +90,20 @@ drafts:
     ci: green
     token: RING_FULL_FIRMWARE_DIGITAL_PASS
     note: Cont VI full firmware digital; physical boot pending; draft not merged
+  device_os_platform_semantics:
+    repo: gunnchos-device-os
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64
+    sha: 835aab1531e10c6a817587ea84f382631cc925d6
+    branch: cursor/full-product-continuation-vi-platform-semantics
+    includes_pr63_ci_fix: true
+    ancestor_sha_63: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
+    ci: pending_confirm_qemu
+    token: FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE=false
+    note: 'Cont VI service contracts + app runtime + QEMU proofs; includes #63 TCG/SQLite;
+      platform token not earned; draft not merged'
+  device_os_ci_repair_63:
+    repo: gunnchos-device-os
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
+    sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
+    note: 'Superseded-as-merge-vehicle by #64 if #64 CI green (ancestor included);
+      either merge #63 then #64, or merge #64 alone'

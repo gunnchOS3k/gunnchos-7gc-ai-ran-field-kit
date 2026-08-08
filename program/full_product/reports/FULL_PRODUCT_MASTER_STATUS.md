@@ -174,4 +174,5 @@ Evidence consumer Cont VI — **not** final umbrella.
 - anime_path_a_audit: https://github.com/gunnchOS3k/anime-aggressors/pull/70 (`b99f2bc`) — Path A repairs + RC hardening; Beta/RC tokens kept under Path A scope
 - pedestrian_digital_rc: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/12 (`70e9f55`) — PEDESTRIAN_DIGITAL_RC_READY; physical FPS pending separately
 - hardware_eda_closure: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49 (`d2837e3`) — Student/DS-XL NDA-blocked; Handheld/Dock/Ring partial EDA tokens; no FULL design release
+- device_os_platform_semantics: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64 (`835aab1`) — includes #63 CI fix; FULL platform token false; confirm qemu CI before merge
 
