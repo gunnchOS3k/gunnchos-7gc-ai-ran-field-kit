@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:54:33Z'
+updated_at_utc: '2026-08-08T00:55:52Z'
 repos:
   gunnchos-device-os:
     role: gunnchOS
@@ -97,8 +97,13 @@ repos:
     note: Soft-skip cleared; MCUboot DEV previously PASS; no physical flash
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: KICAD_CLI_BLOCKED_ADMIN
-    draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
+    status: WAVE_A2_DIGITAL_DEPTH_DRAFT
+    draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    draft_sha: 433eeb02
+    companion_field_kit_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    adr: ADR-FP-008
+    prior_kicad_draft: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44
     token: HUMAN_OS_AUTHORIZATION_REQUIRED
-    note: brew cask fetched KiCad 10.0.5 then failed sudo mkdir /Library/Application
-      Support/kicad; no RING_KICAD_CLI_VALIDATION_PASS
+    ring_kicad_cli_validation_pass: false
+    note: 'A2: fusion footprints (IQS7222A/DWM3001C/BHI360), dock skeleton, Student
+      AVL power; KiCad still EDMUND_ACTION_REQUIRED; no fab'

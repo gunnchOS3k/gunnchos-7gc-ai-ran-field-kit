@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:06:51Z'
+updated_at_utc: '2026-08-08T00:55:52Z'
 criteria_for_FULL_HARDWARE_DESIGN_RELEASE_COMPLETE:
 - exact architecture ADR frozen
 - exact BOM MPNs
@@ -19,7 +19,7 @@ products:
   student_14_5:
     role: sustained full-session learning/work platform
     architecture_freeze: NOT_FROZEN
-    bom_state: GENERIC_PLACEHOLDER
+    bom_state: AVL_POWER_MPN_PARTIAL
     exact_mpn_count: 0
     schematic_pcb: INCOMPLETE
     mechanical_cad: PARAMETRIC_SCAD_ONLY
@@ -30,6 +30,13 @@ products:
     blocker_class:
     - DIGITAL_EXECUTABLE
     - HUMAN_OS_AUTHORIZATION_FOR_KICAD
+    power_mpns:
+    - BQ25792
+    - TPS65994
+    - MP2978A
+    - TPS62864
+    - TLV755xx
+    draft_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
   ds_xl_coder:
     role: dual-screen learning-to-build platform
     architecture_freeze: NOT_FROZEN
@@ -55,20 +62,27 @@ products:
     - DIGITAL_EXECUTABLE
   edge_io_rings:
     role: embodied primary input
-    architecture_freeze: PARTIAL_NRF52840_PATH
-    bom_state: PARTIAL_GENERIC
-    mcu_candidate: nRF52840 (prior ring path)
-    kicad_cli: HUMAN_OS_AUTHORIZATION_REQUIRED
-    zephyr_west: NOT_PASS
+    architecture_freeze: ADR_FP_008_FUSION_BASELINE_NOT_LAYOUT_FROZEN
+    bom_state: FUSION_FOOTPRINTS_DIGITAL
+    mcu_candidate: nRF52840 (insufficient alone per ADR-FP-008)
+    kicad_cli: EDMUND_ACTION_REQUIRED
+    zephyr_west: PASS_ON_MAIN_VIA_EDGE_IO
     mcuboot_dev: PASS
     sensor_fusion_complete: false
     productivity_input_surface: INCOMPLETE
     gaming_mappings: PARTIAL
-    manufacturing_package: PARTIAL_RING_PCB
+    manufacturing_package: PARTIAL_RING_PCB_PLUS_DOCK_SKELETON
     blocker_class:
     - HUMAN_OS_AUTHORIZATION
     - DIGITAL_EXECUTABLE
     - PHYSICAL_REQUIRED_LATER
+    sensor_fusion_adr: ADR-FP-008
+    fusion_footprints:
+    - IQS7222A
+    - DWM3001C/DW3000
+    - BHI360 optional
+    draft_pr_hardware: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/45
+    draft_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
   dock:
     role: first-party family dock
     architecture_freeze: NOT_FROZEN
@@ -80,3 +94,6 @@ products:
     - gunnchos-device-os/gate1_digital_fabrication/dock
     blocker_class:
     - DIGITAL_EXECUTABLE
+    status: MANUFACTURING_SKELETON_DIGITAL
+    draft_pr_field_kit: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/32
+    fab: FORBIDDEN_PHYSICAL_FREEZE
