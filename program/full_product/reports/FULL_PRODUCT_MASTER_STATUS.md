@@ -44,7 +44,7 @@ Historical gates and NONPHYSICAL_TOTALITY evidence: **preserved**, not product-d
 - Cont V queues: `continuation_v/` + claim audit
 - Target: `UNMAPPED_NORMATIVE_REQUIREMENTS = 0` (MET)
 - Validator: `scripts/validate_full_product_requirement_graph.py`
-- Updated: 2026-08-08T20:38:00Z
+- Updated: 2026-08-08T20:46:13Z
 
 
 ## Immediate external/human blockers
@@ -152,14 +152,14 @@ Evidence consumer only on field-kit #34 — **not** final umbrella. Tips are Con
 - Beat Link Beta Event Platform + Digital RC DRAFT_ONLY https://github.com/gunnchOS3k/beatlink-party/pull/12 (`4a6ccf3e1a3cc7a22209e748c31c07967fb59c71`)
 
 
-## Continuation V lane draft registry (2026-08-08T20:38:00Z)
+## Continuation V lane draft registry (2026-08-08T20:46:13Z)
 
-Evidence consumer only on field-kit #37 — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
+Evidence consumer only on field-kit #38 — **not** final umbrella. Tips are Cont V draft lane pins; accepted mains remain the Cont V baseline already recorded above. No `FULL_*_COMPLETE` tokens invented here.
 
-- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37 (`285e5a2ccc24c7810a78672006799a2df508137f`) — self
+- field-kit evidence consumer https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/38 (`014178d6f27f0df5446b0bf7c3bbe6163754ba60`) — self (post-#37 follow-up)
 - hardware component truth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48 (`187efbda5df03fd675a6a5094ec950390c9a6d29`) — KiCad still EDMUND_ACTION_REQUIRED (brew fetched 10.0.5; sudo blocked)
 - edge-io ring pinout parity https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33 (`a6dcf101da9e29317003b93668190f9ad779ca58`)
-- gunnchOS stub elimination + IPC https://github.com/gunnchOS3k/gunnchos-device-os/pull/62 (`c9ada7a90dc02bb73d151e58eb0045bd570af5cb`) — not FULL platform
+- gunnchOS qemu TCG/SQLite CI repair https://github.com/gunnchOS3k/gunnchos-device-os/pull/63 (`bd68181c58be9e828413043a0a2c4a6ff8c55e0a`) — #62 merged mid-fix left main qemu CI red; #63 MERGEABLE+green; merge before treating device-os main as healthy
 - gunnchAI callable service https://github.com/gunnchOS3k/gunnchAI3k/pull/24 (`cc0c7400b5be0d95570d2d91e6259043ec1f09cf`) — not full platform
 - Anime Path A art/audio https://github.com/gunnchOS3k/anime-aggressors/pull/69 (`1e734dbf9fba959f4a6de6c397b147d41756d99a`) — blocks_token cleared; Beta/RC may become VALID_WITH_EXPLICIT_SCOPE after #69 merges (DRAFT_ONLY now)
 - Pedestrian competitive AI + Local MP https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11 (`ee3400731fae3197057fc39b35767f90b1603237`) — RC PARTIAL

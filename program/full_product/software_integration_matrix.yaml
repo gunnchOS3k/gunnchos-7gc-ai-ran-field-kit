@@ -1,5 +1,5 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T20:38:00Z'
+updated_at_utc: '2026-08-08T20:46:13Z'
 accepted_main_policy: MERGED_on_main_SHA_only
 continuation: V
 repos:
@@ -16,8 +16,10 @@ repos:
     - 60
     - 61
     token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
-    note: 'Includes bootable QEMU image #61 and cloud/fleet #60; 17 service stubs remain; FULL platform
-      not claimed'
+    note: 'Includes bootable QEMU image #61 and cloud/fleet #60; #62 merged mid-fix leaving main
+      qemu CI red; #63 TCG/SQLite follow-up MERGEABLE+green — merge before treating main as healthy;
+      17 service stubs remain; FULL platform not claimed'
+    main_ci: RED_UNTIL_63
   gunnchAI3k:
     role: AI platform
     status: CONT_V_ACCEPTED_MAIN
@@ -129,13 +131,13 @@ repos:
     note: Cont V draft canonicalization consumes Cont IV merge SHAs; not true final umbrella
 stale_draft_pins: CLEARED_TO_MERGE_COMMITS
 note: 'Accepted mains above are Cont V baseline only. continuation_v_drafts pins are evidence-consumer
-  lane tips on #37; not accepted main and not final umbrella.'
+  lane tips on #38; not accepted main and not final umbrella.'
 continuation_v_drafts:
   field_kit_evidence_consumer:
-    pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37
-    sha: 285e5a2ccc24c7810a78672006799a2df508137f
+    pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/38
+    sha: 014178d6f27f0df5446b0bf7c3bbe6163754ba60
     role: evidence_consumer_not_final_umbrella
-    note: Self; Cont V lane draft registry consumer only
+    note: Self; Cont V lane draft registry consumer only (post-#37 follow-up)
   hardware_component_truth:
     pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
     sha: 187efbda5df03fd675a6a5094ec950390c9a6d29
@@ -145,11 +147,15 @@ continuation_v_drafts:
     pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/33
     sha: a6dcf101da9e29317003b93668190f9ad779ca58
     note: Ring firmware pinout parity stubs vs hardware BOM
-  gunnchos_stub_elimination_ipc:
-    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/62
-    sha: c9ada7a90dc02bb73d151e58eb0045bd570af5cb
-    note: Stub elimination + real IPC + cloud persistence; not FULL platform
+  gunnchos_qemu_tcg_ci_repair:
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
+    sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
+    note: '#62 merged mid-fix leaving main qemu CI red; #63 completes TCG/SQLite fix; MERGEABLE + green; merge before treating device-os main as healthy'
+    mergeable: true
+    ci: GREEN
     full_platform: false
+    precedes_healthy_main: true
+    prior_merged_pr: 62
   gunnchai_callable_service:
     pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/24
     sha: cc0c7400b5be0d95570d2d91e6259043ec1f09cf

@@ -1,5 +1,5 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T20:38:00Z'
+updated_at_utc: '2026-08-08T20:46:13Z'
 continuation: V
 policy: docs_alone_cannot_satisfy_code_requirements
 accepted_main_policy: no_stale_draft_sha_as_accepted
@@ -99,9 +99,15 @@ entries:
 - id: EV-CONT5-FK-37
   repo: gunnchos-7gc-ai-ran-field-kit
   draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/37
-  sha: 285e5a2ccc24c7810a78672006799a2df508137f
+  sha: 2d257be6eb19b8237bf681b40f89275492fbd359
+  status: MERGED
+  note: Cont V lane draft registry merged; superseded by follow-up evidence consumer draft
+- id: EV-CONT5-FK-38
+  repo: gunnchos-7gc-ai-ran-field-kit
+  draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/38
+  sha: 014178d6f27f0df5446b0bf7c3bbe6163754ba60
   status: DRAFT
-  note: Cont V evidence consumer / lane draft registry; not final umbrella
+  note: Cont V evidence consumer / lane draft registry follow-up; not final umbrella
 - id: EV-CONT5-HW-48
   repo: gunnchos-hardware-industrial-design
   draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
@@ -117,9 +123,17 @@ entries:
 - id: EV-CONT5-OS-62
   repo: gunnchos-device-os
   draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/62
-  sha: c9ada7a90dc02bb73d151e58eb0045bd570af5cb
+  sha: 12ca8591202f59fdff962a4460323c6cfd67238d
+  status: MERGED_CI_RED_ON_MAIN
+  note: Merged mid-fix; left main qemu CI red; follow-up EV-CONT5-OS-63
+- id: EV-CONT5-OS-63
+  repo: gunnchos-device-os
+  draft_pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
+  sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
   status: DRAFT
-  note: Stub elimination + real IPC + cloud persistence; not FULL platform
+  note: "#62 merged mid-fix leaving main qemu CI red; #63 completes TCG/SQLite fix; MERGEABLE + green; merge before treating device-os main as healthy; agent 785cd311-6606-4394-8bfc-564df9bb2b01"
+  mergeable: true
+  ci: GREEN
 - id: EV-CONT5-AI-24
   repo: gunnchAI3k
   draft_pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/24
