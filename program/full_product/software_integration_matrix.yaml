@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T01:26:21Z'
+updated_at_utc: '2026-08-08T01:27:39Z'
 accepted_main_policy: MERGED_on_main_SHA_only
 repos:
   gunnchos-device-os:
@@ -67,8 +67,10 @@ repos:
     catalog_tracks: 13
     content_complete: false
     rc_digital: false
+    alpha_exit: false
     ci_repair_draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/10
     ci_repair_sha: 173c890f9163fae166b8d7bcc03e075b160b4f6c
+    alpha_exit_draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/11
   edge-io-measurement-node:
     role: ring firmware/host
     status: RING_ZEPHYR_WEST_BUILD_PASS
@@ -96,6 +98,14 @@ continuation_iii_drafts:
     sha: 173c890f9163fae166b8d7bcc03e075b160b4f6c
     token: BEATLINK_MAIN_CI_REPAIR_READY
     agent: 15c088e7-191d-4cf2-8d62-26c6f1120bc4
+  beatlink_alpha_exit:
+    pr: https://github.com/gunnchOS3k/beatlink-party/pull/11
+    sha: 26724bb483473067a21a29129ac91cc6ec48b747
+    tokens:
+    - BEATLINK_ALPHA_EXIT_DIGITAL_PASS
+    - BEATLINK_LOAD_HARNESS_SCAFFOLD_PASS
+    note: NOT Beta/RC; depends on CI repair #10 for green main
+    agent: d0ff9cb7-ed2b-4c08-b09b-491546d24ba2
   pedestrian_godot:
     pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9
     sha: 041e0329036f69fce7d1c226cec4fed94e62f577

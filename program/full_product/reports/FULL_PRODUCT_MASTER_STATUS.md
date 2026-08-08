@@ -123,9 +123,10 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - Targets when CI green: `FIELD_KIT_MAIN_CI_REPAIR_READY`, `FIELD_KIT_PORTABLE_ARTIFACT_LINKS_PASS`.
 - `FULL_PRODUCT_DIGITAL_IMPLEMENTATION_INCOMPLETE` remains TRUE. No Alpha exit / Beta / RC tokens declared here.
 
-## Continuation III lane draft registry (2026-08-08T01:26:21Z)
+## Continuation III lane draft registry (2026-08-08T01:27:39Z)
 
 - Beat Link CI repair https://github.com/gunnchOS3k/beatlink-party/pull/10 (`BEATLINK_MAIN_CI_REPAIR_READY`)
+- Beat Link Alpha-exit draft https://github.com/gunnchOS3k/beatlink-party/pull/11 (`BEATLINK_ALPHA_EXIT_DIGITAL_PASS` + `BEATLINK_LOAD_HARNESS_SCAFFOLD_PASS`; not Beta/RC; depends on #10)
 - Pedestrian Godot https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9 (`PEDESTRIAN_MAIN_GODOT_HEADLESS_PASS`; Alpha exit false)
 - Anime Alpha-exit depth https://github.com/gunnchOS3k/anime-aggressors/pull/67 (netplay + CPU tokens; art REQUIRES_ART_PRODUCTION)
 - Archive Alpha-exit https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/19 (`ARCHIVE_ALPHA_EXIT_DIGITAL_PASS`; not global ingest)
