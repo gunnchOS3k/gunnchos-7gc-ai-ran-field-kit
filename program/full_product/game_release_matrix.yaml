@@ -1,5 +1,5 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T20:16:48Z'
+updated_at_utc: '2026-08-08T20:38:00Z'
 continuation: V
 release_phases:
 - G3_Alpha
@@ -10,7 +10,7 @@ claim_firewall: scripts/validate_game_release_claims.py
 games:
   anime_aggressors:
     engine: Godot 4
-    current_phase: BETA_RC_MERGED_TOKENS_PREMATURE_REVOKE
+    current_phase: BETA_RC_REVOKED_ON_MAIN__PATH_A_DRAFT_MAY_CLEAR
     accepted_main_sha: 1555ba3988b7026e418a0199cf5d10e1cfc384a8
     merged_prs:
     - 65
@@ -28,10 +28,16 @@ games:
     tokens:
       ANIME_BETA_CONTENT_COMPLETE_DIGITAL: PREMATURE_REVOKE
       ANIME_DIGITAL_RC_READY: PREMATURE_REVOKE
-    note: '#68 merge accepted; Beta/RC tokens revoked while content/missing_assets.json has blocks_token=true'
+    note: '#68 on main; Beta/RC PREMATURE_REVOKE while blocks_token remained. Cont V #69 Path A cleared
+      blocks_token; Beta/RC may become VALID_WITH_EXPLICIT_SCOPE after #69 merges (DRAFT_ONLY now).'
+    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/69
+    draft_sha: 1e734dbf9fba959f4a6de6c397b147d41756d99a
+    blocks_token_cleared_on_draft: true
+    beta_digital: DRAFT_ONLY_MAY_BECOME_VALID_WITH_EXPLICIT_SCOPE
+    rc_digital_draft: DRAFT_ONLY_MAY_BECOME_VALID_WITH_EXPLICIT_SCOPE
   pedestrian_pursuit:
     engine: Godot
-    current_phase: BETA_DIGITAL_ON_MAIN__RC_PARTIAL
+    current_phase: BETA_ON_MAIN__RC_PARTIAL__CONT_V_AI_DRAFT
     accepted_main_sha: c8db661d6bf057c6c487586f378362005413bc1f
     merged_prs:
     - 8
@@ -48,11 +54,17 @@ games:
     tokens:
       PEDESTRIAN_BETA_CONTENT_COMPLETE_DIGITAL: VALID_WITH_EXPLICIT_SCOPE
       PEDESTRIAN_DIGITAL_RC_READY: PARTIAL
-      PEDESTRIAN_COMPETITIVE_AI_DIGITAL_VALIDATED: NOT_YET
-    note: '#10 on main; Beta digital systems scoped; RC partial; AI matrix open'
+      PEDESTRIAN_COMPETITIVE_AI_DIGITAL_VALIDATED: DRAFT_ONLY_ON_11
+    note: '#10 on main; Beta scoped; RC PARTIAL. Cont V #11 competitive AI 768 + Local MP polish;
+      RC remains PARTIAL on draft.'
+    draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/11
+    draft_sha: ee3400731fae3197057fc39b35767f90b1603237
+    beta_digital: DRAFT_ONLY
+    rc_digital_draft: PARTIAL
+    competitive_ai_draft: VALIDATED_768
   archive_of_life:
     engine: Vite/TS web
-    current_phase: BETA_RC_DIGITAL_ON_MAIN__AUDIT_PENDING
+    current_phase: SCOPED_BETA_RC_ON_MAIN__CONT_V_INGEST_DRAFT
     accepted_main_sha: 5cb81fbd8de592a38e7e642185ef5e41e81aad98
     merged_prs:
     - 17
@@ -71,10 +83,15 @@ games:
     tokens:
       ARCHIVE_BETA_CONTENT_COMPLETE_DIGITAL: VALID_WITH_EXPLICIT_SCOPE
       ARCHIVE_DIGITAL_RC_READY: VALID_WITH_EXPLICIT_SCOPE
-    note: '#20 on main; Tier E/F + live ingest audits Cont V; not global complete'
+    note: '#20 scoped Beta/RC on main. Cont V #21 production ingest + claim firewall; Beta/RC remain
+      scoped DRAFT (not global complete).'
+    draft_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/21
+    draft_sha: 4d5d00f6922923e2921ba81163af4edc6bf90061
+    beta_digital: SCOPED_DRAFT_ONLY
+    rc_digital_draft: SCOPED_DRAFT_ONLY
   beat_link:
     engine: Node/pnpm
-    current_phase: BETA_RC_DIGITAL_ON_MAIN__SCOPE_AUDIT
+    current_phase: SCOPED_ON_MAIN__CONT_V_ROOMS_DRAFT_BETA_RC_REVOKED
     accepted_main_sha: dd9f32dbc550e28138d7764813ad07256bfffd6b
     merged_prs:
     - 9
@@ -89,11 +106,17 @@ games:
     catalog_tracks: 13
     modes_complete: true
     tokens:
-      BEATLINK_BETA_CONTENT_COMPLETE_DIGITAL: VALID_WITH_EXPLICIT_SCOPE
-      BEATLINK_DIGITAL_RC_READY: VALID_WITH_EXPLICIT_SCOPE
+      BEATLINK_BETA_CONTENT_COMPLETE_DIGITAL: REVOKED_ON_CONT_V_DRAFT
+      BEATLINK_DIGITAL_RC_READY: REVOKED_ON_CONT_V_DRAFT
     gaps:
     - in_memory_rooms_no_redis
     - no_live_getUserMedia_pitch
     - no_licensed_lyrics_or_platform_sdks
     - event_scale_simulation_not_live_event
-    note: '#12 on main; Beta/RC digital with explicit DEV/sim scope; Redis/mic Cont V work'
+    note: '#12 on main with explicit DEV/sim scope. Cont V #13 Redis/durable rooms/load/mic/providers
+      (CI green); Beta/RC still revoked on draft.'
+    draft_pr: https://github.com/gunnchOS3k/beatlink-party/pull/13
+    draft_sha: 0e78497791fdfdd2587f2ebefa88b1298ccf50c6
+    beta_digital: REVOKED_ON_DRAFT
+    rc_digital_draft: REVOKED_ON_DRAFT
+    ci: GREEN

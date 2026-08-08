@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T20:16:48Z'
+updated_at_utc: '2026-08-08T20:38:00Z'
 blockers:
 - id: EB-KICAD-ADMIN
   class: HUMAN_OS_AUTHORIZATION
@@ -15,7 +15,11 @@ blockers:
   hardware_merged_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
   hardware_accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
   field_kit_accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
-  note: 'Cont V — KiCad remains EDMUND_ACTION_REQUIRED; #47 is accepted merge not draft'
+  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
+  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/36
+  continuation_v_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
+  note: 'Cont V — KiCad remains EDMUND_ACTION_REQUIRED (brew 10.0.5; sudo blocked); #47 accepted main;
+    Cont V hardware work on draft #48'
 - id: EB-ZEPHYR-SDK
   class: DIGITAL_EXECUTABLE
   text: Install pinned Zephyr SDK + west and achieve RING_ZEPHYR_WEST_BUILD_PASS (no soft-skip)
@@ -55,9 +59,9 @@ kicad:
     (sudo blocked)
   action: Approve macOS administrator/password prompt (or run brew install --cask kicad with sudo)
   ring_kicad_cli_validation_pass: false
-  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/47
-  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/34
-  note: Cont V — KiCad remains EDMUND_ACTION_REQUIRED; no cursor/* tip accepted
+  hardware_draft_pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/48
+  field_kit_draft_pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/36
+  note: Cont V — KiCad remains EDMUND_ACTION_REQUIRED (brew 10.0.5; sudo blocked); no cursor/* tip accepted
   hardware_accepted_main_sha: 7e1658e63052e7baa2e9f4ab58113a91e4165c72
   field_kit_accepted_main_sha: 0f998ef4567ffe5f54640f71df6951f90224a9e8
 continuation: V
