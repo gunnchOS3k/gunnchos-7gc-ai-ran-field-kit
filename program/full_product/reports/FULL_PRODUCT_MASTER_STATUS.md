@@ -122,3 +122,14 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - Semantic audit: requirement_graph **444** nodes; ADR-FP-008 present; ring BOM includes nRF52840/BMI270/IQS7222A/DWM3001C/BHI360/BMM350/SE050; dock package present; Student power MPNs present.
 - Targets when CI green: `FIELD_KIT_MAIN_CI_REPAIR_READY`, `FIELD_KIT_PORTABLE_ARTIFACT_LINKS_PASS`.
 - `FULL_PRODUCT_DIGITAL_IMPLEMENTATION_INCOMPLETE` remains TRUE. No Alpha exit / Beta / RC tokens declared here.
+
+## Continuation III lane draft registry (2026-08-08T01:26:21Z)
+
+- Beat Link CI repair https://github.com/gunnchOS3k/beatlink-party/pull/10 (`BEATLINK_MAIN_CI_REPAIR_READY`)
+- Pedestrian Godot https://github.com/gunnchOS3k/pedestrian-pursuit/pull/9 (`PEDESTRIAN_MAIN_GODOT_HEADLESS_PASS`; Alpha exit false)
+- Anime Alpha-exit depth https://github.com/gunnchOS3k/anime-aggressors/pull/67 (netplay + CPU tokens; art REQUIRES_ART_PRODUCTION)
+- Archive Alpha-exit https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/19 (`ARCHIVE_ALPHA_EXIT_DIGITAL_PASS`; not global ingest)
+- gunnchOS system image https://github.com/gunnchOS3k/gunnchos-device-os/pull/59 + Lane H https://github.com/gunnchOS3k/gunnchos-device-os/pull/58
+- gunnchAI local runtime https://github.com/gunnchOS3k/gunnchAI3k/pull/22 (no full-platform claim)
+- Hardware family depth https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/46 — KiCad still EDMUND_ACTION_REQUIRED
+- Requirement graph on this branch: 476 nodes; UNMAPPED/UNOWNED/UNCLASSIFIED=0; mostly DOC_ONLY
