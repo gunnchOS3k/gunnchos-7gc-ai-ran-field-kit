@@ -104,3 +104,8 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 ## KiCad Wave A closeout (2026-08-08T00:31:00Z)
 - Hardware draft https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/44 — brew fetched KiCad; admin sudo still required ([Fetch mains KiCad Zephyr](dad1469e-5a09-4a1d-8265-dfa7a1da4d3c)).
 - `RING_KICAD_CLI_VALIDATION_PASS` not achieved.
+
+## Wave C / B2 integration (2026-08-08T00:52:23Z)
+- gunnchAI3k draft https://github.com/gunnchOS3k/gunnchAI3k/pull/21 — foundation eval PASS; DIGITALLY_VALIDATED=false ([Wave C gunnchAI3k depth](be72c958-bf9c-413c-81eb-7879ecf2d45c))
+- gunnchos-device-os draft https://github.com/gunnchOS3k/gunnchos-device-os/pull/57 — Wave B2 72 tests ([Force gunnchOS B2](d5bc0a9c-f10e-4826-a09a-91e2a86fb856))
+- Anime #64 already closed superseded; baseline on this branch
