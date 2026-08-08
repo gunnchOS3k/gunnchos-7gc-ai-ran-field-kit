@@ -1,5 +1,5 @@
 schema_version: 1.0.0
-updated_at_utc: '2026-08-08T00:53:57Z'
+updated_at_utc: '2026-08-08T00:54:33Z'
 repos:
   gunnchos-device-os:
     role: gunnchOS
@@ -20,12 +20,43 @@ repos:
       not claimed
   anime-aggressors:
     role: game
-    status: WAVE_D_ALPHA_IN_PROGRESS
-    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/65
-    note: Arcade+6 greybox stages+aura identity+CPU batch; not content/RC complete
+    status: WAVE_D2_ALPHA_PROGRESS_NOT_EXIT
+    draft_pr: https://github.com/gunnchOS3k/anime-aggressors/pull/66
+    draft_sha: 0b504fa
+    branched_from_main: 82d75d3
+    tests: headless smoke + npm test green
+    shipped:
+    - tutorial_first_run
+    - items_hazards_mode
+    - 7_fighter_aura_hooks
+    - online_scaffold_network_sim
+    - cpu_7x7_matrix_evidence
+    alpha_exit: false
+    content_complete: false
+    rc_digital: false
+    gaps:
+    - final_fighter_art
+    - stage_art
+    - real_private_lobby
+    - full_battlescene_cpu_eval
+    - local_mp_polish_signoff
+    note: Wave D2 depth from main+#65; NOT Alpha exit
   pedestrian-pursuit:
     role: game
-    status: G2_DEPTH_NOT_CONTENT_COMPLETE
+    status: WAVE_E_ALPHA_IN_PROGRESS
+    draft_pr: https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8
+    tracks: 8
+    cups: 2
+    art: REQUIRES_ART_PRODUCTION
+    modes:
+    - Quick Race
+    - Cup
+    - Time Trial/Ghost
+    - Local MP 2P
+    tests: validate_content + unittest + ai_batch_sim green; Godot headless unavailable
+    content_complete: false
+    rc_digital: false
+    note: Honest Alpha greybox; not content-complete/RC
   archive-of-life-artifact-world:
     role: game
     status: WAVE_F_ALPHA_IN_PROGRESS

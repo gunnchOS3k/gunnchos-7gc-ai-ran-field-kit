@@ -111,3 +111,5 @@ FULL_OPERATIONAL_PRODUCT = FORBIDDEN
 - Anime #64 already closed superseded; baseline on this branch
 - Beat Link Wave G draft https://github.com/gunnchOS3k/beatlink-party/pull/9 ([Force BeatLink Wave G](3e10063b-bc24-47c5-8254-d64144f5bc3b)) — Alpha in progress, not RC.
 - Archive Wave F draft https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/18 ([Force Archive Wave F](002b9150-339a-43e8-b690-64cd1dd613b5)) — floors met; not global live ingest/RC.
+- Anime Wave D2 draft https://github.com/gunnchOS3k/anime-aggressors/pull/66 ([Force Anime D2 Alpha exit](050a8684-06f8-4fb7-8adf-c4c9eddf1dfb)) — progress; NOT Alpha exit.
+- Pedestrian Wave E draft https://github.com/gunnchOS3k/pedestrian-pursuit/pull/8 ([Force Pedestrian Wave E](3726b75f-52c6-41bc-baeb-6282f9271d2d)) — 8 tracks/2 cups Alpha greybox; not RC.
