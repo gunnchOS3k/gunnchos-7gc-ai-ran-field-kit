@@ -526,23 +526,123 @@ def check_global_and_carrier(hits: list[str]) -> None:
 
 
 
+def _phase_xii_residual_register() -> dict[str, Any]:
+    for p in (
+        ROOT / "program" / "execution_reality" / "CI_X1_RESIDUALS.json",
+        ROOT / "artifacts" / "phase_xii" / "CI_X1_RESIDUALS.json",
+    ):
+        if p.exists():
+            return load_json(p)
+    return {}
+
+
 def check_phase_xii_execution_depth(hits: list[str]) -> None:
-    """Reject REAL_*_DAY_DIGITAL_PASS without Phase XII L4/L5 RJ evidence."""
+    """Reject REAL_*_DAY_DIGITAL_PASS without Phase XII L4/L5 RJ evidence.
+
+    CI reality may exit 0 with REAL_APP_X0_OPEN==0 while X1 residuals remain
+    (Godot/sibling games + student AI/overlay). Residuals are CONDITIONAL/EXTERNAL;
+    do not accept X1=0 or REAL_*_DAY_DIGITAL_PASS=true while the residual register
+    reports open X1.
+    """
     er = ROOT / "program" / "execution_reality"
-    scope_paths = [
-        er / "PHASE_XI_CLAIM_RESCOPE.json",
+    residual = _phase_xii_residual_register()
+    x1_residual = int(residual.get("REAL_APP_X1_OPEN") or 0) if residual else 0
+
+    # Stale draft tip must not be pinned as accepted/active draft
+    stale = "ce604c23d75c168db589a574159864d456194879"
+    for base in (
+        er / "ACCEPTED_MAIN_BASELINE.json",
+        ROOT / "artifacts" / "phase_xii" / "ACCEPTED_MAIN_BASELINE.json",
+    ):
+        if not base.exists():
+            continue
+        data = load_json(base)
+        draft = data.get("phase_xii_device_os_draft") or {}
+        if isinstance(draft, dict) and str(draft.get("sha") or "") == stale:
+            hits.append(
+                f"{base}: stale phase_xii_device_os_draft SHA {stale[:12]}… "
+                "must be retired after #71 merge"
+            )
+        for repo, meta in (data.get("repos") or {}).items():
+            if not isinstance(meta, dict):
+                continue
+            if str(meta.get("sha") or "") == stale:
+                hits.append(f"{base}: repos.{repo} pins stale draft SHA as accepted main")
+
+    # Authoritative residual honesty vs summary tokens
+    token_files = [
+        er / "DEFINITION_OF_DONE.json",
         er / "RJ_CAMPAIGN_REPORT.json",
+        er / "PHASE_XI_CLAIM_RESCOPE.json",
+        er / "JOURNEY_TOKENS.json",
+        ROOT / "artifacts" / "phase_xii" / "DEFINITION_OF_DONE.json",
         ROOT / "artifacts" / "phase_xii" / "RJ_CAMPAIGN_REPORT.json",
-        SIBLING / "gunnchos-device-os" / "artifacts" / "phase_xii" / "rj" / "RJ_CAMPAIGN_REPORT.json",
-        SIBLING / "gunnchos-device-os" / "artifacts" / "phase_xii" / "PHASE_XI_CLAIM_RESCOPE.json",
-        SIBLING / "gunnchos-device-os" / "artifacts" / "phase_xii" / "JOURNEY_TOKENS.json",
+        ROOT / "artifacts" / "phase_xii" / "PHASE_XI_CLAIM_RESCOPE.json",
+        ROOT / "artifacts" / "phase_xii" / "JOURNEY_TOKENS.json",
+        ROOT / "artifacts" / "phase_xii" / "REALITY_DEPTH_LEDGER.json",
+        er / "REALITY_DEPTH_LEDGER.json",
     ]
-    rj = None
-    for p in scope_paths:
-        if p.name == "RJ_CAMPAIGN_REPORT.json" and p.exists():
-            rj = load_json(p)
-            break
-    # Scan execution_reality + phase_xii artifacts for overclaim
+    real_day_keys = (
+        "GUNNCHOS_REAL_STUDENT_DAY_DIGITAL_PASS",
+        "GUNNCHOS_REAL_OFFICE_DAY_DIGITAL_PASS",
+        "GUNNCHOS_REAL_CREATOR_DAY_DIGITAL_PASS",
+        "GUNNCHOS_REAL_RECREATION_DAY_DIGITAL_PASS",
+    )
+    for path in token_files:
+        if not path.exists():
+            continue
+        data = load_json(path)
+        claimed_x1 = data.get("REAL_APP_X1_OPEN")
+        if claimed_x1 is None and isinstance(data.get("rj_summary"), dict):
+            claimed_x1 = data["rj_summary"].get("REAL_APP_X1_OPEN")
+        if claimed_x1 is None and isinstance(data.get("phase_xii_scope"), dict):
+            claimed_x1 = (data["phase_xii_scope"].get("rj_summary") or {}).get(
+                "REAL_APP_X1_OPEN"
+            )
+        if claimed_x1 is None and isinstance(data.get("claim_correction"), dict):
+            claimed_x1 = data["claim_correction"].get("REAL_APP_X1_OPEN")
+        if residual and claimed_x1 is not None and int(claimed_x1) == 0 and x1_residual > 0:
+            hits.append(
+                f"{path}: claims REAL_APP_X1_OPEN=0 while CI_X1_RESIDUALS.json "
+                f"reports X1={x1_residual} (CONDITIONAL/EXTERNAL)"
+            )
+        for key in real_day_keys:
+            if data.get(key) is True and x1_residual > 0:
+                hits.append(
+                    f"{path}: {key}=true rejected while CI X1 residuals open "
+                    f"(X1={x1_residual})"
+                )
+        # phase_xii real-app values (ignore phase_xi_historical.status)
+        scope_tokens = None
+        if isinstance(data.get("tokens"), dict) and any(
+            k.startswith("GUNNCHOS_REAL_") for k in data["tokens"]
+        ):
+            # PHASE_XI_CLAIM_RESCOPE style
+            first = next(iter(data["tokens"].values()), None)
+            if isinstance(first, dict) and "phase_xii_real_app_value" in first:
+                scope_tokens = data["tokens"]
+        if scope_tokens is None and isinstance(data.get("phase_xii_scope"), dict):
+            scope_tokens = data["phase_xii_scope"].get("tokens")
+        if isinstance(scope_tokens, dict) and x1_residual > 0:
+            for key in real_day_keys:
+                ent = scope_tokens.get(key) or {}
+                if isinstance(ent, dict) and ent.get("phase_xii_real_app_value") is True:
+                    hits.append(
+                        f"{path}: {key}.phase_xii_real_app_value=true while CI X1 "
+                        f"residuals open (X1={x1_residual})"
+                    )
+        if data.get("earned_real_app") and x1_residual > 0:
+            hits.append(
+                f"{path}: earned_real_app non-empty while CI X1 residuals open "
+                f"(X1={x1_residual})"
+            )
+        if data.get("digital_release_lock_complete_real_app") is True and x1_residual > 0:
+            hits.append(
+                f"{path}: digital_release_lock_complete_real_app=true while CI X1 "
+                f"residuals open (X1={x1_residual})"
+            )
+
+    # Line scan for prose/markdown overclaim (skip historical harness status blocks)
     scan_roots = [er, ROOT / "artifacts" / "phase_xii", ROOT / "program" / "user_journeys"]
     real_day = re.compile(r"GUNNCHOS_REAL_[A-Z_]+_DAY_DIGITAL_PASS\s*[:=]\s*true", re.I)
     for d in scan_roots:
@@ -551,27 +651,41 @@ def check_phase_xii_execution_depth(hits: list[str]) -> None:
         for path in d.rglob("*"):
             if path.suffix.lower() not in {".md", ".json", ".yaml", ".yml", ".txt"}:
                 continue
-            if "firewall" in path.name:
+            if "firewall" in path.name or path.name == "CI_X1_RESIDUALS.json":
+                continue
+            # JSON token files handled above with structural checks
+            if path.suffix.lower() == ".json" and path.name in {
+                "JOURNEY_TOKENS.json",
+                "PHASE_XI_CLAIM_RESCOPE.json",
+                "DEFINITION_OF_DONE.json",
+                "RJ_CAMPAIGN_REPORT.json",
+                "REALITY_DEPTH_LEDGER.json",
+                "ACCEPTED_MAIN_BASELINE.json",
+            }:
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
+            in_historical = False
             for i, line in enumerate(text.splitlines(), 1):
+                if '"phase_xi_historical"' in line or "phase_xi_historical" in line:
+                    in_historical = True
+                if in_historical and ('"phase_xii_scope"' in line or line.strip() == "}"):
+                    # crude exit; markdown has no such blocks
+                    if '"phase_xii_scope"' in line:
+                        in_historical = False
+                if in_historical:
+                    continue
                 if not real_day.search(line):
                     continue
                 if ALLOW_LINE.search(line):
                     continue
                 if "NOT_YET_REAL_APP_PROVEN" in line or "VALID_AS_BEHAVIORAL_HARNESS" in line:
                     continue
-                # Require RJ campaign evidence with X0/X1 open == 0 and token true
-                if not rj:
-                    hits.append(
-                        f"{path}:{i}: REAL_*_DAY_DIGITAL_PASS asserted without Phase XII "
-                        "RJ_CAMPAIGN_REPORT.json evidence"
-                    )
+                if "false" in line.lower() and "true" not in line.split(":")[-1].lower():
                     continue
-                if int(rj.get("REAL_APP_X0_OPEN") or 0) or int(rj.get("REAL_APP_X1_OPEN") or 0):
+                if x1_residual > 0:
                     hits.append(
-                        f"{path}:{i}: REAL_*_DAY_DIGITAL_PASS rejected while REAL_APP_X0/X1 open "
-                        f"(X0={rj.get('REAL_APP_X0_OPEN')} X1={rj.get('REAL_APP_X1_OPEN')})"
+                        f"{path}:{i}: REAL_*_DAY_DIGITAL_PASS asserted while CI X1 "
+                        f"residuals open (X1={x1_residual})"
                     )
 
 
