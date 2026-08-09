@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VII
-generated_at_utc: '2026-08-09T17:20:45Z'
+generated_at_utc: '2026-08-09T17:23:46Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 38c14753d54f04dd953cbd67d3671644256dd888
@@ -39,7 +39,7 @@ drafts:
     isDraft: true
     autoMergeRequest: null
     ci: green
-    note: Cont VII ring E2E digital; RING_END_TO_END_DIGITAL_INPUT_PASS + RING_ZEPHYR_NATIVE_PATH_DIGITAL_PASS earned (digital); physical boot pending; draft tip NOT accepted main; NEVER merge; RING-RELIAB-016 owner remains device-os #65 (edge e2e supporting only)
+    note: Cont VII ring E2E digital; RING_END_TO_END_DIGITAL_INPUT_PASS + RING_ZEPHYR_NATIVE_PATH_DIGITAL_PASS earned (digital); physical boot pending; draft tip NOT accepted main; NEVER merge; RING-RELIAB-016 owner remains device-os #65 (still open; not superseded by #66; edge e2e supporting only)
     base_accepted_main: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
     status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   device_os_schema_quality_reliab:
@@ -49,7 +49,8 @@ drafts:
     sha: 7f009c6e203a9fe8b57ee22cda41300a77661fec
     isDraft: true
     autoMergeRequest: null
-    note: Cont VII digital closure for CG-QUALITY-001/007/008 + RING-RELIAB-016; draft tip NOT accepted main; NEVER merge from Cont VII agent
+    ci: green
+    note: Cont VII digital closure for CG-QUALITY-001/007/008 + RING-RELIAB-016; still OPEN — not superseded by #66 (real-apps); draft tip NOT accepted main; REQUIREMENT_COUNTS stay SCHEMA_ONLY until Edmund merges to accepted main; NEVER merge from Cont VII agent
     base_accepted_main: 559e31c0b62afe36d72fcca6182483f69c19ec54
     closes_ids:
       - CG-QUALITY-001
@@ -60,10 +61,14 @@ drafts:
   device_os_real_app_packages:
     repo: gunnchos-device-os
     branch: cursor/full-product-continuation-vii-real-app-packages
-    sha: 559e31c0b62afe36d72fcca6182483f69c19ec54
-    note: Cont VII replace DEV stubs with real first-party apps/games; NOT accepted main
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/66
+    sha: 51c4272cb93e5c207e57dfc0931646340614a57a
+    isDraft: true
+    autoMergeRequest: null
+    ci: green
+    note: Cont VII Beat Link stub replaced; real WAIKE/Creator/Device apps; FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE=true on draft tip (digital; physical/cloud not blockers); does not own/supersede #65 CG-QUALITY/RING-RELIAB nodes; draft tip NOT accepted main; NEVER merge
     base_accepted_main: 559e31c0b62afe36d72fcca6182483f69c19ec54
-    status: BRANCHED_FROM_ACCEPTED_MAIN_PENDING_COMMITS
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   gunnchai_platform_complete:
     repo: gunnchAI3k
     branch: cursor/full-product-continuation-vii-platform-complete
