@@ -1,0 +1,47 @@
+schema_version: 1.0.0
+continuation: IX
+generated_at_utc: '2026-08-09T20:31:13Z'
+policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
+accepted_mains:
+  gunnchos-7gc-ai-ran-field-kit: 7c6b955be933e050f81358f25077866f37a493bd
+  gunnchos-hardware-industrial-design: a710f35559252f36f0e6af7e025a5958df0906e3
+  edge-io-measurement-node: a1cd2e95c62eb0eefd507b976158232b83f5b33b
+  gunnchos-device-os: 06366da047a6938646acb01e016d19318fabab70
+  gunnchAI3k: 91a9f135b6423a7627ed61946b16e9ab9d79de6e
+  anime-aggressors: 249270383eab87cf4d1240ea17e66bfff44d4b8c
+  pedestrian-pursuit: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
+  archive-of-life-artifact-world: 948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75
+  beatlink-party: e0c18f3dbb964608271c14611e1068cff9c17205
+drafts:
+  field_kit_digital_release_lock:
+    repo: gunnchos-7gc-ai-ran-field-kit
+    branch: continuation-ix/digital-release-lock
+    role: control_plane_digital_release_lock_pre_evt_handoff
+    pr: null
+    sha: ca2b5ac3c438a42aa3e6aa32ff37dce9d8423413
+    status: DRAFT_TIP_NOT_ACCEPTED_MAIN
+    note: Cont IX Lane J; NEVER merge from agent; digital_release_lock_complete=false
+      until DIGITAL=0
+  device_os_clean_env_prove:
+    repo: gunnchos-device-os
+    branch: continuation-ix/os-clean-env-prove
+    role: IX-D-004_gate1_clean_env
+    pr: null
+    sha: null
+    status: PENDING_OPEN
+    base_accepted_main: 06366da047a6938646acb01e016d19318fabab70
+    note: Cont IX OS dependency; Gate 1 may be red at kickoff; draft tip NOT accepted
+      main
+  hardware_digital_packaging:
+    repo: gunnchos-hardware-industrial-design
+    branch: continuation-ix/digital-packaging-closure
+    role: IX-D-001_002_003_proxy_radxa_silk
+    pr: null
+    sha: null
+    status: PENDING_OPEN
+    base_accepted_main: a710f35559252f36f0e6af7e025a5958df0906e3
+    note: Cont IX hardware DIGITAL packaging; draft tip NOT accepted main
+final_umbrella: false
+digital_release_lock_complete: false
+digital_pre_evt_release_ready: false
+recommendation: CONTINUE_DIGITAL_RELEASE_ENGINEERING

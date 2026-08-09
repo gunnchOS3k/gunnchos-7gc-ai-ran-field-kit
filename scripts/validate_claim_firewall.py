@@ -31,6 +31,7 @@ GAME_MATRIX = FP / "game_release_matrix.yaml"
 HW_MATRIX = FP / "hardware_release_matrix.yaml"
 SOFT_MATRIX = FP / "software_integration_matrix.yaml"
 AI_MATRIX = FP / "ai_capability_matrix.yaml"
+BACKLOG_IX = FP / "continuation_ix" / "BLOCKER_BURNDOWN.json"
 BACKLOG_VIII = FP / "continuation_viii" / "DIGITAL_BACKLOG.json"
 BACKLOG_VII = FP / "continuation_vii" / "DIGITAL_BACKLOG.json"
 BACKLOG_VI = FP / "continuation_vi" / "DIGITALLY_EXECUTABLE_BACKLOG_COUNTS.json"
@@ -39,7 +40,9 @@ MASTER_STATUS = FP / "reports" / "FULL_PRODUCT_MASTER_STATUS.md"
 
 
 def active_backlog_path() -> Path:
-    """Prefer Cont VIII backlog when present; Cont VII freeze is reference only."""
+    """Prefer Cont IX burndown when present; else Cont VIII; Cont VII is reference only."""
+    if BACKLOG_IX.exists():
+        return BACKLOG_IX
     if BACKLOG_VIII.exists():
         return BACKLOG_VIII
     if BACKLOG_VII.exists():
@@ -179,14 +182,32 @@ def check_game_tokens(hits: list[str]) -> None:
 
 
 def digitally_executable_remaining() -> dict[str, int]:
-    backlog = active_backlog_path()
-    if backlog.exists():
+    """Schema/stub residual from Cont VIII backlog (authoritative for FULL_* tokens).
+
+    Cont IX packaging DIGITAL blockers are enforced by validate_release_firewall.py
+    and check_cont_vii_umbrella DIGITAL_RELEASE_LOCK_COMPLETE guards — they must
+    not inflate SCHEMA_ONLY and falsely revoke sibling FULL_* digital tokens.
+    """
+    # Prefer Cont VIII schema backlog even when Cont IX burndown exists.
+    backlog = BACKLOG_VIII if BACKLOG_VIII.exists() else active_backlog_path()
+    if backlog.exists() and backlog.name != "BLOCKER_BURNDOWN.json":
         data = load_json(backlog)
         return {
             "SCHEMA_ONLY": int(data.get("DIGITALLY_EXECUTABLE_SCHEMA_ONLY") or 0),
             "STUB_ONLY": int(data.get("DIGITALLY_EXECUTABLE_STUB_ONLY") or 0),
             "SIMULATION_ONLY": int(data.get("DIGITALLY_EXECUTABLE_SIMULATION_ONLY") or 0),
             "MOCK_ONLY": int(data.get("DIGITALLY_EXECUTABLE_MOCK_ONLY") or 0),
+        }
+    if BACKLOG_IX.exists():
+        # Fallback only: Cont IX without Cont VIII — treat packaging residual as soft.
+        data = load_json(BACKLOG_IX)
+        digital_open = int((data.get("counts") or {}).get("DIGITAL_OPEN") or 0)
+        return {
+            "SCHEMA_ONLY": digital_open,
+            "STUB_ONLY": 0,
+            "SIMULATION_ONLY": 0,
+            "MOCK_ONLY": 0,
+            "DIGITAL_PACKAGING": digital_open,
         }
     graph = load_yaml(GRAPH)
     counts = {"SCHEMA_ONLY": 0, "STUB_ONLY": 0, "SIMULATION_ONLY": 0, "MOCK_ONLY": 0}
@@ -219,6 +240,10 @@ def check_cont_vii_umbrella(hits: list[str]) -> None:
         FP / "continuation_vii" / "DIGITAL_BACKLOG.json",
         FP / "continuation_viii" / "DIGITAL_BACKLOG.json",
         FP / "continuation_viii" / "READINESS_SCORECARD.json",
+        FP / "continuation_ix" / "ACCEPTED_MAIN_LOCK.json",
+        FP / "continuation_ix" / "BLOCKER_BURNDOWN.json",
+        FP / "continuation_ix" / "PRODUCT_RELEASE_MATRIX.json",
+        FP / "continuation_ix" / "PRE_EVT_HANDOFF_MATRIX.json",
     ):
         if path.exists():
             surfaces.append((str(path), path.read_text(encoding="utf-8", errors="ignore")))
@@ -227,6 +252,8 @@ def check_cont_vii_umbrella(hits: list[str]) -> None:
         r"digital\s+totality\s+(complete|achieved|earned)|"
         r"FULL_PRODUCT_DIGITAL_TOTALITY\s*[:=]\s*true|"
         r"DIGITAL_PRE_EVT_RELEASE_READY\s*[:=]\s*true|"
+        r"DIGITAL_RELEASE_LOCK_COMPLETE\s*[:=]\s*true|"
+        r"READY_FOR_NPI_DFM_AND_EVT_QUOTATION\s*[:=]\s*true|"
         r"umbrella\s+opened\b.*\b(true|complete|earned))"
     )
     for path, text in surfaces:

@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "IX",
+  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "physical_execution_freeze": true,
+  "digital_release_lock_complete": false,
+  "ready_for_npi_dfm_and_evt_quotation": false,
+  "products": {
+    "student_device": {
+      "repo": "gunnchos-hardware-industrial-design",
+      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "eda_release_clean": true,
+      "manufacturer_ready": false,
+      "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
+      "digital_pre_evt_release_ready": false,
+      "digital_blockers_open": true,
+      "notes": "Option B COM-HPC; proxy footprints keep manufacturer_ready conditional"
+    },
+    "ds_xl": {
+      "repo": "gunnchos-hardware-industrial-design",
+      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "eda_release_clean": true,
+      "manufacturer_ready": false,
+      "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
+      "digital_pre_evt_release_ready": false,
+      "external_blockers": [
+        "IX-E-001",
+        "IX-E-002",
+        "IX-E-004"
+      ],
+      "notes": "Dual eDP + hinge OEM EXTERNAL; not DIGITAL_PRE_EVT"
+    },
+    "handheld_hybrid": {
+      "repo": "gunnchos-hardware-industrial-design",
+      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "eda_release_clean": true,
+      "manufacturer_ready": false,
+      "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
+      "digital_blockers": [
+        "IX-D-002"
+      ],
+      "notes": "Radxa 260-pin sheets residual DIGITAL"
+    },
+    "dock": {
+      "repo": "gunnchos-hardware-industrial-design",
+      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "eda_release_clean": true,
+      "manufacturer_ready": false,
+      "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
+      "external_blockers": [
+        "IX-E-003"
+      ],
+      "notes": "Intel ball-map EXTERNAL"
+    },
+    "ring": {
+      "repo": "edge-io-measurement-node",
+      "accepted_main_sha": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
+      "digital_e2e_pass": true,
+      "physical_boot_pending": true,
+      "notes": "Physical ring boot irreducible under freeze"
+    },
+    "gunnchos": {
+      "repo": "gunnchos-device-os",
+      "accepted_main_sha": "06366da047a6938646acb01e016d19318fabab70",
+      "bootable_reference_digital_pass": true,
+      "gate1_status": "MAY_BE_RED_AT_KICKOFF",
+      "digital_blockers": [
+        "IX-D-004"
+      ],
+      "notes": "Cont IX OS prove must clear clean-env before DIGITAL lock"
+    },
+    "gunnchai": {
+      "repo": "gunnchAI3k",
+      "accepted_main_sha": "91a9f135b6423a7627ed61946b16e9ab9d79de6e",
+      "local_inference_pass": true,
+      "physical_runtime_pending": true
+    },
+    "games": {
+      "anime": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
+      "pedestrian": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6",
+      "archive": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75",
+      "beatlink": "e0c18f3dbb964608271c14611e1068cff9c17205",
+      "digital_rc_on_accepted_mains": true,
+      "physical_fps_separate": true
+    }
+  },
+  "forbidden_tokens": [
+    "PRODUCTION_READY",
+    "MASS_PRODUCTION",
+    "CERTIFIED",
+    "CARRIER_APPROVED",
+    "FULL_OPERATIONAL",
+    "6G_CERTIFIED",
+    "GATE_8_PASS",
+    "EVT_VALIDATED"
+  ],
+  "allowed_conditional_tokens_with_evidence": [
+    "CONDITIONAL_VENDOR_COLLATERAL"
+  ],
+  "recommendation": "CONTINUE_DIGITAL_RELEASE_ENGINEERING"
+}

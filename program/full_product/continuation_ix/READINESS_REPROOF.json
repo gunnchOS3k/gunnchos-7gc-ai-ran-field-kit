@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "IX",
+  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "physical_execution_freeze": true,
+  "policy": "REPROOF_CONT_VIII_COUNTS_PLUS_CONT_IX_DIGITAL_PACKAGING_RESIDUAL",
+  "cont_viii_requirement_counts_reference": {
+    "total": 476,
+    "status_counts": {
+      "EXTERNAL_REQUIRED": 75,
+      "DIGITALLY_VALIDATED": 231,
+      "PHYSICAL_REQUIRED": 120,
+      "IMPLEMENTED": 5,
+      "INTEGRATED": 45
+    },
+    "SCHEMA_ONLY": 0,
+    "PHYSICAL_REQUIRED": 120,
+    "EXTERNAL_REQUIRED": 75
+  },
+  "cont_viii_digitally_executable_schema_backlog": {
+    "DIGITALLY_EXECUTABLE_SCHEMA_ONLY": 0,
+    "DIGITALLY_EXECUTABLE_STUB_ONLY": 0,
+    "DIGITALLY_EXECUTABLE_MOCK_ONLY": 0,
+    "note": "Cont VIII requirement-graph SCHEMA backlog remains 0; Cont IX DIGITAL residual is packaging/OS prove"
+  },
+  "cont_ix_digital_packaging_residual_count": 4,
+  "cont_ix_digital_blocker_ids": [
+    "IX-D-001",
+    "IX-D-002",
+    "IX-D-003",
+    "IX-D-004"
+  ],
+  "gates_reproof": {
+    "R1_requirement_schema_backlog": "PASS_SCHEMA_ZERO_CONT_VIII",
+    "R1_digital_packaging_lock": "FAIL_OPEN_BLOCKERS",
+    "R3_release_firewall": "REQUIRED_PASS",
+    "R4_physical_freeze": "PASS_FREEZE_ACTIVE",
+    "R5_external_honesty": "PASS_EXTERNAL_IRREDUCIBLE"
+  },
+  "digital_release_lock_complete": false,
+  "forbidden_assertions": [
+    "PRODUCTION_READY",
+    "MASS_PRODUCTION",
+    "CERTIFIED",
+    "CARRIER_APPROVED",
+    "FULL_OPERATIONAL",
+    "6G_CERTIFIED",
+    "GATE_8_PASS",
+    "EVT_VALIDATED",
+    "DIGITAL_RELEASE_LOCK_COMPLETE=true",
+    "READY_FOR_NPI_DFM_AND_EVT_QUOTATION=true"
+  ],
+  "allowed_conditional_tokens": [
+    "CONDITIONAL_VENDOR_COLLATERAL"
+  ],
+  "notes": "Honest Cont IX reproof: Cont VIII SCHEMA backlog=0 on accepted mains, but DIGITAL packaging/OS prove blockers keep digital_release_lock_complete=false until Cont IX sibling tips merge and DIGITAL=0."
+}
