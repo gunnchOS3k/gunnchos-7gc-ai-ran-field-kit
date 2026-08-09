@@ -178,7 +178,7 @@ Evidence consumer Cont VI — **not** final umbrella.
 
 ## Continuation VII — Accepted-main requirement promotion
 
-Updated: 2026-08-09T17:03:54Z
+Updated: 2026-08-09T17:20:02Z
 
 Evidence consumer Cont VII — **not** final umbrella (digitally executable backlog must be 0 on accepted mains first).
 
@@ -191,6 +191,7 @@ Evidence consumer Cont VII — **not** final umbrella (digitally executable back
 - EXTERNAL_REQUIRED: **75**
 
 - archive_ci_repair_carryforward: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/24 (`33b2dd1`) — Cont VI CI repair draft; tip CI green; accepted main #23 still red; autoMergeRequest=null; do not merge
+- edge_io_ring_e2e: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/35 (`752afe9`) — `RING_END_TO_END_DIGITAL_INPUT_PASS` + `RING_ZEPHYR_NATIVE_PATH_DIGITAL_PASS` earned (digital); physical boot pending; autoMergeRequest=null; do not merge; RING-RELIAB-016 remains SCHEMA_ONLY on device-os #65
 
 Artifacts: `program/full_product/continuation_vii/`
 

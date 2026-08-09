@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VII
-generated_at_utc: '2026-08-09T17:20:00Z'
+generated_at_utc: '2026-08-09T17:20:02Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 38c14753d54f04dd953cbd67d3671644256dd888
@@ -18,8 +18,8 @@ drafts:
     branch: cursor/full-product-continuation-vii-accepted-main-reproof
     role: control_plane_evidence_consumer_not_final_umbrella
     pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/40
-    sha: 445112d29dba89187268d6e6e1279db87f64e841
-    note: Cont VII accepted-main reproof; NOT final umbrella; NEVER merge; tip sync after device-os #65 registry
+    sha: 9b85d1ddc3936025bc0be7ea1e369349d35ef17c
+    note: Cont VII accepted-main reproof; NOT final umbrella; NEVER merge
     autoMergeRequest: null
   hardware_eda_release_clean:
     repo: gunnchos-hardware-industrial-design
@@ -31,10 +31,14 @@ drafts:
   edge_io_ring_e2e:
     repo: edge-io-measurement-node
     branch: cursor/full-product-continuation-vii-ring-e2e
-    sha: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
-    note: Cont VII ring E2E digital; draft tip NOT accepted main; RING-RELIAB-016 owner is device-os (edge-io already rejects low_confidence_destructive in e2e)
+    pr: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/35
+    sha: 752afe9e7a04b965da35c392534632b96fc51d8b
+    isDraft: true
+    autoMergeRequest: null
+    ci: green
+    note: Cont VII ring E2E digital; RING_END_TO_END_DIGITAL_INPUT_PASS + RING_ZEPHYR_NATIVE_PATH_DIGITAL_PASS earned (digital); physical boot pending; draft tip NOT accepted main; NEVER merge; RING-RELIAB-016 owner remains device-os #65 (edge e2e supporting only)
     base_accepted_main: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
-    status: BRANCHED_FROM_ACCEPTED_MAIN_PENDING_COMMITS
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   device_os_schema_quality_reliab:
     repo: gunnchos-device-os
     branch: cursor/full-product-continuation-vii-schema-quality-reliab
