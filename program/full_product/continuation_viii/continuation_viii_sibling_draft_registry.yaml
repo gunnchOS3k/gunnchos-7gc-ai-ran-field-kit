@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VIII
-generated_at_utc: '2026-08-09T19:13:58Z'
+generated_at_utc: '2026-08-09T19:45:00Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: a4846ca970943ffc790298bc8bf36bf5c544c8b4
@@ -17,27 +17,25 @@ drafts:
     repo: gunnchos-7gc-ai-ran-field-kit
     branch: continuation-viii/release-readiness-closure
     role: control_plane_release_readiness_not_final_umbrella
-    pr: null
-    sha: a4846ca970943ffc790298bc8bf36bf5c544c8b4
+    pr: 41
+    sha: d8fa9637de1b931374596efc6982f62a51f518b3
     status: DRAFT_TIP_NOT_ACCEPTED_MAIN
     note: Cont VIII Lane J release-readiness closure; draft tip NOT accepted main; NEVER merge from agent
-  product_cont_viii_pending:
-    repo: PENDING
-    branch: null
+  device_os_release_readiness_os:
+    repo: gunnchos-device-os
+    branch: continuation-viii/release-readiness-os
+    role: lanes_F_G_I_productivity_sdk_factory_repro
+    pr: 67
+    sha: 0a4a3d06343ccbf41c89430a6cf1ba12c1b18808
+    status: DRAFT_TIP_NOT_ACCEPTED_MAIN
+    note: Cont VIII Lanes F/G/I; digital OS/adopter/factory/repro packages; NEVER merge from agent; not accepted main until Edmund merges
+  hardware_manufacturer_packages:
+    repo: gunnchos-hardware-industrial-design
+    branch: continuation-viii/manufacturer-release-packages
+    role: lanes_A_E_functional_eda_assembly_rfq
     pr: null
     sha: null
-    status: PLACEHOLDER_NO_PRODUCT_CONT_VIII_DRAFTS_REGISTERED
-    note: 'Placeholder: Cont VIII sibling product draft PRs may appear later. Until registered with draft
-      tip SHAs distinct from accepted mains, final umbrella evidence may only cite ACCEPTED_MAIN_BASELINE.json.'
-    base_accepted_mains:
-      gunnchos-7gc-ai-ran-field-kit: a4846ca970943ffc790298bc8bf36bf5c544c8b4
-      gunnchos-hardware-industrial-design: c5b6afd6a792d367593867fc7533f413a5146db4
-      edge-io-measurement-node: a1cd2e95c62eb0eefd507b976158232b83f5b33b
-      gunnchos-device-os: 78cd33f1fde0a0c42eb6469bbdbe4664225d3dd0
-      gunnchAI3k: 91a9f135b6423a7627ed61946b16e9ab9d79de6e
-      anime-aggressors: 249270383eab87cf4d1240ea17e66bfff44d4b8c
-      pedestrian-pursuit: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
-      archive-of-life-artifact-world: 948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75
-      beatlink-party: e0c18f3dbb964608271c14611e1068cff9c17205
+    status: PENDING_DRAFT_PR
+    note: Cont VIII hardware manufacturer packages still pending draft PR registration
 final_umbrella: false
 digital_pre_evt_release_ready: false
