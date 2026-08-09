@@ -176,3 +176,19 @@ Evidence consumer Cont VI — **not** final umbrella.
 - hardware_eda_closure: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49 (`d2837e3`) — Student/DS-XL NDA-blocked; Handheld/Dock/Ring partial EDA tokens; no FULL design release
 - device_os_platform_semantics: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64 (`835aab1`) — includes #63 CI fix; FULL platform token false; confirm qemu CI before merge
 
+## Continuation VII — Accepted-main requirement promotion
+
+Updated: 2026-08-09T17:03:54Z
+
+Evidence consumer Cont VII — **not** final umbrella (digitally executable backlog must be 0 on accepted mains first).
+
+- TOTAL: **476**
+- SCHEMA_ONLY: **4** (Cont VI stale reference was 221)
+- IMPLEMENTED: **6**
+- INTEGRATED: **49**
+- DIGITALLY_VALIDATED: **222**
+- PHYSICAL_REQUIRED: **120**
+- EXTERNAL_REQUIRED: **75**
+
+Artifacts: `program/full_product/continuation_vii/`
+

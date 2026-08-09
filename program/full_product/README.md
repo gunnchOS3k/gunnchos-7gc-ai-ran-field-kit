@@ -29,6 +29,8 @@ See `reports/FULL_PRODUCT_MASTER_STATUS.md`.
 ## Requirement totality + Cont V proof
 
 - Graph: `requirement_graph.yaml` (sync via `scripts/sync_full_product_requirement_totality.py`)
+- Cont VII accepted-main reproof: `scripts/prove_full_product_continuation_vii.py`
+- Cont VI historical: `scripts/prove_full_product_continuation_vi.py`
 - Cont V re-prove: `scripts/prove_full_product_continuation_v.py`
 - Cont IV historical: `scripts/prove_full_product_continuation_iv.py`
 - Promotion gates: `promotion_rules.yaml` + `scripts/validate_full_product_requirement_graph.py`
