@@ -190,5 +190,7 @@ Evidence consumer Cont VII — **not** final umbrella (digitally executable back
 - PHYSICAL_REQUIRED: **120**
 - EXTERNAL_REQUIRED: **75**
 
+- archive_ci_repair_carryforward: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/24 (`33b2dd1`) — Cont VI CI repair draft; tip CI green; accepted main #23 still red; autoMergeRequest=null; do not merge
+
 Artifacts: `program/full_product/continuation_vii/`
 
