@@ -94,7 +94,7 @@ Public indicative: Intel JHL8440 RCP ~$12.05, JHL9040R ~$3.00; ADLINK/Radxa/Quec
 
 | repo | PR | branch | SHA | CI | autoMergeRequest |
 |------|----|--------|-----|----|------------------|
-| field-kit | [#44](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/44) DRAFT | `phase-x/npi-dfm-evt-quotation` | `b7b7d51c1cd1dbf39fa66f79252735fe6c904448` | pending | `null` |
+| field-kit | [#44](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/44) DRAFT | `phase-x/npi-dfm-evt-quotation` | `2959c22d8f6c7485e23a4f7eaca467f345e5e849` | pending | `null` |
 
 Hardware: Cont IX artifacts reused via SHA pointers — no mandatory hardware delta PR.
 
