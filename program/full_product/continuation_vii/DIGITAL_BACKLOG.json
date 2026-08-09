@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "continuation": "VII",
-  "generated_at_utc": "2026-08-09T17:03:54Z",
+  "generated_at_utc": "2026-08-09T17:20:00Z",
   "policy": "ACCEPTED_MAINS_ONLY_NO_DRAFT_TIPS",
   "target_before_digital_totality": {
     "DIGITALLY_EXECUTABLE_SCHEMA_ONLY": 0,
@@ -31,7 +31,15 @@
         "owner_repository": "gunnchos-device-os",
         "subsystem": "carrier_grade",
         "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
-        "target_state": "IMPLEMENTED"
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has clean_installation.py but ACCEPTED_MAINS_ONLY",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/clean_installation.py"
+        },
+        "irreducible_physical_or_external": false
       },
       {
         "id": "CG-QUALITY-007",
@@ -39,7 +47,15 @@
         "owner_repository": "gunnchos-device-os",
         "subsystem": "carrier_grade",
         "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
-        "target_state": "IMPLEMENTED"
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has localization.py but ACCEPTED_MAINS_ONLY",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/localization.py"
+        },
+        "irreducible_physical_or_external": false
       },
       {
         "id": "CG-QUALITY-008",
@@ -47,7 +63,15 @@
         "owner_repository": "gunnchos-device-os",
         "subsystem": "carrier_grade",
         "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
-        "target_state": "IMPLEMENTED"
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has repair_documentation.py but ACCEPTED_MAINS_ONLY",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/repair_documentation.py"
+        },
+        "irreducible_physical_or_external": false
       },
       {
         "id": "RING-RELIAB-016",
@@ -55,7 +79,16 @@
         "owner_repository": "gunnchos-device-os",
         "subsystem": "rings",
         "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
-        "target_state": "IMPLEMENTED"
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has silent_destructive_uncertain_gestures.py (edge-io e2e already rejects low_confidence_destructive as supporting evidence only)",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/silent_destructive_uncertain_gestures.py"
+        },
+        "irreducible_physical_or_external": false,
+        "note": "Digitally executable OS-side policy; physical ring prototype remains separate PHYSICAL_REQUIRED family, not this ID"
       }
     ],
     "DIGITALLY_EXECUTABLE_STUB_ONLY": [],
@@ -63,5 +96,5 @@
     "DIGITALLY_EXECUTABLE_MOCK_ONLY": []
   },
   "final_umbrella_allowed": false,
-  "note": "Final umbrella NOT opened unless these counts are zero on accepted mains only. Cont VII sibling draft tips are registered separately and are NOT accepted mains."
+  "note": "Final umbrella NOT opened unless these counts are zero on accepted mains only. Cont VII sibling draft tips are registered separately and are NOT accepted mains. Counts intentionally remain 4 until gunnchos-device-os #65 merges to accepted main and Cont VII is re-proved — do not fake-promote from draft tips."
 }

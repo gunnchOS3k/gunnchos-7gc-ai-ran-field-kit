@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VII
-generated_at_utc: '2026-08-09T17:10:23Z'
+generated_at_utc: '2026-08-09T17:20:00Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 38c14753d54f04dd953cbd67d3671644256dd888
@@ -18,8 +18,9 @@ drafts:
     branch: cursor/full-product-continuation-vii-accepted-main-reproof
     role: control_plane_evidence_consumer_not_final_umbrella
     pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/40
-    sha: b60198e7ac3760d76106b162eda33ebe126fae3e
-    note: Cont VII accepted-main reproof; NOT final umbrella
+    sha: b08aa0827876341140d4b32d61aa0327c64e90b5
+    note: Cont VII accepted-main reproof; NOT final umbrella; NEVER merge
+    autoMergeRequest: null
   hardware_eda_release_clean:
     repo: gunnchos-hardware-industrial-design
     branch: cursor/full-product-continuation-vii-eda-release-clean
@@ -31,9 +32,24 @@ drafts:
     repo: edge-io-measurement-node
     branch: cursor/full-product-continuation-vii-ring-e2e
     sha: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
-    note: Cont VII ring E2E digital; draft tip NOT accepted main
+    note: Cont VII ring E2E digital; draft tip NOT accepted main; RING-RELIAB-016 owner is device-os (edge-io already rejects low_confidence_destructive in e2e)
     base_accepted_main: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
     status: BRANCHED_FROM_ACCEPTED_MAIN_PENDING_COMMITS
+  device_os_schema_quality_reliab:
+    repo: gunnchos-device-os
+    branch: cursor/full-product-continuation-vii-schema-quality-reliab
+    pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/65
+    sha: 7f009c6e203a9fe8b57ee22cda41300a77661fec
+    isDraft: true
+    autoMergeRequest: null
+    note: Cont VII digital closure for CG-QUALITY-001/007/008 + RING-RELIAB-016; draft tip NOT accepted main; NEVER merge from Cont VII agent
+    base_accepted_main: 559e31c0b62afe36d72fcca6182483f69c19ec54
+    closes_ids:
+      - CG-QUALITY-001
+      - CG-QUALITY-007
+      - CG-QUALITY-008
+      - RING-RELIAB-016
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   device_os_real_app_packages:
     repo: gunnchos-device-os
     branch: cursor/full-product-continuation-vii-real-app-packages
