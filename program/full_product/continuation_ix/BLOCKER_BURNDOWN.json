@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "IX",
+  "generated_at_utc": "2026-08-09T20:53:05Z",
+  "policy": "ONLY_BUCKETS_DIGITAL_PHYSICAL_EXTERNAL",
+  "physical_execution_freeze": true,
+  "digital_release_lock_complete": false,
+  "counts": {
+    "DIGITAL": 4,
+    "DIGITAL_OPEN": 1,
+    "DIGITAL_CLOSED_ON_DRAFT_TIP": 3,
+    "PHYSICAL": 2,
+    "EXTERNAL": 5,
+    "TOTAL": 11
+  },
+  "buckets": {
+    "DIGITAL": {
+      "count": 1,
+      "ids": [
+        "IX-D-004"
+      ],
+      "note": "Only IX-D-004 open; hardware packaging closed on draft tip #52 pending merge",
+      "closed_on_draft_tip": [
+        "IX-D-001",
+        "IX-D-002",
+        "IX-D-003"
+      ]
+    },
+    "PHYSICAL": {
+      "count": 2,
+      "ids": [
+        "IX-P-001",
+        "IX-P-002"
+      ],
+      "note": "Irreducible under PHYSICAL_EXECUTION_FREEZE; EVT measurements pending freeze lift"
+    },
+    "EXTERNAL": {
+      "count": 5,
+      "ids": [
+        "IX-E-001",
+        "IX-E-002",
+        "IX-E-003",
+        "IX-E-004",
+        "IX-E-005"
+      ],
+      "note": "COM-HPC NDA, dual eDP, Intel balls, panel/hinge OEM, torque OEM"
+    }
+  },
+  "blockers": [
+    {
+      "id": "IX-D-001",
+      "product": "all_boards",
+      "readiness_gate": "R1_DIGITAL_PACKAGING",
+      "bucket": "DIGITAL",
+      "exact_gap": "JEDEC/vendor production footprints still proxy packages on accepted hardware main",
+      "exact_next_action": "Edmund merge hardware#52; then re-prove on accepted main",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "eda/footprints/PROXY_* (Cont VIII #51 residual)",
+      "status": "CLOSED_ON_DRAFT_TIP_NOT_ACCEPTED_MAIN",
+      "draft_evidence": {
+        "repo": "gunnchos-hardware-industrial-design",
+        "pr": 52,
+        "sha": "fa1ec1853a33ffed425701da9b066ac41c716277",
+        "note": "hardware#52 retired proxy footprints; FOOTPRINT_VERIFICATION_LEDGER.csv; PRODUCTION packages"
+      }
+    },
+    {
+      "id": "IX-D-002",
+      "product": "handheld_hybrid",
+      "readiness_gate": "R1_DIGITAL_PACKAGING",
+      "bucket": "DIGITAL",
+      "exact_gap": "Radxa NX5 260-pin hierarchical sheets incomplete on accepted hardware main",
+      "exact_next_action": "Edmund merge hardware#52; then re-prove on accepted main",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "eda/handheld/radxa_nx5_260pin/",
+      "status": "CLOSED_ON_DRAFT_TIP_NOT_ACCEPTED_MAIN",
+      "draft_evidence": {
+        "repo": "gunnchos-hardware-industrial-design",
+        "pr": 52,
+        "sha": "fa1ec1853a33ffed425701da9b066ac41c716277",
+        "note": "hardware#52 Handheld Radxa public pin expansion; unrouted required nets=0"
+      }
+    },
+    {
+      "id": "IX-D-003",
+      "product": "all_boards",
+      "readiness_gate": "R1_DIGITAL_PACKAGING",
+      "bucket": "DIGITAL",
+      "exact_gap": "AVL connector silkscreen/courtyard polish incomplete pending MPN freeze",
+      "exact_next_action": "Edmund merge hardware#52; then re-prove on accepted main",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "eda/*/silkscreen_courtyard_polish.md",
+      "status": "CLOSED_ON_DRAFT_TIP_NOT_ACCEPTED_MAIN",
+      "draft_evidence": {
+        "repo": "gunnchos-hardware-industrial-design",
+        "pr": 52,
+        "sha": "fa1ec1853a33ffed425701da9b066ac41c716277",
+        "note": "hardware#52 silkscreen/courtyard polish after AVL MPN freeze on tip"
+      }
+    },
+    {
+      "id": "IX-D-004",
+      "product": "gunnchOS",
+      "readiness_gate": "R1_OS_PROVE",
+      "bucket": "DIGITAL",
+      "exact_gap": "Productivity/SDK paths remain manifest-only until Cont IX OS proves clean env; Gate 1 may be red at Cont VIII #67 kickoff",
+      "exact_next_action": "Open Cont IX device-os prove PR; clear Gate 1 / clean-env proof before DIGITAL lock",
+      "owner_repo": "gunnchos-device-os",
+      "owner_file": "program/release/PRODUCTIVITY_MANIFEST.yaml",
+      "status": "OPEN"
+    },
+    {
+      "id": "IX-P-001",
+      "product": "all",
+      "readiness_gate": "R4_PHYSICAL_HONESTY",
+      "bucket": "PHYSICAL",
+      "exact_gap": "PHYSICAL_EXECUTION_FREEZE active \u2014 no fab/assembly/test execution",
+      "exact_next_action": "Edmund freeze lift + purchase authority before any EVT build",
+      "owner_repo": "gunnchos-7gc-ai-ran-field-kit",
+      "owner_file": "program/full_product/continuation_ix/PRE_EVT_HANDOFF_MATRIX.json",
+      "status": "OPEN_IRREDUCIBLE"
+    },
+    {
+      "id": "IX-P-002",
+      "product": "all_devices",
+      "readiness_gate": "R4_PHYSICAL_HONESTY",
+      "bucket": "PHYSICAL",
+      "exact_gap": "EVT measurements (battery/thermal/dock/ring/boot) not executable under freeze",
+      "exact_next_action": "After freeze lift: run EVT measurement pack; do not claim EVT_VALIDATED until measured",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/evt/MEASUREMENT_PLAN.md",
+      "status": "OPEN_IRREDUCIBLE"
+    },
+    {
+      "id": "IX-E-001",
+      "product": "student_dsxl",
+      "readiness_gate": "R5_EXTERNAL_HONESTY",
+      "bucket": "EXTERNAL",
+      "exact_gap": "ADLINK/PICMG COM-HPC Mini 400-pin map under NDA (Option B)",
+      "exact_next_action": "Obtain COM-HPC NDA collateral or revisit Option C",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/COM_HPC_NDA_REQUEST.md",
+      "status": "OPEN_IRREDUCIBLE"
+    },
+    {
+      "id": "IX-E-002",
+      "product": "ds_xl",
+      "readiness_gate": "R5_EXTERNAL_HONESTY",
+      "bucket": "EXTERNAL",
+      "exact_gap": "Dual eDP panel interconnect map not finalized without OEM AVL",
+      "exact_next_action": "Request dual eDP pin/timing collateral from panel OEM",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/DUAL_EDP_PANEL_REQUEST.md",
+      "status": "OPEN_IRREDUCIBLE"
+    },
+    {
+      "id": "IX-E-003",
+      "product": "dock",
+      "readiness_gate": "R5_EXTERNAL_HONESTY",
+      "bucket": "EXTERNAL",
+      "exact_gap": "Intel JHL8440/JHL9040R ball maps blocked without Intel docs/NDA",
+      "exact_next_action": "Request Intel ball-map collateral under appropriate NDA",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/INTEL_JHL_BALLMAP_REQUEST.md",
+      "status": "OPEN_IRREDUCIBLE"
+    },
+    {
+      "id": "IX-E-004",
+      "product": "ds_xl",
+      "readiness_gate": "R5_EXTERNAL_HONESTY",
+      "bucket": "EXTERNAL",
+      "exact_gap": "Panel/hinge OEM AVL + bend specs incomplete",
+      "exact_next_action": "Issue panel/hinge OEM AVL RFQ; capture bend/life specs",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/PANEL_HINGE_OEM_REQUEST.md",
+      "status": "OPEN_IRREDUCIBLE"
+    },
+    {
+      "id": "IX-E-005",
+      "product": "all_devices",
+      "readiness_gate": "R5_EXTERNAL_HONESTY",
+      "bucket": "EXTERNAL",
+      "exact_gap": "Some assembly torque values require OEM fastener/spec sheets",
+      "exact_next_action": "Collect OEM torque tables into vendor collateral pack",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/TORQUE_OEM_REQUEST.md",
+      "status": "OPEN_IRREDUCIBLE"
+    }
+  ],
+  "forbidden_bucket_labels": [
+    "MIXED",
+    "UNKNOWN",
+    "PROCESS",
+    "DOCS",
+    "NICE_TO_HAVE"
+  ],
+  "recommendation": "CONTINUE_DIGITAL_RELEASE_ENGINEERING",
+  "note": "Hardware IX-D-001/002/003 closed on draft tip hardware#52 (fa1ec18) \u2014 NOT accepted main. DIGITAL_RELEASE_LOCK_COMPLETE remains false until Edmund merges IX deps and DIGITAL_OPEN=0 on accepted mains. Only IX-D-004 (OS clean-env) remains DIGITAL open."
+}

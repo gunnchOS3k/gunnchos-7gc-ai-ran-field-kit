@@ -1,22 +1,24 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-09T19:13:58Z'
+updated_at_utc: '2026-08-09T20:31:13Z'
 accepted_main_policy: MERGED_on_main_SHA_only
-continuation: VIII
+continuation: IX
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
-    accepted_main_sha: 78cd33f1fde0a0c42eb6469bbdbe4664225d3dd0
+    accepted_main_sha: 06366da047a6938646acb01e016d19318fabab70
     merged_prs:
     - 65
     - 66
+    - 67
     token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
-    note: '#65 schema quality/reliab + #66 real app packages on main'
-    main_ci: green
+    note: '#67 Cont VIII release-readiness OS on main; Gate 1 may be red at kickoff;
+      Cont IX OS PR must prove clean env (manifest-only productivity until then)'
+    main_ci: gate1_may_be_red_at_cont_ix_kickoff
   gunnchAI3k:
     role: AI platform
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
     accepted_main_sha: 91a9f135b6423a7627ed61946b16e9ab9d79de6e
     merged_prs:
@@ -27,7 +29,7 @@ repos:
     main_ci: green
   anime-aggressors:
     role: game
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
     accepted_main_sha: 249270383eab87cf4d1240ea17e66bfff44d4b8c
     merged_prs:
@@ -40,7 +42,7 @@ repos:
     main_ci: green
   pedestrian-pursuit:
     role: game
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
     accepted_main_sha: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
     merged_prs:
@@ -51,7 +53,7 @@ repos:
     main_ci: green
   archive-of-life-artifact-world:
     role: game
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
     accepted_main_sha: 948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75
     merged_prs:
@@ -63,7 +65,7 @@ repos:
     main_ci: green
   beatlink-party:
     role: game
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
     accepted_main_sha: e0c18f3dbb964608271c14611e1068cff9c17205
     merged_prs:
@@ -75,7 +77,7 @@ repos:
     main_ci: green
   edge-io-measurement-node:
     role: ring firmware/host
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
     accepted_main_sha: a1cd2e95c62eb0eefd507b976158232b83f5b33b
     merged_prs:
@@ -85,29 +87,31 @@ repos:
     main_ci: green
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
-    accepted_main_sha: c5b6afd6a792d367593867fc7533f413a5146db4
+    accepted_main_sha: a710f35559252f36f0e6af7e025a5958df0906e3
     merged_prs:
     - 50
+    - 51
     companion_field_kit_accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
     ring_kicad_cli_validation_pass: false
     kicad: EDMUND_ACTION_REQUIRED
     token: HARDWARE_DESIGN_RELEASE_CANDIDATE
-    note: '#50 Cont VIII EDA release-clean on main; structural HW only'
+    note: '#51 Cont VIII manufacturer packages on main; DIGITAL residual (proxy/Radxa/silk)'
     main_ci: green
   gunnchos-7gc-ai-ran-field-kit:
     role: control_plane
-    status: CONT_VIII_ACCEPTED_MAIN
+    status: CONT_IX_ACCEPTED_MAIN_LOCK
     pr_state: MERGED
-    accepted_main_sha: a4846ca970943ffc790298bc8bf36bf5c544c8b4
+    accepted_main_sha: 7c6b955be933e050f81358f25077866f37a493bd
     merged_prs:
     - 40
-    note: 'Cont VII control-plane #40 on main; Cont VIII reproof base'
+    - 41
+    note: 'Cont VIII #41 release-readiness closure on main; Cont IX lock base'
     main_ci: green
 stale_draft_pins: CLEARED_TO_MERGE_COMMITS
-note: Accepted mains are Cont VI baseline (Cont V merge SHAs). continuation_vi_drafts are evidence-consumer
-  lane tips only — not accepted main and not final umbrella.
+note: Accepted mains are Cont VI baseline (Cont V merge SHAs). continuation_vi_drafts
+  are evidence-consumer lane tips only — not accepted main and not final umbrella.
 continuation_vi_drafts:
   field_kit_post_merge_reproof:
     repo: gunnchos-7gc-ai-ran-field-kit
@@ -132,8 +136,8 @@ continuation_vi_drafts:
     branch: cursor/full-product-continuation-v-gunnchos-services
     pr: https://github.com/gunnchOS3k/gunnchos-device-os/pull/63
     sha: bd68181c58be9e828413043a0a2c4a6ff8c55e0a
-    note: 'Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont VI services branch
-      should include this tip'
+    note: 'Open CI repair for red #62 main; MERGEABLE green NOT accepted tip; Cont
+      VI services branch should include this tip'
     accepted_main_still: 12ca8591202f59fdff962a4460323c6cfd67238d
     accepted_main_ci: red
   gunnchai_os_integration:
@@ -164,3 +168,5 @@ continuation_vi_drafts:
 continuation_vii_drafts: SEE_continuation_vii/continuation_vii_sibling_draft_registry.yaml
 final_umbrella: false
 continuation_viii_drafts: SEE_continuation_viii/continuation_viii_sibling_draft_registry.yaml
+continuation_ix_drafts: SEE_continuation_ix/continuation_ix_sibling_draft_registry.yaml
+digital_release_lock_complete: false

@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "IX",
+  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "policy": "CONDITIONAL_VENDOR_COLLATERAL_ONLY_WHEN_EVIDENCE_PRESENT",
+  "physical_execution_freeze": true,
+  "purchase_authorized": false,
+  "requests": [
+    {
+      "id": "VCR-001",
+      "blocker_id": "IX-E-001",
+      "vendor": "ADLINK/PICMG",
+      "request": "COM-HPC Mini 400-pin (+ dual eDP) pin map under NDA",
+      "product": "student_dsxl",
+      "status": "REQUESTED",
+      "allows_token_when_received": "CONDITIONAL_VENDOR_COLLATERAL",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/COM_HPC_NDA_REQUEST.md"
+    },
+    {
+      "id": "VCR-002",
+      "blocker_id": "IX-E-002",
+      "vendor": "Panel OEM (TBD)",
+      "request": "Dual eDP interconnect map + timing/power tables",
+      "product": "ds_xl",
+      "status": "REQUESTED",
+      "allows_token_when_received": "CONDITIONAL_VENDOR_COLLATERAL",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/DUAL_EDP_PANEL_REQUEST.md"
+    },
+    {
+      "id": "VCR-003",
+      "blocker_id": "IX-E-003",
+      "vendor": "Intel",
+      "request": "JHL8440/JHL9040R ball maps",
+      "product": "dock",
+      "status": "REQUESTED",
+      "allows_token_when_received": "CONDITIONAL_VENDOR_COLLATERAL",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/INTEL_JHL_BALLMAP_REQUEST.md"
+    },
+    {
+      "id": "VCR-004",
+      "blocker_id": "IX-E-004",
+      "vendor": "Panel/hinge OEM (TBD)",
+      "request": "AVL + bend/life specs for DS-XL hinge/flex",
+      "product": "ds_xl",
+      "status": "REQUESTED",
+      "allows_token_when_received": "CONDITIONAL_VENDOR_COLLATERAL",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/PANEL_HINGE_OEM_REQUEST.md"
+    },
+    {
+      "id": "VCR-005",
+      "blocker_id": "IX-E-005",
+      "vendor": "Fastener/OEM (TBD)",
+      "request": "Assembly torque tables for enclosure fasteners",
+      "product": "all_devices",
+      "status": "REQUESTED",
+      "allows_token_when_received": "CONDITIONAL_VENDOR_COLLATERAL",
+      "owner_repo": "gunnchos-hardware-industrial-design",
+      "owner_file": "program/vendor/TORQUE_OEM_REQUEST.md"
+    }
+  ],
+  "forbidden_until_evidence": [
+    "PRODUCTION_READY",
+    "MASS_PRODUCTION",
+    "CERTIFIED",
+    "CARRIER_APPROVED",
+    "FULL_OPERATIONAL",
+    "6G_CERTIFIED",
+    "GATE_8_PASS",
+    "EVT_VALIDATED"
+  ],
+  "notes": "Requests are evidence outreach only. Receipt enables CONDITIONAL_VENDOR_COLLATERAL manufacturer tokens with evidence paths \u2014 never PRODUCTION_READY / MASS_PRODUCTION."
+}

@@ -217,3 +217,17 @@ Evidence consumer Cont VIII — **not** final umbrella (digitally executable bac
 - EXTERNAL_REQUIRED: **75**
 
 Artifacts: `program/full_product/continuation_viii/`
+
+## Continuation IX — Digital release lock (pre-EVT handoff)
+
+Updated: 2026-08-09T20:31:13Z
+
+Evidence consumer Cont IX — **not** DIGITAL_RELEASE_LOCK_COMPLETE (DIGITAL open=4; pending Edmund merges of IX deps).
+
+- DIGITAL blockers: **4**
+- PHYSICAL blockers: **2** (freeze)
+- EXTERNAL blockers: **5**
+- Recommendation: `CONTINUE_DIGITAL_RELEASE_ENGINEERING`
+
+Artifacts: `program/full_product/continuation_ix/`
+

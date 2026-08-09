@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "IX",
+  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "physical_execution_freeze": true,
+  "purpose": "Pre-EVT handoff evidence pack \u2014 digital only; no purchase/order authority",
+  "digital_release_lock_complete": false,
+  "ready_for_npi_dfm_and_evt_quotation": false,
+  "handoff_lanes": {
+    "A_eda_packages": {
+      "status": "CONDITIONAL",
+      "evidence": "hardware accepted main #51 EDA release-clean",
+      "blockers": [
+        "IX-D-001",
+        "IX-D-002",
+        "IX-D-003"
+      ],
+      "next": "Cont IX hardware tip closes proxy/Radxa/silk"
+    },
+    "B_os_image_prove": {
+      "status": "PENDING_CONT_IX_OS",
+      "evidence": "device-os #67 on main; Gate 1 may be red",
+      "blockers": [
+        "IX-D-004"
+      ],
+      "next": "Cont IX OS clean-env prove PR"
+    },
+    "C_vendor_collateral": {
+      "status": "REQUESTED",
+      "evidence": "VENDOR_COLLATERAL_REQUESTS.json",
+      "blockers": [
+        "IX-E-001",
+        "IX-E-002",
+        "IX-E-003",
+        "IX-E-004",
+        "IX-E-005"
+      ],
+      "next": "Edmund vendor outreach; CONDITIONAL_VENDOR_COLLATERAL only"
+    },
+    "D_evt_measurement_plan": {
+      "status": "DOCUMENTED_NOT_EXECUTABLE",
+      "evidence": "PHYSICAL freeze + IX-P-002",
+      "blockers": [
+        "IX-P-001",
+        "IX-P-002"
+      ],
+      "next": "Freeze lift then EVT measurements; never claim EVT_VALIDATED now"
+    }
+  },
+  "edmund_actions_required_before_npi_quote": [
+    "Merge Cont IX DIGITAL dependency PRs (hardware + OS) when green",
+    "Confirm DIGITAL blockers=0 on accepted mains",
+    "Review vendor collateral requests (no automatic purchase)",
+    "Keep PHYSICAL_EXECUTION_FREEZE until explicit lift"
+  ],
+  "explicitly_not_authorized": [
+    "purchase_orders",
+    "fab_orders",
+    "mass_production",
+    "carrier_submission",
+    "cert_lab_booking_as_certified_claim"
+  ],
+  "recommendation": "CONTINUE_DIGITAL_RELEASE_ENGINEERING"
+}
