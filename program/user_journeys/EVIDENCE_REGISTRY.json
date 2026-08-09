@@ -1,0 +1,51 @@
+{
+  "schema": "gunnchos.phase_xi_field_kit_evidence.v1",
+  "phase": "XI",
+  "device_os_branch": "phase-xi/user-journey-hardening",
+  "physical_execution_freeze": true,
+  "cursor_never_merges": true,
+  "auto_merge_request": null,
+  "campaign": {
+    "TOTAL": 79,
+    "PASS": 79,
+    "FAIL": 0,
+    "BLOCKED_PHYSICAL": 0,
+    "BLOCKED_EXTERNAL": 0
+  },
+  "earned_tokens": [
+    "GUNNCHOS_ACCESSIBILITY_JOURNEY_DIGITAL_PASS",
+    "GUNNCHOS_CONTEXT_SWITCHING_DIGITAL_PASS",
+    "GUNNCHOS_MULTITASKING_DIGITAL_PASS",
+    "GUNNCHOS_OFFLINE_DAY_DIGITAL_PASS",
+    "GUNNCHOS_REAL_ADMIN_DAY_DIGITAL_PASS",
+    "GUNNCHOS_REAL_CREATOR_DAY_DIGITAL_PASS",
+    "GUNNCHOS_REAL_EDUCATOR_DAY_DIGITAL_PASS",
+    "GUNNCHOS_REAL_OFFICE_DAY_DIGITAL_PASS",
+    "GUNNCHOS_REAL_RECREATION_DAY_DIGITAL_PASS",
+    "GUNNCHOS_REAL_STUDENT_DAY_DIGITAL_PASS"
+  ],
+  "digital_release_lock_complete": true,
+  "evidence_dir": "program/user_journeys/evidence",
+  "primary_implementation_repo": "gunnchos-device-os",
+  "device_os_sha": "4e47d3ddbe25298b0785ce36d57d1e28af96e9d6",
+  "field_kit_sha": "95c36ade9fbba8561dc8432db497c6a30e5a5b77",
+  "prs": [
+    {
+      "order": 1,
+      "repo": "gunnchos-device-os",
+      "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/70",
+      "branch": "phase-xi/user-journey-hardening",
+      "sha": "4e47d3ddbe25298b0785ce36d57d1e28af96e9d6",
+      "autoMergeRequest": null
+    },
+    {
+      "order": 2,
+      "repo": "gunnchos-7gc-ai-ran-field-kit",
+      "pr": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/45",
+      "branch": "phase-xi/user-journey-evidence",
+      "sha": "95c36ade9fbba8561dc8432db497c6a30e5a5b77",
+      "autoMergeRequest": null,
+      "depends_on": "device-os Phase XI"
+    }
+  ]
+}
