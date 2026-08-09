@@ -31,11 +31,24 @@ GAME_MATRIX = FP / "game_release_matrix.yaml"
 HW_MATRIX = FP / "hardware_release_matrix.yaml"
 SOFT_MATRIX = FP / "software_integration_matrix.yaml"
 AI_MATRIX = FP / "ai_capability_matrix.yaml"
+BACKLOG_VIII = FP / "continuation_viii" / "DIGITAL_BACKLOG.json"
 BACKLOG_VII = FP / "continuation_vii" / "DIGITAL_BACKLOG.json"
 BACKLOG_VI = FP / "continuation_vi" / "DIGITALLY_EXECUTABLE_BACKLOG_COUNTS.json"
-BACKLOG = BACKLOG_VII if BACKLOG_VII.exists() else BACKLOG_VI
 CONN_MATRIX = FP / "connectivity_carrier_matrix.yaml"
 MASTER_STATUS = FP / "reports" / "FULL_PRODUCT_MASTER_STATUS.md"
+
+
+def active_backlog_path() -> Path:
+    """Prefer Cont VIII backlog when present; Cont VII freeze is reference only."""
+    if BACKLOG_VIII.exists():
+        return BACKLOG_VIII
+    if BACKLOG_VII.exists():
+        return BACKLOG_VII
+    return BACKLOG_VI
+
+
+# Backward-compatible alias resolved at import; digitally_executable_remaining re-resolves.
+BACKLOG = active_backlog_path()
 
 SCAN_DIRS = [
     ROOT / "program" / "nonphysical",
@@ -166,8 +179,9 @@ def check_game_tokens(hits: list[str]) -> None:
 
 
 def digitally_executable_remaining() -> dict[str, int]:
-    if BACKLOG.exists():
-        data = load_json(BACKLOG)
+    backlog = active_backlog_path()
+    if backlog.exists():
+        data = load_json(backlog)
         return {
             "SCHEMA_ONLY": int(data.get("DIGITALLY_EXECUTABLE_SCHEMA_ONLY") or 0),
             "STUB_ONLY": int(data.get("DIGITALLY_EXECUTABLE_STUB_ONLY") or 0),
@@ -186,7 +200,7 @@ def digitally_executable_remaining() -> dict[str, int]:
 
 
 def check_cont_vii_umbrella(hits: list[str]) -> None:
-    """Cont VII: final umbrella / digital totality forbidden while backlog remains."""
+    """Cont VII/VIII: final umbrella / digital totality forbidden while backlog remains."""
     remaining = digitally_executable_remaining()
     soft = (
         remaining["SCHEMA_ONLY"]
@@ -203,6 +217,8 @@ def check_cont_vii_umbrella(hits: list[str]) -> None:
         FP / "evidence_registry.yaml",
         MASTER_STATUS,
         FP / "continuation_vii" / "DIGITAL_BACKLOG.json",
+        FP / "continuation_viii" / "DIGITAL_BACKLOG.json",
+        FP / "continuation_viii" / "READINESS_SCORECARD.json",
     ):
         if path.exists():
             surfaces.append((str(path), path.read_text(encoding="utf-8", errors="ignore")))
@@ -210,6 +226,7 @@ def check_cont_vii_umbrella(hits: list[str]) -> None:
         r"(?i)(true\s+final\s+umbrella|final_umbrella\s*[:=]\s*true|"
         r"digital\s+totality\s+(complete|achieved|earned)|"
         r"FULL_PRODUCT_DIGITAL_TOTALITY\s*[:=]\s*true|"
+        r"DIGITAL_PRE_EVT_RELEASE_READY\s*[:=]\s*true|"
         r"umbrella\s+opened\b.*\b(true|complete|earned))"
     )
     for path, text in surfaces:
@@ -220,7 +237,7 @@ def check_cont_vii_umbrella(hits: list[str]) -> None:
                 continue
             if soft > 0:
                 hits.append(
-                    f"{path}:{i}: final-umbrella/digital-totality claim while Cont VII "
+                    f"{path}:{i}: final-umbrella/digital-totality claim while Cont VIII "
                     f"digitally executable backlog remains "
                     f"(SCHEMA_ONLY={remaining['SCHEMA_ONLY']} "
                     f"STUB_ONLY={remaining['STUB_ONLY']} "
@@ -274,27 +291,42 @@ def check_full_tokens(hits: list[str]) -> None:
             else "",
         ),
     ]
-    # Also scan sibling docs for FULL_* assertive claims when siblings present
-    for repo in (
-        "gunnchos-device-os",
-        "gunnchAI3k",
-        "gunnchos-hardware-industrial-design",
-        "edge-io-measurement-node",
-        "anime-aggressors",
-        "pedestrian-pursuit",
-        "archive-of-life-artifact-world",
-        "beatlink-party",
-    ):
-        base = SIBLING / repo
-        if not base.exists():
-            continue
-        for rel in ("README.md", "docs", "program", "evidence"):
-            path = base / rel
-            if path.is_file() and path.suffix.lower() in {".md", ".yaml", ".yml", ".json"}:
-                surfaces.append((str(path), path.read_text(encoding="utf-8", errors="ignore")))
-            elif path.is_dir():
-                for f in list(path.rglob("*.md"))[:40] + list(path.rglob("*.json"))[:40]:
-                    surfaces.append((str(f), f.read_text(encoding="utf-8", errors="ignore")))
+    # Also scan sibling docs for FULL_* assertive claims when siblings present.
+    # Cont VIII: when digitally executable backlog is already zero on accepted mains,
+    # sibling-local FULL_* product tokens are sibling evidence — field-kit still must
+    # not assert DIGITAL_PRE_EVT / umbrella tokens (checked on field-kit surfaces).
+    # While backlog remains, sibling FULL_* claims are rejected (Cont VII doctrine).
+    if soft_remaining > 0:
+        for repo in (
+            "gunnchos-device-os",
+            "gunnchAI3k",
+            "gunnchos-hardware-industrial-design",
+            "edge-io-measurement-node",
+            "anime-aggressors",
+            "pedestrian-pursuit",
+            "archive-of-life-artifact-world",
+            "beatlink-party",
+        ):
+            base = SIBLING / repo
+            if not base.exists():
+                continue
+            for rel in ("README.md", "docs", "program", "evidence"):
+                path = base / rel
+                if path.is_file() and path.suffix.lower() in {".md", ".yaml", ".yml", ".json"}:
+                    surfaces.append((str(path), path.read_text(encoding="utf-8", errors="ignore")))
+                elif path.is_dir():
+                    for f in list(path.rglob("*.md"))[:40] + list(path.rglob("*.json"))[:40]:
+                        surfaces.append((str(f), f.read_text(encoding="utf-8", errors="ignore")))
+    else:
+        # Digital backlog exhausted: still reject field-kit DIGITAL_PRE_EVT / umbrella.
+        scorecard = FP / "continuation_viii" / "READINESS_SCORECARD.json"
+        if scorecard.exists():
+            sc = load_json(scorecard)
+            if sc.get("digital_pre_evt_release_ready") is True:
+                hits.append(
+                    "READINESS_SCORECARD.digital_pre_evt_release_ready=true forbidden "
+                    "without Edmund acceptance pack"
+                )
 
     forbidden_full = {
         "FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE",

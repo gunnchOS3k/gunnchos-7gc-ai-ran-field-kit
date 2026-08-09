@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gunnchos.full_product.continuation_viii.readiness_scorecard",
+  "title": "Continuation VIII Release Readiness Scorecard",
+  "description": "Boolean readiness fields. A true value requires ALL listed subcriteria evidence paths to exist and firewall checks to pass. Honest falses are required while hardware remains structural or physical/external validation is pending.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "continuation",
+    "generated_at_utc",
+    "accepted_main_policy",
+    "physical_execution_freeze",
+    "scorecard",
+    "subcriteria"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "continuation": { "type": "string", "const": "VIII" },
+    "generated_at_utc": { "type": "string" },
+    "accepted_main_policy": {
+      "type": "string",
+      "const": "MERGED_on_main_SHA_only_no_cursor_branch_as_accepted"
+    },
+    "physical_execution_freeze": { "type": "boolean", "const": true },
+    "digital_pre_evt_release_ready": {
+      "type": "boolean",
+      "description": "Must remain false unless accepted-main evidence truly supports DIGITAL_PRE_EVT_RELEASE_READY"
+    },
+    "scorecard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product",
+        "manufacturer_ready",
+        "assembly_ready",
+        "adopter_ready",
+        "reproducible_ready",
+        "recreation_ready",
+        "student_ready",
+        "office_work_ready",
+        "physical_validation_pending",
+        "external_validation_pending"
+      ],
+      "properties": {
+        "product": { "type": "boolean" },
+        "manufacturer_ready": { "type": "boolean" },
+        "assembly_ready": { "type": "boolean" },
+        "adopter_ready": { "type": "boolean" },
+        "reproducible_ready": { "type": "boolean" },
+        "recreation_ready": { "type": "boolean" },
+        "student_ready": { "type": "boolean" },
+        "office_work_ready": { "type": "boolean" },
+        "physical_validation_pending": { "type": "boolean" },
+        "external_validation_pending": { "type": "boolean" }
+      }
+    },
+    "subcriteria": {
+      "type": "object",
+      "description": "Per-boolean required evidence paths; true requires every path present",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["required_artifacts", "satisfied", "missing"],
+        "properties": {
+          "required_artifacts": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "satisfied": { "type": "boolean" },
+          "missing": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "feature_branch_pending": {
+      "type": "object",
+      "description": "Optional Cont VIII product draft tips — never counted as accepted-main readiness",
+      "additionalProperties": true
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

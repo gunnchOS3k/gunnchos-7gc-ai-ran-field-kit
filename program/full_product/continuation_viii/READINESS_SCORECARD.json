@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "VIII",
+  "generated_at_utc": "2026-08-09T19:13:58Z",
+  "accepted_main_policy": "MERGED_on_main_SHA_only_no_cursor_branch_as_accepted",
+  "physical_execution_freeze": true,
+  "digital_pre_evt_release_ready": false,
+  "scorecard": {
+    "product": true,
+    "manufacturer_ready": false,
+    "assembly_ready": false,
+    "adopter_ready": false,
+    "reproducible_ready": true,
+    "recreation_ready": false,
+    "student_ready": false,
+    "office_work_ready": false,
+    "physical_validation_pending": true,
+    "external_validation_pending": true
+  },
+  "subcriteria": {
+    "product": {
+      "required_artifacts": [
+        "program/full_product/continuation_viii/REQUIREMENT_PROOF.json",
+        "program/full_product/continuation_viii/REQUIREMENT_COUNTS.json",
+        "program/full_product/continuation_viii/DIGITAL_BACKLOG.json",
+        "program/full_product/continuation_viii/ACCEPTED_MAIN_BASELINE.json"
+      ],
+      "satisfied": true,
+      "missing": [],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "manufacturer_ready": {
+      "required_artifacts": [
+        "program/full_product/manufacturing_matrix.yaml",
+        "program/full_product/hardware_release_matrix.yaml",
+        "FORBIDDEN_UNTIL_FAB_PACKAGE_COMPLETE"
+      ],
+      "satisfied": false,
+      "missing": [
+        "FORBIDDEN_UNTIL_FAB_PACKAGE_COMPLETE"
+      ],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "assembly_ready": {
+      "required_artifacts": [
+        "program/full_product/hardware_release_matrix.yaml",
+        "FORBIDDEN_UNTIL_ASSEMBLY_SOP_AND_PHYSICAL_BOM"
+      ],
+      "satisfied": false,
+      "missing": [
+        "FORBIDDEN_UNTIL_ASSEMBLY_SOP_AND_PHYSICAL_BOM"
+      ],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "adopter_ready": {
+      "required_artifacts": [
+        "program/full_product/deployment_support_matrix.yaml",
+        "FORBIDDEN_UNTIL_ADOPTER_RUNBOOK_AND_SUPPORT_SLA"
+      ],
+      "satisfied": false,
+      "missing": [
+        "FORBIDDEN_UNTIL_ADOPTER_RUNBOOK_AND_SUPPORT_SLA"
+      ],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "reproducible_ready": {
+      "required_artifacts": [
+        "program/full_product/continuation_viii/REQUIREMENT_PROOF.json",
+        "program/full_product/evidence_registry.yaml",
+        "scripts/validate_claim_firewall.py",
+        "scripts/validate_release_firewall.py"
+      ],
+      "satisfied": true,
+      "missing": [],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "recreation_ready": {
+      "required_artifacts": [
+        "FORBIDDEN_UNTIL_RECREATION_KIT_BOM_AND_INSTRUCTIONS"
+      ],
+      "satisfied": false,
+      "missing": [
+        "FORBIDDEN_UNTIL_RECREATION_KIT_BOM_AND_INSTRUCTIONS"
+      ],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "student_ready": {
+      "required_artifacts": [
+        "FORBIDDEN_UNTIL_STUDENT_14_5_CURRICULUM_AND_DEVICE_KIT"
+      ],
+      "satisfied": false,
+      "missing": [
+        "FORBIDDEN_UNTIL_STUDENT_14_5_CURRICULUM_AND_DEVICE_KIT"
+      ],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "office_work_ready": {
+      "required_artifacts": [
+        "FORBIDDEN_UNTIL_OFFICE_WORK_PROFILE_AND_CONTINUITY_PASS"
+      ],
+      "satisfied": false,
+      "missing": [
+        "FORBIDDEN_UNTIL_OFFICE_WORK_PROFILE_AND_CONTINUITY_PASS"
+      ],
+      "notes": "true requires all required_artifacts present; FORBIDDEN_UNTIL_* paths intentionally keep false under Cont VIII"
+    },
+    "physical_validation_pending": {
+      "required_artifacts": [
+        "program/full_product/continuation_viii/PHYSICAL_IRREDUCIBILITY_AUDIT.json"
+      ],
+      "satisfied": true,
+      "missing": [],
+      "notes": "PHYSICAL_REQUIRED=120; freeze active"
+    },
+    "external_validation_pending": {
+      "required_artifacts": [
+        "program/full_product/continuation_viii/EXTERNAL_IRREDUCIBILITY_AUDIT.json"
+      ],
+      "satisfied": true,
+      "missing": [],
+      "notes": "EXTERNAL_REQUIRED=75"
+    }
+  },
+  "feature_branch_pending": {
+    "note": "Cont VIII product draft PRs may be pending; see sibling draft registry placeholder",
+    "registry": "program/full_product/continuation_viii/continuation_viii_sibling_draft_registry.yaml"
+  },
+  "notes": "Honest Cont VIII scorecard on accepted mains. manufacturer_ready/assembly_ready/adopter_ready/recreation_ready/student_ready/office_work_ready remain false while hardware is structural and FORBIDDEN_UNTIL_* artifacts are unmet. DIGITAL_PRE_EVT_RELEASE_READY is not claimed.",
+  "accepted_mains": {
+    "gunnchos-7gc-ai-ran-field-kit": "a4846ca970943ffc790298bc8bf36bf5c544c8b4",
+    "gunnchos-hardware-industrial-design": "c5b6afd6a792d367593867fc7533f413a5146db4",
+    "edge-io-measurement-node": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
+    "gunnchos-device-os": "78cd33f1fde0a0c42eb6469bbdbe4664225d3dd0",
+    "gunnchAI3k": "91a9f135b6423a7627ed61946b16e9ab9d79de6e",
+    "anime-aggressors": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
+    "pedestrian-pursuit": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6",
+    "archive-of-life-artifact-world": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75",
+    "beatlink-party": "e0c18f3dbb964608271c14611e1068cff9c17205"
+  }
+}

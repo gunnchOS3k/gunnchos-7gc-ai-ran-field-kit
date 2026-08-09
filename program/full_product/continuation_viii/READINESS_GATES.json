@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "VIII",
+  "generated_at_utc": "2026-08-09T19:13:58Z",
+  "physical_execution_freeze": true,
+  "gates": {
+    "R1": {
+      "id": "R1",
+      "title": "Digital requirement totality",
+      "pass": true,
+      "machine_checks": [
+        "DIGITALLY_EXECUTABLE_SCHEMA_ONLY==0",
+        "DIGITALLY_EXECUTABLE_STUB_ONLY==0",
+        "DIGITALLY_EXECUTABLE_MOCK_ONLY==0"
+      ],
+      "required_artifacts": [
+        "program/full_product/continuation_viii/DIGITAL_BACKLOG.json"
+      ],
+      "evidence_paths": [
+        "program/full_product/continuation_viii/DIGITAL_BACKLOG.json"
+      ],
+      "notes": "schema=0 stub=0 mock=0"
+    },
+    "R2": {
+      "id": "R2",
+      "title": "Accepted-main baseline integrity",
+      "pass": true,
+      "machine_checks": [
+        "ACCEPTED_MAIN_BASELINE.continuation==VIII",
+        "final_umbrella==false"
+      ],
+      "required_artifacts": [
+        "program/full_product/continuation_viii/ACCEPTED_MAIN_BASELINE.json"
+      ],
+      "evidence_paths": [
+        "program/full_product/continuation_viii/ACCEPTED_MAIN_BASELINE.json"
+      ],
+      "notes": "Accepted mains are Cont VII product merges + field-kit Cont VII main"
+    },
+    "R3": {
+      "id": "R3",
+      "title": "Release / claim firewall",
+      "pass": true,
+      "machine_checks": [
+        "validate_release_firewall.py PASS",
+        "validate_claim_firewall.py PASS"
+      ],
+      "required_artifacts": [
+        "scripts/validate_release_firewall.py",
+        "scripts/validate_claim_firewall.py",
+        "program/full_product/continuation_viii/READINESS_SCORECARD.json"
+      ],
+      "evidence_paths": [
+        "scripts/validate_release_firewall.py",
+        "scripts/validate_claim_firewall.py",
+        "program/full_product/continuation_viii/READINESS_SCORECARD.json"
+      ],
+      "notes": "CI claim-firewall workflow must remain green"
+    },
+    "R4": {
+      "id": "R4",
+      "title": "Physical honesty under freeze",
+      "pass": true,
+      "machine_checks": [
+        "physical_validation_pending==true",
+        "PHYSICAL_EXECUTION_FREEZE==ACTIVE"
+      ],
+      "required_artifacts": [
+        "program/full_product/continuation_viii/PHYSICAL_IRREDUCIBILITY_AUDIT.json"
+      ],
+      "evidence_paths": [
+        "program/full_product/continuation_viii/PHYSICAL_IRREDUCIBILITY_AUDIT.json"
+      ],
+      "notes": "Physical-complete tokens forbidden"
+    },
+    "R5": {
+      "id": "R5",
+      "title": "External honesty",
+      "pass": true,
+      "machine_checks": [
+        "external_validation_pending==true"
+      ],
+      "required_artifacts": [
+        "program/full_product/continuation_viii/EXTERNAL_IRREDUCIBILITY_AUDIT.json"
+      ],
+      "evidence_paths": [
+        "program/full_product/continuation_viii/EXTERNAL_IRREDUCIBILITY_AUDIT.json"
+      ],
+      "notes": "Cert/carrier-complete tokens forbidden"
+    },
+    "R6": {
+      "id": "R6",
+      "title": "Scorecard honesty",
+      "pass": true,
+      "machine_checks": [
+        "manufacturer_ready==false OR artifacts present",
+        "assembly_ready==false OR artifacts present",
+        "adopter_ready==false OR artifacts present",
+        "recreation_ready/student_ready/office_work_ready honest"
+      ],
+      "required_artifacts": [
+        "program/full_product/continuation_viii/READINESS_SCORECARD.json"
+      ],
+      "evidence_paths": [
+        "program/full_product/continuation_viii/READINESS_SCORECARD.json"
+      ],
+      "notes": "Cont VIII keeps user-facing readiness booleans false without full artifact packs"
+    }
+  },
+  "all_pass": true,
+  "digital_pre_evt_release_ready": false
+}
