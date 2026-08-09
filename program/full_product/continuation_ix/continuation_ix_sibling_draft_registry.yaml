@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: IX
-generated_at_utc: '2026-08-09T20:31:13Z'
+generated_at_utc: '2026-08-09T20:53:05Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 7c6b955be933e050f81358f25077866f37a493bd
@@ -18,29 +18,27 @@ drafts:
     branch: continuation-ix/digital-release-lock
     role: control_plane_digital_release_lock_pre_evt_handoff
     pr: 42
-    sha: 77bd8ada21cb0dadc0634534be840bf80a1f2956
+    sha: pending_this_commit
     status: DRAFT_TIP_NOT_ACCEPTED_MAIN
-    note: Cont IX Lane J; NEVER merge from agent; digital_release_lock_complete=false
-      until DIGITAL=0
+    note: Cont IX control plane; digital_release_lock_complete=false until DIGITAL_OPEN=0 on accepted mains
   device_os_clean_env_prove:
     repo: gunnchos-device-os
-    branch: continuation-ix/os-clean-env-prove
+    branch: continuation-ix/pre-evt-os-lock
     role: IX-D-004_gate1_clean_env
     pr: null
     sha: null
     status: PENDING_OPEN
     base_accepted_main: 06366da047a6938646acb01e016d19318fabab70
-    note: Cont IX OS dependency; Gate 1 may be red at kickoff; draft tip NOT accepted
-      main
-  hardware_digital_packaging:
+    note: Cont IX OS dependency still pending draft PR
+  hardware_pre_evt_lock:
     repo: gunnchos-hardware-industrial-design
-    branch: continuation-ix/digital-packaging-closure
-    role: IX-D-001_002_003_proxy_radxa_silk
-    pr: null
-    sha: null
-    status: PENDING_OPEN
+    branch: continuation-ix/pre-evt-hardware-lock
+    role: IX-D-001_002_003_proxy_radxa_silk_manufacturer_handoff
+    pr: 52
+    sha: fa1ec1853a33ffed425701da9b066ac41c716277
+    status: DRAFT_TIP_NOT_ACCEPTED_MAIN
     base_accepted_main: a710f35559252f36f0e6af7e025a5958df0906e3
-    note: Cont IX hardware DIGITAL packaging; draft tip NOT accepted main
+    note: DIGITAL packaging closed on tip; ADLINK Option B; conditional vendor collateral for Student/DS-XL/Dock
 final_umbrella: false
 digital_release_lock_complete: false
 digital_pre_evt_release_ready: false
