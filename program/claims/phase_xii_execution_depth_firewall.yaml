@@ -15,6 +15,23 @@ rules:
     evidence_required:
       - artifacts/phase_xii/rj/RJ_CAMPAIGN_REPORT.json
       - artifacts/phase_xii/REALITY_DEPTH_LEDGER.json
+  - id: reject_real_day_while_x1_residuals
+    description: >
+      Reject REAL_*_DAY_DIGITAL_PASS while CI X1 residuals remain open
+      (Godot/sibling games, llama/AI, composite overlay). Residuals are
+      CONDITIONAL/EXTERNAL — do not claim X1=0 or full digital pass.
+    action: REJECT
+    residual_evidence:
+      - program/execution_reality/CI_X1_RESIDUALS.json
+      - artifacts/phase_xii/CI_X1_RESIDUALS.json
+    require:
+      REAL_APP_X0_OPEN: 0
+      REAL_APP_X1_OPEN: 0
+      REAL_APP_X2_OPEN: 0
+  - id: reject_stale_draft_sha_as_accepted
+    description: Reject ce604c23 draft tip presented as accepted main
+    action: REJECT
+    stale_draft_sha: ce604c23d75c168db589a574159864d456194879
   - id: allow_behavioral_harness
     description: Allow BEHAVIORAL_JOURNEY_HARNESS_PASS for Phase XI simulation coverage
     action: ALLOW
@@ -31,3 +48,11 @@ rules:
 claim_correction:
   PHASE_XI_BEHAVIORAL_JOURNEY_HARNESS_PASS: true
   PHASE_XI_REAL_APPLICATION_DAY_PROOF: NOT_YET_PROVEN
+  REAL_APP_X0_OPEN: 0
+  REAL_APP_X1_OPEN: 5
+  REAL_APP_X2_OPEN: 0
+  GUNNCHOS_REAL_STUDENT_DAY_DIGITAL_PASS: false
+  GUNNCHOS_REAL_OFFICE_DAY_DIGITAL_PASS: false
+  GUNNCHOS_REAL_CREATOR_DAY_DIGITAL_PASS: false
+  GUNNCHOS_REAL_RECREATION_DAY_DIGITAL_PASS: false
+  x1_residuals_classification: CONDITIONAL_EXTERNAL
