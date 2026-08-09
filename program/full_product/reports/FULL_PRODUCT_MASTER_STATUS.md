@@ -178,7 +178,7 @@ Evidence consumer Cont VI — **not** final umbrella.
 
 ## Continuation VII — Accepted-main requirement promotion
 
-Updated: 2026-08-09T17:23:46Z
+Updated: 2026-08-09T17:23:59Z
 
 Evidence consumer Cont VII — **not** final umbrella (digitally executable backlog must be 0 on accepted mains first).
 
