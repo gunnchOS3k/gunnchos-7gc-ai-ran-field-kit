@@ -1,0 +1,30 @@
+{
+  "generated_at_utc": "2026-08-09T21:59:41Z",
+  "claims_policy": "NO_CERT_CLAIMS_FOR_HOST_PRODUCT",
+  "rm520n_gl": {
+    "module_mpn": "Quectel RM520N-GL",
+    "public_spec": "PUB-QUECTEL-001",
+    "module_level_public_notes": [
+      "Module has published regulatory/carrier lists on Quectel materials (FCC/GCF/PTCRB/CE/IC etc. as module)",
+      "T-Mobile module certification public PR exists (2022)",
+      "Verizon Open Development lists RM520N-GL as approved MODULE"
+    ],
+    "host_device_required": [
+      "Host FCC/ISED/CE pre-scan of Student/DS-XL with antenna system",
+      "PTCRB/GCF host integration as applicable",
+      "Carrier host OD / TAC process per carrier — NOT automatic from module cert",
+      "eSIM/profile plan separate from module hardware cert"
+    ],
+    "forbidden_assertions": [
+      "CARRIER_APPROVED (host)",
+      "CERTIFIED (host product)",
+      "6G_CERTIFIED"
+    ],
+    "phase_x_actions": "Draft lab RFQ for pre-scan only; Edmund A07 may authorize send later — not this Cursor run"
+  },
+  "other_radios": {
+    "wifi_bt": "Intel BE200-class / platform Wi-Fi — host DFS/SAR pre-scan TARGET_TO_CONFIRM",
+    "ring_ble": "nRF52840 — FCC intentional radiator path for ring SKU",
+    "dock_uwb_if_present": "Companion UWB — confirm presence from dock BOM; pre-scan if populated"
+  }
+}

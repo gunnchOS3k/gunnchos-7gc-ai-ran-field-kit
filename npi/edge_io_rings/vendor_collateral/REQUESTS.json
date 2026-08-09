@@ -1,0 +1,87 @@
+{
+  "product": "edge_io_rings",
+  "requests": [
+    {
+      "COLLATERAL_ID": "VC-BATTERY-PACK",
+      "vendor": "Cell/pack suppliers",
+      "MPN_product": "Notebook/handheld/ring battery packs",
+      "exact_file_document_library_needed": "Cell MSDS, pack PCM schematic, UN38.3 report path, connector pinout, charge profile",
+      "public_documentation_already_checked": [
+        "UN38.3 general guidance only"
+      ],
+      "why_required": "EVT battery bring-up + shipping classification without inventing safety thresholds",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5",
+        "npi/ds_xl_coder",
+        "npi/handheld_hybrid",
+        "npi/edge_io_rings"
+      ],
+      "NDA_expected": "MAYBE",
+      "vendor_portal_account_needed": false,
+      "request_channel": "Pack OEM; Edmund A04",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-ANTENNA-RF",
+      "vendor": "Antenna/RF vendor",
+      "MPN_product": "WWAN/Wi-Fi/BT/UWB antennas + ring BLE antenna",
+      "exact_file_document_library_needed": "Antenna peak gain plots, isolation, cable loss, keep-out STEP, matching network notes",
+      "public_documentation_already_checked": [
+        "PUB-QUECTEL-001",
+        "PUB-NORDIC-001"
+      ],
+      "why_required": "Host RF layout + EVT RF smoke without inventing antenna efficiency claims",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5",
+        "npi/ds_xl_coder",
+        "npi/handheld_hybrid",
+        "npi/edge_io_rings",
+        "npi/first_party_dock"
+      ],
+      "NDA_expected": false,
+      "vendor_portal_account_needed": false,
+      "request_channel": "Antenna vendor RFQ; Edmund A05",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings",
+        "first_party_dock"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-PASTE-TORQUE",
+      "vendor": "Paste vendor + mechanical OEM",
+      "MPN_product": "Solder paste + enclosure fasteners",
+      "exact_file_document_library_needed": "Paste MPN + reflow profile PDS; OEM torque table",
+      "public_documentation_already_checked": [
+        "Cont IX FASTENER_TORQUE_TABLE.csv placeholders — OEM confirm required"
+      ],
+      "why_required": "Assembly package must not invent cure/torque values",
+      "affected_schematic_pcb_cad": [
+        "all npi/*/assembly"
+      ],
+      "NDA_expected": false,
+      "vendor_portal_account_needed": false,
+      "request_channel": "CM + OEM; Edmund A06/A07",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings",
+        "first_party_dock"
+      ]
+    }
+  ]
+}

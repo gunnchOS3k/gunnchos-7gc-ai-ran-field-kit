@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-08-09T21:59:41Z",
+  "user_workloads": [
+    {
+      "id": "UW-01",
+      "name": "student_classroom_day",
+      "products": [
+        "student_14_5"
+      ],
+      "duration_h": 8,
+      "notes": "wifi+wwan mixed"
+    },
+    {
+      "id": "UW-02",
+      "name": "dsxl_coding_dual_display",
+      "products": [
+        "ds_xl_coder"
+      ],
+      "duration_h": 8
+    },
+    {
+      "id": "UW-03",
+      "name": "handheld_field_walk",
+      "products": [
+        "handheld_hybrid"
+      ],
+      "duration_h": 4
+    },
+    {
+      "id": "UW-04",
+      "name": "dock_office_peripherals",
+      "products": [
+        "first_party_dock",
+        "student_14_5"
+      ],
+      "duration_h": 8
+    }
+  ],
+  "ai_workloads": [
+    {
+      "id": "AW-01",
+      "name": "on_device_inference_burst",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder"
+      ],
+      "metric": "tokens_per_s TARGET_TO_CONFIRM"
+    },
+    {
+      "id": "AW-02",
+      "name": "npu_idle_vs_load_thermals",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder"
+      ],
+      "metric": "C TARGET_TO_CONFIRM"
+    }
+  ],
+  "ring_workloads": [
+    {
+      "id": "RW-01",
+      "name": "ble_advert_connect_dfu",
+      "products": [
+        "edge_io_rings"
+      ]
+    },
+    {
+      "id": "RW-02",
+      "name": "imu_gesture_day",
+      "products": [
+        "edge_io_rings"
+      ]
+    },
+    {
+      "id": "RW-03",
+      "name": "authenticated_pairing_stress",
+      "products": [
+        "edge_io_rings",
+        "handheld_hybrid"
+      ]
+    }
+  ]
+}

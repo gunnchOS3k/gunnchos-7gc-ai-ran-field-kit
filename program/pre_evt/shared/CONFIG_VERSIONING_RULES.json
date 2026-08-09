@@ -1,0 +1,32 @@
+{
+  "generated_at_utc": "2026-08-09T21:59:41Z",
+  "scheme": "PRODUCT-EVTSTAGE-REVnn",
+  "examples": {
+    "student_14_5": [
+      "STUDENT145-EVT0-R0",
+      "STUDENT145-EVT1-R0"
+    ],
+    "ds_xl_coder": [
+      "DSXL-EVT0-R0",
+      "DSXL-EVT1-R0"
+    ],
+    "handheld_hybrid": [
+      "HHYBRID-EVT0-R0",
+      "HHYBRID-EVT1-R0"
+    ],
+    "edge_io_rings": [
+      "RING-EVT0-R0",
+      "RING-EVT1-R0"
+    ],
+    "first_party_dock": [
+      "DOCK-EVT0-R0",
+      "DOCK-EVT1-R0"
+    ]
+  },
+  "rules": [
+    "Silk/PCB rev must match release_manifest.version",
+    "FW hash recorded in programming log per serial",
+    "No silent BOM change inside a REV; bump REV for any MPN change",
+    "PHYSICAL builds forbidden until freeze lift + purchase authority"
+  ]
+}
