@@ -1,0 +1,191 @@
+{
+  "generated_at_utc": "2026-08-09T21:59:41Z",
+  "research_basis": [
+    "Sierra Circuits / AdvancedPCB / Summit Interconnect / TTM (US PCB 2026 lists)",
+    "NPI Services (CA) / CO-AX Technology / Pro-Active Engineering (US EMS/NPI)",
+    "Flex / Jabil / Sanmina (full-service scale)",
+    "International: PCBWay/JLCPCB (proto), AT&S (EU HDI), Foxconn/Compal-class ODMs (notebook — contact only, no engagement)"
+  ],
+  "strategy_scoring": {
+    "multi_vendor": {
+      "score": 7.5,
+      "pros": [
+        "Best-of-breed PCB vs CM vs mech",
+        "Faster EVT0 spins",
+        "IP compartmentalization"
+      ],
+      "cons": [
+        "Integration overhead",
+        "More RFQ management",
+        "Fixture ownership ambiguity"
+      ]
+    },
+    "full_service": {
+      "score": 6.5,
+      "pros": [
+        "Single SOW",
+        "Box-build continuity",
+        "NPI→volume path"
+      ],
+      "cons": [
+        "Higher NRE",
+        "Slower for ring specialty",
+        "Less leverage on specialty RF"
+      ]
+    },
+    "recommended_phase_x": "HYBRID: multi-vendor for EVT0 specialty (ring flex + notebook PCB) with one primary CM shortlist for EVT1 box-build candidates"
+  },
+  "by_product_group": {
+    "notebook_class": {
+      "products": [
+        "student_14_5",
+        "ds_xl_coder"
+      ],
+      "us_na": [
+        {
+          "name": "AdvancedPCB / Advanced Circuits",
+          "role": "HDI prototype PCB",
+          "region": "US"
+        },
+        {
+          "name": "Sierra Circuits",
+          "role": "quick-turn PCB+assembly",
+          "region": "US-CA"
+        },
+        {
+          "name": "Sanmina",
+          "role": "full-service NPI/box-build candidate",
+          "region": "US"
+        },
+        {
+          "name": "NPI Services Inc",
+          "role": "low-volume PCBA/NPI PM",
+          "region": "US-CA"
+        }
+      ],
+      "international": [
+        {
+          "name": "AT&S",
+          "role": "EU HDI",
+          "region": "EU"
+        },
+        {
+          "name": "Compal/Quanta-class ODM inquiry",
+          "role": "notebook ODM (RFQ inquiry only)",
+          "region": "TW"
+        },
+        {
+          "name": "PCBWay/JLCPCB",
+          "role": "early carrier spin ONLY if NDA nets complete",
+          "region": "CN"
+        }
+      ],
+      "notes": "COM-HPC NDA collateral required before production-intent Student/DS-XL carrier fab"
+    },
+    "handheld": {
+      "products": [
+        "handheld_hybrid"
+      ],
+      "us_na": [
+        {
+          "name": "Sierra Circuits",
+          "role": "PCBA",
+          "region": "US"
+        },
+        {
+          "name": "CO-AX Technology",
+          "role": "NPI line + box build",
+          "region": "US"
+        },
+        {
+          "name": "NPI Services Inc",
+          "role": "proto PCBA",
+          "region": "US-CA"
+        }
+      ],
+      "international": [
+        {
+          "name": "Flex",
+          "role": "full-service candidate",
+          "region": "global"
+        },
+        {
+          "name": "PCBWay",
+          "role": "proto PCBA",
+          "region": "CN"
+        }
+      ],
+      "notes": "Radxa NX5 public brief available — strongest DIGITAL manufacturer-ready of notebook-adjacent SKUs"
+    },
+    "wearable_ring": {
+      "products": [
+        "edge_io_rings"
+      ],
+      "us_na": [
+        {
+          "name": "Summit Interconnect",
+          "role": "flex/rigid-flex + RF",
+          "region": "US-CA"
+        },
+        {
+          "name": "All Flex Solutions",
+          "role": "flex medical/wearable",
+          "region": "US-MN"
+        },
+        {
+          "name": "CO-AX Technology",
+          "role": "wearable PCBA NPI",
+          "region": "US"
+        }
+      ],
+      "international": [
+        {
+          "name": "AT&S",
+          "role": "flex/HDI",
+          "region": "EU"
+        },
+        {
+          "name": "specialist wearable EMS (TBD quote)",
+          "role": "ring molding+PCBA",
+          "region": "TW/CN"
+        }
+      ],
+      "notes": "Prefer flex/RF specialists; full-service notebook CMs usually weak on ring molding"
+    },
+    "dock": {
+      "products": [
+        "first_party_dock"
+      ],
+      "us_na": [
+        {
+          "name": "Sierra Circuits",
+          "role": "high-speed PCB",
+          "region": "US"
+        },
+        {
+          "name": "AdvancedPCB",
+          "role": "multilayer SI-aware fab",
+          "region": "US"
+        },
+        {
+          "name": "Sanmina",
+          "role": "dock box-build candidate",
+          "region": "US"
+        }
+      ],
+      "international": [
+        {
+          "name": "Foxlink/Luxshare-class dock ODM inquiry",
+          "role": "TB4 dock ODM",
+          "region": "TW/CN"
+        },
+        {
+          "name": "PCBWay",
+          "role": "proto only",
+          "region": "CN"
+        }
+      ],
+      "notes": "Intel JHL8440/JHL9040R NDA ball maps required for production fanout; public ARK pricing only"
+    }
+  }
+}

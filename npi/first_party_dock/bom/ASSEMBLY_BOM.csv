@@ -1,0 +1,24 @@
+device,subsystem,manufacturer,MPN,description,qty,preferred_or_alternate,approved_alternative,status,notes
+Dock,USB4_TB4_controller,Intel,JHL8440,Goshen Ridge Thunderbolt 4 / USB4 peripheral dock controller 40G,1,preferred,VL108,FROZEN_ADR_HW_002,NOT TB5; corrects prior JHL9040-as-controller mislabel
+Dock,TB4_retimer,Intel,JHL9040R,Hayden Bridge Thunderbolt 4 retimer 40G SI,1,preferred,,FROZEN_ADR_HW_002,Retimer only — not Maple Ridge controller
+Dock,USB3DP_costdown,VIA Labs,VL108,USB3+DP Alt dock cost-down,1,alternate,JHL8440,SKU_OPTION,Handheld-first; no USB4 40G claim on this SKU
+Dock,PD,Texas Instruments,TPS65994ADFBRQ1,USB-C PD dual-port class,1,preferred,CYPD6227,FROZEN_BASELINE,
+Dock,Ethernet,Realtek,RTL8156,2.5GbE USB ethernet,1,preferred,RTL8153,FROZEN_BASELINE,
+Dock,USBHub,VIA Labs,VL817,USB 3.1 hub,1,preferred,VL822,FROZEN_BASELINE,
+Dock,BuckBoost,Texas Instruments,TPS55288RPMR,PD VBUS regulator,1,preferred,,FROZEN_BASELINE,
+Dock,Buck5V,Texas Instruments,TPS62864,5V system buck,1,preferred,TPS62135,FROZEN_BASELINE,
+Dock,LDO3V3,Texas Instruments,TLV75533PDRVR,3V3 LDO,1,preferred,TLV70033,FROZEN_BASELINE,
+Dock,AudioOpt,Realtek,ALC4050,USB audio optional,1,optional,,FOOTPRINT_OPTIONAL,
+Dock,UWB,Qorvo,DWM3001C,UWB companion for rings,1,optional,DW3000,FOOTPRINT_OPTIONAL,ADR-FP-008
+Dock,ESD,Nexperia,PESD5V0S1UL,ESD on pogo/USB,6,preferred,,FROZEN_BASELINE,
+Dock,USB_C_conn,GCT/Amphenol,USB4085 class,USB-C receptacles,4,preferred,,AVL_PENDING,1 up + 2 down + util
+Dock,USB_A_conn,TE,USB3 A receptacle,USB-A 3.2,2,preferred,,AVL_PENDING,
+Dock,HDMI_conn,TE,HDMI Type-A,Video egress,1,preferred,,AVL_PENDING,
+Dock,RJ45,Pulse,JK0-0136NL class,Magnetics+RJ45,1,preferred,,AVL_PENDING,
+Dock,Pogo,Mill-Max,0900-0-15-20-75-14-11-0,Ring charge pogo,2,preferred,,FROZEN_BASELINE,
+Dock,MCU_aux,Nordic,nRF52840-QIAA-R,Optional cradle MCU for UWB/charge mux,1,optional,,FOOTPRINT_OPTIONAL,
+Dock,PCB,gunnchOS3k,dock_main_pcb,4-layer main PCB,1,preferred,,DESIGN_PENDING_CLI,
+Dock,PSU,OEM,PD_adapter_100W,External USB-C PD adapter,1,preferred,65W cost-down,FROZEN_BASELINE,
+Dock,MECH,gunnchOS3k,dock_enclosure_cradle,Enclosure + ring cradle,1,preferred,,CAD_PENDING,
+Dock,FORBIDDEN_TB5,Intel,JHL9480,Thunderbolt 5 accessory controller — OUT OF SCOPE,0,rejected,JHL9580,REJECTED_ADR_HW_002,Do not populate; not TB4
+Dock,FORBIDDEN_TB5_alt,Intel,JHL9580,Thunderbolt 5 controller — OUT OF SCOPE,0,rejected,JHL9480,REJECTED_ADR_HW_002,Do not populate; not TB4

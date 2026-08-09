@@ -1,0 +1,226 @@
+{
+  "generated_at_utc": "2026-08-09T21:59:41Z",
+  "policy": "DRAFT_ONLY_DO_NOT_SEND",
+  "requests": [
+    {
+      "COLLATERAL_ID": "VC-ADLINK-COMHPC-400PIN",
+      "vendor": "ADLINK / PICMG",
+      "MPN_product": "COM-HPC-mMTL-155H-32G + COM-HPC Mini connector",
+      "exact_file_document_library_needed": "PICMG COM-HPC Mini 400-pin net-accurate pin map CSV + ADLINK carrier design guide / pinout under NDA",
+      "public_documentation_already_checked": [
+        "PUB-ADLINK-001",
+        "PUB-ADLINK-002",
+        "PUB-PICMG-001"
+      ],
+      "why_required": "Student/DS-XL carrier production fanout cannot invent pin-accurate nets from public wiki/CDG alone",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5/pcb",
+        "npi/ds_xl_coder/pcb"
+      ],
+      "NDA_expected": true,
+      "vendor_portal_account_needed": true,
+      "request_channel": "ADLINK FAE + PICMG member portal; Edmund A01",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-ADLINK-DUAL-EDP",
+      "vendor": "ADLINK",
+      "MPN_product": "COM-HPC-mMTL dual eDP lane map",
+      "exact_file_document_library_needed": "Dual eDP pin mapping on COM-HPC Mini for DS-XL secondary panel (PDF + CSV)",
+      "public_documentation_already_checked": [
+        "PUB-ADLINK-001",
+        "PUB-ADLINK-002"
+      ],
+      "why_required": "DS-XL dual-display differentiator blocked without pin-accurate eDP2",
+      "affected_schematic_pcb_cad": [
+        "npi/ds_xl_coder/pcb",
+        "npi/ds_xl_coder/mechanical"
+      ],
+      "NDA_expected": true,
+      "vendor_portal_account_needed": true,
+      "request_channel": "ADLINK FAE; Edmund A01",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "ds_xl_coder"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-INTEL-JHL8440",
+      "vendor": "Intel",
+      "MPN_product": "JHL8440 (Goshen Ridge) — NOT TB5",
+      "exact_file_document_library_needed": "Package ball map PDF + reference schematic; IBIS optional",
+      "public_documentation_already_checked": [
+        "PUB-INTEL-001"
+      ],
+      "why_required": "Dock USB4/TB4 controller production fanout",
+      "affected_schematic_pcb_cad": [
+        "npi/first_party_dock/pcb"
+      ],
+      "NDA_expected": true,
+      "vendor_portal_account_needed": true,
+      "request_channel": "Intel Resource & Documentation Center (CNDA); Edmund A02",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "first_party_dock"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-INTEL-JHL9040R",
+      "vendor": "Intel",
+      "MPN_product": "JHL9040R (Hayden Bridge retimer) — NOT TB5 controller",
+      "exact_file_document_library_needed": "Package ball map + retimer placement guide PDF",
+      "public_documentation_already_checked": [
+        "PUB-INTEL-002"
+      ],
+      "why_required": "Dock TB4 retimer SI placement; do not confuse with Maple Ridge host controller",
+      "affected_schematic_pcb_cad": [
+        "npi/first_party_dock/pcb"
+      ],
+      "NDA_expected": true,
+      "vendor_portal_account_needed": true,
+      "request_channel": "Intel RDC (CNDA); Edmund A02",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "first_party_dock"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-DISPLAY-TOUCH",
+      "vendor": "Panel/Touch OEM (shortlist TBD under quote)",
+      "MPN_product": "14.5in eDP panel + touch (Student); dual panel (DS-XL); handheld panel",
+      "exact_file_document_library_needed": "Exact panel MPNs, eDP connector pinout, touch controller FW/I2C map, optical bonding notes",
+      "public_documentation_already_checked": [
+        "Catalog searches only — no frozen MPN public datasheet locked"
+      ],
+      "why_required": "AVL quotes + mechanical envelope + eDP timing for EVT0",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5",
+        "npi/ds_xl_coder",
+        "npi/handheld_hybrid"
+      ],
+      "NDA_expected": "MAYBE",
+      "vendor_portal_account_needed": false,
+      "request_channel": "OEM sales FAE; Edmund A03",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-HINGE-FLEX",
+      "vendor": "Hinge/flex OEM",
+      "MPN_product": "Notebook hinge + eDP flex (Student/DS-XL)",
+      "exact_file_document_library_needed": "Bend radius OEM drawing, cycle-life target, STEP, fastener torque table",
+      "public_documentation_already_checked": [
+        "No public exact MPN locked"
+      ],
+      "why_required": "Manufacturing drawings must not invent bend/life/torque",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5/mechanical",
+        "npi/ds_xl_coder/mechanical"
+      ],
+      "NDA_expected": "MAYBE",
+      "vendor_portal_account_needed": false,
+      "request_channel": "Hinge ODM; Edmund A03",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-BATTERY-PACK",
+      "vendor": "Cell/pack suppliers",
+      "MPN_product": "Notebook/handheld/ring battery packs",
+      "exact_file_document_library_needed": "Cell MSDS, pack PCM schematic, UN38.3 report path, connector pinout, charge profile",
+      "public_documentation_already_checked": [
+        "UN38.3 general guidance only"
+      ],
+      "why_required": "EVT battery bring-up + shipping classification without inventing safety thresholds",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5",
+        "npi/ds_xl_coder",
+        "npi/handheld_hybrid",
+        "npi/edge_io_rings"
+      ],
+      "NDA_expected": "MAYBE",
+      "vendor_portal_account_needed": false,
+      "request_channel": "Pack OEM; Edmund A04",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-ANTENNA-RF",
+      "vendor": "Antenna/RF vendor",
+      "MPN_product": "WWAN/Wi-Fi/BT/UWB antennas + ring BLE antenna",
+      "exact_file_document_library_needed": "Antenna peak gain plots, isolation, cable loss, keep-out STEP, matching network notes",
+      "public_documentation_already_checked": [
+        "PUB-QUECTEL-001",
+        "PUB-NORDIC-001"
+      ],
+      "why_required": "Host RF layout + EVT RF smoke without inventing antenna efficiency claims",
+      "affected_schematic_pcb_cad": [
+        "npi/student_14_5",
+        "npi/ds_xl_coder",
+        "npi/handheld_hybrid",
+        "npi/edge_io_rings",
+        "npi/first_party_dock"
+      ],
+      "NDA_expected": false,
+      "vendor_portal_account_needed": false,
+      "request_channel": "Antenna vendor RFQ; Edmund A05",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings",
+        "first_party_dock"
+      ]
+    },
+    {
+      "COLLATERAL_ID": "VC-PASTE-TORQUE",
+      "vendor": "Paste vendor + mechanical OEM",
+      "MPN_product": "Solder paste + enclosure fasteners",
+      "exact_file_document_library_needed": "Paste MPN + reflow profile PDS; OEM torque table",
+      "public_documentation_already_checked": [
+        "Cont IX FASTENER_TORQUE_TABLE.csv placeholders — OEM confirm required"
+      ],
+      "why_required": "Assembly package must not invent cure/torque values",
+      "affected_schematic_pcb_cad": [
+        "all npi/*/assembly"
+      ],
+      "NDA_expected": false,
+      "vendor_portal_account_needed": false,
+      "request_channel": "CM + OEM; Edmund A06/A07",
+      "blocking_readiness_token": "EXTERNAL_VENDOR_COLLATERAL_REQUIRED",
+      "status": "DRAFT_PACKET_READY_NOT_SENT",
+      "products": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings",
+        "first_party_dock"
+      ]
+    }
+  ]
+}

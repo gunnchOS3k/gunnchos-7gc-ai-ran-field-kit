@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "X",
+  "generated_at_utc": "2026-08-09T21:59:41Z",
+  "policy": "IMMUTABLE_ACCEPTED_MAIN_SHAS_PHASE_X",
+  "physical_execution_freeze": true,
+  "broad_digital_development": "FROZEN",
+  "purchase_authorization": false,
+  "rfq_external_send_authorization": false,
+  "digital_open": 0,
+  "digital_release_lock_complete": true,
+  "preconditions": {
+    "device_os_pr_69_merged": true,
+    "device_os_merge_sha": "657e195de91f8f20766a4257e6ef1636eb9f2014",
+    "field_kit_pr_43_merged": true,
+    "field_kit_merge_sha": "029da075038cc5a388d993827fb8ffbd981afbeb",
+    "phase_x_preconditions_satisfied": true
+  },
+  "accepted_mains": {
+    "gunnchos-7gc-ai-ran-field-kit": {
+      "sha": "029da075038cc5a388d993827fb8ffbd981afbeb",
+      "pr": 43,
+      "role": "control_plane_phase_x_base"
+    },
+    "gunnchos-device-os": {
+      "sha": "657e195de91f8f20766a4257e6ef1636eb9f2014",
+      "pr": 69,
+      "role": "digital_release_lock_evidence"
+    },
+    "gunnchos-hardware-industrial-design": {
+      "sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
+      "pr": 52,
+      "role": "cont_ix_pre_evt_hardware"
+    },
+    "edge-io-measurement-node": {
+      "sha": "a1cd2e95c62eb0eefd507b976158232b83f5b33b"
+    },
+    "gunnchAI3k": {
+      "sha": "91a9f135b6423a7627ed61946b16e9ab9d79de6e"
+    },
+    "anime-aggressors": {
+      "sha": "249270383eab87cf4d1240ea17e66bfff44d4b8c"
+    },
+    "pedestrian-pursuit": {
+      "sha": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6"
+    },
+    "archive-of-life-artifact-world": {
+      "sha": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75"
+    },
+    "beatlink-party": {
+      "sha": "e0c18f3dbb964608271c14611e1068cff9c17205"
+    }
+  },
+  "recommendation_allowed": [
+    "READY_TO_SEND_RFQS",
+    "RFQ_PACKAGE_BLOCKED"
+  ],
+  "forbidden_recommendations": [
+    "READY_TO_PURCHASE"
+  ]
+}
