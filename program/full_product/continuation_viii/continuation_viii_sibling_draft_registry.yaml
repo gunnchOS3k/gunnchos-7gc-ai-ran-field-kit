@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VIII
-generated_at_utc: '2026-08-09T19:45:00Z'
+generated_at_utc: '2026-08-09T19:55:00Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: a4846ca970943ffc790298bc8bf36bf5c544c8b4
@@ -18,9 +18,9 @@ drafts:
     branch: continuation-viii/release-readiness-closure
     role: control_plane_release_readiness_not_final_umbrella
     pr: 41
-    sha: d8fa9637de1b931374596efc6982f62a51f518b3
+    sha: 3a4d889c22c45297333324aeb0864138776f9885
     status: DRAFT_TIP_NOT_ACCEPTED_MAIN
-    note: Cont VIII Lane J release-readiness closure; draft tip NOT accepted main; NEVER merge from agent
+    note: Cont VIII Lane J; NEVER merge from agent
   device_os_release_readiness_os:
     repo: gunnchos-device-os
     branch: continuation-viii/release-readiness-os
@@ -28,14 +28,15 @@ drafts:
     pr: 67
     sha: 0a4a3d06343ccbf41c89430a6cf1ba12c1b18808
     status: DRAFT_TIP_NOT_ACCEPTED_MAIN
-    note: Cont VIII Lanes F/G/I; digital OS/adopter/factory/repro packages; NEVER merge from agent; not accepted main until Edmund merges
+    note: Cont VIII Lanes F/G/I; NEVER merge from agent
   hardware_manufacturer_packages:
     repo: gunnchos-hardware-industrial-design
     branch: continuation-viii/manufacturer-release-packages
     role: lanes_A_E_functional_eda_assembly_rfq
-    pr: null
-    sha: null
-    status: PENDING_DRAFT_PR
-    note: Cont VIII hardware manufacturer packages still pending draft PR registration
+    pr: 51
+    sha: 67f658fc7d7d2c5b3377f71f8b0ddd0fe80916c0
+    status: DRAFT_TIP_NOT_ACCEPTED_MAIN
+    note: Cont VIII Lanes A–E; Option B ADLINK; manufacturer_ready=conditional; NEVER merge from agent
 final_umbrella: false
 digital_pre_evt_release_ready: false
+recommendation: CONTINUE_DIGITAL_RELEASE_ENGINEERING
