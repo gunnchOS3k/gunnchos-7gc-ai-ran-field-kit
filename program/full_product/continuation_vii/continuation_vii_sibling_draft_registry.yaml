@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VII
-generated_at_utc: '2026-08-09T17:20:15Z'
+generated_at_utc: '2026-08-09T17:20:35Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 38c14753d54f04dd953cbd67d3671644256dd888
@@ -24,10 +24,13 @@ drafts:
   hardware_eda_release_clean:
     repo: gunnchos-hardware-industrial-design
     branch: cursor/full-product-continuation-vii-eda-release-clean
-    sha: bed14ca7530ce11379d0173d1eff056df2e00d19
-    note: Cont VII EDA release-clean + pre-manufacturing; draft tip NOT accepted main
+    pr: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/50
+    sha: 32fcddb546610151de02c5884b04f6d28590c2c9
+    isDraft: true
+    autoMergeRequest: null
+    note: Cont VII EDA release-clean + pre-manufacturing; ERC/DRC 0/0 all five boards; 111 ledger FIXED/WAIVED/NDA; KICAD_CLI_EXECUTION_PASS=true; all *_EDA_RELEASE_CLEAN_PASS=false; KEEP_ADLINK NDA; draft tip NOT accepted main; NEVER merge
     base_accepted_main: bed14ca7530ce11379d0173d1eff056df2e00d19
-    status: BRANCHED_FROM_ACCEPTED_MAIN_PENDING_COMMITS
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   edge_io_ring_e2e:
     repo: edge-io-measurement-node
     branch: cursor/full-product-continuation-vii-ring-e2e
