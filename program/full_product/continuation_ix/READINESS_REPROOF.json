@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "continuation": "IX",
-  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "generated_at_utc": "2026-08-09T21:31:35Z",
   "physical_execution_freeze": true,
   "policy": "REPROOF_CONT_VIII_COUNTS_PLUS_CONT_IX_DIGITAL_PACKAGING_RESIDUAL",
   "cont_viii_requirement_counts_reference": {
@@ -23,21 +23,15 @@
     "DIGITALLY_EXECUTABLE_MOCK_ONLY": 0,
     "note": "Cont VIII requirement-graph SCHEMA backlog remains 0; Cont IX DIGITAL residual is packaging/OS prove"
   },
-  "cont_ix_digital_packaging_residual_count": 4,
-  "cont_ix_digital_blocker_ids": [
-    "IX-D-001",
-    "IX-D-002",
-    "IX-D-003",
-    "IX-D-004"
-  ],
+  "cont_ix_digital_packaging_residual_count": 0,
   "gates_reproof": {
     "R1_requirement_schema_backlog": "PASS_SCHEMA_ZERO_CONT_VIII",
-    "R1_digital_packaging_lock": "FAIL_OPEN_BLOCKERS",
+    "R1_digital_packaging_lock": "PASS_DIGITAL_OPEN_ZERO_ACCEPTED_MAIN",
     "R3_release_firewall": "REQUIRED_PASS",
     "R4_physical_freeze": "PASS_FREEZE_ACTIVE",
     "R5_external_honesty": "PASS_EXTERNAL_IRREDUCIBLE"
   },
-  "digital_release_lock_complete": false,
+  "digital_release_lock_complete": true,
   "forbidden_assertions": [
     "PRODUCTION_READY",
     "MASS_PRODUCTION",
@@ -46,12 +40,20 @@
     "FULL_OPERATIONAL",
     "6G_CERTIFIED",
     "GATE_8_PASS",
-    "EVT_VALIDATED",
-    "DIGITAL_RELEASE_LOCK_COMPLETE=true",
-    "READY_FOR_NPI_DFM_AND_EVT_QUOTATION=true"
+    "EVT_VALIDATED"
   ],
   "allowed_conditional_tokens": [
     "CONDITIONAL_VENDOR_COLLATERAL"
   ],
-  "notes": "Honest Cont IX reproof: Cont VIII SCHEMA backlog=0 on accepted mains, but DIGITAL packaging/OS prove blockers keep digital_release_lock_complete=false until Cont IX sibling tips merge and DIGITAL=0."
+  "notes": "Accepted-main Cont IX final lock after #42/#52/#68; DIGITAL_OPEN=0 with device-os CI run 31336820565. #69 is tree-sync follow-up. PHYSICAL/EXTERNAL remain; no purchase / EVT.",
+  "cont_ix_digital_blocker_ids_closed": [
+    "IX-D-001",
+    "IX-D-002",
+    "IX-D-003",
+    "IX-D-004"
+  ],
+  "earned_tokens": [
+    "DIGITAL_RELEASE_LOCK_COMPLETE=true",
+    "READY_FOR_NPI_DFM_AND_EVT_QUOTATION"
+  ]
 }

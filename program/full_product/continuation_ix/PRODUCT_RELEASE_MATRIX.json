@@ -1,24 +1,23 @@
 {
   "schema_version": "1.0.0",
   "continuation": "IX",
-  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "generated_at_utc": "2026-08-09T21:31:35Z",
   "physical_execution_freeze": true,
-  "digital_release_lock_complete": false,
-  "ready_for_npi_dfm_and_evt_quotation": false,
+  "digital_release_lock_complete": true,
+  "ready_for_npi_dfm_and_evt_quotation": true,
   "products": {
     "student_device": {
       "repo": "gunnchos-hardware-industrial-design",
-      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "accepted_main_sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
       "eda_release_clean": true,
       "manufacturer_ready": false,
       "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
       "digital_pre_evt_release_ready": false,
-      "digital_blockers_open": true,
-      "notes": "Option B COM-HPC; proxy footprints keep manufacturer_ready conditional"
+      "notes": "Option B COM-HPC; vendor collateral keeps manufacturer_ready conditional"
     },
     "ds_xl": {
       "repo": "gunnchos-hardware-industrial-design",
-      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "accepted_main_sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
       "eda_release_clean": true,
       "manufacturer_ready": false,
       "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
@@ -32,18 +31,15 @@
     },
     "handheld_hybrid": {
       "repo": "gunnchos-hardware-industrial-design",
-      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "accepted_main_sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
       "eda_release_clean": true,
       "manufacturer_ready": false,
       "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
-      "digital_blockers": [
-        "IX-D-002"
-      ],
-      "notes": "Radxa 260-pin sheets residual DIGITAL"
+      "notes": "Radxa 260-pin closed on hardware#52 accepted main; manufacturer still CONDITIONAL_VENDOR_COLLATERAL"
     },
     "dock": {
       "repo": "gunnchos-hardware-industrial-design",
-      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
+      "accepted_main_sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
       "eda_release_clean": true,
       "manufacturer_ready": false,
       "manufacturer_ready_token": "CONDITIONAL_VENDOR_COLLATERAL",
@@ -61,13 +57,10 @@
     },
     "gunnchos": {
       "repo": "gunnchos-device-os",
-      "accepted_main_sha": "06366da047a6938646acb01e016d19318fabab70",
+      "accepted_main_sha": "1d4883d41779d2300d6b3f6c0717b6e56bb55ddd",
       "bootable_reference_digital_pass": true,
-      "gate1_status": "MAY_BE_RED_AT_KICKOFF",
-      "digital_blockers": [
-        "IX-D-004"
-      ],
-      "notes": "Cont IX OS prove must clear clean-env before DIGITAL lock"
+      "gate1_status": "CI_DIGITAL_LOCK_PASS_RUN_31336820565",
+      "notes": "IX-D-004 closed via Cont IX digital-lock CI on accepted main; #69 tree-sync follow-up only"
     },
     "gunnchai": {
       "repo": "gunnchAI3k",
@@ -97,5 +90,5 @@
   "allowed_conditional_tokens_with_evidence": [
     "CONDITIONAL_VENDOR_COLLATERAL"
   ],
-  "recommendation": "CONTINUE_DIGITAL_RELEASE_ENGINEERING"
+  "recommendation": "READY_FOR_NPI_DFM_AND_EVT_QUOTATION"
 }
