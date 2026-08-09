@@ -1,7 +1,10 @@
 schema_version: 1.0.0
 continuation: IX
 generated_at_utc: '2026-08-09T21:31:35Z'
-policy: ACCEPTED_MAIN_FINAL_LOCK_PLUS_EVIDENCE_FOLLOWUP
+# Firewall-required honesty policy: sibling draft tips (#43/#69) are NOT accepted mains.
+# Accepted-main digital lock is proven separately via ACCEPTED_MAIN_LOCK.json + CI run 31336820565.
+policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
+phase: ACCEPTED_MAIN_FINAL_LOCK_PLUS_EVIDENCE_FOLLOWUP
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 5a03fa28e28a0f4d48859d0b26440057b0d757f4
   gunnchos-hardware-industrial-design: cd1d906c5f08eb26c350851a4faeb05e2bf2e79f

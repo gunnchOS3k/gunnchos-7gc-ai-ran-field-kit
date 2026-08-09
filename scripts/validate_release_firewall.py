@@ -285,6 +285,27 @@ def check_cont_ix_lock_firewall(hits: list[str]) -> None:
     if lock.get("final_umbrella") is True and remaining > 0:
         hits.append("ACCEPTED_MAIN_LOCK.final_umbrella=true while DIGITAL blockers remain")
 
+    # Final lock may be claimed when DIGITAL_OPEN=0 with CI-proven accepted-main evidence.
+    # device-os #69 may remain an open tree-sync follow-up; committed ok:true JSON on
+    # device-os main is not required when digital_lock_ci_run evidence is present.
+    if lock.get("digital_release_lock_complete") is True and remaining == 0:
+        evidence = lock.get("evidence") or {}
+        ci = evidence.get("device_os_digital_lock_ci") or {}
+        accepted = lock.get("accepted_mains") or {}
+        dos = accepted.get("gunnchos-device-os") or {}
+        run_id = ci.get("run_id") or dos.get("digital_lock_ci_run")
+        ok = ci.get("ok") is True or dos.get("digital_lock_ok") is True
+        if not (ok and run_id):
+            hits.append(
+                "digital_release_lock_complete=true requires evidence.device_os_digital_lock_ci "
+                "ok=true and run_id (CI-proven accepted-main path; #69 tree-sync optional)"
+            )
+        hw = accepted.get("gunnchos-hardware-industrial-design") or {}
+        if isinstance(hw, dict) and hw.get("DIGITAL") not in (None, []):
+            hits.append(
+                "digital_release_lock_complete=true requires hardware accepted_main DIGITAL=[]"
+            )
+
     # CONDITIONAL_VENDOR_COLLATERAL allowed only with evidence enumeration
     vendor = load_json(CONT_IX / "VENDOR_COLLATERAL_REQUESTS.json")
     matrix = load_json(CONT_IX / "PRODUCT_RELEASE_MATRIX.json")
@@ -491,8 +512,27 @@ def main() -> int:
             # CONDITIONAL_VENDOR_COLLATERAL mentions are allowed with evidence
             if CONDITIONAL_VENDOR_OK.search(line) and "CONDITIONAL" in line:
                 continue
-            # Assertive true forms of lock tokens, or bare forbidden tokens outside inventories
-            if remaining > 0 or re.search(
+            # When DIGITAL blockers remain: any forbidden token is a hit.
+            # When DIGITAL_OPEN=0: DIGITAL_RELEASE_LOCK_COMPLETE / READY_FOR_NPI*=true
+            # are allowed; PRODUCTION_READY / EVT / GATE_8 / CERTIFIED* stay forbidden.
+            lock_claim_ok = remaining == 0 and bool(
+                re.search(
+                    r"(?i)(DIGITAL_RELEASE_LOCK_COMPLETE|READY_FOR_NPI_DFM_AND_EVT_QUOTATION|"
+                    r"READY_FOR_NPI)\s*[:=]\s*true",
+                    line,
+                )
+            )
+            always_forbidden_true = bool(
+                re.search(
+                    r"(?i)(PRODUCTION_READY|MASS_PRODUCTION|EVT_VALIDATED|GATE_8_PASS|"
+                    r"6G_CERTIFIED|CARRIER_APPROVED|FULL_OPERATIONAL|(?<![A-Z_])CERTIFIED|"
+                    r"DIGITAL_PRE_EVT_RELEASE_READY)\s*[:=]\s*true",
+                    line,
+                )
+            )
+            if lock_claim_ok and not always_forbidden_true:
+                continue
+            if remaining > 0 or always_forbidden_true or re.search(
                 r"(?i)(DIGITAL_RELEASE_LOCK_COMPLETE|READY_FOR_NPI|PRODUCTION_READY|"
                 r"MASS_PRODUCTION|EVT_VALIDATED|GATE_8_PASS|6G_CERTIFIED|"
                 r"CARRIER_APPROVED|FULL_OPERATIONAL|CERTIFIED|"
