@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VII
-generated_at_utc: '2026-08-09T17:23:59Z'
+generated_at_utc: '2026-08-09T18:17:33Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 38c14753d54f04dd953cbd67d3671644256dd888
@@ -19,7 +19,7 @@ drafts:
     role: control_plane_evidence_consumer_not_final_umbrella
     pr: https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/40
     sha: f9a66b99e8ac1160ed9b2f43809b610ca8985cb3
-    note: Cont VII accepted-main reproof; NOT final umbrella; NEVER merge; tip sync after device-os #66 registry
+    note: Cont VII accepted-main reproof; NOT final umbrella; NEVER merge; tip sync after AI+games+archive draft register
     autoMergeRequest: null
   hardware_eda_release_clean:
     repo: gunnchos-hardware-industrial-design
@@ -72,29 +72,51 @@ drafts:
   gunnchai_platform_complete:
     repo: gunnchAI3k
     branch: cursor/full-product-continuation-vii-platform-complete
-    sha: 97cfa171c6921ed706a3a805476e0735468c58f5
-    note: Cont VII AI platform digital exhaustion wave; NOT accepted main
+    pr: https://github.com/gunnchOS3k/gunnchAI3k/pull/26
+    sha: 3f3d3005d7dc3cf3af716f3cb407abbc5cea7044
+    isDraft: true
+    autoMergeRequest: null
+    ci: green
+    note: Cont VII FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE on draft tip; Discord non-normative; draft tip NOT accepted main; NEVER merge
     base_accepted_main: 97cfa171c6921ed706a3a805476e0735468c58f5
-    status: BRANCHED_FROM_ACCEPTED_MAIN_PENDING_COMMITS
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   beatlink_gunnchos_packaging:
     repo: beatlink-party
     branch: cursor/full-product-continuation-vii-gunnchos-packaging
-    sha: 9948646870cd2caa9c85ae2796b40292d7343d88
-    note: Cont VII Beat Link gunnchOS packaging; NOT accepted main
+    pr: https://github.com/gunnchOS3k/beatlink-party/pull/16
+    sha: 407caaf20d5f24c2e5f78e92222daf68bb20c80c
+    isDraft: true
+    autoMergeRequest: null
+    ci: green
+    note: Cont VII digital vs commercial axes + gunnchOS packaging bridge; draft tip NOT accepted main; NEVER merge
     base_accepted_main: 9948646870cd2caa9c85ae2796b40292d7343d88
-    status: BRANCHED_FROM_ACCEPTED_MAIN_PENDING_COMMITS
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
   archive_ci_repair_carryforward:
     repo: archive-of-life-artifact-world
     branch: cursor/full-product-continuation-vi-ci-repair
     pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/24
     sha: 33b2dd1217fe332f2d72f737d72e1dcf1fa50d4e
-    ci: green
-    isDraft: true
+    state: CLOSED_NOT_MERGED
     autoMergeRequest: null
-    mergeable: MERGEABLE
-    note: 'Cont VI CI repair still open (draft); tip CI green; accepted main remains #23 tip (CI red);
-      NEVER merge from Cont VII agent'
+    note: 'CLOSED (not merged) 2026-08-09; superseded by #25 for encounterTaxa+MOCK firewall; prefer #25 over #24; NEVER merge'
     base_accepted_main: 41b0b3174ff38151ae5140bf6de48ea757a7334f
     duplicate_agent_superseded: 3bc5de5d
-    duplicate_note: '#24 already green — no second CI repair PR'
+    duplicate_note: '#24 closed in favor of Cont VII #25'
+    status: SUPERSEDED_BY_ARCHIVE_RELEASE_INTEGRITY
+  archive_release_integrity:
+    repo: archive-of-life-artifact-world
+    branch: cursor/full-product-continuation-vii-release-integrity
+    pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/25
+    sha: e3684d7c12eb56c5467d99dfdf6d9dbe63909e77
+    isDraft: true
+    autoMergeRequest: null
+    ci: green
+    note: Cont VII release integrity (MOCK firewall + encounter floors + bulk deepen); supersedes #24; draft tip NOT accepted main; NEVER merge
+    base_accepted_main: 41b0b3174ff38151ae5140bf6de48ea757a7334f
+    status: DRAFT_PR_OPEN_PENDING_ACCEPTED_MAIN
+    merge_preference: prefer_25_over_24
+  skipped_main_sufficient:
+    anime_aggressors_pr_70: skipped_main_sufficient
+    pedestrian_pursuit_pr_12: skipped_main_sufficient
+    note: anime #70 and pedestrian #12 not registered as Cont VII drafts — accepted main sufficient
 final_umbrella: false
