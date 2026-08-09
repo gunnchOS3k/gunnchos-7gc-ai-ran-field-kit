@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "continuation": "VII",
+  "generated_at_utc": "2026-08-09T18:17:33Z",
+  "policy": "ACCEPTED_MAINS_ONLY_NO_DRAFT_TIPS",
+  "target_before_digital_totality": {
+    "DIGITALLY_EXECUTABLE_SCHEMA_ONLY": 0,
+    "DIGITALLY_EXECUTABLE_STUB_ONLY": 0,
+    "DIGITALLY_EXECUTABLE_MOCK_ONLY": 0
+  },
+  "DIGITALLY_EXECUTABLE_SCHEMA_ONLY": 4,
+  "DIGITALLY_EXECUTABLE_STUB_ONLY": 0,
+  "DIGITALLY_EXECUTABLE_SIMULATION_ONLY": 0,
+  "DIGITALLY_EXECUTABLE_MOCK_ONLY": 0,
+  "ids": {
+    "DIGITALLY_EXECUTABLE_SCHEMA_ONLY": [
+      "CG-QUALITY-001",
+      "CG-QUALITY-007",
+      "CG-QUALITY-008",
+      "RING-RELIAB-016"
+    ],
+    "DIGITALLY_EXECUTABLE_STUB_ONLY": [],
+    "DIGITALLY_EXECUTABLE_SIMULATION_ONLY": [],
+    "DIGITALLY_EXECUTABLE_MOCK_ONLY": []
+  },
+  "items": {
+    "DIGITALLY_EXECUTABLE_SCHEMA_ONLY": [
+      {
+        "id": "CG-QUALITY-001",
+        "title": "Carrier-grade product quality: Clean installation",
+        "owner_repository": "gunnchos-device-os",
+        "subsystem": "carrier_grade",
+        "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has clean_installation.py but ACCEPTED_MAINS_ONLY",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/clean_installation.py"
+        },
+        "irreducible_physical_or_external": false
+      },
+      {
+        "id": "CG-QUALITY-007",
+        "title": "Carrier-grade product quality: Localization",
+        "owner_repository": "gunnchos-device-os",
+        "subsystem": "carrier_grade",
+        "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has localization.py but ACCEPTED_MAINS_ONLY",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/localization.py"
+        },
+        "irreducible_physical_or_external": false
+      },
+      {
+        "id": "CG-QUALITY-008",
+        "title": "Carrier-grade product quality: Repair documentation",
+        "owner_repository": "gunnchos-device-os",
+        "subsystem": "carrier_grade",
+        "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has repair_documentation.py but ACCEPTED_MAINS_ONLY",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/repair_documentation.py"
+        },
+        "irreducible_physical_or_external": false
+      },
+      {
+        "id": "RING-RELIAB-016",
+        "title": "No silent destructive uncertain gestures",
+        "owner_repository": "gunnchos-device-os",
+        "subsystem": "rings",
+        "remaining_gap": "DIGITALLY_EXECUTABLE_SCHEMA_ONLY",
+        "target_state": "IMPLEMENTED",
+        "why_still_schema": "No resolvable product code on accepted main 559e31c; product draft tip has silent_destructive_uncertain_gestures.py (edge-io e2e already rejects low_confidence_destructive as supporting evidence only)",
+        "pending_product_draft": {
+          "repo": "gunnchos-device-os",
+          "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/65",
+          "sha": "7f009c6e203a9fe8b57ee22cda41300a77661fec",
+          "path": "gunnchos_device_os/silent_destructive_uncertain_gestures.py"
+        },
+        "irreducible_physical_or_external": false,
+        "note": "Digitally executable OS-side policy; physical ring prototype remains separate PHYSICAL_REQUIRED family, not this ID"
+      }
+    ],
+    "DIGITALLY_EXECUTABLE_STUB_ONLY": [],
+    "DIGITALLY_EXECUTABLE_SIMULATION_ONLY": [],
+    "DIGITALLY_EXECUTABLE_MOCK_ONLY": []
+  },
+  "final_umbrella_allowed": false,
+  "note": "Final umbrella NOT opened unless these counts are zero on accepted mains only. Cont VII sibling draft tips are registered separately and are NOT accepted mains. Counts intentionally remain 4 until gunnchos-device-os #65 merges to accepted main and Cont VII is re-proved \u2014 do not fake-promote from draft tips. #65 remains OPEN and is not superseded by device-os #66 (real-apps); #66 does not close CG-QUALITY-001/007/008 or RING-RELIAB-016. AI/games/archive Cont VII drafts registered: gunnchAI #26, beatlink #16, archive #25 (prefer over closed #24); anime #70 and pedestrian #12 skipped (main sufficient)."
+}

@@ -187,6 +187,55 @@ def test_claim_firewall_passes_current_tree():
     assert "CLAIM_FIREWALL_PASS" in proc.stdout
 
 
+def test_cont_vii_accepted_main_reproof_artifacts_exist():
+    cont_vii = ROOT / "program" / "full_product" / "continuation_vii"
+    for name in (
+        "ACCEPTED_MAIN_BASELINE.json",
+        "REQUIREMENT_PROOF.json",
+        "REQUIREMENT_COUNTS.json",
+        "REQUIREMENT_PROMOTION_LEDGER.json",
+        "DIGITAL_BACKLOG.json",
+        "PHYSICAL_IRREDUCIBILITY_AUDIT.json",
+        "EXTERNAL_IRREDUCIBILITY_AUDIT.json",
+        "continuation_vii_sibling_draft_registry.yaml",
+    ):
+        assert (cont_vii / name).exists(), name
+    import json
+
+    counts = json.loads((cont_vii / "REQUIREMENT_COUNTS.json").read_text(encoding="utf-8"))
+    assert counts.get("total") == 476
+    assert counts.get("continuation") == "VII"
+    assert "previous_cont_vi_stale_status_counts_reference" in counts
+    # Cont VI SCHEMA_ONLY=221 is stale — Cont VII must not copy it as current
+    assert counts["status_counts"].get("SCHEMA_ONLY", -1) != 221
+    baseline = json.loads((cont_vii / "ACCEPTED_MAIN_BASELINE.json").read_text(encoding="utf-8"))
+    assert baseline["accepted_mains"]["gunnchos-7gc-ai-ran-field-kit"].startswith("38c14753")
+    assert baseline["accepted_mains"]["gunnchos-device-os"].startswith("559e31c0")
+    assert baseline.get("final_umbrella") is False
+    backlog = json.loads((cont_vii / "DIGITAL_BACKLOG.json").read_text(encoding="utf-8"))
+    assert "DIGITALLY_EXECUTABLE_SCHEMA_ONLY" in backlog
+    assert len(backlog["ids"]["DIGITALLY_EXECUTABLE_SCHEMA_ONLY"]) == backlog[
+        "DIGITALLY_EXECUTABLE_SCHEMA_ONLY"
+    ]
+    assert backlog.get("final_umbrella_allowed") is (
+        backlog["DIGITALLY_EXECUTABLE_SCHEMA_ONLY"] == 0
+        and backlog.get("DIGITALLY_EXECUTABLE_STUB_ONLY", 0) == 0
+        and backlog.get("DIGITALLY_EXECUTABLE_MOCK_ONLY", 0) == 0
+    )
+
+
+def test_release_firewall_passes_current_tree():
+    proc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "validate_release_firewall.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert "RELEASE_FIREWALL_PASS" in proc.stdout
+
+
 def test_no_legacy_hackathon_owner_residual():
     data = yaml.safe_load(GRAPH.read_text(encoding="utf-8"))
     legacy = [

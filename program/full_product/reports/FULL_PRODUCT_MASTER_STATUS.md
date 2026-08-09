@@ -176,3 +176,29 @@ Evidence consumer Cont VI — **not** final umbrella.
 - hardware_eda_closure: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/49 (`d2837e3`) — Student/DS-XL NDA-blocked; Handheld/Dock/Ring partial EDA tokens; no FULL design release
 - device_os_platform_semantics: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64 (`835aab1`) — includes #63 CI fix; FULL platform token false; confirm qemu CI before merge
 
+## Continuation VII — Accepted-main requirement promotion
+
+Updated: 2026-08-09T18:17:46Z
+
+Evidence consumer Cont VII — **not** final umbrella (digitally executable backlog must be 0 on accepted mains first).
+
+- TOTAL: **476**
+- SCHEMA_ONLY: **4** (Cont VI stale reference was 221)
+- IMPLEMENTED: **6**
+- INTEGRATED: **49**
+- DIGITALLY_VALIDATED: **222**
+- PHYSICAL_REQUIRED: **120**
+- EXTERNAL_REQUIRED: **75**
+
+- archive_ci_repair_carryforward: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/24 (`33b2dd1`) — CLOSED not merged; superseded by #25; prefer #25 over #24; autoMergeRequest=null
+- archive_release_integrity: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/25 (`e3684d7`) — Cont VII MOCK firewall + encounter floors + bulk deepen; supersedes #24; CI green; autoMergeRequest=null; do not merge
+- hardware_eda_release_clean: https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/50 (`32fcddb`) — ERC/DRC 0/0 all five boards; 111 ledger FIXED/WAIVED/NDA; KICAD_CLI_EXECUTION_PASS=true; all *_EDA_RELEASE_CLEAN_PASS=false; KEEP_ADLINK NDA; autoMergeRequest=null; do not merge
+- edge_io_ring_e2e: https://github.com/gunnchOS3k/edge-io-measurement-node/pull/35 (`752afe9`) — `RING_END_TO_END_DIGITAL_INPUT_PASS` + `RING_ZEPHYR_NATIVE_PATH_DIGITAL_PASS` earned (digital); physical boot pending; autoMergeRequest=null; do not merge; RING-RELIAB-016 remains SCHEMA_ONLY on device-os #65 (still open; not superseded by #66)
+- device_os_schema_quality_reliab: https://github.com/gunnchOS3k/gunnchos-device-os/pull/65 (`7f009c6`) — CG-QUALITY-001/007/008 + RING-RELIAB-016 digital closure draft; CI green; autoMergeRequest=null; still OPEN — not superseded by #66; do not promote REQUIREMENT_COUNTS until accepted main; do not merge
+- device_os_real_app_packages: https://github.com/gunnchOS3k/gunnchos-device-os/pull/66 (`51c4272`) — Beat Link stub replaced; real WAIKE/Creator/Device apps; FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE=true (digital; physical/cloud not blockers); CI green; autoMergeRequest=null; parallel to #65; do not merge
+- gunnchai_platform_complete: https://github.com/gunnchOS3k/gunnchAI3k/pull/26 (`3f3d300`) — FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE; Discord non-normative; CI green; autoMergeRequest=null; do not merge
+- beatlink_gunnchos_packaging: https://github.com/gunnchOS3k/beatlink-party/pull/16 (`407caaf`) — digital vs commercial axes + gunnchOS packaging bridge; CI green; autoMergeRequest=null; do not merge
+- skipped (main sufficient): anime #70, pedestrian #12 — not Cont VII draft tips
+
+Artifacts: `program/full_product/continuation_vii/`
+

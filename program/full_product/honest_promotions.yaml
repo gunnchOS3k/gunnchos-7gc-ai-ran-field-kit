@@ -1,132 +1,16 @@
-schema_version: 1.1.0
-updated_at_utc: '2026-08-08T20:56:59Z'
-continuation: VI
-note: Honest Cont VI promotions. Broader digital re-prove applied in requirement_graph.yaml via prove_full_product_continuation_vi.py.
-accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-promotions:
-- id: SYS-STANDARDS-001
-  full_product_status: DIGITALLY_VALIDATED
-  owner_repository: gunnchos-7gc-ai-ran-field-kit
-  implementation_paths:
-  - scripts/validate_claim_firewall.py
-  - program/claims/prohibited_claim_patterns.yaml
-  - program/claims/claim_firewall_allowlist.yaml
-  test_paths:
-  - scripts/validate_claim_firewall.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  evidence_artifact: program/claims/prohibited_claim_patterns.yaml
-  evidence_result: CLAIM_FIREWALL_PASS
-  evidence:
-  - EV-FK-STANDARDS-FIREWALL
-  note: Defensible product language enforced by claim firewall in CI
-  tests:
-  - scripts/validate_claim_firewall.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  accepted_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_repository: gunnchos-7gc-ai-ran-field-kit
-- id: SYS-MISSION-009
-  full_product_status: DIGITALLY_VALIDATED
-  owner_repository: gunnchos-7gc-ai-ran-field-kit
-  implementation_paths:
-  - program/full_product/evidence_registry.yaml
-  - program/claims/claim_taxonomy.yaml
-  - scripts/validate_claim_firewall.py
-  - control_plane/validators/__init__.py
-  test_paths:
-  - tests/control_plane/test_gate0_control_plane.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  evidence_artifact: program/full_product/evidence_registry.yaml
-  evidence_result: EVIDENCE_CONTROL_PLANE_PASS
-  evidence:
-  - EV-FK-EVIDENCE-REGISTRY
-  note: Reproducible evidence control plane + firewall + Gate 0 tests
-  tests:
-  - tests/control_plane/test_gate0_control_plane.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  accepted_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_repository: gunnchos-7gc-ai-ran-field-kit
-- id: FP-CHARTER-L635-CARRIER-GRADE-NOT-MODEM
-  full_product_status: DIGITALLY_VALIDATED
-  owner_repository: gunnchos-7gc-ai-ran-field-kit
-  implementation_paths:
-  - scripts/validate_claim_firewall.py
-  - program/claims/prohibited_claim_patterns.yaml
-  - program/full_product/connectivity_carrier_matrix.yaml
-  test_paths:
-  - scripts/validate_claim_firewall.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  evidence_artifact: program/full_product/connectivity_carrier_matrix.yaml
-  evidence_result: CARRIER_GRADE_CLAIM_GUARD_PASS
-  evidence:
-  - EV-FK-CARRIER-GRADE-CLAIM-GUARD
-  note: Carrier-grade-not-modem claim guard via firewall + connectivity matrix
-  tests:
-  - scripts/validate_claim_firewall.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  accepted_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_repository: gunnchos-7gc-ai-ran-field-kit
-- id: SYS-MISSION-002
-  full_product_status: IMPLEMENTED
-  owner_repository: gunnchos-7gc-ai-ran-field-kit
-  implementation_paths:
-  - program/full_product/product_family_matrix.yaml
-  - program/full_product/hardware_release_matrix.yaml
-  - program/requirements/device_role_baseline.yaml
-  test_paths:
-  - tests/full_product/test_requirement_promotion_validators.py
-  evidence_artifact: program/full_product/product_family_matrix.yaml
-  evidence_result: PRODUCT_FAMILY_MATRIX_PASS
-  evidence:
-  - EV-FK-PRODUCT-FAMILY-MATRIX
-  note: Coherent family tracked as matrices/baseline (not device runtime complete)
-  tests:
-  - tests/full_product/test_requirement_promotion_validators.py
-  accepted_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_repository: gunnchos-7gc-ai-ran-field-kit
-- id: FP-CONN-CARRIER-GRADE
-  full_product_status: IMPLEMENTED
-  owner_repository: gunnchos-7gc-ai-ran-field-kit
-  implementation_paths:
-  - program/full_product/connectivity_carrier_matrix.yaml
-  - program/full_product/imt2030_migration_mapping.yaml
-  - scripts/validate_claim_firewall.py
-  test_paths:
-  - scripts/validate_claim_firewall.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  evidence_artifact: program/full_product/connectivity_carrier_matrix.yaml
-  evidence_result: CONNECTIVITY_CARRIER_MATRIX_PRESENT
-  evidence:
-  - EV-FK-CONN-MATRIX
-  note: Architecture matrix + claim firewall; modem not frozen; no 6G certified claim
-  tests:
-  - scripts/validate_claim_firewall.py
-  - tests/full_product/test_requirement_promotion_validators.py
-  accepted_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
-  accepted_repository: gunnchos-7gc-ai-ran-field-kit
-- id: FP-RING-SPATIAL-INPUT
-  full_product_status: DIGITALLY_VALIDATED
-  owner_repository: edge-io-measurement-node
-  implementation_paths:
-  - program/full_product/software_integration_matrix.yaml
-  - program/full_product/hardware_release_matrix.yaml
-  - program/full_product/evidence_registry.yaml
-  test_paths:
-  - tests/full_product/test_requirement_promotion_validators.py
-  - scripts/validate_full_product_requirement_graph.py
-  evidence_artifact: program/full_product/evidence_registry.yaml
-  evidence_result: RING_ZEPHYR_WEST_BUILD_PASS
-  evidence:
-  - EV-EDGE-32
-  note: Zephyr west digital build PASS recorded on accepted edge-io main; physical boot still PHYSICAL_REQUIRED
-    elsewhere
-  tests:
-  - tests/full_product/test_requirement_promotion_validators.py
-  - scripts/validate_full_product_requirement_graph.py
-  accepted_sha: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
-  accepted_main_sha: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
-  accepted_repository: edge-io-measurement-node
+schema_version: 1.2.0
+updated_at_utc: '2026-08-09T17:03:54Z'
+continuation: VII
+note: Honest Cont VII promotions. Broader digital re-prove applied in requirement_graph.yaml via prove_full_product_continuation_vii.py.
+  No YAML-alone promotions.
+accepted_mains:
+  gunnchos-7gc-ai-ran-field-kit: 38c14753d54f04dd953cbd67d3671644256dd888
+  gunnchos-hardware-industrial-design: bed14ca7530ce11379d0173d1eff056df2e00d19
+  edge-io-measurement-node: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
+  gunnchos-device-os: 559e31c0b62afe36d72fcca6182483f69c19ec54
+  gunnchAI3k: 97cfa171c6921ed706a3a805476e0735468c58f5
+  anime-aggressors: 249270383eab87cf4d1240ea17e66bfff44d4b8c
+  pedestrian-pursuit: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
+  archive-of-life-artifact-world: 41b0b3174ff38151ae5140bf6de48ea757a7334f
+  beatlink-party: 9948646870cd2caa9c85ae2796b40292d7343d88
+promotions_artifact: program/full_product/continuation_vii/REQUIREMENT_PROMOTION_LEDGER.json

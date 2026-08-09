@@ -1,141 +1,110 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-08T21:10:00Z'
+updated_at_utc: '2026-08-09T17:03:54Z'
 accepted_main_policy: MERGED_on_main_SHA_only
-continuation: VI
+continuation: VII
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: CONT_VI_ACCEPTED_MAIN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 12ca8591202f59fdff962a4460323c6cfd67238d
+    accepted_main_sha: 559e31c0b62afe36d72fcca6182483f69c19ec54
     merged_prs:
-    - 56
-    - 57
-    - 58
-    - 59
-    - 60
-    - 61
-    - 62
+    - 63
+    - 64
     token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
-    note: 'Includes bootable QEMU image #61 and cloud/fleet #60; #62 merged mid-fix leaving main
-      qemu CI red; #63 TCG/SQLite follow-up MERGEABLE+green — merge before treating main as healthy;
-      17 service stubs remain; FULL platform not claimed'
-    main_ci: RED_UNTIL_63
+    note: '#63 CI repair + #64 platform semantics on main; Cont VII removes game stubs'
+    main_ci: green
   gunnchAI3k:
     role: AI platform
-    status: CONT_VI_ACCEPTED_MAIN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: ea630ec4dc09680dbbb5593c00f0e64d1cb23ec5
+    accepted_main_sha: 97cfa171c6921ed706a3a805476e0735468c58f5
     merged_prs:
-    - 21
-    - 22
-    - 23
-    - 24
+    - 25
     token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
     digitally_validated: true
-    note: 'Callable service #24 on main; FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE forbidden'
+    note: '#25 OS integration + 38/38 normative AI RUNTIME on main'
+    main_ci: green
   anime-aggressors:
     role: game
-    status: CONT_VI_ACCEPTED_MAIN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: b3c823cf277c97c691a31ffc865798561e13a6eb
+    accepted_main_sha: 249270383eab87cf4d1240ea17e66bfff44d4b8c
     merged_prs:
-    - 65
-    - 66
-    - 67
-    - 68
-    - 69
+    - 70
     alpha_exit: true
     content_complete: true
     rc_digital: true
     claim_integrity: VALID_WITH_EXPLICIT_SCOPE_AFTER_69
-    note: '#69 on main; blocks_token cleared; Beta/RC VALID_WITH_EXPLICIT_SCOPE (Path A procedural/synth;
-      no FULL launch claim)'
+    note: '#70 Path A audit + RC hardening on main'
+    main_ci: green
   pedestrian-pursuit:
     role: game
-    status: CONT_VI_ACCEPTED_MAIN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: ce0687d442311dee54bbfa9eedc7be9db8579650
+    accepted_main_sha: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
     merged_prs:
-    - 8
-    - 9
-    - 10
-    - 11
+    - 12
     content_complete: false
     rc_digital: false
-    note: '#11 competitive AI 768 + Local MP on main; digital RC PARTIAL pending final art/audio'
+    note: '#12 digital RC art/audio on main; physical FPS separate'
+    main_ci: green
   archive-of-life-artifact-world:
     role: game
-    status: CONT_VI_ACCEPTED_MAIN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: ee8a2e6346bbc384eda05217710fa4d1dd827e52
+    accepted_main_sha: 41b0b3174ff38151ae5140bf6de48ea757a7334f
     merged_prs:
-    - 17
-    - 18
-    - 19
-    - 20
-    - 21
+    - 23
     live_global_ingest: false
     content_complete: false
     rc_digital: false
-    note: '#21 production ingest on main; global live ingest not claimed; Cont VI science DB wave'
+    note: '#23 science DB on main; main CI red — sibling Cont VI repair in flight'
+    main_ci: red
   beatlink-party:
     role: game
-    status: CONT_VI_ACCEPTED_MAIN_CI_GREEN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: c8a2de8c51929d776eea7b219f6015e787e0f174
+    accepted_main_sha: 9948646870cd2caa9c85ae2796b40292d7343d88
     merged_prs:
-    - 9
-    - 10
-    - 11
-    - 12
-    - 13
+    - 15
     content_complete: false
     rc_digital: false
     alpha_exit: true
-    note: '#13 Redis/load/mic on main; Beta/RC revoked pending Cont VI re-earn'
+    note: '#15 Cont VI digital Beta/RC tokens on main; product BETA/RC false'
+    main_ci: green
   edge-io-measurement-node:
     role: ring firmware/host
-    status: RING_ZEPHYR_WEST_BUILD_PASS
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 4507c8fc9efc07a9f2debeef89f5f60f5ae97e5c
+    accepted_main_sha: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
     merged_prs:
-    - 32
-    - 33
+    - 34
     token: RING_ZEPHYR_WEST_BUILD_PASS
-    note: '#33 pinout parity stubs; west build pass; production firmware smoke-only still open'
+    note: '#34 full ring firmware digital on main; physical boot still pending'
+    main_ci: green
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: CONT_VI_ACCEPTED_MAIN
+    status: CONT_VII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 38b37221074446730709af5682a06cb4cefd39fc
+    accepted_main_sha: bed14ca7530ce11379d0173d1eff056df2e00d19
     merged_prs:
-    - 44
-    - 45
-    - 46
-    - 47
-    - 48
+    - 49
     companion_field_kit_accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
     ring_kicad_cli_validation_pass: false
     kicad: EDMUND_ACTION_REQUIRED
     token: HARDWARE_DESIGN_RELEASE_CANDIDATE
-    note: '#47 on main; FULL_HARDWARE_DESIGN_RELEASE_COMPLETE not claimed; KiCad EDMUND_ACTION_REQUIRED'
+    note: '#49 EDA family validation on main; ERC/DRC severity ledger Cont VII'
+    main_ci: green
   gunnchos-7gc-ai-ran-field-kit:
     role: control_plane
-    status: CONT_VI_POST_MERGE_CANONICALIZATION
-    pr_state: MERGED_BASE
-    accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
+    status: CONT_VII_ACCEPTED_MAIN
+    pr_state: MERGED
+    accepted_main_sha: 38c14753d54f04dd953cbd67d3671644256dd888
     merged_prs:
-    - 29
-    - 30
-    - 31
-    - 32
-    - 33
-    - 34
-    - 35
-    - 36
-    - 37
-    note: Cont VI draft canonicalization consumes Cont IV merge SHAs; not true final umbrella
+    - 39
+    note: 'Cont VI control-plane #39 on main; Cont VII reproof base'
+    main_ci: green
 stale_draft_pins: CLEARED_TO_MERGE_COMMITS
 note: Accepted mains are Cont VI baseline (Cont V merge SHAs). continuation_vi_drafts are evidence-consumer
   lane tips only — not accepted main and not final umbrella.
@@ -192,3 +161,5 @@ continuation_vi_drafts:
     branch: cursor/full-product-continuation-vi-beta-rc
     sha: c8a2de8c51929d776eea7b219f6015e787e0f174
     note: 'Cont VI Beta/RC re-earn after #13 revoke'
+continuation_vii_drafts: SEE_continuation_vii/continuation_vii_sibling_draft_registry.yaml
+final_umbrella: false

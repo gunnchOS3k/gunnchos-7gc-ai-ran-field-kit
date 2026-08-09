@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Release claim firewall — Cont VI.
+"""Release claim firewall — Cont VII.
 
 Fails CI when product claims exceed evidence:
 - assertive forbidden phrases in program prose
@@ -8,6 +8,8 @@ Fails CI when product claims exceed evidence:
 - hardware release-complete while placeholder EDA remains
 - firmware-complete while production main is smoke-only
 - global-data / carrier / 6G claims that exceed standards truth
+- final-umbrella / digital-totality claims while Cont VII backlog remains
+- Cont VI SCHEMA_ONLY=221 treated as stale — Cont VII backlog is authoritative
 
 Inspects field-kit matrices and, when present, sibling product repos.
 """
@@ -29,8 +31,11 @@ GAME_MATRIX = FP / "game_release_matrix.yaml"
 HW_MATRIX = FP / "hardware_release_matrix.yaml"
 SOFT_MATRIX = FP / "software_integration_matrix.yaml"
 AI_MATRIX = FP / "ai_capability_matrix.yaml"
-BACKLOG = FP / "continuation_vi" / "DIGITALLY_EXECUTABLE_BACKLOG_COUNTS.json"
+BACKLOG_VII = FP / "continuation_vii" / "DIGITAL_BACKLOG.json"
+BACKLOG_VI = FP / "continuation_vi" / "DIGITALLY_EXECUTABLE_BACKLOG_COUNTS.json"
+BACKLOG = BACKLOG_VII if BACKLOG_VII.exists() else BACKLOG_VI
 CONN_MATRIX = FP / "connectivity_carrier_matrix.yaml"
+MASTER_STATUS = FP / "reports" / "FULL_PRODUCT_MASTER_STATUS.md"
 
 SCAN_DIRS = [
     ROOT / "program" / "nonphysical",
@@ -167,19 +172,96 @@ def digitally_executable_remaining() -> dict[str, int]:
             "SCHEMA_ONLY": int(data.get("DIGITALLY_EXECUTABLE_SCHEMA_ONLY") or 0),
             "STUB_ONLY": int(data.get("DIGITALLY_EXECUTABLE_STUB_ONLY") or 0),
             "SIMULATION_ONLY": int(data.get("DIGITALLY_EXECUTABLE_SIMULATION_ONLY") or 0),
+            "MOCK_ONLY": int(data.get("DIGITALLY_EXECUTABLE_MOCK_ONLY") or 0),
         }
     graph = load_yaml(GRAPH)
-    counts = {"SCHEMA_ONLY": 0, "STUB_ONLY": 0, "SIMULATION_ONLY": 0}
+    counts = {"SCHEMA_ONLY": 0, "STUB_ONLY": 0, "SIMULATION_ONLY": 0, "MOCK_ONLY": 0}
     for n in graph.get("nodes") or []:
         st = n.get("full_product_status")
         if st in counts:
             counts[st] += 1
+        if st == "MOCK_ONLY":
+            counts["MOCK_ONLY"] += 1
     return counts
+
+
+def check_cont_vii_umbrella(hits: list[str]) -> None:
+    """Cont VII: final umbrella / digital totality forbidden while backlog remains."""
+    remaining = digitally_executable_remaining()
+    soft = (
+        remaining["SCHEMA_ONLY"]
+        + remaining["STUB_ONLY"]
+        + remaining.get("SIMULATION_ONLY", 0)
+        + remaining.get("MOCK_ONLY", 0)
+    )
+    surfaces: list[tuple[str, str]] = []
+    for path in (
+        SOFT_MATRIX,
+        AI_MATRIX,
+        HW_MATRIX,
+        GAME_MATRIX,
+        FP / "evidence_registry.yaml",
+        MASTER_STATUS,
+        FP / "continuation_vii" / "DIGITAL_BACKLOG.json",
+    ):
+        if path.exists():
+            surfaces.append((str(path), path.read_text(encoding="utf-8", errors="ignore")))
+    assertive_umbrella = re.compile(
+        r"(?i)(true\s+final\s+umbrella|final_umbrella\s*[:=]\s*true|"
+        r"digital\s+totality\s+(complete|achieved|earned)|"
+        r"FULL_PRODUCT_DIGITAL_TOTALITY\s*[:=]\s*true|"
+        r"umbrella\s+opened\b.*\b(true|complete|earned))"
+    )
+    for path, text in surfaces:
+        for i, line in enumerate(text.splitlines(), 1):
+            if not assertive_umbrella.search(line):
+                continue
+            if ALLOW_LINE.search(line):
+                continue
+            if soft > 0:
+                hits.append(
+                    f"{path}:{i}: final-umbrella/digital-totality claim while Cont VII "
+                    f"digitally executable backlog remains "
+                    f"(SCHEMA_ONLY={remaining['SCHEMA_ONLY']} "
+                    f"STUB_ONLY={remaining['STUB_ONLY']} "
+                    f"MOCK_ONLY={remaining.get('MOCK_ONLY', 0)})"
+                )
+            else:
+                # Even at zero, require explicit Edmund acceptance language elsewhere;
+                # bare "umbrella opened" without accepted-mains caveat is rejected.
+                if "accepted main" not in line.lower() and "edmund" not in line.lower():
+                    hits.append(
+                        f"{path}:{i}: final umbrella assertion requires accepted-mains "
+                        "digital backlog=0 and Edmund acceptance"
+                    )
+
+
+def check_stale_cont_vi_schema_copy(hits: list[str]) -> None:
+    """Reject Cont VII artifacts that copy Cont VI SCHEMA_ONLY=221 as current truth."""
+    cont_vii = FP / "continuation_vii"
+    if not cont_vii.exists():
+        return
+    for path in cont_vii.glob("*.json"):
+        data = load_json(path)
+        # Current status_counts must not silently equal the stale Cont VI snapshot
+        # without an explicit stale-reference key.
+        sc = data.get("status_counts") if isinstance(data, dict) else None
+        if isinstance(sc, dict) and int(sc.get("SCHEMA_ONLY") or -1) == 221:
+            if "stale" not in path.name.lower() and "previous_cont_vi_stale" not in json.dumps(data):
+                hits.append(
+                    f"{path}: status_counts.SCHEMA_ONLY=221 looks like stale Cont VI copy; "
+                    "Cont VII must re-prove"
+                )
 
 
 def check_full_tokens(hits: list[str]) -> None:
     remaining = digitally_executable_remaining()
-    soft_remaining = remaining["SCHEMA_ONLY"] + remaining["STUB_ONLY"]
+    soft_remaining = (
+        remaining["SCHEMA_ONLY"]
+        + remaining["STUB_ONLY"]
+        + remaining.get("SIMULATION_ONLY", 0)
+        + remaining.get("MOCK_ONLY", 0)
+    )
     surfaces: list[tuple[str, str]] = [
         (str(SOFT_MATRIX), SOFT_MATRIX.read_text(encoding="utf-8") if SOFT_MATRIX.exists() else ""),
         (str(AI_MATRIX), AI_MATRIX.read_text(encoding="utf-8") if AI_MATRIX.exists() else ""),
@@ -260,7 +342,7 @@ def check_full_tokens(hits: list[str]) -> None:
 def check_hardware_placeholders(hits: list[str]) -> None:
     hw = load_yaml(HW_MATRIX)
     if hw.get("full_complete_claimed") is True:
-        hits.append("hardware_release_matrix: full_complete_claimed=true forbidden under Cont VI")
+        hits.append("hardware_release_matrix: full_complete_claimed=true forbidden under Cont VII")
     token = str(hw.get("token") or "")
     if "COMPLETE" in token and "CANDIDATE" not in token:
         hits.append(f"hardware_release_matrix: token={token!r} looks release-complete")
@@ -392,6 +474,8 @@ def main() -> int:
     check_hardware_placeholders(hits)
     check_firmware_smoke(hits)
     check_global_and_carrier(hits)
+    check_cont_vii_umbrella(hits)
+    check_stale_cont_vi_schema_copy(hits)
 
     if hits:
         print("CLAIM_FIREWALL_FAIL")
