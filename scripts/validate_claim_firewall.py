@@ -525,6 +525,56 @@ def check_global_and_carrier(hits: list[str]) -> None:
                 break
 
 
+
+def check_phase_xii_execution_depth(hits: list[str]) -> None:
+    """Reject REAL_*_DAY_DIGITAL_PASS without Phase XII L4/L5 RJ evidence."""
+    er = ROOT / "program" / "execution_reality"
+    scope_paths = [
+        er / "PHASE_XI_CLAIM_RESCOPE.json",
+        er / "RJ_CAMPAIGN_REPORT.json",
+        ROOT / "artifacts" / "phase_xii" / "RJ_CAMPAIGN_REPORT.json",
+        SIBLING / "gunnchos-device-os" / "artifacts" / "phase_xii" / "rj" / "RJ_CAMPAIGN_REPORT.json",
+        SIBLING / "gunnchos-device-os" / "artifacts" / "phase_xii" / "PHASE_XI_CLAIM_RESCOPE.json",
+        SIBLING / "gunnchos-device-os" / "artifacts" / "phase_xii" / "JOURNEY_TOKENS.json",
+    ]
+    rj = None
+    for p in scope_paths:
+        if p.name == "RJ_CAMPAIGN_REPORT.json" and p.exists():
+            rj = load_json(p)
+            break
+    # Scan execution_reality + phase_xii artifacts for overclaim
+    scan_roots = [er, ROOT / "artifacts" / "phase_xii", ROOT / "program" / "user_journeys"]
+    real_day = re.compile(r"GUNNCHOS_REAL_[A-Z_]+_DAY_DIGITAL_PASS\s*[:=]\s*true", re.I)
+    for d in scan_roots:
+        if not d.exists():
+            continue
+        for path in d.rglob("*"):
+            if path.suffix.lower() not in {".md", ".json", ".yaml", ".yml", ".txt"}:
+                continue
+            if "firewall" in path.name:
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for i, line in enumerate(text.splitlines(), 1):
+                if not real_day.search(line):
+                    continue
+                if ALLOW_LINE.search(line):
+                    continue
+                if "NOT_YET_REAL_APP_PROVEN" in line or "VALID_AS_BEHAVIORAL_HARNESS" in line:
+                    continue
+                # Require RJ campaign evidence with X0/X1 open == 0 and token true
+                if not rj:
+                    hits.append(
+                        f"{path}:{i}: REAL_*_DAY_DIGITAL_PASS asserted without Phase XII "
+                        "RJ_CAMPAIGN_REPORT.json evidence"
+                    )
+                    continue
+                if int(rj.get("REAL_APP_X0_OPEN") or 0) or int(rj.get("REAL_APP_X1_OPEN") or 0):
+                    hits.append(
+                        f"{path}:{i}: REAL_*_DAY_DIGITAL_PASS rejected while REAL_APP_X0/X1 open "
+                        f"(X0={rj.get('REAL_APP_X0_OPEN')} X1={rj.get('REAL_APP_X1_OPEN')})"
+                    )
+
+
 def main() -> int:
     hits: list[str] = []
     scan_prose(hits)
@@ -535,6 +585,7 @@ def main() -> int:
     check_global_and_carrier(hits)
     check_cont_vii_umbrella(hits)
     check_stale_cont_vi_schema_copy(hits)
+    check_phase_xii_execution_depth(hits)
 
     if hits:
         print("CLAIM_FIREWALL_FAIL")
