@@ -1,0 +1,33 @@
+schema: gunnchos.phase_xii.execution_depth_firewall.v1
+phase: XII
+rules:
+  - id: reject_real_day_below_l4
+    description: Reject REAL_*_DAY_DIGITAL_PASS if key user steps are below L4/L5
+    action: REJECT
+    tokens:
+      - GUNNCHOS_REAL_STUDENT_DAY_DIGITAL_PASS
+      - GUNNCHOS_REAL_OFFICE_DAY_DIGITAL_PASS
+      - GUNNCHOS_REAL_CREATOR_DAY_DIGITAL_PASS
+      - GUNNCHOS_REAL_RECREATION_DAY_DIGITAL_PASS
+      - GUNNCHOS_REAL_EDUCATOR_DAY_DIGITAL_PASS
+      - GUNNCHOS_REAL_ADMIN_DAY_DIGITAL_PASS
+    require_min_depth: L4_REAL_APPLICATION_PROCESS
+    evidence_required:
+      - artifacts/phase_xii/rj/RJ_CAMPAIGN_REPORT.json
+      - artifacts/phase_xii/REALITY_DEPTH_LEDGER.json
+  - id: allow_behavioral_harness
+    description: Allow BEHAVIORAL_JOURNEY_HARNESS_PASS for Phase XI simulation coverage
+    action: ALLOW
+    tokens:
+      - PHASE_XI_BEHAVIORAL_JOURNEY_HARNESS_PASS
+  - id: forbid_fake_proofs
+    action: REJECT
+    forbidden:
+      - GENERIC_OK_HANDLER_AS_E2E
+      - FIXTURE_JSON_AS_GAME_LAUNCH
+      - SYNTHETIC_SAVE_AS_GAMEPLAY_PROOF
+      - AI_STUB_AS_GUNNCHAI_PROOF
+      - HTTP_FAKE_AS_PROTOCOL_PROOF
+claim_correction:
+  PHASE_XI_BEHAVIORAL_JOURNEY_HARNESS_PASS: true
+  PHASE_XI_REAL_APPLICATION_DAY_PROOF: NOT_YET_PROVEN
