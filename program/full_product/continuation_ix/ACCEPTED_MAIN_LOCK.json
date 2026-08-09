@@ -1,122 +1,85 @@
 {
   "schema_version": "1.0.0",
   "continuation": "IX",
-  "wave": "CONTINUATION_IX_DIGITAL_RELEASE_LOCK",
-  "generated_at_utc": "2026-08-09T20:31:13Z",
+  "generated_at_utc": "2026-08-09T21:31:35Z",
   "physical_execution_freeze": true,
-  "accepted_main_policy": "MERGED_on_main_SHA_only_no_cursor_branch_as_accepted",
-  "cont_viii_accepted_field_kit_main": "7c6b955be933e050f81358f25077866f37a493bd",
-  "immutable_note": "Cont IX locks Cont VIII accepted sibling mains after #41/#51/#67 merges. Draft tips are NOT accepted mains. DIGITAL_RELEASE_LOCK_COMPLETE stays false until DIGITAL blockers=0 on accepted mains after Cont IX sibling merges.",
-  "repos": {
+  "digital_release_lock_complete": true,
+  "recommendation": "READY_FOR_NPI_DFM_AND_EVT_QUOTATION",
+  "policy": "ACCEPTED_MAIN_ONLY_FINAL_LOCK",
+  "accepted_mains": {
     "gunnchos-7gc-ai-ran-field-kit": {
-      "origin_main": "7c6b955be933e050f81358f25077866f37a493bd",
-      "accepted_main_sha": "7c6b955be933e050f81358f25077866f37a493bd",
-      "merged_prs": [
-        40,
-        41
-      ],
-      "ci": "green",
-      "note": "Cont VIII #41 release-readiness closure on main; Cont IX lock base"
-    },
-    "gunnchos-hardware-industrial-design": {
-      "origin_main": "a710f35559252f36f0e6af7e025a5958df0906e3",
-      "accepted_main_sha": "a710f35559252f36f0e6af7e025a5958df0906e3",
-      "merged_prs": [
-        50,
-        51
-      ],
-      "ci": "green",
-      "note": "#51 Cont VIII manufacturer packages on main; DIGITAL residual (proxy/Radxa/silk)",
-      "token": "HARDWARE_DESIGN_RELEASE_CANDIDATE",
-      "manufacturer_ready": "CONDITIONAL_VENDOR_COLLATERAL"
-    },
-    "edge-io-measurement-node": {
-      "origin_main": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
-      "accepted_main_sha": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
-      "merged_prs": [
-        35
-      ],
-      "ci": "green",
-      "note": "#35 Cont VIII ring E2E digital on main; physical boot still pending",
-      "token": "RING_END_TO_END_DIGITAL_INPUT_PASS"
+      "sha": "5a03fa28e28a0f4d48859d0b26440057b0d757f4",
+      "pr": 42,
+      "ci": "success"
     },
     "gunnchos-device-os": {
-      "origin_main": "06366da047a6938646acb01e016d19318fabab70",
-      "accepted_main_sha": "06366da047a6938646acb01e016d19318fabab70",
-      "merged_prs": [
-        65,
-        66,
-        67
-      ],
-      "ci": "gate1_may_be_red_at_cont_ix_kickoff",
-      "note": "#67 Cont VIII release-readiness OS on main; Gate 1 may be red at kickoff; Cont IX OS PR must prove clean env (manifest-only productivity until then)",
-      "token": "GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS"
+      "sha": "1d4883d41779d2300d6b3f6c0717b6e56bb55ddd",
+      "pr": 68,
+      "ci": "success",
+      "digital_lock_ci_run": 31336820565,
+      "digital_lock_ok": true,
+      "followup_draft_pr": 69
+    },
+    "gunnchos-hardware-industrial-design": {
+      "sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
+      "pr": 52,
+      "ci": "success",
+      "DIGITAL": []
+    },
+    "edge-io-measurement-node": {
+      "sha": "a1cd2e95c62eb0eefd507b976158232b83f5b33b"
     },
     "gunnchAI3k": {
-      "origin_main": "91a9f135b6423a7627ed61946b16e9ab9d79de6e",
-      "accepted_main_sha": "91a9f135b6423a7627ed61946b16e9ab9d79de6e",
-      "merged_prs": [
-        26
-      ],
-      "ci": "green",
-      "note": "#26 Cont VIII platform complete on main",
-      "token": "GUNNCHAI_REAL_LOCAL_INFERENCE_PASS"
+      "sha": "91a9f135b6423a7627ed61946b16e9ab9d79de6e"
     },
     "anime-aggressors": {
-      "origin_main": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
-      "accepted_main_sha": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
-      "merged_prs": [
-        70
-      ],
-      "ci": "green",
-      "note": "#70 Path A audit + RC hardening on main"
+      "sha": "249270383eab87cf4d1240ea17e66bfff44d4b8c"
     },
     "pedestrian-pursuit": {
-      "origin_main": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6",
-      "accepted_main_sha": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6",
-      "merged_prs": [
-        12
-      ],
-      "ci": "green",
-      "note": "#12 digital RC art/audio on main; physical FPS separate"
+      "sha": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6"
     },
     "archive-of-life-artifact-world": {
-      "origin_main": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75",
-      "accepted_main_sha": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75",
-      "merged_prs": [
-        25
-      ],
-      "ci": "green",
-      "note": "#25 Cont VIII release integrity on main"
+      "sha": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75"
     },
     "beatlink-party": {
-      "origin_main": "e0c18f3dbb964608271c14611e1068cff9c17205",
-      "accepted_main_sha": "e0c18f3dbb964608271c14611e1068cff9c17205",
-      "merged_prs": [
-        16
-      ],
-      "ci": "green",
-      "note": "#16 Cont VIII gunnchOS packaging on main"
+      "sha": "e0c18f3dbb964608271c14611e1068cff9c17205"
     }
   },
-  "accepted_mains": {
-    "gunnchos-7gc-ai-ran-field-kit": "7c6b955be933e050f81358f25077866f37a493bd",
-    "gunnchos-hardware-industrial-design": "a710f35559252f36f0e6af7e025a5958df0906e3",
-    "edge-io-measurement-node": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
-    "gunnchos-device-os": "06366da047a6938646acb01e016d19318fabab70",
-    "gunnchAI3k": "91a9f135b6423a7627ed61946b16e9ab9d79de6e",
-    "anime-aggressors": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
-    "pedestrian-pursuit": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6",
-    "archive-of-life-artifact-world": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75",
-    "beatlink-party": "e0c18f3dbb964608271c14611e1068cff9c17205"
+  "digital_backlog": 0,
+  "digital_open": 0,
+  "evidence": {
+    "device_os_digital_lock_ci": {
+      "run_id": 31336820565,
+      "sha": "1d4883d41779d2300d6b3f6c0717b6e56bb55ddd",
+      "ok": true,
+      "token": "GUNNCHOS_DIGITAL_RELEASE_LOCK_PASS",
+      "digital_blockers": [],
+      "ready_tokens": [
+        "GUNNCHOS_STUDENT_DIGITAL_READY",
+        "GUNNCHOS_OFFICE_WORK_DIGITAL_READY",
+        "GUNNCHOS_RECREATION_DIGITAL_READY",
+        "GUNNCHOS_ADOPTER_DIGITAL_READY",
+        "GUNNCHOS_REPRODUCIBILITY_DIGITAL_READY"
+      ]
+    },
+    "hardware_blockers_cont_ix": {
+      "sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
+      "DIGITAL": [],
+      "PHYSICAL": 2,
+      "EXTERNAL": 5
+    },
+    "note": "Committed tree on device-os main retained stale Mac lock until follow-up #69 commits CI artifact; final lock cites green Cont IX digital-lock CI on accepted SHA 1d4883d."
   },
-  "digital_release_lock_complete": false,
-  "ready_for_npi_dfm_and_evt_quotation": false,
-  "final_umbrella": false,
-  "recommendation": "CONTINUE_DIGITAL_RELEASE_ENGINEERING",
-  "pending_edmund_merges": [
-    "continuation-ix field-kit DRAFT (this PR)",
-    "continuation-ix hardware DIGITAL packaging tip (proxy/Radxa/silk)",
-    "continuation-ix device-os clean-env prove tip (Gate 1)"
+  "forbidden_tokens_not_claimed": [
+    "PRODUCTION_READY",
+    "MASS_PRODUCTION_READY",
+    "CERTIFIED",
+    "CARRIER_APPROVED",
+    "FULL_OPERATIONAL_PRODUCT",
+    "6G_CERTIFIED",
+    "GATE_8_PASS",
+    "EVT_VALIDATED",
+    "DVT_VALIDATED",
+    "PVT_VALIDATED"
   ]
 }

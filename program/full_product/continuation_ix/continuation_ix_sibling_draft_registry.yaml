@@ -1,45 +1,34 @@
 schema_version: 1.0.0
 continuation: IX
-generated_at_utc: '2026-08-09T20:53:05Z'
-policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
+generated_at_utc: '2026-08-09T21:31:35Z'
+policy: ACCEPTED_MAIN_FINAL_LOCK_PLUS_EVIDENCE_FOLLOWUP
 accepted_mains:
-  gunnchos-7gc-ai-ran-field-kit: 7c6b955be933e050f81358f25077866f37a493bd
-  gunnchos-hardware-industrial-design: a710f35559252f36f0e6af7e025a5958df0906e3
+  gunnchos-7gc-ai-ran-field-kit: 5a03fa28e28a0f4d48859d0b26440057b0d757f4
+  gunnchos-hardware-industrial-design: cd1d906c5f08eb26c350851a4faeb05e2bf2e79f
+  gunnchos-device-os: 1d4883d41779d2300d6b3f6c0717b6e56bb55ddd
   edge-io-measurement-node: a1cd2e95c62eb0eefd507b976158232b83f5b33b
-  gunnchos-device-os: 06366da047a6938646acb01e016d19318fabab70
   gunnchAI3k: 91a9f135b6423a7627ed61946b16e9ab9d79de6e
   anime-aggressors: 249270383eab87cf4d1240ea17e66bfff44d4b8c
   pedestrian-pursuit: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
   archive-of-life-artifact-world: 948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75
   beatlink-party: e0c18f3dbb964608271c14611e1068cff9c17205
+merged_cont_ix:
+  field_kit: {pr: 42, merge: 5a03fa28e28a0f4d48859d0b26440057b0d757f4}
+  device_os: {pr: 68, merge: 1d4883d41779d2300d6b3f6c0717b6e56bb55ddd}
+  hardware: {pr: 52, merge: cd1d906c5f08eb26c350851a4faeb05e2bf2e79f}
 drafts:
-  field_kit_digital_release_lock:
-    repo: gunnchos-7gc-ai-ran-field-kit
-    branch: continuation-ix/digital-release-lock
-    role: control_plane_digital_release_lock_pre_evt_handoff
-    pr: 42
-    sha: dd8c20d2daa23229ba67fb0ec22e74ba4da61362
-    status: DRAFT_TIP_NOT_ACCEPTED_MAIN
-    note: Cont IX control plane; digital_release_lock_complete=false until DIGITAL_OPEN=0 on accepted mains
-  device_os_clean_env_prove:
+  device_os_ci_lock_evidence:
     repo: gunnchos-device-os
-    branch: continuation-ix/pre-evt-os-lock
-    role: IX-D-004_gate1_clean_env
-    pr: null
-    sha: null
-    status: PENDING_OPEN
-    base_accepted_main: 06366da047a6938646acb01e016d19318fabab70
-    note: Cont IX OS dependency still pending draft PR
-  hardware_pre_evt_lock:
-    repo: gunnchos-hardware-industrial-design
-    branch: continuation-ix/pre-evt-hardware-lock
-    role: IX-D-001_002_003_proxy_radxa_silk_manufacturer_handoff
-    pr: 52
-    sha: fa1ec1853a33ffed425701da9b066ac41c716277
+    branch: continuation-ix/commit-ci-lock-evidence
+    pr: 69
+    role: commit_CI_regenerated_DIGITAL_RELEASE_LOCK_json
     status: DRAFT_TIP_NOT_ACCEPTED_MAIN
-    base_accepted_main: a710f35559252f36f0e6af7e025a5958df0906e3
-    note: DIGITAL packaging closed on tip; ADLINK Option B; conditional vendor collateral for Student/DS-XL/Dock
+  field_kit_accepted_main_final_lock:
+    repo: gunnchos-7gc-ai-ran-field-kit
+    branch: continuation-ix/accepted-main-final-lock
+    pr: null
+    role: final_accepted_main_lock_after_IX_merges
+    status: DRAFT_TIP_NOT_ACCEPTED_MAIN
 final_umbrella: false
-digital_release_lock_complete: false
-digital_pre_evt_release_ready: false
-recommendation: CONTINUE_DIGITAL_RELEASE_ENGINEERING
+digital_release_lock_complete: true
+recommendation: READY_FOR_NPI_DFM_AND_EVT_QUOTATION
