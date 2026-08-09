@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 continuation: VI
-generated_at_utc: '2026-08-08T21:17:57Z'
+generated_at_utc: '2026-08-09T16:58:04Z'
 policy: DRAFT_TIPS_NOT_ACCEPTED_MAIN_NOT_FINAL_UMBRELLA
 accepted_mains:
   gunnchos-7gc-ai-ran-field-kit: 2d257be6eb19b8237bf681b40f89275492fbd359
@@ -80,9 +80,15 @@ drafts:
     note: Cont VI final art/audio + digital RC; physical FPS separate; draft not merged
   archive_science_db:
     repo: archive-of-life-artifact-world
-    branch: cursor/full-product-continuation-vi-science-db
-    sha: ee8a2e6346bbc384eda05217710fa4d1dd827e52
-    note: Cont VI durable science DB + deeper ingest
+    merged_prs:
+    - 22
+    - 23
+    accepted_main_sha: 41b0b3174ff38151ae5140bf6de48ea757a7334f
+    accepted_main_ci: red
+    ci_repair_pr: https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/24
+    ci_repair_sha: 33b2dd1217fe332f2d72f737d72e1dcf1fa50d4e
+    note: "Cont VI #22+#23 merged (science DB/RC); main CI red on encounterTaxa floor;\
+      \ #24 restores frozen search-index \u2014 draft not merged"
   beatlink_beta_rc:
     repo: beatlink-party
     pr_primary: https://github.com/gunnchOS3k/beatlink-party/pull/14

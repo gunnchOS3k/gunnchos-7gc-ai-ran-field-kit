@@ -177,4 +177,5 @@ Evidence consumer Cont VI — **not** final umbrella.
 - device_os_platform_semantics: https://github.com/gunnchOS3k/gunnchos-device-os/pull/64 (`835aab1`) — includes #63 CI fix; FULL platform token false; confirm qemu CI before merge
 - gunnchai_os_integration: https://github.com/gunnchOS3k/gunnchAI3k/pull/25 (`0738eb5`) — GUNNCHAI_OS_INTEGRATION_LOCAL_PASS; FULL platform token false
 - beatlink_beta_rc: MERGED https://github.com/gunnchOS3k/beatlink-party/pull/14 + #15 (`9948646870cd`) — digital Beta/RC tokens re-earned; product BETA/RC false; auto-merged contrary to Cursor never-merge
+- archive_science_db: #22+#23 MERGED on main (`41b0b31`) CI red; repair https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/24 (`33b2dd1`) — restore frozen search-index for E≥120 floors
 
