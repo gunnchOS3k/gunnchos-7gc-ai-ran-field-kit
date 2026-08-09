@@ -202,3 +202,18 @@ Evidence consumer Cont VII — **not** final umbrella (digitally executable back
 
 Artifacts: `program/full_product/continuation_vii/`
 
+## Continuation VIIII — Accepted-main requirement promotion
+
+Updated: 2026-08-09T19:13:58Z
+
+Evidence consumer Cont VIII — **not** final umbrella (digitally executable backlog must be 0 on accepted mains first).
+
+- TOTAL: **476**
+- SCHEMA_ONLY: **0** (Cont VI stale reference was 221)
+- IMPLEMENTED: **5**
+- INTEGRATED: **45**
+- DIGITALLY_VALIDATED: **231**
+- PHYSICAL_REQUIRED: **120**
+- EXTERNAL_REQUIRED: **75**
+
+Artifacts: `program/full_product/continuation_viii/`

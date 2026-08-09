@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-09T17:03:54Z",
-  "continuation": "VII",
+  "generated_at_utc": "2026-08-09T19:13:58Z",
+  "continuation": "VIII",
   "deliverable": "REQUIREMENT_COUNTS",
   "total": 476,
   "unmapped_count": 0,
@@ -8,11 +8,10 @@
   "unclassified_count": 0,
   "status_counts": {
     "EXTERNAL_REQUIRED": 75,
-    "DIGITALLY_VALIDATED": 222,
+    "DIGITALLY_VALIDATED": 231,
     "PHYSICAL_REQUIRED": 120,
-    "SCHEMA_ONLY": 4,
-    "INTEGRATED": 49,
-    "IMPLEMENTED": 6
+    "IMPLEMENTED": 5,
+    "INTEGRATED": 45
   },
   "by_subsystem": {
     "7gc": {
@@ -31,8 +30,7 @@
     },
     "archive": {
       "DIGITALLY_VALIDATED": 3,
-      "INTEGRATED": 3,
-      "IMPLEMENTED": 1
+      "INTEGRATED": 4
     },
     "beatlink": {
       "DIGITALLY_VALIDATED": 3
@@ -40,9 +38,7 @@
     "carrier_grade": {
       "EXTERNAL_REQUIRED": 13,
       "PHYSICAL_REQUIRED": 13,
-      "DIGITALLY_VALIDATED": 27,
-      "SCHEMA_ONLY": 3,
-      "INTEGRATED": 5,
+      "DIGITALLY_VALIDATED": 35,
       "IMPLEMENTED": 1
     },
     "certification": {
@@ -107,11 +103,10 @@
       "DIGITALLY_VALIDATED": 1
     },
     "rings": {
-      "DIGITALLY_VALIDATED": 1,
+      "DIGITALLY_VALIDATED": 2,
       "PHYSICAL_REQUIRED": 59,
       "INTEGRATED": 2,
-      "EXTERNAL_REQUIRED": 3,
-      "SCHEMA_ONLY": 1
+      "EXTERNAL_REQUIRED": 3
     },
     "security": {
       "DIGITALLY_VALIDATED": 2
@@ -138,8 +133,7 @@
     },
     "archive-of-life-artifact-world": {
       "DIGITALLY_VALIDATED": 2,
-      "INTEGRATED": 18,
-      "IMPLEMENTED": 1
+      "INTEGRATED": 19
     },
     "beatlink-party": {
       "DIGITALLY_VALIDATED": 13
@@ -164,9 +158,7 @@
     "gunnchos-device-os": {
       "EXTERNAL_REQUIRED": 20,
       "PHYSICAL_REQUIRED": 55,
-      "DIGITALLY_VALIDATED": 95,
-      "SCHEMA_ONLY": 4,
-      "INTEGRATED": 5,
+      "DIGITALLY_VALIDATED": 104,
       "IMPLEMENTED": 2
     },
     "gunnchos-hardware-industrial-design": {
@@ -180,15 +172,24 @@
     }
   },
   "accepted_mains": {
-    "gunnchos-7gc-ai-ran-field-kit": "38c14753d54f04dd953cbd67d3671644256dd888",
-    "gunnchos-hardware-industrial-design": "bed14ca7530ce11379d0173d1eff056df2e00d19",
-    "edge-io-measurement-node": "d239f119e9d11b42bfc46aca48562d78ec1a9a8a",
-    "gunnchos-device-os": "559e31c0b62afe36d72fcca6182483f69c19ec54",
-    "gunnchAI3k": "97cfa171c6921ed706a3a805476e0735468c58f5",
+    "gunnchos-7gc-ai-ran-field-kit": "a4846ca970943ffc790298bc8bf36bf5c544c8b4",
+    "gunnchos-hardware-industrial-design": "c5b6afd6a792d367593867fc7533f413a5146db4",
+    "edge-io-measurement-node": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
+    "gunnchos-device-os": "78cd33f1fde0a0c42eb6469bbdbe4664225d3dd0",
+    "gunnchAI3k": "91a9f135b6423a7627ed61946b16e9ab9d79de6e",
     "anime-aggressors": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
     "pedestrian-pursuit": "a2c6da5b4d4635af1281dbb12b8564ba70f994c6",
-    "archive-of-life-artifact-world": "41b0b3174ff38151ae5140bf6de48ea757a7334f",
-    "beatlink-party": "9948646870cd2caa9c85ae2796b40292d7343d88"
+    "archive-of-life-artifact-world": "948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75",
+    "beatlink-party": "e0c18f3dbb964608271c14611e1068cff9c17205"
+  },
+  "previous_cont_vii_status_counts_reference": {
+    "total": 476,
+    "SCHEMA_ONLY": 4,
+    "PHYSICAL_REQUIRED": 120,
+    "EXTERNAL_REQUIRED": 75,
+    "IMPLEMENTED": 6,
+    "INTEGRATED": 49,
+    "DIGITALLY_VALIDATED": 222
   },
   "previous_cont_vi_stale_status_counts_reference": {
     "total": 476,
@@ -198,13 +199,13 @@
     "IMPLEMENTED": 46,
     "DIGITALLY_VALIDATED": 14
   },
-  "delta_vs_cont_vi_stale": {
-    "DIGITALLY_VALIDATED": 208,
+  "delta_vs_cont_vii": {
+    "DIGITALLY_VALIDATED": 9,
     "EXTERNAL_REQUIRED": 0,
-    "IMPLEMENTED": -40,
-    "INTEGRATED": 49,
+    "IMPLEMENTED": -1,
+    "INTEGRATED": -4,
     "PHYSICAL_REQUIRED": 0,
-    "SCHEMA_ONLY": -217
+    "SCHEMA_ONLY": -4
   },
-  "note": "Cont VI SCHEMA_ONLY=221 is STALE; Cont VII re-proved from Cont VI merge SHAs"
+  "note": "Cont VII SCHEMA_ONLY=4 was freeze truth; Cont VIII re-proves after device-os #65+#66 on accepted main"
 }

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gunnchos.full_product.continuation_viii.readiness_gates",
+  "title": "Continuation VIII Release Readiness Gates R1–R6",
+  "description": "Machine-checkable freeze of Cont VIII readiness gates. PHYSICAL_EXECUTION_FREEZE remains active. True finals require accepted-main evidence only.",
+  "type": "object",
+  "required": ["schema_version", "continuation", "gates"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "continuation": { "type": "string", "const": "VIII" },
+    "physical_execution_freeze": { "type": "boolean", "const": true },
+    "gates": {
+      "type": "object",
+      "required": ["R1", "R2", "R3", "R4", "R5", "R6"],
+      "additionalProperties": false,
+      "properties": {
+        "R1": { "$ref": "#/$defs/gate" },
+        "R2": { "$ref": "#/$defs/gate" },
+        "R3": { "$ref": "#/$defs/gate" },
+        "R4": { "$ref": "#/$defs/gate" },
+        "R5": { "$ref": "#/$defs/gate" },
+        "R6": { "$ref": "#/$defs/gate" }
+      }
+    }
+  },
+  "$defs": {
+    "gate": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "pass",
+        "machine_checks",
+        "required_artifacts",
+        "notes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^R[1-6]$" },
+        "title": { "type": "string", "minLength": 1 },
+        "pass": { "type": "boolean" },
+        "machine_checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "required_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "evidence_paths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

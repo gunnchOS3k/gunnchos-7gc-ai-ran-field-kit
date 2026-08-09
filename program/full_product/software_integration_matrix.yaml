@@ -1,33 +1,33 @@
 schema_version: 1.1.0
-updated_at_utc: '2026-08-09T17:03:54Z'
+updated_at_utc: '2026-08-09T19:13:58Z'
 accepted_main_policy: MERGED_on_main_SHA_only
-continuation: VII
+continuation: VIII
 repos:
   gunnchos-device-os:
     role: gunnchOS
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 559e31c0b62afe36d72fcca6182483f69c19ec54
+    accepted_main_sha: 78cd33f1fde0a0c42eb6469bbdbe4664225d3dd0
     merged_prs:
-    - 63
-    - 64
+    - 65
+    - 66
     token: GUNNCHOS_BOOTABLE_REFERENCE_IMAGE_DIGITAL_PASS
-    note: '#63 CI repair + #64 platform semantics on main; Cont VII removes game stubs'
+    note: '#65 schema quality/reliab + #66 real app packages on main'
     main_ci: green
   gunnchAI3k:
     role: AI platform
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 97cfa171c6921ed706a3a805476e0735468c58f5
+    accepted_main_sha: 91a9f135b6423a7627ed61946b16e9ab9d79de6e
     merged_prs:
-    - 25
+    - 26
     token: GUNNCHAI_REAL_LOCAL_INFERENCE_PASS
     digitally_validated: true
-    note: '#25 OS integration + 38/38 normative AI RUNTIME on main'
+    note: '#26 Cont VIII platform complete on main'
     main_ci: green
   anime-aggressors:
     role: game
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
     accepted_main_sha: 249270383eab87cf4d1240ea17e66bfff44d4b8c
     merged_prs:
@@ -40,7 +40,7 @@ repos:
     main_ci: green
   pedestrian-pursuit:
     role: game
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
     accepted_main_sha: a2c6da5b4d4635af1281dbb12b8564ba70f994c6
     merged_prs:
@@ -51,59 +51,59 @@ repos:
     main_ci: green
   archive-of-life-artifact-world:
     role: game
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 41b0b3174ff38151ae5140bf6de48ea757a7334f
+    accepted_main_sha: 948ca172bb77b4caf1bd3c2d809d74ee6d4b6c75
     merged_prs:
-    - 23
+    - 25
     live_global_ingest: false
     content_complete: false
     rc_digital: false
-    note: '#23 science DB on main; main CI red — sibling Cont VI repair in flight'
-    main_ci: red
+    note: '#25 Cont VIII release integrity on main'
+    main_ci: green
   beatlink-party:
     role: game
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 9948646870cd2caa9c85ae2796b40292d7343d88
+    accepted_main_sha: e0c18f3dbb964608271c14611e1068cff9c17205
     merged_prs:
-    - 15
+    - 16
     content_complete: false
     rc_digital: false
     alpha_exit: true
-    note: '#15 Cont VI digital Beta/RC tokens on main; product BETA/RC false'
+    note: '#16 Cont VIII gunnchOS packaging on main'
     main_ci: green
   edge-io-measurement-node:
     role: ring firmware/host
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: d239f119e9d11b42bfc46aca48562d78ec1a9a8a
+    accepted_main_sha: a1cd2e95c62eb0eefd507b976158232b83f5b33b
     merged_prs:
-    - 34
+    - 35
     token: RING_ZEPHYR_WEST_BUILD_PASS
-    note: '#34 full ring firmware digital on main; physical boot still pending'
+    note: '#35 Cont VIII ring E2E digital on main; physical boot still pending'
     main_ci: green
   gunnchos-hardware-industrial-design:
     role: electronics/mech
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: bed14ca7530ce11379d0173d1eff056df2e00d19
+    accepted_main_sha: c5b6afd6a792d367593867fc7533f413a5146db4
     merged_prs:
-    - 49
+    - 50
     companion_field_kit_accepted_main_sha: 2d257be6eb19b8237bf681b40f89275492fbd359
     ring_kicad_cli_validation_pass: false
     kicad: EDMUND_ACTION_REQUIRED
     token: HARDWARE_DESIGN_RELEASE_CANDIDATE
-    note: '#49 EDA family validation on main; ERC/DRC severity ledger Cont VII'
+    note: '#50 Cont VIII EDA release-clean on main; structural HW only'
     main_ci: green
   gunnchos-7gc-ai-ran-field-kit:
     role: control_plane
-    status: CONT_VII_ACCEPTED_MAIN
+    status: CONT_VIII_ACCEPTED_MAIN
     pr_state: MERGED
-    accepted_main_sha: 38c14753d54f04dd953cbd67d3671644256dd888
+    accepted_main_sha: a4846ca970943ffc790298bc8bf36bf5c544c8b4
     merged_prs:
-    - 39
-    note: 'Cont VI control-plane #39 on main; Cont VII reproof base'
+    - 40
+    note: 'Cont VII control-plane #40 on main; Cont VIII reproof base'
     main_ci: green
 stale_draft_pins: CLEARED_TO_MERGE_COMMITS
 note: Accepted mains are Cont VI baseline (Cont V merge SHAs). continuation_vi_drafts are evidence-consumer
@@ -163,3 +163,4 @@ continuation_vi_drafts:
     note: 'Cont VI Beta/RC re-earn after #13 revoke'
 continuation_vii_drafts: SEE_continuation_vii/continuation_vii_sibling_draft_registry.yaml
 final_umbrella: false
+continuation_viii_drafts: SEE_continuation_viii/continuation_viii_sibling_draft_registry.yaml
