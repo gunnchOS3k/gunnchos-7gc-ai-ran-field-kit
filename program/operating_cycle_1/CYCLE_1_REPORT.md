@@ -5,7 +5,7 @@
 **Addendum:** 2026-08-10T15:45:00Z — accepted-main reproof **PASS** on device-os `d0fdd8c3…` (#82); artifacts DRAFT [#83](https://github.com/gunnchOS3k/gunnchos-device-os/pull/83)  
 **Field-kit Cycle 1 final report:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) **MERGED** (`84a5c9ef8b4f0b4bbb6a9003ea8eba41c55c22d0`)  
 **Field-kit Cycle 1 #82-addendum:** [#58](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/58) **MERGED** (`e24db6d0ff7bba3601e8343e07b550b125afe4f2`) — was intended DRAFT  
-**Field-kit Cycle 1 accepted-main reproof aggregation draft:** [#TIP_PR](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/TIP_PR) tip `TIP_PLACEHOLDER`  
+**Field-kit Cycle 1 accepted-main reproof aggregation draft:** [#59](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/59) tip `282f002d46c6af8ae5767ae17e97336249878542`  
 **Control plane:** `gunnchos-7gc-ai-ran-field-kit`  
 **Cycle scope:** Bootstrap permanent operating model + WP-002 / WP-003 / WP-004 only  
 **Promotion honesty:** Accepted-main digital reproof **PASS**; Edmund may close WP-003 digital gate (optionally after merging device-os #83). Frontier parity tokens remain **false**. RFQs were **not** sent. WP-005+ not opened. Keep this aggregation PR **DRAFT** until Edmund review.
@@ -195,7 +195,7 @@ Light Cycle 1 updates only:
 | field-kit | #56 | `7e381fa4…` / merge `731edc40…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | WP-002/003 parallel; RFQ review + VP-004 |
 | field-kit | #57 | `2afdd47b…` / merge `84a5c9ef…` | **MERGED** | all SUCCESS at merge | null | Cycle 1 final report A–L |
 | field-kit | #58 | `bedd1f72b1ad40f77d903eaacaee58ed4b8d6709` / merge `e24db6d0…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | Cycle 1 #82-addendum; intended DRAFT until accepted-main reproof |
-| field-kit | #TIP_PR | `TIP_PLACEHOLDER` | **OPEN DRAFT** | pending | null | Cycle 1 accepted-main reproof aggregation; keep DRAFT; do not merge until Edmund review |
+| field-kit | #59 | `282f002d46c6af8ae5767ae17e97336249878542` | **OPEN DRAFT** | pending | null | Cycle 1 accepted-main reproof aggregation; keep DRAFT; do not merge until Edmund review |
 
 ---
 
@@ -207,7 +207,7 @@ True human / external actions only:
 2. **Do not send RFQs** — `READY_FOR_EDMUND_RFQ_SEND_REVIEW=true`, `RFQ_SENT=false`. Hold until human A06/A07 / NDA decisions; Cursor must not send.
 3. **Close WP-003 digital gate** (optional): accepted-main reproof **DIGITAL_INDEPENDENT_V1 PASS** on `d0fdd8c3…`. Merge device-os draft [#83](https://github.com/gunnchOS3k/gunnchos-device-os/pull/83) if desired to land reproof artifacts. Full physical/human V1 remains **FAIL** — not a digital close of G04/06/07/08.
 4. **Decide physical/human backlog timing** for G04/G06/G07 (E5) and G08 (E6) — not Cycle 1 auto-start; do **not** start WP-005+ / WP-010 / WP-001.
-5. **Review this Cycle 1 accepted-main reproof aggregation draft PR (#TIP_PR)** (note #56/#57/#58 already merged): keep **DRAFT**; do not treat merge of aggregation as auto-start of next work.
+5. **Review this Cycle 1 accepted-main reproof aggregation draft PR (#59)** (note #56/#57/#58 already merged): keep **DRAFT**; do not treat merge of aggregation as auto-start of next work.
 6. Process observation: #58 (and #56) merged while intended DRAFT — reinforce Edmund-only merge discipline and keep-DRAFT-until-review going forward.
 
 ---
