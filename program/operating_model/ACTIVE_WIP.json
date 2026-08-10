@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.operating_cycle.active_wip.v1",
   "cycle": 1,
-  "generated_at": "2026-08-10T14:18:52Z",
+  "generated_at": "2026-08-10T15:20:00Z",
   "BROAD_COMPLETION_PHASES_FROZEN": true,
   "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
   "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
@@ -11,8 +11,49 @@
     "WP-004"
   ],
   "status": {
-    "WP-002": "ACTIVE",
-    "WP-003": "ACTIVE",
-    "WP-004": "ACTIVE"
-  }
+    "WP-002": "VERIFIER_PASS_PENDING_EDMUND_NPI_CLOSE",
+    "WP-003": "DIGITAL_INDEPENDENT_V1_PASS_FULL_V1_FAIL_DRAFT_81_OPEN",
+    "WP-004": "VERIFIER_PASS_READY_FOR_EDMUND_RFQ_SEND_REVIEW"
+  },
+  "verifier_results": {
+    "WP-002": {
+      "packet": "VP-002",
+      "result": "PASS",
+      "evidence_level": "E4",
+      "owner_artifact": "gunnchos-hardware-industrial-design/npi/phase_xv/handheld_storage_headroom/VP-002-RESULT.json",
+      "owner_pr": "hardware#55",
+      "accepted_main_reproof": "PENDING"
+    },
+    "WP-003": {
+      "packet": "VP-003",
+      "digital_independent_v1": "PASS",
+      "full_physical_human_v1": "FAIL",
+      "overall_result": "FAIL",
+      "product_tip": "6ffab227bfe314903dfd7018e35b6524f2136503",
+      "verifier_commit": "efcdc246b0b40ab7f2a6c5ae786f1625530441c3",
+      "owner_pr": "device-os#81",
+      "owner_pr_state": "OPEN_DRAFT",
+      "accepted_main_reproof": "PENDING",
+      "note": "DIGITAL_INDEPENDENT_V1 PASS recorded on draft tip only; not promoted as accepted-main evidence."
+    },
+    "WP-004": {
+      "packet": "VP-004",
+      "result": "PASS",
+      "evidence_level": "E4",
+      "owner_artifact": "program/operating_cycle_1/VP-004-RFQ-RESULT.json",
+      "field_kit_pr": 56,
+      "field_kit_tip_at_verify": "a56aaec33b80a213f1264e0ef0a5ea50e1138a81",
+      "field_kit_merged_tip": "7e381fa4c5ada97694726057d98488a115f78e02",
+      "RFQ_SENT": false,
+      "accepted_main_reproof": "PENDING_AFTER_OWNER_MERGES"
+    }
+  },
+  "do_not_start": [
+    "WP-005",
+    "WP-006",
+    "WP-007",
+    "WP-008",
+    "WP-009",
+    "WP-010"
+  ]
 }
