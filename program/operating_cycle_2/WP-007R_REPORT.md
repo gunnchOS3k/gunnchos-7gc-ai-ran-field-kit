@@ -154,7 +154,7 @@ All three packets are Independent PASS digitally. **Edmund still declares Cycle 
 | device-os #94 | WP-007R remediation `7e5ab2f` | MERGED → `3908de7` |
 | device-os #96 | Independent PASS artifacts `f627830` | **MERGED** → `43bbe20` (auto-merge was OFF) |
 | field-kit #67 | Prior Cycle 2 aggregate | MERGED — WP-007 pointer superseded by this DRAFT |
-| **this field-kit PR** | Cycle 2 WP-007R correction aggregate | **OPEN DRAFT** · auto-merge OFF |
+| field-kit [#68](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/68) tip `793bba0…` | Cycle 2 WP-007R correction aggregate | **OPEN DRAFT** · auto-merge OFF |
 
 ---
 
