@@ -1,0 +1,459 @@
+schema: gunnchos.frontier_parity.requirements.v1
+namespace: FAI
+generated_at: 2026-08-10T00:15:42Z
+historical_requirements_namespace: program/requirements/requirements.yaml
+note: NEW frontier namespace — does NOT alter historical requirement counts
+status_vocabulary: ['TARGET', 'DESIGNED', 'IMPLEMENTED', 'INTEGRATED', 'DIGITALLY_VALIDATED', 'COMPETITIVELY_VALIDATED', 'PHYSICALLY_VALIDATED', 'EXTERNALLY_VALIDATED', 'CERTIFIED', 'DEPLOYED', 'OPERATED']
+count: 41
+requirements:
+- id: FAI-MODEL-001
+  source_id: AI-MODEL-001
+  title: Multi-model architecture
+  priority: P0
+  parity_gate: MODEL_ROUTING
+  owner_repository: gunnchAI3k
+  modules: ['router']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MODEL-002
+  source_id: AI-MODEL-002
+  title: Replaceable model engines
+  priority: P0
+  parity_gate: MODEL_QUALITY
+  owner_repository: gunnchAI3k
+  modules: ['runtime']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MODEL-003
+  source_id: AI-MODEL-003
+  title: Automatic model routing
+  priority: P0
+  parity_gate: MODEL_ROUTING
+  owner_repository: gunnchAI3k
+  modules: ['router']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MODEL-004
+  source_id: AI-MODEL-004
+  title: Long context handling
+  priority: P0
+  parity_gate: LONG_CONTEXT
+  owner_repository: gunnchAI3k
+  modules: ['runtime']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MEM-001
+  source_id: AI-MEM-001
+  title: gunnchMemory domains
+  priority: P0
+  parity_gate: MEMORY
+  owner_repository: gunnchAI3k
+  modules: ['memory']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MEM-002
+  source_id: AI-MEM-002
+  title: User ownership of memory
+  priority: P0
+  parity_gate: MEMORY
+  owner_repository: gunnchAI3k
+  modules: ['memory']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MEM-003
+  source_id: AI-MEM-003
+  title: Memory correctness evaluation
+  priority: P0
+  parity_gate: MEMORY
+  owner_repository: gunnchAI3k
+  modules: ['memory/evals']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-PROJ-001
+  source_id: AI-PROJ-001
+  title: Persistent projects
+  priority: P0
+  parity_gate: PROJECTS
+  owner_repository: gunnchAI3k
+  modules: ['projects']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-PROJ-002
+  source_id: AI-PROJ-002
+  title: Project-scoped memory
+  priority: P0
+  parity_gate: PROJECTS
+  owner_repository: gunnchAI3k
+  modules: ['projects']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-SEARCH-001
+  source_id: AI-SEARCH-001
+  title: Current web search
+  priority: P0
+  parity_gate: WEB_SEARCH
+  owner_repository: gunnchAI3k
+  modules: ['research']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-RESEARCH-001
+  source_id: AI-RESEARCH-001
+  title: gunnchResearch deep research
+  priority: P0
+  parity_gate: DEEP_RESEARCH
+  owner_repository: gunnchAI3k
+  modules: ['research']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-RESEARCH-002
+  source_id: AI-RESEARCH-002
+  title: Citation integrity
+  priority: P0
+  parity_gate: DEEP_RESEARCH
+  owner_repository: gunnchAI3k
+  modules: ['research']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-AGENT-001
+  source_id: AI-AGENT-001
+  title: gunnchAgent Runtime
+  priority: P0
+  parity_gate: AGENTS
+  owner_repository: gunnchAI3k
+  modules: ['agent']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-AGENT-002
+  source_id: AI-AGENT-002
+  title: Approval boundaries
+  priority: P0
+  parity_gate: SECURITY
+  owner_repository: gunnchAI3k
+  modules: ['agent']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-AGENT-003
+  source_id: AI-AGENT-003
+  title: Computer use
+  priority: P0
+  parity_gate: COMPUTER_USE
+  owner_repository: gunnchAI3k
+  modules: ['agent', 'gunnchos-device-os']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-CODE-001
+  source_id: AI-CODE-001
+  title: Sandboxed code execution
+  priority: P0
+  parity_gate: CODE_EXECUTION
+  owner_repository: gunnchAI3k
+  modules: ['code']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-CODE-002
+  source_id: AI-CODE-002
+  title: Coding agent workflows
+  priority: P0
+  parity_gate: CODE_EXECUTION
+  owner_repository: gunnchAI3k
+  modules: ['code']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MM-001
+  source_id: AI-MM-001
+  title: Vision understanding
+  priority: P1
+  parity_gate: MULTIMODAL
+  owner_repository: gunnchAI3k
+  modules: ['multimodal']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MM-002
+  source_id: AI-MM-002
+  title: Screen awareness
+  priority: P1
+  parity_gate: VISION_SCREEN
+  owner_repository: gunnchAI3k
+  modules: ['multimodal']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MM-003
+  source_id: AI-MM-003
+  title: Audio understanding
+  priority: P1
+  parity_gate: MULTIMODAL
+  owner_repository: gunnchAI3k
+  modules: ['voice']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-MM-004
+  source_id: AI-MM-004
+  title: Camera context policy
+  priority: P1
+  parity_gate: MULTIMODAL
+  owner_repository: gunnchAI3k
+  modules: ['multimodal']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-VOICE-001
+  source_id: AI-VOICE-001
+  title: Real-time voice
+  priority: P1
+  parity_gate: REALTIME_VOICE
+  owner_repository: gunnchAI3k
+  modules: ['voice']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-VOICE-002
+  source_id: AI-VOICE-002
+  title: Voice action safety
+  priority: P1
+  parity_gate: SECURITY
+  owner_repository: gunnchAI3k
+  modules: ['voice']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-CREATE-001
+  source_id: AI-CREATE-001
+  title: First-class artifact generation
+  priority: P1
+  parity_gate: ARTIFACT_CREATION
+  owner_repository: gunnchAI3k
+  modules: ['create']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-CREATE-002
+  source_id: AI-CREATE-002
+  title: Iterative artifact editing
+  priority: P1
+  parity_gate: ARTIFACT_CREATION
+  owner_repository: gunnchAI3k
+  modules: ['create']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-TOOLS-001
+  source_id: AI-TOOLS-001
+  title: MCP-compatible tool layer
+  priority: P1
+  parity_gate: CONNECTORS_MCP
+  owner_repository: gunnchAI3k
+  modules: ['tools']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-SKILL-001
+  source_id: AI-SKILL-001
+  title: gunnchSkills
+  priority: P1
+  parity_gate: SKILLS
+  owner_repository: gunnchAI3k
+  modules: ['skills']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-CONNECT-001
+  source_id: AI-CONNECT-001
+  title: Connected data/services
+  priority: P1
+  parity_gate: CONNECTORS_MCP
+  owner_repository: gunnchAI3k
+  modules: ['tools']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-AUTO-001
+  source_id: AI-AUTO-001
+  title: Scheduled tasks
+  priority: P1
+  parity_gate: SCHEDULED_TASKS
+  owner_repository: gunnchAI3k
+  modules: ['automation']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-AUTO-002
+  source_id: AI-AUTO-002
+  title: Event-aware assistance
+  priority: P1
+  parity_gate: SCHEDULED_TASKS
+  owner_repository: gunnchAI3k
+  modules: ['automation', 'gunnchos-device-os']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-CROSS-001
+  source_id: AI-CROSS-001
+  title: Cross-device AI identity/state
+  priority: P1
+  parity_gate: CROSS_DEVICE_CONTINUITY
+  owner_repository: gunnchAI3k
+  modules: ['continuity', 'gunnchos-device-os']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-OS-001
+  source_id: AI-OS-001
+  title: Device awareness
+  priority: P0
+  parity_gate: OS_NATIVE_INTELLIGENCE
+  owner_repository: gunnchAI3k
+  modules: ['os_native', 'gunnchos-device-os']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-OS-002
+  source_id: AI-OS-002
+  title: Connectivity intelligence
+  priority: P0
+  parity_gate: OS_NATIVE_INTELLIGENCE
+  owner_repository: gunnchAI3k
+  modules: ['os_native']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-OS-003
+  source_id: AI-OS-003
+  title: Game awareness coaching
+  priority: P1
+  parity_gate: OS_NATIVE_INTELLIGENCE
+  owner_repository: gunnchAI3k
+  modules: ['os_native']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-OS-004
+  source_id: AI-OS-004
+  title: Education/WAIKE awareness
+  priority: P0
+  parity_gate: OS_NATIVE_INTELLIGENCE
+  owner_repository: gunnchAI3k
+  modules: ['waike', 'waike-research-ops']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-POLICY-001
+  source_id: AI-POLICY-001
+  title: Local-first policy
+  priority: P0
+  parity_gate: LOCAL_FIRST
+  owner_repository: gunnchAI3k
+  modules: ['policy']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-POLICY-002
+  source_id: AI-POLICY-002
+  title: Transparent routing
+  priority: P0
+  parity_gate: LOCAL_FIRST
+  owner_repository: gunnchAI3k
+  modules: ['policy']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-POLICY-003
+  source_id: AI-POLICY-003
+  title: Privacy leakage tests
+  priority: P0
+  parity_gate: SECURITY
+  owner_repository: gunnchAI3k
+  modules: ['policy']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-COLLAB-001
+  source_id: AI-COLLAB-001
+  title: Collaboration on shared projects
+  priority: P1
+  parity_gate: COLLABORATION
+  owner_repository: gunnchAI3k
+  modules: ['collab']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-EVAL-001
+  source_id: AI-EVAL
+  title: Frontier evaluation suite (500+)
+  priority: P2
+  parity_gate: EVALS
+  owner_repository: gunnchAI3k
+  modules: ['evals']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FAI-PXII-001
+  source_id: AI-PXII
+  title: Real Phase XII gunnchAI integration
+  priority: P0
+  parity_gate: OS_NATIVE_INTELLIGENCE
+  owner_repository: gunnchos-device-os
+  modules: ['phase_xii', 'gunnchAI3k']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true

@@ -1,0 +1,459 @@
+schema: gunnchos.frontier_parity.requirements.v1
+namespace: FOS
+generated_at: 2026-08-10T00:15:42Z
+historical_requirements_namespace: program/requirements/requirements.yaml
+note: NEW frontier namespace — does NOT alter historical requirement counts
+status_vocabulary: ['TARGET', 'DESIGNED', 'IMPLEMENTED', 'INTEGRATED', 'DIGITALLY_VALIDATED', 'COMPETITIVELY_VALIDATED', 'PHYSICALLY_VALIDATED', 'EXTERNALLY_VALIDATED', 'CERTIFIED', 'DEPLOYED', 'OPERATED']
+count: 41
+requirements:
+- id: FOS-BASE-001
+  source_id: OS-BASE-001
+  title: Production Linux foundation
+  priority: P0
+  parity_gate: BOOT_SECURITY
+  owner_repository: gunnchos-device-os
+  modules: ['os_build', 'kernel']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-BASE-002
+  source_id: OS-BASE-002
+  title: Immutable image-based A/B host
+  priority: P0
+  parity_gate: UPDATE_ROLLBACK
+  owner_repository: gunnchos-device-os
+  modules: ['os_build/update']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-BASE-003
+  source_id: OS-BASE-003
+  title: Recovery as production subsystem
+  priority: P0
+  parity_gate: RECOVERY
+  owner_repository: gunnchos-device-os
+  modules: ['os_build/recovery']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SEC-001
+  source_id: OS-SEC-001
+  title: Hardware-to-application trust chain
+  priority: P0
+  parity_gate: BOOT_SECURITY
+  owner_repository: gunnchos-device-os
+  modules: ['security']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SEC-002
+  source_id: OS-SEC-002
+  title: Encryption and key management
+  priority: P0
+  parity_gate: ENCRYPTION_KEYSTORE
+  owner_repository: gunnchos-device-os
+  modules: ['security/keystore']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SEC-003
+  source_id: OS-SEC-003
+  title: Application sandbox and permissions
+  priority: P0
+  parity_gate: SANDBOX_PERMISSIONS
+  owner_repository: gunnchos-device-os
+  modules: ['security/sandbox']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SHELL-001
+  source_id: OS-SHELL-001
+  title: One adaptive shell
+  priority: P0
+  parity_gate: DESKTOP_SHELL
+  owner_repository: gunnchos-device-os
+  modules: ['apps/gunnchos_shell']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SHELL-002
+  source_id: OS-SHELL-002
+  title: Production desktop shell
+  priority: P0
+  parity_gate: DESKTOP_SHELL
+  owner_repository: gunnchos-device-os
+  modules: ['apps/gunnchos_shell']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SHELL-003
+  source_id: OS-SHELL-003
+  title: Touch/tablet adaptation
+  priority: P0
+  parity_gate: TOUCH_TABLET_SHELL
+  owner_repository: gunnchos-device-os
+  modules: ['apps/gunnchos_shell']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SHELL-004
+  source_id: OS-SHELL-004
+  title: Dual-screen DS-XL shell
+  priority: P0
+  parity_gate: DUAL_SCREEN_SHELL
+  owner_repository: gunnchos-device-os
+  modules: ['apps/gunnchos_shell']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SHELL-005
+  source_id: OS-SHELL-005
+  title: Controller-first Handheld shell
+  priority: P0
+  parity_gate: HANDHELD_SHELL
+  owner_repository: gunnchos-device-os
+  modules: ['apps/gunnchos_shell']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-COMPAT-001
+  source_id: OS-COMPAT-001
+  title: Multi-runtime strategy
+  priority: P0
+  parity_gate: APP_RUNTIME
+  owner_repository: gunnchos-device-os
+  modules: ['compat']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-COMPAT-002
+  source_id: OS-COMPAT-002
+  title: Compatibility classification
+  priority: P0
+  parity_gate: APP_COMPATIBILITY
+  owner_repository: gunnchos-device-os
+  modules: ['compat']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-COMPAT-003
+  source_id: OS-COMPAT-003
+  title: Representative application corpus
+  priority: P0
+  parity_gate: APP_COMPATIBILITY
+  owner_repository: gunnchos-device-os
+  modules: ['compat/lab']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-COMPAT-004
+  source_id: OS-COMPAT-004
+  title: Optional Android compatibility study
+  priority: P2
+  parity_gate: APP_COMPATIBILITY
+  owner_repository: gunnchos-device-os
+  modules: ['compat/android_study']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-STORE-001
+  source_id: OS-STORE-001
+  title: Package/distribution model
+  priority: P1
+  parity_gate: PACKAGE_MANAGEMENT
+  owner_repository: gunnchos-device-os
+  modules: ['store']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-STORE-002
+  source_id: OS-STORE-002
+  title: Developer distribution workflow
+  priority: P1
+  parity_gate: APP_DISTRIBUTION
+  owner_repository: gunnchos-device-os
+  modules: ['store']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-CONT-001
+  source_id: OS-CONT-001
+  title: Clipboard continuity
+  priority: P1
+  parity_gate: CONTINUITY
+  owner_repository: gunnchos-device-os
+  modules: ['continuity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-CONT-002
+  source_id: OS-CONT-002
+  title: File continuity
+  priority: P1
+  parity_gate: SYNC
+  owner_repository: gunnchos-device-os
+  modules: ['continuity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-CONT-003
+  source_id: OS-CONT-003
+  title: Application/state continuity
+  priority: P1
+  parity_gate: CONTINUITY
+  owner_repository: gunnchos-device-os
+  modules: ['continuity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-CONT-004
+  source_id: OS-CONT-004
+  title: Peripheral continuity
+  priority: P1
+  parity_gate: CONTINUITY
+  owner_repository: gunnchos-device-os
+  modules: ['continuity', 'edge-io-measurement-node']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-FABRIC-001
+  source_id: OS-FABRIC-001
+  title: Distributed Capability Fabric
+  priority: P1
+  parity_gate: CONTINUITY
+  owner_repository: gunnchos-device-os
+  modules: ['fabric']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-FABRIC-002
+  source_id: OS-FABRIC-002
+  title: Capability discovery and trust
+  priority: P1
+  parity_gate: CONTINUITY
+  owner_repository: gunnchos-device-os
+  modules: ['fabric']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-PLAY-001
+  source_id: OS-PLAY-001
+  title: OS-level gaming subsystem
+  priority: P1
+  parity_gate: GAME_RUNTIME
+  owner_repository: gunnchos-device-os
+  modules: ['play']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-PLAY-002
+  source_id: OS-PLAY-002
+  title: Game resource reservation
+  priority: P1
+  parity_gate: GAME_RUNTIME
+  owner_repository: gunnchos-device-os
+  modules: ['play']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-PLAY-003
+  source_id: OS-PLAY-003
+  title: Quick Resume
+  priority: P1
+  parity_gate: GAME_SUSPEND_RESUME
+  owner_repository: gunnchos-device-os
+  modules: ['play']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-PLAY-004
+  source_id: OS-PLAY-004
+  title: Remote/Share Play
+  priority: P1
+  parity_gate: REMOTE_PLAY
+  owner_repository: gunnchos-device-os
+  modules: ['play']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-AI-001
+  source_id: OS-AI-001
+  title: System AI Capability API
+  priority: P0
+  parity_gate: AI_SYSTEM_API
+  owner_repository: gunnchos-device-os
+  modules: ['ai_interface', 'gunnchAI3k']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-AI-002
+  source_id: OS-AI-002
+  title: AI context authorization
+  priority: P0
+  parity_gate: AI_SYSTEM_API
+  owner_repository: gunnchos-device-os
+  modules: ['ai_interface', 'security']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SPATIAL-001
+  source_id: OS-SPATIAL-001
+  title: SpatialInputService fusion
+  priority: P1
+  parity_gate: RING_SPATIAL_INPUT
+  owner_repository: gunnchos-device-os
+  modules: ['spatial', 'edge-io-measurement-node']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SPATIAL-002
+  source_id: OS-SPATIAL-002
+  title: System-wide Ring input
+  priority: P1
+  parity_gate: RING_SPATIAL_INPUT
+  owner_repository: gunnchos-device-os
+  modules: ['spatial']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-NET-001
+  source_id: OS-NET-001
+  title: Connectivity intent API
+  priority: P1
+  parity_gate: CONNECTIVITY_5GA
+  owner_repository: gunnchos-device-os
+  modules: ['connectivity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-NET-002
+  source_id: OS-NET-002
+  title: Bearer orchestration
+  priority: P1
+  parity_gate: NTN_MIGRATION
+  owner_repository: gunnchos-device-os
+  modules: ['connectivity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-MDM-001
+  source_id: OS-MDM-001
+  title: School/business fleet platform
+  priority: P1
+  parity_gate: ENTERPRISE_MDM
+  owner_repository: gunnchos-device-os
+  modules: ['fleet']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-MDM-002
+  source_id: OS-MDM-002
+  title: MDM privacy boundaries
+  priority: P1
+  parity_gate: EDUCATION_MANAGEMENT
+  owner_repository: gunnchos-device-os
+  modules: ['fleet']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SDK-001
+  source_id: OS-SDK-001
+  title: Production SDK
+  priority: P1
+  parity_gate: DEVELOPER_SDK
+  owner_repository: gunnchos-device-os
+  modules: ['sdk']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-SDK-002
+  source_id: OS-SDK-002
+  title: Compatibility certification suite
+  priority: P1
+  parity_gate: DEBUG_PROFILING
+  owner_repository: gunnchos-device-os
+  modules: ['sdk']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-PERF-001
+  source_id: OS-PERF
+  title: Performance experience gates
+  priority: P1
+  parity_gate: PERFORMANCE_POWER
+  owner_repository: gunnchos-device-os
+  modules: ['perf']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-A11Y-001
+  source_id: OS-A11Y-001
+  title: System-wide accessibility
+  priority: P0
+  parity_gate: ACCESSIBILITY
+  owner_repository: gunnchos-device-os
+  modules: ['a11y']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-LIFE-001
+  source_id: OS-LIFE-001
+  title: Support lifecycle policy
+  priority: P1
+  parity_gate: SUPPORT_LIFECYCLE
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  modules: ['program']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FOS-QUAL-001
+  source_id: OS-QUAL
+  title: Competitive qualification suite (~1000)
+  priority: P2
+  parity_gate: USER_EXPERIENCE
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  modules: ['program/frontier_parity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true

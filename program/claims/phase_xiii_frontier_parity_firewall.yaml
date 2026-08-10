@@ -1,0 +1,57 @@
+schema: gunnchos.phase_xiii.frontier_parity_firewall.v1
+phase: XIII
+competitive_analysis_date: "2026-08"
+rules:
+  - id: reject_frontier_os_parity_without_gates
+    action: REJECT
+    tokens:
+      - GUNNCHOS_FRONTIER_OS_PARITY
+    require_all_os_gates_non_incomplete: true
+    evidence_required:
+      - program/frontier_parity/PARITY_GATES.yaml
+      - program/frontier_parity/TOKENS.json
+  - id: reject_frontier_ai_parity_without_gates
+    action: REJECT
+    tokens:
+      - GUNNCHAI_FRONTIER_PRODUCT_PARITY
+    require_all_ai_gates_non_incomplete: true
+    evidence_required:
+      - program/frontier_parity/PARITY_GATES.yaml
+      - program/frontier_parity/TOKENS.json
+  - id: reject_ecosystem_parity_premature
+    action: REJECT
+    tokens:
+      - GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY
+    require:
+      GUNNCHOS_FRONTIER_OS_PARITY: true
+      GUNNCHAI_FRONTIER_PRODUCT_PARITY: true
+      REAL_USER_JOURNEY_PARITY: true
+      PHYSICAL_DEVICE_VALIDATION: true
+  - id: reject_feature_exists_as_parity
+    action: REJECT
+    forbidden_evidence_alone:
+      - requirements_prose
+      - schema_only
+      - status_token
+      - fake_service
+      - protocol_emulator_as_claimed_protocol
+      - fixture_json_as_game_or_app_runtime
+      - app_manifest_as_installed_app
+      - concept_art_as_real_ui
+      - single_happy_path_without_failure_testing
+  - id: preserve_historical_tokens
+    action: ALLOW_HISTORICAL_SCOPE_ONLY
+    tokens:
+      - FULL_GUNNCHOS_PLATFORM_DIGITAL_COMPLETE
+      - FULL_GUNNCHAI3K_PLATFORM_DIGITAL_COMPLETE
+  - id: phase_xii_before_frontier_impl
+    action: ADVISORY
+    note: >
+      Stage 1 Phase XII (Wave 0 X1 close) must finish before Stage 2 frontier
+      foundations claim DIGITALLY_VALIDATED. Scaffolding may land earlier.
+claim_correction:
+  GUNNCHOS_FRONTIER_OS_PARITY: false
+  GUNNCHAI_FRONTIER_PRODUCT_PARITY: false
+  GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY: false
+  REAL_USER_JOURNEY_PARITY: false
+  FEATURE_EXISTS_EQUALS_PARITY: false

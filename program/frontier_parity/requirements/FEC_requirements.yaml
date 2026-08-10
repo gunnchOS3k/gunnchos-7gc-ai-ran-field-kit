@@ -1,0 +1,74 @@
+schema: gunnchos.frontier_parity.requirements.v1
+namespace: FEC
+generated_at: 2026-08-10T00:15:42Z
+historical_requirements_namespace: program/requirements/requirements.yaml
+note: NEW frontier namespace — does NOT alter historical requirement counts
+status_vocabulary: ['TARGET', 'DESIGNED', 'IMPLEMENTED', 'INTEGRATED', 'DIGITALLY_VALIDATED', 'COMPETITIVELY_VALIDATED', 'PHYSICALLY_VALIDATED', 'EXTERNALLY_VALIDATED', 'CERTIFIED', 'DEPLOYED', 'OPERATED']
+count: 6
+requirements:
+- id: FEC-ECO-001
+  source_id: ECO-001
+  title: Integrated OS+AI ecosystem parity prerequisite
+  priority: P0
+  parity_gate: null
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  modules: ['program/frontier_parity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FEC-ECO-002
+  source_id: ECO-002
+  title: REAL_USER_JOURNEY_PARITY requires Phase XII X1=0 + frontier journey evidence
+  priority: P0
+  parity_gate: null
+  owner_repository: gunnchos-device-os
+  modules: ['phase_xii', 'phase_xiii']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FEC-ECO-003
+  source_id: ECO-003
+  title: PHYSICAL_DEVICE_VALIDATION for claimed hardware experiences
+  priority: P0
+  parity_gate: null
+  owner_repository: gunnchos-hardware-industrial-design
+  modules: ['evt']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FEC-ECO-004
+  source_id: ECO-004
+  title: Cross-dependency: AI needs OS capabilities; OS needs AI primitives
+  priority: P0
+  parity_gate: null
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  modules: ['program/frontier_parity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FEC-ECO-005
+  source_id: ECO-005
+  title: Competitive refresh policy before major releases
+  priority: P1
+  parity_gate: null
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  modules: ['program/frontier_parity']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
+- id: FEC-ECO-006
+  source_id: ECO-006
+  title: Evidence firewall: no schema/mock/fixture-only parity
+  priority: P0
+  parity_gate: null
+  owner_repository: gunnchos-7gc-ai-ran-field-kit
+  modules: ['program/claims']
+  dod_status: TARGET
+  gate_status: INCOMPLETE_DIGITAL
+  claimable: false
+  phase_xii_prerequisite: true
