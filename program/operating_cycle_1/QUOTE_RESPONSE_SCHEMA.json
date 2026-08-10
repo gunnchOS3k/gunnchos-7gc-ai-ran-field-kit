@@ -1,0 +1,37 @@
+{
+  "schema": "gunnchos.operating_cycle_1.quote_response.v1",
+  "generated_at_utc": "2026-08-10T14:22:56Z",
+  "purpose": "Normalize manufacturer quote replies for comparison; not a purchase order.",
+  "required_fields": [
+    "vendor_legal_name",
+    "site_location",
+    "quote_id",
+    "quote_date_utc",
+    "validity_days",
+    "nda_status",
+    "currency",
+    "product_id",
+    "revision_quoted",
+    "accepted_hardware_sha_quoted",
+    "quantity_scenario",
+    "unit_price",
+    "nre",
+    "lead_time_calendar_days",
+    "consigned_vs_turnkey",
+    "fixture_ownership",
+    "dfm_findings_attached",
+    "shipping_incoterms",
+    "shipping_estimate",
+    "country_of_origin_statement",
+    "itar_ear_handling",
+    "ip_data_handling",
+    "exclusions"
+  ],
+  "quantity_scenarios_ref": "program/pre_evt/shared/EVT_QUANTITY_SCENARIOS.json",
+  "comparison_workbook_ref": "program/pre_evt/shared/QUOTE_COMPARISON_WORKBOOK.csv",
+  "forbidden": [
+    "treat_as_PO",
+    "auto_accept_NDA_by_cursor",
+    "RFQ_SENT_token_without_Edmund"
+  ]
+}

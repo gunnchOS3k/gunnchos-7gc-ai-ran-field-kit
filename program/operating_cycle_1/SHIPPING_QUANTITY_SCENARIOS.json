@@ -1,0 +1,84 @@
+{
+  "schema": "gunnchos.operating_cycle_1.shipping_quantity_scenarios.v1",
+  "generated_at_utc": "2026-08-10T14:22:56Z",
+  "policy": "SCENARIOS_ONLY_NO_ORDERS",
+  "PHYSICAL_EXECUTION_FREEZE": "ACTIVE",
+  "quantity_ref": "program/pre_evt/shared/EVT_QUANTITY_SCENARIOS.json",
+  "shipping_scenarios": [
+    {
+      "id": "SHIP-DOMESTIC-GROUND",
+      "incoterms_default_ask": "FCA_or_DAP_to_be_quoted",
+      "region": "US domestic",
+      "ask_vendor": "Quote shipping separately for EVT0_MIN and EVT0_REC; do not bury in unit price"
+    },
+    {
+      "id": "SHIP-DOMESTIC-EXPEDITED",
+      "incoterms_default_ask": "DAP",
+      "region": "US domestic",
+      "ask_vendor": "Optional 2-day / overnight for first-article subset"
+    },
+    {
+      "id": "SHIP-INTL-PROTO",
+      "incoterms_default_ask": "DDP_or_DAP_quote_both",
+      "region": "international proto (if selected)",
+      "ask_vendor": "Duties/VAT responsibility; ITAR/EAR statement; no controlled tech without clearance"
+    }
+  ],
+  "products": {
+    "student_14_5": {
+      "EVT0_MIN": 5,
+      "EVT0_REC": 10,
+      "EVT1_MIN": 15,
+      "EVT1_REC": 25,
+      "spares_pct": 15,
+      "destructive_test_units_EVT0": 2,
+      "destructive_test_units_EVT1": 3,
+      "reserve_units": 2,
+      "note": "Scenarios for quotation planning only \u2014 PHYSICAL_EXECUTION_FREEZE / no purchase"
+    },
+    "ds_xl_coder": {
+      "EVT0_MIN": 5,
+      "EVT0_REC": 10,
+      "EVT1_MIN": 15,
+      "EVT1_REC": 25,
+      "spares_pct": 15,
+      "destructive_test_units_EVT0": 2,
+      "destructive_test_units_EVT1": 3,
+      "reserve_units": 2,
+      "note": "Scenarios for quotation planning only \u2014 PHYSICAL_EXECUTION_FREEZE / no purchase"
+    },
+    "handheld_hybrid": {
+      "EVT0_MIN": 8,
+      "EVT0_REC": 15,
+      "EVT1_MIN": 20,
+      "EVT1_REC": 35,
+      "spares_pct": 15,
+      "destructive_test_units_EVT0": 2,
+      "destructive_test_units_EVT1": 3,
+      "reserve_units": 2,
+      "note": "Scenarios for quotation planning only \u2014 PHYSICAL_EXECUTION_FREEZE / no purchase"
+    },
+    "edge_io_rings": {
+      "EVT0_MIN": 10,
+      "EVT0_REC": 20,
+      "EVT1_MIN": 30,
+      "EVT1_REC": 50,
+      "spares_pct": 15,
+      "destructive_test_units_EVT0": 4,
+      "destructive_test_units_EVT1": 6,
+      "reserve_units": 2,
+      "note": "Scenarios for quotation planning only \u2014 PHYSICAL_EXECUTION_FREEZE / no purchase"
+    },
+    "first_party_dock": {
+      "EVT0_MIN": 5,
+      "EVT0_REC": 10,
+      "EVT1_MIN": 15,
+      "EVT1_REC": 25,
+      "spares_pct": 15,
+      "destructive_test_units_EVT0": 2,
+      "destructive_test_units_EVT1": 3,
+      "reserve_units": 2,
+      "note": "Scenarios for quotation planning only \u2014 PHYSICAL_EXECUTION_FREEZE / no purchase"
+    }
+  }
+}

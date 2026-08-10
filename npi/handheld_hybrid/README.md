@@ -3,6 +3,6 @@
 Phase X · `HHYBRID-EVT0-R0` · Generated 2026-08-09T22:00:34Z
 
 Manufacturer token: `HANDHELD_HYBRID_MANUFACTURER_PACKAGE_READY`  
-Hardware Cont IX SHA: `cd1d906c5f08eb26c350851a4faeb05e2bf2e79f`
+Hardware accepted tip SHA: `8705f5a25065e02c7513e990a43e4762967906c5` (Cont IX manufacturing lock: `cd1d906c5f08eb26c350851a4faeb05e2bf2e79f`)
 
 **DRAFT RFQ ONLY — DO NOT SEND / DO NOT FAB / DO NOT PURCHASE**

@@ -65,7 +65,15 @@ FORBIDDEN_SEND_TOKENS = (
     "READY_TO_PURCHASE",
     "PURCHASE_AUTHORIZED=true",
     "RFQ_EXTERNAL_SEND_AUTHORIZATION=true",
+    "RFQ_SENT",
+    "PURCHASED",
+    "FABRICATING",
 )
+# Accepted hardware tip (Phase XV #53). Cont IX manufacturing lock remains #52;
+# gerber byte hashes are identical at tip (verified WP-004).
+ACCEPTED_HARDWARE_TIP = "8705f5a25065e02c7513e990a43e4762967906c5"
+CONT_IX_MANUFACTURING_LOCK = "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f"
+HANDHELD_STORAGE_DEFECT = "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001"
 
 
 def utc_now() -> str:
@@ -106,12 +114,55 @@ def validate_product(product: str, defects: list[str]) -> None:
         if not (ROOT / rel).is_file():
             defects.append(f"{product}:manifest_file_absent:{label}:{rel}")
 
+    rel_man_path = ROOT / "npi" / product / "release_manifest" / "RELEASE_MANIFEST.json"
+    if rel_man_path.is_file():
+        try:
+            rel_man = json.loads(rel_man_path.read_text(encoding="utf-8"))
+            tip = rel_man.get("accepted_hardware_sha")
+            if tip != ACCEPTED_HARDWARE_TIP:
+                defects.append(
+                    f"{product}:stale_accepted_hardware_sha:{tip}"
+                )
+            pcb_path = ROOT / "npi" / product / "pcb" / "PCB_PACKAGE_INDEX.json"
+            if pcb_path.is_file():
+                pcb = json.loads(pcb_path.read_text(encoding="utf-8"))
+                if pcb.get("hardware_sha") != ACCEPTED_HARDWARE_TIP:
+                    defects.append(
+                        f"{product}:pcb_index_stale_hardware_sha:{pcb.get('hardware_sha')}"
+                    )
+        except json.JSONDecodeError as exc:
+            defects.append(f"{product}:release_manifest_json_invalid:{exc}")
+
     cover = (rfq_dir / "RFQ_COVER_LETTER.md").read_text(encoding="utf-8")
     if "DO NOT SEND" not in cover.upper() and "DRAFT" not in cover.upper():
         defects.append(f"{product}:cover_missing_do_not_send_or_draft")
+    if "CONFIDENTIAL" not in cover.upper():
+        defects.append(f"{product}:cover_missing_confidential_marking")
+    if ACCEPTED_HARDWARE_TIP not in cover:
+        defects.append(f"{product}:cover_missing_accepted_hardware_tip_sha")
     for tok in FORBIDDEN_SEND_TOKENS:
         if tok in cover:
             defects.append(f"{product}:forbidden_token_in_cover:{tok}")
+
+    if product == "handheld_hybrid":
+        if HANDHELD_STORAGE_DEFECT not in cover:
+            defects.append(
+                f"{product}:cover_missing_open_npi_defect_disclosure:{HANDHELD_STORAGE_DEFECT}"
+            )
+        risk_path = ROOT / "npi" / product / "risk" / "RISK_REGISTER.json"
+        if risk_path.is_file():
+            try:
+                risk = json.loads(risk_path.read_text(encoding="utf-8"))
+                titles = " ".join(
+                    str(r.get("title", "")) + str(r.get("npi_defect", ""))
+                    for r in (risk.get("risks") or [])
+                )
+                if HANDHELD_STORAGE_DEFECT not in titles:
+                    defects.append(
+                        f"{product}:risk_register_missing:{HANDHELD_STORAGE_DEFECT}"
+                    )
+            except json.JSONDecodeError as exc:
+                defects.append(f"{product}:risk_register_json_invalid:{exc}")
 
     for rel in PRODUCT_PLAN_FILES:
         check_file(f"npi/{product}/{rel}", defects, prefix=f"{product}:")
@@ -157,7 +208,11 @@ def main() -> int:
     now = utc_now()
     defect_count = len(defects)
     ready = defect_count == 0
+    # READY_TO_SEND_RFQS = digital package coherent for Edmund send-review path.
+    # Does NOT authorize external send. READY_FOR_EDMUND_RFQ_SEND_REVIEW is the
+    # Cycle-1 review token; RFQ_SENT remains forbidden until human A07.
     recommendation = "READY_TO_SEND_RFQS" if ready else "RFQ_PACKAGE_BLOCKED"
+    edmund_review_ready = ready
 
     validation = {
         "generated_at_utc": now,
@@ -165,11 +220,15 @@ def main() -> int:
         "defects": defects,
         "generator_defects": generator_defects,
         "products_validated": PRODUCTS,
+        "accepted_hardware_tip": ACCEPTED_HARDWARE_TIP,
+        "cont_ix_manufacturing_lock": CONT_IX_MANUFACTURING_LOCK,
         "VENDOR_COLLATERAL_REQUESTS_COMPLETE": vendor_ok,
         "NPI_SHORTLIST_COMPLETE": shortlist_ok,
         "EVT_PLAN_COMPLETE": evt_ok,
         "QUOTE_COMPARISON_SYSTEM_COMPLETE": quote_ok,
         "READY_TO_SEND_RFQS": ready,
+        "READY_FOR_EDMUND_RFQ_SEND_REVIEW": edmund_review_ready,
+        "RFQ_SENT": False,
         "rfq_external_send_authorization": False,
         "purchase_authorized": False,
         "PHYSICAL_EXECUTION_FREEZE": "ACTIVE",
@@ -192,19 +251,25 @@ def main() -> int:
             "recommendation": recommendation,
             "RFQ_PACKAGE_DIGITAL_DEFECTS": defect_count,
             "READY_TO_SEND_RFQS": ready,
+            "READY_FOR_EDMUND_RFQ_SEND_REVIEW": edmund_review_ready,
+            "RFQ_SENT": False,
             "purchase_authorized": False,
             "rfq_external_send_authorization": False,
             "phase_xiv_reproof": True,
+            "wp004_reproof": True,
+            "accepted_hardware_tip": ACCEPTED_HARDWARE_TIP,
         }
     )
-    # Never claim purchase readiness
-    if rec.get("recommendation") == "READY_TO_PURCHASE":
+    # Never claim purchase readiness or external send
+    if rec.get("recommendation") in ("READY_TO_PURCHASE", "RFQ_SENT"):
         rec["recommendation"] = "RFQ_PACKAGE_BLOCKED"
-        generator_defects.append("stripped_forbidden_READY_TO_PURCHASE")
+        generator_defects.append("stripped_forbidden_send_or_purchase_token")
     rec_path.write_text(json.dumps(rec, indent=2) + "\n", encoding="utf-8")
 
     print(f"RFQ_PACKAGE_DIGITAL_DEFECTS={defect_count}")
     print(f"READY_TO_SEND_RFQS={str(ready).upper()}")
+    print(f"READY_FOR_EDMUND_RFQ_SEND_REVIEW={str(edmund_review_ready).upper()}")
+    print(f"RFQ_SENT=FALSE")
     print(f"recommendation={recommendation}")
     for d in defects:
         print(f"DEFECT {d}")

@@ -1,6 +1,6 @@
 {
   "product": "handheld_hybrid",
-  "generated_at_utc": "2026-08-09T22:00:34Z",
+  "generated_at_utc": "2026-08-10T14:22:13Z",
   "risks": [
     {
       "id": "R-HAN-01",
@@ -36,6 +36,16 @@
       "likelihood": "MEDIUM",
       "impact": "MEDIUM",
       "mitigation": "Multi-vendor shortlist"
+    },
+    {
+      "id": "R-HAN-06",
+      "title": "Handheld 32GB eMMC operational storage headroom (NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001)",
+      "likelihood": "HIGH",
+      "impact": "HIGH",
+      "mitigation": "Disclose in RFQ; WP-002 OPT-C policy (system eMMC + microSD/user media); do not invent larger NX5 SKU",
+      "npi_defect": "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001",
+      "blocks_rfq_send": false,
+      "blocks_purchase": false
     }
   ]
 }
