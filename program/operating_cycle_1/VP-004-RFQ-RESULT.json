@@ -1,0 +1,124 @@
+{
+  "schema": "gunnchos.operating_cycle_1.vp004_rfq_result.v1",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "work_package": "VP-004",
+  "cycle": 1,
+  "generated_at_utc": "2026-08-10T14:34:50Z",
+  "result": "PASS",
+  "evidence_level": "E4",
+  "evidence_level_note": "Package readiness is E4 digital coherence. Manufacturer response remains E7/external and is out of scope.",
+  "verified_against": {
+    "field_kit_pr": 56,
+    "field_kit_branch": "operating-cycle-1/bootstrap-wp002-003-004",
+    "field_kit_head_sha_claimed": "a56aaec33b80a213f1264e0ef0a5ea50e1138a81",
+    "field_kit_head_sha_observed": "a56aaec33b80a213f1264e0ef0a5ea50e1138a81",
+    "hardware_accepted_main_tip": "8705f5a25065e02c7513e990a43e4762967906c5",
+    "hardware_pr": 53,
+    "cont_ix_manufacturing_lock_sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
+    "cont_ix_pr": 52,
+    "field_kit_accepted_main_baseline": "d1922f69bda04f01f47f762d209c36734116f5ce"
+  },
+  "products": [
+    "student_14_5",
+    "ds_xl_coder",
+    "handheld_hybrid",
+    "edge_io_rings",
+    "first_party_dock"
+  ],
+  "checks": [
+    {
+      "id": 1,
+      "name": "current_accepted_hardware_revision",
+      "result": "PASS",
+      "notes": "Accepted hardware main tip independently confirmed at 8705f5a25065e02c7513e990a43e4762967906c5 (merge of hardware #53 handheld storage NPI). Cont IX manufacturing lock remains cd1d906c5f08eb26c350851a4faeb05e2bf2e79f (#52). All five RFQ manifests and RELEASE_MANIFEST.json files pin both SHAs. Product versions: STUDENT145-EVT0-R0, DSXL-EVT0-R0, HHYBRID-EVT0-R0, RING-EVT0-R0, DOCK-EVT0-R0."
+    },
+    {
+      "id": 2,
+      "name": "every_manifest_file_exists",
+      "result": "PASS",
+      "notes": "Per-product RFQ triad present (RFQ_COVER_LETTER.md, RFQ_PACKAGE_MANIFEST.json, RFQ_QUESTIONNAIRE.md). All 35 RFQ_PACKAGE_MANIFEST file entries resolve in field-kit. All 30 RELEASE_MANIFEST source_pointers resolve at hardware tip 8705f5a. Cont IX release dirs exist for all five products (32 files each)."
+    },
+    {
+      "id": 3,
+      "name": "every_recorded_hash_matches",
+      "result": "PASS",
+      "notes": "Independent SHA-256 verification of 160 Cont IX release files (5 products × 32) at hardware tip 8705f5a: 0 mismatches, 0 missing. Byte-identical vs Cont IX lock cd1d906c (0 tip-vs-lock diffs). Tip adds NPI policy artifacts only; gerber/PnP/STEP/drill content unchanged."
+    },
+    {
+      "id": 4,
+      "name": "bom_pnp_gerbers_pcb_step_test_docs_revision_consistent",
+      "result": "PASS",
+      "notes": "Each Cont IX package contains gerbers, pos/pick_place.csv (PnP), board.step, drill, plus field-kit QUOTE_READY_BOM.csv, PCB_PACKAGE_INDEX.json (hardware_sha=8705f5a), EVT_PHYSICAL_TEST_BOOK.md, DFM/assembly/programming docs. BOM MPNs align with cover compute pins (e.g. RM121-D8E32, COM-HPC-mMTL-155H-32G, JHL8440). Vendor would quote EVT0-R0 configs pinned to tip 8705f5a / Cont IX lock."
+    },
+    {
+      "id": 5,
+      "name": "restricted_nda_collateral_disclosed_as_dependency",
+      "result": "PASS",
+      "notes": "VENDOR_COLLATERAL_REQUESTS.json present for all five products with EXTERNAL_VENDOR_COLLATERAL_REQUIRED / DRAFT_PACKET_READY_NOT_SENT. Explicit NDA_expected=true: Student VC-ADLINK-COMHPC-400PIN; DS-XL VC-ADLINK-COMHPC-400PIN + VC-ADLINK-DUAL-EDP; Dock VC-INTEL-JHL8440 + VC-INTEL-JHL9040R. Covers state No NDA accept by Cursor; questionnaires flag EXTERNAL NDA collateral; RECIPIENT_PORTAL_RESEARCH.json nda_decision_points mark HUMAN_ONLY before file upload."
+    },
+    {
+      "id": 6,
+      "name": "known_npi_defects_not_hidden",
+      "result": "PASS",
+      "notes": "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001 (OPERATIONALY_UNSAFE, usable_free≈−1.74GB on full onboard profile) disclosed in handheld RFQ_COVER_LETTER.md, RFQ_PACKAGE_MANIFEST.known_open_npi_defects, risk register, and Phase XV HANDHELD_STORAGE_DECISION.json. blocks_rfq_send=false / blocks_purchase=false but not concealed."
+    },
+    {
+      "id": 7,
+      "name": "handheld_storage_headroom_wp002_status",
+      "result": "PASS",
+      "notes": "WP-002 remains ACTIVE in ACTIVE_WIP.json (not V1-closed). Hardware tip #53 carries Outcome A / OPT-C policy (system eMMC + enforced microSD/user-media) without changing preferred SoM MPN RM121-D8E32 or Cont IX binary package. Cover honestly states WP-002 ACTIVE + defect disclosure; no invented larger NX5 SKU. Package assumptions unchanged pending independent VP-002 V1."
+    },
+    {
+      "id": 8,
+      "name": "public_recipient_portal_info_current_and_sourced",
+      "result": "PASS",
+      "notes": "program/operating_cycle_1/RECIPIENT_PORTAL_RESEARCH.json uses PUBLIC_SOURCED_ONLY_NO_INVENTED_CONTACTS; named_personal_contacts empty for all entries; source_date 2026-08-10. Independent curl spot-check 2026-08-10: protoexpress homepage+custom-quote 200; AdvancedPCB quoting 200; Summit request-a-quote 200; ADLINK com-hpc 200; Intel RDC getting-access 200. Intel JHL8440 ARK URL returned 403 to automated client (likely bot filter) but remains a documented public ARK route, not an invented contact. Shortlist-only vendors correctly assert no portal URLs without source."
+    },
+    {
+      "id": 9,
+      "name": "no_external_message_was_sent",
+      "result": "PASS",
+      "notes": "All five RFQ manifests set do_not_send=true; covers marked DRAFT — DO NOT SEND / Edmund review only; RECIPIENT_PORTAL_RESEARCH.do_not_send=true; RFQ_PACKAGE_VALIDATION.RFQ_SENT=false; vendor collateral statuses DRAFT_PACKET_READY_NOT_SENT; ACCEPTED_MAIN_LOCK.rfq_external_send_authorization=false. No evidence of RFQ_SENT=true or external send."
+    },
+    {
+      "id": 10,
+      "name": "no_purchase_or_fabrication_authorization",
+      "result": "PASS",
+      "notes": "purchase_authorized=false / purchase_authorization=false; PHYSICAL_EXECUTION_FREEZE ACTIVE on lock, validation, and all covers; covers state Not authorizing fabrication / No purchase. No fab. Forbidden READY_TO_PURCHASE not asserted as an opened gate."
+    }
+  ],
+  "defects": [],
+  "observations": [
+    {
+      "severity": "low",
+      "note": "program/pre_evt/PHASE_X_RECOMMENDATION.json draft_pr.sha still records 68c2584d… while PR #56 tip is a56aaec… — metadata lag only; does not change package file/hash coherence for a vendor quote."
+    },
+    {
+      "severity": "info",
+      "note": "Implementer READY_TO_SEND_RFQS / READY_FOR_EDMUND_RFQ_SEND_REVIEW tokens were not used as sole evidence; independent existence + hash + disclosure + portal checks performed."
+    }
+  ],
+  "tokens": {
+    "READY_FOR_EDMUND_RFQ_SEND_REVIEW_earned": true,
+    "RFQ_SENT": false,
+    "READY_TO_SEND_RFQS_digital_coherence": true,
+    "purchase_authorized": false,
+    "rfq_external_send_authorization": false,
+    "PHYSICAL_EXECUTION_FREEZE": "ACTIVE"
+  },
+  "verdict_summary": "If Edmund sent this package today to a suitable manufacturer after human A06/A07/NDA handling, the recipient would have a coherent, current, internally consistent digital package (five EVT0-R0 roots pinned to hardware tip 8705f5a / Cont IX lock cd1d906c) that can be quoted and DFM-reviewed without discovering missing Cont IX digital artifacts. Known Handheld storage NPI defect and NDA collateral dependencies are disclosed. External send and purchase/fab remain unauthorized.",
+  "verifier_independence_attestation": {
+    "did_not_use_implementer_checklist_as_sole_source": true,
+    "did_not_trust_READY_TO_SEND_RFQS_token_alone": true,
+    "did_not_trust_READY_FOR_EDMUND_RFQ_SEND_REVIEW_token_alone": true,
+    "independent_methods": [
+      "Derived checks from VP-004_RFQ_SEND_PACKET_FINAL_REVIEW contract questions 1–10",
+      "Verified hardware tip SHA via local gunnchos-hardware-industrial-design checkout at 8705f5a",
+      "Recomputed SHA-256 of all Cont IX release blobs via git show at tip and Cont IX lock",
+      "Resolved RFQ manifest paths and hardware source_pointers independently",
+      "Read cover letters, vendor collateral NDA flags, ACTIVE_WIP, ACCEPTED_MAIN_LOCK, handheld storage decision/closure artifacts",
+      "Spot-checked public portal URLs with curl (not copied from implementer test output)"
+    ],
+    "implementer_must_not_self_certify_v1": true
+  }
+}

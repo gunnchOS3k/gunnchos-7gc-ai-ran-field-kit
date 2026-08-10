@@ -392,3 +392,5 @@ gate-1: gate1-runtime-hygiene
 	@test -f gate1/reports/GATE_1_POST_MERGE_INTEGRITY_AUDIT.md
 	@echo "GATE_1_LOCAL_AUTOMATION_PASS GATE_1_REMOTE_CI_PENDING GATE_1_PHYSICAL_EVIDENCE_PENDING (not GATE_1_PASS without accepted physical evidence)"
 
+next-work-packet:
+	python3 scripts/next_work_packet.py

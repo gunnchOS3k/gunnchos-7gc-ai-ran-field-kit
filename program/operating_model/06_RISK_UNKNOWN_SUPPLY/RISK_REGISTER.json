@@ -1,0 +1,126 @@
+{
+  "schema": "gunnchos.risk_register.v1",
+  "formula": "likelihood*impact*late_discovery_cost",
+  "risks": [
+    {
+      "id": "RISK-001",
+      "title": "COM-HPC carrier integration/vendor collateral",
+      "likelihood": 3,
+      "impact": 5,
+      "late_discovery_cost": 5,
+      "score": 75,
+      "owner": "hardware",
+      "next_experiment": "vendor collateral + DFM + EVT bring-up"
+    },
+    {
+      "id": "RISK-002",
+      "title": "Dock USB4/TB4 SI / restricted collateral",
+      "likelihood": 4,
+      "impact": 5,
+      "late_discovery_cost": 5,
+      "score": 100,
+      "owner": "hardware",
+      "next_experiment": "SI/DFM + EVT measurement"
+    },
+    {
+      "id": "RISK-003",
+      "title": "DS-XL dual-display hinge/flex",
+      "likelihood": 4,
+      "impact": 4,
+      "late_discovery_cost": 5,
+      "score": 80,
+      "owner": "hardware",
+      "next_experiment": "mechanical/flex DFM + cycle test"
+    },
+    {
+      "id": "RISK-004",
+      "title": "Handheld 32GB storage headroom",
+      "likelihood": 5,
+      "impact": 4,
+      "late_discovery_cost": 4,
+      "score": 80,
+      "owner": "hardware/device-os",
+      "next_experiment": "close NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001"
+    },
+    {
+      "id": "RISK-005",
+      "title": "Battery/thermal under AI + gaming",
+      "likelihood": 4,
+      "impact": 5,
+      "late_discovery_cost": 5,
+      "score": 100,
+      "owner": "hardware/device-os",
+      "next_experiment": "EVT power/thermal characterization"
+    },
+    {
+      "id": "RISK-006",
+      "title": "Antenna/RF coexistence",
+      "likelihood": 4,
+      "impact": 5,
+      "late_discovery_cost": 5,
+      "score": 100,
+      "owner": "hardware/connectivity",
+      "next_experiment": "RF review + pre-scan + EVT"
+    },
+    {
+      "id": "RISK-007",
+      "title": "Ring spatial drift/wrong-target",
+      "likelihood": 5,
+      "impact": 5,
+      "late_discovery_cost": 5,
+      "score": 125,
+      "owner": "edge-io/device-os",
+      "next_experiment": "physical multimodal tracking experiment"
+    },
+    {
+      "id": "RISK-008",
+      "title": "Local AI target performance",
+      "likelihood": 4,
+      "impact": 4,
+      "late_discovery_cost": 4,
+      "score": 64,
+      "owner": "gunnchAI/device-os",
+      "next_experiment": "EVT TTFT/tokens-s/RAM/power"
+    },
+    {
+      "id": "RISK-009",
+      "title": "Graphics/compositor target hardware",
+      "likelihood": 3,
+      "impact": 5,
+      "late_discovery_cost": 4,
+      "score": 60,
+      "owner": "device-os",
+      "next_experiment": "target GPU/display soak"
+    },
+    {
+      "id": "RISK-010",
+      "title": "Suspend/resume",
+      "likelihood": 4,
+      "impact": 4,
+      "late_discovery_cost": 4,
+      "score": 64,
+      "owner": "device-os/games",
+      "next_experiment": "target-hardware soak"
+    },
+    {
+      "id": "RISK-011",
+      "title": "Modem/carrier/certification",
+      "likelihood": 4,
+      "impact": 5,
+      "late_discovery_cost": 5,
+      "score": 100,
+      "owner": "connectivity/hardware",
+      "next_experiment": "RM520N-GL EVT + carrier/cert plan"
+    },
+    {
+      "id": "RISK-012",
+      "title": "Human preference for DS-XL/Rings",
+      "likelihood": 3,
+      "impact": 4,
+      "late_discovery_cost": 3,
+      "score": 36,
+      "owner": "product",
+      "next_experiment": "recurring human study"
+    }
+  ]
+}

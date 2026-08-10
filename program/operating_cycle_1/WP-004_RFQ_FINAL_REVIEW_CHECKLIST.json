@@ -1,0 +1,204 @@
+{
+  "schema": "gunnchos.operating_cycle_1.wp004_rfq_final_review_checklist.v1",
+  "work_packet": "WP-004",
+  "generated_at_utc": "2026-08-10T14:24:37Z",
+  "implementer_role": "PREPARATION_AGENT",
+  "verifier_owns": "VP-004-RFQ-RESULT.json",
+  "baselines": {
+    "field_kit_main": "d1922f69bda04f01f47f762d209c36734116f5ce",
+    "field_kit_pr": 55,
+    "hardware_accepted_tip": "8705f5a25065e02c7513e990a43e4762967906c5",
+    "hardware_pr": 53,
+    "cont_ix_manufacturing_lock": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
+    "cont_ix_pr": 52
+  },
+  "package_roots": {
+    "student_14_5": "npi/student_14_5/",
+    "ds_xl_coder": "npi/ds_xl_coder/",
+    "handheld_hybrid": "npi/handheld_hybrid/",
+    "edge_io_rings": "npi/edge_io_rings/",
+    "first_party_dock": "npi/first_party_dock/"
+  },
+  "checks": [
+    {
+      "id": "C01",
+      "item": "Exact five product/manufacturer package roots present",
+      "pass": true,
+      "evidence": [
+        "student_14_5",
+        "ds_xl_coder",
+        "handheld_hybrid",
+        "edge_io_rings",
+        "first_party_dock"
+      ]
+    },
+    {
+      "id": "C02",
+      "item": "Every RFQ manifest resolves; attachments exist",
+      "pass": true,
+      "evidence": "scripts/validate_rfq_packages.py"
+    },
+    {
+      "id": "C03",
+      "item": "Cont IX gerber/PnP/STEP/drill hashes match at hardware tip",
+      "pass": true,
+      "evidence": "320/320 hash checks identical at tip vs Cont IX lock"
+    },
+    {
+      "id": "C04",
+      "item": "BOM/PnP/Gerber/drill/STEP/test docs revision-consistent with accepted tip",
+      "pass": true,
+      "evidence": "pointers updated to 8705f5a25065e02c7513e990a43e4762967906c5; manufacturing bytes unchanged from cd1d906c5f08eb26c350851a4faeb05e2bf2e79f"
+    },
+    {
+      "id": "C05",
+      "item": "Confidentiality markings on cover letters",
+      "pass": true,
+      "evidence": "CONFIDENTIAL \u2014 gunnchOS3k internal / Edmund review only"
+    },
+    {
+      "id": "C06",
+      "item": "Recipient/portal research sourced (no invented contacts)",
+      "pass": true,
+      "evidence": "program/operating_cycle_1/RECIPIENT_PORTAL_RESEARCH.json"
+    },
+    {
+      "id": "C07",
+      "item": "NDA decision points documented",
+      "pass": true,
+      "evidence": "RECIPIENT_PORTAL_RESEARCH.json#nda_decision_points + VENDOR_COLLATERAL_MATRIX"
+    },
+    {
+      "id": "C08",
+      "item": "Quote response schema present",
+      "pass": true,
+      "evidence": "program/operating_cycle_1/QUOTE_RESPONSE_SCHEMA.json"
+    },
+    {
+      "id": "C09",
+      "item": "DFM question list indexed",
+      "pass": true,
+      "evidence": "program/operating_cycle_1/DFM_QUESTION_INDEX.json"
+    },
+    {
+      "id": "C10",
+      "item": "Shipping/quantity scenarios present",
+      "pass": true,
+      "evidence": "SHIPPING_QUANTITY_SCENARIOS.json + EVT_QUANTITY_SCENARIOS.json"
+    },
+    {
+      "id": "C11",
+      "item": "No stale hardware tip SHAs in RFQ packages",
+      "pass": true,
+      "evidence": "validator stale_accepted_hardware_sha checks"
+    },
+    {
+      "id": "C12",
+      "item": "Known Handheld storage NPI defect disclosed (not hidden)",
+      "pass": true,
+      "evidence": "handheld cover + risk R-HAN-06 + NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001"
+    },
+    {
+      "id": "C13",
+      "item": "PHYSICAL_EXECUTION_FREEZE reaffirmed",
+      "pass": true,
+      "evidence": "ACTIVE in validation + ACCEPTED_MAIN_LOCK"
+    },
+    {
+      "id": "C14",
+      "item": "No external send / purchase / fab authorization",
+      "pass": true,
+      "evidence": "RFQ_SENT=false rfq_external_send_authorization=false purchase_authorized=false"
+    },
+    {
+      "id": "C15",
+      "item": "Operating model install (ACTIVE_WIP WP-002/003/004, freeze, WIP limits, next-work-packet)",
+      "pass": true,
+      "evidence": {
+        "schema": "gunnchos.operating_cycle.active_wip.v1",
+        "cycle": 1,
+        "generated_at": "2026-08-10T14:18:52Z",
+        "BROAD_COMPLETION_PHASES_FROZEN": true,
+        "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
+        "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
+        "active": [
+          "WP-002",
+          "WP-003",
+          "WP-004"
+        ],
+        "status": {
+          "WP-002": "ACTIVE",
+          "WP-003": "ACTIVE",
+          "WP-004": "ACTIVE"
+        }
+      }
+    },
+    {
+      "id": "C16",
+      "item": "PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS genuine (not fabricated)",
+      "pass": true,
+      "evidence": "program/frontier_parity/TOKENS.json / phase_xv accepted-main ledger"
+    }
+  ],
+  "RFQ_PACKAGE_DIGITAL_DEFECTS": 0,
+  "READY_FOR_EDMUND_RFQ_SEND_REVIEW": true,
+  "READY_TO_SEND_RFQS": true,
+  "RFQ_SENT": false,
+  "PURCHASED": false,
+  "FABRICATING": false,
+  "PHYSICAL_EXECUTION_FREEZE": "ACTIVE",
+  "rfq_external_send_authorization": false,
+  "purchase_authorized": false,
+  "BROAD_COMPLETION_PHASES_FROZEN": true,
+  "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
+  "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
+  "ACTIVE_WIP": [
+    "WP-002",
+    "WP-003",
+    "WP-004"
+  ],
+  "PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS": true,
+  "open_dependencies": [
+    {
+      "id": "WP-002",
+      "status": "ACTIVE",
+      "note": "Handheld storage headroom defect open; disclosed; blocks_rfq_send=false"
+    },
+    {
+      "id": "WP-003",
+      "status": "ACTIVE",
+      "note": "Sibling workstream; no blocking owner PR required for WP-004 digital review"
+    },
+    {
+      "id": "A06",
+      "status": "HUMAN",
+      "note": "Manufacturer shortlist selection before external send"
+    },
+    {
+      "id": "A07",
+      "status": "HUMAN",
+      "note": "RFQ send approvals \u2014 required before RFQ_SENT"
+    }
+  ],
+  "digital_defects_fixed_this_cycle": [
+    "Updated RFQ/release/PCB pointers from Cont IX lock-only SHA to accepted hardware tip 8705f5a (#53)",
+    "Added CONFIDENTIAL markings to all five RFQ cover letters",
+    "Disclosed NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001 in handheld cover + risk register",
+    "Extended validator for tip SHA, confidentiality, handheld defect disclosure, forbidden RFQ_SENT/PURCHASED/FABRICATING tokens"
+  ],
+  "draft_pr": {
+    "repo": "gunnchos-7gc-ai-ran-field-kit",
+    "number": 56,
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/56",
+    "branch": "operating-cycle-1/bootstrap-wp002-003-004",
+    "sha": "68c2584d4747ca6c56287cd672d37d65058d8055",
+    "isDraft": true,
+    "autoMergeRequest": null,
+    "depends_on": [
+      "WP-002",
+      "WP-003",
+      "A06",
+      "A07"
+    ]
+  }
+}

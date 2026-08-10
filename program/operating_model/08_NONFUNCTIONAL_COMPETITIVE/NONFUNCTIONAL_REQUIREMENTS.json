@@ -1,0 +1,129 @@
+{
+  "schema": "gunnchos.nonfunctional_requirements.v1",
+  "rule": "Numeric unknowns remain TARGET_TBD until frozen before EVT.",
+  "dimensions": [
+    "reliability",
+    "performance",
+    "availability",
+    "security",
+    "privacy",
+    "accessibility",
+    "battery",
+    "thermal",
+    "noise",
+    "boot",
+    "resume",
+    "networking",
+    "storage",
+    "maintainability",
+    "repairability",
+    "supportability"
+  ],
+  "targets": [
+    {
+      "id": "NFR-BOOT-001",
+      "scope": "compute devices",
+      "metric": "cold_boot_to_usable_p95_s",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-RESUME-001",
+      "scope": "compute devices",
+      "metric": "resume_to_interactive_p95_s",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-APP-001",
+      "scope": "gunnchOS",
+      "metric": "critical_app_launch_p95_s",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-CRASH-001",
+      "scope": "gunnchOS",
+      "metric": "crash_free_active_hours",
+      "target": "TARGET_TBD",
+      "evidence": "E8"
+    },
+    {
+      "id": "NFR-RING-001",
+      "scope": "Rings",
+      "metric": "false_destructive_action_rate",
+      "target": "TARGET_TBD",
+      "evidence": "E5/E6"
+    },
+    {
+      "id": "NFR-RING-002",
+      "scope": "Rings",
+      "metric": "input_latency_p95_ms",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-GAME-001",
+      "scope": "compute devices",
+      "metric": "frame_time_p95_ms_by_profile",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-AI-001",
+      "scope": "gunnchAI",
+      "metric": "local_first_token_p95_ms_by_tier",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-AI-002",
+      "scope": "gunnchAI",
+      "metric": "local_tokens_per_second_by_tier",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-BATT-001",
+      "scope": "Student",
+      "metric": "golden_student_day_runtime_hours",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-BATT-002",
+      "scope": "Handheld",
+      "metric": "game_runtime_hours_by_profile",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-THERM-001",
+      "scope": "compute devices",
+      "metric": "surface_temperature_limits",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-NET-001",
+      "scope": "connectivity",
+      "metric": "handoff_interruption_p95_ms",
+      "target": "TARGET_TBD",
+      "evidence": "E5"
+    },
+    {
+      "id": "NFR-UPDATE-001",
+      "scope": "gunnchOS",
+      "metric": "failed_update_user_data_loss",
+      "target": "0",
+      "evidence": "E4/E5"
+    },
+    {
+      "id": "NFR-A11Y-001",
+      "scope": "Golden Journeys",
+      "metric": "critical_task_completion_with_supported_accessibility_path",
+      "target": "100%",
+      "evidence": "E6"
+    }
+  ]
+}
