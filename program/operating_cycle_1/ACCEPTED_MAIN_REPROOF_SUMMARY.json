@@ -1,0 +1,67 @@
+{
+  "schema": "gunnchos.operating_cycle.accepted_main_reproof_summary.v1",
+  "cycle": 1,
+  "work_packet": "WP-003",
+  "generated_at": "2026-08-10T15:45:00Z",
+  "device_os_accepted_main": {
+    "sha": "d0fdd8c3ac66c927f6d83962e82de22b2ca9a1cc",
+    "merged_pr": 82,
+    "note": "CI repair after #81 red merge (G02 soffice-absent durable path)"
+  },
+  "reproof_artifacts": {
+    "owner_repo": "gunnchos-device-os",
+    "draft_pr": 83,
+    "draft_pr_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/83",
+    "draft_head_sha": "7545690ad2f0892328c1028876962a1605fbad73",
+    "state": "OPEN_DRAFT",
+    "owner_paths": [
+      "quality/golden_journeys/verifier/ACCEPTED_MAIN_REPROOF.json",
+      "quality/golden_journeys/verifier/INDEPENDENT_GOLDEN_ACCEPTANCE_RESULTS.md",
+      "quality/golden_journeys/verifier/RESULTS.md"
+    ]
+  },
+  "results": {
+    "DIGITAL_INDEPENDENT_V1": "PASS",
+    "full_physical_human_v1": "FAIL",
+    "overall_result": "FAIL",
+    "competitor_matrix_review": "ACCEPT",
+    "frontier_parity_claimed": false,
+    "G02_libreoffice_honesty_holds": true
+  },
+  "journey_independent": {
+    "GOLDEN-01": "PASS",
+    "GOLDEN-02": "PASS",
+    "GOLDEN-03": "PASS",
+    "GOLDEN-04": "PHYSICAL_PARTIAL",
+    "GOLDEN-05": "PASS",
+    "GOLDEN-06": "PHYSICAL_PARTIAL",
+    "GOLDEN-07": "PHYSICAL_PARTIAL",
+    "GOLDEN-08": "HUMAN_PARTIAL",
+    "GOLDEN-09": "PASS",
+    "GOLDEN-10": "PASS"
+  },
+  "related_baselines": {
+    "hardware_main_sha": "3db783633321e54061575ee90a74778b0e914b55",
+    "hardware_note": "VP-002 PASS (#55)",
+    "field_kit_pr_58": {
+      "state": "MERGED",
+      "merge_sha": "e24db6d0ff7bba3601e8343e07b550b125afe4f2",
+      "note": "Was intended DRAFT; merged before accepted-main reproof aggregation"
+    }
+  },
+  "wip_honesty": {
+    "WP-003_digital_gate": "READY_FOR_EDMUND_CLOSE",
+    "WP-003_note": "Digital gate may close after Edmund reviews; merge device-os #83 if desired to land reproof artifacts. Do not auto-start WP-005+.",
+    "WP-004": "READY_FOR_EDMUND_RFQ_SEND_REVIEW",
+    "RFQ_SENT": false,
+    "WP-005_plus_started": false,
+    "frontier_parity": false
+  },
+  "field_kit_aggregation": {
+    "report": "program/operating_cycle_1/CYCLE_1_REPORT.md",
+    "active_wip": "program/operating_model/ACTIVE_WIP.json",
+    "keep_draft": true,
+    "do_not_merge_automatically": true,
+    "do_not_send_rfqs": true
+  }
+}

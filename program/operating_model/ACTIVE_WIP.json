@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.operating_cycle.active_wip.v1",
   "cycle": 1,
-  "generated_at": "2026-08-10T15:20:00Z",
+  "generated_at": "2026-08-10T15:45:00Z",
   "BROAD_COMPLETION_PHASES_FROZEN": true,
   "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
   "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
@@ -12,7 +12,7 @@
   ],
   "status": {
     "WP-002": "VERIFIER_PASS_PENDING_EDMUND_NPI_CLOSE",
-    "WP-003": "DIGITAL_INDEPENDENT_V1_PASS_FULL_V1_FAIL_DRAFT_81_OPEN",
+    "WP-003": "DIGITAL_INDEPENDENT_V1_PASS_ON_ACCEPTED_MAIN_FULL_V1_FAIL_READY_FOR_EDMUND_CLOSE",
     "WP-004": "VERIFIER_PASS_READY_FOR_EDMUND_RFQ_SEND_REVIEW"
   },
   "verifier_results": {
@@ -22,19 +22,22 @@
       "evidence_level": "E4",
       "owner_artifact": "gunnchos-hardware-industrial-design/npi/phase_xv/handheld_storage_headroom/VP-002-RESULT.json",
       "owner_pr": "hardware#55",
-      "accepted_main_reproof": "PENDING"
+      "accepted_main_sha": "3db783633321e54061575ee90a74778b0e914b55",
+      "accepted_main_reproof": "PASS_VIA_VP002_ON_HARDWARE_MAIN"
     },
     "WP-003": {
       "packet": "VP-003",
       "digital_independent_v1": "PASS",
       "full_physical_human_v1": "FAIL",
       "overall_result": "FAIL",
-      "product_tip": "6ffab227bfe314903dfd7018e35b6524f2136503",
-      "verifier_commit": "efcdc246b0b40ab7f2a6c5ae786f1625530441c3",
-      "owner_pr": "device-os#81",
-      "owner_pr_state": "OPEN_DRAFT",
-      "accepted_main_reproof": "PENDING",
-      "note": "DIGITAL_INDEPENDENT_V1 PASS recorded on draft tip only; not promoted as accepted-main evidence."
+      "accepted_main_sha": "d0fdd8c3ac66c927f6d83962e82de22b2ca9a1cc",
+      "accepted_main_merged_pr": 82,
+      "reproof_artifacts_draft_pr": 83,
+      "reproof_artifacts_draft_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/83",
+      "reproof_artifacts_draft_head": "7545690ad2f0892328c1028876962a1605fbad73",
+      "accepted_main_reproof": "PASS",
+      "G02_libreoffice_honesty_holds": true,
+      "note": "DIGITAL_INDEPENDENT_V1 PASS on accepted main d0fdd8c… after #82. Full physical/human V1 FAIL. Digital gate READY_FOR_EDMUND_CLOSE; Edmund may merge #83 to land reproof artifacts. Do not auto-start next packet."
     },
     "WP-004": {
       "packet": "VP-004",
@@ -44,8 +47,9 @@
       "field_kit_pr": 56,
       "field_kit_tip_at_verify": "a56aaec33b80a213f1264e0ef0a5ea50e1138a81",
       "field_kit_merged_tip": "7e381fa4c5ada97694726057d98488a115f78e02",
+      "READY_FOR_EDMUND_RFQ_SEND_REVIEW": true,
       "RFQ_SENT": false,
-      "accepted_main_reproof": "PENDING_AFTER_OWNER_MERGES"
+      "accepted_main_reproof": "PASS_PACKAGE_ON_FIELD_KIT_MAIN_SEND_STILL_BLOCKED"
     }
   },
   "do_not_start": [
