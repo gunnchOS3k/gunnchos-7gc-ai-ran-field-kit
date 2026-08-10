@@ -1,0 +1,136 @@
+{
+  "schema": "gunnchos.phase_xiv.pre_evt.budget_recheck.v1",
+  "generated_at_utc": "2026-08-10T01:52:14Z",
+  "source_budgets": "program/frontier_parity/stage2/BUDGETS.json",
+  "stage2_storage_reference_gb": {
+    "system_slot_a": 12,
+    "system_slot_b": 12,
+    "recovery": 4,
+    "models_multi_tier": 20,
+    "embeddings_index": 5,
+    "memory_db": 2,
+    "projects": 10,
+    "flatpak_runtimes": 15,
+    "games": 40,
+    "update_reserve": 8
+  },
+  "stage2_storage_reference_total_gb": 128,
+  "phase_xiv_storage_expanded_gb": {
+    "slot_a": 12,
+    "slot_b": 12,
+    "recovery": 4,
+    "apps": 8,
+    "flatpak_runtimes": 15,
+    "games": 40,
+    "ai_nano_fast_pro": 20,
+    "vision_speech_models": 6,
+    "embeddings": 5,
+    "project_indexes": 5,
+    "waike": 4,
+    "archive": 8,
+    "user_reserve": 20,
+    "update_reserve": 8
+  },
+  "phase_xiv_storage_expanded_total_gb": 167,
+  "phase_xiv_storage_handheld_reduced_gb": {
+    "slot_a": 5,
+    "slot_b": 5,
+    "recovery": 2,
+    "apps_flatpak": 4,
+    "games_local_cache": 6,
+    "ai_nano_fast": 4,
+    "vision_speech": 1,
+    "embeddings": 0.5,
+    "project_indexes": 0.5,
+    "update_reserve": 2,
+    "user_reserve": 1.5
+  },
+  "phase_xiv_storage_handheld_total_gb": 31.5,
+  "storage_by_sku": {
+    "Student": {
+      "hw_storage_gb": 512,
+      "hw_source": "PC801/WD SN740 class 512GB NVMe",
+      "profile": "stage2_reference_plus_phase_xiv_expanded",
+      "required_gb": 167,
+      "stage2_reference_gb": 128,
+      "mathematically_sufficient": true
+    },
+    "DS-XL": {
+      "hw_storage_gb": 512,
+      "hw_source": "512GB_PCIe4 NVMe",
+      "profile": "stage2_reference_plus_phase_xiv_expanded",
+      "required_gb": 167,
+      "stage2_reference_gb": 128,
+      "mathematically_sufficient": true
+    },
+    "Handheld": {
+      "hw_storage_gb": 32,
+      "hw_source": "Radxa RM121-D8E32 32GB eMMC (preferred)",
+      "profile": "handheld_class_reduced",
+      "required_gb": 31.5,
+      "stage2_full_reference_gb": 128,
+      "stage2_full_reference_fits": false,
+      "mathematically_sufficient": true,
+      "note": "Full Stage 2 reference storage (Student/DS-XL class) does not apply to Handheld SKU; class-reduced profile required. Alternate RM121-D8E16 (16GB eMMC) is mathematically insufficient for frontier Handheld profile \u2014 do not select for EVT0 preferred config.",
+      "alternate_16gb_sufficient": false
+    }
+  },
+  "ram_by_sku": {
+    "Student": {
+      "composition": "shell + browser + office + meeting + Local Fast AI + sync",
+      "parts_gb": {
+        "shell": 0.8,
+        "browser": 1.5,
+        "office": 1.2,
+        "meeting": 1.0,
+        "local_fast_ai": 2.0,
+        "sync": 0.5
+      },
+      "stage2_total_budget_gb": 8,
+      "hw_ram_gb": 32,
+      "hw_source": "ADLINK COM-HPC-mMTL-155H-32G",
+      "concurrent_sum_gb": 7.0,
+      "fits_stage2_budget": true,
+      "fits_hw": true,
+      "mathematically_sufficient": true
+    },
+    "DS-XL": {
+      "composition": "shell + IDE + build + docs + Local Pro AI + logs",
+      "parts_gb": {
+        "shell": 1.0,
+        "ide": 2.0,
+        "build": 2.0,
+        "docs": 1.5,
+        "local_pro_ai": 4.0,
+        "logs": 0.8
+      },
+      "stage2_total_budget_gb": 16,
+      "hw_ram_gb": 32,
+      "hw_source": "ADLINK COM-HPC-mMTL-155H-32G (shared)",
+      "concurrent_sum_gb": 11.3,
+      "fits_stage2_budget": true,
+      "fits_hw": true,
+      "mathematically_sufficient": true
+    },
+    "Handheld": {
+      "composition": "game + gunnchPlay + network + voice + AI coach",
+      "parts_gb": {
+        "game": 2.5,
+        "gunnch_play": 0.8,
+        "network": 0.3,
+        "voice": 0.4,
+        "ai_coach": 1.5
+      },
+      "stage2_total_budget_gb": 8,
+      "hw_ram_gb": 8,
+      "hw_source": "Radxa RM121-D8E32 (8GB LPDDR4X)",
+      "concurrent_sum_gb": 5.5,
+      "fits_stage2_budget": true,
+      "fits_hw": true,
+      "mathematically_sufficient": true
+    }
+  },
+  "NPI_DEFECTS": [],
+  "NPI_DEFECT_OPENED": false,
+  "verdict": "MATHEMATICALLY_SUFFICIENT_PREFERRED_SKUS"
+}
