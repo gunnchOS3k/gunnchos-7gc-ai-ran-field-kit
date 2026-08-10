@@ -1,0 +1,80 @@
+{
+  "schema": "gunnchos.operating_cycle.wp003r1_aggregation_summary.v1",
+  "cycle": 1,
+  "work_packet": "WP-003R.1",
+  "generated_at": "2026-08-10T20:35:00Z",
+  "supersedes_field_kit_prs": [61],
+  "notes_field_kit_prs": {
+    "61": "MERGED WP-003R aggregate — superseded by this WP-003R.1 final report DRAFT",
+    "62": "MERGED ACTIVE_WIP mark for WP-003R.1 — already on main; status updated here to VERIFIER_PASS_PENDING_EDMUND"
+  },
+  "device_os": {
+    "product_tip_sha": "645d31a6b795b461afb1c66982b1402ffa373237",
+    "accepted_main_sha": "801b332ba2025b5ddfd8f85cebbafa2c2c368e02",
+    "accepted_main_merged_pr": 88,
+    "tip_is_ancestor_of_origin_main": true,
+    "integrity_merged_pr": 87,
+    "artifact_draft_pr": 89,
+    "artifact_draft_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/89",
+    "artifact_is_draft": true,
+    "auto_merge": false
+  },
+  "vp003r1": {
+    "overall_result": "PASS",
+    "GJ_DEFECT_005": "CLOSED_INDEPENDENT_PASS",
+    "COMPETITOR_MATRIX_CONTRADICTIONS": 0,
+    "owner_result": "gunnchos-device-os/quality/golden_journeys/verifier/VP-003R.1-RESULT.json",
+    "G01": "PASS E4/D6",
+    "G02": "PASS E4/D6",
+    "G03": "PASS E4/D6",
+    "G04": "PASS E4/D6 PHYSICAL_DOCK_PENDING",
+    "G05": "PASS E4/D6",
+    "G06": "PASS E4/D6 PHYSICAL_PANELS_PENDING",
+    "G07": "PASS E4/D6 PHYSICAL_RING_PENDING",
+    "G08": "PASS E4/D6 HUMAN_TUTORING_PENDING",
+    "G09": "PASS E4/D5",
+    "G10": "PASS E4/D6",
+    "VF2_REQUIRED_GOLDEN_BACKENDS": "PASS",
+    "VF2_UNPRIVILEGED_FALLBACK": "AVAILABLE",
+    "VF3": "MODELED_ONLY",
+    "VF4": "PHYSICAL_PENDING",
+    "VF5": "PHYSICAL_PENDING",
+    "VF6": "PHYSICAL_PENDING"
+  },
+  "claim_boundary": {
+    "SOFTWARE_WORKFLOW_PERIPHERAL": "digitally verified to Independent E4/D6 including privileged G04 net+audio reference",
+    "CPU_GPU_NPU_BATTERY_THERMAL_RF": "modeled or simulated only",
+    "PHYSICAL_CORRELATION": "not calibrated until EVT",
+    "physically_validated": false,
+    "human_validated": false,
+    "frontier_parity_claimed": false,
+    "logical_fallback_is_not_e4_g04_reference": true,
+    "RFQ_SENT": false
+  },
+  "wip_honesty": {
+    "WP-003R.1": "VERIFIER_PASS_PENDING_EDMUND",
+    "Cycle_1_digital_ready_to_close": "YES_IF_EDMUND_ACCEPTS_VP003R1",
+    "Cycle_1_physical_human": "OPEN",
+    "WP-005_plus_started": false,
+    "keep_draft": true,
+    "do_not_merge_automatically": true,
+    "do_not_send_rfqs": true
+  },
+  "edmund_merge_order": [
+    "Optionally merge device-os DRAFT #89",
+    "Optionally merge this field-kit final aggregate DRAFT",
+    "Decide Cycle 1 digital close; do not auto-start next packets"
+  ],
+  "next_ready_display_only": [
+    {"id": "WP-010", "score": 21, "title": "EVT0 fixture/instrument readiness"},
+    {"id": "WP-001", "score": 20, "title": "Freeze EVT0 configuration manifest"},
+    {"id": "WP-007", "score": 19, "title": "Independent security/red-team readiness"},
+    {"id": "WP-006", "score": 18, "title": "License release gate first complete audit"},
+    {"id": "WP-008", "score": 17, "title": "Freeze EVT NFR targets"}
+  ],
+  "field_kit_aggregation": {
+    "report": "program/operating_cycle_1/WP-003R1_REPORT.md",
+    "active_wip": "program/operating_model/ACTIVE_WIP.json",
+    "keep_draft": true
+  }
+}
