@@ -1,10 +1,12 @@
 # Operating Cycle 1 — Final Report
 
 **Generated:** 2026-08-10T15:20:00Z  
-**Field-kit Cycle 1 final-report draft:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) tip `c5c9483794856616b609b4f877a261f3c49ae721`  
+**Addendum:** 2026-08-10T15:35:00Z — device-os CI repair draft [#82](https://github.com/gunnchOS3k/gunnchos-device-os/pull/82) after #81 merged red  
+**Field-kit Cycle 1 final report:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) **MERGED** (`84a5c9ef8b4f0b4bbb6a9003ea8eba41c55c22d0`)  
+**Field-kit Cycle 1 #82-addendum draft:** [#58](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/58) tip `TIP_PLACEHOLDER`  
 **Control plane:** `gunnchos-7gc-ai-ran-field-kit`  
 **Cycle scope:** Bootstrap permanent operating model + WP-002 / WP-003 / WP-004 only  
-**Promotion honesty:** Owner merges + accepted-main reproof remain pending before final field-kit promotion claims. Frontier parity tokens remain **false**. RFQs were **not** sent.
+**Promotion honesty:** Owner merges + accepted-main reproof remain pending before final field-kit promotion claims. Frontier parity tokens remain **false**. RFQs were **not** sent. WP-005+ not opened.
 
 ---
 
@@ -14,10 +16,10 @@ Cycle-start references (Phase XV). Where `origin/main` advanced during the cycle
 
 | Repo | Cycle-start SHA / PR | Current `origin/main` (verified) | Latest merged PR on tip |
 |---|---|---|---|
-| `gunnchos-device-os` | `42128e4472fc2f40046100a062e6677633d62f7b` (#77) | `89aefb65ea86a9e3847efb3fb0e064b6e0327b7c` | #80 (VP-003 initial FAIL results) |
+| `gunnchos-device-os` | `42128e4472fc2f40046100a062e6677633d62f7b` (#77) | `e609a2f7ee99e3902b351446ad56298aec7060b9` | #81 (digital D6 remediation; merged with red test/gate1) |
 | `gunnchAI3k` | `a28c35c82b45b0a8bfb97648b5941bf0a6b52163` (#30) | `a28c35c82b45b0a8bfb97648b5941bf0a6b52163` | #30 (unchanged) |
 | `gunnchos-hardware-industrial-design` | `8705f5a25065e02c7513e990a43e4762967906c5` (#53) | `3db783633321e54061575ee90a74778b0e914b55` | #55 (VP-002 PASS) |
-| `gunnchos-7gc-ai-ran-field-kit` | `d1922f69bda04f01f47f762d209c36734116f5ce` (#55) | `731edc401c46e44cc6d23200490211081b59a239` | #56 (bootstrap + WP-004 + VP-004) |
+| `gunnchos-7gc-ai-ran-field-kit` | `d1922f69bda04f01f47f762d209c36734116f5ce` (#55) | `84a5c9ef8b4f0b4bbb6a9003ea8eba41c55c22d0` | #57 (Cycle 1 final report) |
 
 **Cycle-start token verify (still true on field-kit main / Phase XV ledger):**
 
@@ -58,7 +60,7 @@ WIP_LIMIT: 3
 | Packet | Status (post-verifier) |
 |---|---|
 | WP-002 | `VERIFIER_PASS_PENDING_EDMUND_NPI_CLOSE` |
-| WP-003 | `DIGITAL_INDEPENDENT_V1_PASS_FULL_V1_FAIL_DRAFT_81_OPEN` |
+| WP-003 | `DIGITAL_INDEPENDENT_V1_PASS_FULL_V1_FAIL_CI_REPAIR_DRAFT_82_OPEN` |
 | WP-004 | `VERIFIER_PASS_READY_FOR_EDMUND_RFQ_SEND_REVIEW` |
 
 No WP-005+ started.
@@ -85,9 +87,11 @@ No WP-005+ started.
 
 **Infra:** device-os #79 MERGED (`aa13f2c…` / merge `a33232e…`).  
 **Initial independent run:** #80 MERGED — overall FAIL (several digital PARTIALs).  
-**Remediation + re-verify:** draft **#81** — product tip `6ffab227bfe314903dfd7018e35b6524f2136503`, verifier commit / PR head `efcdc246b0b40ab7f2a6c5ae786f1625530441c3`.
+**Remediation + re-verify:** **#81 MERGED** — product tip `6ffab227bfe314903dfd7018e35b6524f2136503`, verifier / PR head `efcdc246b0b40ab7f2a6c5ae786f1625530441c3`, merge `e609a2f7ee99e3902b351446ad56298aec7060b9`.  
+**Honesty:** #81 merged with **red** `test` + `gate1` (LibreOffice / `soffice` missing on CI runners — G02 office_workflow durable path).  
+**CI repair:** draft **#82** tip `f757cb425ba43c18b870c7ef566c8ac9a088d716` — accepts G02 durable on-disk ODT path when `soffice` is absent; **`test` + `gate1` green**; auto-merge **off**.
 
-**Cycle-1 digital gate (on #81 tip only):**
+**Cycle-1 digital gate (recorded on #81 tip; not yet closed on accepted main):**
 
 ```text
 DIGITAL_INDEPENDENT_V1 = PASS
@@ -109,9 +113,9 @@ frontier_parity_claimed = false
 | GOLDEN-09 | PASS | 2.0 | E4 | D5 | **PASS** | Digital A/B path; physical flash/boot SI still PHYSICAL_PENDING (IV PASS under digital policy) |
 | GOLDEN-10 | PASS | 1.67 | E4 | D6 | **PASS** | — |
 
-**CI on #81 (verified via `gh`):** `test` FAIL, `gate1` FAIL, `reality` pending/incomplete; Golden Journey scorecard workflows PASS. **Do not treat #81 as merge-ready until CI is green.**
+**CI timeline:** #81 merged red (`test`/`gate1` FAIL — LibreOffice missing). Draft #82 tip `f757cb4…` repairs G02 soffice absence; `test`+`gate1` SUCCESS; autoMergeRequest null.
 
-**Accepted-main note:** device-os `origin/main` still carries #80 FAIL result tip; DIGITAL_INDEPENDENT_V1 PASS is **draft-tip only** until #81 merges + accepted-main reproof.
+**Accepted-main / digital-gate close:** device-os `origin/main` is #81 merge `e609a2f…` (red CI at merge). **Edmund must merge #82, then run accepted-main reproof**, before closing the WP-003 digital gate. Do not claim DIGITAL_INDEPENDENT_V1 closed on accepted main until that reproof.
 
 ---
 
@@ -179,11 +183,13 @@ Light Cycle 1 updates only:
 | device-os | #78 | `72751a9c…` / merge `c7e7691…` | MERGED | all SUCCESS | null | companion hardware #54 |
 | device-os | #79 | `aa13f2c5…` / merge `a33232e…` | MERGED | all SUCCESS | null | WP-003 infra |
 | device-os | #80 | `3f230ff5…` / merge `89aefb65…` | MERGED | all SUCCESS | null | VP-003 initial FAIL on #79 tip |
-| device-os | #81 | `efcdc246…` | **OPEN DRAFT** | **test FAIL, gate1 FAIL, reality pending** | null | remediation after #80; product `6ffab227` + verifier re-run |
+| device-os | #81 | `efcdc246…` / merge `e609a2f7…` | **MERGED** (red CI) | **test FAIL, gate1 FAIL** at merge (LibreOffice/`soffice` missing) | null | remediation after #80; product `6ffab227` + verifier re-run |
+| device-os | #82 | `f757cb425ba43c18b870c7ef566c8ac9a088d716` | **OPEN DRAFT** | **test SUCCESS, gate1 SUCCESS** (G02 soffice-absent fix) | **off / null** | CI repair after #81 red merge; Edmund merge + accepted-main reproof before WP-003 digital gate close |
 | gunnchAI3k | #30 | `760fec63…` / merge `a28c35c8…` | MERGED | SUCCESS (1 neutral) | null | Phase XV baseline |
 | field-kit | #55 | `2f23bcdd…` / merge `d1922f69…` | MERGED | all SUCCESS | null | Phase XV LAST after device-os #77 |
 | field-kit | #56 | `7e381fa4…` / merge `731edc40…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | WP-002/003 parallel; RFQ review + VP-004 |
-| field-kit | #57 | `c5c9483794856616b609b4f877a261f3c49ae721` | **OPEN DRAFT** | see CI below | null | Cycle 1 report; depends_on owner #81 green + Edmund merges + accepted-main reproof before promotion |
+| field-kit | #57 | `2afdd47b…` / merge `84a5c9ef…` | **MERGED** | all SUCCESS at merge | null | Cycle 1 final report A–L |
+| field-kit | #58 | `TIP_PLACEHOLDER` | **OPEN DRAFT** | pending | null | Cycle 1 report addendum: record device-os #82; depends_on Edmund merge #82 + accepted-main reproof before promotion |
 
 ---
 
@@ -192,11 +198,11 @@ Light Cycle 1 updates only:
 True human / external actions only:
 
 1. **Review & accept VP-002 PASS** → mark `NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001` CLOSED_OUTCOME_A (or reject with rationale). Confirm required-microSD SKU/packaging implication.
-2. **Do not send RFQs** until human A06/A07 / NDA decisions complete; if sending later, use Edmund-only external action (Cursor must not send).
-3. **Review device-os #81** after CI is green; merge only if accepted; then require independent **accepted-main reproof** of DIGITAL_INDEPENDENT_V1.
+2. **Do not send RFQs** until human A06/A07 / NDA decisions complete; if sending later, use Edmund-only external action (Cursor must not send). `RFQ_SENT` remains **false**.
+3. **Merge device-os draft #82** (CI repair tip `f757cb4…`; `test`+`gate1` green; auto-merge off) — then require independent **accepted-main reproof** before closing the WP-003 digital gate. (#81 already merged with red CI; do not treat main as digitally closed yet.)
 4. **Decide physical/human backlog timing** for G04/G06/G07 (E5) and G08 (E6) — not Cycle 1 auto-start.
-5. **Review this Cycle 1 final-report draft PR** (and note #56 already merged): do **not** claim final field-kit promotion until owner merges + accepted-main reproof complete.
-6. Process observation: several Cycle 1 PRs merged before/without staying DRAFT-until-V1 — reinforce Edmund-only merge discipline going forward.
+5. **Review this Cycle 1 #82-addendum draft PR (#58)** (note #56/#57 already merged): do **not** claim final field-kit promotion until owner #82 merge + accepted-main reproof complete.
+6. Process observation: #81 merged red + several Cycle 1 PRs merged before/without staying DRAFT-until-V1 — reinforce Edmund-only merge discipline and green-CI-before-merge going forward.
 
 ---
 
@@ -230,6 +236,6 @@ After Edmund closes/merges Cycle 1 streams and WIP slots free, select **one** ne
 ## Stop / honesty footer
 
 - WP-002 / WP-004: independent verifier **PASS** (E4).
-- WP-003: **DIGITAL_INDEPENDENT_V1 PASS** on draft #81 tip; **full physical/human V1 FAIL**; CI not green.
+- WP-003: **DIGITAL_INDEPENDENT_V1 PASS** recorded on #81 tip; **full physical/human V1 FAIL**; #81 merged red; draft **#82** repairs CI (`test`+`gate1` green) — Edmund merge + accepted-main reproof still required before digital-gate close.
 - RFQ_SENT = false; frontier parity = false; WP-005+ not opened.
-- Field-kit final promotion claims remain **blocked** on owner merges + accepted-main reproof.
+- Field-kit final promotion claims remain **blocked** on owner #82 merge + accepted-main reproof.
