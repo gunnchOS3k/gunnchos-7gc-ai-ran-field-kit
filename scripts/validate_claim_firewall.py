@@ -365,6 +365,9 @@ def check_full_tokens(hits: list[str]) -> None:
         "FULL_DEPLOYMENT_COMPLETE",
         "FULL_OPERATIONAL_PRODUCT",
         "FULL_RING_FIRMWARE_DIGITAL_COMPLETE",
+        "GUNNCHOS_FRONTIER_OS_PARITY",
+        "GUNNCHAI_FRONTIER_PRODUCT_PARITY",
+        "GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY",
     }
     assertive = re.compile(
         r"(?i)(token_earned\s*[:=]\s*true|"
@@ -536,6 +539,49 @@ def _phase_xii_residual_register() -> dict[str, Any]:
     return {}
 
 
+
+def check_phase_xiii_frontier_parity(hits: list[str]) -> None:
+    """Reject assertive frontier parity tokens while TOKENS say false / gates incomplete."""
+    tokens_paths = [
+        ROOT / "program" / "frontier_parity" / "TOKENS.json",
+        ROOT / "artifacts" / "phase_xiii" / "TOKENS.json",
+    ]
+    token_doc = None
+    tp_used = None
+    for tp in tokens_paths:
+        if tp.exists():
+            token_doc = load_json(tp)
+            tp_used = tp
+            break
+    if token_doc is None:
+        return
+    ft = token_doc.get("frontier_tokens") or {}
+    for k in (
+        "GUNNCHOS_FRONTIER_OS_PARITY",
+        "GUNNCHAI_FRONTIER_PRODUCT_PARITY",
+        "GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY",
+        "REAL_USER_JOURNEY_PARITY",
+    ):
+        if ft.get(k) is True:
+            hits.append(
+                f"{tp_used}: frontier_tokens.{k}=true forbidden without completed Part Q gates"
+            )
+    scan = ROOT / "program" / "frontier_parity"
+    if not scan.exists():
+        return
+    assertive = re.compile(
+        r"(?i)(GUNNCHOS_FRONTIER_OS_PARITY|GUNNCHAI_FRONTIER_PRODUCT_PARITY|"
+        r"GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY)\s*[=:]\s*(true|TRUE|PASS|COMPLETE)"
+    )
+    for f in list(scan.rglob("*.md")) + list(scan.rglob("*.json")) + list(scan.rglob("*.yaml")):
+        body = f.read_text(encoding="utf-8", errors="ignore")
+        for i, line in enumerate(body.splitlines(), 1):
+            if ALLOW_LINE.search(line):
+                continue
+            if assertive.search(line) and not re.search(r":\s*false\b", line):
+                hits.append(f"{f.relative_to(ROOT)}:{i}: assertive frontier parity claim")
+
+
 def check_phase_xii_execution_depth(hits: list[str]) -> None:
     """Reject REAL_*_DAY_DIGITAL_PASS without Phase XII L4/L5 RJ evidence.
 
@@ -700,6 +746,7 @@ def main() -> int:
     check_cont_vii_umbrella(hits)
     check_stale_cont_vi_schema_copy(hits)
     check_phase_xii_execution_depth(hits)
+    check_phase_xiii_frontier_parity(hits)
 
     if hits:
         print("CLAIM_FIREWALL_FAIL")
