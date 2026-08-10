@@ -3,7 +3,7 @@
 **Generated:** 2026-08-10T15:20:00Z  
 **Addendum:** 2026-08-10T15:35:00Z — device-os CI repair draft [#82](https://github.com/gunnchOS3k/gunnchos-device-os/pull/82) after #81 merged red  
 **Field-kit Cycle 1 final report:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) **MERGED** (`84a5c9ef8b4f0b4bbb6a9003ea8eba41c55c22d0`)  
-**Field-kit Cycle 1 #82-addendum draft:** [#58](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/58) tip `TIP_PLACEHOLDER`  
+**Field-kit Cycle 1 #82-addendum draft:** [#58](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/58) tip `0d4781ef02e44d22b10cf476447f18a4e58e0a12`  
 **Control plane:** `gunnchos-7gc-ai-ran-field-kit`  
 **Cycle scope:** Bootstrap permanent operating model + WP-002 / WP-003 / WP-004 only  
 **Promotion honesty:** Owner merges + accepted-main reproof remain pending before final field-kit promotion claims. Frontier parity tokens remain **false**. RFQs were **not** sent. WP-005+ not opened.
@@ -189,7 +189,7 @@ Light Cycle 1 updates only:
 | field-kit | #55 | `2f23bcdd…` / merge `d1922f69…` | MERGED | all SUCCESS | null | Phase XV LAST after device-os #77 |
 | field-kit | #56 | `7e381fa4…` / merge `731edc40…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | WP-002/003 parallel; RFQ review + VP-004 |
 | field-kit | #57 | `2afdd47b…` / merge `84a5c9ef…` | **MERGED** | all SUCCESS at merge | null | Cycle 1 final report A–L |
-| field-kit | #58 | `TIP_PLACEHOLDER` | **OPEN DRAFT** | pending | null | Cycle 1 report addendum: record device-os #82; depends_on Edmund merge #82 + accepted-main reproof before promotion |
+| field-kit | #58 | `0d4781ef02e44d22b10cf476447f18a4e58e0a12` | **OPEN DRAFT** | pending | null | Cycle 1 report addendum: record device-os #82; depends_on Edmund merge #82 + accepted-main reproof before promotion |
 
 ---
 
