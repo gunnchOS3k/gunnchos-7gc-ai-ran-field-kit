@@ -1,0 +1,96 @@
+{
+  "schema": "gunnchos.operating_cycle.cycle_1_digital_close_decision.v1",
+  "cycle": 1,
+  "generated_at": "2026-08-10T21:00:00Z",
+  "decision": "CLOSED_ACCEPTED",
+  "authority": "EDMUND_USER_DIRECTION_2026-08-10",
+  "decision_scope": "DIGITAL_ONLY",
+  "verified_accepted_mains": {
+    "gunnchos-device-os": {
+      "sha": "99a9825e2d757cd36a6826ef253a8dbfc217f0ce",
+      "merged_pr": 89,
+      "known_closure_ref": "99a9825e2d757cd36a6826ef253a8dbfc217f0ce",
+      "newer_wins": "EQUALS_KNOWN_REF",
+      "note": "Merge of VP-003R.1 Independent PASS artifacts; contains prior product tip 645d31a… / #88 integrity main 801b332…"
+    },
+    "gunnchos-7gc-ai-ran-field-kit": {
+      "sha": "80230dce6d5cb437c595d0591883cc841c6de07d",
+      "merged_pr": 63,
+      "known_closure_ref": "80230dce6d5cb437c595d0591883cc841c6de07d",
+      "newer_wins": "EQUALS_KNOWN_REF",
+      "note": "Merge of WP-003R.1 final report aggregation"
+    },
+    "gunnchos-hardware-industrial-design": {
+      "sha": "3db783633321e54061575ee90a74778b0e914b55",
+      "merged_pr": 55,
+      "note": "VP-002 PASS E4 accepted main; unchanged vs Cycle 1 NPI close baseline"
+    },
+    "gunnchAI3k": {
+      "sha": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163",
+      "merged_pr": 30,
+      "note": "Competitive audit main; no Cycle 1 product tip change required for digital close"
+    }
+  },
+  "verified_tokens": {
+    "WP-002": "PASS",
+    "WP-002_evidence": "hardware VP-002-RESULT.json result=PASS evidence_level=E4 on main 3db7836… (#55)",
+    "WP-003_Independent": "PASS",
+    "WP-003R_Independent": "PASS",
+    "WP-003R.1_Independent": "PASS",
+    "WP-003R.1_evidence": "device-os VP-003R.1-RESULT.json overall_result=PASS on tip 645d31a… ⊆ main; artifacts merged via #89 → 99a9825…",
+    "WP-004": "READY_FOR_EDMUND_RFQ_SEND_REVIEW",
+    "WP-004_evidence": "field-kit VP-004-RFQ-RESULT.json result=PASS; tokens.READY_FOR_EDMUND_RFQ_SEND_REVIEW_earned=true",
+    "G01": "PASS E4/D6",
+    "G02": "PASS E4/D6",
+    "G03": "PASS E4/D6",
+    "G04": "PASS E4/D6",
+    "G05": "PASS E4/D6",
+    "G06": "PASS E4/D6",
+    "G07": "PASS E4/D6",
+    "G08": "PASS E4/D6",
+    "G09": "PASS E4/D5",
+    "G10": "PASS E4/D6",
+    "GJ-DEFECT-005": "CLOSED",
+    "GJ-DEFECT-006": "CLOSED",
+    "GJ-DEFECT-007": "CLOSED",
+    "GJ-DEFECT-008": "CLOSED",
+    "GJ_DEFECT_evidence": "device-os DEFECT_BACKLOG.json status=CLOSED_INDEPENDENT_PASS for 005..008 on origin/main 99a9825…",
+    "COMPETITOR_MATRIX_CONTRADICTIONS": 0,
+    "VF4": "PHYSICAL_PENDING",
+    "VF5": "PHYSICAL_PENDING",
+    "VF6": "PHYSICAL_PENDING",
+    "FRONTIER_PARITY": false,
+    "RFQ_SENT": false
+  },
+  "verification_failures": [],
+  "metadata_drift_recorded": [
+    {
+      "artifact": "program/operating_cycle_1/WP-003R1_AGGREGATION_SUMMARY.json / ACTIVE_WIP.json (pre-close)",
+      "drift": "Cited device-os accepted_main_sha=801b332… and artifact_draft_pr #89 as OPEN_DRAFT; current accepted main is 99a9825… (#89 MERGED).",
+      "impact": "Informational only; current origin/main wins and matches known closure ref."
+    },
+    {
+      "artifact": "program/operating_cycle_1/WP-003R1_REPORT.md accepted baseline table",
+      "drift": "Listed field-kit accepted main 672c7f4… (#61/#62 era); current accepted main is 80230dc… (#63 MERGED).",
+      "impact": "Informational only; current origin/main wins and matches known closure ref."
+    }
+  ],
+  "caveats": {
+    "physical_validation": "NOT_PASS — G04 dock / G06 panels / G07 ring physical SI remain PHYSICAL_PENDING; VF4/VF5/VF6 PHYSICAL_PENDING",
+    "human_validation": "NOT_PASS — G08 tutoring/UX HUMAN_VALIDATION_PENDING",
+    "rfq_external_send": "NOT_PASS — READY_FOR_EDMUND_RFQ_SEND_REVIEW only; RFQ_SENT=false; Cursor must not send",
+    "purchase_fabrication": "NOT_AUTHORIZED",
+    "frontier_parity": "false — do not claim",
+    "full_physical_human_v1": "FAIL remains honest for physical/human dimensions; digital Independent gates closed only",
+    "cycle_2": "Bootstrap ACTIVE_WIP only after this digital close; product WP-010/008/007 executed by other agents"
+  },
+  "nonclaims": [
+    "PHYSICALLY_VALIDATED",
+    "HUMAN_VALIDATED",
+    "RFQ_SENT",
+    "FRONTIER_PARITY",
+    "FABRICATION_STARTED",
+    "PURCHASE_AUTHORIZED",
+    "EXTERNAL_PENTEST_COMPLETE"
+  ]
+}
