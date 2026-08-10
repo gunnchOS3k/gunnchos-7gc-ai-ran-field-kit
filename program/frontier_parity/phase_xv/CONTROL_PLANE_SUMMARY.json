@@ -1,0 +1,31 @@
+{
+  "schema": "gunnchos.phase_xv.control_plane_summary.v1",
+  "generated_at": "2026-08-10T13:12:40Z",
+  "RFQ_PACKAGE_DIGITAL_DEFECTS": 0,
+  "READY_TO_SEND_RFQS": true,
+  "rfq_external_send_authorization": false,
+  "purchase_authorized": false,
+  "PHYSICAL_EXECUTION_FREEZE": "ACTIVE",
+  "evt_companions_promoted": 40,
+  "evt_digital_status": "DIGITALLY_VALIDATED",
+  "handheld_storage_verdict": "OPERATIONALY_UNSAFE",
+  "NPI_DEFECT_OPENED": true,
+  "NPI_DEFECTS": [
+    {
+      "id": "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001",
+      "sku": "handheld_hybrid",
+      "severity": "high",
+      "title": "Handheld 32GB eMMC operational storage headroom insufficient for Phase XIV reduced profile",
+      "summary": "Preferred RM121-D8E32 markets 32.0GB but Phase XIV handheld-reduced profile requires 31.5GB (marketed free=0.5GB). After typical eMMC format overhead (~6%), estimated usable\u224829.76GB leaves usable_free=-1.74GB. Below operational minima (2.0GB absolute or 10% free). Phase XIV mathematical fit on marketed capacity does not equal operationally safe field headroom.",
+      "recommended_actions": [
+        "Select larger onboard storage SKU (\u226564GB eMMC/UFS or NVMe) for EVT0 preferred Handheld config, OR",
+        "Further reduce handheld profile (games cache / AI nano footprint) until usable_free\u22652GB and \u226510%, OR",
+        "Require external/user-media storage for games+projects with enforced onboard reserve policy"
+      ],
+      "blocks_purchase": false,
+      "blocks_rfq_send": false,
+      "physical_execution_freeze": "ACTIVE",
+      "source_budget": "program/frontier_parity/phase_xiv/BUDGET_RECHECK.json"
+    }
+  ]
+}

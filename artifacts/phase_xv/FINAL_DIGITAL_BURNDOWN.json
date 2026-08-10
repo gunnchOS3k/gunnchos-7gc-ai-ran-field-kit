@@ -1,0 +1,276 @@
+{
+  "schema": "gunnchos.phase_xv.final_digital_burndown.v1",
+  "generated_at": "2026-08-10T13:12:40Z",
+  "INCOMPLETE_DIGITAL_FRONTIER_GATES_START": 10,
+  "gates": [
+    {
+      "gate": "DRIVER_HAL",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "component\u00d7driver matrix",
+        "HAL abstractions DRM/ALSA/NM/BlueZ/libinput/V4L2/IIO/power_supply",
+        "CI virtual devices hotplug/fail"
+      ],
+      "physical_subrequirements": [
+        "board bring-up",
+        "firmware blobs on silicon"
+      ],
+      "external_subrequirements": [],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/driver_hal/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_driver_hal.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": "PHYSICAL_PENDING",
+      "external_exit_hint": null
+    },
+    {
+      "gate": "AUDIO_MEDIA",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "PipeWire/ALSA stack",
+        "focus policy",
+        "format playback/capture loopback"
+      ],
+      "physical_subrequirements": [
+        "speaker/mic quality"
+      ],
+      "external_subrequirements": [],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/audio_media/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_audio_media.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": "PHYSICAL_PENDING",
+      "external_exit_hint": null
+    },
+    {
+      "gate": "IDENTITY",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "unified identity",
+        "login/lock/guest/roles",
+        "security E2E"
+      ],
+      "physical_subrequirements": [
+        "hardware-backed passkey/FIDO when SE present"
+      ],
+      "external_subrequirements": [],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/identity/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_identity.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": "PHYSICAL_PENDING",
+      "external_exit_hint": "EXTERNAL_PENDING"
+    },
+    {
+      "gate": "FILES_STORAGE",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "storage contracts",
+        "quotas/trash/atomic write",
+        "near-full/failure E2E"
+      ],
+      "physical_subrequirements": [
+        "eMMC/NVMe endurance"
+      ],
+      "external_subrequirements": [],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/files_storage/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_files_storage.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": "PHYSICAL_PENDING",
+      "external_exit_hint": null
+    },
+    {
+      "gate": "ACCESSIBILITY",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "AT-SPI semantics",
+        "keyboard/controller/Ring alt",
+        "journey E2E"
+      ],
+      "physical_subrequirements": [],
+      "external_subrequirements": [
+        "human accessibility study"
+      ],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/accessibility/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_accessibility.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": null,
+      "external_exit_hint": "EXTERNAL_PENDING"
+    },
+    {
+      "gate": "CONNECTIVITY_5GA",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "ModemManager path",
+        "intent orchestrator",
+        "Wi-Fi\u2194cellular handoff sim"
+      ],
+      "physical_subrequirements": [
+        "RM520N-GL RF throughput",
+        "antenna"
+      ],
+      "external_subrequirements": [
+        "carrier acceptance"
+      ],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/connectivity_5ga/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_connectivity_5ga.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": "PHYSICAL_PENDING",
+      "external_exit_hint": "EXTERNAL_PENDING"
+    },
+    {
+      "gate": "NTN_MIGRATION",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "bearer abstraction",
+        "NTN simulator harness",
+        "standards live register"
+      ],
+      "physical_subrequirements": [],
+      "external_subrequirements": [
+        "ITU/3GPP normative NTN/6G ecosystem",
+        "carrier NTN"
+      ],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/ntn_migration/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_ntn_migration.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": null,
+      "external_exit_hint": "EXTERNAL_PENDING"
+    },
+    {
+      "gate": "PERFORMANCE_POWER",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "budgets",
+        "cgroups/QoS/thermal policy",
+        "digital reference metrics"
+      ],
+      "physical_subrequirements": [
+        "battery life",
+        "thermals",
+        "FPS",
+        "AI energy on EVT"
+      ],
+      "external_subrequirements": [],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/performance_power/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_performance_power.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "PHYSICAL_PENDING",
+      "physical_exit_hint": "PHYSICAL_PENDING",
+      "external_exit_hint": null
+    },
+    {
+      "gate": "SUPPORT_LIFECYCLE",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "support bundle",
+        "upgrade-path validator",
+        "CVE/security bulletin tooling"
+      ],
+      "physical_subrequirements": [],
+      "external_subrequirements": [
+        "multi-year support business commitment"
+      ],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/support_lifecycle/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_support_lifecycle.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "DIGITALLY_VALIDATED",
+      "physical_exit_hint": null,
+      "external_exit_hint": "EXTERNAL_PENDING"
+    },
+    {
+      "gate": "USER_EXPERIENCE",
+      "current_status": "INCOMPLETE_DIGITAL",
+      "digital_subrequirements": [
+        "digital polish defects",
+        "heuristic audit fixes",
+        "journey re-run"
+      ],
+      "physical_subrequirements": [],
+      "external_subrequirements": [
+        "human usability study"
+      ],
+      "owner_repo": "gunnchos-device-os",
+      "implementation_paths": [
+        "gunnchos_device_os/phase_xv/user_experience/"
+      ],
+      "test_paths": [
+        "tests/phase_xv/test_user_experience.py"
+      ],
+      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "target_exit_state": "EXTERNAL_PENDING",
+      "physical_exit_hint": null,
+      "external_exit_hint": "EXTERNAL_PENDING"
+    }
+  ],
+  "ai_gates_incomplete": 0,
+  "fec_gates_incomplete": 0,
+  "frontier_tokens": {
+    "GUNNCHOS_FRONTIER_OS_PARITY": false,
+    "GUNNCHAI_FRONTIER_PRODUCT_PARITY": false,
+    "GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY": false,
+    "REAL_USER_JOURNEY_PARITY": false
+  },
+  "phase_xv_parallel_track": {
+    "RFQ_PACKAGE_DIGITAL_DEFECTS": 0,
+    "READY_TO_SEND_RFQS": true,
+    "rfq_external_send_authorization": false,
+    "evt_companions_digital_status": "DIGITALLY_VALIDATED",
+    "evt_companions_physical_status": "PHYSICAL_PENDING",
+    "handheld_storage_verdict": "OPERATIONALY_UNSAFE",
+    "NPI_DEFECT_OPENED": true,
+    "NPI_DEFECTS": [
+      "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001"
+    ],
+    "final_ledger_pr": "NOT_OPENED_WAITING_DEVICE_OS"
+  }
+}

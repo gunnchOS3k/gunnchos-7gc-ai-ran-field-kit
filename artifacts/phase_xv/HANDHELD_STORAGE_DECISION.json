@@ -1,0 +1,66 @@
+{
+  "schema": "gunnchos.phase_xv.handheld_storage_decision.v1",
+  "generated_at": "2026-08-10T13:11:41Z",
+  "sku": "handheld_hybrid",
+  "hw_source": "Radxa RM121-D8E32 32GB eMMC (preferred)",
+  "profile": "handheld_class_reduced",
+  "inputs": {
+    "marketed_storage_gb": 32.0,
+    "profile_required_gb": 31.5,
+    "profile_breakdown_gb": {
+      "slot_a": 5,
+      "slot_b": 5,
+      "recovery": 2,
+      "apps_flatpak": 4,
+      "games_local_cache": 6,
+      "ai_nano_fast": 4,
+      "vision_speech": 1,
+      "embeddings": 0.5,
+      "project_indexes": 0.5,
+      "update_reserve": 2,
+      "user_reserve": 1.5
+    },
+    "phase_xiv_mathematical_sufficient": true,
+    "alternate_16gb_sufficient": false
+  },
+  "operational_model": {
+    "emmc_usable_fraction_assumed": 0.93,
+    "estimated_usable_gb": 29.76,
+    "min_absolute_free_gb": 2.0,
+    "min_percent_free": 0.1,
+    "rationale": "eMMC marketed\u2260usable; need free space for FS overhead, wear-leveling, and field update/temp growth beyond in-profile update_reserve"
+  },
+  "headroom": {
+    "marketed_free_gb": 0.5,
+    "marketed_free_pct": 1.56,
+    "usable_free_gb": -1.74,
+    "usable_free_pct": -5.85
+  },
+  "verdict": "OPERATIONALY_UNSAFE",
+  "operationally_unsafe": true,
+  "unsafe_reasons": [
+    "estimated_usable_gb (29.76) < profile_required_gb (31.5)",
+    "marketed free 0.5 GiB < min absolute headroom 2.0 GiB",
+    "marketed free 1.56% < min 10%"
+  ],
+  "NPI_DEFECT_OPENED": true,
+  "NPI_DEFECTS": [
+    {
+      "id": "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001",
+      "sku": "handheld_hybrid",
+      "severity": "high",
+      "title": "Handheld 32GB eMMC operational storage headroom insufficient for Phase XIV reduced profile",
+      "summary": "Preferred RM121-D8E32 markets 32.0GB but Phase XIV handheld-reduced profile requires 31.5GB (marketed free=0.5GB). After typical eMMC format overhead (~6%), estimated usable\u224829.76GB leaves usable_free=-1.74GB. Below operational minima (2.0GB absolute or 10% free). Phase XIV mathematical fit on marketed capacity does not equal operationally safe field headroom.",
+      "recommended_actions": [
+        "Select larger onboard storage SKU (\u226564GB eMMC/UFS or NVMe) for EVT0 preferred Handheld config, OR",
+        "Further reduce handheld profile (games cache / AI nano footprint) until usable_free\u22652GB and \u226510%, OR",
+        "Require external/user-media storage for games+projects with enforced onboard reserve policy"
+      ],
+      "blocks_purchase": false,
+      "blocks_rfq_send": false,
+      "physical_execution_freeze": "ACTIVE",
+      "source_budget": "program/frontier_parity/phase_xiv/BUDGET_RECHECK.json"
+    }
+  ],
+  "note": "Phase XIV BUDGET_RECHECK remains mathematically_sufficient on marketed GB; Phase XV operational headroom supersedes for EVT readiness."
+}
