@@ -1,26 +1,28 @@
 {
   "schema": "gunnchos.phase_xv.accepted_main_baseline.v1",
-  "recorded_at": "2026-08-10T13:12:40Z",
+  "recorded_at": "2026-08-10T13:24:57Z",
   "repos": {
     "gunnchos-device-os": {
-      "sha": "2c4fd5de439b3fcf49893eacfac38b8ec62b463e",
+      "sha": "42128e4472fc2f40046100a062e6677633d62f7b",
       "branch": "main",
-      "tip": "Merge pull request #76 from gunnchOS3k/phase-xiv/os-frontier-convergence"
+      "tip": "Merge pull request #77 from gunnchOS3k/phase-xv/final-os-gates",
+      "pending_edmund_merge": false
     },
     "gunnchAI3k": {
-      "sha": "4f441eaca40de00a6402de9ce43c4f192ed19a2f",
+      "sha": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163",
       "branch": "main",
-      "tip": "Merge pull request #29 from gunnchOS3k/phase-xiv/ai-frontier-convergence"
+      "tip": "Merge pull request #30 from gunnchOS3k (MODEL_QUALITY honesty)",
+      "pending_edmund_merge": false
     },
     "gunnchos-7gc-ai-ran-field-kit": {
-      "sha": "53a9781419461984f7b08e6776d9b943f32358c7",
+      "sha": "7fb6080978294c77af7715325af5d557a5864ada",
       "branch": "main",
-      "tip": "Merge pull request #53 from gunnchOS3k/phase-xiv/frontier-evidence-post-76"
+      "tip": "Merge pull request #54 from gunnchOS3k/phase-xv/final-frontier-closure"
     },
     "gunnchos-hardware-industrial-design": {
-      "sha": "cd1d906c5f08eb26c350851a4faeb05e2bf2e79f",
+      "sha": "8705f5a25065e02c7513e990a43e4762967906c5",
       "branch": "main",
-      "tip": "Merge pull request #52 from gunnchOS3k/continuation-ix/pre-evt-hardware-lock"
+      "tip": "Merge pull request #53 from gunnchOS3k/phase-xv/handheld-storage-npi"
     },
     "edge-io-measurement-node": {
       "sha": "a1cd2e95c62eb0eefd507b976158232b83f5b33b",
@@ -60,7 +62,7 @@
     "REAL_APP_X2_OPEN": 0
   },
   "phase_xv_control_plane": {
-    "generated_at": "2026-08-10T13:12:40Z",
+    "generated_at": "2026-08-10T13:24:57Z",
     "rfq": {
       "RFQ_PACKAGE_DIGITAL_DEFECTS": 0,
       "READY_TO_SEND_RFQS": true,
@@ -81,6 +83,24 @@
       "verdict": "OPERATIONALY_UNSAFE",
       "NPI_DEFECT_OPENED": true
     },
-    "final_accepted_main_ledger_pr": "BLOCKED_PENDING_DEVICE_OS_OWNER_PR_MERGE"
-  }
+    "final_accepted_main_ledger_pr": "THIS_PR_DRAFT_PENDING_MERGE",
+    "os_ten_gates": {
+      "INCOMPLETE_DIGITAL_FRONTIER_GATES": 0,
+      "accepted_merge": "42128e4472fc2f40046100a062e6677633d62f7b",
+      "pr": 77
+    }
+  },
+  "expected_phase_xv": {
+    "gunnchos-device-os": "42128e4472fc2f40046100a062e6677633d62f7b",
+    "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163",
+    "gunnchos-7gc-ai-ran-field-kit": "7fb6080978294c77af7715325af5d557a5864ada",
+    "gunnchos-hardware-industrial-design": "8705f5a25065e02c7513e990a43e4762967906c5"
+  },
+  "frontier_tokens": {
+    "GUNNCHOS_FRONTIER_OS_PARITY": false,
+    "GUNNCHAI_FRONTIER_PRODUCT_PARITY": false,
+    "GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY": false,
+    "REAL_USER_JOURNEY_PARITY": false
+  },
+  "REAL_USER_JOURNEY_PARITY_blocker": "false: Phase XI gunnchOS digital journey tokens earned, but frontier REAL_USER_JOURNEY_PARITY blocked while PERFORMANCE_POWER=PHYSICAL_PENDING and USER_EXPERIENCE=EXTERNAL_PENDING on accepted #77 (42128e4472fc\u2026); full GUNNCHOS_FRONTIER_OS_PARITY remains false; claim firewall forbids premature true"
 }
