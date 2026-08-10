@@ -1,119 +1,71 @@
 {
   "schema": "gunnchos.operating_cycle.active_wip.v1",
-  "cycle": 1,
-  "generated_at": "2026-08-10T20:35:00Z",
+  "cycle": 2,
+  "generated_at": "2026-08-10T21:00:00Z",
   "BROAD_COMPLETION_PHASES_FROZEN": true,
-  "MAX_ACTIVE_MAJOR_WORKSTREAMS": 1,
+  "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
   "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
-  "ACTIVE_MAJOR_WORKSTREAM": "WP-003R.1",
+  "ACTIVE_MAJOR_WORKSTREAMS": [
+    "WP-010",
+    "WP-008",
+    "WP-007"
+  ],
   "active": [
-    "WP-003R.1"
+    "WP-010",
+    "WP-008",
+    "WP-007"
   ],
-  "parked_pending_edmund": [
-    "WP-002",
-    "WP-003R",
-    "WP-004"
-  ],
+  "cycle_1_digital_close": {
+    "decision": "CLOSED_ACCEPTED",
+    "authority": "EDMUND_USER_DIRECTION_2026-08-10",
+    "record": "program/operating_cycle_1/CYCLE_1_DIGITAL_CLOSE_DECISION.json",
+    "scope": "DIGITAL_ONLY"
+  },
   "status": {
-    "WP-002": "VERIFIER_PASS_PENDING_EDMUND_NPI_CLOSE",
-    "WP-003": "SUPERSEDED_IN_ACTIVE_BY_WP003R_RESIDUAL",
-    "WP-003R": "PRIOR_VERIFIER_PASS_SUPERSEDED_BY_WP003R1_INTEGRITY_CLOSURE",
-    "WP-003R.1": "VERIFIER_PASS_PENDING_EDMUND",
-    "WP-004": "VERIFIER_PASS_READY_FOR_EDMUND_RFQ_SEND_REVIEW"
+    "WP-002": "CYCLE_1_DIGITAL_CLOSED_VP002_PASS_PHYSICAL_ENDURANCE_PENDING",
+    "WP-003": "CYCLE_1_DIGITAL_CLOSED_INDEPENDENT_PASS_PHYSICAL_HUMAN_OPEN",
+    "WP-003R": "CYCLE_1_DIGITAL_CLOSED_SUPERSEDED_BY_WP003R1",
+    "WP-003R.1": "CYCLE_1_DIGITAL_CLOSED_INDEPENDENT_PASS",
+    "WP-004": "CYCLE_1_DIGITAL_CLOSED_READY_FOR_EDMUND_RFQ_SEND_REVIEW_RFQ_SENT_FALSE",
+    "WP-010": "ACTIVE",
+    "WP-008": "ACTIVE",
+    "WP-007": "ACTIVE",
+    "WP-001": "READY_NEXT_AFTER_CYCLE_2",
+    "WP-005": "NOT_STARTED_DISPLAY_ONLY",
+    "WP-006": "NOT_STARTED_DISPLAY_ONLY",
+    "WP-009": "NOT_STARTED_BLOCKED_ON_RFQ_QUOTES"
   },
-  "verifier_results": {
-    "WP-002": {
-      "packet": "VP-002",
-      "result": "PASS",
-      "evidence_level": "E4",
-      "owner_artifact": "gunnchos-hardware-industrial-design/npi/phase_xv/handheld_storage_headroom/VP-002-RESULT.json",
-      "owner_pr": "hardware#55",
-      "accepted_main_sha": "3db783633321e54061575ee90a74778b0e914b55",
-      "accepted_main_reproof": "PASS_VIA_VP002_ON_HARDWARE_MAIN"
-    },
-    "WP-003": {
-      "packet": "VP-003",
-      "digital_independent_v1": "PASS",
-      "full_physical_human_v1": "FAIL",
-      "overall_result": "FAIL",
-      "accepted_main_sha": "44294d6485d8d82fe69191c6e585f13ab7c63f63",
-      "accepted_main_merged_pr": 83,
-      "note": "VP-003 accepted-main reproof merged via #83. Digital residuals closed via WP-003R + WP-003R.1 integrity on tip ⊆ main. Physical/human still open."
-    },
-    "WP-003R": {
-      "packet": "VP-003R",
-      "result": "PASS",
-      "digital_independent_residuals_closed": true,
-      "evidence_level": "E4",
-      "owner_artifact": "gunnchos-device-os/quality/golden_journeys/verifier/VP-003R-RESULT.json",
-      "product_tip_sha": "67e10ea1d329703d4764fb3799c5244e9781cd97",
-      "accepted_main_sha": "0449cbb64da416c3b702dcd880d76946e96eb16e",
-      "accepted_main_merged_pr": 85,
-      "artifact_draft_pr": "gunnchos-device-os#86",
-      "note": "#86 merged red (claim_boundary). Superseded by WP-003R.1 integrity (#87/#88) + VP-003R.1 Independent PASS (#89 DRAFT)."
-    },
-    "WP-003R.1": {
-      "packet": "VP-003R.1",
-      "result": "PASS",
-      "digital_independent_integrity_closed": true,
-      "evidence_level": "E4",
-      "owner_artifact": "gunnchos-device-os/quality/golden_journeys/verifier/VP-003R.1-RESULT.json",
-      "product_tip_sha": "645d31a6b795b461afb1c66982b1402ffa373237",
-      "accepted_main_sha": "801b332ba2025b5ddfd8f85cebbafa2c2c368e02",
-      "accepted_main_merged_pr": 88,
-      "artifact_draft_pr": "gunnchos-device-os#89",
-      "artifact_draft_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/89",
-      "GJ_DEFECT_005": "CLOSED_INDEPENDENT_PASS",
-      "COMPETITOR_MATRIX_CONTRADICTIONS": 0,
-      "PHYSICAL_PENDING": true,
-      "HUMAN_VALIDATION_PENDING": true,
-      "frontier_parity_claimed": false,
-      "note": "Independent VP-003R.1 PASS on tip ⊆ main. Pending Edmund accept + optional #89 / field-kit aggregate merge + Cycle 1 digital close decision."
-    },
-    "WP-004": {
-      "packet": "VP-004",
-      "result": "PASS",
-      "evidence_level": "E4",
-      "owner_artifact": "program/operating_cycle_1/VP-004-RFQ-RESULT.json",
-      "field_kit_pr": 56,
-      "READY_FOR_EDMUND_RFQ_SEND_REVIEW": true,
-      "RFQ_SENT": false,
-      "accepted_main_reproof": "PASS_PACKAGE_ON_FIELD_KIT_MAIN_SEND_STILL_BLOCKED"
-    }
+  "verified_baselines": {
+    "gunnchos-device-os": "99a9825e2d757cd36a6826ef253a8dbfc217f0ce",
+    "gunnchos-7gc-ai-ran-field-kit": "80230dce6d5cb437c595d0591883cc841c6de07d",
+    "gunnchos-hardware-industrial-design": "3db783633321e54061575ee90a74778b0e914b55",
+    "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
   },
-  "wp003r1": {
-    "GUNNCHDEVICE_LAB_FOUNDATION": "PART_OF_WP003R",
-    "GUNNCHDEVICE_LAB_FULL_PRODUCT_EXPANSION": "NOT_ACTIVE",
-    "primary_owner_repo": "gunnchos-device-os",
-    "product_tip_sha": "645d31a6b795b461afb1c66982b1402ffa373237",
-    "accepted_main_sha": "801b332ba2025b5ddfd8f85cebbafa2c2c368e02",
-    "VF2_REQUIRED_GOLDEN_BACKENDS": "PASS",
-    "VF2_UNPRIVILEGED_FALLBACK": "AVAILABLE",
-    "VF3": "MODELED_ONLY",
+  "honesty_tokens": {
     "VF4": "PHYSICAL_PENDING",
     "VF5": "PHYSICAL_PENDING",
     "VF6": "PHYSICAL_PENDING",
-    "SILICON_EXACT_EMULATION": false,
-    "NO_WP005_PLUS": true,
-    "NO_CYCLE_2": true,
-    "NO_NEW_DEVICE_LAB_FEATURE_SCOPE": true,
-    "NO_FRONTIER_PARITY_CLAIM": true,
-    "NO_PHYSICAL_CLAIM": true,
-    "NO_HUMAN_VALIDATION_CLAIM": true,
-    "RFQ_SENT": false
+    "FRONTIER_PARITY": false,
+    "RFQ_SENT": false,
+    "PHYSICAL_VALIDATION": false,
+    "HUMAN_VALIDATION": false
+  },
+  "success_gates_cycle_2": {
+    "WP-010": "READY_FOR_EVT0_MEASUREMENT_EXECUTION",
+    "WP-008": "NFR_TARGETS_FROZEN_FOR_EVT0",
+    "WP-007": "INTERNAL_RED_TEAM_READY"
   },
   "edmund_merge_order": [
-    "Optionally merge device-os DRAFT #89 (VP-003R.1 Independent artifacts) after review; #88 already merged — no further product tip merge",
-    "Optionally merge this field-kit final aggregate DRAFT after review",
-    "Decide Cycle 1 digital close IF VP-003R.1 accepted; keep physical/human/RFQ open; do not auto-start WP-005+ / LAB-FUTURE / Cycle 2"
+    "Keep this field-kit Cycle 2 bootstrap DRAFT until reviewed; Edmund merges",
+    "Product lanes: hardware WP-010; field-kit/relevant WP-008; device-os/gunnchAI WP-007",
+    "field-kit accepted-main aggregate LAST after product lanes",
+    "Do not auto-start WP-001 after Cycle 2 stop condition"
   ],
   "do_not_start": [
+    "WP-001",
     "WP-005",
     "WP-006",
-    "WP-007",
-    "WP-008",
     "WP-009",
-    "WP-010",
     "LAB-FUTURE-001",
     "LAB-FUTURE-002",
     "LAB-FUTURE-003",
@@ -123,6 +75,8 @@
     "LAB-FUTURE-007",
     "LAB-FUTURE-008",
     "LAB-FUTURE-009",
-    "CYCLE_2"
-  ]
+    "CYCLE_3",
+    "BROAD_PHASE_XVI"
+  ],
+  "bootstrap_only_note": "This ACTIVE_WIP update is Operating Cycle 2 bootstrap only. WP-010/008/007 product implementation is owned by other agents."
 }
