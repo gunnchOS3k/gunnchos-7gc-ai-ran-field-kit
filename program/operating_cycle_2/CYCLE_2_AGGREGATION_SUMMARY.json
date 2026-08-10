@@ -1,18 +1,28 @@
 {
   "schema": "gunnchos.operating_cycle_2.aggregation_summary.v1",
   "cycle": 2,
-  "generated_at": "2026-08-10T21:45:00Z",
+  "generated_at": "2026-08-10T22:45:00Z",
   "role": "FIELD_KIT_ACCEPTED_MAIN_AGGREGATE_DRAFT",
   "report": "program/operating_cycle_2/CYCLE_2_REPORT.md",
+  "wp007r_report": "program/operating_cycle_2/WP-007R_REPORT.md",
+  "supersedes_aggregate_pr": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/67",
   "stop_condition_met": true,
+  "CYCLE_2_ACCEPTED_CLOSE_READINESS": true,
+  "CYCLE_2_ACCEPTED_CLOSED": false,
+  "CYCLE_2_ACCEPTED_CLOSED_note": "All three packets Independent PASS digitally. Edmund declares close after reviewing this DRAFT. device-os #96 already MERGED; this field-kit DRAFT is remaining control-plane merge.",
   "tokens": {
     "READY_FOR_EVT0_MEASUREMENT_EXECUTION": true,
     "NFR_TARGETS_FROZEN_FOR_EVT0": true,
     "INTERNAL_RED_TEAM_READY": true,
+    "independent_verified": true,
     "SECURITY_S0": 0,
     "SECURITY_S1": 0,
+    "WP007_CANONICAL_EVIDENCE_CONTRADICTIONS": 0,
+    "HOSTILE_NETWORK_DIGITAL": "E4_PASS",
+    "LOCAL_SAVE_INTEGRITY_DIGITAL": "E4_PASS",
     "PHYSICALLY_VALIDATED": false,
     "EXTERNAL_PENTEST_COMPLETE": false,
+    "PRODUCTION_TRUST_ROOT": "EXTERNAL_PENDING",
     "RFQ_SENT": false,
     "FRONTIER_PARITY": false,
     "purchase_authorized": false,
@@ -21,17 +31,22 @@
   },
   "packets": {
     "WP-010": {
-      "status": "VERIFIER_PASS_PENDING_EDMUND_CLOSE",
+      "status": "INDEPENDENT_PASS_E4",
       "vp": "PASS",
-      "tip": "125386e08b3afc3b5344e96d7b71de8a50529c83",
-      "result_tip": "8e4d4ab20f131b47df4fadb9547cfed43f376c5d",
+      "outcome_unchanged": true,
+      "READY_FOR_EVT0_MEASUREMENT_EXECUTION": true,
+      "tip": "b4eee53c9483849904af056c4dd020da7a8e3417",
+      "merge_commit": "45c301a3a335d4bfd54970d80ec7ee717736ad07",
       "pr": "https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/58",
-      "in_main": false,
-      "pointer": "gunnchos-hardware-industrial-design/npi/evt0_measurement_readiness/independent_verifier/VP-010-RESULT.json"
+      "in_main": true,
+      "pointer": "gunnchos-hardware-industrial-design/npi/evt0_measurement_readiness/independent_verifier/VP-010-RESULT.json",
+      "note": "Outcome unchanged (READY_FOR_EVT0). Merge-state fact refresh only: #58 MERGED."
     },
     "WP-008": {
-      "status": "VERIFIER_PASS_PENDING_EDMUND_CLOSE",
+      "status": "INDEPENDENT_PASS_E4",
       "vp": "PASS",
+      "outcome_unchanged": true,
+      "NFR_TARGETS_FROZEN_FOR_EVT0": true,
       "tip": "60a0d5ba035c020b30d16cae0f1802fe96dd2184",
       "prs": [
         "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/65",
@@ -42,13 +57,37 @@
       "tbd_residuals": 9
     },
     "WP-007": {
-      "status": "VERIFIER_PASS_PENDING_EDMUND_CLOSE",
+      "status": "INDEPENDENT_PASS_E4",
       "vp": "PASS",
-      "tip": "4a51298f2338007bf224193fe96eeff4ed18f876",
-      "pr": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/93",
+      "verification_packet": "VP-007R",
+      "INTERNAL_RED_TEAM_READY": true,
+      "independent_verified": true,
+      "remediation_tip": "7e5ab2f290704ea3fde3b05a23cc171bc901fefb",
+      "tip_verified": "3908de7c35882b500368475ce13d2243435f6443",
+      "evidence_pr_tip": "f627830e84a260f0885849d576144057ea61bddd",
+      "evidence_pr_merge": "43bbe200f6c55ad77f2f1a4eb2fc5e0a395863b5",
+      "pr_remediation": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/94",
+      "pr_independent_pass": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/96",
       "in_main": true,
-      "accepted_main": "0e46609b3d86241f2c282e7a1f3752d16d2bba67",
-      "pointer": "gunnchos-device-os/artifacts/wp007/VP-007-RESULT.json"
+      "accepted_main_at_verify": "3908de7c35882b500368475ce13d2243435f6443",
+      "current_main": "43bbe200f6c55ad77f2f1a4eb2fc5e0a395863b5",
+      "pointer": "gunnchos-device-os/artifacts/wp007/independent_verifier/VP-007R-RESULT.json",
+      "canonical_pointer": "gunnchos-device-os/artifacts/wp007/VP-007-RESULT.json",
+      "closures": {
+        "WP007-IV-DEF-001": "CLOSED",
+        "WP007-IV-RES-001": "CLOSED_DIGITAL",
+        "HOSTILE_NETWORK_DIGITAL": "E4_PASS",
+        "LOCAL_SAVE_INTEGRITY_DIGITAL": "E4_PASS"
+      },
+      "WP007_CANONICAL_EVIDENCE_CONTRADICTIONS": 0,
+      "fail_history_preserved": "gunnchos-device-os/artifacts/wp007/history/VP-007-RESULT.initial-fail.0e46609b3d86241f2c282e7a1f3752d16d2bba67.json",
+      "EXTERNAL_PENDING": [
+        "EXTERNAL_pentest",
+        "PRODUCTION_TRUST_ROOT",
+        "RF_hostile_field",
+        "authoritative_multiplayer"
+      ],
+      "supersedes_prior_aggregate_pointer": "device-os#93 / 4a51298 (lab-path PASS; not canonical after WP-007R)"
     }
   },
   "baselines": {
@@ -59,19 +98,21 @@
       "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
     },
     "current_main": {
-      "gunnchos-device-os": "0e46609b3d86241f2c282e7a1f3752d16d2bba67",
-      "gunnchos-7gc-ai-ran-field-kit": "d9c3c0733e88dd7bf8524470c00bb9a022205d41",
-      "gunnchos-hardware-industrial-design": "e594e9e7c8f508c81be7cc72089e71d1d5a99e2c",
+      "gunnchos-device-os": "43bbe200f6c55ad77f2f1a4eb2fc5e0a395863b5",
+      "gunnchos-7gc-ai-ran-field-kit": "5ebcc7bf12942e7863927cf93118a6d84c9b243d",
+      "gunnchos-hardware-industrial-design": "45c301a3a335d4bfd54970d80ec7ee717736ad07",
       "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
     }
   },
   "edmund_merge_order": [
-    "hardware#58 (WP-010R1 + VP-010 PASS; OPEN; auto-merge OFF)",
-    "treat hardware#57 FAIL as superseded (not current READY truth)",
-    "confirm device-os#90/#91/#92/#93 and field-kit#65/#66 already merged",
-    "field-kit DRAFT #67 Cycle 2 aggregate LAST"
+    "confirm hardware#58 MERGED (WP-010 READY on main; outcome unchanged)",
+    "confirm device-os#94/#96 MERGED (remediation 7e5ab2f + Independent PASS evidence)",
+    "confirm field-kit#65/#66/#67 already merged",
+    "field-kit DRAFT THIS_PR Cycle 2 WP-007R correction aggregate LAST (auto-merge OFF)",
+    "Edmund declares Cycle 2 digital accepted-close (or rejects) — #96 merge alone ≠ cycle close"
   ],
-  "aggregate_pr": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/67",
+  "aggregate_pr": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/68",
+  "aggregate_pr_tip": "199f4c8458bc1ac38ce58a7440fc7cef80f14fdd",
   "do_not_start": [
     "WP-001",
     "CYCLE_3",
@@ -82,21 +123,36 @@
   "next_work_packet_display_only": {
     "ACTIVE": "WP-010,WP-008,WP-007",
     "WIP_LIMIT": 3,
-    "NEXT_READY_AFTER_CYCLE": [
+    "TOP_5_DISPLAY_ONLY": [
       {
         "id": "WP-001",
         "score": 20,
-        "title": "Freeze EVT0 configuration manifest"
+        "title": "Freeze EVT0 configuration manifest",
+        "status": "READY"
       },
       {
         "id": "WP-006",
         "score": 18,
-        "title": "License release gate first complete audit"
+        "title": "License release gate first complete audit",
+        "status": "READY"
       },
       {
         "id": "WP-005",
         "score": 15,
-        "title": "Human digital usability panel pilot"
+        "title": "Human digital usability panel pilot",
+        "status": "READY"
+      },
+      {
+        "id": "WP-009",
+        "score": 12,
+        "title": "Build unit economics from RFQ quotes",
+        "status": "BLOCKED_RFQ_SENT_FALSE"
+      },
+      {
+        "id": "CYCLE_3_LAB_FUTURE",
+        "score": null,
+        "title": "Cycle 3 / LAB-FUTURE-* (do not open)",
+        "status": "NOT_STARTED"
       }
     ]
   }
