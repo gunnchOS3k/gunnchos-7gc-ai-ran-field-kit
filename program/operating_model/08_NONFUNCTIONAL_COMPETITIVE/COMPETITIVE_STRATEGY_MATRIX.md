@@ -6,6 +6,14 @@ Classify competitor capabilities:
 - NOT_RELEVANT
 - DIFFERENT_APPROACH
 
+Measurable EVT0 mapping (WP-008):
+`program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_COMPETITOR_TARGET_MATRIX.json`
+
+Doctrine:
+- `competitor_score` remains null unless actually measured.
+- Strategy converts to NFR threshold/target/stretch; class/outcome citations are not fabricated scores.
+- Do not force superiority on every metric.
+
 Seed:
 | Capability | Strategy |
 |---|---|
@@ -27,3 +35,5 @@ Seed:
 | Apple-only services | NOT_RELEVANT |
 | Proprietary-console exclusivity | NOT_RELEVANT |
 | Data/app portability | MUST_EXCEED |
+| Cloud frontier TTFT parity | DIFFERENT_APPROACH |
+| Fan noise (until fan decision) | NOT_RELEVANT |

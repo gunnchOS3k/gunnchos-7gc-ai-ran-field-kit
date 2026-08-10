@@ -1,0 +1,229 @@
+{
+  "schema": "gunnchos.evt0_tbd_residuals.v1",
+  "work_packet": "WP-008",
+  "generated_at": "2026-08-10T21:15:00Z",
+  "rule": "Residual TBD acceptable when explicitly justified and not required to invent numbers for registry completeness",
+  "wp010_global_gap": {
+    "status": "WP-010_EXIT_ARTIFACTS_NOT_PRESENT_IN_REPOS",
+    "impact": "All instrument_or_fixture fields provisional with TBD_WP010 IDs; measurement methods still declared",
+    "does_not_block_nfr_freeze": true
+  },
+  "residuals": [
+    {
+      "target_id": "NFR-RING-004",
+      "metric": "pose_drift_error_p95_mm_over_session",
+      "threshold_residual": "TBD_REQUIRES_REFERENCE_FIXTURE",
+      "target_residual": "TBD_REQUIRES_REFERENCE_FIXTURE",
+      "why_tbd_allowed": "RISK-007 known unknown. edge-io drift_threshold_mag=2.5 is firmware heuristic, not a physical mm accuracy claim. Numeric mm targets remain TBD until WP-010 reference fixture defined \u2014 do not invent.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-AI-001",
+      "metric": "local_first_token_p95_ms_by_tier",
+      "threshold_residual": {
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "target_residual": {
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "why_tbd_allowed": "Local-first AI MUST_EXCEED cloud-default tutors on privacy/offline availability \u2014 not on absolute cloud TTFT. Nano provisional budget only. Fast/Pro numeric targets TBD until EVT silicon power/thermal (RISK-008). No competitor_score.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-AI-002",
+      "metric": "local_tokens_per_second_by_tier",
+      "threshold_residual": {
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "target_residual": {
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "why_tbd_allowed": "Companion to TTFT. Nano provisional only; Fast/Pro TBD on silicon. Differentiator is local-first privacy/offline, not fabricated cloud parity.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-AI-003",
+      "metric": "local_ai_peak_rss_memory_by_tier_mib",
+      "threshold_residual": {
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "target_residual": {
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "why_tbd_allowed": "Engineering budget for Nano always-on path; Fast/Pro TBD with model selection on EVT.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-AI-005",
+      "metric": "local_ai_power_w_during_inference_by_tier",
+      "threshold_residual": "TBD_EVT_CHARACTERIZATION",
+      "target_residual": "TBD_EVT_CHARACTERIZATION",
+      "why_tbd_allowed": "Power/thermal characterization is RISK-005/008 experiment \u2014 do not invent watts. Record metric with TBD until EVT measures; strategy DIFFERENT_APPROACH vs cloud energy accounting.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-PWR-001",
+      "metric": "idle_and_load_system_power_w",
+      "threshold_residual": "TBD_EVT_CHARACTERIZATION",
+      "target_residual": "TBD_EVT_CHARACTERIZATION",
+      "why_tbd_allowed": "Do not convert modeled watts_peak into NFR targets. Freeze the measurement requirement; numeric budgets TBD after EVT characterization (honesty).",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-ACOUSTIC-001",
+      "metric": "fan_noise_dba_at_1m",
+      "threshold_residual": "N/A_OR_TBD_IF_FAN",
+      "target_residual": "N/A_OR_TBD_IF_FAN",
+      "why_tbd_allowed": "Fan presence not frozen; strategy NOT_RELEVANT until fan decision. Residual TBD honest.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-STOR-002",
+      "metric": "expansion_microsd_sequential_write_mibs",
+      "threshold_residual": "TBD_CARD_CLASS_MATRIX",
+      "target_residual": "TBD_CARD_CLASS_MATRIX",
+      "why_tbd_allowed": "Expansion required for MLP but card performance matrix not frozen \u2014 residual TBD.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    },
+    {
+      "target_id": "NFR-NET-002",
+      "metric": "wifi_tcp_throughput_mbps_lab",
+      "threshold_residual": "TBD_LAB_AP_PROFILE",
+      "target_residual": "TBD_LAB_AP_PROFILE",
+      "why_tbd_allowed": "Capability constraint Wi-Fi 6E minimum accepted; Mbps targets TBD with WP-010 AP profile.",
+      "blocks_immediate_evt_decision": false,
+      "required_to_close_tbd": "WP-010 instrument/fixture finalization and/or EVT characterization change-record",
+      "confidence": "LOW"
+    }
+  ],
+  "non_residual_but_low_confidence": [
+    {
+      "target_id": "NFR-BOOT-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-RESUME-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-APP-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-DOCK-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-CRASH-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-INPUT-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-RING-002",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-GAME-002",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-AI-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-AI-002",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-AI-003",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-BATT-004",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-BATT-005",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-THERM-003",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-NET-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-NET-005",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-AUDIO-001",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    },
+    {
+      "target_id": "NFR-AUDIO-002",
+      "confidence": "LOW",
+      "note": "Provisional numeric budget; frozen intentionally with LOW confidence"
+    }
+  ],
+  "immediate_evt_decision_coverage": {
+    "can_plan_tests_for_all_families": true,
+    "safety_zeros_frozen": [
+      "NFR-UPDATE-001",
+      "NFR-RING-001",
+      "NFR-SEC-003",
+      "NFR-A11Y-001"
+    ],
+    "hardware_limits_frozen": [
+      "NFR-THERM-001",
+      "NFR-THERM-002",
+      "NFR-STOR-001",
+      "NFR-BATT-005"
+    ],
+    "blocked_on_invented_competitor_scores": false
+  }
+}
