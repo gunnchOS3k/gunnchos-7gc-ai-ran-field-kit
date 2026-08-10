@@ -302,7 +302,7 @@ Risk register scores in field-kit operating model remain the Cycle 1 baseline (R
 | field-kit | #64 | `2437a69…` / `d9c3c07…` | **MERGED** | Cycle 2 bootstrap + ACTIVE_WIP | null |
 | field-kit | #65/#66 | `60a0d5b…` / `d4637b6…` | **MERGED** | WP-008 + VP-008 PASS | null |
 | field-kit | #67 | `4ab360f…` / `5ebcc7b…` | **MERGED** | prior Cycle 2 aggregate (WP-007 pointer superseded) | was OFF |
-| field-kit | [#68](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/68) | `793bba0f3b6e43a76f03ce7791e2d3ec3e5db7cf` | **OPEN DRAFT** | WP-007R correction aggregate LAST | **OFF** |
+| field-kit | [#68](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/68) | `199f4c8458bc1ac38ce58a7440fc7cef80f14fdd` | **OPEN DRAFT** | WP-007R correction aggregate LAST | **OFF** |
 
 **Exact Edmund merge order (remaining):**
 
