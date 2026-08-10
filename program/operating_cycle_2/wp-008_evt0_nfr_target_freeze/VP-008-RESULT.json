@@ -1,0 +1,149 @@
+{
+  "schema": "gunnchos.operating_cycle_2.vp008_evt_nfr_target_freeze_result.v1",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "work_package": "VP-008",
+  "cycle": 2,
+  "generated_at_utc": "2026-08-10T21:08:07Z",
+  "result": "PASS",
+  "evidence_level": "E4",
+  "evidence_level_note": "Digital freeze coherence only. Physical NFR measurements remain E5 pending; WP-010 instrument/fixture artifacts not yet landed (honest TBD).",
+  "verified_against": {
+    "field_kit_pr": 65,
+    "field_kit_branch": "operating-cycle-2/wp-008-evt0-nfr-target-freeze",
+    "field_kit_head_sha_claimed": "60a0d5ba035c020b30d16cae0f1802fe96dd2184",
+    "field_kit_head_sha_observed": "60a0d5ba035c020b30d16cae0f1802fe96dd2184",
+    "pr_is_draft": true,
+    "ci_on_tip": "GREEN",
+    "registry_path": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/"
+  },
+  "acceptance_sources_derived_before_registry": [
+    "gunnchOS3k_Operating_Cycle_2 copy/VP-008_EVT_NFR_TARGET_FREEZE.md",
+    "gunnchOS3k_Operating_Cycle_2 copy/WP-008_EVT_NFR_TARGET_FREEZE.md",
+    "gunnchOS3k_Operating_Cycle_2 copy/WP-010_EVT0_FIXTURE_INSTRUMENT_READINESS.md",
+    "program/operating_model/02_QUALITY_USERS/MINIMUM_LOVABLE_PRODUCT.md",
+    "program/operating_model/02_QUALITY_USERS/GOLDEN_JOURNEYS.json",
+    "program/operating_model/08_NONFUNCTIONAL_COMPETITIVE/COMPETITIVE_STRATEGY_MATRIX.md",
+    "program/operating_model/08_NONFUNCTIONAL_COMPETITIVE/NONFUNCTIONAL_REQUIREMENTS.json",
+    "gunnchos-hardware-industrial-design results/contracts/*_hardware_profile.json + thermal policies + WP-002 storage policy"
+  ],
+  "counts": {
+    "targets_total": 47,
+    "tbd_residual_count": 9,
+    "tbd_residual_ids": [
+      "NFR-RING-004",
+      "NFR-AI-001",
+      "NFR-AI-002",
+      "NFR-AI-003",
+      "NFR-AI-005",
+      "NFR-PWR-001",
+      "NFR-ACOUSTIC-001",
+      "NFR-STOR-002",
+      "NFR-NET-002"
+    ],
+    "competitor_score_non_null": 0,
+    "strategies_used": {
+      "MUST_MATCH": 34,
+      "MUST_EXCEED": 10,
+      "DIFFERENT_APPROACH": 2,
+      "NOT_RELEVANT": 1
+    },
+    "instruments_marked_TBD_WP010": 47,
+    "golden_journeys_referenced": 10
+  },
+  "checks": [
+    {
+      "id": 1,
+      "name": "required_fields_present",
+      "result": "PASS",
+      "notes": "All 47 targets carry target_id, product, journey_refs, risk_refs, strategy, metric, unit, threshold, target, stretch, measurement_method, instrument_or_fixture, operating_condition, sample_duration, percentile_or_statistic, evidence_level, source_rationale, source_date, confidence, physical_pending, competitor_score. User-listed required set satisfied."
+    },
+    {
+      "id": 2,
+      "name": "strategies_valid_competitor_score_null",
+      "result": "PASS",
+      "notes": "Every registry strategy ∈ {MUST_MATCH, MUST_EXCEED, NOT_RELEVANT, DIFFERENT_APPROACH}. All registry and competitor-matrix competitor_score values are null."
+    },
+    {
+      "id": 3,
+      "name": "no_invented_competitor_measurements",
+      "result": "PASS",
+      "notes": "Independent scan found no fabricated competitor_score numerics. External citations are dated class/outcome references (Steam Deck OLED battery/charge class; education Chromebook PLT marketing class; Valve resume feature class) with explicit rejection of marketing peaks as sustained thresholds. Rationales repeatedly state competitor_score null / no measured competitor dataset."
+    },
+    {
+      "id": 4,
+      "name": "gaps_tbds_honest_and_listed",
+      "result": "PASS",
+      "notes": "Exactly 9 residual TBD numeric targets; all listed in EVT0_TBD_RESIDUALS.json with why_tbd_allowed and blocks_immediate_evt_decision=false. Global WP-010 instrument gap declared. No unlisted numeric TBD."
+    },
+    {
+      "id": 5,
+      "name": "consistent_with_mlp_golden_journeys_hardware",
+      "result": "PASS",
+      "notes": "MLP school-day/dock/offline/local-AI/Rings-safety/update-recovery mapped. All ten GOLDEN-01..10 referenced. Hardware constraints independently spot-checked: skin_c_max=45 (Student/DS-XL/Handheld thermal models), max_charge_w=65 and wifi 6e_minimum (hardware profiles), throttle_c=85 (os_thermal_policy.yaml), onboard reserve 2.976 GiB (WP-002 HANDHELD_STORAGE_POLICY), Ring UNCERTAIN_CONFIDENCE_THRESHOLD=0.85 (device-os)."
+    },
+    {
+      "id": 6,
+      "name": "token_nfr_targets_frozen_for_evt0_defensible",
+      "result": "PASS",
+      "notes": "Freeze is defensible for EVT0 measurement planning: required WP-008 families covered; threshold/target/stretch declared or honestly TBD; methods present; instruments provisionally TBD_WP010 without inventing equipment; change-control note present; residual TBDs explicitly justified and not required for immediate EVT safety/integrity decisions (zeros for data-loss/Ring false-destructive/sandbox; thermal/storage floors frozen)."
+    },
+    {
+      "id": 7,
+      "name": "ci_green_on_tip",
+      "result": "PASS",
+      "notes": "PR #65 tip 60a0d5ba035c020b30d16cae0f1802fe96dd2184: readiness, firewall, gate1–gate7, nonphysical, validate all SUCCESS."
+    },
+    {
+      "id": 8,
+      "name": "reject_criteria_not_triggered",
+      "result": "PASS",
+      "notes": "No marketing peak as sustained threshold without rationale; no missing units/method; no preference/human scores substituted; no physical value marked measured (all physical_pending=true); MUST_EXCEED used where product differentiators exist (local-first AI, Rings safety, offline education, network intent)."
+    }
+  ],
+  "defects": [],
+  "observations": [
+    {
+      "severity": "low",
+      "note": "NFR-THERM-001 rationale text mentions Rings skin_c_max=45, but Rings thermal_model is skin_c_max=40 and THERM-001 product list correctly excludes Rings. Rationale wording drift only; numeric freeze for listed products remains consistent."
+    },
+    {
+      "severity": "low",
+      "note": "NFR-RING-003/004 MUST_EXCEED product rationale is thinner in-row than Ring uniqueness doctrine in COMPETITIVE_STRATEGY_MATRIX; strategy alignment still holds."
+    },
+    {
+      "severity": "info",
+      "note": "Storage 'growth policy' is embodied by NFR-STOR-001 reserve floor + NFR-STOR-LOW-001 behavior rather than a separate growth-curve NFR ID; acceptable for EVT0 planning."
+    },
+    {
+      "severity": "info",
+      "note": "evidence_level E5 on most targets denotes planned physical measurement class, not completed measurement; verifier evidence for this freeze is E4 digital coherence."
+    }
+  ],
+  "tokens": {
+    "NFR_TARGETS_FROZEN_FOR_EVT0": true,
+    "EVT0_NFR_TARGET_REGISTRY_FROZEN": true,
+    "frontier_parity_claimed": false,
+    "PHYSICALLY_VALIDATED": false,
+    "READY_FOR_EVT0_MEASUREMENT_EXECUTION": false
+  },
+  "edmund_merge_guidance": {
+    "may_merge_after_human_review": true,
+    "keep_draft_until_edmund_reviews": true,
+    "verifier_did_not_merge": true,
+    "notes": "Independent VP-008 PASS. Edmund may merge DRAFT PR #65 after human review. Do not treat merge as physical validation or WP-010 readiness."
+  },
+  "verdict_summary": "PASS — EVT0 NFR target freeze is measurable, predeclared, and honest. 47 targets; 9 explicit TBD residuals; competitor_score all null; CI green on tip 60a0d5b. Token NFR_TARGETS_FROZEN_FOR_EVT0 earned. Edmund may merge after review; verifier did not merge.",
+  "verifier_independence_attestation": {
+    "did_not_use_implementer_summary_as_sole_source": true,
+    "did_not_trust_prepared_token_alone": true,
+    "derived_acceptance_from_vp_wp_mlp_strategy_journeys_hardware_first": true,
+    "independent_methods": [
+      "Derived checks from VP-008 reject/PASS criteria and WP-008 schema/family requirements before treating registry as authoritative",
+      "Cross-checked MLP, GOLDEN_JOURNEYS.json, COMPETITIVE_STRATEGY_MATRIX.md",
+      "Independently audited all 47 targets for required fields, strategies, competitor_score null, TBD listing completeness, journey coverage",
+      "Spot-checked hardware constraints in gunnchos-hardware-industrial-design profiles/thermal/WP-002 policy and device-os Ring confidence gate",
+      "Confirmed PR #65 tip SHA and CI SUCCESS via gh; ran validate_evt0_nfr_freeze.py as secondary integrity check only"
+    ],
+    "implementer_must_not_self_certify_v1": true
+  }
+}
