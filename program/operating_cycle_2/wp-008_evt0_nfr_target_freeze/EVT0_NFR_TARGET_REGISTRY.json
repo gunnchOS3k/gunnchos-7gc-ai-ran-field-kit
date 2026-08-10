@@ -1,0 +1,1968 @@
+{
+  "schema": "gunnchos.evt0_nfr_target_registry.v1",
+  "work_packet": "WP-008",
+  "generated_at": "2026-08-10T21:15:00Z",
+  "configuration": "gunnchOS3k-EVT0 (pre-WP-001 pin)",
+  "freeze": {
+    "EVT0_NFR_TARGET_REGISTRY_FROZEN": true,
+    "NFR_TARGETS_FROZEN_FOR_EVT0": true,
+    "note": "Frozen for EVT0 measurement planning. Changes require evidence/change record; no retroactive goalpost moving after physical results.",
+    "implementer_only": true,
+    "verifier_result_artifact": "NOT_WRITTEN_BY_IMPLEMENTER"
+  },
+  "doctrine": {
+    "no_fabricated_competitor_measurements": true,
+    "competitor_score_null_unless_measured": true,
+    "frontier_parity_claimed": false,
+    "no_wp001_execution": true,
+    "no_cycle_3": true,
+    "draft_pr_only": true,
+    "wp010_instruments": "NOT_LANDED_AT_IMPLEMENTATION \u2014 mark TBD_WP010"
+  },
+  "evidence_hierarchy_used": [
+    "safety_regulatory",
+    "mlp_requirement",
+    "accepted_hardware_capability",
+    "competitor_class_outcome_not_score",
+    "usability_research_budget",
+    "engineering_budget",
+    "explicit_provisional_target"
+  ],
+  "accepted_baselines_referenced": {
+    "field_kit_main": "80230dce6d5cb437c595d0591883cc841c6de07d",
+    "device_os_main": "99a9825e2d757cd36a6826ef253a8dbfc217f0ce",
+    "hardware_main_vp002": "3db783633321e54061575ee90a74778b0e914b55",
+    "hardware_skin_c_max": 45,
+    "hardware_max_charge_w": 65,
+    "hardware_wifi": "6e_minimum",
+    "ring_uncertain_confidence_threshold": 0.85,
+    "handheld_storage_policy": "WP-002 HANDHELD_STORAGE_POLICY.md"
+  },
+  "family_coverage": {
+    "boot_resume_launch": true,
+    "reliability": true,
+    "input": true,
+    "display_graphics": true,
+    "ai": true,
+    "battery_power": true,
+    "thermal_acoustic": true,
+    "storage": true,
+    "network": true,
+    "audio_media": true,
+    "security": true,
+    "accessibility": true
+  },
+  "targets": [
+    {
+      "target_id": "NFR-BOOT-001",
+      "nfr_seed_id": "NFR-BOOT-001",
+      "family": "boot_resume_launch",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-001",
+        "RISK-010"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "cold_boot_to_usable_p95_s",
+      "unit": "s",
+      "measurement_method": "Power-on to interactive shell/desktop with network stack up; wall-clock from rail enable; n>=10 cold boots after full shutdown.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-001 + console/UART timestamp harness + wall clock sync",
+      "threshold": 45.0,
+      "target": 30.0,
+      "stretch": 15.0,
+      "operating_condition": "25C ambient; battery >=40%; Wi-Fi on; no pending update; factory-default image SHA pinned by WP-001 later",
+      "sample_duration": "per-boot",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "MLP school/office usability + manufacturing station boot_timeout_s.max=60 placeholder (SIMULATED_HAL, not lab-calibrated). Education Chromebook class advertises 'reboot in seconds' but no measured competitor cold-boot dataset exists here \u2014 numbers are engineering budget provisional, not competitor_score.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Timed cold boots on EVT0 Student/DS-XL/Handheld; compare vs threshold.",
+      "e6_advancement": "Human perceived 'ready to work' study \u2014 preference not claimed until E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-RESUME-001",
+      "nfr_seed_id": "NFR-RESUME-001",
+      "family": "boot_resume_launch",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-010"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "resume_to_interactive_p95_s",
+      "unit": "s",
+      "measurement_method": "Suspend (S3/S0ix class) then wake; time to interactive input accepted; n>=20 cycles.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-002 + input-event timestamp logger",
+      "threshold": 5.0,
+      "target": 2.0,
+      "stretch": 1.0,
+      "operating_condition": "Handheld/laptop suspend with game or office app checkpointed; 25C; battery >=20%",
+      "sample_duration": "per-resume",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Competitive strategy MUST_MATCH handheld suspend/resume (Steam Deck class). Valve documents quick suspend/resume and ~30% resume improvement on OLED (2023-11) but does not publish a millisecond SLA \u2014 no competitor_score recorded. Provisional engineering budget for interactive resume.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical suspend/resume soak on Handheld+Student.",
+      "e6_advancement": "Perceived resume continuity (preference) pending humans.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-APP-001",
+      "nfr_seed_id": "NFR-APP-001",
+      "family": "boot_resume_launch",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-03",
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-009"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "critical_app_launch_p95_s",
+      "unit": "s",
+      "measurement_method": "Cold launch of office suite / browser / first-party game to first interactive frame; n>=15 each app.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-003 + compositor/frame timestamp OR high-speed camera fixture",
+      "threshold": 5.0,
+      "target": 2.5,
+      "stretch": 1.5,
+      "operating_condition": "Post-boot idle 60s; storage free above WP-002 reserves; AI models not loading concurrently unless stated",
+      "sample_duration": "per-launch",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "MLP browser/office/game critical path. No measured competitor launch timings in-repo \u2014 provisional usability budget.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Measure critical apps on EVT0.",
+      "e6_advancement": "Perceived launch snappiness E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-GAME-RESUME-001",
+      "nfr_seed_id": null,
+      "family": "boot_resume_launch",
+      "product": [
+        "Handheld",
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-010"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "game_checkpoint_resume_success_rate",
+      "unit": "ratio",
+      "measurement_method": "Checkpoint \u2192 dock work interrupt \u2192 undock \u2192 resume digest match; n>=30.",
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-005 + save-slot digest verifier",
+      "threshold": 0.99,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "First-party games with accepted checkpoint schema; storage reserves intact",
+      "sample_duration": "session",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "GOLDEN-01/05 + competitor strategy MUST_MATCH handheld checkpoint/resume. Success-rate property; competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical Handheld dock cycle resume.",
+      "e6_advancement": "Game-feel preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-DOCK-001",
+      "nfr_seed_id": null,
+      "family": "boot_resume_launch",
+      "product": [
+        "Student",
+        "Handheld",
+        "Dock",
+        "DS-XL"
+      ],
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-002"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "dock_undock_display_reenumerate_p95_s",
+      "unit": "s",
+      "measurement_method": "Hotplug dock; time until external display + Ethernet/USB usable; undock without hang.",
+      "instrument_or_fixture": "TBD_WP010:EVT-DOCK-001 + PD analyzer (GOOD_TO_OWN/RENT) + display hotplug logger",
+      "threshold": 10.0,
+      "target": 5.0,
+      "stretch": 3.0,
+      "operating_condition": "Accepted Dock rev; PD negotiated; single 1080p/4K display profile as declared in test matrix",
+      "sample_duration": "per-cycle",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "MLP Dock transitions + RISK-002. Laptop/Steam Deck dock class MUST_MATCH. No measured competitor dock timings \u2014 provisional.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical dock SI + hotplug timings.",
+      "e6_advancement": "Office workflow preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-CRASH-001",
+      "nfr_seed_id": "NFR-CRASH-001",
+      "family": "reliability",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-009",
+        "RISK-010"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "crash_free_active_hours",
+      "unit": "h",
+      "measurement_method": "Instrumented soak with golden workload mix; count kernel/userspace fatal; exclude planned reboots.",
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-SOAK-001 + OS crash telemetry export",
+      "threshold": 8.0,
+      "target": 24.0,
+      "stretch": 72.0,
+      "operating_condition": "Mixed office/browser/AI-nano/game profile; 25C; Wi-Fi connected",
+      "sample_duration": "soak",
+      "percentile_or_statistic": "minimum_observed_crash_free_span",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "Seed NFR-CRASH-001; operational E8 later. EVT0 uses soak hours as provisional gate \u2014 not field MTBF claim.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Hardware soak crash-free hours.",
+      "e6_advancement": "N/A preference; field E8 later.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-UPDATE-001",
+      "nfr_seed_id": "NFR-UPDATE-001",
+      "family": "reliability",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-09"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "failed_update_user_data_loss",
+      "unit": "count",
+      "measurement_method": "Inject bad update; force rollback; verify user docs/saves checksums unchanged.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-UPD-001 + A/B slot harness + filesystem checksum tool",
+      "threshold": 0,
+      "target": 0,
+      "stretch": 0,
+      "operating_condition": "Signed update path; Slot A/B + recovery present per ADR-007",
+      "sample_duration": "per-trial",
+      "percentile_or_statistic": "absolute_count",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Already frozen at 0 in NONFUNCTIONAL_REQUIREMENTS.json; MLP safe recovery; GOLDEN-09 S0.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical failed-update rollback on EVT0.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-UPDATE-002",
+      "nfr_seed_id": null,
+      "family": "reliability",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-09"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "failed_update_rollback_success_rate",
+      "unit": "ratio",
+      "measurement_method": "n>=10 injected bad updates; rollback to prior slot bootable.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-UPD-001",
+      "threshold": 1.0,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Same as NFR-UPDATE-001",
+      "sample_duration": "campaign",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Companion to zero data-loss; reliable update/recovery MUST_MATCH.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical rollback campaign.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-RESUME-SOAK-001",
+      "nfr_seed_id": null,
+      "family": "reliability",
+      "product": [
+        "Handheld",
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-010"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "suspend_resume_soak_failure_rate",
+      "unit": "ratio",
+      "measurement_method": ">=100 suspend/resume cycles overnight; fail = hang, data loss, or >threshold resume.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-SOAK-001",
+      "threshold": 0.01,
+      "target": 0.0,
+      "stretch": 0.0,
+      "operating_condition": "25C; mixed app under suspend",
+      "sample_duration": ">=100 cycles",
+      "percentile_or_statistic": "failure_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "RISK-010 EVT soak. Competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical soak.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-STOR-LOW-001",
+      "nfr_seed_id": null,
+      "family": "reliability",
+      "product": [
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05",
+        "GOLDEN-09"
+      ],
+      "risk_refs": [
+        "RISK-004"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "low_storage_no_silent_user_data_loss",
+      "unit": "boolean_pass",
+      "measurement_method": "Fill to below warning; attempt installs; verify user saves/docs never silently deleted.",
+      "instrument_or_fixture": "TBD_WP010:EVT-STOR-001 + storage policy harness",
+      "threshold": 1,
+      "target": 1,
+      "stretch": 1,
+      "operating_condition": "32GB eMMC + required microSD MLP expansion per WP-002",
+      "sample_duration": "scenario",
+      "percentile_or_statistic": "pass_fail",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "WP-002 HANDHELD_STORAGE_POLICY.md accepted: never silently delete user saves/docs.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical low-storage on Handheld.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-INPUT-001",
+      "nfr_seed_id": null,
+      "family": "input",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "touch_or_controller_motion_to_os_event_latency_p95_ms",
+      "unit": "ms",
+      "measurement_method": "Inject/measure HID event to compositor receipt; or camera+probe for touch.",
+      "instrument_or_fixture": "TBD_WP010:EVT-DISP-INP-001 + logic analyzer/high-speed camera as classified by WP-010",
+      "threshold": 80.0,
+      "target": 50.0,
+      "stretch": 35.0,
+      "operating_condition": "Interactive UI; 60Hz panel minimum; no thermal throttle",
+      "sample_duration": ">=200 events",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Usability engineering budget for interactive class (~1\u20132 frames at 60Hz). No measured competitor latency dataset \u2014 competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical touch/controller latency.",
+      "e6_advancement": "Perceived lag E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-RING-001",
+      "nfr_seed_id": "NFR-RING-001",
+      "family": "input",
+      "product": [
+        "Rings"
+      ],
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "false_destructive_action_rate",
+      "unit": "ratio",
+      "measurement_method": "Adversarial corpus of low-confidence/wrong-target destructive intents; count silent accepts.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-SAFE-001 + Ring calibration fixture + pose reference (TBD)",
+      "threshold": 0.0,
+      "target": 0.0,
+      "stretch": 0.0,
+      "operating_condition": "Destructive classes per RING-RELIAB-016; confidence < UNCERTAIN_CONFIDENCE_THRESHOLD=0.85 must reject/confirm",
+      "sample_duration": ">=500 destructive-class trials",
+      "percentile_or_statistic": "false_accept_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "MUST_EXCEED unique Ring safety. device-os silent_destructive_uncertain_gestures.UNCERTAIN_CONFIDENCE_THRESHOLD=0.85. Digital E4 exists; physical pose E5 pending. Zero silent false destructive accepts.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical multimodal wrong-target/low-confidence trials.",
+      "e6_advancement": "Human safety trust study E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-RING-002",
+      "nfr_seed_id": "NFR-RING-002",
+      "family": "input",
+      "product": [
+        "Rings"
+      ],
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "ring_input_latency_p95_ms",
+      "unit": "ms",
+      "measurement_method": "Sensor motion / packet emit to OS HID injection timestamp.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-LAT-001 + motion-reference system (RENT/BORROW TBD_WP010)",
+      "threshold": 80.0,
+      "target": 45.0,
+      "stretch": 30.0,
+      "operating_condition": "Paired Ring; calibrated; RF coexistence nominal; document/browser/game surfaces",
+      "sample_duration": ">=200 gestures",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Strategy MUST_EXCEED for Ring spatial input uniqueness; latency itself provisionally matched to HID interactive class. No competitor ring latency measurements \u2014 competitor_score null. Provisional engineering budget.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical Ring latency with reference pose.",
+      "e6_advancement": "Feel/preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-RING-003",
+      "nfr_seed_id": null,
+      "family": "input",
+      "product": [
+        "Rings"
+      ],
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "wrong_target_rejection_rate",
+      "unit": "ratio",
+      "measurement_method": "Present ambiguous targets; require rejection or explicit confirm before action.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-SAFE-002",
+      "threshold": 0.99,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Multi-window desktop with competing clickable targets",
+      "sample_duration": ">=200 trials",
+      "percentile_or_statistic": "correct_reject_or_confirm_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "GOLDEN-07 target/confidence safety; digital wrong_target path exists in edge-io harness.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical targeting trials.",
+      "e6_advancement": "Human targeting UX E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-RING-004",
+      "nfr_seed_id": null,
+      "family": "input",
+      "product": [
+        "Rings"
+      ],
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "pose_drift_error_p95_mm_over_session",
+      "unit": "mm",
+      "measurement_method": "Compare Ring-reported pose vs motion-reference over continuous session.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-DRIFT-001 + motion-reference (TBD_WP010 classification)",
+      "threshold": "TBD_REQUIRES_REFERENCE_FIXTURE",
+      "target": "TBD_REQUIRES_REFERENCE_FIXTURE",
+      "stretch": "TBD_REQUIRES_REFERENCE_FIXTURE",
+      "operating_condition": "2-hour continuous session; fallback_policy.drift_threshold_mag=2.5 is unitless sensor mag \u2014 not mm ground truth",
+      "sample_duration": "2h",
+      "percentile_or_statistic": "p95_position_error_mm",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "RISK-007 known unknown. edge-io drift_threshold_mag=2.5 is firmware heuristic, not a physical mm accuracy claim. Numeric mm targets remain TBD until WP-010 reference fixture defined \u2014 do not invent.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Requires WP-010 motion-reference readiness.",
+      "e6_advancement": "Human accuracy preference E6.",
+      "wp010_status": "BLOCKED_ON_WP010_REFERENCE_FIXTURE",
+      "residual_tbd": true,
+      "competitor_score": null
+    },
+    {
+      "target_id": "NFR-GAME-001",
+      "nfr_seed_id": "NFR-GAME-001",
+      "family": "display_graphics",
+      "product": [
+        "Handheld",
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-009"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "frame_time_p95_ms_by_profile",
+      "unit": "ms",
+      "measurement_method": "GPU/compositor frame-time capture for declared profiles (30fps and 60fps).",
+      "instrument_or_fixture": "TBD_WP010:EVT-GAME-001 + frame-time logger",
+      "threshold": {
+        "profile_30fps": 38.0,
+        "profile_60fps": 20.0
+      },
+      "target": {
+        "profile_30fps": 33.3,
+        "profile_60fps": 16.7
+      },
+      "stretch": {
+        "profile_30fps": 33.3,
+        "profile_60fps": 16.7
+      },
+      "operating_condition": "First-party titles; Handheld thermal steady; 50% brightness class for battery-coupled runs",
+      "sample_duration": ">=5 min continuous",
+      "percentile_or_statistic": "p95_frame_time",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "Steam Deck OLED battery estimates reference 30FPS (Valve tech specs, 2023). Frame-time budgets follow profile math; not a measured competitor FPS claim \u2014 competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical GPU/display soak.",
+      "e6_advancement": "Game feel E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-GAME-002",
+      "nfr_seed_id": null,
+      "family": "display_graphics",
+      "product": [
+        "Handheld",
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-009"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "dropped_frame_ratio_by_profile",
+      "unit": "ratio",
+      "measurement_method": "Missed vs presented frames over 5 min.",
+      "instrument_or_fixture": "TBD_WP010:EVT-GAME-001",
+      "threshold": 0.05,
+      "target": 0.01,
+      "stretch": 0.005,
+      "operating_condition": "Same as NFR-GAME-001",
+      "sample_duration": ">=5 min",
+      "percentile_or_statistic": "mean_drop_ratio",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "Companion to frame-time; provisional usability budget.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical.",
+      "e6_advancement": "Feel E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-DISP-DSXL-001",
+      "nfr_seed_id": null,
+      "family": "display_graphics",
+      "product": [
+        "DS-XL"
+      ],
+      "journey_refs": [
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-003"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "dual_output_enumeration_success_rate",
+      "unit": "ratio",
+      "measurement_method": "Cold boot and resume; both panels enumerate; layout persistence restore.",
+      "instrument_or_fixture": "TBD_WP010:EVT-DISP-DSXL-001 + dual-display harness",
+      "threshold": 0.99,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Accepted DS-XL hinge/flex rev; both eDP paths",
+      "sample_duration": ">=50 cycles",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "MLP DS-XL dual screens + RISK-003. Lab digital E4 exists; physical panels pending. Preference usefulness is E6/RISK-012 \u2014 not claimed as NFR number.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical dual-panel enumeration.",
+      "e6_advancement": "Layout usefulness human study (RISK-012).",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-DISP-EXT-001",
+      "nfr_seed_id": null,
+      "family": "display_graphics",
+      "product": [
+        "Student",
+        "Handheld",
+        "Dock"
+      ],
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-002"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "external_display_transition_success_rate",
+      "unit": "ratio",
+      "measurement_method": "Dock/undock external display without black screen hang >threshold.",
+      "instrument_or_fixture": "TBD_WP010:EVT-DOCK-DISP-001",
+      "threshold": 0.99,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Declared display modes in EVT matrix",
+      "sample_duration": ">=30 cycles",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Dock continuity MUST_MATCH.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AI-001",
+      "nfr_seed_id": "NFR-AI-001",
+      "family": "ai",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-01",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-008"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "local_first_token_p95_ms_by_tier",
+      "unit": "ms",
+      "measurement_method": "TTFT for fixed prompt on accepted local tiers; offline (airplane mode).",
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-001 + power/thermal co-log",
+      "threshold": {
+        "nano": 2000.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "target": {
+        "nano": 800.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "stretch": {
+        "nano": 400.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "operating_condition": "Local-only; no cloud; thermal below throttle; model SHA from registry",
+      "sample_duration": ">=30 prompts/tier",
+      "percentile_or_statistic": "p95_TTFT",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Local-first AI MUST_EXCEED cloud-default tutors on privacy/offline availability \u2014 not on absolute cloud TTFT. Nano provisional budget only. Fast/Pro numeric targets TBD until EVT silicon power/thermal (RISK-008). No competitor_score.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "TTFT on target HW per tier.",
+      "e6_advancement": "Tutoring quality preference E6 \u2014 separate from latency.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AI-002",
+      "nfr_seed_id": "NFR-AI-002",
+      "family": "ai",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-008"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "local_tokens_per_second_by_tier",
+      "unit": "tok/s",
+      "measurement_method": "Steady generation tok/s after first token; fixed decode settings.",
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-002",
+      "threshold": {
+        "nano": 8.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "target": {
+        "nano": 20.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "stretch": {
+        "nano": 40.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "operating_condition": "Same as NFR-AI-001",
+      "sample_duration": ">=30 runs/tier",
+      "percentile_or_statistic": "median_tok_s",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Companion to TTFT. Nano provisional only; Fast/Pro TBD on silicon. Differentiator is local-first privacy/offline, not fabricated cloud parity.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "tok/s on HW.",
+      "e6_advancement": "N/A latency preference.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AI-003",
+      "nfr_seed_id": null,
+      "family": "ai",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-008",
+        "RISK-005"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "local_ai_peak_rss_memory_by_tier_mib",
+      "unit": "MiB",
+      "measurement_method": "Process RSS/NPU/GPU memory attribution during inference.",
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-003",
+      "threshold": {
+        "nano": 1024.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "target": {
+        "nano": 512.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "stretch": {
+        "nano": 384.0,
+        "fast": "TBD_EVT_SILICON",
+        "pro": "TBD_EVT_SILICON"
+      },
+      "operating_condition": "Single inference; OS memory pressure tools attached",
+      "sample_duration": "per-run peak",
+      "percentile_or_statistic": "p95_peak_rss",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "Engineering budget for Nano always-on path; Fast/Pro TBD with model selection on EVT.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Memory footprint on HW.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AI-004",
+      "nfr_seed_id": null,
+      "family": "ai",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-02"
+      ],
+      "risk_refs": [
+        "RISK-008"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "offline_local_tutor_task_success_rate",
+      "unit": "ratio",
+      "measurement_method": "Authorized offline tutoring task pack; success = answer+sources without cloud.",
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-GJ-008 + offline pack fixture",
+      "threshold": 0.9,
+      "target": 0.95,
+      "stretch": 0.98,
+      "operating_condition": "Airplane mode; authorized notes only; accepted local model",
+      "sample_duration": "task pack (>=50 tasks)",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Offline education MUST_EXCEED. Task success is functional; human tutoring quality remains E6 \u2014 not claimed here. competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Offline pack on HW.",
+      "e6_advancement": "Human tutoring quality E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AI-005",
+      "nfr_seed_id": null,
+      "family": "ai",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005",
+        "RISK-008"
+      ],
+      "strategy": "DIFFERENT_APPROACH",
+      "metric": "local_ai_power_w_during_inference_by_tier",
+      "unit": "W",
+      "measurement_method": "Average system power during sustained local inference.",
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-PWR-001 + USB power meter / current probe",
+      "threshold": "TBD_EVT_CHARACTERIZATION",
+      "target": "TBD_EVT_CHARACTERIZATION",
+      "stretch": "TBD_EVT_CHARACTERIZATION",
+      "operating_condition": "Declare tier; 25C; battery discharge mode",
+      "sample_duration": ">=5 min",
+      "percentile_or_statistic": "mean_W",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Power/thermal characterization is RISK-005/008 experiment \u2014 do not invent watts. Record metric with TBD until EVT measures; strategy DIFFERENT_APPROACH vs cloud energy accounting.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "residual_tbd": true,
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "e5_advancement": "Characterize then freeze change-record if needed.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null
+    },
+    {
+      "target_id": "NFR-BATT-001",
+      "nfr_seed_id": "NFR-BATT-001",
+      "family": "battery_power",
+      "product": [
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-02",
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "golden_student_day_runtime_hours",
+      "unit": "h",
+      "measurement_method": "Scripted school-day mix (docs/browser/offline/AI-nano/light media); time to 5% SoC from 100%.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-001 + USB power meter / battery telemetry logger",
+      "threshold": 6.0,
+      "target": 8.0,
+      "stretch": 10.0,
+      "operating_condition": "50% brightness; Wi-Fi on; cellular off unless scenario; 25C; MLP school-day workload \u2014 NOT Google PLT marketing peak",
+      "sample_duration": "full discharge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "MLP 'full school day' + DEV-STUDENT-002. Education Chromebook class commonly markets >=8h on Chrome Power Load Test (e.g., Dell 3100 EDU up to 13h25 PLT; Samsung Galaxy Chromebook Go 12h PLT) \u2014 marketing peaks are NOT adopted as sustained threshold. Threshold 6h practical mix; target 8h school-day; stretch 10h. competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical school-day discharge.",
+      "e6_advancement": "Student day preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-BATT-002",
+      "nfr_seed_id": "NFR-BATT-002",
+      "family": "battery_power",
+      "product": [
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-05",
+        "GOLDEN-01"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "game_runtime_hours_by_profile",
+      "unit": "h",
+      "measurement_method": "Continuous first-party game at declared profile until 5% SoC.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-002",
+      "threshold": {
+        "profile_30fps_50pct_brightness": 2.0
+      },
+      "target": {
+        "profile_30fps_50pct_brightness": 3.0
+      },
+      "stretch": {
+        "profile_30fps_50pct_brightness": 5.0
+      },
+      "operating_condition": "Align with Valve Steam Deck OLED published estimate conditions class: titles at 30FPS, 50% brightness, 50% volume (Valve tech specs / OLED announcement 2023-11). Do NOT treat 12h peak as sustained requirement.",
+      "sample_duration": "full discharge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Steam Deck OLED official battery 50Wh; advertised 3\u201312h gameplay under stated conditions (Valve, Nov 2023). MUST_MATCH handheld class using lower bound class (3h target), threshold 2h engineering floor, stretch 5h \u2014 not marketing peak.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical gaming discharge.",
+      "e6_advancement": "Play-session preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-BATT-003",
+      "nfr_seed_id": null,
+      "family": "battery_power",
+      "product": [
+        "Student",
+        "DS-XL"
+      ],
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "office_runtime_hours",
+      "unit": "h",
+      "measurement_method": "Docs/email/calendar/browser office mix to 5% SoC.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-003",
+      "threshold": 6.0,
+      "target": 8.0,
+      "stretch": 10.0,
+      "operating_condition": "Docked AC excluded; undocked battery; 50% brightness",
+      "sample_duration": "full discharge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Office/browser MUST_MATCH laptop/Chromebook class practical day; same non-marketing approach as NFR-BATT-001.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical office discharge.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-BATT-004",
+      "nfr_seed_id": null,
+      "family": "battery_power",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "standby_drain_pct_per_8h",
+      "unit": "%SoC/8h",
+      "measurement_method": "Suspend 8h; measure SoC delta.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-STBY-001",
+      "threshold": 10.0,
+      "target": 5.0,
+      "stretch": 3.0,
+      "operating_condition": "Airplane mode suspend; 25C",
+      "sample_duration": "8h",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Provisional engineering budget for suspend drain; competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical standby.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-BATT-005",
+      "nfr_seed_id": null,
+      "family": "battery_power",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "charge_20_to_80_minutes",
+      "unit": "min",
+      "measurement_method": "Charge 20\u219280% SoC with accepted PD adapter; time.",
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-CHG-001 + USB-C/PD analyzer",
+      "threshold": 90.0,
+      "target": 60.0,
+      "stretch": 45.0,
+      "operating_condition": "max_charge_w=65 from accepted hardware profiles; device cool",
+      "sample_duration": "per-charge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Hardware battery_limits.max_charge_w=65 accepted. Valve OLED claims 20\u201380% 'as little as 45 minutes' (2023) \u2014 used as stretch class only, not fabricated measurement. Threshold/target provisional under 65W cap.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical charge curves.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-PWR-001",
+      "nfr_seed_id": null,
+      "family": "battery_power",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-06",
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "strategy": "DIFFERENT_APPROACH",
+      "metric": "idle_and_load_system_power_w",
+      "unit": "W",
+      "measurement_method": "Measure idle / office / AI / game / combined / charging power.",
+      "instrument_or_fixture": "TBD_WP010:EVT-PWR-001 + bench PSU / current probe / USB power meter",
+      "threshold": "TBD_EVT_CHARACTERIZATION",
+      "target": "TBD_EVT_CHARACTERIZATION",
+      "stretch": "TBD_EVT_CHARACTERIZATION",
+      "operating_condition": "Profiles per EVT0 risk-first P5; component_selection sim only has watts_peak Student=25 Handheld=30 modeled \u2014 not acceptance targets",
+      "sample_duration": "per-profile >=5 min",
+      "percentile_or_statistic": "mean_W",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Do not convert modeled watts_peak into NFR targets. Freeze the measurement requirement; numeric budgets TBD after EVT characterization (honesty).",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "residual_tbd": true,
+      "e5_advancement": "Characterize idle/load power.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-THERM-001",
+      "nfr_seed_id": "NFR-THERM-001",
+      "family": "thermal_acoustic",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05",
+        "GOLDEN-06",
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005",
+        "RISK-001"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "accessible_surface_temperature_c_max",
+      "unit": "C",
+      "measurement_method": "Thermocouple/logger + optional thermal camera on defined skin points under load profiles.",
+      "instrument_or_fixture": "TBD_WP010:EVT-THERM-001 + thermocouple logger (REQUIRED class in master equipment list)",
+      "threshold": 45.0,
+      "target": 42.0,
+      "stretch": 40.0,
+      "operating_condition": "25C ambient; sustained office/AI/game profiles; continuous-contact surfaces (palm rests, grips)",
+      "sample_duration": ">=30 min sustained",
+      "percentile_or_statistic": "max_steady_state",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Accepted hardware profiles skin_c_max=45 for Student/DS-XL/Handheld/Rings. Regulatory outer bound IEC 62368-1 TS1 sustained contact (~>1 min) metal/plastic 48C (Table 38 class; UL tech brief). Product threshold uses accepted 45C capability constraint (stricter than TS1 48C). Not a competitor measurement.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical surface map.",
+      "e6_advancement": "Comfort preference E6 optional.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-THERM-002",
+      "nfr_seed_id": null,
+      "family": "thermal_acoustic",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-06",
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "component_throttle_guard_band_c",
+      "unit": "C",
+      "measurement_method": "Verify OS thermal policy throttle engages at declared sensor threshold before damage.",
+      "instrument_or_fixture": "TBD_WP010:EVT-THERM-002",
+      "threshold": 85.0,
+      "target": 85.0,
+      "stretch": 85.0,
+      "operating_condition": "os_thermal_policy.yaml throttle_c=85 reduce_gpu",
+      "sample_duration": "ramp to throttle",
+      "percentile_or_statistic": "trip_point",
+      "evidence_level": "E5",
+      "evidence_level_current": "E1",
+      "source_rationale": "Accepted hardware os_thermal_policy.yaml throttle_c=85.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Verify trip on HW.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-THERM-003",
+      "nfr_seed_id": null,
+      "family": "thermal_acoustic",
+      "product": [
+        "Handheld",
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-005",
+        "RISK-009"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "sustained_performance_retention_ratio_30min",
+      "unit": "ratio",
+      "measurement_method": "Average FPS or tok/s minutes 25\u201330 vs minutes 0\u20135 under sustained load.",
+      "instrument_or_fixture": "TBD_WP010:EVT-THERM-PERF-001",
+      "threshold": 0.7,
+      "target": 0.85,
+      "stretch": 0.95,
+      "operating_condition": "25C; closed chassis; declared game/AI profile",
+      "sample_duration": "30 min",
+      "percentile_or_statistic": "retention_ratio",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Engineering budget against thermal collapse; competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Sustained load retention.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-ACOUSTIC-001",
+      "nfr_seed_id": null,
+      "family": "thermal_acoustic",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [],
+      "strategy": "NOT_RELEVANT",
+      "metric": "fan_noise_dba_at_1m",
+      "unit": "dBA",
+      "measurement_method": "If fanless design confirmed, mark N/A pass; if fan present, A-weighted 1m SPL.",
+      "instrument_or_fixture": "TBD_WP010:EVT-ACOUSTIC-001 OR NOT_NEEDED_EVT0 if fanless confirmed",
+      "threshold": "N/A_OR_TBD_IF_FAN",
+      "target": "N/A_OR_TBD_IF_FAN",
+      "stretch": "N/A_OR_TBD_IF_FAN",
+      "operating_condition": "thermal_model.md notes fanless vs fan trade study \u2014 final acoustic TBD",
+      "sample_duration": "steady",
+      "percentile_or_statistic": "LpA",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Fan presence not frozen; strategy NOT_RELEVANT until fan decision. Residual TBD honest.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "residual_tbd": true,
+      "e5_advancement": "Only if fan selected.",
+      "e6_advancement": "Noise preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-STOR-001",
+      "nfr_seed_id": null,
+      "family": "storage",
+      "product": [
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-05",
+        "GOLDEN-09"
+      ],
+      "risk_refs": [
+        "RISK-004"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "onboard_minimum_free_reserve_gib",
+      "unit": "GiB",
+      "measurement_method": "Verify usable free never drops below policy floor under installs.",
+      "instrument_or_fixture": "TBD_WP010:EVT-STOR-001 + df/policy probe",
+      "threshold": 2.976,
+      "target": 2.976,
+      "stretch": 3.5,
+      "operating_condition": "WP-002 reserves: max(2.0 GiB, 10% usable)\u22482.976 GiB; update reserve 2.0; emergency 0.5",
+      "sample_duration": "policy audit",
+      "percentile_or_statistic": "minimum_free",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Accepted WP-002 HANDHELD_STORAGE_POLICY.md numeric reserves.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical storage pressure on 32GB+microSD.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-STOR-002",
+      "nfr_seed_id": null,
+      "family": "storage",
+      "product": [
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-004"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "expansion_microsd_sequential_write_mibs",
+      "unit": "MiB/s",
+      "measurement_method": "fio/dd sequential write on required microSD; declare card class.",
+      "instrument_or_fixture": "TBD_WP010:EVT-STOR-002",
+      "threshold": "TBD_CARD_CLASS_MATRIX",
+      "target": "TBD_CARD_CLASS_MATRIX",
+      "stretch": "TBD_CARD_CLASS_MATRIX",
+      "operating_condition": "MLP requires microSD expansion; performance depends on accepted card AVL \u2014 do not invent MB/s",
+      "sample_duration": ">=60s",
+      "percentile_or_statistic": "mean_write",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Expansion required for MLP but card performance matrix not frozen \u2014 residual TBD.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "residual_tbd": true,
+      "e5_advancement": "Measure with AVL cards.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-NET-001",
+      "nfr_seed_id": "NFR-NET-001",
+      "family": "network",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-02",
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-006",
+        "RISK-011"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "handoff_interruption_p95_ms",
+      "unit": "ms",
+      "measurement_method": "Wi-Fi\u2194Ethernet or Wi-Fi\u2194cellular handoff; measure app-visible interruption.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RF-HO-001 + traffic gen / Wi-Fi test AP (TBD classification)",
+      "threshold": 3000.0,
+      "target": 1000.0,
+      "stretch": 500.0,
+      "operating_condition": "Controlled lab AP; RM520N-GL present for cellular path; not carrier cert claim",
+      "sample_duration": ">=20 handoffs",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "5G-A network intent MUST_EXCEED as strategy for continuity intent \u2014 numeric budget provisional. Carrier cert remains E7/RISK-011. competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Lab handoff timings.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-NET-002",
+      "nfr_seed_id": null,
+      "family": "network",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld",
+        "Dock"
+      ],
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-006"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "wifi_tcp_throughput_mbps_lab",
+      "unit": "Mbps",
+      "measurement_method": "iperf3 STA\u2194AP; Wi-Fi 6E minimum per hardware profile.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RF-WIFI-001 + Wi-Fi test AP",
+      "threshold": "TBD_LAB_AP_PROFILE",
+      "target": "TBD_LAB_AP_PROFILE",
+      "stretch": "TBD_LAB_AP_PROFILE",
+      "operating_condition": "wifi:6e_minimum in hardware profiles \u2014 absolute Mbps depends on AP/channel; freeze method not fabricated Mbps",
+      "sample_duration": ">=60s",
+      "percentile_or_statistic": "mean_Mbps",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Capability constraint Wi-Fi 6E minimum accepted; Mbps targets TBD with WP-010 AP profile.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "residual_tbd": true,
+      "e5_advancement": "Measure with declared AP.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-NET-003",
+      "nfr_seed_id": null,
+      "family": "network",
+      "product": [
+        "Dock",
+        "Student"
+      ],
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-002"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "dock_ethernet_link_up_success_rate",
+      "unit": "ratio",
+      "measurement_method": "Dock cycles; Ethernet link+DHCP/static reachability.",
+      "instrument_or_fixture": "TBD_WP010:EVT-DOCK-ETH-001",
+      "threshold": 0.99,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Accepted Dock; GbE minimum unless matrix says otherwise",
+      "sample_duration": ">=30 cycles",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "Dock Ethernet MLP MUST_MATCH.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical dock Ethernet.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-NET-004",
+      "nfr_seed_id": null,
+      "family": "network",
+      "product": [
+        "Student",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-02"
+      ],
+      "risk_refs": [
+        "RISK-011"
+      ],
+      "strategy": "MUST_EXCEED",
+      "metric": "offline_to_online_sync_no_data_loss_rate",
+      "unit": "ratio",
+      "measurement_method": "Offline edits then reconnect; zero silent overwrite; conflict-safe.",
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-002 + sync harness",
+      "threshold": 1.0,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "GOLDEN-02 offline student reconnect",
+      "sample_duration": ">=20 cycles",
+      "percentile_or_statistic": "success_rate",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "Offline education MUST_EXCEED; data integrity MUST_MATCH sync safety.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical radio reconnect.",
+      "e6_advancement": "Conflict UX preference E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-NET-005",
+      "nfr_seed_id": null,
+      "family": "network",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-02"
+      ],
+      "risk_refs": [
+        "RISK-006"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "packet_loss_ratio_lab_steady",
+      "unit": "ratio",
+      "measurement_method": "Controlled steady traffic; measure loss.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RF-LOSS-001",
+      "threshold": 0.01,
+      "target": 0.001,
+      "stretch": 0.0001,
+      "operating_condition": "Clean lab Wi-Fi; not coexistence stress (separate RISK-006)",
+      "sample_duration": ">=5 min",
+      "percentile_or_statistic": "loss_ratio",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Provisional lab link quality budget; RF coexistence separate. competitor_score null.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Lab loss.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AUDIO-001",
+      "nfr_seed_id": null,
+      "family": "audio_media",
+      "product": [
+        "Student",
+        "Handheld",
+        "Dock"
+      ],
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "audio_route_switch_glitch_count",
+      "unit": "count",
+      "measurement_method": "Switch speaker/headset/dock audio during playback; count dropouts >20ms.",
+      "instrument_or_fixture": "TBD_WP010:EVT-AUD-001 + audio loopback/analyzer (TBD classification)",
+      "threshold": 2,
+      "target": 0,
+      "stretch": 0,
+      "operating_condition": "Declared routes; 5 switches per trial; n>=10 trials",
+      "sample_duration": "per-trial",
+      "percentile_or_statistic": "max_glitch_count",
+      "evidence_level": "E5",
+      "evidence_level_current": "E3",
+      "source_rationale": "Dock/office audio continuity MUST_MATCH. Provisional glitch budget.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical route switching.",
+      "e6_advancement": "Perceived audio quality E6.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-AUDIO-002",
+      "nfr_seed_id": null,
+      "family": "audio_media",
+      "product": [
+        "Student",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "media_playback_underrun_ratio",
+      "unit": "ratio",
+      "measurement_method": "30 min local media; count underruns.",
+      "instrument_or_fixture": "TBD_WP010:EVT-AUD-002",
+      "threshold": 0.01,
+      "target": 0.0,
+      "stretch": 0.0,
+      "operating_condition": "Local file playback; mixed CPU load light",
+      "sample_duration": "30 min",
+      "percentile_or_statistic": "underrun_ratio",
+      "evidence_level": "E5",
+      "evidence_level_current": "E0",
+      "source_rationale": "Provisional media reliability budget.",
+      "source_date": "2026-08-10",
+      "confidence": "LOW",
+      "physical_pending": true,
+      "e5_advancement": "Physical media soak.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-SEC-001",
+      "nfr_seed_id": null,
+      "family": "security",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-10"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "lost_device_revoke_effective_latency_s",
+      "unit": "s",
+      "measurement_method": "Issue revoke; measure time until session/token rejected on device path under test.",
+      "instrument_or_fixture": "TBD_WP010:EVT-SEC-REV-001 OR digital harness if physical path unavailable \u2014 coordinate WP-007",
+      "threshold": 60.0,
+      "target": 15.0,
+      "stretch": 5.0,
+      "operating_condition": "Online revoke path; offline revoke follows next connect \u2014 declare path",
+      "sample_duration": "per-revoke",
+      "percentile_or_statistic": "p95",
+      "evidence_level": "E5",
+      "evidence_level_current": "E4",
+      "source_rationale": "GOLDEN-10 lost device revoke. Security/user isolation MUST_MATCH. Provisional latency budget; WP-007 owns adversarial depth.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical/device-path revoke timing.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-SEC-002",
+      "nfr_seed_id": null,
+      "family": "security",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld",
+        "Rings"
+      ],
+      "journey_refs": [
+        "GOLDEN-07",
+        "GOLDEN-10"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "tamper_or_replay_ring_packet_rejection_rate",
+      "unit": "ratio",
+      "measurement_method": "Replay/forged Ring packets must be rejected; no HID injection.",
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-SEC-001 + WP-007 SEC-RING corpus",
+      "threshold": 1.0,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Paired Ring security context",
+      "sample_duration": "corpus",
+      "percentile_or_statistic": "reject_rate",
+      "evidence_level": "E4",
+      "evidence_level_current": "E3",
+      "source_rationale": "WP-007 Ring forged/replay cases; property target 100% reject. Digital-first; physical when Ring HW available.",
+      "source_date": "2026-08-10",
+      "confidence": "MEDIUM",
+      "physical_pending": true,
+      "e5_advancement": "Physical RF packet tamper if in scope else E4 digital.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-SEC-003",
+      "nfr_seed_id": null,
+      "family": "security",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld"
+      ],
+      "journey_refs": [
+        "GOLDEN-03",
+        "GOLDEN-09"
+      ],
+      "risk_refs": [],
+      "strategy": "MUST_MATCH",
+      "metric": "sandbox_permission_bypass_s0_s1_count",
+      "unit": "count",
+      "measurement_method": "WP-007 independent suite; S0/S1 bypass count must be 0 for readiness.",
+      "instrument_or_fixture": "WP-007 red-team harness (digital); physical follow-ons TBD",
+      "threshold": 0,
+      "target": 0,
+      "stretch": 0,
+      "operating_condition": "INTERNAL_RED_TEAM_READY gate",
+      "sample_duration": "suite",
+      "percentile_or_statistic": "absolute_count",
+      "evidence_level": "E4",
+      "evidence_level_current": "E0",
+      "source_rationale": "Cycle 2 WP-007 success gate SECURITY_S0=0 SECURITY_S1=0. Coordinate \u2014 do not invent pentest results.",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Physical only where applicable.",
+      "e6_advancement": "N/A.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    },
+    {
+      "target_id": "NFR-A11Y-001",
+      "nfr_seed_id": "NFR-A11Y-001",
+      "family": "accessibility",
+      "product": [
+        "Student",
+        "DS-XL",
+        "Handheld",
+        "Rings"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-02",
+        "GOLDEN-03",
+        "GOLDEN-04",
+        "GOLDEN-05",
+        "GOLDEN-06",
+        "GOLDEN-07",
+        "GOLDEN-08",
+        "GOLDEN-09",
+        "GOLDEN-10"
+      ],
+      "risk_refs": [
+        "RISK-012"
+      ],
+      "strategy": "MUST_MATCH",
+      "metric": "critical_task_completion_with_supported_accessibility_path",
+      "unit": "ratio",
+      "measurement_method": "Complete each Golden Journey via declared a11y path (keyboard/screen reader/etc.); no preference scoring.",
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-A11Y-001 + a11y path checklist; humans required for E6",
+      "threshold": 1.0,
+      "target": 1.0,
+      "stretch": 1.0,
+      "operating_condition": "Supported a11y paths only; no claim that unsupported paths work",
+      "sample_duration": "per-journey",
+      "percentile_or_statistic": "completion_rate",
+      "evidence_level": "E6",
+      "evidence_level_current": "E3",
+      "source_rationale": "Already frozen at 100% in NONFUNCTIONAL_REQUIREMENTS.json. Accessibility MUST_MATCH. Preference claims forbidden without humans (E6).",
+      "source_date": "2026-08-10",
+      "confidence": "HIGH",
+      "physical_pending": true,
+      "e5_advancement": "Hardware path enables a11y stack.",
+      "e6_advancement": "Required human completion evidence.",
+      "competitor_score": null,
+      "wp010_status": "TBD_WP010_NOT_LANDED"
+    }
+  ],
+  "golden_journey_e5_e6_map": {
+    "GOLDEN-01": {
+      "e5_nfr_ids": [
+        "NFR-BOOT-001",
+        "NFR-APP-001",
+        "NFR-GAME-RESUME-001",
+        "NFR-BATT-001",
+        "NFR-GAME-001"
+      ],
+      "e6_needs": [
+        "school_day_preference",
+        "recreation_feel"
+      ]
+    },
+    "GOLDEN-02": {
+      "e5_nfr_ids": [
+        "NFR-NET-004",
+        "NFR-AI-004"
+      ],
+      "e6_needs": [
+        "conflict_ux_preference"
+      ]
+    },
+    "GOLDEN-03": {
+      "e5_nfr_ids": [
+        "NFR-APP-001",
+        "NFR-SEC-003"
+      ],
+      "e6_needs": [
+        "creator_tooling_preference"
+      ]
+    },
+    "GOLDEN-04": {
+      "e5_nfr_ids": [
+        "NFR-DOCK-001",
+        "NFR-DISP-EXT-001",
+        "NFR-NET-003",
+        "NFR-BATT-003",
+        "NFR-AUDIO-001"
+      ],
+      "e6_needs": [
+        "office_dock_preference"
+      ]
+    },
+    "GOLDEN-05": {
+      "e5_nfr_ids": [
+        "NFR-RESUME-001",
+        "NFR-GAME-RESUME-001",
+        "NFR-BATT-002",
+        "NFR-DOCK-001"
+      ],
+      "e6_needs": [
+        "hybrid_play_work_feel"
+      ]
+    },
+    "GOLDEN-06": {
+      "e5_nfr_ids": [
+        "NFR-DISP-DSXL-001",
+        "NFR-THERM-001",
+        "NFR-AI-001"
+      ],
+      "e6_needs": [
+        "dual_screen_usefulness_RISK-012"
+      ]
+    },
+    "GOLDEN-07": {
+      "e5_nfr_ids": [
+        "NFR-RING-001",
+        "NFR-RING-002",
+        "NFR-RING-003",
+        "NFR-RING-004",
+        "NFR-SEC-002"
+      ],
+      "e6_needs": [
+        "ring_trust_preference_RISK-012"
+      ]
+    },
+    "GOLDEN-08": {
+      "e5_nfr_ids": [
+        "NFR-AI-001",
+        "NFR-AI-002",
+        "NFR-AI-004"
+      ],
+      "e6_needs": [
+        "tutoring_quality_human"
+      ]
+    },
+    "GOLDEN-09": {
+      "e5_nfr_ids": [
+        "NFR-UPDATE-001",
+        "NFR-UPDATE-002"
+      ],
+      "e6_needs": []
+    },
+    "GOLDEN-10": {
+      "e5_nfr_ids": [
+        "NFR-SEC-001",
+        "NFR-SEC-002"
+      ],
+      "e6_needs": []
+    }
+  },
+  "counts": {
+    "targets_total": 47,
+    "targets_with_numeric_threshold": 38,
+    "competitor_score_all_null": true,
+    "targets_with_residual_numeric_tbd": 9
+  }
+}

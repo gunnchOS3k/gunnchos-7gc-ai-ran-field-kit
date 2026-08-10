@@ -1,0 +1,1278 @@
+{
+  "schema": "gunnchos.evt0_target_measurement_map.v1",
+  "work_packet": "WP-008",
+  "generated_at": "2026-08-10T21:15:00Z",
+  "wp010_status": "ARTIFACTS_NOT_LANDED",
+  "wp010_coordination": "Use canonical test ID prefixes from WP-010 packet; bind concrete instrument rows when WP-010 merges",
+  "device_lab_bridge": {
+    "vf4": "PHYSICAL_PENDING",
+    "fields_expected": [
+      "virtual_run_id",
+      "physical_test_id",
+      "metric_id",
+      "prediction",
+      "measurement",
+      "error",
+      "relative_error",
+      "uncertainty",
+      "calibration_version"
+    ],
+    "schema_path_expected": "TBD_WP010:DEVICE_LAB_CALIBRATION_BRIDGE_SCHEMA.json"
+  },
+  "mappings": [
+    {
+      "target_id": "NFR-BOOT-001",
+      "metric": "cold_boot_to_usable_p95_s",
+      "unit": "s",
+      "provisional_test_ids": [
+        "EVT-BOOT-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-001 + console/UART timestamp harness + wall clock sync",
+      "measurement_method": "Power-on to interactive shell/desktop with network stack up; wall-clock from rail enable; n>=10 cold boots after full shutdown.",
+      "operating_condition": "25C ambient; battery >=40%; Wi-Fi on; no pending update; factory-default image SHA pinned by WP-001 later",
+      "sample_duration": "per-boot",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-001",
+        "RISK-010"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-RESUME-001",
+      "metric": "resume_to_interactive_p95_s",
+      "unit": "s",
+      "provisional_test_ids": [
+        "EVT-BOOT-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-002 + input-event timestamp logger",
+      "measurement_method": "Suspend (S3/S0ix class) then wake; time to interactive input accepted; n>=20 cycles.",
+      "operating_condition": "Handheld/laptop suspend with game or office app checkpointed; 25C; battery >=20%",
+      "sample_duration": "per-resume",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-010"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-APP-001",
+      "metric": "critical_app_launch_p95_s",
+      "unit": "s",
+      "provisional_test_ids": [
+        "EVT-BOOT-003"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-003 + compositor/frame timestamp OR high-speed camera fixture",
+      "measurement_method": "Cold launch of office suite / browser / first-party game to first interactive frame; n>=15 each app.",
+      "operating_condition": "Post-boot idle 60s; storage free above WP-002 reserves; AI models not loading concurrently unless stated",
+      "sample_duration": "per-launch",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-03",
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-009"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-GAME-RESUME-001",
+      "metric": "game_checkpoint_resume_success_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-GJ-005"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-005 + save-slot digest verifier",
+      "measurement_method": "Checkpoint \u2192 dock work interrupt \u2192 undock \u2192 resume digest match; n>=30.",
+      "operating_condition": "First-party games with accepted checkpoint schema; storage reserves intact",
+      "sample_duration": "session",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-010"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-DOCK-001",
+      "metric": "dock_undock_display_reenumerate_p95_s",
+      "unit": "s",
+      "provisional_test_ids": [
+        "EVT-DOCK-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-DOCK-001 + PD analyzer (GOOD_TO_OWN/RENT) + display hotplug logger",
+      "measurement_method": "Hotplug dock; time until external display + Ethernet/USB usable; undock without hang.",
+      "operating_condition": "Accepted Dock rev; PD negotiated; single 1080p/4K display profile as declared in test matrix",
+      "sample_duration": "per-cycle",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-002"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-CRASH-001",
+      "metric": "crash_free_active_hours",
+      "unit": "h",
+      "provisional_test_ids": [
+        "EVT-GJ-SOAK-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-SOAK-001 + OS crash telemetry export",
+      "measurement_method": "Instrumented soak with golden workload mix; count kernel/userspace fatal; exclude planned reboots.",
+      "operating_condition": "Mixed office/browser/AI-nano/game profile; 25C; Wi-Fi connected",
+      "sample_duration": "soak",
+      "percentile_or_statistic": "minimum_observed_crash_free_span",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-009",
+        "RISK-010"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-UPDATE-001",
+      "metric": "failed_update_user_data_loss",
+      "unit": "count",
+      "provisional_test_ids": [
+        "EVT-BOOT-UPD-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-UPD-001 + A/B slot harness + filesystem checksum tool",
+      "measurement_method": "Inject bad update; force rollback; verify user docs/saves checksums unchanged.",
+      "operating_condition": "Signed update path; Slot A/B + recovery present per ADR-007",
+      "sample_duration": "per-trial",
+      "percentile_or_statistic": "absolute_count",
+      "journey_refs": [
+        "GOLDEN-09"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-UPDATE-002",
+      "metric": "failed_update_rollback_success_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-BOOT-UPD-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-UPD-001",
+      "measurement_method": "n>=10 injected bad updates; rollback to prior slot bootable.",
+      "operating_condition": "Same as NFR-UPDATE-001",
+      "sample_duration": "campaign",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-09"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-RESUME-SOAK-001",
+      "metric": "suspend_resume_soak_failure_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-BOOT-SOAK-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BOOT-SOAK-001",
+      "measurement_method": ">=100 suspend/resume cycles overnight; fail = hang, data loss, or >threshold resume.",
+      "operating_condition": "25C; mixed app under suspend",
+      "sample_duration": ">=100 cycles",
+      "percentile_or_statistic": "failure_rate",
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-010"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-STOR-LOW-001",
+      "metric": "low_storage_no_silent_user_data_loss",
+      "unit": "boolean_pass",
+      "provisional_test_ids": [
+        "EVT-STOR-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-STOR-001 + storage policy harness",
+      "measurement_method": "Fill to below warning; attempt installs; verify user saves/docs never silently deleted.",
+      "operating_condition": "32GB eMMC + required microSD MLP expansion per WP-002",
+      "sample_duration": "scenario",
+      "percentile_or_statistic": "pass_fail",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05",
+        "GOLDEN-09"
+      ],
+      "risk_refs": [
+        "RISK-004"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-INPUT-001",
+      "metric": "touch_or_controller_motion_to_os_event_latency_p95_ms",
+      "unit": "ms",
+      "provisional_test_ids": [
+        "EVT-DISP-INP-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-DISP-INP-001 + logic analyzer/high-speed camera as classified by WP-010",
+      "measurement_method": "Inject/measure HID event to compositor receipt; or camera+probe for touch.",
+      "operating_condition": "Interactive UI; 60Hz panel minimum; no thermal throttle",
+      "sample_duration": ">=200 events",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-RING-001",
+      "metric": "false_destructive_action_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-RING-SAFE-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-SAFE-001 + Ring calibration fixture + pose reference (TBD)",
+      "measurement_method": "Adversarial corpus of low-confidence/wrong-target destructive intents; count silent accepts.",
+      "operating_condition": "Destructive classes per RING-RELIAB-016; confidence < UNCERTAIN_CONFIDENCE_THRESHOLD=0.85 must reject/confirm",
+      "sample_duration": ">=500 destructive-class trials",
+      "percentile_or_statistic": "false_accept_rate",
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-RING-002",
+      "metric": "ring_input_latency_p95_ms",
+      "unit": "ms",
+      "provisional_test_ids": [
+        "EVT-RING-LAT-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-LAT-001 + motion-reference system (RENT/BORROW TBD_WP010)",
+      "measurement_method": "Sensor motion / packet emit to OS HID injection timestamp.",
+      "operating_condition": "Paired Ring; calibrated; RF coexistence nominal; document/browser/game surfaces",
+      "sample_duration": ">=200 gestures",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-RING-003",
+      "metric": "wrong_target_rejection_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-RING-SAFE-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-SAFE-002",
+      "measurement_method": "Present ambiguous targets; require rejection or explicit confirm before action.",
+      "operating_condition": "Multi-window desktop with competing clickable targets",
+      "sample_duration": ">=200 trials",
+      "percentile_or_statistic": "correct_reject_or_confirm_rate",
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-RING-004",
+      "metric": "pose_drift_error_p95_mm_over_session",
+      "unit": "mm",
+      "provisional_test_ids": [
+        "EVT-RING-DRIFT-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-DRIFT-001 + motion-reference (TBD_WP010 classification)",
+      "measurement_method": "Compare Ring-reported pose vs motion-reference over continuous session.",
+      "operating_condition": "2-hour continuous session; fallback_policy.drift_threshold_mag=2.5 is unitless sensor mag \u2014 not mm ground truth",
+      "sample_duration": "2h",
+      "percentile_or_statistic": "p95_position_error_mm",
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "risk_refs": [
+        "RISK-007"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "BLOCKED_ON_WP010_REFERENCE_FIXTURE",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-GAME-001",
+      "metric": "frame_time_p95_ms_by_profile",
+      "unit": "ms",
+      "provisional_test_ids": [
+        "EVT-GAME-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-GAME-001 + frame-time logger",
+      "measurement_method": "GPU/compositor frame-time capture for declared profiles (30fps and 60fps).",
+      "operating_condition": "First-party titles; Handheld thermal steady; 50% brightness class for battery-coupled runs",
+      "sample_duration": ">=5 min continuous",
+      "percentile_or_statistic": "p95_frame_time",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-009"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-GAME-002",
+      "metric": "dropped_frame_ratio_by_profile",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-GAME-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-GAME-001",
+      "measurement_method": "Missed vs presented frames over 5 min.",
+      "operating_condition": "Same as NFR-GAME-001",
+      "sample_duration": ">=5 min",
+      "percentile_or_statistic": "mean_drop_ratio",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-009"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-DISP-DSXL-001",
+      "metric": "dual_output_enumeration_success_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-DISP-DSXL-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-DISP-DSXL-001 + dual-display harness",
+      "measurement_method": "Cold boot and resume; both panels enumerate; layout persistence restore.",
+      "operating_condition": "Accepted DS-XL hinge/flex rev; both eDP paths",
+      "sample_duration": ">=50 cycles",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-003"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-DISP-EXT-001",
+      "metric": "external_display_transition_success_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-DOCK-DISP-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-DOCK-DISP-001",
+      "measurement_method": "Dock/undock external display without black screen hang >threshold.",
+      "operating_condition": "Declared display modes in EVT matrix",
+      "sample_duration": ">=30 cycles",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-002"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AI-001",
+      "metric": "local_first_token_p95_ms_by_tier",
+      "unit": "ms",
+      "provisional_test_ids": [
+        "EVT-AI-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-001 + power/thermal co-log",
+      "measurement_method": "TTFT for fixed prompt on accepted local tiers; offline (airplane mode).",
+      "operating_condition": "Local-only; no cloud; thermal below throttle; model SHA from registry",
+      "sample_duration": ">=30 prompts/tier",
+      "percentile_or_statistic": "p95_TTFT",
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-01",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-008"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AI-002",
+      "metric": "local_tokens_per_second_by_tier",
+      "unit": "tok/s",
+      "provisional_test_ids": [
+        "EVT-AI-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-002",
+      "measurement_method": "Steady generation tok/s after first token; fixed decode settings.",
+      "operating_condition": "Same as NFR-AI-001",
+      "sample_duration": ">=30 runs/tier",
+      "percentile_or_statistic": "median_tok_s",
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-008"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AI-003",
+      "metric": "local_ai_peak_rss_memory_by_tier_mib",
+      "unit": "MiB",
+      "provisional_test_ids": [
+        "EVT-AI-003"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-003",
+      "measurement_method": "Process RSS/NPU/GPU memory attribution during inference.",
+      "operating_condition": "Single inference; OS memory pressure tools attached",
+      "sample_duration": "per-run peak",
+      "percentile_or_statistic": "p95_peak_rss",
+      "journey_refs": [
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-008",
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AI-004",
+      "metric": "offline_local_tutor_task_success_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-AI-GJ-008"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-GJ-008 + offline pack fixture",
+      "measurement_method": "Authorized offline tutoring task pack; success = answer+sources without cloud.",
+      "operating_condition": "Airplane mode; authorized notes only; accepted local model",
+      "sample_duration": "task pack (>=50 tasks)",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-02"
+      ],
+      "risk_refs": [
+        "RISK-008"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AI-005",
+      "metric": "local_ai_power_w_during_inference_by_tier",
+      "unit": "W",
+      "provisional_test_ids": [
+        "EVT-AI-PWR-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AI-PWR-001 + USB power meter / current probe",
+      "measurement_method": "Average system power during sustained local inference.",
+      "operating_condition": "Declare tier; 25C; battery discharge mode",
+      "sample_duration": ">=5 min",
+      "percentile_or_statistic": "mean_W",
+      "journey_refs": [
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005",
+        "RISK-008"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-BATT-001",
+      "metric": "golden_student_day_runtime_hours",
+      "unit": "h",
+      "provisional_test_ids": [
+        "EVT-BATT-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-001 + USB power meter / battery telemetry logger",
+      "measurement_method": "Scripted school-day mix (docs/browser/offline/AI-nano/light media); time to 5% SoC from 100%.",
+      "operating_condition": "50% brightness; Wi-Fi on; cellular off unless scenario; 25C; MLP school-day workload \u2014 NOT Google PLT marketing peak",
+      "sample_duration": "full discharge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-02",
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-BATT-002",
+      "metric": "game_runtime_hours_by_profile",
+      "unit": "h",
+      "provisional_test_ids": [
+        "EVT-BATT-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-002",
+      "measurement_method": "Continuous first-party game at declared profile until 5% SoC.",
+      "operating_condition": "Align with Valve Steam Deck OLED published estimate conditions class: titles at 30FPS, 50% brightness, 50% volume (Valve tech specs / OLED announcement 2023-11). Do NOT treat 12h peak as sustained requirement.",
+      "sample_duration": "full discharge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "journey_refs": [
+        "GOLDEN-05",
+        "GOLDEN-01"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-BATT-003",
+      "metric": "office_runtime_hours",
+      "unit": "h",
+      "provisional_test_ids": [
+        "EVT-BATT-003"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-003",
+      "measurement_method": "Docs/email/calendar/browser office mix to 5% SoC.",
+      "operating_condition": "Docked AC excluded; undocked battery; 50% brightness",
+      "sample_duration": "full discharge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-BATT-004",
+      "metric": "standby_drain_pct_per_8h",
+      "unit": "%SoC/8h",
+      "provisional_test_ids": [
+        "EVT-BATT-STBY-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-STBY-001",
+      "measurement_method": "Suspend 8h; measure SoC delta.",
+      "operating_condition": "Airplane mode suspend; 25C",
+      "sample_duration": "8h",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-BATT-005",
+      "metric": "charge_20_to_80_minutes",
+      "unit": "min",
+      "provisional_test_ids": [
+        "EVT-BATT-CHG-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-BATT-CHG-001 + USB-C/PD analyzer",
+      "measurement_method": "Charge 20\u219280% SoC with accepted PD adapter; time.",
+      "operating_condition": "max_charge_w=65 from accepted hardware profiles; device cool",
+      "sample_duration": "per-charge",
+      "percentile_or_statistic": "mean_of_n>=3",
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-PWR-001",
+      "metric": "idle_and_load_system_power_w",
+      "unit": "W",
+      "provisional_test_ids": [
+        "EVT-PWR-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-PWR-001 + bench PSU / current probe / USB power meter",
+      "measurement_method": "Measure idle / office / AI / game / combined / charging power.",
+      "operating_condition": "Profiles per EVT0 risk-first P5; component_selection sim only has watts_peak Student=25 Handheld=30 modeled \u2014 not acceptance targets",
+      "sample_duration": "per-profile >=5 min",
+      "percentile_or_statistic": "mean_W",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-06",
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-THERM-001",
+      "metric": "accessible_surface_temperature_c_max",
+      "unit": "C",
+      "provisional_test_ids": [
+        "EVT-THERM-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-THERM-001 + thermocouple logger (REQUIRED class in master equipment list)",
+      "measurement_method": "Thermocouple/logger + optional thermal camera on defined skin points under load profiles.",
+      "operating_condition": "25C ambient; sustained office/AI/game profiles; continuous-contact surfaces (palm rests, grips)",
+      "sample_duration": ">=30 min sustained",
+      "percentile_or_statistic": "max_steady_state",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05",
+        "GOLDEN-06",
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005",
+        "RISK-001"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-THERM-002",
+      "metric": "component_throttle_guard_band_c",
+      "unit": "C",
+      "provisional_test_ids": [
+        "EVT-THERM-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-THERM-002",
+      "measurement_method": "Verify OS thermal policy throttle engages at declared sensor threshold before damage.",
+      "operating_condition": "os_thermal_policy.yaml throttle_c=85 reduce_gpu",
+      "sample_duration": "ramp to throttle",
+      "percentile_or_statistic": "trip_point",
+      "journey_refs": [
+        "GOLDEN-06",
+        "GOLDEN-08"
+      ],
+      "risk_refs": [
+        "RISK-005"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-THERM-003",
+      "metric": "sustained_performance_retention_ratio_30min",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-THERM-PERF-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-THERM-PERF-001",
+      "measurement_method": "Average FPS or tok/s minutes 25\u201330 vs minutes 0\u20135 under sustained load.",
+      "operating_condition": "25C; closed chassis; declared game/AI profile",
+      "sample_duration": "30 min",
+      "percentile_or_statistic": "retention_ratio",
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-005",
+        "RISK-009"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-ACOUSTIC-001",
+      "metric": "fan_noise_dba_at_1m",
+      "unit": "dBA",
+      "provisional_test_ids": [
+        "EVT-ACOUSTIC-001 OR NOT_NEEDED_EVT0 if fanless confirmed"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-ACOUSTIC-001 OR NOT_NEEDED_EVT0 if fanless confirmed",
+      "measurement_method": "If fanless design confirmed, mark N/A pass; if fan present, A-weighted 1m SPL.",
+      "operating_condition": "thermal_model.md notes fanless vs fan trade study \u2014 final acoustic TBD",
+      "sample_duration": "steady",
+      "percentile_or_statistic": "LpA",
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-06"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-STOR-001",
+      "metric": "onboard_minimum_free_reserve_gib",
+      "unit": "GiB",
+      "provisional_test_ids": [
+        "EVT-STOR-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-STOR-001 + df/policy probe",
+      "measurement_method": "Verify usable free never drops below policy floor under installs.",
+      "operating_condition": "WP-002 reserves: max(2.0 GiB, 10% usable)\u22482.976 GiB; update reserve 2.0; emergency 0.5",
+      "sample_duration": "policy audit",
+      "percentile_or_statistic": "minimum_free",
+      "journey_refs": [
+        "GOLDEN-05",
+        "GOLDEN-09"
+      ],
+      "risk_refs": [
+        "RISK-004"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-STOR-002",
+      "metric": "expansion_microsd_sequential_write_mibs",
+      "unit": "MiB/s",
+      "provisional_test_ids": [
+        "EVT-STOR-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-STOR-002",
+      "measurement_method": "fio/dd sequential write on required microSD; declare card class.",
+      "operating_condition": "MLP requires microSD expansion; performance depends on accepted card AVL \u2014 do not invent MB/s",
+      "sample_duration": ">=60s",
+      "percentile_or_statistic": "mean_write",
+      "journey_refs": [
+        "GOLDEN-05"
+      ],
+      "risk_refs": [
+        "RISK-004"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-NET-001",
+      "metric": "handoff_interruption_p95_ms",
+      "unit": "ms",
+      "provisional_test_ids": [
+        "EVT-RF-HO-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RF-HO-001 + traffic gen / Wi-Fi test AP (TBD classification)",
+      "measurement_method": "Wi-Fi\u2194Ethernet or Wi-Fi\u2194cellular handoff; measure app-visible interruption.",
+      "operating_condition": "Controlled lab AP; RM520N-GL present for cellular path; not carrier cert claim",
+      "sample_duration": ">=20 handoffs",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-02",
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-006",
+        "RISK-011"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-NET-002",
+      "metric": "wifi_tcp_throughput_mbps_lab",
+      "unit": "Mbps",
+      "provisional_test_ids": [
+        "EVT-RF-WIFI-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RF-WIFI-001 + Wi-Fi test AP",
+      "measurement_method": "iperf3 STA\u2194AP; Wi-Fi 6E minimum per hardware profile.",
+      "operating_condition": "wifi:6e_minimum in hardware profiles \u2014 absolute Mbps depends on AP/channel; freeze method not fabricated Mbps",
+      "sample_duration": ">=60s",
+      "percentile_or_statistic": "mean_Mbps",
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-006"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-NET-003",
+      "metric": "dock_ethernet_link_up_success_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-DOCK-ETH-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-DOCK-ETH-001",
+      "measurement_method": "Dock cycles; Ethernet link+DHCP/static reachability.",
+      "operating_condition": "Accepted Dock; GbE minimum unless matrix says otherwise",
+      "sample_duration": ">=30 cycles",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [
+        "RISK-002"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-NET-004",
+      "metric": "offline_to_online_sync_no_data_loss_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-GJ-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-002 + sync harness",
+      "measurement_method": "Offline edits then reconnect; zero silent overwrite; conflict-safe.",
+      "operating_condition": "GOLDEN-02 offline student reconnect",
+      "sample_duration": ">=20 cycles",
+      "percentile_or_statistic": "success_rate",
+      "journey_refs": [
+        "GOLDEN-02"
+      ],
+      "risk_refs": [
+        "RISK-011"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-NET-005",
+      "metric": "packet_loss_ratio_lab_steady",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-RF-LOSS-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RF-LOSS-001",
+      "measurement_method": "Controlled steady traffic; measure loss.",
+      "operating_condition": "Clean lab Wi-Fi; not coexistence stress (separate RISK-006)",
+      "sample_duration": ">=5 min",
+      "percentile_or_statistic": "loss_ratio",
+      "journey_refs": [
+        "GOLDEN-02"
+      ],
+      "risk_refs": [
+        "RISK-006"
+      ],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AUDIO-001",
+      "metric": "audio_route_switch_glitch_count",
+      "unit": "count",
+      "provisional_test_ids": [
+        "EVT-AUD-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AUD-001 + audio loopback/analyzer (TBD classification)",
+      "measurement_method": "Switch speaker/headset/dock audio during playback; count dropouts >20ms.",
+      "operating_condition": "Declared routes; 5 switches per trial; n>=10 trials",
+      "sample_duration": "per-trial",
+      "percentile_or_statistic": "max_glitch_count",
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-AUDIO-002",
+      "metric": "media_playback_underrun_ratio",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-AUD-002"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-AUD-002",
+      "measurement_method": "30 min local media; count underruns.",
+      "operating_condition": "Local file playback; mixed CPU load light",
+      "sample_duration": "30 min",
+      "percentile_or_statistic": "underrun_ratio",
+      "journey_refs": [
+        "GOLDEN-04"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-SEC-001",
+      "metric": "lost_device_revoke_effective_latency_s",
+      "unit": "s",
+      "provisional_test_ids": [
+        "EVT-SEC-REV-001 OR digital harness if physical path unavailable \u2014 coordinate WP-007"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-SEC-REV-001 OR digital harness if physical path unavailable \u2014 coordinate WP-007",
+      "measurement_method": "Issue revoke; measure time until session/token rejected on device path under test.",
+      "operating_condition": "Online revoke path; offline revoke follows next connect \u2014 declare path",
+      "sample_duration": "per-revoke",
+      "percentile_or_statistic": "p95",
+      "journey_refs": [
+        "GOLDEN-10"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E5",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-SEC-002",
+      "metric": "tamper_or_replay_ring_packet_rejection_rate",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-RING-SEC-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-RING-SEC-001 + WP-007 SEC-RING corpus",
+      "measurement_method": "Replay/forged Ring packets must be rejected; no HID injection.",
+      "operating_condition": "Paired Ring security context",
+      "sample_duration": "corpus",
+      "percentile_or_statistic": "reject_rate",
+      "journey_refs": [
+        "GOLDEN-07",
+        "GOLDEN-10"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E4",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-SEC-003",
+      "metric": "sandbox_permission_bypass_s0_s1_count",
+      "unit": "count",
+      "provisional_test_ids": [
+        "WP-007 red-team harness (digital); physical follow-ons TBD"
+      ],
+      "instrument_or_fixture": "WP-007 red-team harness (digital); physical follow-ons TBD",
+      "measurement_method": "WP-007 independent suite; S0/S1 bypass count must be 0 for readiness.",
+      "operating_condition": "INTERNAL_RED_TEAM_READY gate",
+      "sample_duration": "suite",
+      "percentile_or_statistic": "absolute_count",
+      "journey_refs": [
+        "GOLDEN-03",
+        "GOLDEN-09"
+      ],
+      "risk_refs": [],
+      "evidence_level_required": "E4",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    },
+    {
+      "target_id": "NFR-A11Y-001",
+      "metric": "critical_task_completion_with_supported_accessibility_path",
+      "unit": "ratio",
+      "provisional_test_ids": [
+        "EVT-GJ-A11Y-001"
+      ],
+      "instrument_or_fixture": "TBD_WP010:EVT-GJ-A11Y-001 + a11y path checklist; humans required for E6",
+      "measurement_method": "Complete each Golden Journey via declared a11y path (keyboard/screen reader/etc.); no preference scoring.",
+      "operating_condition": "Supported a11y paths only; no claim that unsupported paths work",
+      "sample_duration": "per-journey",
+      "percentile_or_statistic": "completion_rate",
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-02",
+        "GOLDEN-03",
+        "GOLDEN-04",
+        "GOLDEN-05",
+        "GOLDEN-06",
+        "GOLDEN-07",
+        "GOLDEN-08",
+        "GOLDEN-09",
+        "GOLDEN-10"
+      ],
+      "risk_refs": [
+        "RISK-012"
+      ],
+      "evidence_level_required": "E6",
+      "wp010_status": "TBD_WP010_NOT_LANDED",
+      "pass_interpretation": {
+        "fail_below_threshold": true,
+        "target_is_intent": true,
+        "stretch_is_excellence_not_gate": true
+      }
+    }
+  ]
+}

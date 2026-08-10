@@ -1,6 +1,16 @@
 {
   "schema": "gunnchos.nonfunctional_requirements.v1",
-  "rule": "Numeric unknowns remain TARGET_TBD until frozen before EVT.",
+  "rule": "Numeric unknowns remain TARGET_TBD until frozen before EVT. EVT0 freeze: program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_NFR_TARGET_REGISTRY.json",
+  "evt0_freeze": {
+    "EVT0_NFR_TARGET_REGISTRY_FROZEN": true,
+    "NFR_TARGETS_FROZEN_FOR_EVT0_prepared": true,
+    "registry": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_NFR_TARGET_REGISTRY.json",
+    "source_ledger": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_NFR_SOURCE_LEDGER.md",
+    "competitor_matrix": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_COMPETITOR_TARGET_MATRIX.json",
+    "measurement_map": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_TARGET_MEASUREMENT_MAP.json",
+    "tbd_residuals": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/EVT0_TBD_RESIDUALS.json",
+    "note": "Canonical threshold/target/stretch live in the EVT0 registry. Seed rows below summarize freeze status; do not treat seed-only fields as complete measurement specs."
+  },
   "dimensions": [
     "reliability",
     "performance",
@@ -24,106 +34,181 @@
       "id": "NFR-BOOT-001",
       "scope": "compute devices",
       "metric": "cold_boot_to_usable_p95_s",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 30.0,
+      "threshold": 45.0,
+      "stretch": 15.0,
+      "unit": "s",
+      "freeze_status": "FROZEN_PROVISIONAL_LOW_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-BOOT-001"
     },
     {
       "id": "NFR-RESUME-001",
       "scope": "compute devices",
       "metric": "resume_to_interactive_p95_s",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 2.0,
+      "threshold": 5.0,
+      "stretch": 1.0,
+      "unit": "s",
+      "freeze_status": "FROZEN_PROVISIONAL_LOW_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-RESUME-001"
     },
     {
       "id": "NFR-APP-001",
       "scope": "gunnchOS",
       "metric": "critical_app_launch_p95_s",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 2.5,
+      "threshold": 5.0,
+      "stretch": 1.5,
+      "unit": "s",
+      "freeze_status": "FROZEN_PROVISIONAL_LOW_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-APP-001"
     },
     {
       "id": "NFR-CRASH-001",
       "scope": "gunnchOS",
       "metric": "crash_free_active_hours",
-      "target": "TARGET_TBD",
-      "evidence": "E8"
+      "target": 24.0,
+      "threshold": 8.0,
+      "stretch": 72.0,
+      "unit": "h",
+      "freeze_status": "FROZEN_PROVISIONAL_LOW_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-CRASH-001"
     },
     {
       "id": "NFR-RING-001",
       "scope": "Rings",
       "metric": "false_destructive_action_rate",
-      "target": "TARGET_TBD",
-      "evidence": "E5/E6"
+      "target": 0.0,
+      "threshold": 0.0,
+      "stretch": 0.0,
+      "unit": "ratio",
+      "freeze_status": "FROZEN_HIGH_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-RING-001"
     },
     {
       "id": "NFR-RING-002",
       "scope": "Rings",
       "metric": "input_latency_p95_ms",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 45.0,
+      "threshold": 80.0,
+      "stretch": 30.0,
+      "unit": "ms",
+      "freeze_status": "FROZEN_PROVISIONAL_LOW_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-RING-002"
     },
     {
       "id": "NFR-GAME-001",
       "scope": "compute devices",
       "metric": "frame_time_p95_ms_by_profile",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": {"profile_30fps": 33.3, "profile_60fps": 16.7},
+      "threshold": {"profile_30fps": 38.0, "profile_60fps": 20.0},
+      "stretch": {"profile_30fps": 33.3, "profile_60fps": 16.7},
+      "unit": "ms",
+      "freeze_status": "FROZEN_MEDIUM_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-GAME-001"
     },
     {
       "id": "NFR-AI-001",
       "scope": "gunnchAI",
       "metric": "local_first_token_p95_ms_by_tier",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": {"nano": 800.0, "fast": "TBD_EVT_SILICON", "pro": "TBD_EVT_SILICON"},
+      "threshold": {"nano": 2000.0, "fast": "TBD_EVT_SILICON", "pro": "TBD_EVT_SILICON"},
+      "stretch": {"nano": 400.0, "fast": "TBD_EVT_SILICON", "pro": "TBD_EVT_SILICON"},
+      "unit": "ms",
+      "freeze_status": "FROZEN_PARTIAL_NANO_FAST_PRO_TBD",
+      "evidence": "E5",
+      "registry_ref": "NFR-AI-001"
     },
     {
       "id": "NFR-AI-002",
       "scope": "gunnchAI",
       "metric": "local_tokens_per_second_by_tier",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": {"nano": 20.0, "fast": "TBD_EVT_SILICON", "pro": "TBD_EVT_SILICON"},
+      "threshold": {"nano": 8.0, "fast": "TBD_EVT_SILICON", "pro": "TBD_EVT_SILICON"},
+      "stretch": {"nano": 40.0, "fast": "TBD_EVT_SILICON", "pro": "TBD_EVT_SILICON"},
+      "unit": "tok/s",
+      "freeze_status": "FROZEN_PARTIAL_NANO_FAST_PRO_TBD",
+      "evidence": "E5",
+      "registry_ref": "NFR-AI-002"
     },
     {
       "id": "NFR-BATT-001",
       "scope": "Student",
       "metric": "golden_student_day_runtime_hours",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 8.0,
+      "threshold": 6.0,
+      "stretch": 10.0,
+      "unit": "h",
+      "freeze_status": "FROZEN_MEDIUM_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-BATT-001"
     },
     {
       "id": "NFR-BATT-002",
       "scope": "Handheld",
       "metric": "game_runtime_hours_by_profile",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": {"profile_30fps_50pct_brightness": 3.0},
+      "threshold": {"profile_30fps_50pct_brightness": 2.0},
+      "stretch": {"profile_30fps_50pct_brightness": 5.0},
+      "unit": "h",
+      "freeze_status": "FROZEN_MEDIUM_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-BATT-002"
     },
     {
       "id": "NFR-THERM-001",
       "scope": "compute devices",
       "metric": "surface_temperature_limits",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 42.0,
+      "threshold": 45.0,
+      "stretch": 40.0,
+      "unit": "C",
+      "freeze_status": "FROZEN_HIGH_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-THERM-001"
     },
     {
       "id": "NFR-NET-001",
       "scope": "connectivity",
       "metric": "handoff_interruption_p95_ms",
-      "target": "TARGET_TBD",
-      "evidence": "E5"
+      "target": 1000.0,
+      "threshold": 3000.0,
+      "stretch": 500.0,
+      "unit": "ms",
+      "freeze_status": "FROZEN_PROVISIONAL_LOW_CONFIDENCE",
+      "evidence": "E5",
+      "registry_ref": "NFR-NET-001"
     },
     {
       "id": "NFR-UPDATE-001",
       "scope": "gunnchOS",
       "metric": "failed_update_user_data_loss",
-      "target": "0",
-      "evidence": "E4/E5"
+      "target": 0,
+      "threshold": 0,
+      "stretch": 0,
+      "unit": "count",
+      "freeze_status": "FROZEN_HIGH_CONFIDENCE",
+      "evidence": "E4/E5",
+      "registry_ref": "NFR-UPDATE-001"
     },
     {
       "id": "NFR-A11Y-001",
       "scope": "Golden Journeys",
       "metric": "critical_task_completion_with_supported_accessibility_path",
       "target": "100%",
-      "evidence": "E6"
+      "threshold": "100%",
+      "stretch": "100%",
+      "unit": "ratio",
+      "freeze_status": "FROZEN_HIGH_CONFIDENCE",
+      "evidence": "E6",
+      "registry_ref": "NFR-A11Y-001"
     }
   ]
 }

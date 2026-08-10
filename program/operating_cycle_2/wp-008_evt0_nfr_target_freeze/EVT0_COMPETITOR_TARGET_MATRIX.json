@@ -1,0 +1,331 @@
+{
+  "schema": "gunnchos.evt0_competitor_target_matrix.v1",
+  "work_packet": "WP-008",
+  "generated_at": "2026-08-10T21:15:00Z",
+  "doctrine": {
+    "no_fabricated_competitor_measurements": true,
+    "competitor_score_allowed_only_when_actually_measured": true,
+    "frontier_parity_claimed": false,
+    "consistency_with": "gunnchos-device-os/quality/golden_journeys/COMPETITOR_READINESS_GAP_MATRIX.json"
+  },
+  "strategy_legend": [
+    "MUST_MATCH",
+    "MUST_EXCEED",
+    "NOT_RELEVANT",
+    "DIFFERENT_APPROACH"
+  ],
+  "capabilities": [
+    {
+      "capability_id": "cold_boot_usable",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "education_chromebook_laptop_boot_class",
+      "nfr_target_ids": [
+        "NFR-BOOT-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "suspend_resume",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "steam_deck_handheld_suspend_resume_class",
+      "nfr_target_ids": [
+        "NFR-RESUME-001",
+        "NFR-RESUME-SOAK-001",
+        "NFR-GAME-RESUME-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-05",
+        "GOLDEN-01"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "office_dock_workflow",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "laptop_dock_steam_deck_dock_class",
+      "nfr_target_ids": [
+        "NFR-DOCK-001",
+        "NFR-DISP-EXT-001",
+        "NFR-NET-003",
+        "NFR-BATT-003"
+      ],
+      "journey_refs": [
+        "GOLDEN-04",
+        "GOLDEN-05"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "steam_pc_game_perf_profile",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "handheld_30fps_60fps_profile_class",
+      "nfr_target_ids": [
+        "NFR-GAME-001",
+        "NFR-GAME-002",
+        "NFR-BATT-002"
+      ],
+      "journey_refs": [
+        "GOLDEN-05",
+        "GOLDEN-01"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "local_first_ai_privacy_offline",
+      "strategy": "MUST_EXCEED",
+      "competitor_category": "cloud_ai_tutor_default_class",
+      "nfr_target_ids": [
+        "NFR-AI-001",
+        "NFR-AI-002",
+        "NFR-AI-004"
+      ],
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-02"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "user_owned_ai_memory_export",
+      "strategy": "MUST_EXCEED",
+      "competitor_category": "cloud_locked_memory_class",
+      "nfr_target_ids": [
+        "NFR-AI-004",
+        "NFR-UPDATE-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-08",
+        "GOLDEN-09"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "ring_spatial_input_safety",
+      "strategy": "MUST_EXCEED",
+      "competitor_category": "wearable_spatial_pointer_class",
+      "nfr_target_ids": [
+        "NFR-RING-001",
+        "NFR-RING-002",
+        "NFR-RING-003",
+        "NFR-RING-004"
+      ],
+      "journey_refs": [
+        "GOLDEN-07"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "network_intent_handoff",
+      "strategy": "MUST_EXCEED",
+      "competitor_category": "consumer_wifi_cellular_handoff_class",
+      "nfr_target_ids": [
+        "NFR-NET-001",
+        "NFR-NET-004"
+      ],
+      "journey_refs": [
+        "GOLDEN-02",
+        "GOLDEN-04"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "offline_education",
+      "strategy": "MUST_EXCEED",
+      "competitor_category": "offline_chromebook_ipad_class",
+      "nfr_target_ids": [
+        "NFR-NET-004",
+        "NFR-AI-004",
+        "NFR-BATT-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-02",
+        "GOLDEN-01"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "update_rollback_data_safety",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "desktop_os_update_recovery_class",
+      "nfr_target_ids": [
+        "NFR-UPDATE-001",
+        "NFR-UPDATE-002"
+      ],
+      "journey_refs": [
+        "GOLDEN-09"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "security_isolation_revoke",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "mdm_device_revoke_class",
+      "nfr_target_ids": [
+        "NFR-SEC-001",
+        "NFR-SEC-002",
+        "NFR-SEC-003"
+      ],
+      "journey_refs": [
+        "GOLDEN-10"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "accessibility_critical_paths",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "desktop_a11y_path_class",
+      "nfr_target_ids": [
+        "NFR-A11Y-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-04",
+        "GOLDEN-07"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "dsxl_dual_screen_enum",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "dual_screen_dev_laptop_class",
+      "nfr_target_ids": [
+        "NFR-DISP-DSXL-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-06"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "apple_only_services",
+      "strategy": "NOT_RELEVANT",
+      "competitor_category": "apple_ecosystem_lockin",
+      "nfr_target_ids": [],
+      "journey_refs": [],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "proprietary_console_exclusivity",
+      "strategy": "NOT_RELEVANT",
+      "competitor_category": "closed_console_exclusives",
+      "nfr_target_ids": [],
+      "journey_refs": [],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "closed_proprietary_lockin",
+      "strategy": "DIFFERENT_APPROACH",
+      "competitor_category": "closed_os_store_lockin",
+      "nfr_target_ids": [
+        "NFR-UPDATE-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-03"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "surface_thermal_safety",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "iec62368_consumer_touch_temp_class",
+      "nfr_target_ids": [
+        "NFR-THERM-001",
+        "NFR-THERM-002"
+      ],
+      "journey_refs": [
+        "GOLDEN-01",
+        "GOLDEN-05"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "student_school_day_battery",
+      "strategy": "MUST_MATCH",
+      "competitor_category": "education_chromebook_school_day_class",
+      "nfr_target_ids": [
+        "NFR-BATT-001"
+      ],
+      "journey_refs": [
+        "GOLDEN-01"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "fan_noise",
+      "strategy": "NOT_RELEVANT",
+      "competitor_category": "fan_laptop_acoustic_class",
+      "nfr_target_ids": [
+        "NFR-ACOUSTIC-001"
+      ],
+      "journey_refs": [],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    },
+    {
+      "capability_id": "cloud_ttft_parity",
+      "strategy": "DIFFERENT_APPROACH",
+      "competitor_category": "cloud_frontier_ttft",
+      "nfr_target_ids": [
+        "NFR-AI-001",
+        "NFR-AI-005"
+      ],
+      "journey_refs": [
+        "GOLDEN-08"
+      ],
+      "competitor_score": null,
+      "external_benchmarking_gap": "No competitor measurements recorded in this freeze; class/outcome citations live in EVT0_NFR_SOURCE_LEDGER.md only",
+      "notes": "Strategy\u2192measurable NFR mapping only; scores remain null"
+    }
+  ],
+  "contradiction_check": {
+    "COMPETITOR_MATRIX_CONTRADICTIONS": 0,
+    "rules": [
+      "MUST_EXCEED only where product rationale exists (local AI privacy/offline, Rings safety, network intent, offline education)",
+      "NOT_RELEVANT retained for Apple-only / console exclusivity / fan-noise-until-fan-decision",
+      "DIFFERENT_APPROACH for cloud TTFT parity and proprietary lock-in",
+      "No capability has non-null competitor_score"
+    ],
+    "all_competitor_scores_null": true
+  }
+}
