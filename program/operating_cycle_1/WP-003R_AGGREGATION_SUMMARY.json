@@ -1,0 +1,61 @@
+{
+  "schema": "gunnchos.operating_cycle.wp003r_aggregation_summary.v1",
+  "cycle": 1,
+  "work_packet": "WP-003R",
+  "generated_at": "2026-08-10T19:05:00Z",
+  "supersedes_field_kit_prs": [59, 60],
+  "device_os": {
+    "product_tip_sha": "67e10ea1d329703d4764fb3799c5244e9781cd97",
+    "accepted_main_sha": "0449cbb64da416c3b702dcd880d76946e96eb16e",
+    "accepted_main_merged_pr": 85,
+    "tip_is_ancestor_of_origin_main": true,
+    "lab_foundation_merged_pr": 84,
+    "artifact_draft_pr": 86,
+    "artifact_draft_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/86",
+    "artifact_is_draft": true,
+    "auto_merge": false
+  },
+  "vp003r": {
+    "overall_result": "PASS",
+    "lab_foundation": "PASS",
+    "digital_independent_residuals_closed": true,
+    "owner_result": "gunnchos-device-os/quality/golden_journeys/verifier/VP-003R-RESULT.json",
+    "G04": "PASS E4/D6 PHYSICAL_DOCK_PENDING",
+    "G06": "PASS E4/D6 PHYSICAL_PANELS_PENDING",
+    "G07": "PASS E4/D6 PHYSICAL_RING_PENDING",
+    "G08": "PASS E4/D6 HUMAN_TUTORING_PENDING",
+    "G09": "PASS E4/D5",
+    "VF4": "PHYSICAL_PENDING",
+    "VF5": "PHYSICAL_PENDING",
+    "VF6": "PHYSICAL_PENDING"
+  },
+  "claim_boundary": {
+    "SOFTWARE_WORKFLOW_PERIPHERAL": "digitally verified to Independent E4/D6 via Device Lab VF1/VF2",
+    "CPU_GPU_NPU_BATTERY_THERMAL_RF": "modeled or simulated only",
+    "PHYSICAL_CORRELATION": "not calibrated until EVT",
+    "physically_validated": false,
+    "human_validated": false,
+    "frontier_parity_claimed": false,
+    "RFQ_SENT": false
+  },
+  "wip_honesty": {
+    "WP-003R": "VERIFIER_PASS_PENDING_EDMUND_ARTIFACT_MERGE_AND_CYCLE_1_CLOSE_DECISION",
+    "Cycle_1_digital_WP003_residuals": "CLOSED_IF_EDMUND_ACCEPTS",
+    "Cycle_1_physical_human": "OPEN",
+    "WP-005_plus_started": false,
+    "keep_draft": true,
+    "do_not_merge_automatically": true,
+    "do_not_send_rfqs": true
+  },
+  "edmund_merge_order": [
+    "Review VP-003R PASS on tip 67e10ea ⊆ main 0449cbb (#85 already merged)",
+    "Optionally merge device-os DRAFT #86",
+    "Optionally merge this field-kit DRAFT aggregation",
+    "Decide Cycle 1 close; do not auto-start next packets"
+  ],
+  "field_kit_aggregation": {
+    "report": "program/operating_cycle_1/WP-003R_REPORT.md",
+    "active_wip": "program/operating_model/ACTIVE_WIP.json",
+    "keep_draft": true
+  }
+}

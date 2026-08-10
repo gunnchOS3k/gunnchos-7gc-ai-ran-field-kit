@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.operating_cycle.active_wip.v1",
   "cycle": 1,
-  "generated_at": "2026-08-10T18:00:00Z",
+  "generated_at": "2026-08-10T19:05:00Z",
   "BROAD_COMPLETION_PHASES_FROZEN": true,
   "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
   "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
@@ -14,7 +14,7 @@
   "status": {
     "WP-002": "VERIFIER_PASS_PENDING_EDMUND_NPI_CLOSE",
     "WP-003": "SUPERSEDED_IN_ACTIVE_BY_WP003R_RESIDUAL",
-    "WP-003R": "IMPLEMENTER_IN_PROGRESS_DEVICE_LAB_FOUNDATION",
+    "WP-003R": "VERIFIER_PASS_PENDING_EDMUND_ARTIFACT_MERGE_AND_CYCLE_1_CLOSE_DECISION",
     "WP-004": "VERIFIER_PASS_READY_FOR_EDMUND_RFQ_SEND_REVIEW"
   },
   "verifier_results": {
@@ -34,7 +34,39 @@
       "overall_result": "FAIL",
       "accepted_main_sha": "44294d6485d8d82fe69191c6e585f13ab7c63f63",
       "accepted_main_merged_pr": 83,
-      "note": "VP-003 accepted-main reproof merged via #83. Residual WP-003R Device Lab remediation active for G04/G06/G07/G08 digital depth. Do not treat prior PARTIAL D5 as closed."
+      "note": "VP-003 accepted-main reproof merged via #83. Residual WP-003R Device Lab depth closed digitally on device-os #85 tip; see WP-003R verifier PASS. Physical/human still open."
+    },
+    "WP-003R": {
+      "packet": "VP-003R",
+      "result": "PASS",
+      "digital_independent_residuals_closed": true,
+      "evidence_level": "E4",
+      "depth_table": {
+        "G01": "PASS E4/D6",
+        "G02": "PASS E4/D6",
+        "G03": "PASS E4/D6",
+        "G04": "PASS E4/D6",
+        "G05": "PASS E4/D6",
+        "G06": "PASS E4/D6",
+        "G07": "PASS E4/D6",
+        "G08": "PASS E4/D6",
+        "G09": "PASS E4/D5",
+        "G10": "PASS E4/D6"
+      },
+      "lab_foundation": "PASS",
+      "owner_artifact": "gunnchos-device-os/quality/golden_journeys/verifier/VP-003R-RESULT.json",
+      "product_tip_sha": "67e10ea1d329703d4764fb3799c5244e9781cd97",
+      "accepted_main_sha": "0449cbb64da416c3b702dcd880d76946e96eb16e",
+      "accepted_main_merged_pr": 85,
+      "artifact_draft_pr": "gunnchos-device-os#86",
+      "artifact_draft_url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/86",
+      "PHYSICAL_PENDING": true,
+      "HUMAN_VALIDATION_PENDING": true,
+      "VF4": "PHYSICAL_PENDING",
+      "VF5": "PHYSICAL_PENDING",
+      "VF6": "PHYSICAL_PENDING",
+      "frontier_parity_claimed": false,
+      "note": "Independent PASS on tip ⊆ accepted main. Pending Edmund optional artifact merge (#86) + Cycle 1 close decision. Do not auto-start WP-005+."
     },
     "WP-004": {
       "packet": "VP-004",
@@ -49,14 +81,26 @@
   },
   "wp003r": {
     "GUNNCHDEVICE_LAB_FOUNDATION": "PART_OF_WP003R",
+    "GUNNCHDEVICE_LAB_FOUNDATION_V0_1": "DIGITALLY_VALIDATED",
     "GUNNCHDEVICE_LAB_FULL_PRODUCT_EXPANSION": "NOT_ACTIVE",
     "primary_owner_repo": "gunnchos-device-os",
     "baseline_main_sha": "44294d6485d8d82fe69191c6e585f13ab7c63f63",
+    "product_tip_sha": "67e10ea1d329703d4764fb3799c5244e9781cd97",
+    "accepted_main_sha": "0449cbb64da416c3b702dcd880d76946e96eb16e",
+    "field_kit_report": "program/operating_cycle_1/WP-003R_REPORT.md",
     "NO_WP005_PLUS": true,
     "NO_FRONTIER_PARITY_CLAIM": true,
     "NO_PHYSICAL_CLAIM": true,
-    "NO_HUMAN_VALIDATION_CLAIM": true
+    "NO_HUMAN_VALIDATION_CLAIM": true,
+    "RFQ_SENT": false
   },
+  "edmund_merge_order": [
+    "Review VP-003R Independent PASS (product already on device-os main via #85)",
+    "Optionally merge device-os DRAFT #86 verifier artifacts",
+    "Optionally merge this field-kit WP-003R aggregation DRAFT",
+    "Decide Cycle 1 digital residual close; keep physical/human/RFQ open",
+    "Do not auto-start WP-005+ / LAB-FUTURE / Cycle 2"
+  ],
   "do_not_start": [
     "WP-005",
     "WP-006",
