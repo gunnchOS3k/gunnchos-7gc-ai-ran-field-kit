@@ -1,11 +1,11 @@
 {
   "schema": "gunnchos.phase_xv.final_digital_burndown.v1",
-  "generated_at": "2026-08-10T13:12:40Z",
+  "generated_at": "2026-08-10T13:24:57Z",
   "INCOMPLETE_DIGITAL_FRONTIER_GATES_START": 10,
   "gates": [
     {
       "gate": "DRIVER_HAL",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "component\u00d7driver matrix",
         "HAL abstractions DRM/ALSA/NM/BlueZ/libinput/V4L2/IIO/power_supply",
@@ -23,14 +23,25 @@
       "test_paths": [
         "tests/phase_xv/test_driver_hal.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": "PHYSICAL_PENDING",
-      "external_exit_hint": null
+      "external_exit_hint": null,
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "driver-hal",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "AUDIO_MEDIA",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "PipeWire/ALSA stack",
         "focus policy",
@@ -47,14 +58,25 @@
       "test_paths": [
         "tests/phase_xv/test_audio_media.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": "PHYSICAL_PENDING",
-      "external_exit_hint": null
+      "external_exit_hint": null,
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "audio-media",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "IDENTITY",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "unified identity",
         "login/lock/guest/roles",
@@ -71,14 +93,25 @@
       "test_paths": [
         "tests/phase_xv/test_identity.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": "PHYSICAL_PENDING",
-      "external_exit_hint": "EXTERNAL_PENDING"
+      "external_exit_hint": "EXTERNAL_PENDING",
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "identity",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "FILES_STORAGE",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "storage contracts",
         "quotas/trash/atomic write",
@@ -95,14 +128,25 @@
       "test_paths": [
         "tests/phase_xv/test_files_storage.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": "PHYSICAL_PENDING",
-      "external_exit_hint": null
+      "external_exit_hint": null,
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "files-storage",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "ACCESSIBILITY",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "AT-SPI semantics",
         "keyboard/controller/Ring alt",
@@ -119,14 +163,25 @@
       "test_paths": [
         "tests/phase_xv/test_accessibility.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": null,
-      "external_exit_hint": "EXTERNAL_PENDING"
+      "external_exit_hint": "EXTERNAL_PENDING",
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "accessibility",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "CONNECTIVITY_5GA",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "ModemManager path",
         "intent orchestrator",
@@ -146,14 +201,25 @@
       "test_paths": [
         "tests/phase_xv/test_connectivity_5ga.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": "PHYSICAL_PENDING",
-      "external_exit_hint": "EXTERNAL_PENDING"
+      "external_exit_hint": "EXTERNAL_PENDING",
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "connectivity-5ga",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "NTN_MIGRATION",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "bearer abstraction",
         "NTN simulator harness",
@@ -171,14 +237,25 @@
       "test_paths": [
         "tests/phase_xv/test_ntn_migration.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": null,
-      "external_exit_hint": "EXTERNAL_PENDING"
+      "external_exit_hint": "EXTERNAL_PENDING",
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "ntn-migration",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "PERFORMANCE_POWER",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "PHYSICAL_PENDING",
       "digital_subrequirements": [
         "budgets",
         "cgroups/QoS/thermal policy",
@@ -198,14 +275,25 @@
       "test_paths": [
         "tests/phase_xv/test_performance_power.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": "physical EVT/device measurement pending",
       "target_exit_state": "PHYSICAL_PENDING",
       "physical_exit_hint": "PHYSICAL_PENDING",
-      "external_exit_hint": null
+      "external_exit_hint": null,
+      "prove_exit_state": "PHYSICAL_PENDING",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "performance-power",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "SUPPORT_LIFECYCLE",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "DIGITALLY_VALIDATED",
       "digital_subrequirements": [
         "support bundle",
         "upgrade-path validator",
@@ -222,14 +310,25 @@
       "test_paths": [
         "tests/phase_xv/test_support_lifecycle.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": null,
       "target_exit_state": "DIGITALLY_VALIDATED",
       "physical_exit_hint": null,
-      "external_exit_hint": "EXTERNAL_PENDING"
+      "external_exit_hint": "EXTERNAL_PENDING",
+      "prove_exit_state": "DIGITALLY_VALIDATED",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "support-lifecycle",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     },
     {
       "gate": "USER_EXPERIENCE",
-      "current_status": "INCOMPLETE_DIGITAL",
+      "current_status": "EXTERNAL_PENDING",
       "digital_subrequirements": [
         "digital polish defects",
         "heuristic audit fixes",
@@ -246,10 +345,21 @@
       "test_paths": [
         "tests/phase_xv/test_user_experience.py"
       ],
-      "remaining_blocker": "INCOMPLETE_DIGITAL pending Phase XV implementation",
+      "remaining_blocker": "human usability / external study pending",
       "target_exit_state": "EXTERNAL_PENDING",
       "physical_exit_hint": null,
-      "external_exit_hint": "EXTERNAL_PENDING"
+      "external_exit_hint": "EXTERNAL_PENDING",
+      "prove_exit_state": "EXTERNAL_PENDING",
+      "evidence": {
+        "repo": "gunnchos-device-os",
+        "pr": 77,
+        "accepted_merge_sha": "42128e4472fc2f40046100a062e6677633d62f7b",
+        "draft_tip_sha_historical": "08578b12a18911d296e65b138e24fcab0c44e9b0",
+        "prove_report": "OS_PROVE_REPORT.json",
+        "prove_gate": "user-experience",
+        "pending_edmund_merge": false,
+        "note": "Promoted from accepted #77 merge 42128e4472fc\u2026 per OS_PROVE_REPORT exit state"
+      }
     }
   ],
   "ai_gates_incomplete": 0,
@@ -271,6 +381,18 @@
     "NPI_DEFECTS": [
       "NPI_DEFECT-HANDHELD-STORAGE-HEADROOM-001"
     ],
-    "final_ledger_pr": "NOT_OPENED_WAITING_DEVICE_OS"
-  }
+    "final_ledger_pr": "THIS_PR_DRAFT",
+    "dependencies_merged": {
+      "device-os_77": "42128e4472fc2f40046100a062e6677633d62f7b",
+      "hardware_53": "8705f5a25065e02c7513e990a43e4762967906c5",
+      "field-kit_54": "7fb6080978294c77af7715325af5d557a5864ada",
+      "gunnchAI_30": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
+    }
+  },
+  "INCOMPLETE_DIGITAL_FRONTIER_GATES": 0,
+  "os_accepted_merge": "42128e4472fc2f40046100a062e6677633d62f7b",
+  "os_pr": 77,
+  "os_pending_edmund_merge": false,
+  "prove_report": "program/frontier_parity/phase_xv/OS_PROVE_REPORT.json",
+  "REAL_USER_JOURNEY_PARITY_blocker": "false: Phase XI gunnchOS digital journey tokens earned, but frontier REAL_USER_JOURNEY_PARITY blocked while PERFORMANCE_POWER=PHYSICAL_PENDING and USER_EXPERIENCE=EXTERNAL_PENDING on accepted #77 (42128e4472fc\u2026); full GUNNCHOS_FRONTIER_OS_PARITY remains false; claim firewall forbids premature true"
 }
