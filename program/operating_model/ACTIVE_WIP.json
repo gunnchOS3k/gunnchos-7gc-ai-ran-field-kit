@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.operating_cycle.active_wip.v1",
   "cycle": 2,
-  "generated_at": "2026-08-10T21:00:00Z",
+  "generated_at": "2026-08-10T21:45:00Z",
   "BROAD_COMPLETION_PHASES_FROZEN": true,
   "MAX_ACTIVE_MAJOR_WORKSTREAMS": 3,
   "MAX_UNMERGED_DEPENDENT_PR_CHAIN": 3,
@@ -27,18 +27,91 @@
     "WP-003R": "CYCLE_1_DIGITAL_CLOSED_SUPERSEDED_BY_WP003R1",
     "WP-003R.1": "CYCLE_1_DIGITAL_CLOSED_INDEPENDENT_PASS",
     "WP-004": "CYCLE_1_DIGITAL_CLOSED_READY_FOR_EDMUND_RFQ_SEND_REVIEW_RFQ_SENT_FALSE",
-    "WP-010": "ACTIVE",
-    "WP-008": "ACTIVE",
-    "WP-007": "ACTIVE",
+    "WP-010": "VERIFIER_PASS_PENDING_EDMUND_CLOSE",
+    "WP-008": "VERIFIER_PASS_PENDING_EDMUND_CLOSE",
+    "WP-007": "VERIFIER_PASS_PENDING_EDMUND_CLOSE",
     "WP-001": "READY_NEXT_AFTER_CYCLE_2",
     "WP-005": "NOT_STARTED_DISPLAY_ONLY",
     "WP-006": "NOT_STARTED_DISPLAY_ONLY",
     "WP-009": "NOT_STARTED_BLOCKED_ON_RFQ_QUOTES"
   },
-  "verified_baselines": {
+  "verifier_results": {
+    "WP-010": {
+      "packet": "VP-010",
+      "result": "PASS",
+      "evidence_level": "E4",
+      "READY_FOR_EVT0_MEASUREMENT_EXECUTION": true,
+      "PHYSICALLY_VALIDATED": false,
+      "purchase_authorized": false,
+      "owner_artifact": "gunnchos-hardware-industrial-design/npi/evt0_measurement_readiness/independent_verifier/VP-010-RESULT.json",
+      "verified_hardware_tip": "125386e08b3afc3b5344e96d7b71de8a50529c83",
+      "result_pr_tip": "8e4d4ab20f131b47df4fadb9547cfed43f376c5d",
+      "hardware_pr": "hardware#58",
+      "hardware_pr_state": "OPEN_NOT_IN_MAIN",
+      "device_os_lab_interfaces_pr": "device-os#90",
+      "device_os_lab_interfaces_merged": true,
+      "supersedes_fail_pr": "hardware#57",
+      "VF4": "PHYSICAL_PENDING",
+      "VF5": "PHYSICAL_PENDING",
+      "VF6": "PHYSICAL_PENDING"
+    },
+    "WP-008": {
+      "packet": "VP-008",
+      "result": "PASS",
+      "evidence_level": "E4",
+      "NFR_TARGETS_FROZEN_FOR_EVT0": true,
+      "owner_artifact": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/VP-008-RESULT.json",
+      "verified_tip": "60a0d5ba035c020b30d16cae0f1802fe96dd2184",
+      "implementer_pr": "field-kit#65",
+      "result_pr": "field-kit#66",
+      "merged_to_main": true,
+      "tbd_residual_count": 9,
+      "targets_total": 47,
+      "competitor_score_non_null": 0
+    },
+    "WP-007": {
+      "packet": "VP-007",
+      "result": "PASS",
+      "evidence_level": "E4_DIGITAL",
+      "INTERNAL_RED_TEAM_READY": true,
+      "SECURITY_S0": 0,
+      "SECURITY_S1": 0,
+      "EXTERNAL_PENDING": true,
+      "owner_artifact": "gunnchos-device-os/artifacts/wp007/VP-007-RESULT.json",
+      "verified_tip": "4a51298f2338007bf224193fe96eeff4ed18f876",
+      "tip_in_accepted_main": true,
+      "implementer_pr": "device-os#91",
+      "prior_fail_pr": "device-os#92",
+      "pass_result_pr": "device-os#93",
+      "merged_to_main": true,
+      "accepted_main_sha": "0e46609b3d86241f2c282e7a1f3752d16d2bba67"
+    }
+  },
+  "cycle_2_stop_tokens": {
+    "READY_FOR_EVT0_MEASUREMENT_EXECUTION": true,
+    "NFR_TARGETS_FROZEN_FOR_EVT0": true,
+    "INTERNAL_RED_TEAM_READY": true,
+    "SECURITY_S0": 0,
+    "SECURITY_S1": 0,
+    "PHYSICALLY_VALIDATED": false,
+    "EXTERNAL_PENTEST_COMPLETE": false,
+    "RFQ_SENT": false,
+    "FRONTIER_PARITY": false,
+    "purchase_authorized": false,
+    "CYCLE_2_STOP_CONDITION_MET": true,
+    "WP_001_STARTED": false,
+    "CYCLE_3_STARTED": false
+  },
+  "verified_baselines_cycle_start": {
     "gunnchos-device-os": "99a9825e2d757cd36a6826ef253a8dbfc217f0ce",
     "gunnchos-7gc-ai-ran-field-kit": "80230dce6d5cb437c595d0591883cc841c6de07d",
     "gunnchos-hardware-industrial-design": "3db783633321e54061575ee90a74778b0e914b55",
+    "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
+  },
+  "verified_baselines_current_main": {
+    "gunnchos-device-os": "0e46609b3d86241f2c282e7a1f3752d16d2bba67",
+    "gunnchos-7gc-ai-ran-field-kit": "d9c3c0733e88dd7bf8524470c00bb9a022205d41",
+    "gunnchos-hardware-industrial-design": "9877b3c33c94716729181f74bf749261306093d1",
     "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
   },
   "honesty_tokens": {
@@ -48,18 +121,16 @@
     "FRONTIER_PARITY": false,
     "RFQ_SENT": false,
     "PHYSICAL_VALIDATION": false,
-    "HUMAN_VALIDATION": false
-  },
-  "success_gates_cycle_2": {
-    "WP-010": "READY_FOR_EVT0_MEASUREMENT_EXECUTION",
-    "WP-008": "NFR_TARGETS_FROZEN_FOR_EVT0",
-    "WP-007": "INTERNAL_RED_TEAM_READY"
+    "HUMAN_VALIDATION": false,
+    "EXTERNAL_PENTEST": "EXTERNAL_PENDING",
+    "PHYSICAL_EXECUTION_FREEZE": true
   },
   "edmund_merge_order": [
-    "Keep this field-kit Cycle 2 bootstrap DRAFT until reviewed; Edmund merges",
-    "Product lanes: hardware WP-010; field-kit/relevant WP-008; device-os/gunnchAI WP-007",
-    "field-kit accepted-main aggregate LAST after product lanes",
-    "Do not auto-start WP-001 after Cycle 2 stop condition"
+    "1. Merge hardware OPEN DRAFT #58 (WP-010R1 tip 125386e + VP-010 PASS RESULT tip 8e4d4ab) after review — grants READY_FOR_EVT0_MEASUREMENT_EXECUTION on hardware main; does NOT authorize purchase/fab/run",
+    "2. Close or mark superseded hardware OPEN #57 (prior VP-010 FAIL) — do not merge as current readiness truth",
+    "3. Optionally confirm device-os #90/#91/#92/#93 already MERGED on main 0e46609… (no further product merge required for WP-007 token)",
+    "4. Optionally confirm field-kit #65/#66 already MERGED (WP-008 freeze + VP-008 PASS) — no further WP-008 merge",
+    "5. LAST: merge this field-kit Cycle 2 accepted-main aggregate DRAFT after review — keep DRAFT until then; auto-merge OFF; do not start WP-001 / Cycle 3"
   ],
   "do_not_start": [
     "WP-001",
@@ -77,6 +148,5 @@
     "LAB-FUTURE-009",
     "CYCLE_3",
     "BROAD_PHASE_XVI"
-  ],
-  "bootstrap_only_note": "This ACTIVE_WIP update is Operating Cycle 2 bootstrap only. WP-010/008/007 product implementation is owned by other agents."
+  ]
 }
