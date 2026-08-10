@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.phase_xiii.stage2.gate_ledger.v1",
   "generated_at": "2026-08-10T01:28:32Z",
-  "updated_at": "2026-08-10T02:10:03Z",
+  "updated_at": "2026-08-10T02:13:46Z",
   "note": "Promotions require implementation+test+SHA evidence. No bulk greening. Full parity tokens remain false.",
   "owner_drafts": {
     "gunnchos-device-os": {
@@ -50,19 +50,16 @@
       ]
     },
     "GRAPHICS_COMPOSITOR": {
-      "status": "pending_edmund_merge",
+      "status": "DIGITALLY_VALIDATED",
       "evidence": [
         {
           "repo": "gunnchos-device-os",
-          "status": "pending_edmund_merge",
-          "draft_pr": 76,
-          "draft_tip_sha": "6cd74aaf749fff4cac9cf5af2d816444ac5a812e",
+          "accepted_merge_sha": "2c4fd5de439b3fcf49893eacfac38b8ec62b463e",
+          "pr": 76,
           "prove_report": "OS_PROVE_REPORT.json",
-          "prove_gate": "graphics-compositor",
-          "note": "Owner draft tip digitally proves; NOT accepted-main DIGITALLY_VALIDATED until #76 merges."
+          "prove_gate": "graphics-compositor"
         }
-      ],
-      "blocker": "device-os #76 tip not on accepted main"
+      ]
     },
     "DESKTOP_SHELL": {
       "status": "DIGITALLY_VALIDATED",
@@ -201,34 +198,28 @@
       ]
     },
     "AI_SYSTEM_API": {
-      "status": "pending_edmund_merge",
+      "status": "DIGITALLY_VALIDATED",
       "evidence": [
         {
           "repo": "gunnchos-device-os",
-          "status": "pending_edmund_merge",
-          "draft_pr": 76,
-          "draft_tip_sha": "6cd74aaf749fff4cac9cf5af2d816444ac5a812e",
+          "accepted_merge_sha": "2c4fd5de439b3fcf49893eacfac38b8ec62b463e",
+          "pr": 76,
           "prove_report": "OS_PROVE_REPORT.json",
-          "prove_gate": "ai-system-api",
-          "note": "Owner draft tip digitally proves; NOT accepted-main DIGITALLY_VALIDATED until #76 merges."
+          "prove_gate": "ai-system-api"
         }
-      ],
-      "blocker": "device-os #76 tip not on accepted main"
+      ]
     },
     "LOCAL_AI": {
-      "status": "pending_edmund_merge",
+      "status": "DIGITALLY_VALIDATED",
       "evidence": [
         {
           "repo": "gunnchos-device-os",
-          "status": "pending_edmund_merge",
-          "draft_pr": 76,
-          "draft_tip_sha": "6cd74aaf749fff4cac9cf5af2d816444ac5a812e",
+          "accepted_merge_sha": "2c4fd5de439b3fcf49893eacfac38b8ec62b463e",
+          "pr": 76,
           "prove_report": "OS_PROVE_REPORT.json",
-          "prove_gate": "local-ai",
-          "note": "Owner draft tip digitally proves; NOT accepted-main DIGITALLY_VALIDATED until #76 merges."
+          "prove_gate": "local-ai"
         }
-      ],
-      "blocker": "device-os #76 tip not on accepted main"
+      ]
     }
   },
   "ai_gates": {
@@ -314,13 +305,11 @@
       "status": "DIGITALLY_VALIDATED",
       "evidence": [
         {
-          "implementation": "src/phase_xiv/agents/",
-          "test": "tests/phase_xiv/agent_runtime.test.ts",
-          "accepted_merge_sha": "4f441eaca40de00a6402de9ce43c4f192ed19a2f",
           "repo": "gunnchAI3k",
+          "accepted_merge_sha": "4f441eaca40de00a6402de9ce43c4f192ed19a2f",
+          "pr": 29,
           "prove_report": "AI_PROVE_REPORT.json",
-          "prove_gate": "AGENTS",
-          "pr": 29
+          "prove_gate": "AGENTS"
         }
       ]
     },
@@ -405,19 +394,16 @@
       ]
     },
     "CROSS_PRODUCT_CALLERS": {
-      "status": "pending_edmund_merge",
+      "status": "DIGITALLY_VALIDATED",
       "evidence": [
         {
           "repo": "gunnchos-device-os",
-          "status": "pending_edmund_merge",
-          "draft_pr": 76,
-          "draft_tip_sha": "6cd74aaf749fff4cac9cf5af2d816444ac5a812e",
+          "accepted_merge_sha": "2c4fd5de439b3fcf49893eacfac38b8ec62b463e",
+          "pr": 76,
           "prove_report": "OS_PROVE_REPORT.json",
-          "prove_gate": "cross-product-callers",
-          "note": "Owner draft tip digitally proves; NOT accepted-main DIGITALLY_VALIDATED until #76 merges."
+          "prove_gate": "cross-product-callers"
         }
-      ],
-      "blocker": "device-os #76 tip not on accepted main"
+      ]
     },
     "COMPETITIVE_HARNESS": {
       "status": "DIGITALLY_VALIDATED",
@@ -460,8 +446,8 @@
         "new": "DIGITALLY_VALIDATED"
       },
       "GRAPHICS_COMPOSITOR": {
-        "old": "INCOMPLETE_DIGITAL",
-        "new": "pending_edmund_merge"
+        "old": "pending_edmund_merge",
+        "new": "DIGITALLY_VALIDATED"
       },
       "DESKTOP_SHELL": {
         "old": "INCOMPLETE_DIGITAL",
@@ -504,12 +490,12 @@
         "new": "DIGITALLY_VALIDATED"
       },
       "AI_SYSTEM_API": {
-        "old": "INCOMPLETE_DIGITAL",
-        "new": "pending_edmund_merge"
+        "old": "pending_edmund_merge",
+        "new": "DIGITALLY_VALIDATED"
       },
       "LOCAL_AI": {
-        "old": "INCOMPLETE_DIGITAL",
-        "new": "pending_edmund_merge"
+        "old": "pending_edmund_merge",
+        "new": "DIGITALLY_VALIDATED"
       }
     },
     "ai": {
@@ -538,7 +524,7 @@
         "new": "DIGITALLY_VALIDATED"
       },
       "AGENTS": {
-        "old": "INCOMPLETE_DIGITAL",
+        "old": "DIGITALLY_VALIDATED",
         "new": "DIGITALLY_VALIDATED"
       },
       "OS_NATIVE_INTELLIGENCE": {
@@ -568,8 +554,8 @@
         "new": "DIGITALLY_VALIDATED"
       },
       "CROSS_PRODUCT_CALLERS": {
-        "old": "INCOMPLETE_DIGITAL",
-        "new": "pending_edmund_merge"
+        "old": "pending_edmund_merge",
+        "new": "DIGITALLY_VALIDATED"
       },
       "COMPETITIVE_HARNESS": {
         "old": "INCOMPLETE_DIGITAL",
@@ -582,5 +568,5 @@
     "script": "scripts/validate_claim_firewall.py",
     "at": "2026-08-10T01:29:13Z"
   },
-  "phase_xiv_note": "Phase XIV: AGENTS promoted on accepted AI main #29. OS residuals GRAPHICS_COMPOSITOR/AI_SYSTEM_API/LOCAL_AI/CROSS_PRODUCT_CALLERS remain pending_edmund_merge on device-os #76."
+  "phase_xiv_note": "Phase XIV post-merge: AGENTS on AI #29 4f441eaca40d\u2026; OS residuals + CROSS_PRODUCT_CALLERS DIGITALLY_VALIDATED on device-os #76 2c4fd5de439b\u2026"
 }
