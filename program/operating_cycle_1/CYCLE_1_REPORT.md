@@ -5,7 +5,7 @@
 **Addendum:** 2026-08-10T15:45:00Z — accepted-main reproof **PASS** on device-os `d0fdd8c3…` (#82); artifacts DRAFT [#83](https://github.com/gunnchOS3k/gunnchos-device-os/pull/83)  
 **Field-kit Cycle 1 final report:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) **MERGED** (`84a5c9ef8b4f0b4bbb6a9003ea8eba41c55c22d0`)  
 **Field-kit Cycle 1 #82-addendum:** [#58](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/58) **MERGED** (`e24db6d0ff7bba3601e8343e07b550b125afe4f2`) — was intended DRAFT  
-**Field-kit Cycle 1 accepted-main reproof aggregation draft:** [#59](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/59) tip `282f002d46c6af8ae5767ae17e97336249878542`  
+**Field-kit Cycle 1 accepted-main reproof aggregation draft:** [#59](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/59) tip `81ce77d66b34f2dc93661f3f290a336c8ae908c1`  
 **Control plane:** `gunnchos-7gc-ai-ran-field-kit`  
 **Cycle scope:** Bootstrap permanent operating model + WP-002 / WP-003 / WP-004 only  
 **Promotion honesty:** Accepted-main digital reproof **PASS**; Edmund may close WP-003 digital gate (optionally after merging device-os #83). Frontier parity tokens remain **false**. RFQs were **not** sent. WP-005+ not opened. Keep this aggregation PR **DRAFT** until Edmund review.
@@ -195,7 +195,7 @@ Light Cycle 1 updates only:
 | field-kit | #56 | `7e381fa4…` / merge `731edc40…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | WP-002/003 parallel; RFQ review + VP-004 |
 | field-kit | #57 | `2afdd47b…` / merge `84a5c9ef…` | **MERGED** | all SUCCESS at merge | null | Cycle 1 final report A–L |
 | field-kit | #58 | `bedd1f72b1ad40f77d903eaacaee58ed4b8d6709` / merge `e24db6d0…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | Cycle 1 #82-addendum; intended DRAFT until accepted-main reproof |
-| field-kit | #59 | `282f002d46c6af8ae5767ae17e97336249878542` | **OPEN DRAFT** | pending | null | Cycle 1 accepted-main reproof aggregation; keep DRAFT; do not merge until Edmund review |
+| field-kit | #59 | `81ce77d66b34f2dc93661f3f290a336c8ae908c1` | **OPEN DRAFT** | pending | null | Cycle 1 accepted-main reproof aggregation; keep DRAFT; do not merge until Edmund review |
 
 ---
 
