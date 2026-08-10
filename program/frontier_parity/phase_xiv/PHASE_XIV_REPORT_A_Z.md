@@ -12,7 +12,11 @@ GUNNCHAI_FRONTIER_PRODUCT_PARITY = false
 GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY = false
 ```
 
-Full frontier parity is **not** claimed. OS Phase XIV residual/differentiator gates are **`pending_edmund_merge`** on device-os **#76** tip `6cd74aaf749fff4cac9cf5af2d816444ac5a812e` until Edmund merges that PR.
+Full frontier parity is **not** claimed. Individual digital gates may be `DIGITALLY_VALIDATED` on accepted mains.
+
+```text
+PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS = TRUE
+```
 
 ---
 
@@ -20,15 +24,11 @@ Full frontier parity is **not** claimed. OS Phase XIV residual/differentiator ga
 
 | repo | SHA | last PR | CI |
 |---|---|---|---|
-| gunnchos-device-os | `a2d3a2aec6d3089cdcda29212bc2b839931ad61b` | #75 (Stage 2) | green on accepted main |
+| gunnchos-device-os | `2c4fd5de439b3fcf49893eacfac38b8ec62b463e` | **#76 MERGED** (Phase XIV OS) | green on accepted main |
 | gunnchAI3k | `4f441eaca40de00a6402de9ce43c4f192ed19a2f` | **#29 MERGED** (Phase XIV AI) | green on accepted main |
 | gunnchos-7gc-ai-ran-field-kit | `f645cac73b62ff664b990bea82c9cab6cde3f74a` | **#51 MERGED** (PRE-EVT RFQ) | green on accepted main |
 
-**Not accepted yet**
-
-| repo | tip | PR | state |
-|---|---|---|---|
-| gunnchos-device-os Phase XIV | `6cd74aaf749fff4cac9cf5af2d816444ac5a812e` | [#76](https://github.com/gunnchOS3k/gunnchos-device-os/pull/76) | OPEN DRAFT · `pending_edmund_merge` |
+Historical draft tip (superseded): device-os `6cd74aaf749fff4cac9cf5af2d816444ac5a812e` — promotions use **accepted merge SHA** only.
 
 Source: `ACCEPTED_MAIN_BASELINE.json`.
 
@@ -37,19 +37,19 @@ Source: `ACCEPTED_MAIN_BASELINE.json`.
 ## B. Canonical parity registry sync result
 
 ```text
-PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS = FALSE
+PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS = TRUE
 CLAIM_CONTRADICTIONS = 0
 ```
 
-**Why sync is not PASS:** AI Phase XIV gates are promoted on accepted merge `#29`. OS Phase XIV residual/differentiator gates are ingested from draft tip `#76` as `pending_edmund_merge` only — **not** `DIGITALLY_VALIDATED` on accepted main.
-
-Updated surfaces:
+Synced surfaces:
 
 - `program/frontier_parity/PARITY_GATES.yaml`
 - `program/frontier_parity/TOKENS.json`
 - `program/frontier_parity/phase_xiv/GATE_LEDGER.json`
 - `program/frontier_parity/phase_xiv/ACCEPTED_EVIDENCE_LEDGER.json`
-- `program/frontier_parity/stage2/GATE_LEDGER.json` (AGENTS promoted; OS residuals marked pending)
+- `program/frontier_parity/stage2/GATE_LEDGER.json`
+
+Owner accepted merges: AI `#29` `4f441ea…`, OS `#76` `2c4fd5de…`.
 
 ---
 
@@ -57,10 +57,10 @@ Updated surfaces:
 
 | Owner | Artifact | Result | Basis |
 |---|---|---|---|
-| gunnchAI | `AI_STAGE2_REPROOF.json` | PASS | Stage 2 suites + prove; present on accepted main through `#29` |
-| device-os | `OS_STAGE2_REPROOF.json` | PASS | Stage 2 foundations on accepted main `#75` / `a2d3a2ae…` |
+| gunnchAI | `AI_STAGE2_REPROOF.json` | PASS | Present on accepted main through `#29` |
+| device-os | `OS_STAGE2_REPROOF.json` | PASS | Stage 2 foundations retained; Phase XIV on `#76` |
 
-Stage 2 success tokens retained (`OS_BASE_IMAGE_REAL`, atomic update/recovery/shell/compat/sandbox, AI fleet/router/memory/projects/citation/OS-native). Full frontier tokens remain **false**.
+Full frontier tokens remain **false**.
 
 ---
 
@@ -68,103 +68,98 @@ Stage 2 success tokens retained (`OS_BASE_IMAGE_REAL`, atomic update/recovery/sh
 
 | Gate | Old | New | Owner evidence |
 |---|---|---|---|
-| `GRAPHICS_COMPOSITOR` | INCOMPLETE_DIGITAL | **pending_edmund_merge** | device-os #76 draft tip |
-| `AI_SYSTEM_API` | INCOMPLETE_DIGITAL | **pending_edmund_merge** | device-os #76 draft tip |
-| `LOCAL_AI` | INCOMPLETE_DIGITAL | **pending_edmund_merge** | device-os #76 draft tip |
-| `AGENTS` | INCOMPLETE_DIGITAL | **DIGITALLY_VALIDATED** | gunnchAI #29 accepted `4f441ea…` |
-| `CROSS_PRODUCT_CALLERS` | INCOMPLETE_DIGITAL | **pending_edmund_merge** | device-os #76 draft tip |
+| `GRAPHICS_COMPOSITOR` | pending_edmund_merge | **DIGITALLY_VALIDATED** | device-os #76 `2c4fd5de…` |
+| `AI_SYSTEM_API` | pending_edmund_merge | **DIGITALLY_VALIDATED** | device-os #76 `2c4fd5de…` |
+| `LOCAL_AI` | pending_edmund_merge | **DIGITALLY_VALIDATED** | device-os #76 `2c4fd5de…` |
+| `AGENTS` | DIGITALLY_VALIDATED | **DIGITALLY_VALIDATED** | gunnchAI #29 `4f441ea…` |
+| `CROSS_PRODUCT_CALLERS` | pending_edmund_merge | **DIGITALLY_VALIDATED** | device-os #76 `2c4fd5de…` |
 
 ---
 
-## E. Graphics / compositor (DRAFT-pending OS)
+## E. Graphics / compositor
 
-Owner draft `#76` reports compositor stack `weston+wlroots` with digital E2E pytest PASS on tip `6cd74aa…`.
+Accepted on device-os `#76` (`2c4fd5de…`). Owner prove: compositor stack `weston+wlroots`, digital E2E pytest PASS.
 
-**Field-kit status:** `GRAPHICS_COMPOSITOR = pending_edmund_merge` (not accepted-main `DIGITALLY_VALIDATED`).
-
+**Status:** `GRAPHICS_COMPOSITOR = DIGITALLY_VALIDATED` (accepted main).  
 Physical display/dock measurements remain `PHYSICAL_PENDING`.
 
 ---
 
-## F. OS AI API / Local AI / first-party callers (DRAFT-pending OS)
+## F. OS AI API / Local AI / first-party callers
 
-Owner draft prove marks `ai-system-api`, `local-ai`, `cross-product-callers` digitally proven on tip (local runtime `deterministic_micro`, callers: waike / creator / device_manager / archive / connectivity_diagnostics).
+Accepted on device-os `#76`. Local runtime `deterministic_micro`; callers: waike / creator / device_manager / archive / connectivity_diagnostics.
 
-**Field-kit status:** all three remain `pending_edmund_merge` until `#76` merges. No accepted-main DIGITALLY_VALIDATED claim.
+**Status:** `AI_SYSTEM_API`, `LOCAL_AI`, `CROSS_PRODUCT_CALLERS = DIGITALLY_VALIDATED`.
 
 ---
 
 ## G. Agent runtime
 
-Accepted on gunnchAI `#29` (`4f441ea…`).
+Accepted on gunnchAI `#29` (`4f441ea…`): plan/interrupt/resume/rollback; high-impact approvals; lab-report E2E stops before submit.
 
-- Plan / interrupt / resume / rollback covered
-- High-impact approval gates
-- Lab-report E2E produces plot/docx/pdf and stops before submit
-
-**Status:** `AGENTS = DIGITALLY_VALIDATED` (accepted main).
+**Status:** `AGENTS = DIGITALLY_VALIDATED`.
 
 ---
 
-## H. gunnchContinuity (DRAFT-pending OS)
+## H. gunnchContinuity
 
-Owner draft tip proves continuity handoff paths digitally.
+Accepted on device-os `#76`.
 
-**Field-kit:** `CONTINUITY = pending_edmund_merge`.
-
----
-
-## I. gunnchPlay (DRAFT-pending OS)
-
-Owner draft tip proves game library / suspend-resume / LAN remote-play reference digitally.
-
-**Field-kit:** `GAME_RUNTIME`, `GAME_COMPATIBILITY`, `GAME_SOCIAL`, `GAME_SUSPEND_RESUME`, `REMOTE_PLAY` = `pending_edmund_merge`.
+**Status:** `CONTINUITY = DIGITALLY_VALIDATED`.
 
 ---
 
-## J. gunnchFabric (DRAFT-pending OS)
+## I. gunnchPlay
 
-Owner draft tip proves Fabric digital path.
+Accepted on device-os `#76` (library / suspend-resume / LAN remote-play reference).
 
-**Field-kit:** `SYNC` (Fabric mapping) = `pending_edmund_merge`.
-
----
-
-## K. SpatialInputService (DRAFT-pending OS)
-
-Owner draft tip proves spatial/ring input digital path.
-
-**Field-kit:** `RING_SPATIAL_INPUT = pending_edmund_merge`.
+**Status:** `GAME_RUNTIME`, `GAME_COMPATIBILITY`, `GAME_SOCIAL`, `GAME_SUSPEND_RESUME`, `REMOTE_PLAY = DIGITALLY_VALIDATED`.
 
 ---
 
-## L. Package management / app distribution (DRAFT-pending OS)
+## J. gunnchFabric
 
-Owner draft tip proves package channels (dev/beta/stable), signature/revoke path digitally.
+Accepted on device-os `#76`.
 
-**Field-kit:** `PACKAGE_MANAGEMENT`, `APP_DISTRIBUTION` = `pending_edmund_merge`.
-
----
-
-## M. SDK / debug / profiling (DRAFT-pending OS)
-
-Owner draft tip proves SDK templates + debug session hooks digitally (production profiler not claimed physical).
-
-**Field-kit:** `DEVELOPER_SDK`, `DEBUG_PROFILING` = `pending_edmund_merge`.
+**Status:** `SYNC` (Fabric mapping) = `DIGITALLY_VALIDATED`.
 
 ---
 
-## N. MDM / education administration (DRAFT-pending OS)
+## K. SpatialInputService
 
-Owner draft tip proves fleet enrollment digital path.
+Accepted on device-os `#76`.
 
-**Field-kit:** `ENTERPRISE_MDM`, `EDUCATION_MANAGEMENT` = `pending_edmund_merge`.
+**Status:** `RING_SPATIAL_INPUT = DIGITALLY_VALIDATED`.
+
+---
+
+## L. Package management / app distribution
+
+Accepted on device-os `#76` (dev/beta/stable channels, signature/revoke).
+
+**Status:** `PACKAGE_MANAGEMENT`, `APP_DISTRIBUTION = DIGITALLY_VALIDATED`.
+
+---
+
+## M. SDK / debug / profiling
+
+Accepted on device-os `#76` (SDK templates + debug session hooks; production profiler not claimed physical).
+
+**Status:** `DEVELOPER_SDK`, `DEBUG_PROFILING = DIGITALLY_VALIDATED`.
+
+---
+
+## N. MDM / education administration
+
+Accepted on device-os `#76`.
+
+**Status:** `ENTERPRISE_MDM`, `EDUCATION_MANAGEMENT = DIGITALLY_VALIDATED`.
 
 ---
 
 ## O. Long-context
 
-Accepted AI `#29`: honest supported-token reporting; claimed tokens null where unsupported.
+Accepted AI `#29`: honest supported-token reporting.
 
 **Status:** `LONG_CONTEXT = DIGITALLY_VALIDATED`.
 
@@ -204,7 +199,7 @@ Accepted AI `#29`: connector discover/authorize/invoke/revoke; required gunnchSk
 
 ## T. Artifact creation / scheduled tasks / collaboration
 
-Accepted AI `#29`: docx/xlsx/pptx/pdf/svg/notebook/website/code; scheduled tasks forbid high-impact; collab blocks personal-memory leak.
+Accepted AI `#29`: artifact formats; scheduled tasks forbid high-impact; collab blocks personal-memory leak.
 
 **Status:** `ARTIFACT_CREATION`, `SCHEDULED_TASKS`, `COLLABORATION = DIGITALLY_VALIDATED`.
 
@@ -225,11 +220,7 @@ Harness: ≥150 tasks; local/hybrid run PASS (`COMPETITIVE_AI_SUMMARY.json`).
 ```text
 competitor_scores = null
 competitor_status = EXTERNAL_PENDING
-BETTER_THAN_CHATGPT = false
-BETTER_THAN_CLAUDE = false
-BETTER_THAN_GEMINI = false
-BETTER_THAN_COPILOT = false
-BETTER_THAN_PERPLEXITY = false
+BETTER_THAN_* = false
 GUNNCHAI_FRONTIER_PRODUCT_PARITY = false
 ```
 
@@ -239,8 +230,8 @@ No competitor scores fabricated.
 
 ## W. Competitive OS results
 
-- **Digital reference (draft tip only):** owner `#76` prove suite PASS on tip — cited as `pending_edmund_merge`, not accepted-main competitive closure.
-- **Physical measurements:** `PHYSICAL_PENDING` (accuracy / human usability / device benches not run under freeze).
+- **Digital reference (accepted main):** device-os `#76` prove suite DIGITALLY_VALIDATED on `2c4fd5de…`.
+- **Physical measurements:** `PHYSICAL_PENDING`.
 
 `GUNNCHOS_FRONTIER_OS_PARITY = false`.
 
@@ -253,8 +244,8 @@ From merged field-kit `#51` / `PRE_EVT_PARALLEL_REPORT.json`:
 ```text
 RFQ_PACKAGE_DIGITAL_DEFECTS = 0
 READY_TO_SEND_RFQS = TRUE
-EVT_TEST_BOOK_READY = TRUE (frontier companion stubs present)
-VENDOR_COLLATERAL_ACTION_PACKETS_READY = TRUE (Edmund A01–A07 drafts unchanged)
+EVT_TEST_BOOK_READY = TRUE
+VENDOR_COLLATERAL_ACTION_PACKETS_READY = TRUE
 RFQ_SEND_AUTHORIZATION = FALSE
 PURCHASE_AUTHORIZATION = FALSE
 PHYSICAL_EXECUTION_FREEZE = ACTIVE
@@ -268,10 +259,11 @@ Do not send RFQs. Do not purchase. Do not fabricate.
 
 ```text
 DIGITAL
-  - CLOSED on accepted AI main: Phase XIV AI systems (#29)
-  - CLOSED on accepted OS main: Stage 2 foundations (#75)
-  - OPEN pending_edmund_merge: device-os #76 Phase XIV residuals/differentiators
-  - OPEN registry: PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS=false until #76 merges + this PR
+  - CLOSED: Phase XIV AI systems on accepted main (#29)
+  - CLOSED: Phase XIV OS residuals/differentiators on accepted main (#76)
+  - CLOSED: Stage 2 foundations (#75 / #28)
+  - CLOSED: PRE-EVT RFQ digital package (#51)
+  - OPEN (non-blocking for this PR): remaining INCOMPLETE_DIGITAL OS domains (DRIVER_HAL, AUDIO_MEDIA, IDENTITY, FILES_STORAGE, ACCESSIBILITY, CONNECTIVITY_5GA, NTN_MIGRATION, SUPPORT_LIFECYCLE, etc.)
 
 PHYSICAL
   - PHYSICAL_EXECUTION_FREEZE active
@@ -290,68 +282,63 @@ No fourth bucket.
 
 ## Z. PRs + Edmund merge order
 
-| order | repo | PR | branch | head SHA | CI | autoMergeRequest | depends_on | major implementation |
+| order | repo | PR | branch | head / merge SHA | CI | autoMergeRequest | depends_on | major implementation |
 |---:|---|---|---|---|---|---|---|---|
-| 1 | gunnchAI3k | [#29](https://github.com/gunnchOS3k/gunnchAI3k/pull/29) | phase-xiv/ai-frontier-convergence | `76e6efc…` → merge `4f441ea…` | green | null | Stage 2 #28 | Frontier AI systems |
-| 2 | field-kit | [#51](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/51) | phase-xiv/pre-evt-rfq-reproof | `471d653…` → merge `f645cac…` | green | null | Phase X packets | PRE-EVT RFQ reproof + EVT stubs |
-| 3 | device-os | [#76](https://github.com/gunnchOS3k/gunnchos-device-os/pull/76) | phase-xiv/os-frontier-convergence | `6cd74aa…` | mixed/pending jobs on draft | null | Stage 2 #75 | OS residuals + Continuity/Play/Fabric/Spatial/Pkg/SDK/MDM |
-| 4 | field-kit | **this DRAFT** | phase-xiv/frontier-convergence | _(this PR head)_ | pending | null | **#76 first** | Frontier evidence LAST / registry sync |
+| 1 | gunnchAI3k | [#29](https://github.com/gunnchOS3k/gunnchAI3k/pull/29) | phase-xiv/ai-frontier-convergence | merge `4f441ea…` | green | null | Stage 2 #28 | Frontier AI systems |
+| 2 | field-kit | [#51](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/51) | phase-xiv/pre-evt-rfq-reproof | merge `f645cac…` | green | null | Phase X packets | PRE-EVT RFQ reproof |
+| 3 | device-os | [#76](https://github.com/gunnchOS3k/gunnchos-device-os/pull/76) | phase-xiv/os-frontier-convergence | merge `2c4fd5de…` | green | null | Stage 2 #75 | OS residuals + Continuity/Play/Fabric/Spatial/Pkg/SDK/MDM |
+| 4 | field-kit | **[#52](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/52) DRAFT** | phase-xiv/frontier-convergence | _(this PR head)_ | pending | null | **#29 + #76 + #51** (satisfied) | Frontier evidence LAST / registry sync |
 
-### Explicit Edmund order
+### Explicit Edmund order (updated)
 
 ```text
-1) Merge device-os #76 (accepted-main OS Phase XIV evidence)
-2) Then merge this field-kit PR (accepted-main registry sync / LAST evidence)
+Owner deps MERGED (#29, #76, #51).
+Edmund may merge this field-kit PR #52 after CI green.
+autoMergeRequest = null. Cursor never merges.
 ```
-
-Do **not** merge this field-kit PR before `#76`. Cursor never merges.
-
-After `#76` merges: upgrade OS evidence to accepted merge SHA, set residual gates `DIGITALLY_VALIDATED` where prove supports, set `PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS=true` only if claim firewall still PASS and full frontier tokens remain false unless every required gate truly supports them.
 
 ---
 
 ## Definition-of-done matrix (frontier gates)
 
-Statuses used: `INCOMPLETE_DIGITAL` · `IMPLEMENTED` · `INTEGRATED` · `DIGITALLY_VALIDATED` · `COMPETITIVELY_VALIDATED` · `PHYSICAL_PENDING` · `EXTERNAL_PENDING` · `pending_edmund_merge`
-
 ### OS gates
 
 | Gate | Status |
 |---|---|
-| BOOT_SECURITY | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| UPDATE_ROLLBACK | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| RECOVERY | DIGITALLY_VALIDATED (Stage 2 accepted) |
+| BOOT_SECURITY | DIGITALLY_VALIDATED |
+| UPDATE_ROLLBACK | DIGITALLY_VALIDATED |
+| RECOVERY | DIGITALLY_VALIDATED |
 | DRIVER_HAL | INCOMPLETE_DIGITAL |
-| GRAPHICS_COMPOSITOR | pending_edmund_merge (#76) |
+| GRAPHICS_COMPOSITOR | DIGITALLY_VALIDATED |
 | AUDIO_MEDIA | INCOMPLETE_DIGITAL |
-| DESKTOP_SHELL | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| TOUCH_TABLET_SHELL | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| DUAL_SCREEN_SHELL | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| HANDHELD_SHELL | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| DOCK_TRANSITION | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| APP_RUNTIME | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| APP_COMPATIBILITY | DIGITALLY_VALIDATED (Stage 2 accepted) |
-| PACKAGE_MANAGEMENT | pending_edmund_merge (#76) |
-| APP_DISTRIBUTION | pending_edmund_merge (#76) |
-| SANDBOX_PERMISSIONS | DIGITALLY_VALIDATED (Stage 2 accepted) |
+| DESKTOP_SHELL | DIGITALLY_VALIDATED |
+| TOUCH_TABLET_SHELL | DIGITALLY_VALIDATED |
+| DUAL_SCREEN_SHELL | DIGITALLY_VALIDATED |
+| HANDHELD_SHELL | DIGITALLY_VALIDATED |
+| DOCK_TRANSITION | DIGITALLY_VALIDATED |
+| APP_RUNTIME | DIGITALLY_VALIDATED |
+| APP_COMPATIBILITY | DIGITALLY_VALIDATED |
+| PACKAGE_MANAGEMENT | DIGITALLY_VALIDATED |
+| APP_DISTRIBUTION | DIGITALLY_VALIDATED |
+| SANDBOX_PERMISSIONS | DIGITALLY_VALIDATED |
 | IDENTITY | INCOMPLETE_DIGITAL |
-| ENCRYPTION_KEYSTORE | DIGITALLY_VALIDATED (Stage 2 accepted) |
+| ENCRYPTION_KEYSTORE | DIGITALLY_VALIDATED |
 | FILES_STORAGE | INCOMPLETE_DIGITAL |
-| SYNC | pending_edmund_merge (#76 / Fabric) |
-| CONTINUITY | pending_edmund_merge (#76) |
-| DEVELOPER_SDK | pending_edmund_merge (#76) |
-| DEBUG_PROFILING | pending_edmund_merge (#76) |
-| GAME_RUNTIME | pending_edmund_merge (#76) |
-| GAME_COMPATIBILITY | pending_edmund_merge (#76) |
-| GAME_SOCIAL | pending_edmund_merge (#76) |
-| GAME_SUSPEND_RESUME | pending_edmund_merge (#76) |
-| REMOTE_PLAY | pending_edmund_merge (#76) |
+| SYNC | DIGITALLY_VALIDATED |
+| CONTINUITY | DIGITALLY_VALIDATED |
+| DEVELOPER_SDK | DIGITALLY_VALIDATED |
+| DEBUG_PROFILING | DIGITALLY_VALIDATED |
+| GAME_RUNTIME | DIGITALLY_VALIDATED |
+| GAME_COMPATIBILITY | DIGITALLY_VALIDATED |
+| GAME_SOCIAL | DIGITALLY_VALIDATED |
+| GAME_SUSPEND_RESUME | DIGITALLY_VALIDATED |
+| REMOTE_PLAY | DIGITALLY_VALIDATED |
 | ACCESSIBILITY | INCOMPLETE_DIGITAL |
-| ENTERPRISE_MDM | pending_edmund_merge (#76) |
-| EDUCATION_MANAGEMENT | pending_edmund_merge (#76) |
-| LOCAL_AI | pending_edmund_merge (#76) |
-| AI_SYSTEM_API | pending_edmund_merge (#76) |
-| RING_SPATIAL_INPUT | pending_edmund_merge (#76) |
+| ENTERPRISE_MDM | DIGITALLY_VALIDATED |
+| EDUCATION_MANAGEMENT | DIGITALLY_VALIDATED |
+| LOCAL_AI | DIGITALLY_VALIDATED |
+| AI_SYSTEM_API | DIGITALLY_VALIDATED |
+| RING_SPATIAL_INPUT | DIGITALLY_VALIDATED |
 | CONNECTIVITY_5GA | INCOMPLETE_DIGITAL |
 | NTN_MIGRATION | INCOMPLETE_DIGITAL |
 | PERFORMANCE_POWER | INCOMPLETE_DIGITAL / PHYSICAL_PENDING |
@@ -392,10 +379,8 @@ Statuses used: `INCOMPLETE_DIGITAL` · `IMPLEMENTED` · `INTEGRATED` · `DIGITAL
 |---|---|
 | SHARED_IDENTITY | DIGITALLY_VALIDATED |
 | RESOURCE_AWARE_AI | DIGITALLY_VALIDATED |
-| CROSS_PRODUCT_CALLERS | pending_edmund_merge (#76) |
+| CROSS_PRODUCT_CALLERS | DIGITALLY_VALIDATED |
 | COMPETITIVE_HARNESS | DIGITALLY_VALIDATED (harness only; competitor scores EXTERNAL_PENDING) |
-
-Competitive closure for BETTER_THAN_* / full product parity: **not earned** (`EXTERNAL_PENDING` + physical/human gaps).
 
 ---
 
@@ -405,6 +390,7 @@ Competitive closure for BETTER_THAN_* / full product parity: **not earned** (`EX
 GUNNCHOS_FRONTIER_OS_PARITY = false
 GUNNCHAI_FRONTIER_PRODUCT_PARITY = false
 GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY = false
-PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS = false
-pending_edmund_merge = device-os#76
+PARITY_REGISTRY_ACCEPTED_MAIN_SYNC_PASS = true
+device-os accepted merge = 2c4fd5de439b3fcf49893eacfac38b8ec62b463e
+gunnchAI accepted merge = 4f441eaca40de00a6402de9ce43c4f192ed19a2f
 ```
