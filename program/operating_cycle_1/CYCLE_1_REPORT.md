@@ -1,7 +1,7 @@
 # Operating Cycle 1 — Final Report
 
 **Generated:** 2026-08-10T15:20:00Z  
-**Field-kit Cycle 1 final-report draft:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) tip `615c1319a24cd241010a9b61d8295807b23dc55d`  
+**Field-kit Cycle 1 final-report draft:** [#57](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/57) tip `TIP_PLACEHOLDER`  
 **Control plane:** `gunnchos-7gc-ai-ran-field-kit`  
 **Cycle scope:** Bootstrap permanent operating model + WP-002 / WP-003 / WP-004 only  
 **Promotion honesty:** Owner merges + accepted-main reproof remain pending before final field-kit promotion claims. Frontier parity tokens remain **false**. RFQs were **not** sent.
@@ -183,7 +183,7 @@ Light Cycle 1 updates only:
 | gunnchAI3k | #30 | `760fec63…` / merge `a28c35c8…` | MERGED | SUCCESS (1 neutral) | null | Phase XV baseline |
 | field-kit | #55 | `2f23bcdd…` / merge `d1922f69…` | MERGED | all SUCCESS | null | Phase XV LAST after device-os #77 |
 | field-kit | #56 | `7e381fa4…` / merge `731edc40…` | **MERGED** (was to stay draft) | all SUCCESS at merge | null | WP-002/003 parallel; RFQ review + VP-004 |
-| field-kit | #57 |  | **OPEN DRAFT** | *(CI pending/recheck)* | null | Cycle 1 report; depends_on owner #81 green + Edmund merges + accepted-main reproof before promotion |
+| field-kit | #57 | `TIP_PLACEHOLDER` | **OPEN DRAFT** | see CI below | null | Cycle 1 report; depends_on owner #81 green + Edmund merges + accepted-main reproof before promotion |
 
 ---
 
