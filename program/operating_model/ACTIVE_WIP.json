@@ -51,6 +51,8 @@
       "device_os_lab_interfaces_pr": "device-os#90",
       "device_os_lab_interfaces_merged": true,
       "supersedes_fail_pr": "hardware#57",
+      "supersedes_fail_pr_state": "MERGED_HISTORICAL_FAIL_ON_MAIN_e594e9e",
+      "note": "Main currently carries VP-010 FAIL (#57). Current READY truth is OPEN #58 PASS tip — Edmund should merge #58 to supersede.",
       "VF4": "PHYSICAL_PENDING",
       "VF5": "PHYSICAL_PENDING",
       "VF6": "PHYSICAL_PENDING"
@@ -111,7 +113,7 @@
   "verified_baselines_current_main": {
     "gunnchos-device-os": "0e46609b3d86241f2c282e7a1f3752d16d2bba67",
     "gunnchos-7gc-ai-ran-field-kit": "d9c3c0733e88dd7bf8524470c00bb9a022205d41",
-    "gunnchos-hardware-industrial-design": "9877b3c33c94716729181f74bf749261306093d1",
+    "gunnchos-hardware-industrial-design": "e594e9e7c8f508c81be7cc72089e71d1d5a99e2c",
     "gunnchAI3k": "a28c35c82b45b0a8bfb97648b5941bf0a6b52163"
   },
   "honesty_tokens": {
@@ -126,11 +128,11 @@
     "PHYSICAL_EXECUTION_FREEZE": true
   },
   "edmund_merge_order": [
-    "1. Merge hardware OPEN DRAFT #58 (WP-010R1 tip 125386e + VP-010 PASS RESULT tip 8e4d4ab) after review — grants READY_FOR_EVT0_MEASUREMENT_EXECUTION on hardware main; does NOT authorize purchase/fab/run",
-    "2. Close or mark superseded hardware OPEN #57 (prior VP-010 FAIL) — do not merge as current readiness truth",
-    "3. Optionally confirm device-os #90/#91/#92/#93 already MERGED on main 0e46609… (no further product merge required for WP-007 token)",
-    "4. Optionally confirm field-kit #65/#66 already MERGED (WP-008 freeze + VP-008 PASS) — no further WP-008 merge",
-    "5. LAST: merge this field-kit Cycle 2 accepted-main aggregate DRAFT after review — keep DRAFT until then; auto-merge OFF; do not start WP-001 / Cycle 3"
+    "1. Merge hardware OPEN #58 (WP-010R1 tip 125386e + VP-010 PASS RESULT tip 8e4d4ab; isDraft=false; auto-merge OFF) after review — grants READY_FOR_EVT0_MEASUREMENT_EXECUTION on hardware main; does NOT authorize purchase/fab/run",
+    "2. Treat hardware #57 FAIL as superseded (do not treat as current READY truth even if historically merged/closed)",
+    "3. Confirm device-os #90/#91/#92/#93 already MERGED on main 0e46609… (no further product merge required for WP-007 token)",
+    "4. Confirm field-kit #65/#66 already MERGED (WP-008 freeze + VP-008 PASS) — no further WP-008 merge",
+    "5. LAST: merge field-kit DRAFT #67 Cycle 2 accepted-main aggregate after review — keep DRAFT until then; auto-merge OFF; do not start WP-001 / Cycle 3"
   ],
   "do_not_start": [
     "WP-001",

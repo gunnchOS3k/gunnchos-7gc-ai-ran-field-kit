@@ -30,7 +30,7 @@ Known Cycle-start closure refs (newer `origin/main` wins):
 |---|---|---|---|
 | `gunnchos-device-os` | `99a9825e…` (#89) | **`0e46609b3d86241f2c282e7a1f3752d16d2bba67`** | +#90 Lab interfaces, +#91 WP-007, +#92 FAIL artifacts, +#93 PASS fix |
 | `gunnchos-7gc-ai-ran-field-kit` | `80230dce…` (#63) | **`d9c3c0733e88dd7bf8524470c00bb9a022205d41`** | +#65/#66 WP-008, +#64 bootstrap (tip order: #65→#66→#64) |
-| `gunnchos-hardware-industrial-design` | `3db78363…` (#55) | **`9877b3c33c94716729181f74bf749261306093d1`** | +#56 WP-010 base; **#58 PASS tip not yet on main** |
+| `gunnchos-hardware-industrial-design` | `3db78363…` (#55) | **`e594e9e7c8f508c81be7cc72089e71d1d5a99e2c`** | +#56 WP-010 base; +#57 VP-010 **FAIL** artifacts; **#58 PASS tip not yet on main** |
 | `gunnchAI3k` | `a28c35c8…` (#30) | **`a28c35c82b45b0a8bfb97648b5941bf0a6b52163`** | unchanged |
 
 **Cycle 1 tokens reconfirmed (digital close record; not re-transformed to physical PASS):**
@@ -74,10 +74,10 @@ No WP-001 / WP-005 / WP-006 / WP-009 / LAB-FUTURE-* / Cycle 3 started.
 
 | Item | Value |
 |---|---|
-| Prior FAIL | hardware [#57](https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/57) tip `b968202…` (DEFECT-VP010-001..003) |
+| Prior FAIL | hardware [#57](https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/57) tip `b968202…` (DEFECT-VP010-001..003) — **MERGED** (historical FAIL record; superseded by #58) |
 | PASS tip (product) | `125386e08b3afc3b5344e96d7b71de8a50529c83` |
-| RESULT tip (with VP artifact) | `8e4d4ab20f131b47df4fadb9547cfed43f376c5d` on OPEN [#58](https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/58) |
-| In hardware main? | **NO** (`125386e` / `8e4d4ab` not ancestors of `9877b3c…`) |
+| RESULT tip (with VP artifact) | `8e4d4ab20f131b47df4fadb9547cfed43f376c5d` on OPEN [#58](https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/58) (`isDraft=false`; auto-merge OFF) |
+| PASS tip in hardware main? | **NO** at report time — Edmund must merge #58 for PASS readiness on main |
 | Device Lab interfaces | device-os [#90](https://github.com/gunnchOS3k/gunnchos-device-os/pull/90) **MERGED** tip `d5ff4ea…` ⊆ main |
 | Closed defects | DEFECT-VP010-001 (audio gate), 002 (AUD/CAM IDs), 003 (KEY/controls IDs) |
 | Counts | 41 master tests · 23 instruments · 11 fixtures · RISK-001..012 traced · GOLDEN-01..10 mapped |
@@ -265,8 +265,8 @@ Risk register scores in field-kit operating model remain the Cycle 1 baseline (R
 | Repo | PR | Head SHA | State | Role | autoMerge |
 |---|---|---|---|---|---|
 | hardware | #56 | `611d51d…` / merge `9877b3c…` | **MERGED** | WP-010 implementer base | null |
-| hardware | #57 | `b968202…` | **OPEN** (FAIL RESULT) | superseded by #58 | null / OFF |
-| hardware | #58 | `8e4d4ab…` (product `125386e…`) | **OPEN DRAFT** | WP-010R1 + VP-010 PASS | **OFF** |
+| hardware | #57 | `b968202…` | **MERGED** (FAIL RESULT) | historical; superseded by #58 PASS | null |
+| hardware | #58 | `8e4d4ab…` (product `125386e…`) | **OPEN** (not draft; auto-merge OFF) | WP-010R1 + VP-010 PASS | **OFF** |
 | device-os | #90 | `d5ff4ea…` | **MERGED** | Lab calibration interfaces | null |
 | device-os | #91 | `9bf235a…` | **MERGED** | WP-007 implementer | null |
 | device-os | #92 | `90939a4…` | **MERGED** | VP-007 FAIL artifacts (superseded) | null |
@@ -276,12 +276,12 @@ Risk register scores in field-kit operating model remain the Cycle 1 baseline (R
 | field-kit | #66 | `d4637b6…` | **MERGED** | VP-008 PASS RESULT | null |
 | field-kit | **this** | *(tip after push)* | **OPEN DRAFT** | Cycle 2 aggregate LAST | **OFF** |
 
-**Exact Edmund merge order (remaining open DRAFTs):**
+**Exact Edmund merge order (remaining open PRs):**
 
-1. **hardware #58** (WP-010R1 + VP-010 PASS) — after human review  
-2. **Close/supersede hardware #57** — do not merge as current truth  
+1. **hardware #58** (WP-010R1 + VP-010 PASS) — after human review; auto-merge OFF  
+2. **Treat hardware #57 as superseded** — already MERGED FAIL record; do not treat as current READY truth  
 3. **Confirm already-merged:** device-os #90/#91/#92/#93 · field-kit #65/#66/#64 — no action required for tokens  
-4. **field-kit this Cycle 2 aggregate DRAFT LAST** — after #58 review decision  
+4. **field-kit [#67](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/67) Cycle 2 aggregate DRAFT LAST** — after #58 review decision  
 
 CI: VP-010/VP-008/VP-007 recorded GREEN on their verified tips at verification time. This aggregate aims CI green (docs/JSON only).
 
@@ -290,12 +290,12 @@ CI: VP-010/VP-008/VP-007 recorded GREEN on their verified tips at verification t
 ## Q. Edmund-only actions
 
 1. **Review & merge hardware #58** (or reject with rationale) — lands VP-010 PASS + READY token on hardware main; **does not** authorize purchase/fab/run.  
-2. **Close/supersede hardware #57** FAIL DRAFT.  
+2. **Treat hardware #57 MERGED FAIL as superseded** — current readiness is #58 PASS tip only.  
 3. **Accept Cycle 2 digital stop** for WP-010/008/007 verifier PASS (or reject with defects).  
 4. **Do not send RFQs** — Cycle 1 WP-004 still `RFQ_SENT=false`.  
 5. **Do not lift PHYSICAL_EXECUTION_FREEZE / purchase_authorized** in this cycle.  
 6. **Do not start WP-001 / Cycle 3 / WP-005+** automatically — choose next packet deliberately after review.  
-7. **Review & merge this field-kit aggregate DRAFT last** (keep DRAFT until then; auto-merge OFF).  
+7. **Review & merge field-kit aggregate DRAFT [#67](https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/67) last** (keep DRAFT until then; auto-merge OFF).  
 8. **External pentest / physical EVT / human panels** remain human/external scheduling — packets prepared, not executed.
 
 ---
@@ -344,6 +344,6 @@ NEXT_READY_AFTER_CYCLE:
 ## Stop / honesty footer
 
 - Cycle 2 stop condition **MET** digitally: WP-010 READY · WP-008 NFR frozen · WP-007 INTERNAL_RED_TEAM_READY · S0=S1=0.  
-- Hardware #58 still **OPEN** — token earned on verified tip; Edmund merge pending.  
+- Hardware #58 still **OPEN** (ready-for-review; auto-merge OFF) — token earned on verified tip; Edmund merge pending. #57 FAIL already merged historically and is superseded.  
 - PHYSICALLY_VALIDATED=false · VF4/5/6 PHYSICAL_PENDING · EXTERNAL_PENDING · RFQ_SENT=false · frontier=false.  
 - WP-001 / Cycle 3 / WP-005+ **not** started. This PR is **DRAFT** aggregation only.
