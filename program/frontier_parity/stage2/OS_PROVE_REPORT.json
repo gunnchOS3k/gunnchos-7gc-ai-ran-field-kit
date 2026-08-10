@@ -1,0 +1,557 @@
+{
+  "schema": "gunnchos.stage2.os_prove_report.v1",
+  "generated_at": "2026-08-10T01:15:46.141612+00:00",
+  "physical_execution_freeze": true,
+  "auto_merge_request": null,
+  "frontier_os_parity_claimed": false,
+  "GUNNCHOS_FRONTIER_OS_PARITY": false,
+  "gates": {
+    "frontier-os-base": "DIGITALLY_VALIDATED",
+    "atomic-update-rollback": "DIGITALLY_VALIDATED",
+    "recovery": "DIGITALLY_VALIDATED",
+    "shell-profiles": "DIGITALLY_VALIDATED",
+    "compatibility-corpus": "DIGITALLY_VALIDATED",
+    "sandbox-security": "DIGITALLY_VALIDATED"
+  },
+  "tokens": {
+    "OS_BASE_IMAGE_REAL": true,
+    "ATOMIC_UPDATE_ROLLBACK_DIGITAL_PASS": true,
+    "RECOVERY_DIGITAL_PASS": true,
+    "SHELL_PROFILES_DIGITAL_PASS": true,
+    "COMPAT_CORPUS_DIGITAL_PASS": true,
+    "SANDBOX_SECURITY_DIGITAL_PASS": true
+  },
+  "digitally_validated_gates": [
+    "atomic-update-rollback",
+    "compatibility-corpus",
+    "frontier-os-base",
+    "recovery",
+    "sandbox-security",
+    "shell-profiles"
+  ],
+  "incomplete_gates": [],
+  "pytest": {
+    "frontier-os-base": {
+      "rc": 0
+    },
+    "atomic-update-rollback": {
+      "rc": 0
+    },
+    "recovery": {
+      "rc": 0
+    },
+    "shell-profiles": {
+      "rc": 0
+    },
+    "compatibility-corpus": {
+      "rc": 0
+    },
+    "sandbox-security": {
+      "rc": 0
+    }
+  },
+  "details": {
+    "image": {
+      "ok": true,
+      "out_dir": "artifacts/stage2/image",
+      "version": "0.2.0-stage2",
+      "system_sha256": "f4ad2a850597a07225a34c978ec680a2dfd16fd5c267bfeef31b7cf95099b2a9",
+      "recovery_sha256": "ebee45b09694f92881b2819508eb2102f16e39fdbd284e148f3abf0c25360025",
+      "hashes": {
+        "system.img.tar": "f4ad2a850597a07225a34c978ec680a2dfd16fd5c267bfeef31b7cf95099b2a9",
+        "recovery.img.tar": "ebee45b09694f92881b2819508eb2102f16e39fdbd284e148f3abf0c25360025",
+        "MANIFEST.json": "0a3d6afc0dc07c78f0778369a095c4bef1df7ab6c68661a804ce2d323edcf907",
+        "packages.json": "e60fd9c8076a5fd9ff8cb9c005eaf6cb6ce4c6138937589dee99477ac29ad8fd",
+        "sbom.cdx.json": "6c5a0c151a920350467b9391a29462f9a0ffc00d3b221975d68bf182ded76ea6",
+        "VERSION.json": "b8e17fe1354cb6b1d6f091c93ea2e864f2ec78a90586494f29bf9ef2e05d90b2",
+        "provenance.json": "5e03601fcc3127480dfb0854a48e7d46d43cfc335d2d2935959fdd78f47ea431"
+      },
+      "sysroot": "artifacts/stage2/sysroot",
+      "token": "OS_BASE_IMAGE_REAL"
+    },
+    "atomic": {
+      "success": {
+        "path": "success",
+        "apply": {
+          "ok": true,
+          "state": "pending_reboot",
+          "active_slot": "A",
+          "inactive_slot": "B",
+          "version": "0.2.0-stage2",
+          "rolled_back": false,
+          "user_data_intact": null,
+          "detail": {
+            "written_to": "B"
+          }
+        },
+        "reboot": {
+          "ok": true,
+          "state": "booted_pending",
+          "active_slot": "B",
+          "inactive_slot": "A",
+          "version": "0.2.0-stage2",
+          "rolled_back": false,
+          "user_data_intact": null,
+          "detail": {}
+        },
+        "finalize": {
+          "ok": true,
+          "state": "marked_good",
+          "active_slot": "B",
+          "inactive_slot": "A",
+          "version": "0.2.0-stage2",
+          "rolled_back": false,
+          "user_data_intact": true,
+          "detail": {}
+        },
+        "ok": true
+      },
+      "failure": {
+        "path": "failure_rollback",
+        "apply": {
+          "ok": true,
+          "state": "pending_reboot",
+          "active_slot": "B",
+          "inactive_slot": "A",
+          "version": "0.2.1-bad",
+          "rolled_back": false,
+          "user_data_intact": null,
+          "detail": {
+            "written_to": "A"
+          }
+        },
+        "reboot": {
+          "ok": true,
+          "state": "booted_pending",
+          "active_slot": "A",
+          "inactive_slot": "B",
+          "version": "0.2.1-bad",
+          "rolled_back": false,
+          "user_data_intact": null,
+          "detail": {}
+        },
+        "finalize": {
+          "ok": true,
+          "state": "rolled_back",
+          "active_slot": "B",
+          "inactive_slot": "A",
+          "version": "0.2.0-stage2",
+          "rolled_back": true,
+          "user_data_intact": true,
+          "detail": {
+            "failed_slot": "A",
+            "health": {
+              "ok": false,
+              "slot": "A",
+              "path": "system-a/usr/lib/gunnchos/healthcheck"
+            }
+          }
+        },
+        "user_data_before": "6e0a0d87079d88c3ba68cd4151aeede8cfc9d72cf32718dc3d6cbf05b9da560a",
+        "user_data_after": "6e0a0d87079d88c3ba68cd4151aeede8cfc9d72cf32718dc3d6cbf05b9da560a",
+        "ok": true
+      }
+    },
+    "reinstall": {
+      "ok": true,
+      "finalize": {
+        "ok": true,
+        "state": "marked_good",
+        "active_slot": "A",
+        "inactive_slot": "B",
+        "version": "0.2.0-stage2",
+        "rolled_back": false,
+        "user_data_intact": true,
+        "detail": {}
+      }
+    },
+    "recovery": {
+      "inspect": {
+        "slots": {
+          "A": {
+            "path": "system-a",
+            "exists": true,
+            "version": "0.2.1-bad",
+            "meta": {
+              "slot": "A",
+              "version": "0.2.1-bad",
+              "state": "failed"
+            },
+            "corrupt": true
+          },
+          "B": {
+            "path": "system-b",
+            "exists": true,
+            "version": "0.2.0-stage2",
+            "meta": {
+              "slot": "B",
+              "version": "0.2.0-stage2",
+              "state": "good"
+            },
+            "corrupt": false
+          }
+        },
+        "active": "B",
+        "pending": null
+      },
+      "repair": {
+        "ok": true,
+        "meta": {
+          "active": "B",
+          "pending": null,
+          "boot_count": 2,
+          "security_version": 2,
+          "repaired_at": "2026-08-10T01:15:43Z"
+        }
+      },
+      "factory_reset_denied": {
+        "ok": false,
+        "reason": "explicit_flag_required",
+        "hint": "pass confirm=True / --factory-reset-user-data"
+      },
+      "factory_reset": {
+        "ok": true,
+        "wiped": [
+          "home",
+          "data",
+          "apps",
+          "games",
+          "models",
+          "dev-environments"
+        ],
+        "system_slots_preserved": true
+      }
+    },
+    "shell": {
+      "handheld_seq": [
+        {
+          "step": "dock",
+          "profile": "HANDHELD_DOCKED",
+          "docked": true,
+          "dual_screen": false,
+          "displays": [
+            {
+              "id": "internal",
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "step": "desktop",
+          "profile": "STUDENT_DESKTOP",
+          "docked": false,
+          "dual_screen": false,
+          "displays": [
+            {
+              "id": "internal",
+              "role": "primary"
+            }
+          ]
+        },
+        {
+          "step": "undock",
+          "profile": "HANDHELD_GAMEPAD",
+          "docked": false,
+          "dual_screen": false,
+          "displays": [
+            {
+              "id": "internal",
+              "role": "primary"
+            }
+          ]
+        }
+      ],
+      "dsxl_seq": [
+        {
+          "step": "external_attach",
+          "profile": "DSXL_DUAL_SCREEN",
+          "docked": false,
+          "dual_screen": true,
+          "displays": [
+            {
+              "id": "internal",
+              "role": "primary"
+            },
+            {
+              "id": "external",
+              "role": "secondary"
+            }
+          ]
+        },
+        {
+          "step": "external_detach",
+          "profile": "STUDENT_DESKTOP",
+          "docked": false,
+          "dual_screen": false,
+          "displays": [
+            {
+              "id": "internal",
+              "role": "primary"
+            }
+          ]
+        }
+      ]
+    },
+    "compat": {
+      "corpus": {
+        "schema": "gunnchos.stage2.compat_corpus.v1",
+        "results": [
+          {
+            "id": "browser",
+            "lane": "WEB_PWA",
+            "binary": null,
+            "class": "UNKNOWN",
+            "reason": "none of ['chromium', 'chromium-browser', 'google-chrome', 'firefox'] on PATH",
+            "evidence": {
+              "binary_present": false,
+              "executed": false,
+              "exit_code": null,
+              "skipped": true,
+              "partial": false
+            }
+          },
+          {
+            "id": "libreoffice",
+            "lane": "LINUX_NATIVE",
+            "binary": "/opt/homebrew/bin/soffice",
+            "class": "VERIFIED",
+            "reason": "executed_clean",
+            "evidence": {
+              "binary_present": true,
+              "executed": true,
+              "exit_code": 0,
+              "skipped": false,
+              "partial": false
+            }
+          },
+          {
+            "id": "pdf",
+            "lane": "LINUX_NATIVE",
+            "binary": null,
+            "class": "UNKNOWN",
+            "reason": "none of ['pdftotext', 'pdfinfo'] on PATH",
+            "evidence": {
+              "binary_present": false,
+              "executed": false,
+              "exit_code": null,
+              "skipped": true,
+              "partial": false
+            }
+          },
+          {
+            "id": "media",
+            "lane": "LINUX_NATIVE",
+            "binary": "/opt/homebrew/bin/ffmpeg",
+            "class": "VERIFIED",
+            "reason": "executed_clean",
+            "evidence": {
+              "binary_present": true,
+              "executed": true,
+              "exit_code": 0,
+              "skipped": false,
+              "partial": false
+            }
+          },
+          {
+            "id": "terminal",
+            "lane": "LINUX_NATIVE",
+            "binary": "/bin/bash",
+            "class": "VERIFIED",
+            "reason": "executed_clean",
+            "evidence": {
+              "binary_present": true,
+              "executed": true,
+              "exit_code": 0,
+              "skipped": false,
+              "partial": false
+            }
+          },
+          {
+            "id": "editor",
+            "lane": "LINUX_NATIVE",
+            "binary": "/usr/bin/vim",
+            "class": "VERIFIED",
+            "reason": "executed_clean",
+            "evidence": {
+              "binary_present": true,
+              "executed": true,
+              "exit_code": 0,
+              "skipped": false,
+              "partial": false
+            }
+          },
+          {
+            "id": "git",
+            "lane": "LINUX_NATIVE",
+            "binary": "/opt/homebrew/bin/git",
+            "class": "VERIFIED",
+            "reason": "executed_clean",
+            "evidence": {
+              "binary_present": true,
+              "executed": true,
+              "exit_code": 0,
+              "skipped": false,
+              "partial": false
+            }
+          },
+          {
+            "id": "flatpak_sample",
+            "lane": "FLATPAK",
+            "binary": null,
+            "class": "UNKNOWN",
+            "reason": "none of ['flatpak'] on PATH",
+            "evidence": {
+              "binary_present": false,
+              "executed": false,
+              "exit_code": null,
+              "skipped": true,
+              "partial": false
+            }
+          },
+          {
+            "id": "oci_sample",
+            "lane": "OCI_DEV",
+            "binary": null,
+            "class": "UNKNOWN",
+            "reason": "none of ['docker', 'podman'] on PATH",
+            "evidence": {
+              "binary_present": false,
+              "executed": false,
+              "exit_code": null,
+              "skipped": true,
+              "partial": false
+            }
+          },
+          {
+            "id": "opensource_game",
+            "lane": "LINUX_NATIVE",
+            "binary": null,
+            "class": "UNKNOWN",
+            "reason": "none of ['supertux2', 'wesnoth', 'gnome-mines'] on PATH",
+            "evidence": {
+              "binary_present": false,
+              "executed": false,
+              "exit_code": null,
+              "skipped": true,
+              "partial": false
+            }
+          }
+        ],
+        "class_counts": {
+          "UNKNOWN": 5,
+          "VERIFIED": 5
+        },
+        "fake_pass_detected": false,
+        "ok": true
+      },
+      "proton": {
+        "probe": {
+          "steam_user_external": true,
+          "wine_present": false,
+          "wine_path": null,
+          "proton_present": false,
+          "proton_path": null
+        },
+        "class": "UNKNOWN",
+        "reason": "wine_absent",
+        "evidence": {
+          "binary_present": false,
+          "executed": false,
+          "exit_code": null,
+          "skipped": true,
+          "partial": false
+        },
+        "app": null
+      },
+      "lanes": [
+        {
+          "lane": "GUNNCH_NATIVE",
+          "enabled": true,
+          "evaluated": true,
+          "notes": "First-party gunnch packages"
+        },
+        {
+          "lane": "LINUX_NATIVE",
+          "enabled": true,
+          "evaluated": true,
+          "notes": "Distro native ELF/desktop apps"
+        },
+        {
+          "lane": "FLATPAK",
+          "enabled": true,
+          "evaluated": true,
+          "notes": "Flatpak when host tool present"
+        },
+        {
+          "lane": "WEB_PWA",
+          "enabled": true,
+          "evaluated": true,
+          "notes": "Browser / PWA surface"
+        },
+        {
+          "lane": "OCI_DEV",
+          "enabled": true,
+          "evaluated": true,
+          "notes": "OCI containers for developer mode"
+        },
+        {
+          "lane": "STEAM_PROTON_USER",
+          "enabled": true,
+          "evaluated": true,
+          "notes": "Steam is user-external; Proton harness for redistributable test apps only"
+        },
+        {
+          "lane": "ANDROID_EXPERIMENTAL",
+          "enabled": false,
+          "evaluated": false,
+          "notes": "Evaluate-only; evaluated=false by default"
+        }
+      ]
+    },
+    "security": {
+      "denial": {
+        "app_id": "demo.app",
+        "perm": "fs_system",
+        "decision": "deny",
+        "reason": "explicit_deny",
+        "backend": "simulated"
+      },
+      "revocation_denial": {
+        "app_id": "demo.app",
+        "perm": "net",
+        "decision": "deny",
+        "reason": "explicit_deny",
+        "backend": "simulated"
+      },
+      "escalate": {
+        "ok": true,
+        "mode": "SECURE_DEVELOPER",
+        "previous": "CONSUMER",
+        "caps": {
+          "terminal": true,
+          "containers": true,
+          "custom_runtimes": true,
+          "hw_debug": true,
+          "strong_sandbox": true,
+          "isolated_builds": true,
+          "explicit_elevation": true
+        },
+        "logged": true
+      },
+      "revert": {
+        "ok": true,
+        "mode": "CONSUMER",
+        "reverted_from": "SECURE_DEVELOPER",
+        "logged": true,
+        "reversible": true
+      },
+      "anti_rollback": {
+        "ok": false,
+        "reason": "anti_rollback",
+        "package_sv": 0,
+        "device_sv": 1
+      },
+      "bwrap": false
+    }
+  }
+}

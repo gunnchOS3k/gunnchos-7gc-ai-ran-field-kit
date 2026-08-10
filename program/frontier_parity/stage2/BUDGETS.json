@@ -1,0 +1,57 @@
+{
+  "schema": "gunnchos.phase_xiii.stage2.budgets.v1",
+  "generated_at": "2026-08-10T01:04:42Z",
+  "class": "digital_reference_only",
+  "performance_ms": {
+    "shell_login": 3000,
+    "shell_profile_switch": 1500,
+    "app_launch": 5000,
+    "model_route_decision": 50,
+    "memory_lookup": 100,
+    "project_reopen": 2000,
+    "local_ai_first_token": 2000,
+    "update_health_decision": 500
+  },
+  "storage_gb": {
+    "system_slot_a": 12,
+    "system_slot_b": 12,
+    "recovery": 4,
+    "models_multi_tier": 20,
+    "embeddings_index": 5,
+    "memory_db": 2,
+    "projects": 10,
+    "flatpak_runtimes": 15,
+    "games": 40,
+    "update_reserve": 8,
+    "note": "If Student SKU insufficient, open hardware NPI defect \u2014 do not silently raise HW without evidence"
+  },
+  "ram_concurrent_gb": {
+    "Student": {
+      "shell": 0.8,
+      "browser": 1.5,
+      "office": 1.2,
+      "local_ai": 2.0,
+      "project_index": 0.5,
+      "background": 0.5,
+      "total_budget": 8
+    },
+    "DS-XL": {
+      "shell": 1.0,
+      "browser": 2.0,
+      "office": 1.5,
+      "local_ai": 4.0,
+      "project_index": 1.0,
+      "background": 0.8,
+      "total_budget": 16
+    },
+    "Handheld": {
+      "shell": 0.6,
+      "browser": 1.0,
+      "office": 0.8,
+      "local_ai": 1.5,
+      "project_index": 0.3,
+      "background": 0.4,
+      "total_budget": 8
+    }
+  }
+}

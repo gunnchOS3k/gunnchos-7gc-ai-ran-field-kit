@@ -55,3 +55,10 @@ claim_correction:
   GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY: false
   REAL_USER_JOURNEY_PARITY: false
   FEATURE_EXISTS_EQUALS_PARITY: false
+  - id: reject_stage2_full_parity
+    action: REJECT
+    note: >
+      Stage 2 may DIGITALLY_VALIDATE individual FOS/FAI/FEC foundation gates and
+      set stage2_success_tokens true, but GUNNCHOS_FRONTIER_OS_PARITY,
+      GUNNCHAI_FRONTIER_PRODUCT_PARITY, and GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY
+      must remain false until later stages close remaining INCOMPLETE_DIGITAL gates.
