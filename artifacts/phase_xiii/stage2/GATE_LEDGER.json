@@ -1,0 +1,544 @@
+{
+  "schema": "gunnchos.phase_xiii.stage2.gate_ledger.v1",
+  "generated_at": "2026-08-10T01:28:32Z",
+  "updated_at": "2026-08-10T01:29:13Z",
+  "note": "Promotions require implementation+test+SHA evidence. No bulk greening. Full parity tokens remain false.",
+  "owner_drafts": {
+    "gunnchos-device-os": {
+      "pr": 75,
+      "url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/75",
+      "sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+      "ci": "green"
+    },
+    "gunnchAI3k": {
+      "pr": 28,
+      "url": "https://github.com/gunnchAI3k/gunnchAI3k/pull/28",
+      "sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+      "ci": "green"
+    }
+  },
+  "frontier_tokens": {
+    "GUNNCHOS_FRONTIER_OS_PARITY": false,
+    "GUNNCHAI_FRONTIER_PRODUCT_PARITY": false,
+    "GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY": false
+  },
+  "os_gates": {
+    "UPDATE_ROLLBACK": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/update_manager.py",
+          "test": "tests/stage2/test_atomic_update.py",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "atomic-update-rollback"
+        }
+      ]
+    },
+    "RECOVERY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/recovery.py",
+          "test": "tests/stage2/test_recovery.py",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "recovery"
+        }
+      ]
+    },
+    "GRAPHICS_COMPOSITOR": {
+      "status": "INCOMPLETE_DIGITAL",
+      "evidence": [],
+      "blocker": "Weston foundation documented in os_build/stage2/shell/FOUNDATION.md; full compositor parity not Stage-2 proven"
+    },
+    "DESKTOP_SHELL": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/shell/profiles.py",
+          "test": "tests/stage2/test_shell.py",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "shell-profiles",
+          "note": "STUDENT_DESKTOP + OFFICE_DOCKED profiles; E2E dock/desktop/undock"
+        }
+      ]
+    },
+    "TOUCH_TABLET_SHELL": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/shell/profiles.py",
+          "test": "tests/stage2/test_shell.py::test_all_profiles_defined",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "shell-profiles",
+          "note": "TOUCH_TABLET profile defined + covered by shell-profiles DIGITALLY_VALIDATED"
+        }
+      ]
+    },
+    "DUAL_SCREEN_SHELL": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/shell/contract.py",
+          "test": "tests/stage2/test_shell.py::test_e2e_dsxl_external_attach_detach",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "shell-profiles"
+        }
+      ]
+    },
+    "HANDHELD_SHELL": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/shell/profiles.py",
+          "test": "tests/stage2/test_shell.py::test_e2e_handheld_dock_desktop_undock",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "shell-profiles"
+        }
+      ]
+    },
+    "DOCK_TRANSITION": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/shell/contract.py",
+          "test": "tests/stage2/test_shell.py::test_e2e_handheld_dock_desktop_undock",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "shell-profiles"
+        }
+      ]
+    },
+    "APP_RUNTIME": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/compat/registry.py",
+          "test": "tests/stage2/test_compat.py",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "compatibility-corpus",
+          "note": "Runtime lanes GUNNCH_NATIVE/LINUX_NATIVE/FLATPAK/WEB_PWA/OCI_DEV/STEAM_PROTON_USER"
+        }
+      ]
+    },
+    "APP_COMPATIBILITY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/compat/classifier.py",
+          "test": "tests/stage2/test_compat.py",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "compatibility-corpus",
+          "note": "Honest UNKNOWN when binaries absent; VERIFIED when executed clean"
+        }
+      ]
+    },
+    "SANDBOX_PERMISSIONS": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/security/sandbox.py",
+          "test": "tests/stage2/test_security.py",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "sandbox-security"
+        }
+      ]
+    },
+    "BOOT_SECURITY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/security/trust.py",
+          "test": "tests/stage2/test_security.py::test_anti_rollback_and_app_signature",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "sandbox-security",
+          "note": "Digital signed update + anti-rollback sim; physical RoT remains PHYSICAL_PENDING"
+        }
+      ]
+    },
+    "ENCRYPTION_KEYSTORE": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "gunnchos_device_os/stage2/security/sandbox.py",
+          "test": "tests/stage2/test_security.py::test_per_user_isolation_and_secrets",
+          "draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "repo": "gunnchos-device-os",
+          "prove_report": "OS_PROVE_REPORT.json",
+          "prove_gate": "sandbox-security",
+          "note": "Secret store abstraction + per-user isolation; not physical HSM"
+        }
+      ]
+    },
+    "AI_SYSTEM_API": {
+      "status": "INCOMPLETE_DIGITAL",
+      "evidence": [],
+      "blocker": "Capability API runtime lives in gunnchAI3k; device-os first-party callers not yet on green tip beyond ai_interface.sh stub"
+    },
+    "LOCAL_AI": {
+      "status": "INCOMPLETE_DIGITAL",
+      "evidence": [],
+      "blocker": "Local model runtime ownership spans gunnchAI fleet; OS-local AI primitive not Stage-2 closed"
+    }
+  },
+  "ai_gates": {
+    "MODEL_QUALITY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/fleet/",
+          "test": "tests/stage2/fleet.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "MODEL_QUALITY"
+        }
+      ]
+    },
+    "MODEL_ROUTING": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/fleet/router.ts",
+          "test": "tests/stage2/router_failures.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "MODEL_ROUTING"
+        }
+      ]
+    },
+    "MEMORY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/memory/",
+          "test": "tests/stage2/memory.test.ts + memory_privacy.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "MEMORY"
+        }
+      ]
+    },
+    "PROJECTS": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/projects/",
+          "test": "tests/stage2/projects.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "PROJECTS"
+        }
+      ]
+    },
+    "WEB_SEARCH": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/research/",
+          "test": "tests/stage2/research.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "WEB_SEARCH"
+        }
+      ]
+    },
+    "DEEP_RESEARCH": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/research/",
+          "test": "tests/stage2/citation_integrity.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "DEEP_RESEARCH"
+        }
+      ]
+    },
+    "AGENTS": {
+      "status": "INCOMPLETE_DIGITAL",
+      "evidence": [],
+      "blocker": "Agent runtime / multi-agent orchestration deferred past Stage 2 foundations"
+    },
+    "OS_NATIVE_INTELLIGENCE": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/os/",
+          "test": "tests/stage2/os_integration.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "OS_NATIVE_AI"
+        }
+      ]
+    },
+    "LOCAL_FIRST": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/os/sync.ts",
+          "test": "tests/stage2/os_integration.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "OS_NATIVE_AI"
+        }
+      ]
+    },
+    "SECURITY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/memory/",
+          "test": "tests/stage2/memory_privacy.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "MEMORY"
+        }
+      ]
+    },
+    "EVALS": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "artifacts/stage2/eval/",
+          "test": "tests/stage2/eval_harness.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "EVALUATION"
+        }
+      ]
+    }
+  },
+  "fec_gates": {
+    "SHARED_IDENTITY": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/os/identity.ts",
+          "test": "tests/stage2/os_integration.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "note": "user_id shared identity contract documented in OS_CALLER_CONTRACT.md"
+        }
+      ]
+    },
+    "RESOURCE_AWARE_AI": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "src/stage2/os/capability_api.ts",
+          "test": "tests/stage2/os_integration.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "note": "Resource-aware routing with simulated OS telemetry"
+        }
+      ]
+    },
+    "CROSS_PRODUCT_CALLERS": {
+      "status": "INCOMPLETE_DIGITAL",
+      "evidence": [
+        {
+          "note": "OS_CALLER_CONTRACT.md + gunnchAI HTTP adapter present; device-os first-party Waike/Device Manager/Creator callers not on green tip \u2014 FEC incomplete until OS callers land",
+          "contract": "program/frontier_parity/stage2/OS_CALLER_CONTRACT.md",
+          "ai_draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "os_draft_sha": "1cf3c5d6b0c8f6c4b764817eb72f716f073a79ec",
+          "os_stub": "os_build/bootable_reference/overlay/opt/gunnchos/services/ai_interface.sh"
+        }
+      ],
+      "blocker": "Prefer documenting incomplete until first-party OS callers are on a green tip"
+    },
+    "COMPETITIVE_HARNESS": {
+      "status": "DIGITALLY_VALIDATED",
+      "evidence": [
+        {
+          "implementation": "artifacts/stage2/eval/corpus.json",
+          "test": "tests/stage2/eval_harness.test.ts",
+          "draft_sha": "ddf2a53e37f19fe23844d4857b5cf8a9a65c408c",
+          "repo": "gunnchAI3k",
+          "prove_report": "AI_PROVE_REPORT.json",
+          "prove_gate": "EVALUATION",
+          "note": "\u226550-task eval corpus foundation only \u2014 not competitive BETTER_THAN_*"
+        }
+      ]
+    }
+  },
+  "stage2_success_tokens": {
+    "OS_BASE_IMAGE_REAL": true,
+    "ATOMIC_UPDATE_ROLLBACK_DIGITAL_PASS": true,
+    "RECOVERY_DIGITAL_PASS": true,
+    "ADAPTIVE_SHELL_FOUNDATION_REAL": true,
+    "COMPATIBILITY_REGISTRY_REAL": true,
+    "SANDBOX_FOUNDATION_REAL": true,
+    "AI_MULTI_MODEL_FLEET_REAL": true,
+    "AI_ROUTER_DIGITAL_PASS": true,
+    "AI_MEMORY_DIGITAL_PASS": true,
+    "AI_PROJECTS_DIGITAL_PASS": true,
+    "AI_CITATION_FOUNDATION_DIGITAL_PASS": true,
+    "AI_OS_NATIVE_API_INTEGRATED": true,
+    "FRONTIER_PARITY_CLAIM_FIREWALL_PASS": true
+  },
+  "old_to_new": {
+    "os": {
+      "UPDATE_ROLLBACK": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "RECOVERY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "GRAPHICS_COMPOSITOR": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "INCOMPLETE_DIGITAL"
+      },
+      "DESKTOP_SHELL": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "TOUCH_TABLET_SHELL": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "DUAL_SCREEN_SHELL": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "HANDHELD_SHELL": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "DOCK_TRANSITION": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "APP_RUNTIME": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "APP_COMPATIBILITY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "SANDBOX_PERMISSIONS": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "BOOT_SECURITY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "ENCRYPTION_KEYSTORE": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "AI_SYSTEM_API": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "INCOMPLETE_DIGITAL"
+      },
+      "LOCAL_AI": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "INCOMPLETE_DIGITAL"
+      }
+    },
+    "ai": {
+      "MODEL_QUALITY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "MODEL_ROUTING": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "MEMORY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "PROJECTS": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "WEB_SEARCH": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "DEEP_RESEARCH": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "AGENTS": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "INCOMPLETE_DIGITAL"
+      },
+      "OS_NATIVE_INTELLIGENCE": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "LOCAL_FIRST": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "SECURITY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "EVALS": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      }
+    },
+    "fec": {
+      "SHARED_IDENTITY": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "RESOURCE_AWARE_AI": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      },
+      "CROSS_PRODUCT_CALLERS": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "INCOMPLETE_DIGITAL"
+      },
+      "COMPETITIVE_HARNESS": {
+        "old": "INCOMPLETE_DIGITAL",
+        "new": "DIGITALLY_VALIDATED"
+      }
+    }
+  },
+  "claim_firewall": {
+    "status": "CLAIM_FIREWALL_PASS",
+    "script": "scripts/validate_claim_firewall.py",
+    "at": "2026-08-10T01:29:13Z"
+  }
+}

@@ -540,6 +540,44 @@ def _phase_xii_residual_register() -> dict[str, Any]:
 
 
 
+
+def check_phase_xiii_stage2_ledger(hits: list[str]) -> None:
+    """Stage 2 may DIGITALLY_VALIDATE gates but must not claim full frontier parity."""
+    paths = [
+        ROOT / "program" / "frontier_parity" / "stage2" / "GATE_LEDGER.json",
+        ROOT / "artifacts" / "phase_xiii" / "stage2" / "GATE_LEDGER.json",
+    ]
+    for path in paths:
+        if not path.exists():
+            continue
+        data = load_json(path)
+        ft = data.get("frontier_tokens") or {}
+        for k in (
+            "GUNNCHOS_FRONTIER_OS_PARITY",
+            "GUNNCHAI_FRONTIER_PRODUCT_PARITY",
+            "GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY",
+        ):
+            if ft.get(k) is True:
+                hits.append(
+                    f"{path.relative_to(ROOT)}: frontier_tokens.{k}=true forbidden in Stage 2 evidence"
+                )
+        # Success tokens may be true; full parity must stay false in report prose too
+        report = path.parent / "STAGE2_REPORT.md"
+        if report.exists():
+            body = report.read_text(encoding="utf-8", errors="ignore")
+            assertive = re.compile(
+                r"(?i)(GUNNCHOS_FRONTIER_OS_PARITY|GUNNCHAI_FRONTIER_PRODUCT_PARITY|"
+                r"GUNNCHOS3K_FRONTIER_ECOSYSTEM_PARITY)\s*[=:]\s*(true|TRUE|PASS|COMPLETE)"
+            )
+            for i, line in enumerate(body.splitlines(), 1):
+                if ALLOW_LINE.search(line):
+                    continue
+                if assertive.search(line) and not re.search(r":\s*false\b", line, re.I):
+                    hits.append(
+                        f"{report.relative_to(ROOT)}:{i}: Stage 2 must not assert full frontier parity"
+                    )
+
+
 def check_phase_xiii_frontier_parity(hits: list[str]) -> None:
     """Reject assertive frontier parity tokens while TOKENS say false / gates incomplete."""
     tokens_paths = [
@@ -747,6 +785,7 @@ def main() -> int:
     check_stale_cont_vi_schema_copy(hits)
     check_phase_xii_execution_depth(hits)
     check_phase_xiii_frontier_parity(hits)
+    check_phase_xiii_stage2_ledger(hits)
 
     if hits:
         print("CLAIM_FIREWALL_FAIL")
