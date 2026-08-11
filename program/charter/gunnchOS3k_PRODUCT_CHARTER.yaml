@@ -1,0 +1,294 @@
+schema: gunnchos.product_charter.v1
+id: gunnchOS3k_PRODUCT_CHARTER
+version: "3A-WP-012-candidate"
+title: gunnchOS3k Product Charter
+canonical_repo: gunnchos-7gc-ai-ran-field-kit
+canonical_paths:
+  markdown: program/charter/gunnchOS3k_PRODUCT_CHARTER.md
+  yaml: program/charter/gunnchOS3k_PRODUCT_CHARTER.yaml
+historical_source_ingest: program/charters/GUNNCHOS3K_CARRIER_GRADE_6G_ECOSYSTEM.md
+portal_repo: gunnchos-research-portal
+profile_repo: gunnchOS3k
+navigation:
+  canonical_zero_context_entry: portal_README_to_START_HERE
+  PROFILE_README_EDIT_FREEZE: ACTIVE
+  PROFILE_FRONT_DOOR: OWNER_DEFERRED
+  profile_blocking: false
+
+approval:
+  event: EDMUND_MERGE_OF_FINAL_CHARTER_PR
+  PRODUCT_CHARTER_DEFINITION_COMPLETE: false
+  owner_approval_token: false
+  definition_content_complete_candidate: true
+  notes: >-
+    Do not pre-set PRODUCT_CHARTER_DEFINITION_COMPLETE to true before Edmund merge.
+    definition_content_complete_candidate means narrative+YAML+register+catalog+claim
+    boundaries are authored and ready for owner review. Profile README is OWNER_DEFERRED.
+
+mission: >-
+  gunnchOS3k is a carrier-grade-targeted equitable compute ecosystem built around
+  affordable first-party computing devices, gunnchOS, local-first gunnchAI3k
+  intelligence, spatial Ring input, education, creation, work, gaming, and
+  resilient connectivity.
+
+connectivity_posture: >-
+  5G-Advanced and NTN-capable architecture where supported, IMT-2030-aligned,
+  software-defined, and engineered for migration to standardized 6G as standards
+  and commercial ecosystems mature.
+
+claim_boundary:
+  no_standardized_commercial_6g: true
+  no_final_imt2030_compliance_claim: true
+  no_carrier_approval_claim: true
+  no_certification_claim_without_evidence: true
+  no_frontier_ai_parity_without_benchmarks: true
+  never_infer_ntn_from_rm520n_gl: true
+  cursor_draft_prs_only: true
+  no_rfq_fab_purchase_from_charter: true
+
+forbidden_claims:
+  - standardized_commercial_6G
+  - final_IMT-2030_compliance
+  - certification_without_evidence
+  - carrier_approval
+  - frontier_AI_parity
+  - RFQ_SENT
+  - fabrication_authorized
+  - NTN_FROM_RM520N_GL
+
+claim_firewall:
+  SILICON_EXACT_EMULATION: false
+  NTN_FROM_RM520N_GL: false
+  DEVICE_LAB_DEVELOPMENT_GUEST_IS_SHIPPING_IMAGE: false
+
+first_party_products:
+  - id: student_14_5
+    name: Student 14.5
+    role: sustained_learning_work
+    hardware_source: gunnchos-hardware-industrial-design/device_designs/student_14_5
+    gunnchos_role: desktop_class_shell_continuity_ai_runtime
+    gunnchai_role: tutoring_coding_research_accessibility_device_help
+    golden_journeys: [1, 2, 3, 4, 8, 9, 10]
+    evidence_summary: digital_design_integration
+    remaining_gates: [PHYSICAL_PENDING, HUMAN_PENDING, EXTERNAL_PENDING, STANDARD_PENDING]
+  - id: handheld_hybrid
+    name: Handheld Hybrid
+    role: mobile_docked_compute
+    hardware_source: gunnchos-hardware-industrial-design/device_designs/handheld
+    gunnchos_role: adaptive_ui_dock_continuity
+    gunnchai_role: local_help_tutoring_connectivity_diagnosis
+    golden_journeys: [5, 1, 2, 3, 4, 7, 8, 9, 10]
+    evidence_summary: digital_sim_design
+    remaining_gates: [PHYSICAL_PENDING, HUMAN_PENDING]
+  - id: ds_xl_coder
+    name: DS-XL Coder
+    role: learn_build_test_deploy_local
+    hardware_source: gunnchos-hardware-industrial-design/device_designs/ds_xl
+    gunnchos_role: dual_output_compositor_developer_mode
+    gunnchai_role: coding_research_lab_coaching
+    golden_journeys: [6, 3, 8]
+    evidence_summary: digital_partial_dual_screen
+    remaining_gates: [PHYSICAL_PENDING, HUMAN_PENDING]
+  - id: edge_io_rings
+    name: Edge I/O Rings
+    role: embodied_low_latency_input
+    hardware_source: gunnchos-hardware-industrial-design + ring_sensing_stack
+    gunnchos_role: ring_service_spatial_input_confidence_gate
+    gunnchai_role: optional_intent_assist_no_silent_destructive
+    golden_journeys: [7]
+    rings_intent_plain_english: >-
+      Rings allow authenticated user input to be inferred from interaction with
+      nearby surfaces/devices and routed to the intended application/device, with
+      spatial/target confidence and safe rejection.
+    technical_boundary: imu_only_is_not_absolute_spatial_registration
+    evidence_summary: digital_pipeline_partial
+    remaining_gates: [PHYSICAL_PENDING, HUMAN_PENDING]
+  - id: first_party_dock
+    name: First-party Dock
+    role: continuity_desktop_expansion
+    hardware_source: gunnchos-hardware-industrial-design/device_designs/dock
+    adr: ADR-FP-006
+    gunnchos_role: dock_manager_display_audio_routing
+    gunnchai_role: optional_device_help
+    golden_journeys: [4, 5]
+    evidence_summary: design_baseline
+    remaining_gates: [PHYSICAL_PENDING, EXTERNAL_PENDING, STANDARD_PENDING]
+
+software_family:
+  - name: gunnchOS
+    repo: gunnchos-device-os
+  - name: gunnchAI3k
+    repo: gunnchAI3k
+  - name: gunnchDevice Lab
+    repo: gunnchos-device-os
+  - name: WAIKE
+    repo: waike-research-ops
+  - name: Creator/Coder Studio
+    repo: gunnchos-device-os
+  - name: Device Management
+    repo: gunnchos-device-os
+  - name: continuity/fabric
+    repo: gunnchos-device-os
+  - name: connectivity orchestrator
+    repos: [gunnchos-device-os, ntn-resilience-sim]
+  - name: security/update/recovery
+    repo: gunnchos-device-os
+  - name: Anime Aggressors
+    repo: anime-aggressors
+  - name: Pedestrian Pursuit
+    repo: pedestrian-pursuit
+  - name: Archive of Life
+    repo: archive-of-life-artifact-world
+  - name: Beat Link
+    repo: beatlink-party
+
+system_layers:
+  - id: 1
+    name: Industrial design
+    owners: [gunnchos-hardware-industrial-design]
+  - id: 2
+    name: Electrical hardware
+    owners: [gunnchos-hardware-industrial-design]
+  - id: 3
+    name: Firmware
+    owners: [gunnchos-hardware-industrial-design, gunnchos-device-os]
+  - id: 4
+    name: gunnchOS
+    owners: [gunnchos-device-os]
+  - id: 5
+    name: gunnchAI3k
+    owners: [gunnchAI3k]
+  - id: 6
+    name: Connectivity
+    owners: [gunnchos-device-os, ntn-resilience-sim, spectrumx-ai-ran-gary, 7gc-digital-twin]
+  - id: 7
+    name: Input ecosystem
+    owners: [gunnchos-device-os, gunnchos-hardware-industrial-design]
+  - id: 8
+    name: Applications
+    owners: [gunnchos-device-os]
+  - id: 9
+    name: Games
+    owners: [anime-aggressors, pedestrian-pursuit, archive-of-life-artifact-world, beatlink-party]
+  - id: 10
+    name: Cloud/edge
+    owners: [gunnchos-device-os]
+  - id: 11
+    name: Security operations
+    owners: [gunnchos-device-os, gunnchos-7gc-ai-ran-field-kit]
+  - id: 12
+    name: Manufacturing
+    owners: [gunnchos-hardware-industrial-design, gunnchos-7gc-ai-ran-field-kit]
+  - id: 13
+    name: Certification
+    owners: [gunnchos-hardware-industrial-design]
+  - id: 14
+    name: Deployment
+    owners: [waike-research-ops, 7gc-digital-twin]
+  - id: 15
+    name: Support
+    owners: [gunnchos-research-portal, gunnchos-7gc-ai-ran-field-kit]
+  - id: 16
+    name: Evidence
+    owners: [gunnchos-7gc-ai-ran-field-kit]
+
+principles:
+  - affordable_equitable_access
+  - education_work_creation_gaming_balance
+  - local_first_privacy
+  - user_owned_context_continuity
+  - repairability_serviceability
+  - accessibility
+  - security_by_default
+  - software_defined_connectivity
+  - standards_honesty
+  - evidence_before_claims
+  - no_toy_demo_as_product_proof
+  - no_fixture_mock_as_final_runtime
+  - real_user_quality
+  - graceful_offline_behavior
+
+device_balance:
+  student_14_5: sustained_learning_work
+  handheld_hybrid: mobile_docked_compute
+  ds_xl_coder: learn_build_test_deploy_local
+  edge_io_rings: embodied_low_latency_input
+  first_party_dock: continuity_desktop_expansion
+
+rings:
+  imu_only_absolute_spatial: false
+  RING_SPATIAL_ACCURACY: SIMULATED
+  intent_plain_english: >-
+    Rings allow authenticated user input to be inferred from interaction with
+    nearby surfaces/devices and routed to the intended application/device, with
+    spatial/target confidence and safe rejection.
+
+completion_vocabulary:
+  status_ladder:
+    - TARGET
+    - DESIGNED
+    - IMPLEMENTED
+    - INTEGRATED
+    - DIGITALLY_VALIDATED
+    - COMPETITIVELY_VALIDATED
+    - PHYSICAL_PENDING
+    - PHYSICALLY_VALIDATED
+    - EXTERNAL_PENDING
+    - EXTERNALLY_VALIDATED
+    - CERTIFIED
+    - DEPLOYED
+    - OPERATED
+  evidence_levels:
+    E0: requirement_design_only
+    E1: implementation_exists
+    E2: component_unit_test
+    E3: integrated_automated_execution
+    E4: independent_digital_verification
+    E5: target_hardware_validation
+    E6: human_user_validation
+    E7: external_lab_vendor_carrier
+    E8: production_field_evidence
+  depth_levels:
+    D0: requirement
+    D1: interface_schema
+    D2: implementation
+    D3: component_test
+    D4: integrated_service
+    D5: actual_application_runtime
+    D6: cross_app_real_user_workflow
+    D7: target_hardware
+    D8: sustained_real_world_use
+
+golden_journeys:
+  count: 10
+  source: program/operating_model/02_QUALITY_USERS/GOLDEN_JOURNEYS.json
+  journeys:
+    - {id: 1, name: "Student assignment -> recreation"}
+    - {id: 2, name: "offline -> reconnect"}
+    - {id: 3, name: "Creator build/package/install"}
+    - {id: 4, name: "Office dock"}
+    - {id: 5, name: "Handheld play -> dock -> work -> undock"}
+    - {id: 6, name: "DS-XL dual-screen coding"}
+    - {id: 7, name: "Ring real input"}
+    - {id: 8, name: "private local AI tutoring"}
+    - {id: 9, name: "failed update rollback"}
+    - {id: 10, name: "lost-device revoke"}
+  note: Device Lab ECO journeys do not replace user Golden Journeys.
+
+completion_vs_release_ladder:
+  - product_definition_complete
+  - digital_implementation_complete
+  - pre_evt_virtual_validation
+  - EVT
+  - DVT
+  - PVT
+  - certification
+  - carrier_acceptance
+  - pilot
+  - production
+  - operation
+
+wp001:
+  status: DO_NOT_START
+  wp001_status: WAIT_FOR_ACCEPTED_WP011R_WP012
+  preview_manifest: artifacts/wp012/WP-001_INPUT_MANIFEST_PREVIEW.json

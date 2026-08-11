@@ -356,7 +356,11 @@ acceptance-completion: remote-integrity-audit verify-repo-lock gate4-oulu-scient
 	@echo "ACCEPTANCE_COMPLETION_LOCAL_DONE — CONTROL_PLANE_REMOTE_CI_PASS requires green mandatory workflows"
 
 .PHONY: gate-0 gate-1 control-plane validate-main-branch-policy ingest-product-charter
-.PHONY: gate1-runtime-hygiene gate1-operator-status
+.PHONY: gate1-runtime-hygiene gate1-operator-status docs-integrity
+
+docs-integrity:
+	$(PYTHON) scripts/validate_docs_integrity.py --write-catalog
+	@echo "DOCS_INTEGRITY target complete"
 
 ingest-product-charter:
 	$(PYTHON) scripts/ingest_product_charter.py

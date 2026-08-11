@@ -1,0 +1,274 @@
+schema: gunnchos.repo_catalog.v1
+canonical_portal: gunnchos-research-portal
+canonical_charter_repo: gunnchos-7gc-ai-ran-field-kit
+repositories:
+  - repo: gunnchOS3k
+    category: profile
+    public: true
+    purpose: GitHub front door
+    product_layer: 16
+    primary_audience: curious
+    owner: gunnchOS3k
+    source_of_truth_for: [public_identity]
+    depends_on: [gunnchos-research-portal]
+    consumed_by: []
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: null
+    evidence_doc: null
+    claim_boundary: portfolio_not_carrier_deployed
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: gunnchos-research-portal
+    category: portal
+    public: true
+    purpose: Canonical ecosystem information architecture
+    product_layer: 16
+    primary_audience: all
+    owner: gunnchOS3k
+    source_of_truth_for: [ecosystem_navigation]
+    depends_on: [gunnchos-7gc-ai-ran-field-kit]
+    consumed_by: [gunnchOS3k]
+    entrypoint: START_HERE.md
+    quickstart: START_HERE.md
+    architecture_doc: ECOSYSTEM_MAP.md
+    evidence_doc: EVIDENCE.md
+    claim_boundary: docs_not_hardware_proof
+    current_state: IMPLEMENTATION_IN_PROGRESS
+    physical_pending: false
+    external_pending: false
+  - repo: gunnchos-7gc-ai-ran-field-kit
+    category: control_plane
+    public: true
+    purpose: Program control, charter, evidence aggregation
+    product_layer: 16
+    primary_audience: engineer
+    owner: gunnchOS3k
+    source_of_truth_for: [product_charter, evidence_aggregation]
+    depends_on: []
+    consumed_by: [gunnchos-research-portal]
+    entrypoint: program/charter/gunnchOS3k_PRODUCT_CHARTER.md
+    quickstart: README.md
+    architecture_doc: program/charter/gunnchOS3k_PRODUCT_CHARTER.md
+    evidence_doc: artifacts/wp012/
+    claim_boundary: no_RFQ_send_auto
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: gunnchos-hardware-industrial-design
+    category: hardware
+    public: true
+    purpose: Industrial/electrical design SoT
+    product_layer: 1
+    primary_audience: manufacturer
+    owner: gunnchOS3k
+    source_of_truth_for: [BOM, ID, RFQ_packets]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: physical_pending_no_fab_claim
+    current_state: PHYSICAL_PENDING
+    physical_pending: true
+    external_pending: true
+  - repo: gunnchos-device-os
+    category: os
+    public: true
+    purpose: gunnchOS + Device Lab
+    product_layer: 4
+    primary_audience: developer
+    owner: gunnchOS3k
+    source_of_truth_for: [gunnchOS, device_lab]
+    depends_on: [gunnchos-hardware-industrial-design]
+    consumed_by: [gunnchos-research-portal]
+    entrypoint: README.md
+    quickstart: gunnchos_device_os/device_lab/README.md
+    architecture_doc: README.md
+    evidence_doc: artifacts/wp011r/
+    claim_boundary: SILICON_EXACT_EMULATION_false
+    current_state: DIGITALLY_VALIDATED
+    physical_pending: true
+    external_pending: false
+  - repo: gunnchAI3k
+    category: ai
+    public: true
+    purpose: Local-first intelligence
+    product_layer: 5
+    primary_audience: student
+    owner: gunnchOS3k
+    source_of_truth_for: [gunnchAI3k]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: no_frontier_parity
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: edge-io-measurement-node
+    category: input
+    public: true
+    purpose: Ring sensing/measurement
+    product_layer: 7
+    primary_audience: researcher
+    owner: gunnchOS3k
+    source_of_truth_for: [ring_measurement]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: physical_spatial_pending
+    current_state: PHYSICAL_PENDING
+    physical_pending: true
+    external_pending: false
+  - repo: waike-research-ops
+    category: education_ops
+    public: true
+    purpose: WAIKE research operations
+    product_layer: 14
+    primary_audience: educator
+    owner: gunnchOS3k
+    source_of_truth_for: [WAIKE]
+    depends_on: []
+    consumed_by: [gunnchos-research-portal]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: education_ops_not_carrier
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: true
+  - repo: anime-aggressors
+    category: game
+    public: true
+    purpose: Anime Aggressors
+    product_layer: 9
+    primary_audience: gamer
+    owner: gunnchOS3k
+    source_of_truth_for: [anime_aggressors]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: game_repo_not_lab_runtime_proof
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: pedestrian-pursuit
+    category: game
+    public: true
+    purpose: Pedestrian Pursuit
+    product_layer: 9
+    primary_audience: gamer
+    owner: gunnchOS3k
+    source_of_truth_for: [pedestrian_pursuit]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: game_repo_not_lab_runtime_proof
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: archive-of-life-artifact-world
+    category: game
+    public: true
+    purpose: Archive of Life
+    product_layer: 9
+    primary_audience: gamer
+    owner: gunnchOS3k
+    source_of_truth_for: [archive_of_life]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: game_repo_not_lab_runtime_proof
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: beatlink-party
+    category: game
+    public: true
+    purpose: Beat Link
+    product_layer: 9
+    primary_audience: gamer
+    owner: gunnchOS3k
+    source_of_truth_for: [beat_link]
+    depends_on: []
+    consumed_by: [gunnchos-device-os]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: game_repo_not_lab_runtime_proof
+    current_state: INTEGRATED
+    physical_pending: false
+    external_pending: false
+  - repo: ntn-resilience-sim
+    category: connectivity
+    public: true
+    purpose: NTN resilience simulation
+    product_layer: 6
+    primary_audience: researcher
+    owner: gunnchOS3k
+    source_of_truth_for: [ntn_simulation]
+    depends_on: []
+    consumed_by: [gunnchos-7gc-ai-ran-field-kit]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: simulation_not_RM520_NTN
+    current_state: DIGITALLY_VALIDATED
+    physical_pending: false
+    external_pending: false
+  - repo: spectrumx-ai-ran-gary
+    category: research
+    public: true
+    purpose: AI-RAN equitable spectrum research
+    product_layer: 6
+    primary_audience: researcher
+    owner: gunnchOS3k
+    source_of_truth_for: [spectrumx_research]
+    depends_on: []
+    consumed_by: [gunnchos-research-portal]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: research_not_carrier_deployed
+    current_state: DIGITALLY_VALIDATED
+    physical_pending: false
+    external_pending: false
+  - repo: 7gc-digital-twin
+    category: twin
+    public: true
+    purpose: 7GC digital twin research (not product spine)
+    product_layer: 10
+    primary_audience: researcher
+    owner: gunnchOS3k
+    source_of_truth_for: [7gc_twin]
+    depends_on: []
+    consumed_by: [gunnchos-research-portal]
+    entrypoint: README.md
+    quickstart: README.md
+    architecture_doc: README.md
+    evidence_doc: null
+    claim_boundary: not_canonical_product_spine
+    current_state: DIGITALLY_VALIDATED
+    physical_pending: false
+    external_pending: false
