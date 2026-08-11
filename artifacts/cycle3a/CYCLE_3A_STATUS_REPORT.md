@@ -85,6 +85,25 @@ Physical / human / external / standard / owner RFQ / WP-001.
 
 103, 70, 6, 5, 31 (+ pending README-contract PRs).
 
+
+
+## README contract DRAFTs (WP-012 §F remainder)
+
+Opened by Cycle 3A README agent — all DRAFT, Cursor does not merge:
+
+| Repo | PR |
+|---|---|
+| hardware | https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/59 |
+| edge-io | https://github.com/gunnchOS3k/edge-io-measurement-node/pull/36 |
+| waike | https://github.com/gunnchOS3k/waike-research-ops/pull/42 |
+| anime-aggressors | https://github.com/gunnchOS3k/anime-aggressors/pull/71 |
+| pedestrian-pursuit | https://github.com/gunnchOS3k/pedestrian-pursuit/pull/13 |
+| archive-of-life | https://github.com/gunnchOS3k/archive-of-life-artifact-world/pull/26 |
+| beatlink-party | https://github.com/gunnchOS3k/beatlink-party/pull/17 |
+| ntn-resilience-sim | https://github.com/gunnchOS3k/ntn-resilience-sim/pull/26 |
+| spectrumx-ai-ran-gary | https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/pull/99 |
+| 7gc-digital-twin | https://github.com/gunnchOS3k/7gc-digital-twin/pull/29 |
+
 ## Y — Edmund merge order (when green)
 
 1. Remaining core README DRAFTs (parallel)
