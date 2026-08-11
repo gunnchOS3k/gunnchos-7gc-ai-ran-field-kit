@@ -1,8 +1,8 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-11T21:14:27Z",
-  "phase": "cycle3b_partial_live_dsxl_ring_earned",
+  "recorded_at_utc": "2026-08-11T21:40:31Z",
+  "phase": "cycle3b_four_game_earned_eco010_open",
   "classification_enum": [
     "ACCEPTED_ON_MAIN",
     "DIGITAL_IMPLEMENTATION_OPEN",
@@ -17,9 +17,9 @@
     "WP-014"
   ],
   "summary_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 10,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 12,
     "OWNER_DECISION_PENDING": 5,
-    "DIGITAL_IMPLEMENTATION_OPEN": 25,
+    "DIGITAL_IMPLEMENTATION_OPEN": 23,
     "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 2
   },
   "rows": [
@@ -171,9 +171,9 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
+      "evidence": "gunnchos-device-os@264b9c9 VP-011R PARTIAL (FOUR_GAME true; ECO010 false)",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "four_game_eco010_master_false",
+      "blocker": "eco010_master_false",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -194,22 +194,22 @@
     {
       "charter_requirement_id": "FOUR_GAME_PRODUCTION_RUNTIME",
       "requirement": "Four actual production game runtimes (not http.server alone)",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os+game-repos",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
-      "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "pedestrian_pursuit_godot_input_save; portfolio runtime depth",
+      "evidence": "gunnchos-device-os@264b9c9 artifacts/wp011r/games/four_games_in_guest.json",
+      "current_accepted_sha": "264b9c9",
+      "blocker": null,
       "active_work_packet": "WP-011R+WP-014",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "LIVE_GUNNCHOS_VISUAL",
       "requirement": "Live gunnchOS shell/compositor visual proof",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [
         "os_build/device_lab_interactive_guest/",
@@ -221,7 +221,7 @@
       ],
       "evidence": "device-os#103 LIVE true",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "four_game_and_eco010_still_open",
+      "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
