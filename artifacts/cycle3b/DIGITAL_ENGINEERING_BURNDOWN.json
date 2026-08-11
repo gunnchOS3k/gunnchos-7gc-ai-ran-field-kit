@@ -1,15 +1,15 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-11T18:43:04Z",
-  "phase": "before_implementation",
+  "recorded_at_utc": "2026-08-11T21:00:43Z",
+  "phase": "cycle3b_in_progress_honest",
   "classification_enum": [
+    "ACCEPTED_ON_MAIN",
     "DIGITAL_IMPLEMENTATION_OPEN",
-    "DIGITAL_IMPLEMENTATION_COMPLETE",
-    "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING",
-    "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
-    "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING",
-    "OWNER_DECISION_PENDING"
+    "DIGITAL_WORK_PENDING",
+    "OWNER_DEFERRED",
+    "BLOCKED_EXTERNAL",
+    "DO_NOT_START"
   ],
   "active_wip": [
     "WP-011R",
@@ -173,7 +173,7 @@
       "tests": [],
       "evidence": null,
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "master_token_blocked_on_open_gates",
+      "blocker": "pass_tokens_still_false",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -219,9 +219,9 @@
       "tests": [
         "tests/device_lab/test_device_lab_interactive_guest.py"
       ],
-      "evidence": null,
+      "evidence": "device-os#103 tip a3a361a",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "interactive_guest_rootfs_not_provisioned_guest_native",
+      "blocker": "cloud_kernel_lacked_drm_uinput; full_kernel_reprovision_in_flight",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -261,9 +261,9 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
+      "evidence": "device-os#104",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "realms_builder_not_implemented",
+      "blocker": "wp013_digital_tokens_claimed_verify_as_digital_only",
       "active_work_packet": "WP-013",
       "next_physical_human_external_dependency": null
     },
@@ -623,5 +623,6 @@
     "PRODUCT_CHARTER_APPROVAL engineering state marked complete due to Edmund merge of #70.",
     "WP-001 remains OWNER_DECISION_PENDING / DO_NOT_START.",
     "GENERIC_README_PROGRAM=PAUSED; PROFILE_README_EDIT_FREEZE=ACTIVE."
-  ]
+  ],
+  "success_condition_met": false
 }
