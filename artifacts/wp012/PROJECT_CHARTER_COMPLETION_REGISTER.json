@@ -1,35 +1,214 @@
 {
-  "schema": "gunnchos.project_charter.completion_register.v1",
-  "recorded_at_utc": "2026-08-11T13:50:00Z",
+  "schema": "gunnchos.wp012.project_charter_completion_register.v1",
+  "cycle": "3A",
+  "work_packet": "WP-012",
+  "recorded_at_utc": "2026-08-11T13:55:00Z",
   "tokens": {
+    "definition_content_complete_candidate": true,
     "PRODUCT_CHARTER_DEFINITION_COMPLETE": false,
-    "owner_approval_token": false,
-    "definition_content_complete_candidate": true
+    "owner_approval_token": false
   },
   "approval_event": "EDMUND_MERGE_OF_FINAL_CHARTER_PR",
+  "classification_enum": [
+    "DIGITALLY_COMPLETE",
+    "PHYSICAL_PENDING",
+    "HUMAN_PENDING",
+    "EXTERNAL_PENDING",
+    "STANDARD_PENDING",
+    "OWNER_RELEASE_DECISION_PENDING"
+  ],
   "requirements": [
-    {"id": "CHARTER_NARRATIVE", "classification": "DIGITALLY_COMPLETE", "earned": true, "status": "CLOSED", "note": "Canonical MD+YAML on Cycle 3A branch"},
-    {"id": "REPO_OWNERSHIP_MAP", "classification": "DIGITALLY_COMPLETE", "earned": true, "status": "CLOSED", "note": "Repo catalog drafted"},
-    {"id": "GOLDEN_JOURNEYS_LINKED", "classification": "DIGITALLY_COMPLETE", "earned": true, "status": "CLOSED", "note": "G01-G10 referenced"},
-    {"id": "CLAIM_BOUNDARIES", "classification": "DIGITALLY_COMPLETE", "earned": true, "status": "CLOSED", "note": "Firewall encoded"},
-    {"id": "DEVICE_LAB_10_10_DIGITAL", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "WP-011R remediations required"},
-    {"id": "ECO010_FULL_SOAK", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "Currently PARTIAL"},
-    {"id": "FOUR_GAME_PRODUCTION_RUNTIME", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "http.server insufficient"},
-    {"id": "LIVE_GUNNCHOS_VISUAL", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "RFB handshake insufficient"},
-    {"id": "DSXL_DUAL_COMPOSITOR_UX", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "DRM enum only"},
-    {"id": "RING_APP_STATE_MUTATION", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "input_observe only"},
-    {"id": "NAVIGATION_DIGITAL_E4", "classification": "DIGITALLY_COMPLETE", "earned": false, "status": "OPEN", "note": "Portal/profile WIP"},
-    {"id": "HUMAN_COMPREHENSION_E6", "classification": "HUMAN_PENDING", "earned": false, "status": "OPEN", "note": "External human verification"},
-    {"id": "EVT_CALIBRATION", "classification": "PHYSICAL_PENDING", "earned": false, "status": "OPEN", "note": "Hardware EVT"},
-    {"id": "HIL_CORRELATION", "classification": "PHYSICAL_PENDING", "earned": false, "status": "OPEN", "note": "Physical twin correlation"},
-    {"id": "BATTERY_THERMAL_RF", "classification": "PHYSICAL_PENDING", "earned": false, "status": "OPEN", "note": "Lab measurement"},
-    {"id": "RING_SPATIAL_PHYSICAL", "classification": "PHYSICAL_PENDING", "earned": false, "status": "OPEN", "note": "Multi-modal ranging"},
-    {"id": "EXTERNAL_PENTEST", "classification": "EXTERNAL_PENDING", "earned": false, "status": "OPEN", "note": "After INTERNAL_RED_TEAM_READY"},
-    {"id": "CERTIFICATIONS", "classification": "EXTERNAL_PENDING", "earned": false, "status": "OPEN", "note": "Regulatory"},
-    {"id": "CARRIER_APPROVAL", "classification": "EXTERNAL_PENDING", "earned": false, "status": "OPEN", "note": "Operator"},
-    {"id": "STANDARDIZED_6G", "classification": "STANDARD_PENDING", "earned": false, "status": "OPEN", "note": "3GPP Rel-21+"},
-    {"id": "RFQ_SEND", "classification": "OWNER_RELEASE_DECISION_PENDING", "earned": false, "status": "OPEN", "note": "Edmund-only"},
-    {"id": "PRODUCT_CHARTER_APPROVAL", "classification": "OWNER_RELEASE_DECISION_PENDING", "earned": false, "status": "OPEN", "note": "Edmund merge of final charter PR"},
-    {"id": "WP001_START", "classification": "OWNER_RELEASE_DECISION_PENDING", "earned": false, "status": "OPEN", "note": "Blocked until WP-011R+WP-012 on main"}
+    {
+      "id": "CHARTER_NARRATIVE",
+      "requirement": "Canonical Product Charter narrative + YAML twin",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "program/charter/gunnchOS3k_PRODUCT_CHARTER.md"
+    },
+    {
+      "id": "REPO_OWNERSHIP_MAP",
+      "requirement": "Repo catalog machine + markdown",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "artifacts/wp012/REPO_CATALOG.yaml"
+    },
+    {
+      "id": "GOLDEN_JOURNEYS_LINKED",
+      "requirement": "Golden Journeys 1-10 linked",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "program/operating_model/02_QUALITY_USERS/GOLDEN_JOURNEYS.json"
+    },
+    {
+      "id": "CLAIM_BOUNDARIES",
+      "requirement": "Claim boundaries / firewall encoded",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "program/charter/gunnchOS3k_PRODUCT_CHARTER.yaml#claim_boundary"
+    },
+    {
+      "id": "PORTAL_IA",
+      "requirement": "Ecosystem Portal information architecture",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "gunnchos-research-portal WP-012 PR"
+    },
+    {
+      "id": "PROFILE_FRONT_DOOR",
+      "requirement": "Profile front door answers zero-context questions",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "gunnchOS3k README WP-012 PR"
+    },
+    {
+      "id": "DOCS_INTEGRITY",
+      "requirement": "docs-integrity validator + make target",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "scripts/validate_docs_integrity.py"
+    },
+    {
+      "id": "COMPLETION_REGISTER",
+      "requirement": "Charter completion register and real-world gaps doc",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "artifacts/wp012/PROJECT_CHARTER_COMPLETION_REGISTER.json"
+    },
+    {
+      "id": "WP001_PREVIEW",
+      "requirement": "WP-001 input manifest preview only (do not start)",
+      "classification": "DIGITALLY_COMPLETE",
+      "evidence": "artifacts/wp012/WP-001_INPUT_MANIFEST_PREVIEW.json"
+    },
+    {
+      "id": "DEVICE_LAB_10_10_DIGITAL",
+      "requirement": "gunnchDevice Lab independent full-ecosystem digital acceptance",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "Owned by WP-011R; not asserted by WP-012",
+      "evidence": null
+    },
+    {
+      "id": "ECO010_FULL_SOAK",
+      "requirement": "ECO-010 full simultaneous soak",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "WP-011R; currently PARTIAL at prompt time",
+      "evidence": null
+    },
+    {
+      "id": "FOUR_GAME_PRODUCTION_RUNTIME",
+      "requirement": "Four actual production game runtimes (not http.server alone)",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "WP-011R",
+      "evidence": null
+    },
+    {
+      "id": "LIVE_GUNNCHOS_VISUAL",
+      "requirement": "Live gunnchOS shell/compositor visual proof",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "WP-011R; RFB handshake insufficient",
+      "evidence": null
+    },
+    {
+      "id": "DSXL_DUAL_COMPOSITOR_UX",
+      "requirement": "DS-XL two-display compositor/application proof",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "WP-011R digital + later PHYSICAL_PENDING for silicon",
+      "evidence": null
+    },
+    {
+      "id": "RING_APP_STATE_MUTATION",
+      "requirement": "Ring pipeline mutates real application state",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "WP-011R digital; physical spatial accuracy separate",
+      "evidence": null
+    },
+    {
+      "id": "NAVIGATION_DIGITAL_E4",
+      "requirement": "Zero-context digital navigation E4",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "Independent VP-012 after portal/profile merge; human E6 remains pending",
+      "evidence": null
+    },
+    {
+      "id": "HUMAN_COMPREHENSION_E6",
+      "requirement": "Human comprehension / preference validation",
+      "classification": "HUMAN_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "EVT_CALIBRATION",
+      "requirement": "EVT calibration on target hardware",
+      "classification": "PHYSICAL_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "HIL_CORRELATION",
+      "requirement": "HIL / physical twin correlation",
+      "classification": "PHYSICAL_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "BATTERY_THERMAL_RF",
+      "requirement": "Battery / thermal / RF measurements",
+      "classification": "PHYSICAL_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "RING_SPATIAL_PHYSICAL",
+      "requirement": "Ring physical spatial accuracy (multi-modal)",
+      "classification": "PHYSICAL_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "EXTERNAL_PENTEST",
+      "requirement": "External security pentest",
+      "classification": "EXTERNAL_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "CERTIFICATIONS",
+      "requirement": "Radio/safety/environmental certification",
+      "classification": "STANDARD_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "CARRIER_APPROVAL",
+      "requirement": "Carrier acceptance",
+      "classification": "EXTERNAL_PENDING",
+      "evidence": null
+    },
+    {
+      "id": "STANDARDIZED_6G",
+      "requirement": "Standardized commercial 6G / final IMT-2030 compliance",
+      "classification": "STANDARD_PENDING",
+      "note": "Out of current claim set; migration architecture only",
+      "evidence": null
+    },
+    {
+      "id": "RFQ_SEND",
+      "requirement": "RFQ send / fab / purchase authorization",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "Forbidden in Cycle 3A without separate Edmund authorization",
+      "evidence": null
+    },
+    {
+      "id": "PRODUCT_CHARTER_APPROVAL",
+      "requirement": "Owner approval of Product Charter definition",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "Edmund merge of final charter PR",
+      "evidence": null
+    },
+    {
+      "id": "WP001_START",
+      "requirement": "Start WP-001 EVT0-1.0 freeze",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "note": "Blocked until WP-011R + WP-012 accepted on main",
+      "evidence": null
+    }
+  ],
+  "summary_counts": {
+    "DIGITALLY_COMPLETE": 9,
+    "PHYSICAL_PENDING": 4,
+    "HUMAN_PENDING": 1,
+    "EXTERNAL_PENDING": 2,
+    "STANDARD_PENDING": 2,
+    "OWNER_RELEASE_DECISION_PENDING": 10
+  },
+  "notes": [
+    "DIGITALLY_COMPLETE means the requirement is satisfied digitally — not a label for open digital work.",
+    "WP-011R Device Lab items remain OWNER_RELEASE_DECISION_PENDING from WP-012's perspective.",
+    "PRODUCT_CHARTER_DEFINITION_COMPLETE stays false until Edmund merge."
   ]
 }
