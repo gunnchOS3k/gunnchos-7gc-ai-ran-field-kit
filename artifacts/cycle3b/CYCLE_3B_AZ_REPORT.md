@@ -1,6 +1,6 @@
 # Cycle 3B A–Z Report — NOT CLOSED (honest)
 
-Recorded: 2026-08-11T21:40:31Z
+Recorded: 2026-08-11T21:42:00Z
 Cursor never merges. Profile README freeze ACTIVE. Generic README program PAUSED. WP-001 DO_NOT_START.
 
 ## Verdict
@@ -9,30 +9,30 @@ Cursor never merges. Profile README freeze ACTIVE. Generic README program PAUSED
 ## Token board
 | Token | Status | Evidence |
 |---|---|---|
-| LIVE_GUNNCHOS_VISUAL_PASS | **true** | device-os#103  |
-| DSXL_DUAL_COMPOSITOR_UX_PASS | **true** |  |
-| RING_TO_REAL_APP_STATE_MUTATION_PASS | **true** |  |
-| FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS | **true** |  @  — GUEST_CHROMIUM_WAYLAND; host Playwright rejected |
-| ECO010_SOAK_PASS | false | full 1800s soak in progress / not yet earned |
+| LIVE_GUNNCHOS_VISUAL_PASS | **true** | device-os#103 `artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json` |
+| DSXL_DUAL_COMPOSITOR_UX_PASS | **true** | `artifacts/wp011r/dsxl/DSXL_COMPOSITOR_UX_EVIDENCE.json` |
+| RING_TO_REAL_APP_STATE_MUTATION_PASS | **true** | `artifacts/wp011r/ring/RING_APP_MUTATION_EVIDENCE.json` |
+| FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS | **true** | `artifacts/wp011r/games/four_games_in_guest.json` @ `264b9c9` — GUEST_CHROMIUM_WAYLAND; host Playwright rejected |
+| ECO010_SOAK_PASS | false | full 1800s soak not yet earned |
 | Master digital complete | false | blocked on ECO-010 + independent verifier |
 
 ## Streams
 ### WP-011R — https://github.com/gunnchOS3k/gunnchos-device-os/pull/103 (DRAFT)
-- Tip : FOUR_GAME in-guest Chromium Wayland + lab bridge probe
+- Tip `264b9c9`: FOUR_GAME in-guest Chromium Wayland + lab bridge probe
 - Prior: LIVE + DSXL + RING on Interactive Guest
 
 ### WP-013 — https://github.com/gunnchOS3k/gunnchos-device-os/pull/104 (DRAFT)
-- Tip : digital-only image realms; PRODUCTION_RELEASE_CLAIMED=false
+- Tip `41a51f6`: digital-only image realms; PRODUCTION_RELEASE_CLAIMED=false
 
 ### WP-014 DRAFTs (DEVICE_LAB_PASS flipped after in-guest proofs)
-- pedestrian-pursuit #14 → tip cites foot-racing guest web
-- anime-aggressors #72
-- archive-of-life-artifact-world #27 → earth-species guest web
-- beatlink-party #18
+- pedestrian-pursuit #14 (`9810143`) — maps to foot-racing guest web
+- anime-aggressors #72 (`39ab9d4`)
+- archive-of-life-artifact-world #27 (`7762f1b`) — maps to earth-species guest web
+- beatlink-party #18 (`73cda92`)
 - Honesty: DEVICE_LAB = GUEST_CHROMIUM_WAYLAND Device Lab web package; not Godot-in-guest full product; physical PENDING
 
 ### Aggregation — field-kit #71 DRAFT
--  baseline + burndown + this report
+- Tip `fca77c7` (+ follow-up A–Z fix): `artifacts/cycle3b/` baseline + burndown + this report
 
 ## Rejected false positives
 - RFB banner alone ≠ LIVE
