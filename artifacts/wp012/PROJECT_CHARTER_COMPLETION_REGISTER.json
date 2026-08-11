@@ -1,214 +1,361 @@
 {
   "schema": "gunnchos.wp012.project_charter_completion_register.v1",
-  "cycle": "3A",
+  "cycle": "3A.2",
   "work_packet": "WP-012",
-  "recorded_at_utc": "2026-08-11T13:55:00Z",
+  "recorded_at_utc": "2026-08-11T17:58:07Z",
   "tokens": {
     "definition_content_complete_candidate": true,
     "PRODUCT_CHARTER_DEFINITION_COMPLETE": false,
-    "owner_approval_token": false
+    "owner_approval_token": false,
+    "CHARTER_REGISTER_CLASSIFICATION_CONTRADICTIONS": 0,
+    "PROFILE_README_EDIT_FREEZE": "ACTIVE",
+    "NAVIGATION_ENTRY": "portal_root_to_START_HERE"
   },
   "approval_event": "EDMUND_MERGE_OF_FINAL_CHARTER_PR",
   "classification_enum": [
     "DIGITALLY_COMPLETE",
+    "DIGITAL_WORK_PENDING",
     "PHYSICAL_PENDING",
     "HUMAN_PENDING",
     "EXTERNAL_PENDING",
     "STANDARD_PENDING",
+    "OWNER_DEFERRED",
     "OWNER_RELEASE_DECISION_PENDING"
   ],
+  "classification_rules": {
+    "DIGITALLY_COMPLETE": "Requirement satisfied digitally with evidence; not a label for open digital work.",
+    "DIGITAL_WORK_PENDING": "Digitally executable work remains open (e.g. WP-011R proofs).",
+    "OWNER_DEFERRED": "Owner explicitly deferred; non-blocking unless blocking=true.",
+    "OWNER_RELEASE_DECISION_PENDING": "Reserved for real Edmund decisions: charter approval, RFQ send, fab/release authorization, WP-001 start."
+  },
   "requirements": [
     {
       "id": "CHARTER_NARRATIVE",
       "requirement": "Canonical Product Charter narrative + YAML twin",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "program/charter/gunnchOS3k_PRODUCT_CHARTER.md"
     },
     {
       "id": "REPO_OWNERSHIP_MAP",
       "requirement": "Repo catalog machine + markdown",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "artifacts/wp012/REPO_CATALOG.yaml"
     },
     {
       "id": "GOLDEN_JOURNEYS_LINKED",
       "requirement": "Golden Journeys 1-10 linked",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "program/operating_model/02_QUALITY_USERS/GOLDEN_JOURNEYS.json"
     },
     {
       "id": "CLAIM_BOUNDARIES",
       "requirement": "Claim boundaries / firewall encoded",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "program/charter/gunnchOS3k_PRODUCT_CHARTER.yaml#claim_boundary"
     },
     {
       "id": "PORTAL_IA",
-      "requirement": "Ecosystem Portal information architecture",
+      "requirement": "Ecosystem Portal information architecture (portal-first entry)",
       "classification": "DIGITALLY_COMPLETE",
-      "evidence": "gunnchos-research-portal WP-012 PR"
+      "blocking": true,
+      "evidence": "gunnchos-research-portal START_HERE + maps"
     },
     {
       "id": "PROFILE_FRONT_DOOR",
-      "requirement": "Profile front door answers zero-context questions",
-      "classification": "DIGITALLY_COMPLETE",
-      "evidence": "gunnchOS3k README WP-012 PR"
+      "requirement": "GitHub profile front door zero-context answers",
+      "classification": "OWNER_DEFERRED",
+      "blocking": false,
+      "note": "PROFILE_README_EDIT_FREEZE=ACTIVE; profile PR #5 DO_NOT_MERGE; portal START_HERE is canonical entry",
+      "evidence": null
     },
     {
       "id": "DOCS_INTEGRITY",
       "requirement": "docs-integrity validator + make target",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "scripts/validate_docs_integrity.py"
     },
     {
       "id": "COMPLETION_REGISTER",
       "requirement": "Charter completion register and real-world gaps doc",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "artifacts/wp012/PROJECT_CHARTER_COMPLETION_REGISTER.json"
     },
     {
       "id": "WP001_PREVIEW",
       "requirement": "WP-001 input manifest preview only (do not start)",
       "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
       "evidence": "artifacts/wp012/WP-001_INPUT_MANIFEST_PREVIEW.json"
+    },
+    {
+      "id": "NAVIGATION_DIGITAL_E4",
+      "requirement": "Zero-context digital navigation E4 from portal root \u2192 START_HERE",
+      "classification": "DIGITALLY_COMPLETE",
+      "blocking": true,
+      "note": "Independent VP-012 portal-first PASS; profile not required",
+      "evidence": "artifacts/wp012/VP-012-RESULT.json (portal-first mirror)"
     },
     {
       "id": "DEVICE_LAB_10_10_DIGITAL",
       "requirement": "gunnchDevice Lab independent full-ecosystem digital acceptance",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
       "note": "Owned by WP-011R; not asserted by WP-012",
       "evidence": null
     },
     {
       "id": "ECO010_FULL_SOAK",
-      "requirement": "ECO-010 full simultaneous soak",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
-      "note": "WP-011R; currently PARTIAL at prompt time",
+      "requirement": "ECO-010 full simultaneous soak \u22651800s",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
+      "note": "WP-011R",
       "evidence": null
     },
     {
       "id": "FOUR_GAME_PRODUCTION_RUNTIME",
       "requirement": "Four actual production game runtimes (not http.server alone)",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
-      "note": "WP-011R",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
+      "note": "WP-011R; game launch-content completeness tracked separately",
       "evidence": null
     },
     {
       "id": "LIVE_GUNNCHOS_VISUAL",
       "requirement": "Live gunnchOS shell/compositor visual proof",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
-      "note": "WP-011R; RFB handshake insufficient",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
+      "note": "WP-011R; requires Interactive Development Guest",
       "evidence": null
     },
     {
       "id": "DSXL_DUAL_COMPOSITOR_UX",
       "requirement": "DS-XL two-display compositor/application proof",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
-      "note": "WP-011R digital + later PHYSICAL_PENDING for silicon",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
+      "note": "WP-011R digital; silicon correlation later PHYSICAL_PENDING",
       "evidence": null
     },
     {
       "id": "RING_APP_STATE_MUTATION",
-      "requirement": "Ring pipeline mutates real application state",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "requirement": "Ring pipeline mutates real in-guest application state",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
       "note": "WP-011R digital; physical spatial accuracy separate",
       "evidence": null
     },
     {
-      "id": "NAVIGATION_DIGITAL_E4",
-      "requirement": "Zero-context digital navigation E4",
+      "id": "DEVICE_LAB_IMAGE_REALMS",
+      "requirement": "Track Device Lab interactive/dev guest vs EVT/factory/recovery/shipping images and trust realms",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": true,
+      "note": "Interactive Development Guest v1 in progress; shipping image separate realm",
+      "evidence": null
+    },
+    {
+      "id": "GAME_LAUNCH_CONTENT_COMPLETENESS",
+      "requirement": "Game launch-content completeness separate from Device Lab runtime proof",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": false,
+      "note": "Content completeness \u2260 FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS",
+      "evidence": null
+    },
+    {
+      "id": "SDK_API_APP_DISTRIBUTION",
+      "requirement": "SDK/API/app distribution and deprecation policy",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": false,
+      "evidence": null
+    },
+    {
+      "id": "LICENSING_IP_MEDIA_MODEL_DATA_RIGHTS",
+      "requirement": "Licensing / IP / media / model / data rights register",
+      "classification": "EXTERNAL_PENDING",
+      "blocking": true,
+      "evidence": null
+    },
+    {
+      "id": "PRIVACY_DATA_GOVERNANCE",
+      "requirement": "Privacy/data governance including minors/WAIKE, telemetry, Ring/AI data",
+      "classification": "HUMAN_PENDING",
+      "blocking": true,
+      "note": "Policy drafting can be digital; human/legal review remains pending",
+      "evidence": null
+    },
+    {
+      "id": "SUPPLY_CHAIN_LIFECYCLE",
+      "requirement": "Supply-chain lifecycle / alternates / EOL / MOQ / sole-source / counterfeit risk",
+      "classification": "EXTERNAL_PENDING",
+      "blocking": true,
+      "evidence": null
+    },
+    {
+      "id": "RELIABILITY_ENVIRONMENTAL_TESTS",
+      "requirement": "Reliability and environmental test plans/results",
+      "classification": "PHYSICAL_PENDING",
+      "blocking": true,
+      "evidence": null
+    },
+    {
+      "id": "ERGONOMICS_HUMAN_FACTORS",
+      "requirement": "Ergonomics / human factors validation",
+      "classification": "HUMAN_PENDING",
+      "blocking": true,
+      "evidence": null
+    },
+    {
+      "id": "WARRANTY_RMA_REPAIR_SPARES",
+      "requirement": "Warranty / RMA / repair / spares / update support / EOL ops",
+      "classification": "EXTERNAL_PENDING",
+      "blocking": false,
+      "evidence": null
+    },
+    {
+      "id": "QUOTE_BACKED_ECONOMICS",
+      "requirement": "Quote-backed unit economics (no spend without Edmund auth)",
       "classification": "OWNER_RELEASE_DECISION_PENDING",
-      "note": "Independent VP-012 after portal/profile merge; human E6 remains pending",
+      "blocking": true,
+      "note": "Quotes/RFQ send require Edmund authorization",
+      "evidence": null
+    },
+    {
+      "id": "ONLINE_SERVICE_OPS",
+      "requirement": "Online service operations / moderation / SLO / DR",
+      "classification": "DIGITAL_WORK_PENDING",
+      "blocking": false,
+      "evidence": null
+    },
+    {
+      "id": "FACTORY_PROVISIONING",
+      "requirement": "Factory provisioning / serials / MACs / keys / eSIM / calibration",
+      "classification": "PHYSICAL_PENDING",
+      "blocking": true,
+      "evidence": null
+    },
+    {
+      "id": "PACKAGING_FIRST_USE_RECYCLING",
+      "requirement": "Packaging / first-use experience / recycling",
+      "classification": "PHYSICAL_PENDING",
+      "blocking": false,
       "evidence": null
     },
     {
       "id": "HUMAN_COMPREHENSION_E6",
       "requirement": "Human comprehension / preference validation",
       "classification": "HUMAN_PENDING",
+      "blocking": false,
       "evidence": null
     },
     {
       "id": "EVT_CALIBRATION",
       "requirement": "EVT calibration on target hardware",
       "classification": "PHYSICAL_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "HIL_CORRELATION",
       "requirement": "HIL / physical twin correlation",
       "classification": "PHYSICAL_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "BATTERY_THERMAL_RF",
       "requirement": "Battery / thermal / RF measurements",
       "classification": "PHYSICAL_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "RING_SPATIAL_PHYSICAL",
       "requirement": "Ring physical spatial accuracy (multi-modal)",
       "classification": "PHYSICAL_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "EXTERNAL_PENTEST",
       "requirement": "External security pentest",
       "classification": "EXTERNAL_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "CERTIFICATIONS",
       "requirement": "Radio/safety/environmental certification",
       "classification": "STANDARD_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "CARRIER_APPROVAL",
       "requirement": "Carrier acceptance",
       "classification": "EXTERNAL_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "STANDARDIZED_6G",
       "requirement": "Standardized commercial 6G / final IMT-2030 compliance",
       "classification": "STANDARD_PENDING",
+      "blocking": false,
       "note": "Out of current claim set; migration architecture only",
-      "evidence": null
-    },
-    {
-      "id": "RFQ_SEND",
-      "requirement": "RFQ send / fab / purchase authorization",
-      "classification": "OWNER_RELEASE_DECISION_PENDING",
-      "note": "Forbidden in Cycle 3A without separate Edmund authorization",
       "evidence": null
     },
     {
       "id": "PRODUCT_CHARTER_APPROVAL",
       "requirement": "Owner approval of Product Charter definition",
       "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "blocking": true,
       "note": "Edmund merge of final charter PR",
+      "evidence": null
+    },
+    {
+      "id": "RFQ_SEND",
+      "requirement": "RFQ send / fab / purchase authorization",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "blocking": true,
+      "note": "Forbidden without separate Edmund authorization",
+      "evidence": null
+    },
+    {
+      "id": "FAB_RELEASE_AUTHORIZATION",
+      "requirement": "Fabrication / production release authorization",
+      "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "blocking": true,
       "evidence": null
     },
     {
       "id": "WP001_START",
       "requirement": "Start WP-001 EVT0-1.0 freeze",
       "classification": "OWNER_RELEASE_DECISION_PENDING",
+      "blocking": true,
       "note": "Blocked until WP-011R + WP-012 accepted on main",
       "evidence": null
     }
   ],
   "summary_counts": {
     "DIGITALLY_COMPLETE": 9,
-    "PHYSICAL_PENDING": 4,
-    "HUMAN_PENDING": 1,
-    "EXTERNAL_PENDING": 2,
-    "STANDARD_PENDING": 2,
-    "OWNER_RELEASE_DECISION_PENDING": 10
+    "OWNER_DEFERRED": 1,
+    "DIGITAL_WORK_PENDING": 10,
+    "EXTERNAL_PENDING": 5,
+    "HUMAN_PENDING": 3,
+    "PHYSICAL_PENDING": 7,
+    "OWNER_RELEASE_DECISION_PENDING": 5,
+    "STANDARD_PENDING": 2
   },
   "notes": [
-    "DIGITALLY_COMPLETE means the requirement is satisfied digitally — not a label for open digital work.",
-    "WP-011R Device Lab items remain OWNER_RELEASE_DECISION_PENDING from WP-012's perspective.",
-    "PRODUCT_CHARTER_DEFINITION_COMPLETE stays false until Edmund merge."
+    "DIGITALLY_COMPLETE means the requirement is satisfied digitally \u2014 not a label for open digital work.",
+    "DIGITAL_WORK_PENDING is for open digitally executable work (WP-011R proofs, interactive guest, etc.).",
+    "OWNER_DEFERRED is non-blocking when blocking=false (profile front door).",
+    "OWNER_RELEASE_DECISION_PENDING reserved for Edmund decisions only.",
+    "PRODUCT_CHARTER_DEFINITION_COMPLETE stays false until Edmund merge of final charter PR.",
+    "CHARTER_REGISTER_CLASSIFICATION_CONTRADICTIONS target = 0."
   ]
 }

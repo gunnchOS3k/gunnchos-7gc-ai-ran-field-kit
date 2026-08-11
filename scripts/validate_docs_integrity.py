@@ -42,11 +42,30 @@ REQUIRED_ARTIFACTS = [
 
 VALID_CLASSES = {
     "DIGITALLY_COMPLETE",
+    "DIGITAL_WORK_PENDING",
     "PHYSICAL_PENDING",
     "HUMAN_PENDING",
     "EXTERNAL_PENDING",
     "STANDARD_PENDING",
+    "OWNER_DEFERRED",
     "OWNER_RELEASE_DECISION_PENDING",
+}
+
+OWNER_RELEASE_ONLY_IDS = {
+    "PRODUCT_CHARTER_APPROVAL",
+    "RFQ_SEND",
+    "FAB_RELEASE_AUTHORIZATION",
+    "WP001_START",
+    "QUOTE_BACKED_ECONOMICS",
+}
+
+DIGITAL_WORK_PENDING_IDS = {
+    "DEVICE_LAB_10_10_DIGITAL",
+    "ECO010_FULL_SOAK",
+    "FOUR_GAME_PRODUCTION_RUNTIME",
+    "LIVE_GUNNCHOS_VISUAL",
+    "DSXL_DUAL_COMPOSITOR_UX",
+    "RING_APP_STATE_MUTATION",
 }
 
 FORBIDDEN_TRUE_TOKENS = {
@@ -145,15 +164,14 @@ def generate_repo_catalog_md(catalog: dict, out_path: Path) -> str:
             "",
             "```mermaid",
             "flowchart TB",
-            "  profile[gunnchOS3k profile]",
-            "  portal[research-portal]",
+            "  portal[research-portal START_HERE]",
             "  field[field-kit charter]",
             "  hw[hardware-industrial-design]",
             "  os[device-os / gunnchOS / Device Lab]",
             "  ai[gunnchAI3k]",
             "  games[four games]",
             "  conn[connectivity research]",
-            "  profile --> portal",
+            "  profileDeferred[profile OWNER_DEFERRED]",
             "  portal --> field",
             "  field --> hw",
             "  field --> os",
@@ -161,6 +179,7 @@ def generate_repo_catalog_md(catalog: dict, out_path: Path) -> str:
             "  os --> games",
             "  os --> ai",
             "  field --> conn",
+            "  profileDeferred -.-> portal",
             "```",
             "",
             "## Where do I contribute?",
@@ -232,10 +251,43 @@ def check_artifacts(errors: list[str]) -> None:
             fail("register must not pre-set PRODUCT_CHARTER_DEFINITION_COMPLETE true", errors)
         if tokens.get("owner_approval_token") is True:
             fail("register must not pre-set owner_approval_token true", errors)
+        contradictions = 0
         for req in reg.get("requirements") or []:
+            rid = req.get("id")
             cls = req.get("classification")
             if cls not in VALID_CLASSES:
-                fail(f"invalid classification for {req.get('id')}: {cls}", errors)
+                fail(f"invalid classification for {rid}: {cls}", errors)
+                contradictions += 1
+                continue
+            if rid == "PROFILE_FRONT_DOOR":
+                if cls != "OWNER_DEFERRED" or req.get("blocking") is not False:
+                    fail("PROFILE_FRONT_DOOR must be OWNER_DEFERRED with blocking=false", errors)
+                    contradictions += 1
+            if rid in DIGITAL_WORK_PENDING_IDS and cls != "DIGITAL_WORK_PENDING":
+                fail(f"{rid} must be DIGITAL_WORK_PENDING until WP-011R passes", errors)
+                contradictions += 1
+            if rid in OWNER_RELEASE_ONLY_IDS and cls != "OWNER_RELEASE_DECISION_PENDING":
+                fail(f"{rid} must remain OWNER_RELEASE_DECISION_PENDING", errors)
+                contradictions += 1
+            if cls == "OWNER_RELEASE_DECISION_PENDING" and rid not in OWNER_RELEASE_ONLY_IDS:
+                # Allow only reserved Edmund-decision IDs in this class
+                fail(
+                    f"{rid} misclassified as OWNER_RELEASE_DECISION_PENDING "
+                    "(reserve for Edmund decisions only)",
+                    errors,
+                )
+                contradictions += 1
+        tokens = reg.get("tokens") or {}
+        reported = tokens.get("CHARTER_REGISTER_CLASSIFICATION_CONTRADICTIONS")
+        if reported is not None and int(reported) != contradictions:
+            # Auto-correct reported counter when writing integrity view
+            if contradictions == 0 and int(reported) != 0:
+                fail(
+                    "CHARTER_REGISTER_CLASSIFICATION_CONTRADICTIONS must be 0 when register is clean",
+                    errors,
+                )
+        if contradictions:
+            fail(f"CHARTER_REGISTER_CLASSIFICATION_CONTRADICTIONS={contradictions}", errors)
     preview = ROOT / "artifacts/wp012/WP-001_INPUT_MANIFEST_PREVIEW.json"
     if preview.is_file():
         data = json.loads(preview.read_text(encoding="utf-8"))

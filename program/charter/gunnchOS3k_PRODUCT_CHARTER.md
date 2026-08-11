@@ -284,8 +284,8 @@ Cycle 3A does **not** start `WP-001` (EVT0 freeze). Preview only: `artifacts/wp0
 ## 12. Authority and approval
 
 - **Canonical narrative + YAML:** this directory.  
-- **Ecosystem Portal:** `gunnchos-research-portal` (navigation; not a competing charter).  
-- **Profile front door:** `gunnchOS3k` README.  
+- **Ecosystem Portal:** `gunnchos-research-portal` — **canonical zero-context entry** for Cycle 3A.2 (`README` → `START_HERE`).  
+- **Profile front door:** `gunnchOS3k` README — **OWNER_DEFERRED** / non-blocking (`PROFILE_README_EDIT_FREEZE=ACTIVE`; profile PR #5 DO_NOT_MERGE).  
 - **Historical spine ingest:** `program/charters/` and workspace spine markdown — labeled historical when conflicting.  
 - **Approval event:** Edmund’s merge of the final Product Charter PR. Until then:
   - `definition_content_complete_candidate` may be true  
@@ -294,10 +294,35 @@ Cycle 3A does **not** start `WP-001` (EVT0 freeze). Preview only: `artifacts/wp0
 
 ---
 
-## 13. Related artifacts (WP-012)
+## 13. Explicit tracking domains (register-linked)
+
+The completion register must classify (never vague TODO) at least:
+
+| Domain | Typical class until closed |
+|---|---|
+| Device Lab interactive/dev guest vs EVT/factory/recovery/shipping images + trust realms | DIGITAL_WORK_PENDING → later PHYSICAL/EXTERNAL as applicable |
+| Licensing / IP / media / model / data rights | EXTERNAL_PENDING |
+| Privacy / data governance (minors/WAIKE, telemetry, Ring/AI data) | HUMAN_PENDING (+ legal) |
+| Supply-chain lifecycle / alternates / EOL / MOQ / sole-source / counterfeit | EXTERNAL_PENDING |
+| Reliability / environmental tests | PHYSICAL_PENDING |
+| Ergonomics / human factors | HUMAN_PENDING |
+| Warranty / RMA / repair / spares / update support / EOL | EXTERNAL_PENDING |
+| Quote-backed economics | OWNER_RELEASE_DECISION_PENDING |
+| Online service ops / moderation / SLO / DR | DIGITAL_WORK_PENDING |
+| Game launch-content completeness (≠ runtime proof) | DIGITAL_WORK_PENDING |
+| SDK / API / app distribution / deprecation | DIGITAL_WORK_PENDING |
+| Factory provisioning (serials / MACs / keys / eSIM / calibration) | PHYSICAL_PENDING |
+| Packaging / first-use / recycling | PHYSICAL_PENDING |
+
+Classification vocabulary includes `DIGITAL_WORK_PENDING` and `OWNER_DEFERRED` in addition to prior enums. `OWNER_RELEASE_DECISION_PENDING` is reserved for Edmund decisions (charter approval, RFQ send, fab/release, WP-001 start, quote-backed spend).
+
+---
+
+## 14. Related artifacts (WP-012)
 
 - `artifacts/wp012/PROJECT_CHARTER_COMPLETION_REGISTER.json`  
 - `artifacts/wp012/PROJECT_CHARTER_REMAINING_REAL_WORLD_GAPS.md`  
 - `artifacts/wp012/REPO_CATALOG.yaml` / `REPO_CATALOG.md`  
 - `artifacts/wp012/WP-001_INPUT_MANIFEST_PREVIEW.json`  
+- `artifacts/wp012/VP-012-RESULT.json` (portal-first)  
 - `artifacts/cycle3a/ACCEPTED_MAIN_BASELINE.json`  

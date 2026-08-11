@@ -34,15 +34,14 @@ Generated from `artifacts/wp012/REPO_CATALOG.yaml` (schema `gunnchos.repo_catalo
 
 ```mermaid
 flowchart TB
-  profile[gunnchOS3k profile]
-  portal[research-portal]
+  portal[research-portal START_HERE]
   field[field-kit charter]
   hw[hardware-industrial-design]
   os[device-os / gunnchOS / Device Lab]
   ai[gunnchAI3k]
   games[four games]
   conn[connectivity research]
-  profile --> portal
+  profileDeferred[profile OWNER_DEFERRED]
   portal --> field
   field --> hw
   field --> os
@@ -50,6 +49,7 @@ flowchart TB
   os --> games
   os --> ai
   field --> conn
+  profileDeferred -.-> portal
 ```
 
 ## Where do I contribute?
