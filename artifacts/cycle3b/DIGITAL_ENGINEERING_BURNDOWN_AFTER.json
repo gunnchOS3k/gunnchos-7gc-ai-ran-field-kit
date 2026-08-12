@@ -1,8 +1,8 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-12T16:20:00Z",
-  "phase": "after_wp011r_independent_demotion_dsxl_ring",
+  "recorded_at_utc": "2026-08-12T16:57:20Z",
+  "phase": "after_wp011r_independent_pass_dsxl_ring",
   "classification_enum": [
     "DIGITAL_IMPLEMENTATION_OPEN",
     "DIGITAL_IMPLEMENTATION_COMPLETE",
@@ -17,9 +17,9 @@
     "WP-014"
   ],
   "summary_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 15,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 16,
     "OWNER_DECISION_PENDING": 5,
-    "DIGITAL_IMPLEMENTATION_OPEN": 20,
+    "DIGITAL_IMPLEMENTATION_OPEN": 19,
     "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 2
   },
   "rows": [
@@ -166,16 +166,17 @@
     {
       "charter_requirement_id": "DEVICE_LAB_10_10_DIGITAL",
       "requirement": "gunnchDevice Lab independent full-ecosystem digital acceptance",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "gunnchos-device-os artifacts/wp011r/VP-011R-RESULT.independent.json",
-      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_demotion_DSXL_RING_five_gate_and_false",
+      "evidence": "device-os#103@071f9b2 artifacts/wp011r/VP-011R-RESULT.independent.json (INDEPENDENT_PASS; COMPLETE false)",
+      "current_accepted_sha": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
+      "blocker": null,
       "active_work_packet": "WP-011R",
-      "next_physical_human_external_dependency": null
+      "next_physical_human_external_dependency": null,
+      "note": "Five-gate digital AND + INDEPENDENT_PASS; master COMPLETE token remains false per packet policy"
     },
     {
       "charter_requirement_id": "ECO010_FULL_SOAK",
@@ -186,7 +187,7 @@
       "implementation_files": [],
       "tests": [],
       "evidence": "artifacts/wp011r/ECO010_SOAK.json",
-      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
       "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
@@ -200,7 +201,7 @@
       "implementation_files": [],
       "tests": [],
       "evidence": "artifacts/wp011r/games/four_games_in_guest.json",
-      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
       "blocker": null,
       "active_work_packet": "WP-011R+WP-014",
       "next_physical_human_external_dependency": null
@@ -219,8 +220,8 @@
       "tests": [
         "tests/device_lab/test_device_lab_interactive_guest.py"
       ],
-      "evidence": "device-os#103@7fe1022 artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json + shell_app_*.png",
-      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+      "evidence": "device-os#103@7fe1022+ retained artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json + shell_app_*.png",
+      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
       "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
@@ -228,28 +229,28 @@
     {
       "charter_requirement_id": "DSXL_DUAL_COMPOSITOR_UX",
       "requirement": "DS-XL two-display compositor/application proof",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "device-os#103@7fe1022 artifacts/wp011r/dsxl/{DSXL_COMPOSITOR_UX_EVIDENCE.json,dsxl_left.png,dsxl_right.png,dsxl_placement.png}",
-      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_demotion_invented_filter_blind_halves",
+      "evidence": "device-os#103@9d8ce2d artifacts/wp011r/dsxl/{DSXL_COMPOSITOR_UX_EVIDENCE.json,dsxl_left.png,dsxl_right.png,dsxl_placement.png} MSE=0 filter-aware",
+      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
+      "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "RING_APP_STATE_MUTATION",
       "requirement": "Ring pipeline mutates real in-guest application state",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "device-os#103@7fe1022 artifacts/wp011r/ring/{RING_APP_MUTATION_EVIDENCE.json,document/ring_editor_buffer.odt,game/pp_progression.cfg,browser/browser_state.json}",
-      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_demotion_lab_sidecar_godot_first_run",
+      "evidence": "device-os#103@9d8ce2d artifacts/wp011r/ring/{RING_APP_MUTATION_EVIDENCE.json,document/ring_editor_buffer.odt,game/pp_progression.cfg,browser/browser_state.json}",
+      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
+      "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -623,11 +624,20 @@
     "PRODUCT_CHARTER_APPROVAL engineering state marked complete due to Edmund merge of #70.",
     "WP-001 remains OWNER_DECISION_PENDING / DO_NOT_START.",
     "GENERIC_README_PROGRAM=PAUSED; PROFILE_README_EDIT_FREEZE=ACTIVE.",
-    "WP-011R independent FAIL on tip 7fe1022: LIVE PASS; DSXL+RING demoted; five_gate_digital_and=false."
+    "WP-011R independent PASS on tip 9d8ce2d / 071f9b2: five_gate_digital_and=true; COMPLETE/shipping false."
   ],
-  "device_os_pr103_tip": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-  "five_gate_digital_and": false,
+  "device_os_pr103_tip": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
+  "five_gate_digital_and": true,
   "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
   "shipping_master": false,
-  "edmund": "do-not-merge #103 \u2014 independent FAIL demotion DSXL+RING; LIVE retained; Cursor never merges"
+  "edmund": "merge-ready-for-Edmund-only on #103 after INDEPENDENT_PASS; Cursor never merges; COMPLETE/shipping false; WP-001 DO_NOT_START",
+  "wp011r_note": "Independent PASS on tip 9d8ce2d (commit 071f9b2): DSXL filter-aware halves MSE=0; RING ODT+browser+Godot alive save_version; five_gate true; COMPLETE/shipping false",
+  "device_os_pr103_independent_commit": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
+  "INDEPENDENT_PASS": true,
+  "SILICON_EXACT_EMULATION": false,
+  "complete_policy": {
+    "rule": "Keep COMPLETE/shipping false unless packet explicitly allows digital COMPLETE with DEVICE_LAB_INTERACTIVE_DEVELOPMENT_GUEST=true AND SILICON_EXACT_EMULATION=false",
+    "packet_allows_digital_complete_on_interactive_guest": false,
+    "applied": "INDEPENDENT_PASS + five_gate_digital_and=true; COMPLETE remains false"
+  }
 }
