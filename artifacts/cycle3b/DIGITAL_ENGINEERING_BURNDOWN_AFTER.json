@@ -1,8 +1,8 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-12T16:57:20Z",
-  "phase": "after_wp011r_independent_pass_dsxl_ring",
+  "recorded_at_utc": "2026-08-12T17:07:46Z",
+  "phase": "cycle3b_continue_wp013_wp014_after_wp011r_independent_pass",
   "classification_enum": [
     "DIGITAL_IMPLEMENTATION_OPEN",
     "DIGITAL_IMPLEMENTATION_COMPLETE",
@@ -17,9 +17,9 @@
     "WP-014"
   ],
   "summary_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 16,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 20,
     "OWNER_DECISION_PENDING": 5,
-    "DIGITAL_IMPLEMENTATION_OPEN": 19,
+    "DIGITAL_IMPLEMENTATION_OPEN": 15,
     "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 2
   },
   "rows": [
@@ -187,7 +187,7 @@
       "implementation_files": [],
       "tests": [],
       "evidence": "artifacts/wp011r/ECO010_SOAK.json",
-      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
+      "current_accepted_sha": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
       "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
@@ -200,8 +200,8 @@
       "owner_repo": "gunnchos-device-os+game-repos",
       "implementation_files": [],
       "tests": [],
-      "evidence": "artifacts/wp011r/games/four_games_in_guest.json",
-      "current_accepted_sha": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
+      "evidence": "device-os#103@071f9b2 artifacts/wp011r/games/four_games_in_guest.json (independent) + WP-014 product gates DEVICE_LAB_PASS aligned",
+      "current_accepted_sha": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
       "blocker": null,
       "active_work_packet": "WP-011R+WP-014",
       "next_physical_human_external_dependency": null
@@ -257,42 +257,43 @@
     {
       "charter_requirement_id": "DEVICE_LAB_IMAGE_REALMS",
       "requirement": "Track Device Lab interactive/dev guest vs EVT/factory/recovery/shipping images and trust realms",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "gunnchos-device-os#104",
-      "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "wp013_partial_realms_yaml_present_builds_not_fully_earned",
+      "evidence": "device-os#104@41a51f6 artifacts/wp013/WP-013-RESULT.json IMAGE_REALMS_DIGITALLY_COMPLETE + EVT/FACTORY/RECOVERY image build PASS (unsigned production definition NOT_RELEASED)",
+      "current_accepted_sha": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+      "blocker": "ci_hardening_in_progress_no_production_keys_no_shipping_claim",
       "active_work_packet": "WP-013",
-      "next_physical_human_external_dependency": null
+      "next_physical_human_external_dependency": null,
+      "note": "Implementer tokens true on DRAFT #104; keep separate from #103; COMPLETE/shipping false"
     },
     {
       "charter_requirement_id": "GAME_LAUNCH_CONTENT_COMPLETENESS",
       "requirement": "Game launch-content completeness separate from Device Lab runtime proof",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "games-repos",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
-      "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "open_digital_work",
+      "evidence": "WP-014 DRAFTs #14/#72/#27/#18 DEVICE_LAB_PASS aligned to independent FOUR_GAME @071f9b2; S0=0 S1=0 per gate; physical playtest PENDING; beatlink pause/settings partial",
+      "current_accepted_sha": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
+      "blocker": "physical_playtest_pending_beatlink_soft_pause_settings_partial",
       "active_work_packet": "WP-014",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "SDK_API_APP_DISTRIBUTION",
       "requirement": "SDK/API/app distribution and deprecation policy",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
-      "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "gunnchSDK_pipeline_not_implemented",
+      "evidence": "device-os#104@41a51f6 SDK_PACKAGE_INSTALL_RUN_PASS + API_COMPATIBILITY_GATE_PASS via gunnchctl sdk/package/install/run",
+      "current_accepted_sha": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+      "blocker": null,
       "active_work_packet": "WP-013",
       "next_physical_human_external_dependency": null
     },
@@ -412,13 +413,13 @@
       "charter_requirement_id": "FACTORY_PROVISIONING",
       "requirement": "Factory provisioning / serials / MACs / keys / eSIM / calibration",
       "charter_classification": "PHYSICAL_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
-      "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "digital_factory_tooling_not_implemented",
+      "evidence": "device-os#104@41a51f6 FACTORY_PROVISIONING_DIGITAL_PASS + RECOVERY_SERVICEABILITY_DIGITAL_PASS (DEV/TEST identities only; eSIM EXTERNAL_PENDING; no production keys)",
+      "current_accepted_sha": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+      "blocker": "physical_factory_keys_esim_still_pending",
       "active_work_packet": "WP-013",
       "next_physical_human_external_dependency": "physical_factory_keys_esim"
     },
@@ -624,13 +625,15 @@
     "PRODUCT_CHARTER_APPROVAL engineering state marked complete due to Edmund merge of #70.",
     "WP-001 remains OWNER_DECISION_PENDING / DO_NOT_START.",
     "GENERIC_README_PROGRAM=PAUSED; PROFILE_README_EDIT_FREEZE=ACTIVE.",
-    "WP-011R independent PASS on tip 9d8ce2d / 071f9b2: five_gate_digital_and=true; COMPLETE/shipping false."
+    "WP-011R independent PASS on tip 9d8ce2d / 071f9b2: five_gate_digital_and=true; COMPLETE/shipping false.",
+    "WP-013 #104 remains separate DRAFT on main tip daf8e54; Edmund merge order #103 then #104.",
+    "WP-014 DEVICE_LAB_PASS realigned to independent FOUR_GAME evidence; portfolio token deferred until all four stay green + residual product-gate gaps closed honestly."
   ],
   "device_os_pr103_tip": "9d8ce2d3b60d21f4d4d851bad9f4b17e8ac43fff",
   "five_gate_digital_and": true,
   "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
   "shipping_master": false,
-  "edmund": "merge-ready-for-Edmund-only on #103 after INDEPENDENT_PASS; Cursor never merges; COMPLETE/shipping false; WP-001 DO_NOT_START",
+  "edmund": "merge-order: #103 first when Edmund chooses, then #104 (rebase), then WP-014 game DRAFTs, then field-kit #71; Cursor never merges; COMPLETE/shipping false; WP-001 DO_NOT_START",
   "wp011r_note": "Independent PASS on tip 9d8ce2d (commit 071f9b2): DSXL filter-aware halves MSE=0; RING ODT+browser+Godot alive save_version; five_gate true; COMPLETE/shipping false",
   "device_os_pr103_independent_commit": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
   "INDEPENDENT_PASS": true,
@@ -639,5 +642,50 @@
     "rule": "Keep COMPLETE/shipping false unless packet explicitly allows digital COMPLETE with DEVICE_LAB_INTERACTIVE_DEVELOPMENT_GUEST=true AND SILICON_EXACT_EMULATION=false",
     "packet_allows_digital_complete_on_interactive_guest": false,
     "applied": "INDEPENDENT_PASS + five_gate_digital_and=true; COMPLETE remains false"
+  },
+  "device_os_pr104_tip": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+  "wp013_exit_tokens_implementer": {
+    "IMAGE_REALMS_DIGITALLY_COMPLETE": true,
+    "EVT_IMAGE_BUILD_PASS": true,
+    "FACTORY_IMAGE_BUILD_PASS": true,
+    "RECOVERY_IMAGE_BUILD_PASS": true,
+    "PRODUCTION_IMAGE_DEFINITION_COMPLETE": true,
+    "SDK_PACKAGE_INSTALL_RUN_PASS": true,
+    "API_COMPATIBILITY_GATE_PASS": true,
+    "FACTORY_PROVISIONING_DIGITAL_PASS": true,
+    "RECOVERY_SERVICEABILITY_DIGITAL_PASS": true,
+    "PRODUCTION_RELEASE_CLAIMED": false
+  },
+  "wp014_device_lab": {
+    "pedestrian-pursuit": {
+      "pr": 14,
+      "DEVICE_LAB_PASS": true,
+      "runtime_class": "GUEST_GODOT4",
+      "S0_open": 0,
+      "S1_open": 0
+    },
+    "anime-aggressors": {
+      "pr": 72,
+      "DEVICE_LAB_PASS": true,
+      "runtime_class": "GUEST_CHROMIUM_WAYLAND",
+      "S0_open": 0,
+      "S1_open": 0
+    },
+    "archive-of-life-artifact-world": {
+      "pr": 27,
+      "DEVICE_LAB_PASS": true,
+      "runtime_class": "GUEST_CHROMIUM_WAYLAND",
+      "S0_open": 0,
+      "S1_open": 0
+    },
+    "beatlink-party": {
+      "pr": 18,
+      "DEVICE_LAB_PASS": true,
+      "runtime_class": "GUEST_CHROMIUM_WAYLAND",
+      "S0_open": 0,
+      "S1_open": 0,
+      "residual": "PAUSE/SETTINGS partial-PENDING"
+    },
+    "portfolio_token": false
   }
 }
