@@ -262,8 +262,8 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "device-os#104@41a51f6 artifacts/wp013/WP-013-RESULT.json IMAGE_REALMS_DIGITALLY_COMPLETE + EVT/FACTORY/RECOVERY image build PASS (unsigned production definition NOT_RELEASED)",
-      "current_accepted_sha": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+      "evidence": "device-os#104@f3e4efb artifacts/wp013/WP-013-RESULT.json IMAGE_REALMS_DIGITALLY_COMPLETE + EVT/FACTORY/RECOVERY image build PASS (unsigned production definition NOT_RELEASED)",
+      "current_accepted_sha": "f3e4efbe03558300e56151349472a603b38ba391",
       "blocker": "ci_hardening_in_progress_no_production_keys_no_shipping_claim",
       "active_work_packet": "WP-013",
       "next_physical_human_external_dependency": null,
@@ -277,7 +277,7 @@
       "owner_repo": "games-repos",
       "implementation_files": [],
       "tests": [],
-      "evidence": "WP-014 DRAFTs #14/#72/#27/#18 DEVICE_LAB_PASS aligned to independent FOUR_GAME @071f9b2; S0=0 S1=0 per gate; physical playtest PENDING; beatlink pause/settings partial",
+      "evidence": "WP-014 DRAFTs #14/#72/#27/#18 DEVICE_LAB_PASS aligned to independent FOUR_GAME @071f9b2; S0=0 S1=0 per gate; physical playtest PENDING; beatlink pause/settings PARTIAL (WP014-BL-PAUSE-001/WP014-BL-SETTINGS-001)",
       "current_accepted_sha": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
       "blocker": "physical_playtest_pending_beatlink_soft_pause_settings_partial",
       "active_work_packet": "WP-014",
@@ -291,8 +291,8 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "device-os#104@41a51f6 SDK_PACKAGE_INSTALL_RUN_PASS + API_COMPATIBILITY_GATE_PASS via gunnchctl sdk/package/install/run",
-      "current_accepted_sha": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+      "evidence": "device-os#104@f3e4efb SDK_PACKAGE_INSTALL_RUN_PASS + API_COMPATIBILITY_GATE_PASS via gunnchctl sdk/package/install/run",
+      "current_accepted_sha": "f3e4efbe03558300e56151349472a603b38ba391",
       "blocker": null,
       "active_work_packet": "WP-013",
       "next_physical_human_external_dependency": null
@@ -417,8 +417,8 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "device-os#104@41a51f6 FACTORY_PROVISIONING_DIGITAL_PASS + RECOVERY_SERVICEABILITY_DIGITAL_PASS (DEV/TEST identities only; eSIM EXTERNAL_PENDING; no production keys)",
-      "current_accepted_sha": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+      "evidence": "device-os#104@f3e4efb FACTORY_PROVISIONING_DIGITAL_PASS + RECOVERY_SERVICEABILITY_DIGITAL_PASS (DEV/TEST identities only; eSIM EXTERNAL_PENDING; no production keys)",
+      "current_accepted_sha": "f3e4efbe03558300e56151349472a603b38ba391",
       "blocker": "physical_factory_keys_esim_still_pending",
       "active_work_packet": "WP-013",
       "next_physical_human_external_dependency": "physical_factory_keys_esim"
@@ -643,7 +643,7 @@
     "packet_allows_digital_complete_on_interactive_guest": false,
     "applied": "INDEPENDENT_PASS + five_gate_digital_and=true; COMPLETE remains false"
   },
-  "device_os_pr104_tip": "41a51f6c5a6dbc1e7bd76ce974db7146a70f8382",
+  "device_os_pr104_tip": "f3e4efbe03558300e56151349472a603b38ba391",
   "wp013_exit_tokens_implementer": {
     "IMAGE_REALMS_DIGITALLY_COMPLETE": true,
     "EVT_IMAGE_BUILD_PASS": true,
@@ -684,8 +684,9 @@
       "runtime_class": "GUEST_CHROMIUM_WAYLAND",
       "S0_open": 0,
       "S1_open": 0,
-      "residual": "PAUSE/SETTINGS partial-PENDING"
+      "residual": "PAUSE/SETTINGS PARTIAL WP014-BL-PAUSE-001 / WP014-BL-SETTINGS-001"
     },
     "portfolio_token": false
-  }
+  },
+  "generated_at": "2026-08-12T17:21:56Z"
 }
