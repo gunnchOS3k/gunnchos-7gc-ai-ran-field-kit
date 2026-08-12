@@ -9,12 +9,12 @@ Prefer FAIL over false PASS.
 | Repo / PR | Branch tip (ls-remote pull head) | main tip | State |
 |---|---|---|---|
 | device-os #103 | `071f9b2` | `daf8e54` | DRAFT unmerged — WP-011R independent PASS retained; **do not touch** |
-| device-os #104 | tip advancing this packet (was `3a1ac12`) | `daf8e54` | DRAFT — WP-013R RUNTIME re-earn |
+| device-os #104 | `45a2aa7` | `daf8e54` | DRAFT — WP-013R RUNTIME re-earn |
 | anime #72 | prior Stream A tip | `2492703` | DRAFT unmerged |
 | pedestrian #14 | prior Stream A tip | `a2c6da5` | DRAFT unmerged |
 | archive #27 | prior Stream A tip | `948ca17` | DRAFT unmerged |
 | beatlink #18 | prior Stream A tip | `e0c18f3` | DRAFT unmerged |
-| field-kit #71 | tip advancing (was `d737c10`) | `b32fc06` | DRAFT — aggregation only; wave5 junk purged |
+| field-kit #71 | `e3c5a92` | `b32fc06` | DRAFT — aggregation only; wave5 junk purged |
 
 `gh` API auth is currently invalid in this environment; tips verified via `git ls-remote` + local branches. Prefer local independent verify.
 
