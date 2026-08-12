@@ -1,11 +1,11 @@
-# Cycle 3B Status — WP-011R continue
+# Cycle 3B Status — WP-011R independent demotion
 
-- device-os #103 tip: `7fe1022`
-- five-gate AND: **true (digital candidate)**
-- COMPLETE / shipping master: **false** (pending independent accept)
-- Edmund: **do-not-merge #103 until independent accepts**
+- device-os #103 tip audited: `7fe1022` → demotion commit on #103
+- five-gate AND: **false**
+- LIVE: **PASS** (IEND+OCR LIVEPROOF+document)
+- DSXL: **FAIL** (invented/filter-blind halves ≠ placement)
+- RING: **FAIL** (Lab RINGRING sidecar + Godot first-run save)
+- COMPLETE / shipping master: **false**
+- Edmund: **do-not-merge #103**
 - WP-001: **DO_NOT_START**
-- LIVE: typed_marker in document + IEND before/after PNGs committed
-- DSXL: placement half PNGs committed; focus; reboot 2→1→2
-- RING: guest ODT + browser + Godot save committed
 - Retained: FOUR_GAME, ECO010, GUEST_DUAL

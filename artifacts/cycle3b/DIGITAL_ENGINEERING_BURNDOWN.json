@@ -1,8 +1,8 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-12T16:10:23Z",
-  "phase": "after_wp011r_live_dsxl_ring_artifacts_committed",
+  "recorded_at_utc": "2026-08-12T16:20:00Z",
+  "phase": "after_wp011r_independent_demotion_dsxl_ring",
   "classification_enum": [
     "DIGITAL_IMPLEMENTATION_OPEN",
     "DIGITAL_IMPLEMENTATION_COMPLETE",
@@ -173,7 +173,7 @@
       "tests": [],
       "evidence": "gunnchos-device-os artifacts/wp011r/VP-011R-RESULT.independent.json",
       "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_demotion_LIVE_DSXL_RING_five_gate_and_false",
+      "blocker": "independent_demotion_DSXL_RING_five_gate_and_false",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -208,7 +208,7 @@
     {
       "charter_requirement_id": "LIVE_GUNNCHOS_VISUAL",
       "requirement": "Live gunnchOS shell/compositor visual proof",
-      "charter_classification": "DIGITALLY_COMPLETE_PENDING_INDEPENDENT",
+      "charter_classification": "DIGITALLY_COMPLETE",
       "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [
@@ -221,35 +221,35 @@
       ],
       "evidence": "device-os#103@7fe1022 artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json + shell_app_*.png",
       "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_accept_pending",
+      "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "DSXL_DUAL_COMPOSITOR_UX",
       "requirement": "DS-XL two-display compositor/application proof",
-      "charter_classification": "DIGITALLY_COMPLETE_PENDING_INDEPENDENT",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "charter_classification": "DIGITAL_WORK_PENDING",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
       "evidence": "device-os#103@7fe1022 artifacts/wp011r/dsxl/{DSXL_COMPOSITOR_UX_EVIDENCE.json,dsxl_left.png,dsxl_right.png,dsxl_placement.png}",
       "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_accept_pending",
+      "blocker": "independent_demotion_invented_filter_blind_halves",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "RING_APP_STATE_MUTATION",
       "requirement": "Ring pipeline mutates real in-guest application state",
-      "charter_classification": "DIGITALLY_COMPLETE_PENDING_INDEPENDENT",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "charter_classification": "DIGITAL_WORK_PENDING",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
       "evidence": "device-os#103@7fe1022 artifacts/wp011r/ring/{RING_APP_MUTATION_EVIDENCE.json,document/ring_editor_buffer.odt,game/pp_progression.cfg,browser/browser_state.json}",
       "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-      "blocker": "independent_accept_pending",
+      "blocker": "independent_demotion_lab_sidecar_godot_first_run",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -622,11 +622,12 @@
     "Charter PR #70 and portal PR #6 are merged on accepted main.",
     "PRODUCT_CHARTER_APPROVAL engineering state marked complete due to Edmund merge of #70.",
     "WP-001 remains OWNER_DECISION_PENDING / DO_NOT_START.",
-    "GENERIC_README_PROGRAM=PAUSED; PROFILE_README_EDIT_FREEZE=ACTIVE."
+    "GENERIC_README_PROGRAM=PAUSED; PROFILE_README_EDIT_FREEZE=ACTIVE.",
+    "WP-011R independent FAIL on tip 7fe1022: LIVE PASS; DSXL+RING demoted; five_gate_digital_and=false."
   ],
   "device_os_pr103_tip": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
-  "five_gate_digital_and": true,
+  "five_gate_digital_and": false,
   "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
   "shipping_master": false,
-  "edmund": "do-not-merge #103 \u2014 independent must accept; Cursor never merges"
+  "edmund": "do-not-merge #103 \u2014 independent FAIL demotion DSXL+RING; LIVE retained; Cursor never merges"
 }
