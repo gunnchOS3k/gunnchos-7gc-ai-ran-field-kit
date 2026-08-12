@@ -1,10 +1,10 @@
-# Cycle 3B Status — dependency STOP after WP-014R/WP-013R digital exhaustion
+# Cycle 3B Status — WP-013R RUNTIME earned; MERGE still HOLD on #103
 
-- Recorded: 2026-08-12T18:21:18Z
-- MERGE_RECOMMENDATION=HOLD
+- Recorded: 2026-08-12T18:36:00Z
+- MERGE_RECOMMENDATION=HOLD (games DEVICE_LAB + owner accept; RUNTIME residual cleared)
 - #103 tip `071f9b2` untouched INDEPENDENT_PASS
-- WP-014R: anime audio PASS; pedestrian false-green eliminated; archive settings/a11y PASS; beatlink HOST_CONTROLLED_SESSION_PAUSE PASS; DEVICE_LAB demoted pending #103
-- WP-013R: FIRST_PARTY_SDK_ADOPTION_PASS=true; IMAGE_REALM_POLICY_SEPARATION_PASS=true; EVT/FACTORY/RECOVERY_IMAGE_RUNTIME_PASS=false (honest)
+- WP-013R: EVT/FACTORY/RECOVERY_IMAGE_RUNTIME_PASS=true via QEMU realm overlay boots; IMAGE_REALM_POLICY_SEPARATION_PASS=true; FIRST_PARTY_SDK_ADOPTION_PASS=true
+- field-kit #71: `.wave5_lab_devices/` purged from tip + gitignored
 - PRODUCTION_RELEASE_CLAIMED=false
 - WP-015/016/017/WP-001 DO_NOT_START
 - Cursor never merges
