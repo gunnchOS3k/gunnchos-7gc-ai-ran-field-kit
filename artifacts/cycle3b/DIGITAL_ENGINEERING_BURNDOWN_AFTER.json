@@ -1,8 +1,8 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-12T14:59:19Z",
-  "phase": "after_wp011r_capture_fix_still_fail",
+  "recorded_at_utc": "2026-08-12T16:10:23Z",
+  "phase": "after_wp011r_live_dsxl_ring_artifacts_committed",
   "classification_enum": [
     "DIGITAL_IMPLEMENTATION_OPEN",
     "DIGITAL_IMPLEMENTATION_COMPLETE",
@@ -17,9 +17,9 @@
     "WP-014"
   ],
   "summary_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 12,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 15,
     "OWNER_DECISION_PENDING": 5,
-    "DIGITAL_IMPLEMENTATION_OPEN": 23,
+    "DIGITAL_IMPLEMENTATION_OPEN": 20,
     "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 2
   },
   "rows": [
@@ -172,7 +172,7 @@
       "implementation_files": [],
       "tests": [],
       "evidence": "gunnchos-device-os artifacts/wp011r/VP-011R-RESULT.independent.json",
-      "current_accepted_sha": "025929b50681dd87a87757408d05ff45a34532b1",
+      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
       "blocker": "independent_demotion_LIVE_DSXL_RING_five_gate_and_false",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
@@ -186,7 +186,7 @@
       "implementation_files": [],
       "tests": [],
       "evidence": "artifacts/wp011r/ECO010_SOAK.json",
-      "current_accepted_sha": "025929b50681dd87a87757408d05ff45a34532b1",
+      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
       "blocker": null,
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
@@ -200,7 +200,7 @@
       "implementation_files": [],
       "tests": [],
       "evidence": "artifacts/wp011r/games/four_games_in_guest.json",
-      "current_accepted_sha": "025929b50681dd87a87757408d05ff45a34532b1",
+      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
       "blocker": null,
       "active_work_packet": "WP-011R+WP-014",
       "next_physical_human_external_dependency": null
@@ -208,8 +208,8 @@
     {
       "charter_requirement_id": "LIVE_GUNNCHOS_VISUAL",
       "requirement": "Live gunnchOS shell/compositor visual proof",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE_PENDING_INDEPENDENT",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [
         "os_build/device_lab_interactive_guest/",
@@ -219,37 +219,37 @@
       "tests": [
         "tests/device_lab/test_device_lab_interactive_guest.py"
       ],
-      "evidence": "artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json",
-      "current_accepted_sha": "025929b50681dd87a87757408d05ff45a34532b1",
-      "blocker": "typed_marker_document_read_unreliable_after_complete_png_fix",
+      "evidence": "device-os#103@7fe1022 artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json + shell_app_*.png",
+      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+      "blocker": "independent_accept_pending",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "DSXL_DUAL_COMPOSITOR_UX",
       "requirement": "DS-XL two-display compositor/application proof",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE_PENDING_INDEPENDENT",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "artifacts/wp011r/dsxl/DSXL_COMPOSITOR_UX_EVIDENCE.json",
-      "current_accepted_sha": "025929b50681dd87a87757408d05ff45a34532b1",
-      "blocker": "placement_halves_png_not_committed_despite_dual_wl_output",
+      "evidence": "device-os#103@7fe1022 artifacts/wp011r/dsxl/{DSXL_COMPOSITOR_UX_EVIDENCE.json,dsxl_left.png,dsxl_right.png,dsxl_placement.png}",
+      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+      "blocker": "independent_accept_pending",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
     {
       "charter_requirement_id": "RING_APP_STATE_MUTATION",
       "requirement": "Ring pipeline mutates real in-guest application state",
-      "charter_classification": "DIGITAL_WORK_PENDING",
-      "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "charter_classification": "DIGITALLY_COMPLETE_PENDING_INDEPENDENT",
+      "engineering_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": "artifacts/wp011r/ring/RING_APP_MUTATION_EVIDENCE.json",
-      "current_accepted_sha": "025929b50681dd87a87757408d05ff45a34532b1",
-      "blocker": "guest_odt_marker_and_godot_save_not_committed",
+      "evidence": "device-os#103@7fe1022 artifacts/wp011r/ring/{RING_APP_MUTATION_EVIDENCE.json,document/ring_editor_buffer.odt,game/pp_progression.cfg,browser/browser_state.json}",
+      "current_accepted_sha": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+      "blocker": "independent_accept_pending",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -623,5 +623,10 @@
     "PRODUCT_CHARTER_APPROVAL engineering state marked complete due to Edmund merge of #70.",
     "WP-001 remains OWNER_DECISION_PENDING / DO_NOT_START.",
     "GENERIC_README_PROGRAM=PAUSED; PROFILE_README_EDIT_FREEZE=ACTIVE."
-  ]
+  ],
+  "device_os_pr103_tip": "7fe1022e48e15387a0e1ba7ab2736ceb5e3cf706",
+  "five_gate_digital_and": true,
+  "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+  "shipping_master": false,
+  "edmund": "do-not-merge #103 \u2014 independent must accept; Cursor never merges"
 }
