@@ -1,6 +1,6 @@
 {
   "schema": "gunnchos.charter_exhaustion.engineering_truth_audit.v1",
-  "generated_at_utc": "2026-08-12T19:53:52Z",
+  "generated_at_utc": "2026-08-12T21:05:17Z",
   "policy": {
     "CURSOR_NEVER_MERGES": true,
     "PROFILE_README_EDIT_FREEZE": "ACTIVE",
@@ -9,130 +9,104 @@
     "MAX_MAJOR_ACTIVE_STREAMS": 3
   },
   "accepted_main_verification": {
+    "anime-aggressors": {
+      "sha": "16df36d0025a6d124817a1800de65abef689d51f",
+      "pr_merged": 72,
+      "tip_merged": "a320c7c7edf0f6d60f27833a6488fcee8038b3e0",
+      "verified": true,
+      "independent_verifier": "PASS",
+      "vp_land_pr": 73
+    },
+    "gunnchos-device-os": {
+      "sha": "3858e760295ad35828ff141919681f2bb8685cf0",
+      "pr_merged": 104,
+      "tip_merged": "e05d3edb82a978a6e4d6e1481ba20d0d53305b94",
+      "verified": true,
+      "independent_verifier": "PASS",
+      "vp_land_pr": 105
+    },
+    "gunnchos-hardware-industrial-design": {
+      "sha": "4ba876d42f59f03d4b5c5ef0ca776e1253da814d",
+      "pr_merged": 60,
+      "tip_merged": "82dbbc2d87eb544675b33b0d99b1795712b7d54d",
+      "verified": true,
+      "independent_verifier": "AUDIT_ACCEPTANCE_PASS",
+      "HW_FIRMWARE_DIGITAL_PACKAGE_COMPLETE": false,
+      "vp_land_pr": 61
+    },
     "pedestrian-pursuit": {
       "sha": "3f4dafd0e455a0cf22523bab48a094a542d3141d",
-      "pr": 14,
       "verified": true
     },
     "archive-of-life-artifact-world": {
       "sha": "64fcf3a73d9a0db4e13523f762cf3fd651d7ddaa",
-      "pr": 27,
       "verified": true
     },
     "beatlink-party": {
       "sha": "4b3970c9bc327ba7a1cec43ff7a905d91cd3070b",
-      "pr": 18,
       "verified": true
     },
-    "anime-aggressors": {
-      "sha": "249270383eab87cf4d1240ea17e66bfff44d4b8c",
-      "note": "WP-014 #72 NOT on main; tip a320c7c CI green"
-    },
-    "gunnchos-device-os": {
-      "sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "note": "#103/#104 unmerged"
-    },
     "gunnchos-7gc-ai-ran-field-kit": {
-      "sha": "b32fc06191608054921c07cff63725129601e9a6"
+      "sha": "b32fc06191608054921c07cff63725129601e9a6",
+      "verified": true,
+      "note": "#71 DRAFT aggregation LAST; do not merge yet"
     },
-    "gunnchos-hardware-industrial-design": {
-      "sha": "a05afa64fdca32f62f9d10eb29d80e279fce7323",
-      "note": "#60 unmerged"
+    "waike-research-ops": {
+      "sha": "5c5f6cafb1d60c7d67258b719b75cac42c18d750",
+      "verified": true
+    },
+    "gunnchAI3k": {
+      "sha": "e9d4909e09f8bfaf12802aa16c548993ff0f2c85",
+      "verified": true
     }
   },
   "open_prs": [
     {
       "repo": "anime-aggressors",
-      "pr": 72,
-      "branch": "operating-cycle-3b/wp-014-anime-aggressors",
-      "base": "main",
-      "tip": "a320c7c7edf0f6d60f27833a6488fcee8038b3e0",
+      "pr": 73,
       "draft": true,
-      "mergeable": "MERGEABLE",
-      "ci": "GREEN",
-      "S0": 0,
-      "S1": 0,
-      "independent_verifier": "PENDING",
-      "url": "https://github.com/gunnchOS3k/anime-aggressors/pull/72"
+      "note": "VP land #72 PASS"
+    },
+    {
+      "repo": "gunnchos-hardware-industrial-design",
+      "pr": 61,
+      "draft": true,
+      "note": "VP land audit acceptance; COMPLETE=false"
     },
     {
       "repo": "gunnchos-device-os",
-      "pr": 104,
-      "branch": "operating-cycle-3b/wp-013-release-engineering",
-      "base": "main",
-      "tip": "e05d3edb82a978a6e4d6e1481ba20d0d53305b94",
+      "pr": 105,
       "draft": true,
-      "mergeable": "MERGEABLE",
-      "ci": "REPROOF_IN_FLIGHT",
-      "S0": 0,
-      "S1": 0,
-      "independent_verifier": "PENDING",
-      "url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/104"
+      "note": "VP land #104 PASS"
     },
     {
       "repo": "gunnchos-device-os",
       "pr": 103,
-      "branch": "operating-cycle-3b/wp-011r-device-lab",
-      "base": "main",
-      "tip": "071f9b28b2cccd0549885e5f8427af4db3c162c5",
       "draft": true,
-      "mergeable": "MERGEABLE",
-      "ci": "HAS_FAILURES",
-      "S0": 0,
-      "S1": 0,
-      "independent_verifier": "HISTORICAL_PASS_HOLD",
-      "url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/103"
-    },
-    {
-      "repo": "gunnchos-hardware-industrial-design",
-      "pr": 60,
-      "branch": "stream-c/hw-firmware-digital-truth-audit",
-      "base": "main",
-      "tip": "82dbbc2d87eb544675b33b0d99b1795712b7d54d",
-      "draft": true,
-      "mergeable": "MERGEABLE",
-      "ci": "REPROOF_IN_FLIGHT",
-      "S0": 0,
-      "S1": 0,
-      "independent_verifier": "AUDIT_FAIL",
-      "url": "https://github.com/gunnchOS3k/gunnchos-hardware-industrial-design/pull/60"
+      "note": "HOLD Lab"
     },
     {
       "repo": "gunnchos-7gc-ai-ran-field-kit",
       "pr": 71,
-      "branch": "operating-cycle-3b/engineering-burndown",
-      "base": "main",
-      "tip": "839588f56f21ed78e58044366271909a5bd1f04d",
       "draft": true,
-      "mergeable": "MERGEABLE",
-      "ci": "HAS_FAILURE",
-      "S0": 0,
-      "S1": 0,
-      "independent_verifier": "HOLD_AGGREGATION_LAST",
-      "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/71"
+      "note": "LAST; no merge recommend"
     }
   ],
   "active_wip": [
     {
       "stream": "A",
-      "packet": "WP-014R-A",
-      "pr": "anime-aggressors#72",
-      "tip": "a320c7c",
-      "status": "CI_GREEN"
+      "packet": "GAME-001",
+      "status": "NEXT"
     },
     {
       "stream": "B",
-      "packet": "WP-013R",
-      "pr": "gunnchos-device-os#104",
-      "tip": "e05d3ed",
-      "status": "CI_REPROOF"
+      "packet": "PLATFORM-001",
+      "status": "NEXT"
     },
     {
       "stream": "C",
-      "packet": "HW-001",
-      "pr": "gunnchos-hardware-industrial-design#60",
-      "tip": "82dbbc2",
-      "status": "AUDIT_FAIL_OPEN_GAPS"
+      "packet": "HW-002",
+      "status": "NEXT"
     }
   ],
   "claim_firewall": {
@@ -148,29 +122,31 @@
     "PURCHASE_AUTHORIZED": false,
     "FAB_RELEASE_AUTHORIZED": false,
     "WP001_READY_FOR_OWNER_DECISION": false,
-    "PRODUCT_CHARTER_DIGITAL_ENGINEERING_EXHAUSTED": false
+    "PRODUCT_CHARTER_DIGITAL_ENGINEERING_EXHAUSTED": false,
+    "HW_FIRMWARE_DIGITAL_PACKAGE_COMPLETE": false,
+    "FIELD_KIT_71_MERGE_RECOMMEND": false
   },
   "summary_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 9,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 4,
+    "ATOMIC_DIGITAL_IMPLEMENTATION_OPEN": 439,
     "OWNER_DECISION_PENDING": 6,
-    "DIGITAL_IMPLEMENTATION_OPEN": 13,
-    "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 5,
-    "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING": 3,
-    "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING": 7,
-    "STANDARD_PENDING": 2
+    "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING": 11,
+    "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING": 8,
+    "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 6,
+    "STANDARD_PENDING": 2,
+    "PRIOR_BROAD_DIGITAL_IMPLEMENTATION_OPEN": 13
   },
-  "DIGITAL_IMPLEMENTATION_OPEN": 13,
+  "DIGITAL_IMPLEMENTATION_OPEN": 439,
   "edmund_merge_order": [
-    "1. anime-aggressors#72 after independent verifier (CI green @a320c7c)",
-    "2. gunnchos-device-os#104 after CI green + independent PASS",
-    "3. gunnchos-hardware-industrial-design#60 when CI green (audit still FAIL / digital open)",
-    "4. gunnchos-device-os#103 only after Anime+#104 on main + owner-artifact Lab reconciliation",
-    "5. field-kit#71 LAST after accepted-main aggregation"
+    "Phase A merged: anime#72 @16df36d, device-os#104 @3858e76, hardware#60 @4ba876d",
+    "VP land DRAFTs: anime#73, hardware#61, device-os#105 \u2014 owner merge optional evidence land",
+    "device-os#103 HOLD until Lab reconciliation on accepted mains",
+    "field-kit#71 LAST \u2014 DO NOT MERGE YET (V2 register work allowed on DRAFT)"
   ],
   "next_three_packets": [
-    "Anime full-game fighter-depth register (beyond core gate)",
-    "WP-013R Creator/WAIKE/AI + web first-party adoption depth",
-    "HW-001 Handheld production slot image fit + Ring Zephyr west"
+    "GAME-001 Anime fighter/product depth (Ember Vale\u2026Vesper Nyx differentiation)",
+    "PLATFORM-001 Creator/WAIKE/gunnchAI first-party app depth on device-os main 3858e76",
+    "HW-002 Handheld image-slot fit + Ring Zephyr west + one high-risk EDA closure"
   ],
   "requirements": [
     {
@@ -1155,5 +1131,25 @@
       "final_non_digital_dependency": "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING",
       "engineering_state": "DIGITAL_IMPLEMENTATION_OPEN"
     }
+  ],
+  "superseded_by": "artifacts/charter_exhaustion/CHARTER_ENGINEERING_REQUIREMENT_REGISTER_V2.json",
+  "note": "V1 coarse audit retained for history. Authoritative open count is ATOMIC_DIGITAL_IMPLEMENTATION_OPEN in V2.",
+  "prior_DIGITAL_IMPLEMENTATION_OPEN": 13,
+  "ATOMIC_DIGITAL_IMPLEMENTATION_OPEN": 439,
+  "misclassified_rows_reopened": [
+    "SUPPLY_CHAIN_LIFECYCLE",
+    "RELIABILITY_ENVIRONMENTAL_TESTS",
+    "ERGONOMICS_HUMAN_FACTORS",
+    "WARRANTY_RMA_REPAIR_SPARES",
+    "FACTORY_PROVISIONING",
+    "PACKAGING_FIRST_USE_RECYCLING",
+    "EVT_CALIBRATION",
+    "HIL_CORRELATION",
+    "BATTERY_THERMAL_RF",
+    "RING_SPATIAL_PHYSICAL",
+    "EXTERNAL_PENTEST",
+    "CARRIER_APPROVAL",
+    "PRIVACY_DATA_GOVERNANCE",
+    "LICENSING_IP_MEDIA_MODEL_DATA_RIGHTS"
   ]
 }
