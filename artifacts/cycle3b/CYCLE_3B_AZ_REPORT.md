@@ -1,29 +1,29 @@
-# Cycle 3B A–Z Report — WP-011R independent demotion (DSXL+RING)
+# Cycle 3B A–Z Report — WP-011R implementer re-earn (pending independent)
 
-Recorded: 2026-08-12T16:20:00Z
+Recorded: 2026-08-12T16:47:18Z
 Cursor never merges. Profile README freeze ACTIVE. Generic README program PAUSED. WP-001 DO_NOT_START.
 
 ## Verdict
-**Independent five-gate digital AND is false** after adversarial review of device-os DRAFT #103 tip `7fe1022`.
-**LIVE earned; DSXL+RING demoted.** FOUR_GAME+ECO010 retained.
-**Shipping/silicon master remains false.** Prefer FAIL over false PASS. Cursor never merges.
+**Implementer re-earned DSXL+RING** after independent FAIL on tip `779c2ae` (invented halves + Lab RINGRING/Godot first-run).
+**Independent acceptance still pending** — Edmund do-not-merge until DSXL+RING survive the same independent checks.
+LIVE/FOUR_GAME/ECO010/GUEST_DUAL retained. COMPLETE/shipping/silicon remain false. Prefer FAIL over false PASS. Cursor never merges.
 
 ## Token board
 | Token | Status | Evidence |
 |---|---|---|
-| LIVE_GUNNCHOS_VISUAL_PASS | **true** | IEND-complete guest PNGs differ; OCR `LIVEPROOF1786547491` visible; document marker; not host-FB-only |
-| DSXL_DUAL_COMPOSITOR_UX_PASS | **false** | `dsxl_left/right` near-black ≠ `placement.png` halves (filter-blind invented halves; `placement_halves.ok` overclaim) |
-| RING_TO_REAL_APP_STATE_MUTATION_PASS | **false** | Lab `RINGRING` document_state sidecar + Godot first-run save (`alive=false`); prefer FAIL despite ODT `RINGMUTATION` + browser 60→65 |
-| FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS | **true** | Pedestrian Godot4 + Chromium Wayland retained |
-| ECO010_SOAK_PASS | **true** | 1800.05s; dry_check=false; not shortened |
-| GUEST_DUAL_OUTPUT_PASS | **true** | guest_drm dual retained (insufficient alone for DSXL UX) |
-| Independent digital master (five-gate AND) | **false** | demoted |
+| LIVE_GUNNCHOS_VISUAL_PASS | **true** (independent-accepted retained) | IEND guest PNGs + LIVEPROOF |
+| DSXL_DUAL_COMPOSITOR_UX_PASS | **true** (implementer; pending independent) | Filter-aware crops; left/right means 58.45/130.06 match placement; 2→1→2 reboot reconfig; focus retained |
+| RING_TO_REAL_APP_STATE_MUTATION_PASS | **true** (implementer; pending independent) | ODT `RINGMUTATION1786552403`; no `document_state.json`/RINGRING; browser clicks 70; Godot save_version 1→2 with `alive=true` |
+| FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS | **true** | retained |
+| ECO010_SOAK_PASS | **true** | retained |
+| GUEST_DUAL_OUTPUT_PASS | **true** | retained |
+| Independent digital master (five-gate AND) | **pending** | implementer claims true; independent must re-verify DSXL+RING |
 | GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE | **false** | shipping/COMPLETE false |
 | Shipping/silicon master | **false** | claim_firewall; PHYSICAL_PENDING |
 
 ## Streams
-### WP-011R — https://github.com/gunnchOS3k/gunnchos-device-os/pull/103 (DRAFT) tip `7fe1022` — Cursor never merges
+### WP-011R — https://github.com/gunnchOS3k/gunnchos-device-os/pull/103 (DRAFT) — Cursor never merges
 ### Aggregation — field-kit #71 DRAFT
 
 ## Edmund
-**Do not merge #103.** Independent demoted DSXL/RING; LIVE retained; FIVE_GATE digital AND false. Shipping master false. WP-001 DO_NOT_START. Cursor never merges.
+**Do not merge #103** until independent re-checks DSXL+RING on the new tip. LIVE/FOUR/ECO010 retained. Shipping master false. WP-001 DO_NOT_START. Cursor never merges.
