@@ -1,8 +1,8 @@
 {
   "schema": "gunnchos.cycle3b.digital_engineering_burndown.v1",
   "cycle": "3B",
-  "recorded_at_utc": "2026-08-11T22:36:50Z",
-  "phase": "cycle3b_digital_tokens_earned_awaiting_edmund_merge",
+  "recorded_at_utc": "2026-08-12T03:54:04Z",
+  "phase": "cycle3b_wp011r_partial_earn_awaiting_edmund",
   "classification_enum": [
     "ACCEPTED_ON_MAIN",
     "DIGITAL_IMPLEMENTATION_OPEN",
@@ -199,7 +199,7 @@
       "owner_repo": "gunnchos-device-os+game-repos",
       "implementation_files": [],
       "tests": [],
-      "evidence": "gunnchos-device-os@264b9c9 artifacts/wp011r/games/four_games_in_guest.json",
+      "evidence": "device-os#103 artifacts/wp011r/games/four_games_in_guest.json (aggregate true; Pedestrian Godot4)",
       "current_accepted_sha": "264b9c9",
       "blocker": null,
       "active_work_packet": "WP-011R+WP-014",
@@ -219,7 +219,7 @@
       "tests": [
         "tests/device_lab/test_device_lab_interactive_guest.py"
       ],
-      "evidence": "device-os#103 LIVE true",
+      "evidence": "device-os#103 artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json (LIVE true)",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
       "blocker": null,
       "active_work_packet": "WP-011R",
@@ -233,9 +233,9 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
+      "evidence": "device-os#103 artifacts/wp011r/dsxl/DSXL_COMPOSITOR_UX_EVIDENCE.json (DSXL false)",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "needs_wayland_multi_output_on_interactive_guest",
+      "blocker": "virtio_gpu_no_hotplug; weston 1 wl_output on dual PCI; reboot reconfig 2→1→2 pending",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
@@ -247,9 +247,9 @@
       "owner_repo": "gunnchos-device-os",
       "implementation_files": [],
       "tests": [],
-      "evidence": null,
+      "evidence": "device-os#103 artifacts/wp011r/ring/RING_APP_MUTATION_EVIDENCE.json (RING false)",
       "current_accepted_sha": "daf8e540998eeb62352e4292516ede89ca7715a2",
-      "blocker": "needs_in_guest_uinput_to_real_apps",
+      "blocker": "Ring via_stack ok; LO+browser+game app-state mutation aggregate still false",
       "active_work_packet": "WP-011R",
       "next_physical_human_external_dependency": null
     },
