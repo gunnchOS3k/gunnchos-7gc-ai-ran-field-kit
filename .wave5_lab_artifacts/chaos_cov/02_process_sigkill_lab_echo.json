@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "fault": "process.sigkill_lab_echo",
+  "initial_state": {
+    "pid": 93027,
+    "alive": true
+  },
+  "injected_condition": "process.sigkill_lab_echo",
+  "expected_result": "process_exits_after_sigkill",
+  "actual_result": {
+    "pid": 93027,
+    "alive": false,
+    "returncode": -9
+  },
+  "cleanup_queued": true,
+  "duration_ms": 507,
+  "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+  "SILICON_EXACT_EMULATION": false
+}

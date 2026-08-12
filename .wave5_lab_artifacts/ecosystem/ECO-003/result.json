@@ -1,0 +1,650 @@
+{
+  "ok": true,
+  "scenario_id": "ECO-003",
+  "depth": "ring_multi_target_inject_reject",
+  "status": "PASS",
+  "authorized_targets": [
+    "browser",
+    "libreoffice",
+    "games"
+  ],
+  "student_inject": {
+    "ok": true,
+    "delivered": true,
+    "result": {
+      "kind": "deliver",
+      "packet": {
+        "authenticated": true,
+        "device_id": "ring-sim-01",
+        "session_id": "lab-ring-session",
+        "confidence": 0.9,
+        "gesture": "click",
+        "target": "browser",
+        "ring_service": "gunnchos.ring.service.v1"
+      },
+      "events": 4,
+      "delivery": {
+        "ok": true,
+        "delivered": 4,
+        "by_target": {
+          "libreoffice": 0,
+          "browser": 4,
+          "games": 0
+        },
+        "mutations": [
+          {
+            "ok": true,
+            "delivered": true,
+            "mutated": true,
+            "target": "browser",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": true,
+              "mutated": true,
+              "via": "input_router_hid_wayland",
+              "direct_file_write": false,
+              "before": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 0,
+                "focused_element": null,
+                "page_state": {
+                  "counter": 0,
+                  "last_action": null
+                }
+              },
+              "after": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 0,
+                "focused_element": "pointer@0.04,0.00",
+                "page_state": {
+                  "counter": 0,
+                  "last_action": "move",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  }
+                }
+              },
+              "event": {
+                "kind": "move",
+                "x": 0.04000000000000001,
+                "y": 0.0,
+                "gesture": null,
+                "target": "browser"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "browser",
+              "url": "lab://browser/home",
+              "scroll_y": 0.0,
+              "click_count": 0,
+              "focused_element": "pointer@0.04,0.00",
+              "page_state": {
+                "counter": 0,
+                "last_action": "move",
+                "pointer": {
+                  "x": 0.04000000000000001,
+                  "y": 0.0
+                },
+                "playwright": false,
+                "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+              }
+            }
+          },
+          {
+            "ok": true,
+            "delivered": true,
+            "mutated": true,
+            "target": "browser",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": true,
+              "mutated": true,
+              "via": "input_router_hid_wayland",
+              "direct_file_write": false,
+              "before": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 0,
+                "focused_element": "pointer@0.04,0.00",
+                "page_state": {
+                  "counter": 0,
+                  "last_action": "move",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  },
+                  "playwright": false,
+                  "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+                }
+              },
+              "after": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 1,
+                "focused_element": "lab-button",
+                "page_state": {
+                  "counter": 1,
+                  "last_action": "click",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  },
+                  "playwright": false,
+                  "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+                }
+              },
+              "event": {
+                "kind": "click",
+                "x": 0.04000000000000001,
+                "y": 0.0,
+                "gesture": null,
+                "target": "browser"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "browser",
+              "url": "lab://browser/home",
+              "scroll_y": 0.0,
+              "click_count": 1,
+              "focused_element": "lab-button",
+              "page_state": {
+                "counter": 1,
+                "last_action": "click",
+                "pointer": {
+                  "x": 0.04000000000000001,
+                  "y": 0.0
+                },
+                "playwright": false,
+                "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+              }
+            }
+          },
+          {
+            "ok": true,
+            "delivered": true,
+            "mutated": true,
+            "target": "browser",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": true,
+              "mutated": true,
+              "via": "input_router_hid_wayland",
+              "direct_file_write": false,
+              "before": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 1,
+                "focused_element": "lab-button",
+                "page_state": {
+                  "counter": 1,
+                  "last_action": "click",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  },
+                  "playwright": false,
+                  "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+                }
+              },
+              "after": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 1,
+                "focused_element": "pointer@0.04,0.00",
+                "page_state": {
+                  "counter": 1,
+                  "last_action": "move",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  },
+                  "playwright": false,
+                  "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+                }
+              },
+              "event": {
+                "kind": "move",
+                "x": 0.04000000000000001,
+                "y": 0.0,
+                "gesture": null,
+                "target": "browser"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "browser",
+              "url": "lab://browser/home",
+              "scroll_y": 0.0,
+              "click_count": 1,
+              "focused_element": "pointer@0.04,0.00",
+              "page_state": {
+                "counter": 1,
+                "last_action": "move",
+                "pointer": {
+                  "x": 0.04000000000000001,
+                  "y": 0.0
+                },
+                "playwright": false,
+                "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+              }
+            }
+          },
+          {
+            "ok": true,
+            "delivered": true,
+            "mutated": true,
+            "target": "browser",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": true,
+              "mutated": true,
+              "via": "input_router_hid_wayland",
+              "direct_file_write": false,
+              "before": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.0,
+                "click_count": 1,
+                "focused_element": "pointer@0.04,0.00",
+                "page_state": {
+                  "counter": 1,
+                  "last_action": "move",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  },
+                  "playwright": false,
+                  "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+                }
+              },
+              "after": {
+                "app_id": "browser",
+                "url": "lab://browser/home",
+                "scroll_y": 0.4,
+                "click_count": 1,
+                "focused_element": "pointer@0.04,0.00",
+                "page_state": {
+                  "counter": 1,
+                  "last_action": "scroll",
+                  "pointer": {
+                    "x": 0.04000000000000001,
+                    "y": 0.0
+                  },
+                  "playwright": false,
+                  "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+                  "scroll_y": 0.4
+                }
+              },
+              "event": {
+                "kind": "scroll",
+                "x": 0.0,
+                "y": 0.4,
+                "gesture": null,
+                "target": "browser"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "browser",
+              "url": "lab://browser/home",
+              "scroll_y": 0.4,
+              "click_count": 1,
+              "focused_element": "pointer@0.04,0.00",
+              "page_state": {
+                "counter": 1,
+                "last_action": "scroll",
+                "pointer": {
+                  "x": 0.04000000000000001,
+                  "y": 0.0
+                },
+                "playwright": false,
+                "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+                "scroll_y": 0.4
+              }
+            }
+          }
+        ],
+        "app_state_changed": true,
+        "via": "input_router_hid_wayland",
+        "direct_file_write": false,
+        "physical_accuracy": "PHYSICAL_PENDING"
+      },
+      "delivered": true,
+      "app_state_changed": true,
+      "before": {
+        "app_id": "browser",
+        "url": "lab://browser/home",
+        "scroll_y": 0.0,
+        "click_count": 0,
+        "focused_element": null,
+        "page_state": {
+          "counter": 0,
+          "last_action": null
+        }
+      },
+      "after": {
+        "app_id": "browser",
+        "url": "lab://browser/home",
+        "scroll_y": 0.4,
+        "click_count": 1,
+        "focused_element": "pointer@0.04,0.00",
+        "page_state": {
+          "counter": 1,
+          "last_action": "scroll",
+          "pointer": {
+            "x": 0.04000000000000001,
+            "y": 0.0
+          },
+          "playwright": false,
+          "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+          "scroll_y": 0.4
+        }
+      },
+      "via_stack": true,
+      "direct_file_write": false,
+      "os_input_path": {
+        "attempted": true,
+        "RING_SPATIAL_ACCURACY": "SIMULATED",
+        "RING_TO_REAL_APPLICATION_INPUT_PASS": false,
+        "blocker": "No guest monitor/agent bound; hybrid Lab surfaces only"
+      }
+    },
+    "via_stack": true,
+    "app_state_changed": true,
+    "before": {
+      "app_id": "browser",
+      "url": "lab://browser/home",
+      "scroll_y": 0.0,
+      "click_count": 0,
+      "focused_element": null,
+      "page_state": {
+        "counter": 0,
+        "last_action": null
+      }
+    },
+    "after": {
+      "app_id": "browser",
+      "url": "lab://browser/home",
+      "scroll_y": 0.4,
+      "click_count": 1,
+      "focused_element": "pointer@0.04,0.00",
+      "page_state": {
+        "counter": 1,
+        "last_action": "scroll",
+        "pointer": {
+          "x": 0.04000000000000001,
+          "y": 0.0
+        },
+        "playwright": false,
+        "playwright_error": "BrowserType.launch: Executable doesn't exist at /var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/cursor-sandbox-cache/c9572e89a158d96a1e995e7f2a7cdd21/playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+        "scroll_y": 0.4
+      }
+    },
+    "os_input_path": {
+      "attempted": true,
+      "RING_SPATIAL_ACCURACY": "SIMULATED",
+      "RING_TO_REAL_APPLICATION_INPUT_PASS": false,
+      "blocker": "No guest monitor/agent bound; hybrid Lab surfaces only"
+    }
+  },
+  "dsxl_inject": {
+    "ok": true,
+    "delivered": true,
+    "result": {
+      "kind": "deliver",
+      "packet": {
+        "authenticated": true,
+        "device_id": "ring-sim-01",
+        "session_id": "lab-ring-session",
+        "confidence": 0.9,
+        "gesture": "click",
+        "target": "libreoffice",
+        "ring_service": "gunnchos.ring.service.v1"
+      },
+      "events": 4,
+      "delivery": {
+        "ok": true,
+        "delivered": 2,
+        "by_target": {
+          "libreoffice": 4,
+          "browser": 0,
+          "games": 0
+        },
+        "mutations": [
+          {
+            "ok": false,
+            "delivered": false,
+            "mutated": false,
+            "target": "libreoffice",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": false,
+              "mutated": false,
+              "via": "input_router_hid",
+              "direct_file_write": false,
+              "before_len": 0,
+              "after_len": 0,
+              "before": "",
+              "after": "",
+              "event": {
+                "kind": "move",
+                "text": null,
+                "gesture": null,
+                "target": "libreoffice"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "libreoffice",
+              "content": "",
+              "cursor": 0,
+              "focused": true,
+              "len": 0,
+              "checksum": 0
+            }
+          },
+          {
+            "ok": true,
+            "delivered": true,
+            "mutated": true,
+            "target": "libreoffice",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": true,
+              "mutated": true,
+              "via": "input_router_hid",
+              "direct_file_write": false,
+              "before_len": 0,
+              "after_len": 4,
+              "before": "",
+              "after": "RING",
+              "event": {
+                "kind": "click",
+                "text": "RING",
+                "gesture": null,
+                "target": "libreoffice"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "libreoffice",
+              "content": "RING",
+              "cursor": 4,
+              "focused": true,
+              "len": 4,
+              "checksum": 3158421800
+            }
+          },
+          {
+            "ok": false,
+            "delivered": false,
+            "mutated": false,
+            "target": "libreoffice",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": false,
+              "mutated": false,
+              "via": "input_router_hid",
+              "direct_file_write": false,
+              "before_len": 4,
+              "after_len": 4,
+              "before": "RING",
+              "after": "RING",
+              "event": {
+                "kind": "move",
+                "text": null,
+                "gesture": null,
+                "target": "libreoffice"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "libreoffice",
+              "content": "RING",
+              "cursor": 4,
+              "focused": true,
+              "len": 4,
+              "checksum": 3158421800
+            }
+          },
+          {
+            "ok": true,
+            "delivered": true,
+            "mutated": true,
+            "target": "libreoffice",
+            "via": "input_router_hid_wayland",
+            "virtual_hid": true,
+            "wayland_injection": true,
+            "direct_file_write": false,
+            "app_result": {
+              "ok": true,
+              "mutated": true,
+              "via": "input_router_hid",
+              "direct_file_write": false,
+              "before_len": 4,
+              "after_len": 8,
+              "before": "RING",
+              "after": "RINGRING",
+              "event": {
+                "kind": "click",
+                "text": "RING",
+                "gesture": null,
+                "target": "libreoffice"
+              }
+            },
+            "app_snapshot": {
+              "app_id": "libreoffice",
+              "content": "RINGRING",
+              "cursor": 8,
+              "focused": true,
+              "len": 8,
+              "checksum": 2999703466
+            }
+          }
+        ],
+        "app_state_changed": true,
+        "via": "input_router_hid_wayland",
+        "direct_file_write": false,
+        "physical_accuracy": "PHYSICAL_PENDING"
+      },
+      "delivered": true,
+      "app_state_changed": true,
+      "before": {
+        "app_id": "libreoffice",
+        "content": "",
+        "cursor": 0,
+        "focused": false,
+        "len": 0,
+        "checksum": 0
+      },
+      "after": {
+        "app_id": "libreoffice",
+        "content": "RINGRING",
+        "cursor": 8,
+        "focused": true,
+        "len": 8,
+        "checksum": 2999703466
+      },
+      "via_stack": true,
+      "direct_file_write": false,
+      "os_input_path": {
+        "attempted": true,
+        "RING_SPATIAL_ACCURACY": "SIMULATED",
+        "RING_TO_REAL_APPLICATION_INPUT_PASS": false,
+        "blocker": "No guest monitor/agent bound; hybrid Lab surfaces only"
+      }
+    },
+    "via_stack": true,
+    "app_state_changed": true,
+    "before": {
+      "app_id": "libreoffice",
+      "content": "",
+      "cursor": 0,
+      "focused": false,
+      "len": 0,
+      "checksum": 0
+    },
+    "after": {
+      "app_id": "libreoffice",
+      "content": "RINGRING",
+      "cursor": 8,
+      "focused": true,
+      "len": 8,
+      "checksum": 2999703466
+    },
+    "os_input_path": {
+      "attempted": true,
+      "RING_SPATIAL_ACCURACY": "SIMULATED",
+      "RING_TO_REAL_APPLICATION_INPUT_PASS": false,
+      "blocker": "No guest monitor/agent bound; hybrid Lab surfaces only"
+    }
+  },
+  "wrong_target": {
+    "ok": true,
+    "delivered": false,
+    "reject": {
+      "reason": "wrong_target",
+      "requested": "browser"
+    },
+    "via_stack": true
+  },
+  "low_confidence": {
+    "ok": true,
+    "delivered": false,
+    "reject": {
+      "reason": "low_confidence",
+      "confidence": 0.1
+    },
+    "via_stack": true
+  },
+  "RING_SPATIAL_ACCURACY": "SIMULATED",
+  "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+  "duration_ms": 1136,
+  "claim_boundary": "Device Lab ecosystem digital journeys. SILICON_EXACT_EMULATION=false. VF4/5/6 PHYSICAL_PENDING. Master complete remains false until all gates earned.",
+  "note": "Ring Lab inject across authorized surfaces (browser/libreoffice); spatial accuracy SIMULATED; physical ring SI PENDING."
+}

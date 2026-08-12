@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "scenario_id": "ECO-005",
+  "depth": "creator_edit_deploy_launch_process_proof",
+  "status": "PASS",
+  "build_ok": true,
+  "launch": {
+    "ok": true,
+    "path": "web_http_server",
+    "process_proof": true,
+    "pid": 92969,
+    "game_id": "anime-aggressors",
+    "evidence": {
+      "game_id": "anime-aggressors",
+      "kind": "web_http_server",
+      "web_path": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/games/anime-aggressors-web",
+      "index_exists": true,
+      "pid": 92969,
+      "alive": true,
+      "argv": [
+        "python3",
+        "-m",
+        "http.server",
+        "0",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/games/anime-aggressors-web"
+      ],
+      "log": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/.wave5_lab_artifacts/ecosystem/ECO-005/launch/anime-aggressors_http.log",
+      "port": null,
+      "profile": "handheld_hybrid",
+      "fixture_as_launch": false
+    },
+    "claim_boundary": "Device Lab workload launch with real host process proof (web server / Godot). SILICON_EXACT_EMULATION=false. Not physical silicon game performance.",
+    "SILICON_EXACT_EMULATION": false,
+    "intent_only": false,
+    "cleanup": {
+      "ok": true,
+      "stopped": true,
+      "pid": 92969
+    },
+    "process_proof_at_launch": true
+  },
+  "state": {
+    "level": 1,
+    "score": 10,
+    "from": "ECO-005"
+  },
+  "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+  "duration_ms": 362,
+  "claim_boundary": "Device Lab ecosystem digital journeys. SILICON_EXACT_EMULATION=false. VF4/5/6 PHYSICAL_PENDING. Master complete remains false until all gates earned.",
+  "note": "Uses in-tree anime-aggressors web launch; creator edit is Lab-local project."
+}

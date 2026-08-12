@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "fault": "process.hang_timeout",
+  "initial_state": {
+    "pid": 93029,
+    "alive": true
+  },
+  "injected_condition": "process.hang_timeout",
+  "expected_result": "hang_then_cleanup_sigterm",
+  "actual_result": {
+    "pid": 93029,
+    "alive": true,
+    "returncode": null
+  },
+  "cleanup_queued": true,
+  "duration_ms": 514,
+  "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+  "SILICON_EXACT_EMULATION": false
+}

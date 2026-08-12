@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "scenario_id": "ECO-002",
+  "depth": "handheld_dock_attach_detach_with_game",
+  "status": "PASS",
+  "game": {
+    "ok": true,
+    "path": "web_http_server",
+    "process_proof": true,
+    "pid": 92960,
+    "game_id": "anime-aggressors",
+    "evidence": {
+      "game_id": "anime-aggressors",
+      "kind": "web_http_server",
+      "web_path": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/games/anime-aggressors-web",
+      "index_exists": true,
+      "pid": 92960,
+      "alive": true,
+      "argv": [
+        "python3",
+        "-m",
+        "http.server",
+        "0",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/games/anime-aggressors-web"
+      ],
+      "log": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/.wave5_lab_artifacts/ecosystem/ECO-002/game/anime-aggressors_http.log",
+      "port": null,
+      "profile": "handheld_hybrid",
+      "fixture_as_launch": false
+    },
+    "claim_boundary": "Device Lab workload launch with real host process proof (web server / Godot). SILICON_EXACT_EMULATION=false. Not physical silicon game performance.",
+    "SILICON_EXACT_EMULATION": false,
+    "intent_only": false,
+    "cleanup": {
+      "ok": true,
+      "stopped": true,
+      "pid": 92960
+    },
+    "process_proof_at_launch": true
+  },
+  "before": {
+    "outputs": [
+      {
+        "id": "internal",
+        "role": "primary",
+        "width": 1920,
+        "height": 1080,
+        "connected": true,
+        "source": "WaylandSession"
+      }
+    ],
+    "net": "online",
+    "audio": "internal",
+    "session_id": "dev-725c6970"
+  },
+  "attached": {
+    "disp": {
+      "ok": true,
+      "outputs": [
+        {
+          "id": "internal",
+          "role": "primary",
+          "width": 1920,
+          "height": 1080,
+          "connected": true,
+          "source": "WaylandSession"
+        },
+        {
+          "id": "external-dock",
+          "role": "external",
+          "connected": true,
+          "source": "dock_attach"
+        }
+      ]
+    },
+    "net": {
+      "ok": true,
+      "ethernet_via_dock": true,
+      "state": "online_ethernet_dock",
+      "mode": "logical",
+      "e4_reference_proof": false,
+      "FALLBACK_ONLY": true,
+      "NOT_E4_REFERENCE_PROOF": true,
+      "packet_transfer": {
+        "ok": false,
+        "method": "logical_in_memory",
+        "NOT_E4_REFERENCE_PROOF": true
+      },
+      "note": "Logical in-memory attach only \u2014 not E4 G04 reference proof."
+    },
+    "aud": {
+      "ok": true,
+      "route": "dock",
+      "devices": [
+        "internal",
+        "dock"
+      ],
+      "mode": "logical",
+      "FALLBACK_ONLY": true,
+      "NOT_E4_REFERENCE_PROOF": true,
+      "e4_reference_proof": false,
+      "note": "Logical in-memory dock audio \u2014 not E4 G04 reference proof."
+    },
+    "inp": {
+      "ok": true,
+      "profile": "keyboard_mouse_desktop"
+    },
+    "external_present": true
+  },
+  "detach": {
+    "disp": {
+      "ok": true,
+      "removed": [
+        "external-dock"
+      ],
+      "outputs": [
+        {
+          "id": "internal",
+          "role": "primary",
+          "width": 1920,
+          "height": 1080,
+          "connected": true,
+          "source": "WaylandSession"
+        }
+      ]
+    },
+    "net": {
+      "ok": true,
+      "ethernet_via_dock": false,
+      "state": "online_wifi",
+      "cleanup": {
+        "ok": true,
+        "cleaned": true
+      }
+    },
+    "aud": {
+      "ok": true,
+      "route": "internal",
+      "devices": [
+        "internal"
+      ],
+      "cleanup": {
+        "ok": true
+      },
+      "previous_sink": null,
+      "disappeared": true
+    },
+    "recovered": true
+  },
+  "session_preserved": true,
+  "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+  "duration_ms": 361,
+  "claim_boundary": "Device Lab ecosystem digital journeys. SILICON_EXACT_EMULATION=false. VF4/5/6 PHYSICAL_PENDING. Master complete remains false until all gates earned."
+}

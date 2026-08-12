@@ -1,0 +1,114 @@
+{
+  "ok": true,
+  "scenario_id": "ECO-007",
+  "depth": "wifi_degrade_dock_eth_restore",
+  "status": "PASS",
+  "steps": [
+    {
+      "wifi_degrade": {
+        "ok": true,
+        "scenario": "bad_wifi",
+        "state": "degraded",
+        "loss_pct": 15.0,
+        "latency_ms": 120,
+        "mode": "logical",
+        "e4_reference_proof": false,
+        "note": "apply() scenarios are logical policy overlays, not E4 packet proof."
+      }
+    },
+    {
+      "packet_loss": {
+        "ok": true,
+        "scenario": "packet_loss",
+        "state": "lossy",
+        "loss_pct": 30.0,
+        "latency_ms": 40,
+        "mode": "logical",
+        "e4_reference_proof": false,
+        "note": "apply() scenarios are logical policy overlays, not E4 packet proof."
+      }
+    },
+    {
+      "vnet_fault": {
+        "ok": true,
+        "injected": "packet_loss",
+        "before": {
+          "fault": null,
+          "loss_pct": 0.0,
+          "latency_ms": 0,
+          "internet_access": false
+        },
+        "after": {
+          "fault": "packet_loss",
+          "loss_pct": 40.0,
+          "latency_ms": 0,
+          "members_online": {
+            "student_14_5": true,
+            "dsxl_coder": true,
+            "handheld_hybrid": true,
+            "dock": true,
+            "edge_io_rings": true,
+            "handheld_docked": true
+          },
+          "internet_access": false
+        },
+        "expected": "fault_visible_in_vnet_state",
+        "actual": {
+          "fault": "packet_loss",
+          "loss_pct": 40.0,
+          "latency_ms": 0,
+          "members_online": {
+            "student_14_5": true,
+            "dsxl_coder": true,
+            "handheld_hybrid": true,
+            "dock": true,
+            "edge_io_rings": true,
+            "handheld_docked": true
+          },
+          "internet_access": false
+        },
+        "cleanup_required": true
+      }
+    },
+    {
+      "dock_eth": {
+        "ok": true,
+        "ethernet_via_dock": true,
+        "state": "online_ethernet_dock",
+        "mode": "logical",
+        "e4_reference_proof": false,
+        "FALLBACK_ONLY": true,
+        "NOT_E4_REFERENCE_PROOF": true,
+        "packet_transfer": {
+          "ok": false,
+          "method": "logical_in_memory",
+          "NOT_E4_REFERENCE_PROOF": true
+        },
+        "note": "Logical in-memory attach only \u2014 not E4 G04 reference proof."
+      }
+    },
+    {
+      "restore": {
+        "ok": true,
+        "scenario": "network_restore",
+        "state": "online",
+        "loss_pct": 0.0,
+        "latency_ms": 0,
+        "mode": "logical",
+        "e4_reference_proof": false,
+        "note": "apply() scenarios are logical policy overlays, not E4 packet proof."
+      }
+    },
+    {
+      "vnet_clear": {
+        "ok": true,
+        "cleaned": true,
+        "fault": null
+      }
+    }
+  ],
+  "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+  "duration_ms": 2,
+  "claim_boundary": "Device Lab ecosystem digital journeys. SILICON_EXACT_EMULATION=false. VF4/5/6 PHYSICAL_PENDING. Master complete remains false until all gates earned.",
+  "note": "Lab network backend + vnet fault controls; cellular/NTN remain simulated policy."
+}

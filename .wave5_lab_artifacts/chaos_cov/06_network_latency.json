@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "fault": "network.latency",
+  "initial_state": {
+    "state": "lossy"
+  },
+  "injected_condition": "network.latency",
+  "expected_result": "fault_observed_and_cleanup_possible",
+  "actual_result": {
+    "ok": true,
+    "scenario": "bad_wifi",
+    "state": "degraded",
+    "loss_pct": 15.0,
+    "latency_ms": 120,
+    "mode": "logical",
+    "e4_reference_proof": false,
+    "note": "apply() scenarios are logical policy overlays, not E4 packet proof."
+  },
+  "cleanup_queued": true,
+  "duration_ms": 0,
+  "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+  "SILICON_EXACT_EMULATION": false
+}

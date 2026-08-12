@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "fault": "update.interrupted",
+  "initial_state": null,
+  "injected_condition": "update.interrupted",
+  "expected_result": "fault_observed_and_cleanup_possible",
+  "actual_result": {
+    "scenario": "interrupted_during_apply",
+    "ok": true,
+    "active_slot": "a",
+    "last_error": null,
+    "recovery": "reset_to_idle",
+    "recovered_state": "idle"
+  },
+  "cleanup_queued": false,
+  "duration_ms": 4,
+  "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+  "SILICON_EXACT_EMULATION": false
+}

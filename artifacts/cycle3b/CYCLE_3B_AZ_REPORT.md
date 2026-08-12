@@ -1,56 +1,139 @@
-# Cycle 3B A–Z Report — WP-011R independent PASS; WP-013/014 continue
+# Cycle 3B A–Z Report — Acceptance Closeout dependency STOP
 
-Recorded: 2026-08-12T17:20:00Z
-Cursor never merges. Profile README freeze ACTIVE. Generic README program PAUSED. WP-001 DO_NOT_START.
+Recorded: 2026-08-12T18:21:18Z
+Cursor never merges. All PRs DRAFT. WP-001 DO_NOT_START. PROFILE_README_EDIT_FREEZE=ACTIVE. GENERIC_README_PROGRAM=PAUSED.
+Prefer FAIL over false PASS.
 
-## Verdict
-**WP-011R independent PASS** on device-os #103 tip / commit `071f9b2` (untouched this follow-up; INDEPENDENT_PASS). Five-gate digital AND = true. LIVE/DSXL/RING/FOUR_GAME/ECO010 retained as accepted. COMPLETE / shipping / SILICON_EXACT remain **false**. Prefer FAIL over false PASS. Cursor never merges.
+## Live-state audit (GitHub/local truth)
 
-## Token board
-| Token | Status | Evidence |
+| Repo / PR | Branch tip (ls-remote pull head) | main tip | State |
+|---|---|---|---|
+| device-os #103 | `071f9b2` | `daf8e54` | DRAFT unmerged — WP-011R independent PASS retained; **do not touch** |
+| device-os #104 | tip advancing this packet (was `f3e4efb`) | `daf8e54` | DRAFT unmerged — WP-013R in progress |
+| anime #72 | tip advancing (was `860c343`) | `2492703` | DRAFT unmerged |
+| pedestrian #14 | tip advancing (was `58a0470`) | `a2c6da5` | DRAFT unmerged |
+| archive #27 | tip advancing (was `90d6e4c`) | `948ca17` | DRAFT unmerged |
+| beatlink #18 | tip advancing (was `a2453ee`) | `e0c18f3` | DRAFT unmerged |
+| field-kit #71 | tip advancing (was `65094e5`) | `b32fc06` | DRAFT — aggregation only; last |
+
+`gh` API auth is currently invalid in this environment; tips verified via `git ls-remote` + local branches. CI status could not be refreshed via GitHub Checks API (auth/proxy). Prefer local independent verify.
+
+## State-machine decision
+
+Game PRs + WP-013 **not** on accepted main → completed safely automatable Stream A/B work on **existing DRAFT branches** → independent verify → Edmund merge queue → **STOP**.
+
+Do **not** start WP-015 / WP-016 / WP-017 / WP-001.
+Do **not** run final WP-011R.2 owner-product integration against accepted main yet.
+field-kit #71 remains aggregation-only until owner evidence accepted.
+
+## MERGE_RECOMMENDATION
+
+```text
+MERGE_RECOMMENDATION = HOLD
+WP001_START = DO_NOT_START
+PRODUCTION_RELEASE_CLAIMED = false
+RFQ_SENT = false
+PURCHASE_AUTHORIZED = false
+FAB_RELEASE_AUTHORIZED = false
+SHIPPING_IMAGE = false
+```
+
+**HOLD reasons (honest):**
+1. `EVT/FACTORY/RECOVERY_IMAGE_RUNTIME_PASS = false` — rootfs/policy alone is not realm boot proof; QEMU realm-boot harness not yet wired.
+2. All four games: `DEVICE_LAB_STATUS = PENDING_ACCEPTED_MAIN_WP011R` while #103 unmerged (circular DRAFT evidence removed).
+3. Cycle 3B not owner-accepted; Cursor never merges.
+
+## Stream A — WP-014R (existing game DRAFTs)
+
+### Anime #72
+- **Implemented:** real `AudioDirector` autoload over `ProceduralAudioBank`; wired menu/settings; ProductionGateHarness `audio_hook` step.
+- **Verified:** `PRODUCTION_GATE_PASS` incl. `audio_hook` PASS; `ACOUSTIC_OUTPUT_PHYSICAL=PHYSICAL_PENDING`.
+- **DEVICE_LAB:** demoted to `PENDING_ACCEPTED_MAIN_WP011R` (`INDEPENDENT_BRANCH_EVIDENCE_OBSERVED=true`).
+
+### Pedestrian #14
+- **Implemented:** retired false-green `--script` smokes (hard-fail shims); `run_godot_headless.sh` fails on SCRIPT ERROR/Parse Error/Compilation failed; CI job `godot-headless-no-false-green`.
+- **Verified:** Alpha/DigitalRc shims exit 1; remaining TestRunner/CupFlow/Beta exit 0 without SCRIPT ERROR.
+- **DEVICE_LAB:** demoted pending #103 on main.
+
+### Archive #27
+- **Implemented:** SettingsUI production panel driven in `wp014ProductionGate.test.ts` (open/modify/persist/reload/defaults).
+- **Verified:** vitest `wp014ProductionGate.test.ts` **10/10 PASS**.
+- **DEVICE_LAB:** demoted pending #103 on main.
+
+### Beat Link #18
+- **Implemented:** `HOST_CONTROLLED_SESSION_PAUSE` (`paused` phase); host-only pause/resume sockets; input reject while paused; HostPage control; structured JSON logs; AccessibilityPanel/title UI production gate test; closed WP014-BL-PAUSE-001 / SETTINGS-001.
+- **Verified:** `PRODUCTION_GATE_PASS` incl. `host_controlled_session_pause`; UI vitest PASS; server tsc OK.
+- **DEVICE_LAB:** demoted pending #103 on main.
+
+## Stream B — WP-013R (device-os #104)
+
+Preserved: image realms / A-B / recovery / factory / gunnchSDK / API / serviceability.
+
+- **Replaced stub adoption proof** with real `sdk/apps/{creator_studio,waike_learning,gunnchai_tutor,pedestrian_pursuit_ref}` via gunnchSDK package/install/run.
+- Stubs retained under `sdk/examples/*` as tutorials only.
+- **Earned:** `FIRST_PARTY_SDK_ADOPTION_PASS=true`, `IMAGE_REALM_POLICY_SEPARATION_PASS=true`, prior digital build tokens retained.
+- **Honest FAIL (not false PASS):** `EVT/FACTORY/RECOVERY_IMAGE_RUNTIME_PASS=false` until Device Lab boots each realm rootfs.
+- `PRODUCTION_RELEASE_CLAIMED=false` always.
+- Independent: `tests/wp013` **76 passed**; `scripts/wp013_build_and_verify.py` regenerated RESULT.
+
+## Claim firewall
+
+| Claim | Value |
+|---|---|
+| PRODUCTION_RELEASE_CLAIMED | false |
+| Shipping / SILICON_EXACT | false |
+| COMPLETE | false |
+| DEVICE_LAB_PASS (games portfolio vs accepted main) | PENDING_ACCEPTED_MAIN_WP011R |
+| ACOUSTIC_OUTPUT_PHYSICAL | PHYSICAL_PENDING |
+| Physical playtests | PENDING |
+
+## Charter burn-down (approx)
+
+Prior open DIGITAL_IMPLEMENTATION_OPEN ≈ 15.
+This packet closed digitally executable game partials (audio/settings/a11y/pause/false-green) and first-party SDK adoption.
+Still OPEN / non-digital:
+- EVT/FACTORY/RECOVERY image **runtime** boot in Device Lab
+- Accepted-main Device Lab promotion after #103 merge
+- Physical playtests / acoustic output
+- WP-011R.2 owner integration (blocked on games+#104 on main)
+- WP-015/016/017 (blocked on Cycle 3B accept)
+- Shared ecosystem digital infra beyond Beat Link pause/reconnect already present
+
+## DIGITAL_IMPLEMENTATION_OPEN (selected)
+
+| ID | Why still open | Next dependency |
 |---|---|---|
-| LIVE_GUNNCHOS_VISUAL_PASS | **true** (independent) | IEND guest PNGs + LIVEPROOF |
-| DSXL_DUAL_COMPOSITOR_UX_PASS | **true** (independent) | Filter-aware halves MSE=0; 2→1→2; dual wl_output |
-| RING_TO_REAL_APP_STATE_MUTATION_PASS | **true** (independent) | ODT RINGMUTATION*; browser Δ; Godot save_version 1→2 alive |
-| FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS | **true** (independent) | four_games_in_guest.json — Godot4 foot-racing + Chromium web titles |
-| ECO010_SOAK_PASS | **true** (independent) | retained ≥1800s |
-| GUEST_DUAL_OUTPUT_PASS | **true** | retained |
-| Independent digital master (five-gate AND) | **true** | VP-011R-RESULT.independent.json |
-| GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE | **false** | packet does not allow digital COMPLETE on interactive guest |
-| Shipping / SILICON_EXACT | **false** | claim_firewall; PHYSICAL_PENDING |
-| WP-013 IMAGE_REALMS_DIGITALLY_COMPLETE + EVT/FACTORY/RECOVERY builds + SDK/API/factory/recovery | **true** (digital; DRAFT #104) | `artifacts/wp013/WP-013-RESULT.json` @ `f3e4efb` — real rootfs-tarball/commands, not schema-only; **PRODUCTION_RELEASE_CLAIMED=false** |
-| WP-014 portfolio product-gate AND | **deferred** | beatlink PAUSE/SETTINGS honest PARTIAL; physical playtest PENDING |
+| REALM_RUNTIME_EVT/FACTORY/RECOVERY | No realm-rootfs QEMU boot harness | Device Lab engineering |
+| DEVICE_LAB_ACCEPTED_MAIN | #103 unmerged | Edmund merge #103 |
+| PHYSICAL_PLAYTEST_FOUR_GAMES | Hardware/human | Physical lab |
+| ACOUSTIC_OUTPUT_PHYSICAL | Speakers/device | Physical |
+| WP011R2_OWNER_INTEGRATION | Needs accepted main + games+#104 | Edmund merge chain |
+| WP015_016_017 | Cycle 3B gate | Owner accept Cycle 3B |
 
-## Streams
-### WP-011R — https://github.com/gunnchOS3k/gunnchos-device-os/pull/103 (DRAFT) tip `071f9b2`
-Leave LIVE/DSXL/RING/FOUR_GAME/ECO010 / INDEPENDENT_PASS accepted. Do not reopen generic README/profile work. **Do not touch this tip.**
+## Edmund merge queue (ordered; Cursor never merges)
 
-### WP-013 — https://github.com/gunnchOS3k/gunnchos-device-os/pull/104 (DRAFT) tip `f3e4efb`
-Separate from #103; based on current `origin/main` (`daf8e54`). Do **not** merge #103 into #104. After Edmund merges #103, rebase #104 onto post-merge main.
+1. **HOLD** until WP-013R RUNTIME remediation OR Edmund explicitly accepts RUNTIME=false residual.
+2. When releasing Cycle 3B digitally-bounded slice despite RUNTIME residual (owner decision):
+   1. device-os **#103** first (WP-011R independent PASS)
+   2. rebase device-os **#104** onto post-#103 main → merge #104
+   3. game DRAFTs #14 / #72 / #27 / #18 (after DEVICE_LAB promotion follow-up)
+   4. field-kit **#71** last (aggregation)
 
-Cycle 3B follow-up harden:
-- Pin `pnpm@9` for Node 20 (reality job was failing on corepack → pnpm 11 / `node:sqlite`)
-- Deterministic gzip `mtime=0` so EVT rootfs sha is reproducible
-- Verify script: pytest before live builds; signed claims read from on-disk manifests
-- Spot-check: realm builds are digital rootfs-tarball + manifest/SBOM/DEV-sign (claim_boundary explicit); not bootable shipping images. No token demotion of the nine digital PASS tokens; **no production-release claim**.
+## What Cursor can do next (without owner merge)
 
-### WP-014 — game DRAFTs
-| Game | PR | tip | DEVICE_LAB_PASS | product-gate notes | S0 | S1 |
-|---|---|---|---|---|---|---|
-| pedestrian-pursuit | #14 | `58a0470` | PASS (GUEST_GODOT4 @071f9b2) | Fixed `PlayerController` class_name/`extends` order (preload-before-extends broke AI inheritance / real_input_drive). Local Godot gate PASS. CI: Godot release CDN 503 flaked install — retry added. | 0 | 0 |
-| anime-aggressors | #72 | (unchanged) | PASS (GUEST_CHROMIUM_WAYLAND @071f9b2) | — | 0 | 0 |
-| archive-of-life | #27 | (unchanged) | PASS (GUEST_CHROMIUM_WAYLAND @071f9b2) | — | 0 | 0 |
-| beatlink-party | #18 | `a2453ee` | PASS (GUEST_CHROMIUM_WAYLAND @071f9b2) | Soft-pause/settings **not** closable without inventing pause path / UI harness drive → honest **PARTIAL** defects `WP014-BL-PAUSE-001`, `WP014-BL-SETTINGS-001` | 0 | 0 |
+- Wire Device Lab QEMU boot harness for EVT/FACTORY/RECOVERY rootfs → earn RUNTIME tokens or keep FAIL
+- After Edmund merges #103: small follow-up promoting game `DEVICE_LAB_PASS` with `accepted_device_os_sha`
+- Push/CI-watch DRAFT tips once `gh` auth restored
 
-Portfolio token only if all four product gates remain honestly PASS (physical playtest still PENDING; beatlink soft-pause/settings still PARTIAL).
+## What needs Edmund / physical / human / external
 
-### Aggregation — field-kit #71 DRAFT
-A–Z / status tips updated this follow-up for #104/#14/#18 CI+token honesty only.
+- Merge authorization for #103/#104/games DRAFTs
+- Physical playtests + acoustic output
+- Production keys / shipping image / RFQ / fab
+- `gh` re-auth in this environment for live Checks API
+- Cycle 3B owner acceptance before WP-015+
 
-## Edmund merge order
-1. **#103 first** (when Edmund chooses) — WP-011R independent PASS; COMPLETE/shipping false
-2. Then #104 (WP-013) after rebase onto post-#103 main
-3. Then WP-014 game DRAFTs as ready
-4. field-kit #71 last for burndown aggregation
+## WIP discipline
 
-Cursor never merges. WP-001 DO_NOT_START.
+MAX_MAJOR_ACTIVE_STREAMS=3 respected (Stream A games + Stream B #104 + field-kit aggregation).
+No WP-001 / WP-015 / WP-016 / WP-017 started.

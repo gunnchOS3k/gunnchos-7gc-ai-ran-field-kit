@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "injected": "packet_loss",
+  "before": {
+    "fault": null,
+    "loss_pct": 0.0,
+    "latency_ms": 0,
+    "internet_access": false
+  },
+  "after": {
+    "fault": "packet_loss",
+    "loss_pct": 40.0,
+    "latency_ms": 0,
+    "members_online": {
+      "student_14_5": true,
+      "dsxl_coder": true,
+      "handheld_hybrid": true,
+      "dock": true,
+      "edge_io_rings": true,
+      "handheld_docked": true
+    },
+    "internet_access": false
+  },
+  "expected": "fault_visible_in_vnet_state",
+  "actual": {
+    "fault": "packet_loss",
+    "loss_pct": 40.0,
+    "latency_ms": 0,
+    "members_online": {
+      "student_14_5": true,
+      "dsxl_coder": true,
+      "handheld_hybrid": true,
+      "dock": true,
+      "edge_io_rings": true,
+      "handheld_docked": true
+    },
+    "internet_access": false
+  },
+  "cleanup_required": true
+}

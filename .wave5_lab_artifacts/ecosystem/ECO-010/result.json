@@ -1,0 +1,143 @@
+{
+  "ok": false,
+  "scenario_id": "ECO-010",
+  "depth": "light_simultaneous_partial",
+  "status": "PARTIAL",
+  "members_alive": 6,
+  "alive": {
+    "student_14_5": true,
+    "dsxl_coder": true,
+    "handheld_hybrid": true,
+    "dock": true,
+    "edge_io_rings": true,
+    "handheld_docked": true
+  },
+  "games": {
+    "ok": true,
+    "path": "web_http_server",
+    "process_proof": true,
+    "pid": 92987,
+    "game_id": "beatlink-party",
+    "evidence": {
+      "game_id": "beatlink-party",
+      "kind": "web_http_server",
+      "web_path": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/games/beatlink-party-web",
+      "index_exists": true,
+      "pid": 92987,
+      "alive": true,
+      "argv": [
+        "python3",
+        "-m",
+        "http.server",
+        "0",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-device-os/games/beatlink-party-web"
+      ],
+      "log": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit/.wave5_lab_artifacts/ecosystem/ECO-010/game/beatlink-party_http.log",
+      "port": null,
+      "profile": "student_14_5",
+      "fixture_as_launch": false
+    },
+    "claim_boundary": "Device Lab workload launch with real host process proof (web server / Godot). SILICON_EXACT_EMULATION=false. Not physical silicon game performance.",
+    "SILICON_EXACT_EMULATION": false,
+    "intent_only": false,
+    "cleanup": {
+      "ok": true,
+      "stopped": true,
+      "pid": 92987
+    },
+    "process_proof_at_launch": true
+  },
+  "ai": {
+    "ok": true,
+    "path": "lab_ai_process",
+    "process_proof": true,
+    "pid": 92988,
+    "stdout_snip": "",
+    "token_in_stdout": false,
+    "siblings_seen": {
+      "waike-research-ops": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/waike-research-ops",
+      "gunnchAI3k": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchAI3k"
+    },
+    "claim_boundary": "Device Lab workload launch with real host process proof (web server / Godot). SILICON_EXACT_EMULATION=false. Not physical silicon game performance.",
+    "SILICON_EXACT_EMULATION": false,
+    "intent_only": false,
+    "note": "Process proof only \u2014 not calibrated AI performance or physical NPU claim."
+  },
+  "chaos_injected": [
+    {
+      "ok": true,
+      "fault": "network.packet_loss",
+      "initial_state": {
+        "state": "online"
+      },
+      "injected_condition": "network.packet_loss",
+      "expected_result": "fault_observed_and_cleanup_possible",
+      "actual_result": {
+        "ok": true,
+        "scenario": "packet_loss",
+        "state": "lossy",
+        "loss_pct": 30.0,
+        "latency_ms": 40,
+        "mode": "logical",
+        "e4_reference_proof": false,
+        "note": "apply() scenarios are logical policy overlays, not E4 packet proof."
+      },
+      "cleanup_queued": true,
+      "duration_ms": 0,
+      "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+      "SILICON_EXACT_EMULATION": false
+    },
+    {
+      "ok": true,
+      "fault": "process.sigterm_lab_echo",
+      "initial_state": {
+        "pid": 92990,
+        "alive": true
+      },
+      "injected_condition": "process.sigterm_lab_echo",
+      "expected_result": "process_exits_after_sigterm",
+      "actual_result": {
+        "pid": 92990,
+        "alive": false,
+        "returncode": -15
+      },
+      "cleanup_queued": true,
+      "duration_ms": 513,
+      "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+      "SILICON_EXACT_EMULATION": false
+    }
+  ],
+  "chaos_cleanup": {
+    "ok": true,
+    "cleaned": [
+      {
+        "kind": "process_done",
+        "pid": 92990
+      },
+      {
+        "kind": "network_restore",
+        "result": {
+          "ok": true,
+          "scenario": "network_restore",
+          "state": "online",
+          "loss_pct": 0.0,
+          "latency_ms": 0,
+          "mode": "logical",
+          "e4_reference_proof": false,
+          "note": "apply() scenarios are logical policy overlays, not E4 packet proof."
+        }
+      }
+    ],
+    "history_n": 2
+  },
+  "simultaneous_soak_complete": false,
+  "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+  "duration_ms": 1591,
+  "claim_boundary": "Device Lab ecosystem digital journeys. SILICON_EXACT_EMULATION=false. VF4/5/6 PHYSICAL_PENDING. Master complete remains false until all gates earned.",
+  "remaining_blocker": "Full continuous soak with mixed workloads + exhaustive chaos without silent crash/deadlock not yet earned.",
+  "note": "PARTIAL by design this wave \u2014 do not flip master token.",
+  "partial_ok": true
+}

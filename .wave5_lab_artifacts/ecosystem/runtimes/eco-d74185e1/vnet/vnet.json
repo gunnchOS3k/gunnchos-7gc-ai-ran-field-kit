@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "eco_id": "eco-d74185e1",
+  "mode": "logical",
+  "cidr": "10.88.0.0/24",
+  "gateway": "10.88.0.1",
+  "addresses": {
+    "student_14_5": "10.88.0.11",
+    "dsxl_coder": "10.88.0.12",
+    "handheld_hybrid": "10.88.0.13",
+    "dock": "10.88.0.15",
+    "edge_io_rings": "10.88.0.16",
+    "handheld_docked": "10.88.0.14"
+  },
+  "dns": {
+    "student.lab.gunnchos": "10.88.0.11",
+    "dsxl.lab.gunnchos": "10.88.0.12",
+    "handheld.lab.gunnchos": "10.88.0.13",
+    "dock.lab.gunnchos": "10.88.0.15",
+    "rings.lab.gunnchos": "10.88.0.16",
+    "ai.lab.gunnchos": "10.88.0.21",
+    "identity.lab.gunnchos": "10.88.0.31",
+    "telemetry.lab.gunnchos": "10.88.0.30"
+  },
+  "endpoints": {
+    "identity": "http://10.88.0.31:8080/identity",
+    "telemetry": "http://10.88.0.30:8080/telemetry",
+    "ai": "http://10.88.0.21:8080/ai"
+  },
+  "internet_access": false,
+  "fault": null,
+  "probe": {
+    "ok": true,
+    "bound": [
+      "127.0.0.1",
+      50400
+    ]
+  },
+  "SILICON_EXACT_EMULATION": false,
+  "note": "Logical Lab overlay with deterministic addresses; privileged netns when GUNNCHDEVICE_LAB_NETNS=1. Not physical silicon."
+}

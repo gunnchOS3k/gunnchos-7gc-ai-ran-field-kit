@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "fault": "network.dns_failure_vnet",
+  "initial_state": {
+    "state": "degraded"
+  },
+  "injected_condition": "network.dns_failure_vnet",
+  "expected_result": "fault_observed_and_cleanup_possible",
+  "actual_result": {
+    "logical": "dns_failure",
+    "applied": true
+  },
+  "cleanup_queued": true,
+  "duration_ms": 0,
+  "claim_boundary": "Device Lab chaos injection with cleanup + evidence. SILICON_EXACT_EMULATION=false. Not physical silicon fault injection.",
+  "SILICON_EXACT_EMULATION": false
+}
