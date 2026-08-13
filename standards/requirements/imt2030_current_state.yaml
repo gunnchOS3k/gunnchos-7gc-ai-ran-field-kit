@@ -22,9 +22,18 @@ live_tracker:
       role: study phase for 6G
       ref: https://www.3gpp.org/specifications-technologies/releases/release-20
     release_21:
-      role: normative 6G phase
+      role: planned normative 6G phase
       status: TRACKER_ONLY
+      freeze_claimed: false
+      snapshot: source_snapshots/3gpp-rel21-2026-08-13.md
+      claim_language_allowed: tracker only; never 6G certified
     news_ref: https://www.3gpp.org/news-events/3gpp-news/sa1-6g-road
+  honest_tokens:
+    STANDARDIZED_6G: false
+    CARRIER_ACCEPTED: false
+    GATE_8_PASS: false
+    RM520N_GL_NTN: false
+    RM520N_GL_6G: false
   product_claims_policy:
     allowed:
       - IMT-2030 aligned
@@ -68,6 +77,12 @@ requirements:
     status: STUDY
     category: 6G-study
     claim_language_allowed: study-phase mapping; never 6G certified
+  - id: 3GPP-R21-TRACKER
+    source: 3GPP-REL21
+    document: Rel-21 planned normative 6G (tracker only)
+    status: TRACKER_ONLY
+    category: 6G-normative-planned
+    claim_language_allowed: tracker only; never 6G certified; freeze_claimed=false
 usage_scenarios_mapping_required:
   - immersive_communication
   - hyper_reliable_low_latency_communication
