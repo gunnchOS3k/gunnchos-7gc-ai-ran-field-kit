@@ -1,0 +1,278 @@
+{
+  "schema": "gunnchos.wp011r2.independent_verifier_result.v1",
+  "work_item": "WP-011R.2",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "did_not_implement": true,
+  "did_not_merge": true,
+  "did_not_revive_historical_103_as_final": true,
+  "prefer_fail_over_false_pass": true,
+  "cursor_never_merges": true,
+  "WP-001": "DO_NOT_START",
+  "pr": {
+    "number": 108,
+    "url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/108",
+    "draft": true,
+    "branch": "operating-cycle-3b/wp-011r2-lab-reconciliation",
+    "title": "feat(device-lab): WP-011R.2 Device Lab reconciliation (successor to #103)",
+    "base_main": "3858e760295ad35828ff141919681f2bb8685cf0",
+    "historical_pr103_tip_not_final": "071f9b28b2cccd0549885e5f8427af4db3c162c5"
+  },
+  "claimed_tip_at_handoff": "9f3e16fee47865d4638404b1bf066a4b41aec1d8",
+  "claimed_tip_live_confirmed": true,
+  "claimed_tip_subject": "feat(device-lab): earn FOUR_GAME via owner artifacts in Interactive Guest",
+  "verified_tip": "ceea429d670400cd6de31fac689c1f5b5633aa99",
+  "verified_tip_short": "ceea429",
+  "verified_tip_subject": "fix(ci): restore WP-013 gunnchctl os-image/sdk/package after #103 overlay",
+  "tip_note": "Handoff tip 9f3e16f was live on DRAFT #108. Independent verify found required CI red (gate1+test). Honesty-only restore of WP-013 gunnchctl parsers landed as ceea429. FOUR_GAME evidence files were not rewritten by the verifier.",
+  "generated_at_utc": "2026-08-13T03:54:30Z",
+  "VP_WP011R2_INDEPENDENT_RESULT": "FAIL",
+  "INDEPENDENT_PASS": false,
+  "five_gate_digital_and": false,
+  "DEVICE_OS_108_READY_FOR_EDMUND_MERGE": false,
+  "READY_FOR_EDMUND_MERGE": false,
+  "claim_firewall": {
+    "SHIPPING_IMAGE": false,
+    "SILICON_EXACT_EMULATION": false,
+    "DEVICE_LAB_INTERACTIVE_DEVELOPMENT_GUEST": true,
+    "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE": false,
+    "VF4": "PHYSICAL_PENDING",
+    "VF5": "PHYSICAL_PENDING",
+    "VF6": "PHYSICAL_PENDING"
+  },
+  "accepted_owner_mains_live": {
+    "anime-aggressors": "16df36d0025a6d124817a1800de65abef689d51f",
+    "pedestrian-pursuit": "3f4dafd0e455a0cf22523bab48a094a542d3141d",
+    "archive-of-life-artifact-world": "64fcf3a73d9a0db4e13523f762cf3fd651d7ddaa",
+    "beatlink-party": "4b3970c9bc327ba7a1cec43ff7a905d91cd3070b"
+  },
+  "ci": {
+    "verdict": "PASS",
+    "head_sha": "ceea429d670400cd6de31fac689c1f5b5633aa99",
+    "required_settled": true,
+    "any_failure": false,
+    "pass_count": 46,
+    "fail_count": 0,
+    "pending_count": 0,
+    "on_handoff_tip_9f3e16f": {
+      "verdict": "FAIL",
+      "failed": ["gate1", "test"],
+      "cause": "5d3fabb overlay of historical #103 CLI dropped main WP-013 gunnchctl parsers os-image/sdk/package/install/uninstall; tests/wp013/test_cli_wp013.py asserted returncode in (0,1) against argparse invalid-choice rc=2"
+    },
+    "honesty_remediation": {
+      "required": true,
+      "scope": "CI honesty only — restore WP-013 CLI wiring from accepted main; no FOUR_GAME claim change; no merge",
+      "commit": "ceea429d670400cd6de31fac689c1f5b5633aa99",
+      "local_pytest": "tests/wp013/test_cli_wp013.py 4 passed"
+    },
+    "key_checks_on_verified_tip": [
+      {
+        "name": "test",
+        "conclusion": "success",
+        "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/31664707836/job/94336659276"
+      },
+      {
+        "name": "gate1",
+        "conclusion": "success",
+        "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/31664707802/job/94336659216"
+      },
+      {
+        "name": "qemu-guest-path",
+        "conclusion": "success",
+        "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/31664707835/job/94336659452"
+      },
+      {
+        "name": "digital-lock",
+        "conclusion": "success",
+        "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/31664707798/job/94336659264"
+      },
+      {
+        "name": "reality",
+        "conclusion": "success",
+        "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/31664707820/job/94336659130"
+      }
+    ]
+  },
+  "gates": {
+    "LIVE_GUNNCHOS_VISUAL_PASS": {
+      "verdict": "PASS",
+      "weakened": false,
+      "evidence": "artifacts/wp011r/visual/LIVE_VISUAL_EVIDENCE.json",
+      "git_object_id_unchanged_vs_5d3fabb": "53e52e41f94c42f2535277fd48b483321297d508",
+      "note": "Retained IEND-complete before/after guest FB; SHIPPING_IMAGE=false; not host-FB-only. FOUR_GAME re-earn did not rewrite this blob."
+    },
+    "DSXL_DUAL_COMPOSITOR_UX_PASS": {
+      "verdict": "PASS",
+      "weakened": false,
+      "evidence": "artifacts/wp011r/dsxl/DSXL_COMPOSITOR_UX_EVIDENCE.json",
+      "git_object_id_unchanged_vs_5d3fabb": "cc7780d178f4fa5d2b51b738a0f2e391ef25ccd6",
+      "note": "Retained filter-aware halves + 2→1→2 reboot reconfig. Token not flipped false. SILICON_EXACT_EMULATION=false in evidence."
+    },
+    "RING_TO_REAL_APP_STATE_MUTATION_PASS": {
+      "verdict": "PASS",
+      "weakened": false,
+      "evidence": "artifacts/wp011r/ring/RING_APP_MUTATION_EVIDENCE.json",
+      "git_object_id_unchanged_vs_5d3fabb": "87c5de6486b9ca3660bba6bdca0700a51dfbd0a3",
+      "note": "Retained ODT RINGMUTATION + browser delta + Godot save_version. RING_TO_REAL_APPLICATION_INPUT_PASS remains true. Diagnostic HTML/game_state still labeled LAB_DIAGNOSTIC_ONLY leftovers."
+    },
+    "FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS": {
+      "verdict": "FAIL",
+      "implementer_claimed": true,
+      "independent_earned": false,
+      "evidence": "artifacts/wp011r/games/four_games_in_guest.json",
+      "note": "Owner packages are real (not HTML recreations / Python mirrors). Earn function is tautological and counts Godot zombies as alive. Anime/Pedestrian saves come from headless harness/quit, not proven interactive mutation. Beat Link native localStorage keys absent. SHA verifier accepts drifted siblings via owner_artifact_pin. Prefer FAIL over false PASS.",
+      "per_game": {
+        "anime-aggressors": {
+          "verdict": "FAIL",
+          "owner_repo": "gunnchOS3k/anime-aggressors",
+          "required_accepted_main": "16df36d0025a6d124817a1800de65abef689d51f",
+          "package_sha256": "a65f76d2827aec8b38ff3e4605ca1d9398c00593444a53af8d574b96d07dbf6e",
+          "build_command": "godot --path game-godot (owner Godot 4.5 project)",
+          "runtime_class": "GUEST_GODOT4",
+          "guest_install": "/root/owner-games/anime-aggressors from anime-aggressors.game-godot.tar.gz",
+          "runtime_process": "FAIL — ps shows [godot] <defunct>; alive=true because substring 'godot' matches zombies",
+          "input": "keys injected after Wayland process_start; not shown to mutate save vs harness",
+          "state_mutation": "FAIL — aa_first_run.cfg produced by headless --production-gate harness before GUI launch",
+          "save": "aa_first_run.cfg tutorial completed=true; actual_production_runtime.json missing (all_steps_pass never proven)",
+          "logs": "/var/log/gunnchos-anime-harness.log claimed; production_runtime read_failed",
+          "shutdown": "process_run PID parse ValueError; returncode 1; pkill requested",
+          "forbidden_check": "Owner Godot project.godot matches 16df36d features=4.5; not HTML recreation"
+        },
+        "foot-racing": {
+          "verdict": "FAIL",
+          "title": "Pedestrian Pursuit",
+          "owner_repo": "gunnchOS3k/pedestrian-pursuit",
+          "required_accepted_main": "3f4dafd0e455a0cf22523bab48a094a542d3141d",
+          "package_sha256": "66acd9f423bbf26db17a3b6512677b5f3d7a549c00928a3ff9de50ec57644347",
+          "owner_artifact_meta_hash_stale": "d0a217e1be17751b6835611c0942ee0d23bf809e2077e73d9e542d5a305d0b60",
+          "build_command": "godot --path . (owner Godot 4.5 project)",
+          "runtime_class": "GUEST_GODOT4",
+          "guest_install": "/root/pedestrian-pursuit from pedestrian-pursuit.tar.gz",
+          "runtime_process": "FAIL — ps shows two [godot] <defunct> lines counted alive",
+          "input": "keys injected; save missing until headless --quit-after 12 fallback",
+          "state_mutation": "FAIL — default pp_progression.cfg (xp=0, tutorial_completed=false, first_run_complete=false); presence != mutation",
+          "save": "native user://pp_progression.cfg from headless quit, not interactive runtime",
+          "logs": "harness stdout is save path only",
+          "shutdown": "pkill requested",
+          "forbidden_check": "Owner Godot project; Chromium web correctly rejected for Pedestrian"
+        },
+        "earth-species": {
+          "verdict": "PASS_WITH_CAVEATS_NOT_AGGREGATE",
+          "title": "Archive of Life",
+          "owner_repo": "gunnchOS3k/archive-of-life-artifact-world",
+          "required_accepted_main": "64fcf3a73d9a0db4e13523f762cf3fd651d7ddaa",
+          "package_sha256": "ed379bf9e2e20021a41fad823c3cbcb97d512dcfb244fd171b0855a27f4eb926",
+          "index_sha256": "7d30353d68197ccd20cbf28240f78ed3b42125a984f2f09cf45cb899b0c29110",
+          "asset": "index-DTc8QnB_.js",
+          "build_command": "npm ci && npm run build",
+          "runtime_class": "GUEST_CHROMIUM_WAYLAND",
+          "guest_install": "owner dist served by labeled STATIC_ASSET_SERVER :18765",
+          "runtime_process": "Chromium Wayland pid 1206 reported alive",
+          "input": "21 observe counts; diagnostic lab_observe_only.js calls owner __aolStartExpedition (present on 64fcf3a)",
+          "state_mutation": "CAVEAT — native archive_of_life_save is default new-expedition museum spawn (x=400,y=300); no post-start region mutation proven",
+          "save": "native localStorage archive_of_life_save version=4 from owner saveGame; observer labeled LAB_DIAGNOSTIC_ONLY",
+          "logs": "observe.json / native_localStorage.json",
+          "shutdown": "chromium UDD killed",
+          "provenance": "Packaged JS lacks successor capturePolishHook; sibling HEAD 858e8e8 dist is index-DlrMcBWw.js — package is not the successor tree. SHA verifier still recorded observed_sha=858e8e8 ok via owner_artifact_pin.",
+          "forbidden_check": "Owner vite dist, not device-os HTML recreation. http.server is labeled static asset server, not proof alone."
+        },
+        "beatlink-party": {
+          "verdict": "PASS_WITH_CAVEATS_NOT_AGGREGATE",
+          "owner_repo": "gunnchOS3k/beatlink-party",
+          "required_accepted_main": "4b3970c9bc327ba7a1cec43ff7a905d91cd3070b",
+          "package_sha256": "eac469539d0e00c93f99c8711f9a0fe2cd4188c4f2c133e5c328f8c99f185a4c",
+          "built_from_claimed": "4b3970c9bc327ba7a1cec43ff7a905d91cd3070b",
+          "build_command": "pnpm install --frozen-lockfile && VITE_API_URL=http://127.0.0.1:3001 VITE_WS_URL=http://127.0.0.1:3001 pnpm -r build",
+          "runtime_class": "GUEST_CHROMIUM_WAYLAND_PLUS_SOCKETIO",
+          "guest_install": "web dist + node dist/index.js Socket.IO :3001 + linux-arm64 node",
+          "runtime_process": "chromium pid 738 + socketio pid 687; health {status:ok,service:beatlink-party,roomStore:memory}",
+          "input": "count_observed=2; socket.io client connected id SiF8HDhwtcSsDet4AAAB",
+          "state_mutation": "CAVEAT — room API create (code YHSN7 phase=lobby) accepted as save; native beatlink_* localStorage keys not observed (has_owner_hook=false)",
+          "save": "room_api_persisted=true; native_keys_observed=false",
+          "logs": "/var/log/gunnchos-beatlink-server.log",
+          "shutdown": "chromium + socketio pkill requested",
+          "provenance": "Packaged RoomManager CallAndResponse count=1 matches 4b3970c not draft 31a56a9 (count=8). Packaged web asset index-Do6lu92x.js != sibling successor index-BrbpnqbV.js. Topology is real Socket.IO, not static page alone.",
+          "forbidden_check": "Not http.server alone. Probe/lab_observe labeled LAB_DIAGNOSTIC_ONLY. Chromium loaded owner dist via :18765 while Socket.IO ran on :3001."
+        }
+      },
+      "earn_function_defects": [
+        "anime: earned = launch.ok and save_ok and (harness_ok or save_ok); then overwrite earned=True if save_ok and launch.ok",
+        "pedestrian: earned = launch.ok and save_ok and (alive or save_ok); tautology when save_ok",
+        "alive = 'godot' in ps stdout — matches <defunct> zombies",
+        "verify_accepted_shas allow_artifact_pin keeps drifted sibling observed_sha while ok=true"
+      ]
+    },
+    "ECO010_SOAK_PASS": {
+      "verdict": "PASS",
+      "weakened": false,
+      "evidence": "artifacts/wp011r/ECO010_SOAK.json",
+      "git_object_id_unchanged_vs_5d3fabb": "cb2e60b82bfb7d0610aba4bd0210acb590fc4ac3",
+      "duration_sec_ran": 1800.05,
+      "duration_shortened_to_pass": false,
+      "dry_check": false,
+      "note": "Retained ≥1800s soak. FOUR_GAME re-earn did not rewrite ECO010 blob. Token not flipped false."
+    }
+  },
+  "five_gate_and": {
+    "LIVE_GUNNCHOS_VISUAL_PASS": "PASS",
+    "DSXL_DUAL_COMPOSITOR_UX_PASS": "PASS",
+    "RING_TO_REAL_APP_STATE_MUTATION_PASS": "PASS",
+    "FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS": "FAIL",
+    "ECO010_SOAK_PASS": "PASS",
+    "result": false
+  },
+  "defects_S0_S1": {
+    "verdict": "FAIL",
+    "S0_open": 0,
+    "S1_open": 2,
+    "items": [
+      {
+        "id": "S1-FOUR-GAME-FALSE-PASS",
+        "severity": "S1",
+        "status": "OPEN",
+        "summary": "FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS=true on #108 with tautological earners, Godot zombies counted alive, and Godot saves from headless harness/quit rather than proven interactive mutation."
+      },
+      {
+        "id": "S1-SCORE-COMPLETE-INFLATION",
+        "severity": "S1",
+        "status": "OPEN",
+        "summary": "DEVICE_LAB_SCORE_INDEPENDENT.json sets GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE=true from five-gate AND while TOKENS/gaps correctly keep COMPLETE=false and packet forbids COMPLETE on interactive guest + SILICON_EXACT=false."
+      }
+    ]
+  },
+  "not_silently_weakened": {
+    "LIVE": true,
+    "DSXL": true,
+    "RING": true,
+    "ECO010": true,
+    "SHIPPING_IMAGE_false": true,
+    "VF4_6_PHYSICAL_PENDING": true,
+    "WP013_CLI": "WAS weakened on 5d3fabb (historical #103 overlay); restored on ceea429 as CI honesty. Not a FIVE-GATE token."
+  },
+  "forbidden_as_final_proof": {
+    "html_recreation": "not used as earn path for Godot titles; leftover *_save_marker.json / four_games_aggregate.json remain in tree from demoted probe era (FOUR=false in aggregate)",
+    "probe_facade": "lab_observe_only.js/py labeled LAB_DIAGNOSTIC_ONLY / NOT_PRODUCT_RUNTIME_EVIDENCE; calls owner __aolStartExpedition for Archive",
+    "fake_save_bridge": "observer rejects unlabeled save payloads with 403; does not write game saves",
+    "hardcoded_state_marker": "not used for new owner_result earn; leftover save_marker.json must not be treated as proof",
+    "http_server_alone": "rejected as proof; used as STATIC_ASSET_SERVER_FOR_BROWSER_RUNTIME only; Beat Link requires Socket.IO :3001",
+    "python_game_mirror": "not used"
+  },
+  "remaining_blockers": [
+    "FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS independent FAIL — re-earn with non-tautological criteria: live non-zombie process, input-driven native mutation (not headless --quit-after / first-run defaults), Beat Link native beatlink_* keys or equivalent owner persistence, SHA verify without drifted-sibling pin lying about observed_sha",
+    "S1-FOUR-GAME-FALSE-PASS and S1-SCORE-COMPLETE-INFLATION open (S0=0, S1=2) — READY requires S0=S1=0",
+    "VF4-6 PHYSICAL_PENDING; SILICON_EXACT_EMULATION=false; SHIPPING_IMAGE=false; COMPLETE remains false",
+    "Independent re-verify after honest FOUR_GAME re-earn; Cursor never merges; WP-001 DO_NOT_START"
+  ],
+  "remediation": {
+    "required": true,
+    "done_this_verify": [
+      "Restored WP-013 gunnchctl os-image/sdk/package/install/uninstall on #108 (ceea429) so required CI is green"
+    ],
+    "not_done": [
+      "Did not demote FOUR_GAME tokens on #108 (recorded independent FAIL instead)",
+      "Did not merge",
+      "Did not revive historical #103 tip 071f9b2 as final"
+    ]
+  },
+  "claim_boundary": "Digital independent verification of gunnchos-device-os DRAFT #108 after FOUR_GAME re-earn. LIVE/DSXL/RING/ECO010 retained PASS. FOUR_GAME not independently earned. SHIPPING_IMAGE=false. VF4-6 PHYSICAL_PENDING. Cursor did not implement the re-earn and must not merge.",
+  "verdict_summary": "Handoff tip 9f3e16f confirmed live then CI-red; honesty restore ceea429 is live DRAFT #108 with 46/46 checks green. LIVE/DSXL/RING/ECO010 not weakened. FOUR_GAME independent FAIL (zombie Godot + tautological earn + headless-default saves). five_gate_digital_and=false. S0=0 S1=2. DEVICE_OS_108_READY_FOR_EDMUND_MERGE=false."
+}
