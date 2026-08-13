@@ -1,0 +1,365 @@
+{
+  "schema": "gunnchos.user_ready_rc.accepted_main_baseline.independent_verifier_result.v1",
+  "work_item": "field-kit-76-user-ready-accepted-main-baseline",
+  "product": "user_ready_rc_control_plane",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "did_not_implement": true,
+  "did_not_merge": true,
+  "did_not_touch_field_kit_pr_71": true,
+  "did_not_start_wp001": true,
+  "cursor_must_not_merge": true,
+  "prefer_fail_over_false_pass": true,
+  "live_github_wins": true,
+  "pr": {
+    "number": 76,
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/76",
+    "draft": true,
+    "state": "OPEN",
+    "merged": false,
+    "mergeable": "MERGEABLE",
+    "branch": "operating-cycle-user-ready/accepted-main-baseline",
+    "title": "docs(user-ready-rc): accepted-main baseline after cleared merge queue",
+    "base": "main",
+    "changed_files": [
+      "program/operating_model/02_QUALITY_USERS/GOLDEN_JOURNEYS.json",
+      "program/user_ready_rc/ACCEPTED_MAIN_BASELINE.json",
+      "program/user_ready_rc/ATOMIC_PRODUCT_REGISTER.json",
+      "program/user_ready_rc/USER_READY_BURNDOWN.json",
+      "program/user_ready_rc/USER_READY_RELEASE_CANDIDATE_GATE.json",
+      "program/user_ready_rc/compute_user_ready_rc_gate.py"
+    ]
+  },
+  "claimed_tip": "74a2726fa1d126e9509719becfa592bd4c757e52",
+  "claimed_tip_short": "74a2726",
+  "claimed_tip_live_confirmed": true,
+  "verified_tip": "74a2726fa1d126e9509719becfa592bd4c757e52",
+  "verified_tip_short": "74a2726",
+  "tip_commit_subject": "docs(user-ready-rc): pin accepted-main baseline after cleared merge queue",
+  "base_main": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+  "base_main_short": "413e6e6",
+  "base_main_confirmed": true,
+  "merge_base_equals_claimed_base": true,
+  "commits_on_pr_at_verification": 1,
+  "generated_at_utc": "2026-08-13T18:48:33Z",
+  "inspected_paths": {
+    "field_kit": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit",
+    "head": "74a2726fa1d126e9509719becfa592bd4c757e52"
+  },
+  "VP_USER_READY_ACCEPTED_MAIN_BASELINE_INDEPENDENT": "PASS",
+  "FIELD_KIT_76_READY_FOR_EDMUND_MERGE": true,
+  "READY_FOR_EDMUND_MERGE": true,
+  "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
+  "PHYSICAL_PICKUP_AND_USE_READY": false,
+  "HUMAN_E6": false,
+  "SHIPPING_PRODUCT": false,
+  "PRODUCTION_RELEASE_CLAIMED": false,
+  "WP001_READY_FOR_OWNER_DECISION": false,
+  "fail_reason": null,
+  "pass_note": "Independent live-GitHub verification of DRAFT #76 tip 74a2726: all 13 accepted-main SHAs match origin/main; claimed merge queue is MERGED; leftover challenge-hypothesis drafts #114 and game #74/#15/#28/#19 are MERGED on live GitHub (not OPEN). Atomic counts rebuild exactly (519=4+479+12+9+7+2+6). Gate recomputed AND is false with identical SHA-256; all 22 digital tokens false; PHYSICAL/HUMAN_E6/SHIPPING false. G11–G18 stubs pass=false. PROFILE_README untouched. COMPLETE=4 is honest charter-control-plane only — V2 atomics remain OPEN after successor merges. Packet does not claim product RC. CI 12 unique / 16 rows green. Cursor does not merge.",
+  "challenges": {
+    "1_live_origin_main_shas": {
+      "verdict": "PASS",
+      "method": "gh api repos/<owner>/<repo>/commits/main --jq .sha for all 13 owner repos at 2026-08-13T18:48:33Z",
+      "stale_or_wrong_shas": [],
+      "diffs": [
+        {
+          "repo": "gunnchos-7gc-ai-ran-field-kit",
+          "json": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+          "live": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+          "match": true
+        },
+        {
+          "repo": "gunnchos-hardware-industrial-design",
+          "json": "6c0b025e505505a74adca510e47c15b8f39bc980",
+          "live": "6c0b025e505505a74adca510e47c15b8f39bc980",
+          "match": true
+        },
+        {
+          "repo": "edge-io-measurement-node",
+          "json": "3a16ba0b62758cdee20095289cdc91ba6a42b092",
+          "live": "3a16ba0b62758cdee20095289cdc91ba6a42b092",
+          "match": true
+        },
+        {
+          "repo": "gunnchos-device-os",
+          "json": "6ecd79bd1e95302b0910d1efdd029b5abedc24e5",
+          "live": "6ecd79bd1e95302b0910d1efdd029b5abedc24e5",
+          "match": true
+        },
+        {
+          "repo": "gunnchAI3k",
+          "json": "c483a45197cbe3bd4a3d68d06c91fd86494c2992",
+          "live": "c483a45197cbe3bd4a3d68d06c91fd86494c2992",
+          "match": true
+        },
+        {
+          "repo": "anime-aggressors",
+          "json": "e18115e2d3c6fbffdd72125c9183a6a98cf2f4fa",
+          "live": "e18115e2d3c6fbffdd72125c9183a6a98cf2f4fa",
+          "match": true
+        },
+        {
+          "repo": "pedestrian-pursuit",
+          "json": "e934681a5f0032a59dea7652082c0a7de2f7e505",
+          "live": "e934681a5f0032a59dea7652082c0a7de2f7e505",
+          "match": true
+        },
+        {
+          "repo": "archive-of-life-artifact-world",
+          "json": "c1c8fa23342d636234a47e6c7bad863dcd8f2722",
+          "live": "c1c8fa23342d636234a47e6c7bad863dcd8f2722",
+          "match": true
+        },
+        {
+          "repo": "beatlink-party",
+          "json": "731bc3b13584e15e41a845a6fd3de26fd8823e73",
+          "live": "731bc3b13584e15e41a845a6fd3de26fd8823e73",
+          "match": true
+        },
+        {
+          "repo": "waike-research-ops",
+          "json": "5c5f6cafb1d60c7d67258b719b75cac42c18d750",
+          "live": "5c5f6cafb1d60c7d67258b719b75cac42c18d750",
+          "match": true
+        },
+        {
+          "repo": "7gc-digital-twin",
+          "json": "ce09f2fddbf5935d06366ba8d37e3a8641e617c4",
+          "live": "ce09f2fddbf5935d06366ba8d37e3a8641e617c4",
+          "match": true
+        },
+        {
+          "repo": "gunnchos-research-portal",
+          "json": "a755c79120584abf38ae448d3112fbe94feeb45d",
+          "live": "a755c79120584abf38ae448d3112fbe94feeb45d",
+          "match": true
+        },
+        {
+          "repo": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+          "json": "7a01038114398384635345be498906f8b962e853",
+          "live": "7a01038114398384635345be498906f8b962e853",
+          "match": true
+        }
+      ],
+      "v2_stale_shas_are_ancestors_not_current_tips": {
+        "field-kit_b32fc06_ancestor_of_413e6e6": true,
+        "hardware_4ba876d_to_6c0b025": {"status": "ahead", "ahead_by": 13, "behind_by": 0},
+        "device-os_3858e76_to_6ecd79b": {"status": "ahead", "ahead_by": 50, "behind_by": 0},
+        "gunnchAI_e9d4909_to_c483a45": {"status": "ahead", "ahead_by": 3, "behind_by": 0},
+        "anime_16df36d_to_e18115e": {"status": "ahead", "ahead_by": 6, "behind_by": 0},
+        "pedestrian_3f4dafd_to_e934681": {"status": "ahead", "ahead_by": 3, "behind_by": 0},
+        "archive_64fcf3a_to_c1c8fa2": {"status": "ahead", "ahead_by": 3, "behind_by": 0},
+        "beatlink_4b3970c_to_731bc3b": {"status": "ahead", "ahead_by": 3, "behind_by": 0},
+        "note": "Packet correctly refuses to pin V2/#71 SHAs as the user-ready baseline. Those SHAs are ancestors of live mains."
+      }
+    },
+    "2_claimed_queue_live_github": {
+      "verdict": "PASS",
+      "claimed_queue_live": {
+        "field-kit#72": {"state": "MERGED", "merge": "29ea68eccab6f31249dca41bb14533bc145ed785", "matches_packet": true},
+        "field-kit#73": {"state": "MERGED", "merge": "f37384978f85d523abb96d96aa5c768f40353e42", "matches_packet": true},
+        "field-kit#74": {"state": "MERGED", "merge": "413e6e6276fb671e8d3ac38522a3e4e322e4db01", "matches_packet": true, "is_live_field_kit_main": true},
+        "field-kit#71": {"state": "OPEN", "isDraft": true, "merged": false, "head": "8715e438874c6a7430e6ad23c824333567ba150a", "updatedAt": "2026-08-13T04:05:00Z", "unused_by_this_packet": true, "stale_owner_shas": true},
+        "hardware#60": {"state": "MERGED", "merge": "4ba876d42f59f03d4b5c5ef0ca776e1253da814d", "matches_packet": true},
+        "hardware#62": {"state": "MERGED", "merge": "f7a19f5feacf41da28056c7f28104fbe80fce1f5", "matches_packet": true},
+        "hardware#63": {"state": "MERGED", "merge": "6c0b025e505505a74adca510e47c15b8f39bc980", "matches_packet": true, "is_live_hardware_main": true},
+        "device-os#104": {"state": "MERGED", "merge": "3858e760295ad35828ff141919681f2bb8685cf0", "matches_packet": true},
+        "device-os#105": {"state": "MERGED", "merge": "102f2d9cde313484525f1eb241d4f359bbf832f3", "matches_packet": true},
+        "device-os#106": {"state": "MERGED", "merge": "57a70260eaa602f4b9d44ddef576dae7a5df00cb", "matches_packet": true},
+        "device-os#107": {"state": "MERGED", "merge": "b673fc9438d303261c1fe85f93861edaf3da1a43", "matches_packet": true},
+        "device-os#108": {"state": "MERGED", "merge": "cad608885417f6694383884e14e1748a5d4411c4", "matches_packet": true},
+        "device-os#109": {"state": "MERGED", "merge": "07d901a14e3aba4404fae815c9c8578efa154ac3", "matches_packet": true},
+        "device-os#113": {"state": "MERGED", "merge": "d7b3d60f0ed7f5786d8a23cc3ed5e11566ac9afa", "matches_packet": true},
+        "gunnchAI#32": {"state": "MERGED", "merge": "c483a45197cbe3bd4a3d68d06c91fd86494c2992", "matches_packet": true, "is_live_gunnchai_main": true},
+        "anime#72": {"state": "MERGED", "merge": "16df36d0025a6d124817a1800de65abef689d51f", "matches_packet": true},
+        "pedestrian#14": {"state": "MERGED", "merge": "3f4dafd0e455a0cf22523bab48a094a542d3141d", "matches_packet": true},
+        "archive#27": {"state": "MERGED", "merge": "64fcf3a73d9a0db4e13523f762cf3fd651d7ddaa", "matches_packet": true},
+        "beatlink#18": {"state": "MERGED", "merge": "4b3970c9bc327ba7a1cec43ff7a905d91cd3070b", "matches_packet": true}
+      },
+      "challenge_hypothesis_leftover_drafts_live_github_wins": {
+        "note": "Challenge listed device-os #114 and game #74/#15/#28/#19 as possible leftover OPEN DRAFTs. Live GitHub: all five are MERGED. Packet correctly records them as also_on_main_recent / live tips, not as accepted user-ready RC complete.",
+        "device-os#114": {"state": "MERGED", "isDraft": false, "merge": "6ecd79bd1e95302b0910d1efdd029b5abedc24e5", "classification": "MERGED_LIVE_TIP_NOT_OPEN_DRAFT", "accepted_as_user_ready_rc": false},
+        "anime#74": {"state": "MERGED", "isDraft": false, "merge": "e18115e2d3c6fbffdd72125c9183a6a98cf2f4fa", "classification": "MERGED_LIVE_TIP_NOT_OPEN_DRAFT", "accepted_as_user_ready_rc": false},
+        "pedestrian#15": {"state": "MERGED", "isDraft": false, "merge": "e934681a5f0032a59dea7652082c0a7de2f7e505", "classification": "MERGED_LIVE_TIP_NOT_OPEN_DRAFT", "accepted_as_user_ready_rc": false},
+        "archive#28": {"state": "MERGED", "isDraft": false, "merge": "c1c8fa23342d636234a47e6c7bad863dcd8f2722", "classification": "MERGED_LIVE_TIP_NOT_OPEN_DRAFT", "accepted_as_user_ready_rc": false},
+        "beatlink#19": {"state": "MERGED", "isDraft": false, "merge": "731bc3b13584e15e41a845a6fd3de26fd8823e73", "classification": "MERGED_LIVE_TIP_NOT_OPEN_DRAFT", "accepted_as_user_ready_rc": false}
+      },
+      "actual_open_leftover_drafts_not_accepted": [
+        {"repo": "gunnchos-7gc-ai-ran-field-kit", "number": 71, "title": "Cycle 3B: digital engineering burndown + accepted baseline", "note": "LAST aggregation. Stale owner SHAs. Not updated by #76."},
+        {"repo": "gunnchos-7gc-ai-ran-field-kit", "number": 75, "title": "docs: land independent #74 post-main-merge VP", "note": "OPEN DRAFT. Not accepted main."},
+        {"repo": "gunnchos-7gc-ai-ran-field-kit", "number": 76, "title": "docs(user-ready-rc): accepted-main baseline after cleared merge queue", "note": "This packet. OPEN DRAFT until Edmund merges."},
+        {"repo": "gunnchos-7gc-ai-ran-field-kit", "number": 1, "title": "Portfolio hardening: mission docs, CI, evidence discipline (Tier 1)", "note": "Historical leftover OPEN DRAFT. Not this queue."},
+        {"repo": "gunnchos-device-os", "number": 103, "title": "feat(device-lab): WP-011R independent 10/10 acceptance remediations", "note": "OPEN DRAFT superseded by merged #108. Not accepted."},
+        {"repo": "anime-aggressors", "number": 71, "title": "docs(readme): Cycle 3A WP-012 §F information contract", "note": "OPEN leftover README draft. Not accepted."},
+        {"repo": "pedestrian-pursuit", "number": 13, "title": "docs(readme): Cycle 3A WP-012 §F information contract", "note": "OPEN leftover README draft. Not accepted."},
+        {"repo": "archive-of-life-artifact-world", "number": 26, "title": "docs(readme): Cycle 3A WP-012 §F information contract", "note": "OPEN leftover README draft. Not accepted."},
+        {"repo": "beatlink-party", "number": 17, "title": "docs(readme): Cycle 3A WP-012 §F information contract", "note": "OPEN leftover README draft. Not accepted."}
+      ]
+    },
+    "3_atomic_count_audit": {
+      "verdict": "PASS",
+      "arithmetic_matches_json_rows": true,
+      "claimed": {
+        "ATOMIC_TOTAL": 519,
+        "DIGITAL_IMPLEMENTATION_COMPLETE": 4,
+        "DIGITAL_IMPLEMENTATION_OPEN": 479,
+        "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING": 12,
+        "HUMAN_PENDING": 9,
+        "EXTERNAL_PENDING": 7,
+        "STANDARD_PENDING": 2,
+        "OWNER_DECISION_PENDING": 6
+      },
+      "rebuilt_from_ATOMIC_PRODUCT_REGISTER_requirements": {
+        "row_count": 519,
+        "unique_ids": 519,
+        "duplicate_ids": 0,
+        "DIGITAL_IMPLEMENTATION_COMPLETE": 4,
+        "ATOMIC_DIGITAL_IMPLEMENTATION_OPEN": 479,
+        "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING": 12,
+        "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING": 9,
+        "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 7,
+        "STANDARD_PENDING": 2,
+        "OWNER_DECISION_PENDING": 6,
+        "sum": 519
+      },
+      "v2_plus_overlay": {
+        "v2_rows_consumed": 476,
+        "overlay_added": 43,
+        "476_plus_43": 519,
+        "v2_source_label": "charter_v2_consumed_rebuilt_on_live_mains",
+        "overlay_source_label": "user_ready_rc_overlay_2026_08_13",
+        "v2_present_on_accepted_main": false,
+        "v2_consumed_from": "origin/operating-cycle-3b/engineering-burndown@8715e438874c6a7430e6ad23c824333567ba150a"
+      },
+      "complete_equals_4_honesty": {
+        "under_counts_merged_digital_work": false,
+        "honest_because_v2_atomics_remain_open": true,
+        "rationale": "V2 already had COMPLETE=4 / OPEN=439 before this packet. #76 remapped the four COMPLETE evidence paths from #71-only charter markdown onto WP-012 files that exist on accepted main 413e6e6. It did not promote game/device-os/hardware/gunnchAI rows despite successor merges. Overlay adds 43 user-ready RC rows (40 OPEN + PHYSICAL/HUMAN/SHIPPING). Owner user-ready done standard is pickup-and-use RC, not 'code exists on main'. GAME_*_CORE_RUNTIME rows were already OPEN with empty files in V2 at WP-014 merge SHAs.",
+        "complete_ids": [
+          "CHARTER_NARRATIVE",
+          "REPO_OWNERSHIP_MAP",
+          "CLAIM_BOUNDARIES",
+          "COMPLETION_REGISTER_V1"
+        ],
+        "complete_files_present_on_origin_main": {
+          "program/charter/gunnchOS3k_PRODUCT_CHARTER.md": true,
+          "artifacts/wp012/REPO_CATALOG.yaml": true,
+          "artifacts/wp012/REPO_CATALOG.md": true,
+          "program/charter/gunnchOS3k_PRODUCT_CHARTER.yaml": true,
+          "artifacts/wp012/PROJECT_CHARTER_COMPLETION_REGISTER.json": true,
+          "artifacts/wp012/VP-012-RESULT.json": true
+        },
+        "v2_complete_paths_absent_on_main_correctly_remapped": {
+          "program/charter/charter_narrative.md": "ABSENT_ON_MAIN",
+          "program/charter/repo_ownership_map.md": "ABSENT_ON_MAIN_implied",
+          "program/charter/claim_boundaries.md": "ABSENT_ON_MAIN_implied",
+          "program/charter/completion_register_v1.md": "ABSENT_ON_MAIN_implied"
+        },
+        "observation_not_fail": "512/519 rows have empty real_implementation_files. Inherited from V2 (469/476 empty). Not invented counts. CHARTER_REGISTER_V2 stays OPEN because V2 JSON is still #71-only."
+      }
+    },
+    "4_release_candidate_gate_computed_and": {
+      "verdict": "PASS",
+      "hardcoded_pass": false,
+      "recompute": {
+        "script": "program/user_ready_rc/compute_user_ready_rc_gate.py",
+        "sha256_before": "96e1ad3b61cd57170c1f6442a15dc11e35e4f423bec1e26d86795aab36b9a83e",
+        "sha256_after": "96e1ad3b61cd57170c1f6442a15dc11e35e4f423bec1e26d86795aab36b9a83e",
+        "identical": true,
+        "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
+        "false_children_count": 22,
+        "true_children": []
+      },
+      "digital_tokens_all_false": true,
+      "independent_evidence_to_flip_any_token": null,
+      "PHYSICAL_PICKUP_AND_USE_READY": false,
+      "HUMAN_E6": false,
+      "SHIPPING_PRODUCT": false,
+      "note": "Successor game VPs (pedestrian #15, beatlink #19) were merge-readiness of product-depth PRs, not FOUR_GAME_FULL_PLAYTHROUGH_RC. device-os #109 is 18-course seed. hardware #62 image-fit OPEN. field-kit #72 IMT tracker is tracker-only. No G11–G18 Device Lab persona run on accepted main."
+    },
+    "5_g11_g18_stubs_no_product_claim": {
+      "verdict": "PASS",
+      "path": "program/operating_model/02_QUALITY_USERS/GOLDEN_JOURNEYS.json",
+      "diff_vs_origin_main": "additive G11–G18 only; G01–G10 unchanged",
+      "stubs": [
+        {"id": "GOLDEN-11", "alias": "G11", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-12", "alias": "G12", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-13", "alias": "G13", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-14", "alias": "G14", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-15", "alias": "G15", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-16", "alias": "G16", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-17", "alias": "G17", "status": "STUB", "pass": false, "evidence_level": "E0"},
+        {"id": "GOLDEN-18", "alias": "G18", "status": "STUB", "pass": false, "evidence_level": "E0"}
+      ],
+      "any_pass_true": false,
+      "product_implementation_claimed": false,
+      "USER_READY_DIGITAL_RELEASE_CANDIDATE_in_packet": false,
+      "final_umbrella": false
+    },
+    "6_profile_readme_no_merge_no_force_push": {
+      "verdict": "PASS",
+      "PROFILE_README_edited": false,
+      "readme_files_in_pr": [],
+      "pr_merged": false,
+      "pr_is_draft": true,
+      "force_push": false,
+      "reflog": "branch created from origin/main then one commit 74a2726; no rewrite",
+      "field_kit_71_updated_by_this_packet": false,
+      "wp001_started": false,
+      "cursor_merged": false
+    },
+    "ci_green_on_tip": {
+      "verdict": "PASS",
+      "head_sha": "74a2726fa1d126e9509719becfa592bd4c757e52",
+      "unique_checks": 12,
+      "passing_unique_checks": 12,
+      "failing_unique_checks": 0,
+      "passing_check_rows": 16,
+      "failed_checks": [],
+      "unique_names": [
+        "validate",
+        "firewall",
+        "readiness",
+        "nonphysical",
+        "gate1",
+        "gate2",
+        "gate3-readiness",
+        "gate4",
+        "gate4-readiness",
+        "gate5",
+        "gate6",
+        "gate7"
+      ]
+    }
+  },
+  "fixture_as_product": {
+    "challenged": true,
+    "verdict": "NOT_FIXTURE_AS_PRODUCT",
+    "note": "Packet is control-plane reconciliation (baseline JSON, atomic register rebuild, burndown, computed gate, G11–G18 stubs). It does not claim USER_READY_DIGITAL_RELEASE_CANDIDATE, physical pickup, human E6, shipping, or product implementation. Stubs are explicitly pass=false."
+  },
+  "edmund_merge_guidance": {
+    "FIELD_KIT_76_READY_FOR_EDMUND_MERGE": true,
+    "cursor_must_not_merge": true,
+    "merging_does_not_earn": [
+      "USER_READY_DIGITAL_RELEASE_CANDIDATE",
+      "PHYSICAL_PICKUP_AND_USE_READY",
+      "HUMAN_E6",
+      "SHIPPING_PRODUCT",
+      "WP001_READY_FOR_OWNER_DECISION"
+    ],
+    "merging_does": "Land accepted-main SHA pin, atomic register, burndown, computed-false RC gate, and G11–G18 stubs on field-kit main as the user-ready control plane.",
+    "do_not_merge_71_as_part_of_this": true,
+    "do_not_start_wp001": true
+  },
+  "remaining_issues": [
+    "USER_READY_DIGITAL_RELEASE_CANDIDATE remains false (22/22 digital tokens false).",
+    "field-kit #71 LAST aggregation still OPEN DRAFT with stale owner SHAs; unused by this packet; do not update it from here.",
+    "field-kit #75 post-#74 VP land still OPEN DRAFT.",
+    "G11–G18 are stubs (pass=false); no Device Lab persona run on accepted main.",
+    "CHARTER_REGISTER_V2 remains OPEN: V2 JSON is still only on unmerged #71.",
+    "Games/device-os/hardware/gunnchAI successor merges are on accepted main but do not close user-ready RC atomics.",
+    "device-os #103 and four game WP-012 README drafts remain OPEN leftover DRAFTs (not this queue; not accepted).",
+    "WP-001 must not start. OWNER_DECISION_PENDING=6 including WP001_START.",
+    "PHYSICAL_PICKUP / HUMAN_E6 / SHIPPING remain false and irreducible."
+  ]
+}
