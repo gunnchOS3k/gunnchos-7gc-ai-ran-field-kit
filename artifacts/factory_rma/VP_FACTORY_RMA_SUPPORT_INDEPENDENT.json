@@ -1,0 +1,135 @@
+{
+  "schema": "gunnchos.stream.factory_rma_support.independent_verifier_result.v1",
+  "work_item": "STREAM-FACTORY-RMA-SUPPORT",
+  "product": "factory_rma_support_ledger",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "did_not_implement": true,
+  "did_not_merge": true,
+  "did_not_touch_field_kit_pr_71": true,
+  "field_kit_pr_71": {
+    "number": 71,
+    "state": "OPEN",
+    "draft": true,
+    "merged": false,
+    "head": "8715e438874c6a7430e6ad23c824333567ba150a",
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/71",
+    "note": "Observed only. Not merged. Not touched."
+  },
+  "cursor_must_not_merge": true,
+  "prefer_fail_over_false_pass": true,
+  "pr": {
+    "number": 74,
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/74",
+    "draft": true,
+    "state": "OPEN",
+    "branch": "operating-cycle-3b/factory-rma-support-stream",
+    "title": "STREAM: factory / RMA / support digital operational model ledger"
+  },
+  "claimed_tip": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
+  "claimed_tip_short": "a3be15e",
+  "claimed_tip_live_confirmed": true,
+  "verified_tip": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
+  "verified_tip_short": "a3be15e",
+  "tip_commit_subject": "docs(stream): add factory/RMA/support ledger with honest EXTERNAL tokens",
+  "base_main": "b32fc06191608054921c07cff63725129601e9a6",
+  "base_main_short": "b32fc06",
+  "base_main_confirmed": true,
+  "merge_base_equals_claimed_base": true,
+  "commits_on_pr": 1,
+  "generated_at_utc": "2026-08-13T16:22:00Z",
+  "inspected_paths": {
+    "field_kit": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit",
+    "head": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea"
+  },
+  "VP_FACTORY_RMA_SUPPORT_INDEPENDENT": "FAIL",
+  "FIELD_KIT_74_READY_FOR_EDMUND_MERGE": false,
+  "READY_FOR_EDMUND_MERGE": false,
+  "PRODUCTION_RELEASE_CLAIMED": false,
+  "fail_reason": "CI not fully green on live tip a3be15e: Gate 2 Integrated System FAILURE (2 rows, push+pull_request). Summary step globbed results/integrated/calibration-cal-20260722T170604Z (no gate2_status.json). STREAM honesty jobs are green (Claim Firewall ran validate_factory_rma_support_stream.py → PASS; Application readiness pytest 211 passed). Prefer fail over false PASS.",
+  "pass_note": null,
+  "challenges": {
+    "ci_green_on_tip": {
+      "verdict": "FAIL",
+      "head_sha": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
+      "unique_checks": 12,
+      "passing_unique_checks": 11,
+      "failing_unique_checks": 1,
+      "failed_checks": [
+        {
+          "name": "gate2",
+          "workflow": "Gate 2 Integrated System",
+          "conclusion": "FAILURE",
+          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719306414/job/94511932533",
+          "also": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719299022/job/94511904998",
+          "note": "Pipeline steps (schema/failure tests, component contracts, integrated pipeline --strict, checksums) succeeded. Summary step failed: pathlib.glob picked committed calibration-cal-20260722T170604Z because RUN_DIR was not exported into the Python heredoc. This PR did not touch .github/workflows/gate2-integrated-system.yml or results/integrated/. Pre-existing brittle ls/glob; still a red required check on this tip."
+        }
+      ],
+      "stream_relevant_green": {
+        "firewall": {
+          "conclusion": "SUCCESS",
+          "workflow": "Claim Firewall",
+          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719306295/job/94511932236",
+          "ci_token": "PASS factory-rma-support STREAM honesty gate"
+        },
+        "readiness": {
+          "conclusion": "SUCCESS",
+          "workflow": "Application readiness CI",
+          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719306286/job/94511932787",
+          "pytest": "211 passed in 52.81s"
+        }
+      }
+    },
+    "stream_tokens_honest": {
+      "verdict": "PASS",
+      "PRODUCTION_RELEASE_CLAIMED": false,
+      "cursor_merges": false,
+      "commercial_warranty": "EXTERNAL",
+      "rfq_purchase_fab": "NOT_THIS_STREAM",
+      "production_keys": false,
+      "production_ca": false,
+      "status": "DIGITAL_PREPARATION",
+      "local_validator": "PASS factory-rma-support STREAM honesty gate",
+      "local_pytest": "5 passed"
+    },
+    "no_hardcoded_pass": {
+      "verdict": "PASS",
+      "how_pass_is_computed": "validate_factory_rma_support_stream.py reads STREAM.yaml + ops_schema.json + CLAIM_BOUNDARY.md and returns 1 on any token mismatch. pytest tests/factory_rma execute the validator and assert const-false PRODUCTION_RELEASE_CLAIMED. Independent verifier FAIL on CI is itself evidence that PASS is not hardcoded.",
+      "hardcoded_pass": false
+    }
+  },
+  "local_reproduction": {
+    "validator": "PASS factory-rma-support STREAM honesty gate",
+    "pytest_factory_rma": "5 passed"
+  },
+  "defects_S0_S1": {
+    "verdict": "FAIL",
+    "S0_open": 0,
+    "S1_open": 1,
+    "items": [
+      {
+        "id": "FK74-GATE2-SUMMARY-GLOB",
+        "severity": "S1",
+        "summary": "Gate 2 job red on tip a3be15e because Summary glob/ls of results/integrated/* is order-dependent and can select calibration-cal-20260722T170604Z. Not introduced by this STREAM diff; still blocks CI-green READY."
+      }
+    ]
+  },
+  "remaining_open": [
+    "Gate 2 Integrated System red on DRAFT #74 (Summary glob flake / missing export of RUN_DIR) — blocks READY",
+    "HUMAN/EXTERNAL CA and HSM",
+    "Carrier eSIM contract",
+    "CM / factory bring-up",
+    "Warranty legal terms",
+    "Supplier AVL quotes",
+    "Edmund merge (Cursor never merges)",
+    "field-kit #71 remains OPEN DRAFT and was not merged or touched"
+  ],
+  "forbidden": {
+    "merged": false,
+    "merged_field_kit_pr_71": false,
+    "PRODUCTION_RELEASE_CLAIMED": false,
+    "invented_stock_or_price": false,
+    "production_keys": false
+  },
+  "claim_boundary": "Independent digital verification of field-kit DRAFT #74 STREAM ledger. Tokens are honest DIGITAL_PREPARATION / EXTERNAL / false. READY withheld because Gate 2 is red on the live tip. Cursor did not implement and must not merge. field-kit #71 not touched.",
+  "verdict_summary": "Live DRAFT #74 HEAD a3be15e confirmed. STREAM honesty PASS (firewall + 5 local tests). CI NOT fully green: gate2 FAILURE. FIELD_KIT_74_READY_FOR_EDMUND_MERGE=false. Cursor does not merge."
+}
