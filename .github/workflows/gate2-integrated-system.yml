@@ -111,7 +111,7 @@ jobs:
 
       - name: Schema and failure tests
         run: |
-          python -m pytest -q tests/contracts tests/failure_cases tests/provenance
+          python -m pytest -q tests/contracts tests/failure_cases tests/provenance tests/gate2_status
 
       - name: Component contract tests
         working-directory: .
@@ -147,10 +147,17 @@ jobs:
             --repos-root .. \
             --output-root results/integrated \
             --strict
+          # Pin the pipeline's intended run. Do not glob results/integrated/*
+          # (that can select committed calibration-cal-* with no gate2_status.json).
+          python scripts/select_gate2_run_dir.py \
+            --output-root results/integrated \
+            --edge-input fixtures/valid/edge_measurement_batch.valid.json \
+            --github-env "$GITHUB_ENV"
 
       - name: Verify checksums and provenance
         run: |
-          RUN_DIR=$(ls -d results/integrated/* | head -n 1)
+          test -n "${RUN_DIR:-}"
+          test -f "$RUN_DIR/gate2_status.json"
           python scripts/verify_checksums.py "$RUN_DIR/checksums.sha256"
           python scripts/verify_provenance.py --run-dir "$RUN_DIR"
           python reproduction/verify_reproduction.py "$RUN_DIR"
@@ -164,14 +171,23 @@ jobs:
 
       - name: Summary
         run: |
-          RUN_DIR=$(ls -d results/integrated/* | head -n 1)
+          test -n "${RUN_DIR:-}"
+          test -f "$RUN_DIR/gate2_status.json"
           echo "## Gate 2 Integrated System" >> "$GITHUB_STEP_SUMMARY"
-          python - <<PY
-          import json, pathlib, os
-          run = pathlib.Path(os.environ.get('RUN_DIR') or list(pathlib.Path('results/integrated').glob('*'))[0])
-          gate = json.loads((run/'gate2_status.json').read_text())
-          man = json.loads((run/'manifest.json').read_text())
-          print(f"Status: **{gate['status']}**", file=open(os.environ['GITHUB_STEP_SUMMARY'],'a'))
-          print(f"Run ID: `{man['run_id']}`", file=open(os.environ['GITHUB_STEP_SUMMARY'],'a'))
-          print(f"Evidence: `{man['evidence_levels']}`", file=open(os.environ['GITHUB_STEP_SUMMARY'],'a'))
+          python - <<'PY'
+          import json, os, pathlib, sys
+          run = pathlib.Path(os.environ["RUN_DIR"])
+          status_path = run / "gate2_status.json"
+          if not status_path.is_file():
+              print(
+                  f"ERROR: {status_path} missing; refusing glob fallback on results/integrated/*",
+                  file=sys.stderr,
+              )
+              raise SystemExit(1)
+          gate = json.loads(status_path.read_text())
+          man = json.loads((run / "manifest.json").read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fh:
+              print(f"Status: **{gate['status']}**", file=fh)
+              print(f"Run ID: `{man['run_id']}`", file=fh)
+              print(f"Evidence: `{man['evidence_levels']}`", file=fh)
           PY
