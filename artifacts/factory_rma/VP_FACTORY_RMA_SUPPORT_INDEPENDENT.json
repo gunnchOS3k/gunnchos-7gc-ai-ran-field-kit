@@ -8,12 +8,7 @@
   "did_not_touch_field_kit_pr_71": true,
   "field_kit_pr_71": {
     "number": 71,
-    "state": "OPEN",
-    "draft": true,
-    "merged": false,
-    "head": "8715e438874c6a7430e6ad23c824333567ba150a",
-    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/71",
-    "note": "Observed only. Not merged. Not touched."
+    "note": "Observed only from prior independent record and local branch listing. Not fetched via gh this pass. Not merged. Not touched."
   },
   "cursor_must_not_merge": true,
   "prefer_fail_over_false_pass": true,
@@ -22,61 +17,83 @@
     "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/74",
     "draft": true,
     "state": "OPEN",
+    "merged": false,
     "branch": "operating-cycle-3b/factory-rma-support-stream",
     "title": "STREAM: factory / RMA / support digital operational model ledger"
   },
-  "claimed_tip": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
-  "claimed_tip_short": "a3be15e",
+  "claimed_tip": "23c868c868219c5d73602917e9af07a765b4e00f",
+  "claimed_tip_short": "23c868c",
   "claimed_tip_live_confirmed": true,
-  "verified_tip": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
-  "verified_tip_short": "a3be15e",
-  "tip_commit_subject": "docs(stream): add factory/RMA/support ledger with honest EXTERNAL tokens",
+  "verified_tip": "23c868c868219c5d73602917e9af07a765b4e00f",
+  "verified_tip_short": "23c868c",
+  "tip_commit_subject": "fix(gate2): select intended integrated run, not calibration glob",
   "base_main": "b32fc06191608054921c07cff63725129601e9a6",
   "base_main_short": "b32fc06",
   "base_main_confirmed": true,
   "merge_base_equals_claimed_base": true,
-  "commits_on_pr": 1,
-  "generated_at_utc": "2026-08-13T16:22:00Z",
+  "commits_on_pr": 3,
+  "generated_at_utc": "2026-08-13T16:33:54Z",
   "inspected_paths": {
     "field_kit": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit",
-    "head": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea"
+    "head": "23c868c868219c5d73602917e9af07a765b4e00f"
   },
-  "VP_FACTORY_RMA_SUPPORT_INDEPENDENT": "FAIL",
-  "FIELD_KIT_74_READY_FOR_EDMUND_MERGE": false,
-  "READY_FOR_EDMUND_MERGE": false,
+  "prior_independent_result": {
+    "tip": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
+    "VP_FACTORY_RMA_SUPPORT_INDEPENDENT": "FAIL",
+    "FIELD_KIT_74_READY_FOR_EDMUND_MERGE": false,
+    "fail_reason": "Gate 2 Summary globbed results/integrated/calibration-cal-20260722T170604Z (no gate2_status.json)"
+  },
+  "VP_FACTORY_RMA_SUPPORT_INDEPENDENT": "PASS",
+  "FIELD_KIT_74_READY_FOR_EDMUND_MERGE": true,
+  "READY_FOR_EDMUND_MERGE": true,
   "PRODUCTION_RELEASE_CLAIMED": false,
-  "fail_reason": "CI not fully green on live tip a3be15e: Gate 2 Integrated System FAILURE (2 rows, push+pull_request). Summary step globbed results/integrated/calibration-cal-20260722T170604Z (no gate2_status.json). STREAM honesty jobs are green (Claim Firewall ran validate_factory_rma_support_stream.py → PASS; Application readiness pytest 211 passed). Prefer fail over false PASS.",
-  "pass_note": null,
+  "fail_reason": null,
+  "pass_note": "Live DRAFT #74 HEAD 23c868c confirmed. All 12 unique CI checks SUCCESS including Gate 2 push+pull_request. Gate 2 selected intended integrated run 2026-07-22-synthetic-gary-learn-001 (fixture run_id), not stray calibration-cal-20260722T170604Z. STREAM honesty PASS. Digital STREAM only; PRODUCTION_RELEASE_CLAIMED remains false. Cursor does not merge.",
   "challenges": {
     "ci_green_on_tip": {
-      "verdict": "FAIL",
-      "head_sha": "a3be15e1763aed94531dd3d1fe44d5d80fe22cea",
+      "verdict": "PASS",
+      "head_sha": "23c868c868219c5d73602917e9af07a765b4e00f",
       "unique_checks": 12,
-      "passing_unique_checks": 11,
-      "failing_unique_checks": 1,
-      "failed_checks": [
-        {
-          "name": "gate2",
-          "workflow": "Gate 2 Integrated System",
-          "conclusion": "FAILURE",
-          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719306414/job/94511932533",
-          "also": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719299022/job/94511904998",
-          "note": "Pipeline steps (schema/failure tests, component contracts, integrated pipeline --strict, checksums) succeeded. Summary step failed: pathlib.glob picked committed calibration-cal-20260722T170604Z because RUN_DIR was not exported into the Python heredoc. This PR did not touch .github/workflows/gate2-integrated-system.yml or results/integrated/. Pre-existing brittle ls/glob; still a red required check on this tip."
-        }
-      ],
+      "passing_unique_checks": 12,
+      "failing_unique_checks": 0,
+      "failed_checks": [],
+      "gh_pr_checks": "16/16 pass (duplicates are push + pull_request)",
       "stream_relevant_green": {
         "firewall": {
           "conclusion": "SUCCESS",
           "workflow": "Claim Firewall",
-          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719306295/job/94511932236",
+          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31720884987/job/94517288128",
           "ci_token": "PASS factory-rma-support STREAM honesty gate"
         },
         "readiness": {
           "conclusion": "SUCCESS",
           "workflow": "Application readiness CI",
-          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31719306286/job/94511932787",
-          "pytest": "211 passed in 52.81s"
+          "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31720885219/job/94517289751",
+          "pytest": "217 passed in 51.47s"
         }
+      }
+    },
+    "gate2_intended_run_not_calibration_glob": {
+      "verdict": "PASS",
+      "selector": "scripts/select_gate2_run_dir.py",
+      "fixture_run_id": "2026-07-22-synthetic-gary-learn-001",
+      "selected_run_id": "2026-07-22-synthetic-gary-learn-001",
+      "gate2_status": "GATE2_SYSTEM_PASS",
+      "stray_calibration_dir": "results/integrated/calibration-cal-20260722T170604Z",
+      "stray_has_gate2_status_json": false,
+      "refuses_glob_fallback": true,
+      "local_selector_tests": "6 passed",
+      "pull_request_job": {
+        "conclusion": "SUCCESS",
+        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31720884914/job/94517288260",
+        "RUN_DIR": "results/integrated/2026-07-22-synthetic-gary-learn-001",
+        "summary_step": "SUCCESS"
+      },
+      "push_job": {
+        "conclusion": "SUCCESS",
+        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31720881220/job/94517276355",
+        "RUN_DIR": "results/integrated/2026-07-22-synthetic-gary-learn-001",
+        "summary_step": "SUCCESS"
       }
     },
     "stream_tokens_honest": {
@@ -87,36 +104,39 @@
       "rfq_purchase_fab": "NOT_THIS_STREAM",
       "production_keys": false,
       "production_ca": false,
+      "esim": "EXTERNAL_PENDING",
       "status": "DIGITAL_PREPARATION",
       "local_validator": "PASS factory-rma-support STREAM honesty gate",
       "local_pytest": "5 passed"
     },
     "no_hardcoded_pass": {
       "verdict": "PASS",
-      "how_pass_is_computed": "validate_factory_rma_support_stream.py reads STREAM.yaml + ops_schema.json + CLAIM_BOUNDARY.md and returns 1 on any token mismatch. pytest tests/factory_rma execute the validator and assert const-false PRODUCTION_RELEASE_CLAIMED. Independent verifier FAIL on CI is itself evidence that PASS is not hardcoded.",
+      "how_pass_is_computed": "validate_factory_rma_support_stream.py reads STREAM.yaml + ops_schema.json + CLAIM_BOUNDARY.md and returns 1 on any token mismatch. pytest tests/factory_rma execute the validator and assert const-false PRODUCTION_RELEASE_CLAIMED. Prior independent FAIL on a3be15e (Gate 2 glob) plus this PASS after 23c868c remediation is evidence PASS is not hardcoded.",
       "hardcoded_pass": false
     }
   },
   "local_reproduction": {
     "validator": "PASS factory-rma-support STREAM honesty gate",
-    "pytest_factory_rma": "5 passed"
+    "pytest_factory_rma": "5 passed",
+    "pytest_select_gate2_run_dir": "6 passed",
+    "select_gate2_run_dir_local": "results/integrated/2026-07-22-synthetic-gary-learn-001"
   },
   "defects_S0_S1": {
-    "verdict": "FAIL",
+    "verdict": "PASS",
     "S0_open": 0,
-    "S1_open": 1,
-    "items": [
+    "S1_open": 0,
+    "items": [],
+    "closed_this_pass": [
       {
         "id": "FK74-GATE2-SUMMARY-GLOB",
         "severity": "S1",
-        "summary": "Gate 2 job red on tip a3be15e because Summary glob/ls of results/integrated/* is order-dependent and can select calibration-cal-20260722T170604Z. Not introduced by this STREAM diff; still blocks CI-green READY."
+        "summary": "Closed on 23c868c: select_gate2_run_dir.py pins fixture run_id and fails closed; CI Summary used RUN_DIR=.../2026-07-22-synthetic-gary-learn-001, not calibration-cal-*."
       }
     ]
   },
   "remaining_open": [
-    "Gate 2 Integrated System red on DRAFT #74 (Summary glob flake / missing export of RUN_DIR) — blocks READY",
     "HUMAN/EXTERNAL CA and HSM",
-    "Carrier eSIM contract",
+    "Carrier eSIM contract (EXTERNAL_PENDING)",
     "CM / factory bring-up",
     "Warranty legal terms",
     "Supplier AVL quotes",
@@ -130,6 +150,6 @@
     "invented_stock_or_price": false,
     "production_keys": false
   },
-  "claim_boundary": "Independent digital verification of field-kit DRAFT #74 STREAM ledger. Tokens are honest DIGITAL_PREPARATION / EXTERNAL / false. READY withheld because Gate 2 is red on the live tip. Cursor did not implement and must not merge. field-kit #71 not touched.",
-  "verdict_summary": "Live DRAFT #74 HEAD a3be15e confirmed. STREAM honesty PASS (firewall + 5 local tests). CI NOT fully green: gate2 FAILURE. FIELD_KIT_74_READY_FOR_EDMUND_MERGE=false. Cursor does not merge."
+  "claim_boundary": "Independent digital verification of field-kit DRAFT #74 STREAM ledger after Gate 2 run-selection remediation. Tokens remain honest DIGITAL_PREPARATION / EXTERNAL / EXTERNAL_PENDING / false. READY is digital-STREAM merge readiness only, not production release. Cursor did not implement and must not merge. field-kit #71 not touched.",
+  "verdict_summary": "Live DRAFT #74 HEAD 23c868c confirmed. CI fully green (12/12 unique, Gate 2 included). Gate 2 used intended integrated run 2026-07-22-synthetic-gary-learn-001, not stray calibration glob. STREAM honesty PASS. VP_FACTORY_RMA_SUPPORT_INDEPENDENT=PASS. FIELD_KIT_74_READY_FOR_EDMUND_MERGE=true. Cursor does not merge."
 }
