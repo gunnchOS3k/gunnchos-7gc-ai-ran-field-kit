@@ -61,6 +61,108 @@
       "name": "Lost device revoke",
       "severity": "S0",
       "description": "Revoke lost device/session and protect private data."
+    },
+    {
+      "id": "GOLDEN-11",
+      "alias": "G11",
+      "name": "STUDENT_REAL_DAY",
+      "severity": "S1",
+      "description": "Student first-boot through WAIKE lesson, assignment/lab/quiz, office work, offline/reconnect, game, return to intact schoolwork. No terminal. No developer help.",
+      "persona": "P1_STUDENT",
+      "no_terminal_required": true,
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. Requires Device Lab persona run on accepted main."
+    },
+    {
+      "id": "GOLDEN-12",
+      "alias": "G12",
+      "name": "OFFICE_REAL_WORK",
+      "severity": "S1",
+      "description": "Office worker first-boot through real files, browser, PDF, document/spreadsheet/presentation, research/citations, AI assistance, dock, save/recover.",
+      "persona": "P2_OFFICE",
+      "no_terminal_required": true,
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. Requires Device Lab persona run on accepted main."
+    },
+    {
+      "id": "GOLDEN-13",
+      "alias": "G13",
+      "name": "TEACHER_REAL_CLASSROOM",
+      "severity": "S1",
+      "description": "Teacher opens WAIKE instructor view, presents lesson, assigns work, quiz/test, grades with rubric, feedback, class snapshot, AI teacher tools. No hidden instructor CLI.",
+      "persona": "P3_TEACHER",
+      "no_terminal_required": true,
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. Requires Device Lab persona run on accepted main."
+    },
+    {
+      "id": "GOLDEN-14",
+      "alias": "G14",
+      "name": "BUILDER_REAL_BUILD_DEPLOY",
+      "severity": "S1",
+      "description": "Builder uses DS-XL dual-screen, Git, editor, terminal, build/test/debug, gunnchSDK install/run, Device Lab, AI coding assistance.",
+      "persona": "P4_BUILDER",
+      "no_terminal_required": false,
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. Terminal is allowed for this persona only."
+    },
+    {
+      "id": "GOLDEN-15",
+      "alias": "G15",
+      "name": "CREATIVE_REAL_PROJECT",
+      "severity": "S1",
+      "description": "Creative creates/edits real assets with mature license-compatible tools, AI collaboration, export, files, dock. No terminal required.",
+      "persona": "P5_CREATIVE",
+      "no_terminal_required": true,
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. Requires Device Lab persona run on accepted main."
+    },
+    {
+      "id": "GOLDEN-16",
+      "alias": "G16",
+      "name": "GAME_FULL_PLAYTHROUGH_PORTFOLIO",
+      "severity": "S1",
+      "description": "All four titles complete intended playthrough, achievements, content manifest, AI-heuristic polish with S1=0 and S2=0. Human playtest remains pending.",
+      "persona": "PORTFOLIO",
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. Successor game PRs on main are not full-playthrough RC evidence."
+    },
+    {
+      "id": "GOLDEN-17",
+      "alias": "G17",
+      "name": "WAIKE_COURSE_FROM_ENROLLMENT_TO_MASTERY",
+      "severity": "S1",
+      "description": "Learner enrolls, takes real lessons/labs/assignments/quizzes/tests, receives feedback, produces portfolio artifact, reaches mastery. App-rendered, not repo Markdown browsing.",
+      "persona": "P1_STUDENT",
+      "no_terminal_required": true,
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. device-os #109 is 18-course seed, not LMS complete."
+    },
+    {
+      "id": "GOLDEN-18",
+      "alias": "G18",
+      "name": "GUNNCHAI_MARKET_TASK_MATRIX",
+      "severity": "S1",
+      "description": "Required market-task classes execute with actual runtime evidence, local essential path, privacy/permission coverage. No stub-only or fake cloud path.",
+      "persona": "ALL",
+      "status": "STUB",
+      "pass": false,
+      "evidence_level": "E0",
+      "note": "Stub only. No PASS claimed. gunnchAI #32 is independent evals / Nano-fallback honesty, not market-task RC."
     }
   ]
 }
