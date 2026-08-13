@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.local/schemas/factory_rma_support.stream.v1.json",
+  "title": "Factory / RMA / support STREAM tokens",
+  "type": "object",
+  "required": [
+    "schema",
+    "PRODUCTION_RELEASE_CLAIMED",
+    "cursor_merges",
+    "commercial_warranty",
+    "rfq_purchase_fab",
+    "production_keys",
+    "production_ca"
+  ],
+  "properties": {
+    "schema": { "type": "string", "const": "gunnchos.stream.v1" },
+    "PRODUCTION_RELEASE_CLAIMED": { "type": "boolean", "const": false },
+    "cursor_merges": { "type": "boolean", "const": false },
+    "commercial_warranty": { "type": "string", "const": "EXTERNAL" },
+    "rfq_purchase_fab": { "type": "string", "const": "NOT_THIS_STREAM" },
+    "production_keys": { "type": "boolean", "const": false },
+    "production_ca": { "type": "boolean", "const": false }
+  }
+}
