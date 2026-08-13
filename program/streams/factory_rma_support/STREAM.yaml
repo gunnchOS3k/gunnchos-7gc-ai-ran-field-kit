@@ -1,0 +1,65 @@
+schema: gunnchos.stream.v1
+id: STREAM-FACTORY-RMA-SUPPORT
+title: Factory / RMA / support digital operational model (DEV/TEST)
+owner_repos:
+  - gunnchos-device-os
+supporting_repos:
+  - gunnchos-hardware-industrial-design
+status: DIGITAL_PREPARATION
+PRODUCTION_RELEASE_CLAIMED: false
+cursor_merges: false
+commercial_warranty: EXTERNAL
+rfq_purchase_fab: NOT_THIS_STREAM
+production_keys: false
+production_ca: false
+
+implemented_digital:
+  - DEVTEST serial identity
+  - locally-administered MAC allocator/interface
+  - device certificate REQUEST (CSR; issuance EXTERNAL)
+  - key injection INTERFACE (dummy per-device key; HSM EXTERNAL)
+  - eSIM INTERFACE (EXTERNAL_PENDING)
+  - calibration import
+  - factory test-result import
+  - flash with fail-closed gates
+  - device record export
+  - repair history and rework
+  - factory secure-wipe of the digital record (physical sanitize EXTERNAL)
+  - diagnostic bundle (redacted)
+  - fault-code catalog
+  - RMA state machine including WARRANTY_EXTERNAL
+  - service history
+  - repair mode
+  - backup / replacement transfer
+  - support wipe
+  - spares mapping (part IDs only; stock/price UNKNOWN)
+  - update-support / EOL metadata (business years EXTERNAL)
+  - first-use flow (language, a11y, network, offline continuation, privacy, AI choice, Ring software pair, dock digital scan, update, recovery help, student profile)
+  - supply-chain machine-readable fields (BOM/AVL/alternates/sole-source/NRND-EOL/lead-time/MOQ)
+
+pending_human_external:
+  - production CA issuance
+  - HSM key ceremony
+  - carrier eSIM credentials
+  - RFQ / purchase / fab
+  - physical factory line
+  - physical media sanitize
+  - commercial warranty / SLA / depot logistics
+  - supplier AVL quotes (stock, price, real lead-time, real MOQ)
+  - physical Ring pairing
+  - physical dock discovery
+
+open:
+  - HUMAN/EXTERNAL CA and HSM
+  - carrier eSIM contract
+  - CM / factory bring-up
+  - warranty legal terms
+  - supplier quotes
+  - independent verification
+  - Edmund merge (Cursor never merges)
+
+honesty:
+  unknown_stays_unknown: true
+  does_not_invent_stock_or_price: true
+  does_not_claim_production_release: true
+  commercial_warranty_is_external: true
