@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos.local/schemas/digital_inventory.v1.json",
+  "title": "gunnchOS digital inventory (SBOM/HBOM/AI-BOM)",
+  "type": "object",
+  "required": [
+    "schema",
+    "claim_boundary",
+    "legal_approval",
+    "EXTERNAL_PENTEST_COMPLETE",
+    "UNKNOWN_RELEASE_BLOCKING",
+    "components"
+  ],
+  "properties": {
+    "schema": { "type": "string", "const": "gunnchos.digital_inventory.v1" },
+    "claim_boundary": { "type": "string", "minLength": 20 },
+    "legal_approval": { "type": "string", "const": "HUMAN/EXTERNAL" },
+    "EXTERNAL_PENTEST_COMPLETE": { "type": "boolean", "const": false },
+    "UNKNOWN_RELEASE_BLOCKING": { "type": "boolean" },
+    "unknown_release_blocking_count": { "type": "integer", "minimum": 0 },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "name", "license", "provenance", "unknown_release_blocking"],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "source",
+              "python",
+              "npm",
+              "godot_addon",
+              "font",
+              "media",
+              "ai_model",
+              "dataset",
+              "scientific",
+              "hardware"
+            ]
+          },
+          "name": { "type": "string" },
+          "version": { "type": "string" },
+          "license": { "type": "string" },
+          "provenance": { "type": "string" },
+          "source": { "type": "string" },
+          "release_status": { "type": "string" },
+          "unknown_release_blocking": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

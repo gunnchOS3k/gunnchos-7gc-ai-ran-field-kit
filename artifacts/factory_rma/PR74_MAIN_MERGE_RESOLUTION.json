@@ -1,0 +1,129 @@
+{
+  "schema": "gunnchos.stream.factory_rma_support.main_merge_resolution.v1",
+  "pr": 74,
+  "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/74",
+  "branch": "operating-cycle-3b/factory-rma-support-stream",
+  "generated_at_utc": "2026-08-13T18:07:45Z",
+  "cursor_merged_the_pr": false,
+  "force_push": false,
+  "rebase_force": false,
+  "pushed_to_main": false,
+  "FIELD_KIT_74_READY_FOR_EDMUND_MERGE": false,
+  "independent_verifier": "separate; this implementer pass does not stamp READY",
+  "A_fieldkit_origin_main_sha": "f37384978f85d523abb96d96aa5c768f40353e42",
+  "A_fieldkit_origin_main_note": "Merge pull request #73; contains #72+#73",
+  "B_pre_merge_head": "eabc01eeb23a6acbdbc3ac30a77bc60610e99ef0",
+  "C_device_os_origin_main_sha": "d7b3d60f0ed7f5786d8a23cc3ed5e11566ac9afa",
+  "C_device_os_note": "Merge pull request #113 factory-rma-support-digital",
+  "D_hardware_origin_main_sha": "6c0b025e505505a74adca510e47c15b8f39bc980",
+  "D_hardware_note": "Merge pull request #63 factory-rma-supply-chain-fields",
+  "E_conflict_files": [
+    ".github/workflows/claim-firewall.yml"
+  ],
+  "F_per_file_resolution": {
+    ".github/workflows/claim-firewall.yml": {
+      "strategy": "semantic union, not ours/theirs blanket",
+      "kept_from_main_72_73": [
+        "python3 scripts/validate_claim_firewall.py",
+        "python3 scripts/validate_release_firewall.py",
+        "python3 scripts/validate_game_release_claims.py",
+        "python3 scripts/validate_privacy_bom_stream.py"
+      ],
+      "kept_from_74": [
+        "python3 scripts/validate_factory_rma_support_stream.py"
+      ]
+    }
+  },
+  "G_claim_firewall_validators": [
+    "python3 scripts/validate_claim_firewall.py",
+    "python3 scripts/validate_release_firewall.py",
+    "python3 scripts/validate_game_release_claims.py",
+    "python3 scripts/validate_privacy_bom_stream.py",
+    "python3 scripts/validate_factory_rma_support_stream.py"
+  ],
+  "H_gate2_selector_decision": {
+    "keep": true,
+    "reason": "origin/main still uses `ls -d results/integrated/* | head -n 1` and pathlib glob[0], which select committed calibration-cal-* with no gate2_status.json. #74 selector is valid robustness; removing it would weaken Gate 2. No regression proved main does not need it.",
+    "files_kept": [
+      "scripts/select_gate2_run_dir.py",
+      "tests/gate2_status/test_select_gate2_run_dir.py",
+      ".github/workflows/gate2-integrated-system.yml"
+    ]
+  },
+  "I_new_head": null,
+  "I_new_head_note": "Filled after merge commit.",
+  "ledger_pins_accepted_mains_not_draft_tips": {
+    "fieldkit_base_main_sha": "f37384978f85d523abb96d96aa5c768f40353e42",
+    "device_os_factory_rma_owner_sha": "d7b3d60f0ed7f5786d8a23cc3ed5e11566ac9afa",
+    "hardware_supply_chain_owner_sha": "6c0b025e505505a74adca510e47c15b8f39bc980",
+    "rejected_draft_tips": {
+      "fieldkit_pre_72_73_main": "b32fc06191608054921c07cff63725129601e9a6",
+      "device_os_113_draft_tip": "83412f88d4c8a75e0e8ee8484ea30b7232371fca",
+      "hardware_63_draft_tip": "87150a18869e99035e9e4ab79b8c1f865b194580"
+    }
+  },
+  "preserved_72": {
+    "STANDARDIZED_6G": false,
+    "CARRIER_ACCEPTED": false,
+    "GATE_8_PASS": false,
+    "RM520N_GL_NTN": false,
+    "rel20_rel21_tracker": true,
+    "connectivity_manager": true,
+    "ntn": "abstracted/simulated",
+    "ble": "PAN-only"
+  },
+  "preserved_73": {
+    "privacy_bom_stream_files": true,
+    "validate_privacy_bom_stream.py": true,
+    "tests/privacy": true,
+    "artifacts/privacy_bom": true,
+    "EXTERNAL_PENTEST_COMPLETE": false,
+    "E7": "NOT_EARNED",
+    "legal": "HUMAN/EXTERNAL",
+    "WP-006_auto_complete": false
+  },
+  "preserved_74": {
+    "factory_rma_support_stream": true,
+    "validate_factory_rma_support_stream.py": true,
+    "tests/factory_rma": true,
+    "VP_archive": "artifacts/factory_rma/history/VP_FACTORY_RMA_SUPPORT_INDEPENDENT.pre_main_merge.json"
+  },
+  "did_not_regenerate": [
+    "field-kit #71",
+    "WP-001",
+    "games",
+    "AI",
+    "WAIKE curriculum",
+    "hardware EVT",
+    "RFQ",
+    "fab"
+  ],
+  "J_test_results": {
+    "validate_claim_firewall.py": "CLAIM_FIREWALL_PASS",
+    "validate_release_firewall.py": "RELEASE_FIREWALL_PASS",
+    "validate_game_release_claims.py": "GAME_RELEASE_CLAIM_FIREWALL_PASS",
+    "validate_privacy_bom_stream.py": "PASS privacy-bom STREAM honesty gate",
+    "validate_factory_rma_support_stream.py": "PASS factory-rma-support STREAM honesty gate",
+    "pytest tests/privacy": "9 passed",
+    "pytest tests/factory_rma": "5 passed",
+    "pytest tests/gate2_status/test_select_gate2_run_dir.py": "6 passed",
+    "pytest tests/test_imt2030_rel20_rel21_tracker.py + G3_C3": "14 passed",
+    "validate_standards_mapping.py": "STANDARDS_VALIDATE_PASS",
+    "imt2030_rel20_rel21_tracker.py": "IMT2030_TRACKER_PASS"
+  },
+  "non_claims_remain_false": [
+    "PRODUCTION_RELEASE",
+    "production_keys",
+    "production_ca",
+    "CARRIER_ACCEPTED",
+    "STANDARDIZED_6G",
+    "GATE_8_PASS",
+    "RFQ",
+    "purchase",
+    "fab",
+    "warranty",
+    "physical_factory",
+    "EXTERNAL_PENTEST_COMPLETE",
+    "E7"
+  ]
+}

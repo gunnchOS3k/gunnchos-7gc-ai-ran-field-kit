@@ -21,7 +21,37 @@ def test_prefer_wifi():
 
 def test_ntn_no_real_claim():
     m = ConnectivityManager()
-    assert m.claim_boundary()["real_ntn_claim"] is False
+    claim = m.claim_boundary()
+    assert claim["real_ntn_claim"] is False
+    assert claim["STANDARDIZED_6G"] is False
+    assert claim["CARRIER_ACCEPTED"] is False
+    assert claim["RM520N_GL_NTN"] is False
+    assert claim["ble_is_wan"] is False
+
+
+def test_ethernet_preferred_over_wifi():
+    m = ConnectivityManager()
+    m.set_link("wifi", True, 20)
+    m.set_link("ethernet", True, 2)
+    assert m.select().bearer == "ethernet"
+
+
+def test_failover_and_reconnect_and_airplane():
+    m = ConnectivityManager()
+    m.set_link("wifi", True, 20)
+    m.set_link("cellular", True, 40)
+    assert m.select().bearer == "wifi"
+    fail = m.failover("wifi")
+    assert fail["to"] == "cellular"
+    assert fail["CARRIER_ACCEPTED"] is False
+    m.set_link("wifi", True, 20)
+    recon = m.reconnect()
+    assert recon["ok"] is True
+    assert recon["active"] == "wifi"
+    air = m.set_airplane(True)
+    assert air["airplane"] is True
+    assert m.select() is None
+    assert m.reconnect()["reason"] == "airplane"
 
 
 def test_no_provider_unavailable_mode():

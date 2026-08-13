@@ -29,6 +29,9 @@ def test_stream_tokens_are_honest():
     assert "gunnchos-device-os" in data["owner_repos"]
     assert "gunnchos-hardware-industrial-design" in data["supporting_repos"]
     assert data["honesty"]["does_not_invent_stock_or_price"] is True
+    assert data["fieldkit_base_main_sha"] == "f37384978f85d523abb96d96aa5c768f40353e42"
+    assert data["device_os_factory_rma_owner_sha"] == "d7b3d60f0ed7f5786d8a23cc3ed5e11566ac9afa"
+    assert data["hardware_supply_chain_owner_sha"] == "6c0b025e505505a74adca510e47c15b8f39bc980"
 
 
 def test_schema_const_false_production():

@@ -1,0 +1,161 @@
+{
+  "schema": "gunnchos.field_kit.imt2030_rel20_rel21.independent_verifier_result.v1",
+  "work_item": "field-kit-72-imt2030-rel20-rel21-tracker",
+  "product": "imt2030_tracker",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "did_not_implement": true,
+  "did_not_merge": true,
+  "did_not_touch_pr_71": true,
+  "pair": {
+    "device_os_pr": 111,
+    "field_kit_pr": 72,
+    "field_kit_aggregation_pr_71": "NOT_MERGED_NOT_TOUCHED"
+  },
+  "pr": {
+    "number": 72,
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/72",
+    "draft": true,
+    "state": "OPEN",
+    "branch": "operating-cycle-3b/imt2030-rel20-rel21-tracker",
+    "title": "feat(standards): Rel-20/21 IMT-2030 tracker + honest connectivity tokens"
+  },
+  "claimed_tip": "33b03e73427f65f79668500409ff79e1e87c171a",
+  "claimed_tip_short": "33b03e7",
+  "claimed_tip_live_confirmed": true,
+  "verified_tip": "33b03e73427f65f79668500409ff79e1e87c171a",
+  "verified_tip_short": "33b03e7",
+  "tip_commit_subject": "feat(standards): executable Rel-20/21 IMT-2030 tracker with honest tokens",
+  "base_main": "b32fc06191608054921c07cff63725129601e9a6",
+  "base_main_short": "b32fc06",
+  "base_main_confirmed": true,
+  "merge_base_equals_claimed_base": true,
+  "commits_on_pr": 1,
+  "generated_at_utc": "2026-08-13T15:10:11Z",
+  "inspected_paths": {
+    "field_kit": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit",
+    "head": "33b03e73427f65f79668500409ff79e1e87c171a"
+  },
+  "VP_IMT2030_REL20_REL21_INDEPENDENT": "PASS",
+  "FIELD_KIT_72_READY_FOR_EDMUND_MERGE": true,
+  "READY_FOR_EDMUND_MERGE": true,
+  "cursor_must_not_merge": true,
+  "fail_reason": null,
+  "pass_note": "Rel-20/21 tracker PASS on live tip 33b03e7: CI 12 unique / 16 rows green including gate1+firewall+nonphysical+readiness. Rel-21 is TRACKER_ONLY with freeze_claimed=false; snapshot is derived from the Rel-20 pin, not a fake freeze. STANDARDIZED_6G=false, CARRIER_ACCEPTED=false, GATE_8_PASS=false. RM520N-GL is not NTN/6G in tracker tokens. Independent mutation of Rel-21 snapshot (TRACKER_ONLY→COMPLIANT_6G) flipped evaluate().ok to False — not a hardcoded PASS. G3 connectivity manager gained honesty tokens + ethernet WAN + airplane; three-class NTN split lives in device-os #111, not this G3 stub.",
+  "challenges": {
+    "ci_green_on_tip": {
+      "verdict": "PASS",
+      "head_sha": "33b03e73427f65f79668500409ff79e1e87c171a",
+      "failed_checks": [],
+      "unique_checks": 12,
+      "passing_check_rows": 16,
+      "gate1": {
+        "conclusion": "SUCCESS",
+        "workflow": "Gate 1 Field Kit",
+        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31712719462/job/94489552645"
+      },
+      "firewall": {
+        "conclusion": "SUCCESS",
+        "workflow": "Claim Firewall",
+        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31712719671/job/94489553464"
+      },
+      "nonphysical": {
+        "conclusion": "SUCCESS",
+        "workflow": "Nonphysical totality CI",
+        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31712719649/job/94489554105"
+      },
+      "readiness": {
+        "conclusion": "SUCCESS",
+        "workflow": "Application readiness CI",
+        "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31712719513/job/94489553048"
+      }
+    },
+    "rm520n_gl_not_ntn_or_6g": {
+      "verdict": "PASS",
+      "rm520n_ntn_claimed": false,
+      "rm520n_6g_claimed": false,
+      "tracker_claim_boundary_states_not_ntn_not_6g": true,
+      "g3_claim_RM520N_GL_NTN": false
+    },
+    "dock_not_tb5": {
+      "verdict": "PASS",
+      "note": "This PR does not relabel dock as TB5. Existing NPI/RFQ freeze remains JHL8440+JHL9040R TB4/USB4 NOT TB5. Device-os #111 EthernetBearer.dock_tb5=false."
+    },
+    "standardized_6g_and_carrier_accepted_false": {
+      "verdict": "PASS",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false,
+      "GATE_8_PASS": false,
+      "yaml_honest_tokens": {
+        "STANDARDIZED_6G": false,
+        "CARRIER_ACCEPTED": false,
+        "GATE_8_PASS": false,
+        "RM520N_GL_NTN": false,
+        "RM520N_GL_6G": false
+      }
+    },
+    "real_esim_carrier_external": {
+      "verdict": "PASS",
+      "note": "Tracker and G3 claim_boundary do not mint in-repo eSIM/carrier secrets. CAMARA REAL_OPERATOR remains a credential-injected lab provider (pre-existing); this PR does not store real operator credentials."
+    },
+    "ntn_three_class_split": {
+      "verdict": "PASS",
+      "scope": "pair — three-class types are in device-os #111 bearers.py",
+      "field_kit_g3_manager": {
+        "bearer": "ntn_abstracted",
+        "claim": "ABSTRACTED_ONLY",
+        "real_ntn_claim": false,
+        "not_rm520n_gl": true,
+        "three_class_not_in_g3_manager": true
+      },
+      "packet_fail": false,
+      "detail": "G3 manager is an interface stub plus honesty tokens. The required terrestrial/future-modem/simulated split is implemented as distinct classes on device-os #111. Residual: G3 taxonomy not mirrored."
+    },
+    "rel21_tracker_only_not_compliance": {
+      "verdict": "PASS",
+      "rel20_status": "STUDY_OR_NORMATIVE_IN_PROGRESS",
+      "rel21_status": "TRACKER_ONLY",
+      "freeze_claimed": false,
+      "snapshot": "standards/source_snapshots/3gpp-rel21-2026-08-13.md",
+      "snapshot_url_is_rel20_portal": true,
+      "snapshot_note": "Derived from Rel-20 pin + IMT-2030 YAML; honest TRACKER_ONLY, not a Rel-21 freeze dump"
+    },
+    "no_hardcoded_pass": {
+      "verdict": "PASS",
+      "evaluate_ok_depends_on_snapshot_strings": true,
+      "independent_mutation": {
+        "change": "TRACKER_ONLY -> COMPLIANT_6G in Rel-21 snapshot",
+        "evaluate_ok_after": false,
+        "rel21_tracker_only_check": false,
+        "restored_ok": true
+      }
+    }
+  },
+  "findings": [
+    {
+      "severity": "P2",
+      "title": "G3 connectivity manager still uses a single ntn_abstracted stub",
+      "path": "gate3/nonphysical/G3_C3_connectivity_manager/connectivity_manager.py",
+      "introduced_by_this_pr": false,
+      "packet_fail": false,
+      "detail": "PR adds honesty tokens, ethernet WAN preference, airplane, and RM520N_GL_NTN=false. It does not add Terrestrial/FutureNTN/Simulated types here. Three-class split is on device-os #111. Residual taxonomy alignment, not a tracker FAIL."
+    }
+  ],
+  "residual_open": {
+    "PHYSICAL_MODEM_ATTACH": "OPEN",
+    "LIVE_CARRIER_ATTACH": false,
+    "LIVE_NTN": false,
+    "REAL_ESIM_CREDENTIALS": "EXTERNAL",
+    "STANDARDIZED_6G": false,
+    "CARRIER_ACCEPTED": false,
+    "REL21_FREEZE": "OPEN_TRACKER_ONLY",
+    "G3_NTN_THREE_CLASS_MIRROR": "RESIDUAL_P2",
+    "FIELD_KIT_PR_71_AGGREGATION": "NOT_MERGED",
+    "ITU_SG5_DEC_2026_APPROVAL": "EXTERNAL_PENDING"
+  },
+  "local_pytest": {
+    "tests/test_imt2030_rel20_rel21_tracker.py": "PASS",
+    "gate3/nonphysical/G3_C3_connectivity_manager/tests/test_connectivity_manager.py": "PASS",
+    "total": "14 passed",
+    "negative_tracker_mutation": "PASS (ok becomes False without TRACKER_ONLY)"
+  }
+}

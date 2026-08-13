@@ -19,6 +19,19 @@ FORBIDDEN_CLAIMS = (
     "rfq_purchase_fab: COMPLETE",
 )
 
+OWNER_SHA_FIELDS = (
+    "fieldkit_base_main_sha",
+    "device_os_factory_rma_owner_sha",
+    "hardware_supply_chain_owner_sha",
+)
+
+# Draft branch tips — ledger must pin accepted mains, not these.
+FORBIDDEN_OWNER_TIPS = {
+    "b32fc06191608054921c07cff63725129601e9a6",  # field-kit main before #72+#73
+    "83412f88d4c8a75e0e8ee8484ea30b7232371fca",  # device-os #113 draft tip
+    "87150a18869e99035e9e4ab79b8c1f865b194580",  # hardware #63 draft tip
+}
+
 
 def main() -> int:
     stream = yaml.safe_load((STREAM / "STREAM.yaml").read_text(encoding="utf-8"))
@@ -41,6 +54,14 @@ def main() -> int:
         errors.append("status must be DIGITAL_PREPARATION")
     if schema["properties"]["PRODUCTION_RELEASE_CLAIMED"].get("const") is not False:
         errors.append("schema must const-false PRODUCTION_RELEASE_CLAIMED")
+    for field in OWNER_SHA_FIELDS:
+        sha = stream.get(field)
+        if not isinstance(sha, str) or len(sha) != 40 or any(
+            c not in "0123456789abcdef" for c in sha.lower()
+        ):
+            errors.append(f"{field} must be a 40-char lowercase hex accepted-main SHA")
+        elif sha.lower() in FORBIDDEN_OWNER_TIPS:
+            errors.append(f"{field} must pin accepted owner main, not draft tip {sha}")
     if "EXTERNAL" not in boundary or "false" not in boundary.lower():
         errors.append("CLAIM_BOUNDARY must state EXTERNAL and false tokens")
     text = (STREAM / "STREAM.yaml").read_text(encoding="utf-8") + boundary
