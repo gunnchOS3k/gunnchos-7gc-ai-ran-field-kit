@@ -1,0 +1,110 @@
+{
+  "schema": "gunnchos.user_ready_rc.burndown.v1",
+  "generated_at_utc": "2026-08-13T18:43:47Z",
+  "accepted_main_field_kit": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+  "counts": {
+    "ATOMIC_TOTAL": 519,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 4,
+    "DIGITAL_IMPLEMENTATION_OPEN": 479,
+    "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING": 12,
+    "HUMAN_PENDING": 9,
+    "EXTERNAL_PENDING": 7,
+    "STANDARD_PENDING": 2,
+    "OWNER_DECISION_PENDING": 6,
+    "ATOMIC_DIGITAL_IMPLEMENTATION_OPEN": 479,
+    "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING": 9,
+    "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 7
+  },
+  "count_integrity": {
+    "sum_of_states": 519,
+    "ATOMIC_TOTAL": 519,
+    "matches": true
+  },
+  "historical_not_authoritative": {
+    "prior_broad_DIGITAL_IMPLEMENTATION_OPEN": 13,
+    "prior_ATOMIC_DIGITAL_IMPLEMENTATION_OPEN": 439,
+    "prior_v2_requirement_rows": 476,
+    "note": "V2 decomposed coarse 13 into 439 OPEN + pending/complete on 476 rows. This rebuild adds user-ready RC overlay and remaps COMPLETE evidence onto live mains; do not reuse 13 or 439."
+  },
+  "state_histogram": {
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 4,
+    "ATOMIC_DIGITAL_IMPLEMENTATION_OPEN": 479,
+    "OWNER_DECISION_PENDING": 6,
+    "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING": 12,
+    "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING": 9,
+    "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING": 7,
+    "STANDARD_PENDING": 2
+  },
+  "by_layer_open": {
+    "charter_control_plane": 1,
+    "hardware_firmware": 136,
+    "gunnchOS": 32,
+    "device_lab": 7,
+    "games": 92,
+    "gunnchAI": 29,
+    "waike": 34,
+    "networking": 24,
+    "cloud": 21,
+    "security": 26,
+    "manufacturing_support": 40,
+    "persona_rc": 5,
+    "golden_journeys": 8,
+    "games_rc": 13,
+    "waike_rc": 3,
+    "gunnchai_rc": 6,
+    "device_lab_rc": 2
+  },
+  "by_owner_open": {
+    "gunnchos-7gc-ai-ran-field-kit": 26,
+    "gunnchos-hardware-industrial-design": 176,
+    "gunnchos-device-os": 97,
+    "anime-aggressors": 29,
+    "beatlink-party": 26,
+    "archive-of-life-artifact-world": 26,
+    "pedestrian-pursuit": 23,
+    "gunnchAI3k": 36,
+    "waike-research-ops": 38,
+    "multi": 2
+  },
+  "complete_rows": [
+    {
+      "requirement_id": "CHARTER_NARRATIVE",
+      "accepted_main_sha": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+      "real_implementation_files": [
+        "program/charter/gunnchOS3k_PRODUCT_CHARTER.md"
+      ],
+      "evidence_level": "E4_independent"
+    },
+    {
+      "requirement_id": "REPO_OWNERSHIP_MAP",
+      "accepted_main_sha": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+      "real_implementation_files": [
+        "artifacts/wp012/REPO_CATALOG.yaml",
+        "artifacts/wp012/REPO_CATALOG.md"
+      ],
+      "evidence_level": "E4_independent"
+    },
+    {
+      "requirement_id": "CLAIM_BOUNDARIES",
+      "accepted_main_sha": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+      "real_implementation_files": [
+        "program/charter/gunnchOS3k_PRODUCT_CHARTER.yaml"
+      ],
+      "evidence_level": "E4_independent"
+    },
+    {
+      "requirement_id": "COMPLETION_REGISTER_V1",
+      "accepted_main_sha": "413e6e6276fb671e8d3ac38522a3e4e322e4db01",
+      "real_implementation_files": [
+        "artifacts/wp012/PROJECT_CHARTER_COMPLETION_REGISTER.json"
+      ],
+      "evidence_level": "E4_independent"
+    }
+  ],
+  "notes": [
+    "DIGITAL_IMPLEMENTATION_COMPLETE is only the four WP-012 charter control-plane artifacts independently evidenced on field-kit accepted main.",
+    "Successor game/OS/AI/HW PRs merged after V2 are on accepted main but do not meet the owner user-ready RC done standard; they remain OPEN.",
+    "HUMAN_PENDING aliases DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING plus UR_HUMAN_E6.",
+    "EXTERNAL_PENDING aliases DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING plus UR_SHIPPING_PRODUCT."
+  ]
+}
