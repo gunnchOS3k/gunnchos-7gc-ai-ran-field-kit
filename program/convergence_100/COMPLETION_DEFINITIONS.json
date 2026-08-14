@@ -1,0 +1,312 @@
+{
+  "schema": "gunnchos.convergence_100.completion_definitions.v1",
+  "generated_at_utc": "2026-08-14T21:19:33Z",
+  "cycle": 1,
+  "control_plane": "gunnchos-7gc-ai-ran-field-kit",
+  "branch": "operating-cycle-convergence/100-register",
+  "role": "CONTROL_PLANE_BASELINE_NOT_PRODUCT_STREAM",
+  "CURSOR_NEVER_MERGES": true,
+  "PROFILE_README_EDIT_FREEZE": "ACTIVE",
+  "WP001_START": "OWNER_DECISION_PENDING_DO_NOT_START",
+  "FIELD_KIT_71": "NOT_IN_SCOPE_THIS_PACKET",
+  "READINESS_PASS_CLAIM": false,
+  "planning_baseline_note": "Section-1 ~% numbers are NOT evidence tokens and are NOT copied into derived %. Derived % rebuilt from atomics only; may fall.",
+  "old_planning_baseline_percent": {
+    "A00": 70.0,
+    "A01": 55.0,
+    "A02": 35.0,
+    "A03": 10.0,
+    "G00": 40.0,
+    "W00": 45.0,
+    "D00": 45.0,
+    "AI00": 35.0,
+    "N00": 60.0,
+    "H00": null,
+    "OS00": null,
+    "S00": null,
+    "M00": null,
+    "P00": null,
+    "CX00": null,
+    "CX01": null,
+    "CX02": null
+  },
+  "areas": {
+    "A00": {
+      "name": "Overall architecture / infrastructure",
+      "digital_100": "all major components defined; interfaces owned; build/release topology; observability; failure handling; update/recovery; security boundaries; dependency ownership; no digitally executable architecture gap",
+      "final_100": "same plus physical plant, field ops, and commercial topology operated"
+    },
+    "A01": {
+      "name": "Integrated digital engineering",
+      "digital_100": "accepted owner mains; real cross-component execution; Golden Journeys digital PASS where not physical/human/external; no fixture-as-product; no branch-only dependency as accepted",
+      "final_100": "digital_100 plus physical/human golden journey validation"
+    },
+    "A02": {
+      "name": "Real user-ready product",
+      "digital_100": "Student/Office/Teacher/Builder/Creative pickup-and-use PASS; no hidden developer intervention; Dock; Ring; real apps/AI/WAIKE/games; save/reboot/resume",
+      "final_100": "digital_100 plus HUMAN_E6 and target-hardware validation"
+    },
+    "A03": {
+      "name": "Physical / commercial / certified",
+      "digital_100": "all digitally executable preparation complete; remaining rows irreducible PHYSICAL/EXTERNAL/STANDARD/OWNER",
+      "final_100": "EVT/DVT/PVT, RF/thermal/battery/EMC, carrier, platform approval, manufacturing, warranty, commercial launch"
+    },
+    "G00": {
+      "name": "Games portfolio",
+      "digital_100": "GAME_DIGITAL_RC_100 for all four; FEATURE_COMPLETE_RC; content/polish digital gates; achievement/runtime real",
+      "final_100": "GAME_HUMAN_POLISH_100 + GAME_PLATFORM_PUBLISHING_100"
+    },
+    "W00": {
+      "name": "WAIKE curriculum",
+      "digital_100": "authoritative taxonomy fully covered by real course-RC packages with learner/teacher product consumption",
+      "final_100": "REAL_STUDENT_E6 + REAL_TEACHER_E6 + HUMAN_E6"
+    },
+    "D00": {
+      "name": "gunnchDevice Lab",
+      "digital_100": "all device profiles; real guest OS/apps/games/AI/WAIKE; Ring; Dock; G11\u2013G15; Golden Journeys; deterministic capture",
+      "final_100": "digital_100 plus VF4\u2013VF6 physical calibration"
+    },
+    "AI00": {
+      "name": "gunnchAI",
+      "digital_100": "all required AI-UR task classes COMPLETE; Local Fast+Pro; research/vision/coding/voice/cowrite/agents/computer-use; companion UI; privacy/security; competitive evals",
+      "final_100": "digital_100 plus HUMAN_E6 and optional frontier foundation-model parity evidence"
+    },
+    "N00": {
+      "name": "5G-A / NTN / IMT-2030 / 6G migration",
+      "digital_100": "5G-A/NTN/AI-RAN/edge/handover/QoS/security/twin/IMT-2030 mapping/eval harness/Rel-20/21 tracker/future radio abstraction \u2014 current-phase digital",
+      "final_100": "standardized commercial 6G (STANDARD_PENDING until ecosystem exists)"
+    },
+    "H00": {
+      "name": "Hardware / electrical / firmware",
+      "digital_100": "HW_FIRMWARE_DIGITAL_PACKAGE_COMPLETE; design/DVP&R digitally closed",
+      "final_100": "silicon bring-up, EVT physical validation, production firmware signing"
+    },
+    "OS00": {
+      "name": "gunnchOS platform",
+      "digital_100": "all OS services implemented/integrated/digitally validated with real guest evidence for user-ready paths",
+      "final_100": "target-hardware OS validation + production image release"
+    },
+    "S00": {
+      "name": "Security / privacy / trust",
+      "digital_100": "digital hostile-network/local integrity/update trust roots prepared; privacy/SBOM inventory; no production-key claims",
+      "final_100": "external pentest, production trust roots, carrier/lab security acceptance"
+    },
+    "M00": {
+      "name": "Manufacturing / factory / service / RMA",
+      "digital_100": "factory/RMA/supply-chain digital fields and schemas complete",
+      "final_100": "real factory line, RMA operations, warranty field data"
+    },
+    "P00": {
+      "name": "Publishing / distribution / release engineering",
+      "digital_100": "release topology, SBOM, signing tiers, store/console prep digitally complete where executable",
+      "final_100": "store approvals, console TRC, production distribution"
+    },
+    "CX00": {
+      "name": "Creator / Coder Studio (charter software_family)",
+      "digital_100": "creator/coder studio path digitally executable on DS-XL / builder persona",
+      "final_100": "human creator workflow validated on target hardware"
+    },
+    "CX01": {
+      "name": "Device Management / MDM (charter software_family)",
+      "digital_100": "MDM/device-management digital services and revoke/lost-device journey prepared",
+      "final_100": "enterprise MDM external acceptance"
+    },
+    "CX02": {
+      "name": "Continuity / Fabric (charter software_family)",
+      "digital_100": "continuity/fabric services digitally validated across dock/handheld/desktop",
+      "final_100": "physical multi-device continuity validation"
+    }
+  },
+  "permitted_states": [
+    "TARGET",
+    "DESIGNED",
+    "IMPLEMENTED",
+    "INTEGRATED",
+    "DIGITALLY_VALIDATED",
+    "COMPETITIVELY_VALIDATED",
+    "PHYSICALLY_VALIDATED",
+    "EXTERNALLY_VALIDATED",
+    "CERTIFIED",
+    "DEPLOYED",
+    "OPERATED",
+    "PHYSICAL_PENDING",
+    "HUMAN_PENDING",
+    "EXTERNAL_PENDING",
+    "STANDARD_PENDING",
+    "OWNER_DECISION_PENDING"
+  ],
+  "readiness_formula": {
+    "name": "weighted_state_score_v1",
+    "description": "Planning readiness % is DERIVED: 100 * sum(importance_weight_i * state_score_i) / sum(importance_weight_i), computed per area and overall. Do not hand-edit % upward.",
+    "state_score": {
+      "TARGET": 0.0,
+      "DESIGNED": 0.15,
+      "IMPLEMENTED": 0.35,
+      "INTEGRATED": 0.5,
+      "DIGITALLY_VALIDATED": 0.7,
+      "COMPETITIVELY_VALIDATED": 0.78,
+      "PHYSICALLY_VALIDATED": 0.85,
+      "EXTERNALLY_VALIDATED": 0.9,
+      "CERTIFIED": 0.95,
+      "DEPLOYED": 0.98,
+      "OPERATED": 1.0,
+      "PHYSICAL_PENDING": 0.7,
+      "HUMAN_PENDING": 0.7,
+      "EXTERNAL_PENDING": 0.7,
+      "STANDARD_PENDING": 0.7,
+      "OWNER_DECISION_PENDING": 0.7,
+      "_pending_family_rule": "PHYSICAL_PENDING/HUMAN_PENDING/EXTERNAL_PENDING/STANDARD_PENDING/OWNER_DECISION_PENDING score 0.70 only if digital_prep_complete=true; else 0.10 (early residual \u2014 intentionally below IMPLEMENTED 0.35 so physical/commercial cannot inflate from incomplete prep)."
+    },
+    "raw_state_score_map": {
+      "TARGET": 0.0,
+      "DESIGNED": 0.15,
+      "IMPLEMENTED": 0.35,
+      "INTEGRATED": 0.5,
+      "DIGITALLY_VALIDATED": 0.7,
+      "COMPETITIVELY_VALIDATED": 0.78,
+      "PHYSICALLY_VALIDATED": 0.85,
+      "EXTERNALLY_VALIDATED": 0.9,
+      "CERTIFIED": 0.95,
+      "DEPLOYED": 0.98,
+      "OPERATED": 1.0
+    },
+    "importance_weight": {
+      "severity": {
+        "S0": 4.0,
+        "S1": 3.0,
+        "S2": 2.0,
+        "S3": 1.0,
+        "S4": 0.5
+      },
+      "release_blocking_multiplier": 1.25,
+      "user_facing_multiplier": 1.15,
+      "docs_only_cap": 0.25,
+      "note": "Documentation-only rows cannot dominate. IMPLEMENTED (0.35) is intentionally far below DIGITALLY_VALIDATED (0.70)."
+    },
+    "forbidden": [
+      "hand-edit planning % upward",
+      "treat IMPLEMENTED as DIGITALLY_VALIDATED",
+      "treat device-os #115 merge as Product-Use complete",
+      "treat playthrough acceptance as FEATURE_COMPLETE_RC/POLISHED/HUMAN",
+      "assume WAIKE course count without enumerating taxonomy"
+    ]
+  },
+  "waike_taxonomy_source": {
+    "repo": "waike-research-ops",
+    "accepted_main_sha": "d36e97db659548b2363c97e683635c982e6f9ba0",
+    "catalog_path": "results/catalog/course_catalog.json",
+    "course_count": 18,
+    "courses": [
+      {
+        "course_id": "digital_confidence",
+        "title": "Digital Confidence to Computer Operator"
+      },
+      {
+        "course_id": "general_it",
+        "title": "General IT and Systems Foundations"
+      },
+      {
+        "course_id": "hardware_engineering",
+        "title": "IT Support and Hardware Foundations"
+      },
+      {
+        "course_id": "software_engineering",
+        "title": "Software Builder Zero-to-Hero"
+      },
+      {
+        "course_id": "networking",
+        "title": "Networking and Internet Infrastructure"
+      },
+      {
+        "course_id": "cybersecurity",
+        "title": "Cybersecurity Foundations and SOC Readiness"
+      },
+      {
+        "course_id": "cloud_devops",
+        "title": "Cloud and DevOps Foundations"
+      },
+      {
+        "course_id": "ai_ml_data",
+        "title": "AI, ML, and Data Foundations"
+      },
+      {
+        "course_id": "edge_ai_embedded",
+        "title": "Embedded Systems and Device Prototyping"
+      },
+      {
+        "course_id": "wireless_dsp_6g",
+        "title": "Wireless, DSP, and 6G Foundations"
+      },
+      {
+        "course_id": "robotics_control",
+        "title": "Robotics and Control Foundations"
+      },
+      {
+        "course_id": "project_management_agile_lss",
+        "title": "Project Management, Agile, and Lean Six Sigma"
+      },
+      {
+        "course_id": "data_visualization_bi",
+        "title": "Data, Databases, and Dashboards"
+      },
+      {
+        "course_id": "communication_ethics_professional_dev",
+        "title": "Communication, Ethics, Leadership, and Professional Development"
+      },
+      {
+        "course_id": "game_development_interactive_media",
+        "title": "Game Development and Interactive Media"
+      },
+      {
+        "course_id": "gunnchos_device_os_product_lab",
+        "title": "gunnchOS Device OS and Product Lab"
+      },
+      {
+        "course_id": "ai_ran_digital_twin_research",
+        "title": "7GC AI-RAN and Digital Twin Research Apprenticeship"
+      },
+      {
+        "course_id": "reproducible_research",
+        "title": "Reproducible Research and Technical Publishing"
+      }
+    ],
+    "course_rc_on_main": [
+      "COMPUTER_NETWORKING",
+      "CYBERSECURITY",
+      "GENERAL_IT",
+      "HARDWARE_ENGINEERING",
+      "PM_AGILE_LSS",
+      "SOFTWARE_BUILDER"
+    ],
+    "course_rc_count_on_main": 6,
+    "full_18_course_digital_rc": false
+  },
+  "gunnchai_matrix_accepted": {
+    "sha": "b646ac050cceff297fdf1a25ac270bd7f44636f3",
+    "COMPLETE": 7,
+    "PARTIAL": 3,
+    "OPEN": 6,
+    "path": "benchmarks/GUNNCHAI_MARKET_TASK_MATRIX.json"
+  },
+  "product_use_accepted_open": {
+    "device_os_pr_115_merged": true,
+    "product_use_complete": false,
+    "STUDENT_DIGITAL_PICKUP_AND_USE_READY": false,
+    "OFFICE_DIGITAL_PICKUP_AND_USE_READY": false,
+    "TEACHER_DIGITAL_PICKUP_AND_USE_READY": false,
+    "BUILDER_DIGITAL_PICKUP_AND_USE_READY": false,
+    "CREATIVE_DIGITAL_PICKUP_AND_USE_READY": false,
+    "Ring": "OPEN",
+    "Dock": "OPEN",
+    "reboot_resume": "OPEN",
+    "G14": "OPEN",
+    "G11": "DEMOTED_OPEN"
+  },
+  "games_accepted_claims": {
+    "DIGITAL_PLAYTHROUGH_EXECUTABLE": true,
+    "ACHIEVEMENT_SUBSYSTEM": true,
+    "FEATURE_COMPLETE_RC": false,
+    "POLISHED_RELEASE_CANDIDATE": false,
+    "HUMAN_PLAYTEST_VALIDATED": false
+  }
+}

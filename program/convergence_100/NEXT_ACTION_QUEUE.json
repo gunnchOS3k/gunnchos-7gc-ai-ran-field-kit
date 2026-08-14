@@ -1,0 +1,96 @@
+{
+  "schema": "gunnchos.convergence_100.next_action_queue.v1",
+  "generated_at_utc": "2026-08-14T21:19:33Z",
+  "cycle": 1,
+  "MAX_MAJOR_ACTIVE_STREAMS": 3,
+  "active_wip": [
+    {
+      "id": "PRODUCT-USE-RC-002",
+      "stream": "A",
+      "owner_repo": "gunnchos-device-os",
+      "priority": 1,
+      "objective": "Six-course WAIKE ingest; close G11\u2013G15; Ring mutation; Dock continuity; reboot/resume; earn persona tokens; \u226525GiB guest gate",
+      "depends_on_accepted": [
+        "waike#43",
+        "waike#44",
+        "device-os#115"
+      ],
+      "blocks": [
+        "A02-*",
+        "D00-G11G15",
+        "A02-RING",
+        "A02-DOCK"
+      ]
+    },
+    {
+      "id": "GAME-RC-003",
+      "stream": "B",
+      "owner_repo": "anime-aggressors + pedestrian-pursuit",
+      "priority": 2,
+      "objective": "Anime + Pedestrian content/polish + platform foundations toward FEATURE_COMPLETE_RC",
+      "depends_on_accepted": [
+        "anime#75",
+        "pedestrian#16"
+      ],
+      "blocks": [
+        "G00-ANIME-FEATURE",
+        "G00-PED-FEATURE",
+        "G00-ANIME-POLISH",
+        "G00-PED-POLISH"
+      ]
+    },
+    {
+      "id": "AI-USER-READY-003",
+      "stream": "C",
+      "owner_repo": "gunnchAI3k",
+      "priority": 3,
+      "objective": "Complete AI-UR-007/011/013 PARTIAL\u2192COMPLETE; Local Pro if feasible",
+      "depends_on_accepted": [
+        "gunnchAI#33",
+        "gunnchAI#34"
+      ],
+      "blocks": [
+        "AI00-AI-UR-007",
+        "AI00-AI-UR-011",
+        "AI00-AI-UR-013",
+        "AI00-LOCAL-PRO"
+      ]
+    }
+  ],
+  "held": [
+    {
+      "id": "WAIKE-003",
+      "reason": "WIP cap; remaining 12 taxonomy courses after 6 RC"
+    },
+    {
+      "id": "GAME-RC-004",
+      "reason": "WIP cap; Archive+BeatLink feature/polish after GAME-RC-003"
+    },
+    {
+      "id": "NET-SEC-6G",
+      "reason": "WIP cap; deepen 5G-A/NTN/security after Product-Use"
+    },
+    {
+      "id": "HW-FW",
+      "reason": "WIP cap; HW_FIRMWARE_DIGITAL_PACKAGE_COMPLETE still false"
+    },
+    {
+      "id": "AI-004",
+      "reason": "WIP cap; remaining OPEN AI-UR classes + frontier"
+    },
+    {
+      "id": "OPS",
+      "reason": "WIP cap; factory/RMA/MDM field ops"
+    },
+    {
+      "id": "WP-001",
+      "reason": "OWNER_DECISION_PENDING_DO_NOT_START"
+    }
+  ],
+  "control_plane_packet": {
+    "id": "CONVERGENCE-100-REGISTER-C1",
+    "is_product_stream": false,
+    "branch": "operating-cycle-convergence/100-register",
+    "note": "Control-plane baseline only; not a fourth product stream"
+  }
+}

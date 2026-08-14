@@ -1,0 +1,1045 @@
+{
+  "schema": "gunnchos.convergence_100.readiness_dashboard.v1",
+  "generated_at_utc": "2026-08-14T21:19:33Z",
+  "cycle": 1,
+  "READINESS_PASS_CLAIM": false,
+  "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
+  "PHYSICAL_PICKUP_AND_USE_READY": false,
+  "formula": "weighted_state_score_v1",
+  "formula_doc": "program/convergence_100/COMPLETION_DEFINITIONS.json#readiness_formula",
+  "note": "Percentages DERIVED from ATOMIC_COMPLETION_REGISTER state_score\u00d7importance_weight. Not hand-edited. Starting ~% baselines are recorded for delta only.",
+  "accepted_mains": {
+    "gunnchos-7gc-ai-ran-field-kit": "2e8baa365ea6855944491bac22b30b0d24240e79",
+    "waike-research-ops": "d36e97db659548b2363c97e683635c982e6f9ba0",
+    "anime-aggressors": "4c817f820ae8c992b5bac0d20e52c999650ca287",
+    "pedestrian-pursuit": "cc965fc5d4d6f3a8cb02c1e6d8dfbbd99d173fe3",
+    "archive-of-life-artifact-world": "c2be7a26f56f1d80251cdb3ad7218e57c272635d",
+    "beatlink-party": "b64ecb9d8223424f5d6e4b686d50f98fb7f73b05",
+    "gunnchAI3k": "b646ac050cceff297fdf1a25ac270bd7f44636f3",
+    "gunnchos-device-os": "1b86720bbd6484eabba0500962e9461e12c4a620",
+    "gunnchos-hardware-industrial-design": "6c0b025e505505a74adca510e47c15b8f39bc980",
+    "edge-io-measurement-node": "3a16ba0b62758cdee20095289cdc91ba6a42b092",
+    "7gc-digital-twin": "ce09f2fddbf5935d06366ba8d37e3a8641e617c4",
+    "gunnchos-research-portal": "a755c79120584abf38ae448d3112fbe94feeb45d",
+    "gunnchos-6g-security-trust-privacy-lab": "d276579333a8254c7424e8df50c8824b200bc122"
+  },
+  "counts": {
+    "ATOMIC_TOTAL": 138,
+    "by_area": {
+      "A00": 5,
+      "A01": 12,
+      "A02": 11,
+      "A03": 8,
+      "G00": 22,
+      "W00": 22,
+      "D00": 5,
+      "AI00": 20,
+      "N00": 6,
+      "H00": 7,
+      "OS00": 4,
+      "S00": 5,
+      "M00": 4,
+      "P00": 4,
+      "CX00": 1,
+      "CX01": 1,
+      "CX02": 1
+    },
+    "by_state": {
+      "DIGITALLY_VALIDATED": 43,
+      "INTEGRATED": 12,
+      "IMPLEMENTED": 13,
+      "DESIGNED": 17,
+      "TARGET": 29,
+      "HUMAN_PENDING": 7,
+      "PHYSICAL_PENDING": 6,
+      "EXTERNAL_PENDING": 8,
+      "OWNER_DECISION_PENDING": 2,
+      "STANDARD_PENDING": 1
+    }
+  },
+  "overall": {
+    "derived_planning_readiness_percent": 28.79,
+    "old_planning_readiness_percent": null,
+    "atomic_count": 138,
+    "by_state": {
+      "DIGITALLY_VALIDATED": 43,
+      "INTEGRATED": 12,
+      "IMPLEMENTED": 13,
+      "DESIGNED": 17,
+      "TARGET": 29,
+      "HUMAN_PENDING": 7,
+      "PHYSICAL_PENDING": 6,
+      "EXTERNAL_PENDING": 8,
+      "OWNER_DECISION_PENDING": 2,
+      "STANDARD_PENDING": 1
+    },
+    "requirements_digitally_open": 71,
+    "requirements_dv_or_digital_prep_closed": 47,
+    "pending": {
+      "PHYSICAL_PENDING": 6,
+      "HUMAN_PENDING": 7,
+      "EXTERNAL_PENDING": 8,
+      "STANDARD_PENDING": 1,
+      "OWNER_DECISION_PENDING": 2
+    },
+    "weighted_score_sum": 142.46,
+    "importance_sum": 494.9,
+    "top_blockers": [
+      {
+        "requirement_id": "A01-002",
+        "state": "IMPLEMENTED",
+        "severity_if_open": "S0",
+        "importance_weight": 5.75,
+        "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+      },
+      {
+        "requirement_id": "A01-GJ-01",
+        "state": "IMPLEMENTED",
+        "severity_if_open": "S0",
+        "importance_weight": 5.75,
+        "next_action": "PRODUCT-USE-RC-002 close G11"
+      },
+      {
+        "requirement_id": "A01-GJ-04",
+        "state": "DESIGNED",
+        "severity_if_open": "S0",
+        "importance_weight": 5.75,
+        "next_action": "PRODUCT-USE-RC-002 Dock"
+      },
+      {
+        "requirement_id": "A01-GJ-06",
+        "state": "IMPLEMENTED",
+        "severity_if_open": "S0",
+        "importance_weight": 5.75,
+        "next_action": "PRODUCT-USE-RC-002 G14"
+      },
+      {
+        "requirement_id": "A01-GJ-07",
+        "state": "IMPLEMENTED",
+        "severity_if_open": "S0",
+        "importance_weight": 5.75,
+        "next_action": "PRODUCT-USE-RC-002 Ring"
+      }
+    ],
+    "name": "ALL_AREAS"
+  },
+  "by_area": {
+    "A00": {
+      "name": "Overall architecture / infrastructure",
+      "derived_planning_readiness_percent": 60.0,
+      "old_planning_readiness_percent": 70.0,
+      "atomic_count": 5,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 4,
+        "INTEGRATED": 1
+      },
+      "requirements_digitally_open": 1,
+      "requirements_dv_or_digital_prep_closed": 4,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 4.5,
+      "importance_sum": 7.5,
+      "top_blockers": [
+        {
+          "requirement_id": "A00-003",
+          "state": "INTEGRATED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.75,
+          "next_action": "Close remaining architecture gaps exposed by Product-Use journeys"
+        }
+      ]
+    },
+    "A01": {
+      "name": "Integrated digital engineering",
+      "derived_planning_readiness_percent": 35.99,
+      "old_planning_readiness_percent": 55.0,
+      "atomic_count": 12,
+      "by_state": {
+        "IMPLEMENTED": 6,
+        "DESIGNED": 2,
+        "INTEGRATED": 2,
+        "DIGITALLY_VALIDATED": 2
+      },
+      "requirements_digitally_open": 10,
+      "requirements_dv_or_digital_prep_closed": 2,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 17.885,
+      "importance_sum": 49.7,
+      "top_blockers": [
+        {
+          "requirement_id": "A01-002",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+        },
+        {
+          "requirement_id": "A01-GJ-01",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 close G11"
+        },
+        {
+          "requirement_id": "A01-GJ-04",
+          "state": "DESIGNED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 Dock"
+        },
+        {
+          "requirement_id": "A01-GJ-06",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 G14"
+        },
+        {
+          "requirement_id": "A01-GJ-07",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 Ring"
+        }
+      ]
+    },
+    "A02": {
+      "name": "Real user-ready product",
+      "derived_planning_readiness_percent": 10.47,
+      "old_planning_readiness_percent": 35.0,
+      "atomic_count": 11,
+      "by_state": {
+        "TARGET": 7,
+        "IMPLEMENTED": 3,
+        "HUMAN_PENDING": 1
+      },
+      "requirements_digitally_open": 10,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 1,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 6.3825,
+      "importance_sum": 60.95,
+      "top_blockers": [
+        {
+          "requirement_id": "A02-BUILDER",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 earn persona token"
+        },
+        {
+          "requirement_id": "A02-CREATIVE",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 earn persona token"
+        },
+        {
+          "requirement_id": "A02-DOCK",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 Dock continuity"
+        },
+        {
+          "requirement_id": "A02-G11",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 re-earn G11"
+        },
+        {
+          "requirement_id": "A02-G14",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 G14 with \u226525GiB host gate"
+        }
+      ]
+    },
+    "A03": {
+      "name": "Physical / commercial / certified",
+      "derived_planning_readiness_percent": 10.0,
+      "old_planning_readiness_percent": 10.0,
+      "atomic_count": 8,
+      "by_state": {
+        "PHYSICAL_PENDING": 4,
+        "EXTERNAL_PENDING": 3,
+        "OWNER_DECISION_PENDING": 1
+      },
+      "requirements_digitally_open": 0,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 4,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 3,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 1
+      },
+      "weighted_score_sum": 2.4,
+      "importance_sum": 24.0,
+      "top_blockers": [
+        {
+          "requirement_id": "A03-CARRIER",
+          "state": "EXTERNAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD"
+        },
+        {
+          "requirement_id": "A03-DVT",
+          "state": "PHYSICAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD"
+        },
+        {
+          "requirement_id": "A03-EMC",
+          "state": "EXTERNAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD"
+        },
+        {
+          "requirement_id": "A03-EVT",
+          "state": "PHYSICAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD \u2014 physical lane"
+        },
+        {
+          "requirement_id": "A03-LAUNCH",
+          "state": "OWNER_DECISION_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD \u2014 owner only"
+        }
+      ]
+    },
+    "G00": {
+      "name": "Games portfolio",
+      "derived_planning_readiness_percent": 21.86,
+      "old_planning_readiness_percent": 40.0,
+      "atomic_count": 22,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 8,
+        "TARGET": 9,
+        "HUMAN_PENDING": 4,
+        "DESIGNED": 1
+      },
+      "requirements_digitally_open": 10,
+      "requirements_dv_or_digital_prep_closed": 8,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 4,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 17.78,
+      "importance_sum": 81.35,
+      "top_blockers": [
+        {
+          "requirement_id": "G00-ANIME-FEATURE",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "GAME-RC-003"
+        },
+        {
+          "requirement_id": "G00-ARCHIVE-FEATURE",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "HOLD GAME-RC-004"
+        },
+        {
+          "requirement_id": "G00-BEATLINK-FEATURE",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "HOLD GAME-RC-004"
+        },
+        {
+          "requirement_id": "G00-FOUR-RC",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "Active GAME-RC-003; hold GAME-RC-004"
+        },
+        {
+          "requirement_id": "G00-PED-FEATURE",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "GAME-RC-003"
+        }
+      ]
+    },
+    "W00": {
+      "name": "WAIKE curriculum",
+      "derived_planning_readiness_percent": 30.17,
+      "old_planning_readiness_percent": 45.0,
+      "atomic_count": 22,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 7,
+        "DESIGNED": 12,
+        "TARGET": 1,
+        "IMPLEMENTED": 1,
+        "HUMAN_PENDING": 1
+      },
+      "requirements_digitally_open": 14,
+      "requirements_dv_or_digital_prep_closed": 7,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 1,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 23.1875,
+      "importance_sum": 76.85,
+      "top_blockers": [
+        {
+          "requirement_id": "W00-CONSUME",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+        },
+        {
+          "requirement_id": "W00-FULL18",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "HOLD WAIKE-003"
+        },
+        {
+          "requirement_id": "W00-COURSE-ai_ml_data",
+          "state": "DESIGNED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.45,
+          "next_action": "HOLD WAIKE-003 (remaining course-RC batches)"
+        },
+        {
+          "requirement_id": "W00-COURSE-ai_ran_digital_twin_research",
+          "state": "DESIGNED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.45,
+          "next_action": "HOLD WAIKE-003 (remaining course-RC batches)"
+        },
+        {
+          "requirement_id": "W00-COURSE-cloud_devops",
+          "state": "DESIGNED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.45,
+          "next_action": "HOLD WAIKE-003 (remaining course-RC batches)"
+        }
+      ]
+    },
+    "D00": {
+      "name": "gunnchDevice Lab",
+      "derived_planning_readiness_percent": 37.4,
+      "old_planning_readiness_percent": 45.0,
+      "atomic_count": 5,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 1,
+        "INTEGRATED": 1,
+        "IMPLEMENTED": 1,
+        "TARGET": 1,
+        "PHYSICAL_PENDING": 1
+      },
+      "requirements_digitally_open": 3,
+      "requirements_dv_or_digital_prep_closed": 2,
+      "pending": {
+        "PHYSICAL_PENDING": 1,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 7.0125,
+      "importance_sum": 18.75,
+      "top_blockers": [
+        {
+          "requirement_id": "D00-G11G15",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 close G11\u2013G15"
+        },
+        {
+          "requirement_id": "D00-ECO",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.0,
+          "next_action": "PRODUCT-USE-RC-002"
+        },
+        {
+          "requirement_id": "D00-PROFILES",
+          "state": "INTEGRATED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "Expand profile journeys in Product-Use-002"
+        }
+      ]
+    },
+    "AI00": {
+      "name": "gunnchAI",
+      "derived_planning_readiness_percent": 25.3,
+      "old_planning_readiness_percent": 35.0,
+      "atomic_count": 20,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 7,
+        "INTEGRATED": 3,
+        "TARGET": 8,
+        "DESIGNED": 1,
+        "HUMAN_PENDING": 1
+      },
+      "requirements_digitally_open": 12,
+      "requirements_dv_or_digital_prep_closed": 7,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 1,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 20.645,
+      "importance_sum": 81.6,
+      "top_blockers": [
+        {
+          "requirement_id": "AI00-AI-UR-007",
+          "state": "INTEGRATED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "AI-USER-READY-003 complete PARTIAL\u2192COMPLETE"
+        },
+        {
+          "requirement_id": "AI00-AI-UR-008",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "AI-USER-READY-003 or later AI-004 (held)"
+        },
+        {
+          "requirement_id": "AI00-AI-UR-009",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "AI-USER-READY-003 or later AI-004 (held)"
+        },
+        {
+          "requirement_id": "AI00-AI-UR-010",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "AI-USER-READY-003 or later AI-004 (held)"
+        },
+        {
+          "requirement_id": "AI00-AI-UR-011",
+          "state": "INTEGRATED",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "AI-USER-READY-003 complete PARTIAL\u2192COMPLETE"
+        }
+      ]
+    },
+    "N00": {
+      "name": "5G-A / NTN / IMT-2030 / 6G migration",
+      "derived_planning_readiness_percent": 63.33,
+      "old_planning_readiness_percent": 60.0,
+      "atomic_count": 6,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 3,
+        "INTEGRATED": 2,
+        "STANDARD_PENDING": 1
+      },
+      "requirements_digitally_open": 2,
+      "requirements_dv_or_digital_prep_closed": 4,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 1,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 11.4,
+      "importance_sum": 18.0,
+      "top_blockers": [
+        {
+          "requirement_id": "N00-AIRAN",
+          "state": "INTEGRATED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD NET-SEC-6G"
+        },
+        {
+          "requirement_id": "N00-EVAL",
+          "state": "INTEGRATED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD NET-SEC-6G"
+        }
+      ]
+    },
+    "H00": {
+      "name": "Hardware / electrical / firmware",
+      "derived_planning_readiness_percent": 51.25,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 7,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 3,
+        "INTEGRATED": 1,
+        "TARGET": 1,
+        "IMPLEMENTED": 1,
+        "PHYSICAL_PENDING": 1
+      },
+      "requirements_digitally_open": 3,
+      "requirements_dv_or_digital_prep_closed": 4,
+      "pending": {
+        "PHYSICAL_PENDING": 1,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 10.25,
+      "importance_sum": 20.0,
+      "top_blockers": [
+        {
+          "requirement_id": "H00-DVPR",
+          "state": "INTEGRATED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD HW-FW"
+        },
+        {
+          "requirement_id": "H00-FW",
+          "state": "TARGET",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD HW-FW"
+        },
+        {
+          "requirement_id": "H00-IMAGE-FIT",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD HW-FW"
+        }
+      ]
+    },
+    "OS00": {
+      "name": "gunnchOS platform",
+      "derived_planning_readiness_percent": 47.5,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 4,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 2,
+        "INTEGRATED": 1,
+        "TARGET": 1
+      },
+      "requirements_digitally_open": 2,
+      "requirements_dv_or_digital_prep_closed": 2,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 5.7,
+      "importance_sum": 12.0,
+      "top_blockers": [
+        {
+          "requirement_id": "OS00-PKG",
+          "state": "INTEGRATED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "PRODUCT-USE-RC-002 builder path"
+        },
+        {
+          "requirement_id": "OS00-PROD-IMAGE",
+          "state": "TARGET",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "Release engineering later"
+        }
+      ]
+    },
+    "S00": {
+      "name": "Security / privacy / trust",
+      "derived_planning_readiness_percent": 51.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 5,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 2,
+        "EXTERNAL_PENDING": 2,
+        "IMPLEMENTED": 1
+      },
+      "requirements_digitally_open": 1,
+      "requirements_dv_or_digital_prep_closed": 3,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 2,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 7.65,
+      "importance_sum": 15.0,
+      "top_blockers": [
+        {
+          "requirement_id": "S00-LAB",
+          "state": "IMPLEMENTED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD NET-SEC-6G"
+        },
+        {
+          "requirement_id": "S00-PENTEST",
+          "state": "EXTERNAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD external"
+        }
+      ]
+    },
+    "M00": {
+      "name": "Manufacturing / factory / service / RMA",
+      "derived_planning_readiness_percent": 40.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 4,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 2,
+        "EXTERNAL_PENDING": 2
+      },
+      "requirements_digitally_open": 0,
+      "requirements_dv_or_digital_prep_closed": 2,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 2,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 3.2,
+      "importance_sum": 8.0,
+      "top_blockers": [
+        {
+          "requirement_id": "M00-LINE",
+          "state": "EXTERNAL_PENDING",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "HOLD OPS"
+        },
+        {
+          "requirement_id": "M00-RMA",
+          "state": "EXTERNAL_PENDING",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "HOLD OPS"
+        }
+      ]
+    },
+    "P00": {
+      "name": "Publishing / distribution / release engineering",
+      "derived_planning_readiness_percent": 29.5,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 4,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 2,
+        "EXTERNAL_PENDING": 1,
+        "OWNER_DECISION_PENDING": 1
+      },
+      "requirements_digitally_open": 0,
+      "requirements_dv_or_digital_prep_closed": 2,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 1,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 1
+      },
+      "weighted_score_sum": 2.95,
+      "importance_sum": 10.0,
+      "top_blockers": [
+        {
+          "requirement_id": "P00-WP001",
+          "state": "OWNER_DECISION_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.75,
+          "next_action": "HOLD WP-001 \u2014 owner decision only"
+        },
+        {
+          "requirement_id": "P00-STORES",
+          "state": "EXTERNAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "HOLD publishing after game RC"
+        }
+      ]
+    },
+    "CX00": {
+      "name": "Creator / Coder Studio (charter software_family)",
+      "derived_planning_readiness_percent": 15.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 1,
+      "by_state": {
+        "DESIGNED": 1
+      },
+      "requirements_digitally_open": 1,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 0.5175,
+      "importance_sum": 3.45,
+      "top_blockers": [
+        {
+          "requirement_id": "CX00-STUDIO",
+          "state": "DESIGNED",
+          "severity_if_open": "S1",
+          "importance_weight": 3.45,
+          "next_action": "PRODUCT-USE-RC-002 Builder"
+        }
+      ]
+    },
+    "CX01": {
+      "name": "Device Management / MDM (charter software_family)",
+      "derived_planning_readiness_percent": 50.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 1,
+      "by_state": {
+        "INTEGRATED": 1
+      },
+      "requirements_digitally_open": 1,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 1.0,
+      "importance_sum": 2.0,
+      "top_blockers": [
+        {
+          "requirement_id": "CX01-MDM",
+          "state": "INTEGRATED",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "HOLD OPS"
+        }
+      ]
+    },
+    "CX02": {
+      "name": "Continuity / Fabric (charter software_family)",
+      "derived_planning_readiness_percent": 0.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 1,
+      "by_state": {
+        "TARGET": 1
+      },
+      "requirements_digitally_open": 1,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 0.0,
+      "importance_sum": 5.75,
+      "top_blockers": [
+        {
+          "requirement_id": "CX02-CONT",
+          "state": "TARGET",
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "PRODUCT-USE-RC-002 Dock"
+        }
+      ]
+    }
+  },
+  "top_blockers_global": [
+    {
+      "requirement_id": "A01-002",
+      "area": "A01",
+      "state": "IMPLEMENTED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "Real cross-component execution (OS+WAIKE+AI+games) without surrogates",
+      "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+    },
+    {
+      "requirement_id": "A01-GJ-01",
+      "area": "A01",
+      "state": "IMPLEMENTED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "GOLDEN-01 Student assignment then recreation digital PASS where not irreducible pending",
+      "next_action": "PRODUCT-USE-RC-002 close G11"
+    },
+    {
+      "requirement_id": "A01-GJ-04",
+      "area": "A01",
+      "state": "DESIGNED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "GOLDEN-04 Office dock workflow digital PASS where not irreducible pending",
+      "next_action": "PRODUCT-USE-RC-002 Dock"
+    },
+    {
+      "requirement_id": "A01-GJ-06",
+      "area": "A01",
+      "state": "IMPLEMENTED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "GOLDEN-06 DS-XL dual-screen coding digital PASS where not irreducible pending",
+      "next_action": "PRODUCT-USE-RC-002 G14"
+    },
+    {
+      "requirement_id": "A01-GJ-07",
+      "area": "A01",
+      "state": "IMPLEMENTED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "GOLDEN-07 Ring real input digital PASS where not irreducible pending",
+      "next_action": "PRODUCT-USE-RC-002 Ring"
+    },
+    {
+      "requirement_id": "A02-BUILDER",
+      "area": "A02",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "Builder DIGITAL_PICKUP_AND_USE_READY",
+      "next_action": "PRODUCT-USE-RC-002 earn persona token"
+    },
+    {
+      "requirement_id": "A02-CREATIVE",
+      "area": "A02",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "Creative DIGITAL_PICKUP_AND_USE_READY",
+      "next_action": "PRODUCT-USE-RC-002 earn persona token"
+    },
+    {
+      "requirement_id": "A02-DOCK",
+      "area": "A02",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "Handheld/Dock continuity PASS",
+      "next_action": "PRODUCT-USE-RC-002 Dock continuity"
+    },
+    {
+      "requirement_id": "A02-G11",
+      "area": "A02",
+      "state": "IMPLEMENTED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "G11 Student journey PASS (not demoted)",
+      "next_action": "PRODUCT-USE-RC-002 re-earn G11"
+    },
+    {
+      "requirement_id": "A02-G14",
+      "area": "A02",
+      "state": "IMPLEMENTED",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "G14 DSXL_DUAL_COMPOSITOR_UX_PASS",
+      "next_action": "PRODUCT-USE-RC-002 G14 with \u226525GiB host gate"
+    },
+    {
+      "requirement_id": "A02-OFFICE",
+      "area": "A02",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "Office DIGITAL_PICKUP_AND_USE_READY",
+      "next_action": "PRODUCT-USE-RC-002 earn persona token"
+    },
+    {
+      "requirement_id": "A02-REBOOT",
+      "area": "A02",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "requirement": "Save/reboot/resume schoolwork PASS",
+      "next_action": "PRODUCT-USE-RC-002 reboot/resume"
+    }
+  ],
+  "delta_vs_old_planning_baseline": {
+    "A00": {
+      "old": 70.0,
+      "derived": 60.0,
+      "delta": -10.0
+    },
+    "A01": {
+      "old": 55.0,
+      "derived": 35.99,
+      "delta": -19.01
+    },
+    "A02": {
+      "old": 35.0,
+      "derived": 10.47,
+      "delta": -24.53
+    },
+    "A03": {
+      "old": 10.0,
+      "derived": 10.0,
+      "delta": 0.0
+    },
+    "G00": {
+      "old": 40.0,
+      "derived": 21.86,
+      "delta": -18.14
+    },
+    "W00": {
+      "old": 45.0,
+      "derived": 30.17,
+      "delta": -14.83
+    },
+    "D00": {
+      "old": 45.0,
+      "derived": 37.4,
+      "delta": -7.6
+    },
+    "AI00": {
+      "old": 35.0,
+      "derived": 25.3,
+      "delta": -9.7
+    },
+    "N00": {
+      "old": 60.0,
+      "derived": 63.33,
+      "delta": 3.33
+    }
+  }
+}
