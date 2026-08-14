@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | Status | **success** |
-| Built at | 2026-07-24 15:59:54 UTC |
+| Built at | 2026-08-14 23:07:32 UTC |
 | Method | tectonic |
 | Tool | Tectonic 0.16.9 |
 | Output | `paper/main.pdf` |

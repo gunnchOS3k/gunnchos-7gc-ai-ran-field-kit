@@ -107,6 +107,7 @@ clean_intermediates() {
 
 build_with_tectonic() {
   local tectonic_bin="$1"
+  local attempt max_attempts rc
   if [[ ! -x "${tectonic_bin}" ]]; then
     log "ERROR: tectonic binary missing or not executable: ${tectonic_bin}"
     return 1
@@ -115,13 +116,32 @@ build_with_tectonic() {
     log "ERROR: tectonic binary not runnable on this host: ${tectonic_bin}"
     return 1
   fi
-  log "Building with Tectonic: ${tectonic_bin}"
-  (
-    cd "${PAPER_DIR}"
-    "${tectonic_bin}" -X compile "${MAIN}.tex" --synctex --keep-logs --keep-intermediates
-  )
-  BUILD_METHOD="tectonic"
-  BUILD_TOOL_VERSION="$("${tectonic_bin}" --version 2>/dev/null | head -1 || echo "tectonic ${TECTONIC_VERSION}")"
+  # Bundle CDN flakes on GHA have exited 0 after Writing main.log without
+  # running xdvipdfmx / Writing main.pdf. Require the PDF artifact, retry, then
+  # let the caller fall through to Docker TeX Live.
+  max_attempts=3
+  for attempt in $(seq 1 "${max_attempts}"); do
+    log "Building with Tectonic: ${tectonic_bin} (attempt ${attempt}/${max_attempts})"
+    rm -f "${PDF}"
+    rc=0
+    (
+      cd "${PAPER_DIR}"
+      # Classic CLI (not only -X) keeps outfmt=pdf explicit and matches green main runs.
+      "${tectonic_bin}" "${MAIN}.tex" --outfmt pdf --synctex --keep-logs --keep-intermediates -p
+    ) || rc=$?
+    if [[ "${rc}" -eq 0 && -f "${PDF}" && -s "${PDF}" ]]; then
+      BUILD_METHOD="tectonic"
+      BUILD_TOOL_VERSION="$("${tectonic_bin}" --version 2>/dev/null | head -1 || echo "tectonic ${TECTONIC_VERSION}")"
+      return 0
+    fi
+    log "WARNING: Tectonic attempt ${attempt} did not produce ${PDF} (exit=${rc}); kept log for diagnosis"
+    if [[ -f "${PAPER_DIR}/${MAIN}.log" ]]; then
+      log "---- tail paper/${MAIN}.log ----"
+      tail -n 40 "${PAPER_DIR}/${MAIN}.log" >> "${BUILD_LOG}" || true
+    fi
+    sleep $((attempt * 2))
+  done
+  return 1
 }
 
 build_with_docker() {
@@ -390,6 +410,8 @@ main() {
   validate_sources >> "${BUILD_LOG}" 2>&1 || fail "source validation failed (see ${BUILD_LOG})"
 
   clean_intermediates
+  # Remove stale PDF only after validation; builders re-remove before each attempt.
+  # Do not treat a pre-existing committed PDF as success — build must produce a fresh one.
   rm -f "${PDF}"
 
   if command -v tectonic >/dev/null 2>&1 && build_with_tectonic "$(command -v tectonic)" 2>>"${BUILD_LOG}"; then
@@ -400,16 +422,19 @@ main() {
     :
   else
     cat >&2 <<EOF
-BLOCKED: No paper build tooling available.
+BLOCKED: No paper build tooling available or Tectonic produced no PDF after retries.
   - Install Docker and pull ${TEXLIVE_IMAGE_LABEL}, or
   - Allow scripts/build_paper.sh to download pinned Tectonic ${TECTONIC_VERSION}, or
   - Install TeX Live / MacTeX locally.
 Manuscript sources remain methods-ready; see paper/README.md.
+See also ${BUILD_LOG}.
 EOF
     exit 2
   fi
 
-  [[ -f "${PDF}" ]] || fail "build finished but ${PDF} missing"
+  if [[ ! -f "${PDF}" || ! -s "${PDF}" ]]; then
+    fail "build finished but ${PDF} missing or empty (refusing committed/stale placeholder)"
+  fi
 
   PAGE_COUNT="$(pdf_page_count "${PDF}" | tr -d '[:space:]')"
   [[ -n "${PAGE_COUNT}" ]] || PAGE_COUNT="unknown"

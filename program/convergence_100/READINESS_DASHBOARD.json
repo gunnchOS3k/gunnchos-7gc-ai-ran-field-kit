@@ -1,18 +1,27 @@
 {
   "schema": "gunnchos.convergence_100.readiness_dashboard.v1",
-  "generated_at_utc": "2026-08-14T21:19:33Z",
+  "generated_at_utc": "2026-08-14T23:07:52Z",
   "cycle": 1,
   "READINESS_PASS_CLAIM": false,
   "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
   "PHYSICAL_PICKUP_AND_USE_READY": false,
+  "CONVERGENCE_FORMULA_VALIDATED": true,
+  "CONVERGENCE_COVERAGE_VALIDATED": true,
   "formula": "weighted_state_score_v1",
   "formula_doc": "program/convergence_100/COMPLETION_DEFINITIONS.json#readiness_formula",
-  "note": "Percentages DERIVED from ATOMIC_COMPLETION_REGISTER state_score\u00d7importance_weight. Not hand-edited. Starting ~% baselines are recorded for delta only.",
+  "denominator_policy": {
+    "atomic_denominator_source": "full_legacy_union_retained_as_atomics",
+    "summary_row_count": 138,
+    "summary_rows_are_not_atomic_denominator": true,
+    "prior_138_classification": "summary_planning_rows",
+    "forbidden_claim": "Do not call 138 the full atomic denominator"
+  },
+  "note": "Percentages DERIVED from full atomic register state_score\u00d7importance_weight. Prior 138 rows are summaries only.",
   "accepted_mains": {
     "gunnchos-7gc-ai-ran-field-kit": "2e8baa365ea6855944491bac22b30b0d24240e79",
     "waike-research-ops": "d36e97db659548b2363c97e683635c982e6f9ba0",
-    "anime-aggressors": "4c817f820ae8c992b5bac0d20e52c999650ca287",
-    "pedestrian-pursuit": "cc965fc5d4d6f3a8cb02c1e6d8dfbbd99d173fe3",
+    "anime-aggressors": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
+    "pedestrian-pursuit": "80ca8ee7e96da0e86184fe24b10831265588c1a3",
     "archive-of-life-artifact-world": "c2be7a26f56f1d80251cdb3ad7218e57c272635d",
     "beatlink-party": "b64ecb9d8223424f5d6e4b686d50f98fb7f73b05",
     "gunnchAI3k": "b646ac050cceff297fdf1a25ac270bd7f44636f3",
@@ -23,150 +32,182 @@
     "gunnchos-research-portal": "a755c79120584abf38ae448d3112fbe94feeb45d",
     "gunnchos-6g-security-trust-privacy-lab": "d276579333a8254c7424e8df50c8824b200bc122"
   },
+  "game_rc_003": {
+    "status": "ACCEPTED_DEPENDENCY_STOP",
+    "anime_aggressors_pr": 76,
+    "anime_aggressors_sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
+    "pedestrian_pursuit_pr": 17,
+    "pedestrian_pursuit_sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3",
+    "note": "Playthrough/achieve digital path accepted on live mains; FEATURE/POLISH/HUMAN remain open. Do not start GAME-RC-004."
+  },
   "counts": {
-    "ATOMIC_TOTAL": 138,
+    "ATOMIC_TOTAL": 562,
+    "SUMMARY_TOTAL": 138,
     "by_area": {
-      "A00": 5,
-      "A01": 12,
-      "A02": 11,
-      "A03": 8,
-      "G00": 22,
-      "W00": 22,
-      "D00": 5,
-      "AI00": 20,
-      "N00": 6,
-      "H00": 7,
-      "OS00": 4,
-      "S00": 5,
-      "M00": 4,
-      "P00": 4,
-      "CX00": 1,
-      "CX01": 1,
-      "CX02": 1
+      "A00": 22,
+      "A01": 4,
+      "A02": 8,
+      "A03": 3,
+      "AI00": 51,
+      "D00": 16,
+      "G00": 114,
+      "H00": 136,
+      "M00": 57,
+      "N00": 25,
+      "OS00": 32,
+      "P00": 23,
+      "S00": 32,
+      "W00": 39
     },
     "by_state": {
-      "DIGITALLY_VALIDATED": 43,
-      "INTEGRATED": 12,
-      "IMPLEMENTED": 13,
-      "DESIGNED": 17,
-      "TARGET": 29,
-      "HUMAN_PENDING": 7,
-      "PHYSICAL_PENDING": 6,
-      "EXTERNAL_PENDING": 8,
-      "OWNER_DECISION_PENDING": 2,
-      "STANDARD_PENDING": 1
+      "DIGITALLY_VALIDATED": 31,
+      "TARGET": 479,
+      "OWNER_DECISION_PENDING": 6,
+      "PHYSICAL_PENDING": 19,
+      "HUMAN_PENDING": 12,
+      "EXTERNAL_PENDING": 12,
+      "STANDARD_PENDING": 2,
+      "INTEGRATED": 1
     }
   },
   "overall": {
-    "derived_planning_readiness_percent": 28.79,
+    "name": "ALL_AREAS",
+    "derived_planning_readiness_percent": 12.85,
     "old_planning_readiness_percent": null,
-    "atomic_count": 138,
+    "atomic_count": 562,
     "by_state": {
-      "DIGITALLY_VALIDATED": 43,
-      "INTEGRATED": 12,
-      "IMPLEMENTED": 13,
-      "DESIGNED": 17,
-      "TARGET": 29,
-      "HUMAN_PENDING": 7,
-      "PHYSICAL_PENDING": 6,
-      "EXTERNAL_PENDING": 8,
-      "OWNER_DECISION_PENDING": 2,
-      "STANDARD_PENDING": 1
+      "DIGITALLY_VALIDATED": 31,
+      "TARGET": 479,
+      "OWNER_DECISION_PENDING": 6,
+      "PHYSICAL_PENDING": 19,
+      "HUMAN_PENDING": 12,
+      "EXTERNAL_PENDING": 12,
+      "STANDARD_PENDING": 2,
+      "INTEGRATED": 1
     },
-    "requirements_digitally_open": 71,
-    "requirements_dv_or_digital_prep_closed": 47,
+    "requirements_digitally_open": 480,
+    "requirements_dv_or_digital_prep_closed": 31,
     "pending": {
-      "PHYSICAL_PENDING": 6,
-      "HUMAN_PENDING": 7,
-      "EXTERNAL_PENDING": 8,
-      "STANDARD_PENDING": 1,
-      "OWNER_DECISION_PENDING": 2
+      "PHYSICAL_PENDING": 19,
+      "HUMAN_PENDING": 12,
+      "EXTERNAL_PENDING": 12,
+      "STANDARD_PENDING": 2,
+      "OWNER_DECISION_PENDING": 6
     },
-    "weighted_score_sum": 142.46,
-    "importance_sum": 494.9,
+    "weighted_score_sum": 156.14,
+    "importance_sum": 1215.5,
     "top_blockers": [
       {
-        "requirement_id": "A01-002",
-        "state": "IMPLEMENTED",
+        "requirement_id": "AI00-AI-UR-008",
+        "state": "TARGET",
         "severity_if_open": "S0",
         "importance_weight": 5.75,
-        "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+        "next_action": "HOLD AI-004"
       },
       {
-        "requirement_id": "A01-GJ-01",
-        "state": "IMPLEMENTED",
+        "requirement_id": "AI00-AI-UR-009",
+        "state": "TARGET",
         "severity_if_open": "S0",
         "importance_weight": 5.75,
-        "next_action": "PRODUCT-USE-RC-002 close G11"
+        "next_action": "HOLD AI-004"
       },
       {
-        "requirement_id": "A01-GJ-04",
-        "state": "DESIGNED",
+        "requirement_id": "AI00-AI-UR-010",
+        "state": "TARGET",
         "severity_if_open": "S0",
         "importance_weight": 5.75,
-        "next_action": "PRODUCT-USE-RC-002 Dock"
+        "next_action": "HOLD AI-004"
       },
       {
-        "requirement_id": "A01-GJ-06",
-        "state": "IMPLEMENTED",
+        "requirement_id": "AI00-AI-UR-012",
+        "state": "TARGET",
         "severity_if_open": "S0",
         "importance_weight": 5.75,
-        "next_action": "PRODUCT-USE-RC-002 G14"
+        "next_action": "HOLD AI-004"
       },
       {
-        "requirement_id": "A01-GJ-07",
-        "state": "IMPLEMENTED",
+        "requirement_id": "AI00-AI-UR-014",
+        "state": "TARGET",
         "severity_if_open": "S0",
         "importance_weight": 5.75,
-        "next_action": "PRODUCT-USE-RC-002 Ring"
+        "next_action": "HOLD AI-004"
       }
-    ],
-    "name": "ALL_AREAS"
+    ]
   },
   "by_area": {
     "A00": {
       "name": "Overall architecture / infrastructure",
-      "derived_planning_readiness_percent": 60.0,
+      "derived_planning_readiness_percent": 62.08,
       "old_planning_readiness_percent": 70.0,
-      "atomic_count": 5,
+      "atomic_count": 22,
       "by_state": {
-        "DIGITALLY_VALIDATED": 4,
-        "INTEGRATED": 1
+        "DIGITALLY_VALIDATED": 8,
+        "TARGET": 3,
+        "OWNER_DECISION_PENDING": 5,
+        "EXTERNAL_PENDING": 1,
+        "PHYSICAL_PENDING": 4,
+        "HUMAN_PENDING": 1
       },
-      "requirements_digitally_open": 1,
-      "requirements_dv_or_digital_prep_closed": 4,
+      "requirements_digitally_open": 3,
+      "requirements_dv_or_digital_prep_closed": 8,
       "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
+        "PHYSICAL_PENDING": 4,
+        "HUMAN_PENDING": 1,
+        "EXTERNAL_PENDING": 1,
         "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
+        "OWNER_DECISION_PENDING": 5
       },
-      "weighted_score_sum": 4.5,
-      "importance_sum": 7.5,
+      "weighted_score_sum": 32.9,
+      "importance_sum": 53.0,
       "top_blockers": [
         {
-          "requirement_id": "A00-003",
-          "state": "INTEGRATED",
+          "requirement_id": "CHARTER_REGISTER_V2",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Maintain register + validator as atomic rows close."
+        },
+        {
+          "requirement_id": "WP012-ONLINE_SERVICE_OPS",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "charter register follow-through"
+        },
+        {
+          "requirement_id": "WP012-SDK_API_APP_DISTRIBUTION",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "charter register follow-through"
+        },
+        {
+          "requirement_id": "WP012-ERGONOMICS_HUMAN_FACTORS",
+          "state": "HUMAN_PENDING",
           "severity_if_open": "S1",
-          "importance_weight": 3.75,
-          "next_action": "Close remaining architecture gaps exposed by Product-Use journeys"
+          "importance_weight": 3.0,
+          "next_action": "charter register follow-through"
+        },
+        {
+          "requirement_id": "WP012-HIL_CORRELATION",
+          "state": "PHYSICAL_PENDING",
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "charter register follow-through"
         }
       ]
     },
     "A01": {
       "name": "Integrated digital engineering",
-      "derived_planning_readiness_percent": 35.99,
+      "derived_planning_readiness_percent": 21.21,
       "old_planning_readiness_percent": 55.0,
-      "atomic_count": 12,
+      "atomic_count": 4,
       "by_state": {
-        "IMPLEMENTED": 6,
-        "DESIGNED": 2,
-        "INTEGRATED": 2,
-        "DIGITALLY_VALIDATED": 2
+        "TARGET": 3,
+        "DIGITALLY_VALIDATED": 1
       },
-      "requirements_digitally_open": 10,
-      "requirements_dv_or_digital_prep_closed": 2,
+      "requirements_digitally_open": 3,
+      "requirements_dv_or_digital_prep_closed": 1,
       "pending": {
         "PHYSICAL_PENDING": 0,
         "HUMAN_PENDING": 0,
@@ -174,696 +215,202 @@
         "STANDARD_PENDING": 0,
         "OWNER_DECISION_PENDING": 0
       },
-      "weighted_score_sum": 17.885,
-      "importance_sum": 49.7,
+      "weighted_score_sum": 2.1,
+      "importance_sum": 9.9,
       "top_blockers": [
         {
-          "requirement_id": "A01-002",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+          "requirement_id": "UR_G16_GAME_FULL_PLAYTHROUGH_PORTFOLIO",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
         },
         {
-          "requirement_id": "A01-GJ-01",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 close G11"
+          "requirement_id": "UR_G17_WAIKE_COURSE_ENROLLMENT_TO_MASTERY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
         },
         {
-          "requirement_id": "A01-GJ-04",
-          "state": "DESIGNED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 Dock"
-        },
-        {
-          "requirement_id": "A01-GJ-06",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 G14"
-        },
-        {
-          "requirement_id": "A01-GJ-07",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 Ring"
+          "requirement_id": "UR_G18_GUNNCHAI_MARKET_TASK_MATRIX",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
         }
       ]
     },
     "A02": {
       "name": "Real user-ready product",
-      "derived_planning_readiness_percent": 10.47,
+      "derived_planning_readiness_percent": 16.0,
       "old_planning_readiness_percent": 35.0,
-      "atomic_count": 11,
+      "atomic_count": 8,
       "by_state": {
-        "TARGET": 7,
-        "IMPLEMENTED": 3,
-        "HUMAN_PENDING": 1
+        "TARGET": 6,
+        "HUMAN_PENDING": 2
       },
-      "requirements_digitally_open": 10,
+      "requirements_digitally_open": 6,
       "requirements_dv_or_digital_prep_closed": 0,
       "pending": {
         "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 1,
+        "HUMAN_PENDING": 2,
         "EXTERNAL_PENDING": 0,
         "STANDARD_PENDING": 0,
         "OWNER_DECISION_PENDING": 0
       },
-      "weighted_score_sum": 6.3825,
-      "importance_sum": 60.95,
+      "weighted_score_sum": 2.8,
+      "importance_sum": 17.5,
       "top_blockers": [
         {
-          "requirement_id": "A02-BUILDER",
+          "requirement_id": "UR_P1_STUDENT_DIGITAL_PICKUP_AND_USE",
           "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 earn persona token"
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "persona DIGITAL_PICKUP tokens false on accepted main"
         },
         {
-          "requirement_id": "A02-CREATIVE",
+          "requirement_id": "UR_P2_OFFICE_DIGITAL_PICKUP_AND_USE",
           "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 earn persona token"
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "persona DIGITAL_PICKUP tokens false on accepted main"
         },
         {
-          "requirement_id": "A02-DOCK",
+          "requirement_id": "UR_P3_TEACHER_DIGITAL_PICKUP_AND_USE",
           "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 Dock continuity"
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "persona DIGITAL_PICKUP tokens false on accepted main"
         },
         {
-          "requirement_id": "A02-G11",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 re-earn G11"
+          "requirement_id": "UR_P4_BUILDER_DIGITAL_PICKUP_AND_USE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "persona DIGITAL_PICKUP tokens false on accepted main"
         },
         {
-          "requirement_id": "A02-G14",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 G14 with \u226525GiB host gate"
+          "requirement_id": "UR_P5_CREATIVE_DIGITAL_PICKUP_AND_USE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "persona DIGITAL_PICKUP tokens false on accepted main"
         }
       ]
     },
     "A03": {
       "name": "Physical / commercial / certified",
-      "derived_planning_readiness_percent": 10.0,
+      "derived_planning_readiness_percent": 70.0,
       "old_planning_readiness_percent": 10.0,
-      "atomic_count": 8,
+      "atomic_count": 3,
       "by_state": {
-        "PHYSICAL_PENDING": 4,
-        "EXTERNAL_PENDING": 3,
-        "OWNER_DECISION_PENDING": 1
+        "PHYSICAL_PENDING": 2,
+        "EXTERNAL_PENDING": 1
       },
       "requirements_digitally_open": 0,
       "requirements_dv_or_digital_prep_closed": 0,
       "pending": {
-        "PHYSICAL_PENDING": 4,
+        "PHYSICAL_PENDING": 2,
         "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 3,
+        "EXTERNAL_PENDING": 1,
         "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 1
+        "OWNER_DECISION_PENDING": 0
       },
-      "weighted_score_sum": 2.4,
-      "importance_sum": 24.0,
+      "weighted_score_sum": 5.6,
+      "importance_sum": 8.0,
       "top_blockers": [
         {
-          "requirement_id": "A03-CARRIER",
+          "requirement_id": "WP012-CARRIER_APPROVAL",
           "state": "EXTERNAL_PENDING",
           "severity_if_open": "S1",
           "importance_weight": 3.0,
-          "next_action": "HOLD"
+          "next_action": "charter register follow-through"
         },
         {
-          "requirement_id": "A03-DVT",
+          "requirement_id": "WP012-EVT_CALIBRATION",
           "state": "PHYSICAL_PENDING",
           "severity_if_open": "S1",
           "importance_weight": 3.0,
-          "next_action": "HOLD"
+          "next_action": "charter register follow-through"
         },
         {
-          "requirement_id": "A03-EMC",
-          "state": "EXTERNAL_PENDING",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD"
-        },
-        {
-          "requirement_id": "A03-EVT",
+          "requirement_id": "UR_PHYSICAL_PICKUP_AND_USE_READY",
           "state": "PHYSICAL_PENDING",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD \u2014 physical lane"
-        },
-        {
-          "requirement_id": "A03-LAUNCH",
-          "state": "OWNER_DECISION_PENDING",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD \u2014 owner only"
-        }
-      ]
-    },
-    "G00": {
-      "name": "Games portfolio",
-      "derived_planning_readiness_percent": 21.86,
-      "old_planning_readiness_percent": 40.0,
-      "atomic_count": 22,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 8,
-        "TARGET": 9,
-        "HUMAN_PENDING": 4,
-        "DESIGNED": 1
-      },
-      "requirements_digitally_open": 10,
-      "requirements_dv_or_digital_prep_closed": 8,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 4,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 17.78,
-      "importance_sum": 81.35,
-      "top_blockers": [
-        {
-          "requirement_id": "G00-ANIME-FEATURE",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "GAME-RC-003"
-        },
-        {
-          "requirement_id": "G00-ARCHIVE-FEATURE",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "HOLD GAME-RC-004"
-        },
-        {
-          "requirement_id": "G00-BEATLINK-FEATURE",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "HOLD GAME-RC-004"
-        },
-        {
-          "requirement_id": "G00-FOUR-RC",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "Active GAME-RC-003; hold GAME-RC-004"
-        },
-        {
-          "requirement_id": "G00-PED-FEATURE",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "GAME-RC-003"
-        }
-      ]
-    },
-    "W00": {
-      "name": "WAIKE curriculum",
-      "derived_planning_readiness_percent": 30.17,
-      "old_planning_readiness_percent": 45.0,
-      "atomic_count": 22,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 7,
-        "DESIGNED": 12,
-        "TARGET": 1,
-        "IMPLEMENTED": 1,
-        "HUMAN_PENDING": 1
-      },
-      "requirements_digitally_open": 14,
-      "requirements_dv_or_digital_prep_closed": 7,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 1,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 23.1875,
-      "importance_sum": 76.85,
-      "top_blockers": [
-        {
-          "requirement_id": "W00-CONSUME",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
-        },
-        {
-          "requirement_id": "W00-FULL18",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "HOLD WAIKE-003"
-        },
-        {
-          "requirement_id": "W00-COURSE-ai_ml_data",
-          "state": "DESIGNED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.45,
-          "next_action": "HOLD WAIKE-003 (remaining course-RC batches)"
-        },
-        {
-          "requirement_id": "W00-COURSE-ai_ran_digital_twin_research",
-          "state": "DESIGNED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.45,
-          "next_action": "HOLD WAIKE-003 (remaining course-RC batches)"
-        },
-        {
-          "requirement_id": "W00-COURSE-cloud_devops",
-          "state": "DESIGNED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.45,
-          "next_action": "HOLD WAIKE-003 (remaining course-RC batches)"
-        }
-      ]
-    },
-    "D00": {
-      "name": "gunnchDevice Lab",
-      "derived_planning_readiness_percent": 37.4,
-      "old_planning_readiness_percent": 45.0,
-      "atomic_count": 5,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 1,
-        "INTEGRATED": 1,
-        "IMPLEMENTED": 1,
-        "TARGET": 1,
-        "PHYSICAL_PENDING": 1
-      },
-      "requirements_digitally_open": 3,
-      "requirements_dv_or_digital_prep_closed": 2,
-      "pending": {
-        "PHYSICAL_PENDING": 1,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 7.0125,
-      "importance_sum": 18.75,
-      "top_blockers": [
-        {
-          "requirement_id": "D00-G11G15",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 close G11\u2013G15"
-        },
-        {
-          "requirement_id": "D00-ECO",
-          "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.0,
-          "next_action": "PRODUCT-USE-RC-002"
-        },
-        {
-          "requirement_id": "D00-PROFILES",
-          "state": "INTEGRATED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "Expand profile journeys in Product-Use-002"
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "None remaining for this token; digital RC is other rows."
         }
       ]
     },
     "AI00": {
       "name": "gunnchAI",
-      "derived_planning_readiness_percent": 25.3,
+      "derived_planning_readiness_percent": 23.87,
       "old_planning_readiness_percent": 35.0,
-      "atomic_count": 20,
+      "atomic_count": 51,
       "by_state": {
-        "DIGITALLY_VALIDATED": 7,
-        "INTEGRATED": 3,
-        "TARGET": 8,
-        "DESIGNED": 1,
-        "HUMAN_PENDING": 1
+        "TARGET": 41,
+        "DIGITALLY_VALIDATED": 9,
+        "INTEGRATED": 1
       },
-      "requirements_digitally_open": 12,
-      "requirements_dv_or_digital_prep_closed": 7,
+      "requirements_digitally_open": 42,
+      "requirements_dv_or_digital_prep_closed": 9,
       "pending": {
         "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 1,
+        "HUMAN_PENDING": 0,
         "EXTERNAL_PENDING": 0,
         "STANDARD_PENDING": 0,
         "OWNER_DECISION_PENDING": 0
       },
-      "weighted_score_sum": 20.645,
-      "importance_sum": 81.6,
+      "weighted_score_sum": 39.1,
+      "importance_sum": 163.8,
       "top_blockers": [
-        {
-          "requirement_id": "AI00-AI-UR-007",
-          "state": "INTEGRATED",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "AI-USER-READY-003 complete PARTIAL\u2192COMPLETE"
-        },
         {
           "requirement_id": "AI00-AI-UR-008",
           "state": "TARGET",
           "severity_if_open": "S0",
           "importance_weight": 5.75,
-          "next_action": "AI-USER-READY-003 or later AI-004 (held)"
+          "next_action": "HOLD AI-004"
         },
         {
           "requirement_id": "AI00-AI-UR-009",
           "state": "TARGET",
           "severity_if_open": "S0",
           "importance_weight": 5.75,
-          "next_action": "AI-USER-READY-003 or later AI-004 (held)"
+          "next_action": "HOLD AI-004"
         },
         {
           "requirement_id": "AI00-AI-UR-010",
           "state": "TARGET",
           "severity_if_open": "S0",
           "importance_weight": 5.75,
-          "next_action": "AI-USER-READY-003 or later AI-004 (held)"
+          "next_action": "HOLD AI-004"
         },
         {
-          "requirement_id": "AI00-AI-UR-011",
-          "state": "INTEGRATED",
+          "requirement_id": "AI00-AI-UR-012",
+          "state": "TARGET",
           "severity_if_open": "S0",
           "importance_weight": 5.75,
-          "next_action": "AI-USER-READY-003 complete PARTIAL\u2192COMPLETE"
-        }
-      ]
-    },
-    "N00": {
-      "name": "5G-A / NTN / IMT-2030 / 6G migration",
-      "derived_planning_readiness_percent": 63.33,
-      "old_planning_readiness_percent": 60.0,
-      "atomic_count": 6,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 3,
-        "INTEGRATED": 2,
-        "STANDARD_PENDING": 1
-      },
-      "requirements_digitally_open": 2,
-      "requirements_dv_or_digital_prep_closed": 4,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 1,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 11.4,
-      "importance_sum": 18.0,
-      "top_blockers": [
-        {
-          "requirement_id": "N00-AIRAN",
-          "state": "INTEGRATED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD NET-SEC-6G"
+          "next_action": "HOLD AI-004"
         },
         {
-          "requirement_id": "N00-EVAL",
-          "state": "INTEGRATED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD NET-SEC-6G"
-        }
-      ]
-    },
-    "H00": {
-      "name": "Hardware / electrical / firmware",
-      "derived_planning_readiness_percent": 51.25,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 7,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 3,
-        "INTEGRATED": 1,
-        "TARGET": 1,
-        "IMPLEMENTED": 1,
-        "PHYSICAL_PENDING": 1
-      },
-      "requirements_digitally_open": 3,
-      "requirements_dv_or_digital_prep_closed": 4,
-      "pending": {
-        "PHYSICAL_PENDING": 1,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 10.25,
-      "importance_sum": 20.0,
-      "top_blockers": [
-        {
-          "requirement_id": "H00-DVPR",
-          "state": "INTEGRATED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD HW-FW"
-        },
-        {
-          "requirement_id": "H00-FW",
+          "requirement_id": "AI00-AI-UR-014",
           "state": "TARGET",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD HW-FW"
-        },
-        {
-          "requirement_id": "H00-IMAGE-FIT",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD HW-FW"
+          "severity_if_open": "S0",
+          "importance_weight": 5.75,
+          "next_action": "HOLD AI-004"
         }
       ]
     },
-    "OS00": {
-      "name": "gunnchOS platform",
-      "derived_planning_readiness_percent": 47.5,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 4,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 2,
-        "INTEGRATED": 1,
-        "TARGET": 1
-      },
-      "requirements_digitally_open": 2,
-      "requirements_dv_or_digital_prep_closed": 2,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 5.7,
-      "importance_sum": 12.0,
-      "top_blockers": [
-        {
-          "requirement_id": "OS00-PKG",
-          "state": "INTEGRATED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "PRODUCT-USE-RC-002 builder path"
-        },
-        {
-          "requirement_id": "OS00-PROD-IMAGE",
-          "state": "TARGET",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "Release engineering later"
-        }
-      ]
-    },
-    "S00": {
-      "name": "Security / privacy / trust",
-      "derived_planning_readiness_percent": 51.0,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 5,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 2,
-        "EXTERNAL_PENDING": 2,
-        "IMPLEMENTED": 1
-      },
-      "requirements_digitally_open": 1,
-      "requirements_dv_or_digital_prep_closed": 3,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 2,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 7.65,
-      "importance_sum": 15.0,
-      "top_blockers": [
-        {
-          "requirement_id": "S00-LAB",
-          "state": "IMPLEMENTED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD NET-SEC-6G"
-        },
-        {
-          "requirement_id": "S00-PENTEST",
-          "state": "EXTERNAL_PENDING",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD external"
-        }
-      ]
-    },
-    "M00": {
-      "name": "Manufacturing / factory / service / RMA",
-      "derived_planning_readiness_percent": 40.0,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 4,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 2,
-        "EXTERNAL_PENDING": 2
-      },
-      "requirements_digitally_open": 0,
-      "requirements_dv_or_digital_prep_closed": 2,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 2,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 3.2,
-      "importance_sum": 8.0,
-      "top_blockers": [
-        {
-          "requirement_id": "M00-LINE",
-          "state": "EXTERNAL_PENDING",
-          "severity_if_open": "S2",
-          "importance_weight": 2.0,
-          "next_action": "HOLD OPS"
-        },
-        {
-          "requirement_id": "M00-RMA",
-          "state": "EXTERNAL_PENDING",
-          "severity_if_open": "S2",
-          "importance_weight": 2.0,
-          "next_action": "HOLD OPS"
-        }
-      ]
-    },
-    "P00": {
-      "name": "Publishing / distribution / release engineering",
-      "derived_planning_readiness_percent": 29.5,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 4,
-      "by_state": {
-        "DIGITALLY_VALIDATED": 2,
-        "EXTERNAL_PENDING": 1,
-        "OWNER_DECISION_PENDING": 1
-      },
-      "requirements_digitally_open": 0,
-      "requirements_dv_or_digital_prep_closed": 2,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 1,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 1
-      },
-      "weighted_score_sum": 2.95,
-      "importance_sum": 10.0,
-      "top_blockers": [
-        {
-          "requirement_id": "P00-WP001",
-          "state": "OWNER_DECISION_PENDING",
-          "severity_if_open": "S1",
-          "importance_weight": 3.75,
-          "next_action": "HOLD WP-001 \u2014 owner decision only"
-        },
-        {
-          "requirement_id": "P00-STORES",
-          "state": "EXTERNAL_PENDING",
-          "severity_if_open": "S1",
-          "importance_weight": 3.0,
-          "next_action": "HOLD publishing after game RC"
-        }
-      ]
-    },
-    "CX00": {
-      "name": "Creator / Coder Studio (charter software_family)",
-      "derived_planning_readiness_percent": 15.0,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 1,
-      "by_state": {
-        "DESIGNED": 1
-      },
-      "requirements_digitally_open": 1,
-      "requirements_dv_or_digital_prep_closed": 0,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 0.5175,
-      "importance_sum": 3.45,
-      "top_blockers": [
-        {
-          "requirement_id": "CX00-STUDIO",
-          "state": "DESIGNED",
-          "severity_if_open": "S1",
-          "importance_weight": 3.45,
-          "next_action": "PRODUCT-USE-RC-002 Builder"
-        }
-      ]
-    },
-    "CX01": {
-      "name": "Device Management / MDM (charter software_family)",
-      "derived_planning_readiness_percent": 50.0,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 1,
-      "by_state": {
-        "INTEGRATED": 1
-      },
-      "requirements_digitally_open": 1,
-      "requirements_dv_or_digital_prep_closed": 0,
-      "pending": {
-        "PHYSICAL_PENDING": 0,
-        "HUMAN_PENDING": 0,
-        "EXTERNAL_PENDING": 0,
-        "STANDARD_PENDING": 0,
-        "OWNER_DECISION_PENDING": 0
-      },
-      "weighted_score_sum": 1.0,
-      "importance_sum": 2.0,
-      "top_blockers": [
-        {
-          "requirement_id": "CX01-MDM",
-          "state": "INTEGRATED",
-          "severity_if_open": "S2",
-          "importance_weight": 2.0,
-          "next_action": "HOLD OPS"
-        }
-      ]
-    },
-    "CX02": {
-      "name": "Continuity / Fabric (charter software_family)",
+    "D00": {
+      "name": "gunnchDevice Lab",
       "derived_planning_readiness_percent": 0.0,
-      "old_planning_readiness_percent": null,
-      "atomic_count": 1,
+      "old_planning_readiness_percent": 45.0,
+      "atomic_count": 16,
       "by_state": {
-        "TARGET": 1
+        "TARGET": 16
       },
-      "requirements_digitally_open": 1,
+      "requirements_digitally_open": 16,
       "requirements_dv_or_digital_prep_closed": 0,
       "pending": {
         "PHYSICAL_PENDING": 0,
@@ -873,173 +420,1660 @@
         "OWNER_DECISION_PENDING": 0
       },
       "weighted_score_sum": 0.0,
-      "importance_sum": 5.75,
+      "importance_sum": 34.5,
       "top_blockers": [
         {
-          "requirement_id": "CX02-CONT",
+          "requirement_id": "WP012-DEVICE_LAB_IMAGE_REALMS",
           "state": "TARGET",
-          "severity_if_open": "S0",
-          "importance_weight": 5.75,
-          "next_action": "PRODUCT-USE-RC-002 Dock"
+          "severity_if_open": "S1",
+          "importance_weight": 3.0,
+          "next_action": "Interactive Development Guest v1 in progress; shipping image separate realm"
+        },
+        {
+          "requirement_id": "UR_G11_STUDENT_REAL_DAY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
+        },
+        {
+          "requirement_id": "UR_G12_OFFICE_REAL_WORK",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
+        },
+        {
+          "requirement_id": "UR_G13_TEACHER_REAL_CLASSROOM",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
+        },
+        {
+          "requirement_id": "UR_G14_BUILDER_REAL_BUILD_DEPLOY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Execute journey; capture evidence; independent verify."
+        }
+      ]
+    },
+    "G00": {
+      "name": "Games portfolio",
+      "derived_planning_readiness_percent": 10.63,
+      "old_planning_readiness_percent": 40.0,
+      "atomic_count": 114,
+      "by_state": {
+        "TARGET": 97,
+        "DIGITALLY_VALIDATED": 8,
+        "PHYSICAL_PENDING": 4,
+        "HUMAN_PENDING": 4,
+        "EXTERNAL_PENDING": 1
+      },
+      "requirements_digitally_open": 97,
+      "requirements_dv_or_digital_prep_closed": 8,
+      "pending": {
+        "PHYSICAL_PENDING": 4,
+        "HUMAN_PENDING": 4,
+        "EXTERNAL_PENDING": 1,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 24.64,
+      "importance_sum": 231.9,
+      "top_blockers": [
+        {
+          "requirement_id": "UR_FOUR_GAME_PORTFOLIO_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Close four-game RC children."
+        },
+        {
+          "requirement_id": "UR_GAME_ANIME_AI_HEURISTIC_POLISH_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "GAME-RC-003 dependency stop; FEATURE/POLISH/HUMAN still open"
+        },
+        {
+          "requirement_id": "UR_GAME_ARCHIVE_ACHIEVEMENT_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Implement remaining playthrough/achievements/polish; independent verify."
+        },
+        {
+          "requirement_id": "UR_GAME_ARCHIVE_AI_HEURISTIC_POLISH_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Implement remaining playthrough/achievements/polish; independent verify."
+        },
+        {
+          "requirement_id": "UR_GAME_ARCHIVE_FULL_PLAYTHROUGH_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Implement remaining playthrough/achievements/polish; independent verify."
+        }
+      ]
+    },
+    "H00": {
+      "name": "Hardware / electrical / firmware",
+      "derived_planning_readiness_percent": 0.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 136,
+      "by_state": {
+        "TARGET": 136
+      },
+      "requirements_digitally_open": 136,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 0.0,
+      "importance_sum": 272.0,
+      "top_blockers": [
+        {
+          "requirement_id": "HW_DOCK",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Advance First-party Dock EDA/firmware/driver domains."
+        },
+        {
+          "requirement_id": "HW_DOCK_ARCHITECTURE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/verify First-party Dock architecture digital artifacts with tests."
+        },
+        {
+          "requirement_id": "HW_DOCK_AUDIO",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/verify First-party Dock audio digital artifacts with tests."
+        },
+        {
+          "requirement_id": "HW_DOCK_BATTERY_CHARGING",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/verify First-party Dock battery_charging digital artifacts with tests."
+        },
+        {
+          "requirement_id": "HW_DOCK_BOM_AVL",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/verify First-party Dock bom_avl digital artifacts with tests."
+        }
+      ]
+    },
+    "M00": {
+      "name": "Manufacturing / factory / service / RMA",
+      "derived_planning_readiness_percent": 22.54,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 57,
+      "by_state": {
+        "TARGET": 40,
+        "EXTERNAL_PENDING": 6,
+        "PHYSICAL_PENDING": 9,
+        "HUMAN_PENDING": 1,
+        "DIGITALLY_VALIDATED": 1
+      },
+      "requirements_digitally_open": 40,
+      "requirements_dv_or_digital_prep_closed": 1,
+      "pending": {
+        "PHYSICAL_PENDING": 9,
+        "HUMAN_PENDING": 1,
+        "EXTERNAL_PENDING": 6,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 26.6,
+      "importance_sum": 118.0,
+      "top_blockers": [
+        {
+          "requirement_id": "BATTERY_THERMAL_RF_MEASUREMENT_INGEST",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by BATTERY_THERMAL_RF."
+        },
+        {
+          "requirement_id": "CARRIER_ACCEPTANCE_PACKAGE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by CARRIER_APPROVAL."
+        },
+        {
+          "requirement_id": "ERGONOMICS_DIGITAL_MODEL",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by ERGONOMICS_HUMAN_FACTORS."
+        },
+        {
+          "requirement_id": "EVT_CALIBRATION_FRAMEWORK",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by EVT_CALIBRATION."
+        },
+        {
+          "requirement_id": "FACTORY_PROVISIONING_SOFTWARE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by FACTORY_PROVISIONING."
+        }
+      ]
+    },
+    "N00": {
+      "name": "5G-A / NTN / IMT-2030 / 6G migration",
+      "derived_planning_readiness_percent": 2.8,
+      "old_planning_readiness_percent": 60.0,
+      "atomic_count": 25,
+      "by_state": {
+        "TARGET": 24,
+        "STANDARD_PENDING": 1
+      },
+      "requirements_digitally_open": 24,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 1,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 1.4,
+      "importance_sum": 50.0,
+      "top_blockers": [
+        {
+          "requirement_id": "NETWORKING_5G_NTN_6G",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Build managers, abstractions, sims, and evaluation harnesses."
+        },
+        {
+          "requirement_id": "NET_AI_RAN",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement ai_ran."
+        },
+        {
+          "requirement_id": "NET_APN",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement apn."
+        },
+        {
+          "requirement_id": "NET_BEARER_POLICY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement bearer_policy."
+        },
+        {
+          "requirement_id": "NET_BLUETOOTH",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement bluetooth."
+        }
+      ]
+    },
+    "OS00": {
+      "name": "gunnchOS platform",
+      "derived_planning_readiness_percent": 0.0,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 32,
+      "by_state": {
+        "TARGET": 32
+      },
+      "requirements_digitally_open": 32,
+      "requirements_dv_or_digital_prep_closed": 0,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 0.0,
+      "importance_sum": 64.0,
+      "top_blockers": [
+        {
+          "requirement_id": "GUNNCHOS_ACCESSIBILITY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/harden accessibility beyond stubs/thin clients."
+        },
+        {
+          "requirement_id": "GUNNCHOS_AI_INTERFACE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/harden ai_interface beyond stubs/thin clients."
+        },
+        {
+          "requirement_id": "GUNNCHOS_ATTESTATION",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/harden attestation beyond stubs/thin clients."
+        },
+        {
+          "requirement_id": "GUNNCHOS_CONNECTIVITY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/harden connectivity beyond stubs/thin clients."
+        },
+        {
+          "requirement_id": "GUNNCHOS_CONTINUITY",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement/harden continuity beyond stubs/thin clients."
+        }
+      ]
+    },
+    "P00": {
+      "name": "Publishing / distribution / release engineering",
+      "derived_planning_readiness_percent": 7.45,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 23,
+      "by_state": {
+        "OWNER_DECISION_PENDING": 1,
+        "TARGET": 21,
+        "DIGITALLY_VALIDATED": 1
+      },
+      "requirements_digitally_open": 21,
+      "requirements_dv_or_digital_prep_closed": 1,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 0,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 1
+      },
+      "weighted_score_sum": 3.5,
+      "importance_sum": 47.0,
+      "top_blockers": [
+        {
+          "requirement_id": "CLOUD_ABUSE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement abuse."
+        },
+        {
+          "requirement_id": "CLOUD_ALERTS",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement alerts."
+        },
+        {
+          "requirement_id": "CLOUD_AUDIT_LOGS",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement audit_logs."
+        },
+        {
+          "requirement_id": "CLOUD_AUTHORIZATION",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement authorization."
+        },
+        {
+          "requirement_id": "CLOUD_BACKUP",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement backup."
+        }
+      ]
+    },
+    "S00": {
+      "name": "Security / privacy / trust",
+      "derived_planning_readiness_percent": 17.76,
+      "old_planning_readiness_percent": null,
+      "atomic_count": 32,
+      "by_state": {
+        "TARGET": 25,
+        "EXTERNAL_PENDING": 3,
+        "HUMAN_PENDING": 2,
+        "STANDARD_PENDING": 1,
+        "DIGITALLY_VALIDATED": 1
+      },
+      "requirements_digitally_open": 25,
+      "requirements_dv_or_digital_prep_closed": 1,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 2,
+        "EXTERNAL_PENDING": 3,
+        "STANDARD_PENDING": 1,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 11.9,
+      "importance_sum": 67.0,
+      "top_blockers": [
+        {
+          "requirement_id": "CERTIFICATIONS_READINESS_PACKAGE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Assemble certification readiness artifacts."
+        },
+        {
+          "requirement_id": "EXTERNAL_PENTEST_READINESS_PACKAGE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by EXTERNAL_PENTEST."
+        },
+        {
+          "requirement_id": "PRIVACY_CONTROLS_DIGITAL",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by PRIVACY_DATA_GOVERNANCE."
+        },
+        {
+          "requirement_id": "RIGHTS_REGISTERS_DIGITAL",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Complete digital prep previously hidden by LICENSING_IP_MEDIA_MODEL_DATA_RIGHTS."
+        },
+        {
+          "requirement_id": "SECURITY_PRIVACY_RIGHTS",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Implement controls and rights registers."
+        }
+      ]
+    },
+    "W00": {
+      "name": "WAIKE curriculum",
+      "derived_planning_readiness_percent": 7.1,
+      "old_planning_readiness_percent": 45.0,
+      "atomic_count": 39,
+      "by_state": {
+        "TARGET": 35,
+        "DIGITALLY_VALIDATED": 2,
+        "HUMAN_PENDING": 2
+      },
+      "requirements_digitally_open": 35,
+      "requirements_dv_or_digital_prep_closed": 2,
+      "pending": {
+        "PHYSICAL_PENDING": 0,
+        "HUMAN_PENDING": 2,
+        "EXTERNAL_PENDING": 0,
+        "STANDARD_PENDING": 0,
+        "OWNER_DECISION_PENDING": 0
+      },
+      "weighted_score_sum": 5.6,
+      "importance_sum": 78.9,
+      "top_blockers": [
+        {
+          "requirement_id": "UR_WAIKE_ASSESSMENT_SYSTEM_DIGITAL_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Author original curriculum in batches; ingest into WAIKE app; independent verify."
+        },
+        {
+          "requirement_id": "UR_WAIKE_FULL_CURRICULUM_DIGITAL_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Author original curriculum in batches; ingest into WAIKE app; independent verify."
+        },
+        {
+          "requirement_id": "UR_WAIKE_TEACHER_WORKFLOW_DIGITAL_RC",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.3,
+          "next_action": "Author original curriculum in batches; ingest into WAIKE app; independent verify."
+        },
+        {
+          "requirement_id": "WAIKE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Detect/remediate shallow templated courses; deepen packets."
+        },
+        {
+          "requirement_id": "WAIKE_COURSE_AI_ML_EDGE",
+          "state": "TARGET",
+          "severity_if_open": "S2",
+          "importance_weight": 2.0,
+          "next_action": "Audit and deepen AI/ML and Edge AI Foundations beyond template."
         }
       ]
     }
   },
-  "top_blockers_global": [
+  "summary_rows": [
     {
-      "requirement_id": "A01-002",
-      "area": "A01",
-      "state": "IMPLEMENTED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
-      "requirement": "Real cross-component execution (OS+WAIKE+AI+games) without surrogates",
-      "next_action": "PRODUCT-USE-RC-002 six-course ingest + journeys"
+      "requirement_id": "A00-001",
+      "area": "A00",
+      "requirement": "Product charter narrative + claim boundaries on accepted main",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A00-002",
+      "area": "A00",
+      "requirement": "Repo ownership / catalog complete",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A00-003",
+      "area": "A00",
+      "requirement": "Major subsystem dependency ownership with no orphan digitally executable architecture gap",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A00-004",
+      "area": "A00",
+      "requirement": "Update/rollback/recovery digital path",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A00-005",
+      "area": "A00",
+      "requirement": "Program observability / evidence topology",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
       "requirement_id": "A01-GJ-01",
       "area": "A01",
-      "state": "IMPLEMENTED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
       "requirement": "GOLDEN-01 Student assignment then recreation digital PASS where not irreducible pending",
-      "next_action": "PRODUCT-USE-RC-002 close G11"
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-GJ-02",
+      "area": "A01",
+      "requirement": "GOLDEN-02 Offline student reconnect digital PASS where not irreducible pending",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-GJ-03",
+      "area": "A01",
+      "requirement": "GOLDEN-03 Creator build/package/install digital PASS where not irreducible pending",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
       "requirement_id": "A01-GJ-04",
       "area": "A01",
-      "state": "DESIGNED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
       "requirement": "GOLDEN-04 Office dock workflow digital PASS where not irreducible pending",
-      "next_action": "PRODUCT-USE-RC-002 Dock"
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-GJ-05",
+      "area": "A01",
+      "requirement": "GOLDEN-05 Handheld play\u2192dock\u2192work\u2192undock digital PASS where not irreducible pending",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
       "requirement_id": "A01-GJ-06",
       "area": "A01",
-      "state": "IMPLEMENTED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
       "requirement": "GOLDEN-06 DS-XL dual-screen coding digital PASS where not irreducible pending",
-      "next_action": "PRODUCT-USE-RC-002 G14"
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
       "requirement_id": "A01-GJ-07",
       "area": "A01",
-      "state": "IMPLEMENTED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
       "requirement": "GOLDEN-07 Ring real input digital PASS where not irreducible pending",
-      "next_action": "PRODUCT-USE-RC-002 Ring"
-    },
-    {
-      "requirement_id": "A02-BUILDER",
-      "area": "A02",
-      "state": "TARGET",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
-      "requirement": "Builder DIGITAL_PICKUP_AND_USE_READY",
-      "next_action": "PRODUCT-USE-RC-002 earn persona token"
-    },
-    {
-      "requirement_id": "A02-CREATIVE",
-      "area": "A02",
-      "state": "TARGET",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
-      "requirement": "Creative DIGITAL_PICKUP_AND_USE_READY",
-      "next_action": "PRODUCT-USE-RC-002 earn persona token"
-    },
-    {
-      "requirement_id": "A02-DOCK",
-      "area": "A02",
-      "state": "TARGET",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
-      "requirement": "Handheld/Dock continuity PASS",
-      "next_action": "PRODUCT-USE-RC-002 Dock continuity"
-    },
-    {
-      "requirement_id": "A02-G11",
-      "area": "A02",
       "state": "IMPLEMENTED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
-      "requirement": "G11 Student journey PASS (not demoted)",
-      "next_action": "PRODUCT-USE-RC-002 re-earn G11"
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
-      "requirement_id": "A02-G14",
-      "area": "A02",
+      "requirement_id": "A01-GJ-08",
+      "area": "A01",
+      "requirement": "GOLDEN-08 Private local AI tutoring digital PASS where not irreducible pending",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-GJ-09",
+      "area": "A01",
+      "requirement": "GOLDEN-09 Failed update rollback digital PASS where not irreducible pending",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-GJ-10",
+      "area": "A01",
+      "requirement": "GOLDEN-10 Lost device revoke digital PASS where not irreducible pending",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-001",
+      "area": "A01",
+      "requirement": "Live accepted-main SHAs pinned; no branch-only presented as accepted",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A01-002",
+      "area": "A01",
+      "requirement": "Real cross-component execution (OS+WAIKE+AI+games) without surrogates",
       "state": "IMPLEMENTED",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
-      "requirement": "G14 DSXL_DUAL_COMPOSITOR_UX_PASS",
-      "next_action": "PRODUCT-USE-RC-002 G14 with \u226525GiB host gate"
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-STUDENT",
+      "area": "A02",
+      "requirement": "Student DIGITAL_PICKUP_AND_USE_READY",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
       "requirement_id": "A02-OFFICE",
       "area": "A02",
-      "state": "TARGET",
-      "severity_if_open": "S0",
-      "importance_weight": 5.75,
       "requirement": "Office DIGITAL_PICKUP_AND_USE_READY",
-      "next_action": "PRODUCT-USE-RC-002 earn persona token"
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-TEACHER",
+      "area": "A02",
+      "requirement": "Teacher DIGITAL_PICKUP_AND_USE_READY",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-BUILDER",
+      "area": "A02",
+      "requirement": "Builder DIGITAL_PICKUP_AND_USE_READY",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-CREATIVE",
+      "area": "A02",
+      "requirement": "Creative DIGITAL_PICKUP_AND_USE_READY",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-RING",
+      "area": "A02",
+      "requirement": "RING_TO_REAL_APP_STATE_MUTATION_PASS",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-DOCK",
+      "area": "A02",
+      "requirement": "Handheld/Dock continuity PASS",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
     },
     {
       "requirement_id": "A02-REBOOT",
       "area": "A02",
+      "requirement": "Save/reboot/resume schoolwork PASS",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-G14",
+      "area": "A02",
+      "requirement": "G14 DSXL_DUAL_COMPOSITOR_UX_PASS",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-G11",
+      "area": "A02",
+      "requirement": "G11 Student journey PASS (not demoted)",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A02-HUMAN-E6",
+      "area": "A02",
+      "requirement": "HUMAN_E6 user-ready validation",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-EVT",
+      "area": "A03",
+      "requirement": "EVT physical device validation",
+      "state": "PHYSICAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-DVT",
+      "area": "A03",
+      "requirement": "DVT validation",
+      "state": "PHYSICAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-PVT",
+      "area": "A03",
+      "requirement": "PVT validation",
+      "state": "PHYSICAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-RF",
+      "area": "A03",
+      "requirement": "RF/antenna physical validation",
+      "state": "PHYSICAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-EMC",
+      "area": "A03",
+      "requirement": "EMC/regulatory certification",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-CARRIER",
+      "area": "A03",
+      "requirement": "Carrier acceptance",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-MFG",
+      "area": "A03",
+      "requirement": "Manufacturing line + warranty/service",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "A03-LAUNCH",
+      "area": "A03",
+      "requirement": "Commercial launch authorization",
+      "state": "OWNER_DECISION_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ANIME-PLAYTHROUGH",
+      "area": "G00",
+      "requirement": "ANIME digital playthrough/session executable on accepted main",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ANIME-ACHIEVE",
+      "area": "G00",
+      "requirement": "ANIME real achievement subsystem",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ANIME-FEATURE",
+      "area": "G00",
+      "requirement": "ANIME FEATURE_COMPLETE_RC",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ANIME-POLISH",
+      "area": "G00",
+      "requirement": "ANIME POLISHED_RELEASE_CANDIDATE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ANIME-HUMAN",
+      "area": "G00",
+      "requirement": "ANIME HUMAN_PLAYTEST_VALIDATED",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-PED-PLAYTHROUGH",
+      "area": "G00",
+      "requirement": "PEDESTRIAN digital playthrough/session executable on accepted main",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-PED-ACHIEVE",
+      "area": "G00",
+      "requirement": "PEDESTRIAN real achievement subsystem",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-PED-FEATURE",
+      "area": "G00",
+      "requirement": "PEDESTRIAN FEATURE_COMPLETE_RC",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-PED-POLISH",
+      "area": "G00",
+      "requirement": "PEDESTRIAN POLISHED_RELEASE_CANDIDATE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-PED-HUMAN",
+      "area": "G00",
+      "requirement": "PEDESTRIAN HUMAN_PLAYTEST_VALIDATED",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ARCHIVE-PLAYTHROUGH",
+      "area": "G00",
+      "requirement": "ARCHIVE digital playthrough/session executable on accepted main",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ARCHIVE-ACHIEVE",
+      "area": "G00",
+      "requirement": "ARCHIVE real achievement subsystem",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ARCHIVE-FEATURE",
+      "area": "G00",
+      "requirement": "ARCHIVE FEATURE_COMPLETE_RC",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ARCHIVE-POLISH",
+      "area": "G00",
+      "requirement": "ARCHIVE POLISHED_RELEASE_CANDIDATE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-ARCHIVE-HUMAN",
+      "area": "G00",
+      "requirement": "ARCHIVE HUMAN_PLAYTEST_VALIDATED",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-BEATLINK-PLAYTHROUGH",
+      "area": "G00",
+      "requirement": "BEATLINK digital playthrough/session executable on accepted main",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-BEATLINK-ACHIEVE",
+      "area": "G00",
+      "requirement": "BEATLINK real achievement subsystem",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-BEATLINK-FEATURE",
+      "area": "G00",
+      "requirement": "BEATLINK FEATURE_COMPLETE_RC",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-BEATLINK-POLISH",
+      "area": "G00",
+      "requirement": "BEATLINK POLISHED_RELEASE_CANDIDATE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-BEATLINK-HUMAN",
+      "area": "G00",
+      "requirement": "BEATLINK HUMAN_PLAYTEST_VALIDATED",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-PLATFORM",
+      "area": "G00",
+      "requirement": "Game platform publishing matrix (Steam/mobile/console prep)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "G00-FOUR-RC",
+      "area": "G00",
+      "requirement": "FOUR_GAME_FULL_PLAYTHROUGH_RC portfolio token",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-TAXONOMY",
+      "area": "W00",
+      "requirement": "Authoritative WAIKE taxonomy enumerated from accepted main (no assumed count)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-digital_confidence",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Digital Confidence to Computer Operator' (digital_confidence)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-general_it",
+      "area": "W00",
+      "requirement": "Course-RC package for 'General IT and Systems Foundations' (general_it)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-hardware_engineering",
+      "area": "W00",
+      "requirement": "Course-RC package for 'IT Support and Hardware Foundations' (hardware_engineering)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-software_engineering",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Software Builder Zero-to-Hero' (software_engineering)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-networking",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Networking and Internet Infrastructure' (networking)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-cybersecurity",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Cybersecurity Foundations and SOC Readiness' (cybersecurity)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-cloud_devops",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Cloud and DevOps Foundations' (cloud_devops)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-ai_ml_data",
+      "area": "W00",
+      "requirement": "Course-RC package for 'AI, ML, and Data Foundations' (ai_ml_data)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-edge_ai_embedded",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Embedded Systems and Device Prototyping' (edge_ai_embedded)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-wireless_dsp_6g",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Wireless, DSP, and 6G Foundations' (wireless_dsp_6g)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-robotics_control",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Robotics and Control Foundations' (robotics_control)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-project_management_agile_lss",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Project Management, Agile, and Lean Six Sigma' (project_management_agile_lss)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-data_visualization_bi",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Data, Databases, and Dashboards' (data_visualization_bi)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-communication_ethics_professional_dev",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Communication, Ethics, Leadership, and Professional Development' (communication_ethics_professional_dev)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-game_development_interactive_media",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Game Development and Interactive Media' (game_development_interactive_media)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-gunnchos_device_os_product_lab",
+      "area": "W00",
+      "requirement": "Course-RC package for 'gunnchOS Device OS and Product Lab' (gunnchos_device_os_product_lab)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-ai_ran_digital_twin_research",
+      "area": "W00",
+      "requirement": "Course-RC package for '7GC AI-RAN and Digital Twin Research Apprenticeship' (ai_ran_digital_twin_research)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-COURSE-reproducible_research",
+      "area": "W00",
+      "requirement": "Course-RC package for 'Reproducible Research and Technical Publishing' (reproducible_research)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-FULL18",
+      "area": "W00",
+      "requirement": "full_18_course_digital_rc",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-CONSUME",
+      "area": "W00",
+      "requirement": "Learner/teacher product consumption of accepted course-RC packages",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "W00-HUMAN",
+      "area": "W00",
+      "requirement": "REAL_STUDENT_E6 / REAL_TEACHER_E6 / HUMAN_E6",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "D00-GUEST",
+      "area": "D00",
+      "requirement": "Real gunnchOS Interactive Guest path",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "D00-PROFILES",
+      "area": "D00",
+      "requirement": "All first-party device profiles represented in Device Lab",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "D00-G11G15",
+      "area": "D00",
+      "requirement": "G11\u2013G15 digital PASS set",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "D00-ECO",
+      "area": "D00",
+      "requirement": "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "D00-VF456",
+      "area": "D00",
+      "requirement": "VF4\u2013VF6 physical calibration",
+      "state": "PHYSICAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-001",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-001 (research_citations) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-002",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-002 (projects_memory) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-003",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-003 (artifact_outputs) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-004",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-004 (socratic_hinting) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-005",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-005 (tool_auth) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-006",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-006 (source_grounded_qa) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-007",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-007 (deep_web_research) COMPLETE",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-008",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-008 (canvas_cowrite_ui) COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-009",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-009 (custom_agents) COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-010",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-010 (voice_realtime) COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-011",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-011 (vision_screen) COMPLETE",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-012",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-012 (computer_use) COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-013",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-013 (coding_agent_pr) COMPLETE",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-014",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-014 (audio_overview) COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-015",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-015 (companion_ux) COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-016",
+      "area": "AI00",
+      "requirement": "Market task AI-UR-016 (local_fast_pro_weights) COMPLETE",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-LOCAL-PRO",
+      "area": "AI00",
+      "requirement": "Local Pro weights pinned+wired (or justified alternate)",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-APP",
+      "area": "AI00",
+      "requirement": "GUNNCHAI_APP_PRODUCT_COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-FRONTIER",
+      "area": "AI00",
+      "requirement": "GUNNCHAI_FRONTIER_PRODUCT_PARITY",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "AI00-HUMAN",
+      "area": "AI00",
+      "requirement": "gunnchAI HUMAN_E6",
+      "state": "HUMAN_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "N00-5GA",
+      "area": "N00",
+      "requirement": "5G-Advanced software path / terrestrial profile",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "N00-NTN",
+      "area": "N00",
+      "requirement": "NTN simulation/abstraction (no RM520N\u2192NTN inference)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "N00-AIRAN",
+      "area": "N00",
+      "requirement": "AI-RAN / digital twin research path",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "N00-IMT",
+      "area": "N00",
+      "requirement": "IMT-2030 Rel-20/Rel-21 tracker + mapping",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "N00-EVAL",
+      "area": "N00",
+      "requirement": "6G evaluation harness current-phase digital",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "N00-STD6G",
+      "area": "N00",
+      "requirement": "Final normative standardized commercial 6G",
+      "state": "STANDARD_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "H00-DESIGN",
+      "area": "H00",
+      "requirement": "First-party device design packages present",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "H00-DVPR",
+      "area": "H00",
+      "requirement": "DVP&R digitally closed where executable",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "H00-FW",
+      "area": "H00",
+      "requirement": "HW_FIRMWARE_DIGITAL_PACKAGE_COMPLETE",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "H00-IMAGE-FIT",
+      "area": "H00",
+      "requirement": "Image-fit / storage headroom digital checks",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "H00-BOM",
+      "area": "H00",
+      "requirement": "Supply-chain BOM/AVL unknown-stays-unknown honesty",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "H00-SILICON",
+      "area": "H00",
+      "requirement": "Firmware-on-silicon bring-up",
+      "state": "PHYSICAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "OS00-CORE",
+      "area": "OS00",
+      "requirement": "OS core services digitally validated lineage (Phase XV)",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "OS00-SHELL",
+      "area": "OS00",
+      "requirement": "Desktop/handheld/DS-XL shells",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "OS00-PKG",
+      "area": "OS00",
+      "requirement": "Package/app management real install/update/uninstall",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "OS00-PROD-IMAGE",
+      "area": "OS00",
+      "requirement": "Shipping production image \u2260 Interactive Guest",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "S00-HOSTILE",
+      "area": "S00",
+      "requirement": "Hostile-network digital E4",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "S00-UPDATE",
+      "area": "S00",
+      "requirement": "Update trust root digital; PRODUCTION_TRUST_ROOT external",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "S00-PRIVACY",
+      "area": "S00",
+      "requirement": "Privacy/SBOM digital inventory",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "S00-PENTEST",
+      "area": "S00",
+      "requirement": "External penetration test",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "S00-LAB",
+      "area": "S00",
+      "requirement": "6G security lab integration depth",
+      "state": "IMPLEMENTED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "M00-FACTORY",
+      "area": "M00",
+      "requirement": "Factory/RMA digital schema fields",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "M00-SUPPLY",
+      "area": "M00",
+      "requirement": "Supply-chain risk register digital",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "M00-LINE",
+      "area": "M00",
+      "requirement": "Real factory line operations",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "M00-RMA",
+      "area": "M00",
+      "requirement": "Field RMA operations",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "P00-TOPOLOGY",
+      "area": "P00",
+      "requirement": "Release/build topology documented",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "P00-SBOM",
+      "area": "P00",
+      "requirement": "SBOM/privacy release prep",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "P00-STORES",
+      "area": "P00",
+      "requirement": "Store/console distribution approvals",
+      "state": "EXTERNAL_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "P00-WP001",
+      "area": "P00",
+      "requirement": "WP-001 release authorization",
+      "state": "OWNER_DECISION_PENDING",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "CX00-STUDIO",
+      "area": "CX00",
+      "requirement": "Creator/Coder Studio digitally usable on Builder persona",
+      "state": "DESIGNED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "CX01-MDM",
+      "area": "CX01",
+      "requirement": "Device management / lost-device revoke digital",
+      "state": "INTEGRATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "CX02-CONT",
+      "area": "CX02",
+      "requirement": "Continuity/Fabric across dock/handheld/desktop",
+      "state": "TARGET",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    },
+    {
+      "requirement_id": "CX02-RING-HW",
+      "area": "H00",
+      "requirement": "Edge I/O Ring measurement node digital contract",
+      "state": "DIGITALLY_VALIDATED",
+      "register_role": "summary",
+      "note": "Summary planning row \u2014 not counted as full atomic denominator"
+    }
+  ],
+  "top_blockers_global": [
+    {
+      "requirement_id": "AI00-AI-UR-008",
       "state": "TARGET",
       "severity_if_open": "S0",
       "importance_weight": 5.75,
-      "requirement": "Save/reboot/resume schoolwork PASS",
-      "next_action": "PRODUCT-USE-RC-002 reboot/resume"
+      "next_action": "HOLD AI-004"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-009",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "next_action": "HOLD AI-004"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-010",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "next_action": "HOLD AI-004"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-012",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "next_action": "HOLD AI-004"
+    },
+    {
+      "requirement_id": "AI00-AI-UR-014",
+      "state": "TARGET",
+      "severity_if_open": "S0",
+      "importance_weight": 5.75,
+      "next_action": "HOLD AI-004"
     }
-  ],
-  "delta_vs_old_planning_baseline": {
-    "A00": {
-      "old": 70.0,
-      "derived": 60.0,
-      "delta": -10.0
-    },
-    "A01": {
-      "old": 55.0,
-      "derived": 35.99,
-      "delta": -19.01
-    },
-    "A02": {
-      "old": 35.0,
-      "derived": 10.47,
-      "delta": -24.53
-    },
-    "A03": {
-      "old": 10.0,
-      "derived": 10.0,
-      "delta": 0.0
-    },
-    "G00": {
-      "old": 40.0,
-      "derived": 21.86,
-      "delta": -18.14
-    },
-    "W00": {
-      "old": 45.0,
-      "derived": 30.17,
-      "delta": -14.83
-    },
-    "D00": {
-      "old": 45.0,
-      "derived": 37.4,
-      "delta": -7.6
-    },
-    "AI00": {
-      "old": 35.0,
-      "derived": 25.3,
-      "delta": -9.7
-    },
-    "N00": {
-      "old": 60.0,
-      "derived": 63.33,
-      "delta": 3.33
-    }
-  }
+  ]
 }

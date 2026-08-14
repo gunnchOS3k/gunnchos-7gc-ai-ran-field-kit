@@ -1,6 +1,6 @@
 {
   "schema": "gunnchos.convergence_100.next_action_queue.v1",
-  "generated_at_utc": "2026-08-14T21:19:33Z",
+  "generated_at_utc": "2026-08-14T23:07:00Z",
   "cycle": 1,
   "MAX_MAJOR_ACTIVE_STREAMS": 3,
   "active_wip": [
@@ -9,7 +9,7 @@
       "stream": "A",
       "owner_repo": "gunnchos-device-os",
       "priority": 1,
-      "objective": "Six-course WAIKE ingest; close G11\u2013G15; Ring mutation; Dock continuity; reboot/resume; earn persona tokens; \u226525GiB guest gate",
+      "objective": "Six-course WAIKE ingest; close G11–G15; Ring mutation; Dock continuity; reboot/resume; earn persona tokens; ≥25GiB guest gate",
       "depends_on_accepted": [
         "waike#43",
         "waike#44",
@@ -23,60 +23,57 @@
       ]
     },
     {
-      "id": "GAME-RC-003",
-      "stream": "B",
-      "owner_repo": "anime-aggressors + pedestrian-pursuit",
-      "priority": 2,
-      "objective": "Anime + Pedestrian content/polish + platform foundations toward FEATURE_COMPLETE_RC",
-      "depends_on_accepted": [
-        "anime#75",
-        "pedestrian#16"
-      ],
-      "blocks": [
-        "G00-ANIME-FEATURE",
-        "G00-PED-FEATURE",
-        "G00-ANIME-POLISH",
-        "G00-PED-POLISH"
-      ]
-    },
-    {
       "id": "AI-USER-READY-003",
       "stream": "C",
       "owner_repo": "gunnchAI3k",
-      "priority": 3,
-      "objective": "Complete AI-UR-007/011/013 PARTIAL\u2192COMPLETE; Local Pro if feasible",
+      "priority": 2,
+      "objective": "Complete remaining PARTIAL/OPEN AI-UR classes; Local Pro if feasible",
       "depends_on_accepted": [
         "gunnchAI#33",
         "gunnchAI#34"
       ],
       "blocks": [
-        "AI00-AI-UR-007",
+        "AI00-AI-UR-008",
         "AI00-AI-UR-011",
-        "AI00-AI-UR-013",
         "AI00-LOCAL-PRO"
       ]
+    }
+  ],
+  "accepted_dependency_stops": [
+    {
+      "id": "GAME-RC-003",
+      "status": "ACCEPTED_DEPENDENCY_STOP",
+      "anime_aggressors": {
+        "pr": 76,
+        "sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3"
+      },
+      "pedestrian_pursuit": {
+        "pr": 17,
+        "sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3"
+      },
+      "note": "Live mains merged. Playthrough/achieve digital path accepted; FEATURE/POLISH/HUMAN remain open. Do not start GAME-RC-004 from this packet."
     }
   ],
   "held": [
     {
       "id": "WAIKE-003",
-      "reason": "WIP cap; remaining 12 taxonomy courses after 6 RC"
+      "reason": "WIP cap; remaining taxonomy courses after 6 RC — DO NOT START"
     },
     {
       "id": "GAME-RC-004",
-      "reason": "WIP cap; Archive+BeatLink feature/polish after GAME-RC-003"
+      "reason": "Held; Archive+BeatLink feature/polish after GAME-RC-003 dependency stop — DO NOT START"
     },
     {
       "id": "NET-SEC-6G",
-      "reason": "WIP cap; deepen 5G-A/NTN/security after Product-Use"
+      "reason": "WIP cap — DO NOT START"
     },
     {
       "id": "HW-FW",
-      "reason": "WIP cap; HW_FIRMWARE_DIGITAL_PACKAGE_COMPLETE still false"
+      "reason": "WIP cap — DO NOT START"
     },
     {
       "id": "AI-004",
-      "reason": "WIP cap; remaining OPEN AI-UR classes + frontier"
+      "reason": "WIP cap — DO NOT START"
     },
     {
       "id": "OPS",
@@ -91,6 +88,6 @@
     "id": "CONVERGENCE-100-REGISTER-C1",
     "is_product_stream": false,
     "branch": "operating-cycle-convergence/100-register",
-    "note": "Control-plane baseline only; not a fourth product stream"
+    "note": "Control-plane baseline only; coverage remediation; not a fourth product stream"
   }
 }
