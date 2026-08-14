@@ -1,0 +1,173 @@
+{
+  "schema": "gunnchos.convergence_100.register_c1.independent_verifier_result.v2",
+  "work_item": "field-kit-77-convergence-100-register-cycle-1-coverage-ci-remediation",
+  "product": "convergence_100_control_plane",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "reverify_of": "DRAFT #77 after coverage/CI remediation",
+  "prior_vp": "artifacts/convergence_100/VP_CONVERGENCE_100_REGISTER_C1_INDEPENDENT.json",
+  "prior_vp_tip": "63a273e7765f1c0e7c74fca6df6632f258615a48",
+  "did_not_implement": true,
+  "did_not_merge": true,
+  "did_not_start_wp001": true,
+  "did_not_start_waike_003": true,
+  "did_not_start_game_rc_004": true,
+  "cursor_must_not_merge": true,
+  "prefer_fail_over_false_pass": true,
+  "live_github_wins": true,
+  "pr": {
+    "number": 77,
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/77",
+    "draft": true,
+    "state": "OPEN",
+    "merged": false,
+    "mergeable": true,
+    "mergeable_state": "CLEAN",
+    "branch": "operating-cycle-convergence/100-register",
+    "title": "DRAFT: Cycle-1 convergence_100 control-plane register (NOT readiness PASS)",
+    "base": "main"
+  },
+  "claimed_tip": "7215c8778f1713f5d8326e2c92390e02434eb734",
+  "claimed_tip_short": "7215c87",
+  "claimed_tip_live_confirmed": true,
+  "verified_tip": "7215c8778f1713f5d8326e2c92390e02434eb734",
+  "verified_tip_short": "7215c87",
+  "tip_commit_subject": "fix(convergence): remediate #77 coverage denominator and paper CI",
+  "generated_at_utc": "2026-08-14T23:12:15Z",
+  "VP_CONVERGENCE_100_REGISTER_C1_R2_INDEPENDENT": "PASS",
+  "FIELD_KIT_77_READY_FOR_EDMUND_MERGE_AS_CONTROL_PLANE_DOCS": true,
+  "READY_FOR_EDMUND_MERGE": true,
+  "Edmund_mergeable": "yes",
+  "READINESS_PASS_CLAIM": false,
+  "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
+  "PHYSICAL_PICKUP_AND_USE_READY": false,
+  "SHIPPING_PRODUCT": false,
+  "PRODUCTION_RELEASE_CLAIMED": false,
+  "WP001_STARTED": false,
+  "fail_reason": null,
+  "pass_note": "Independent re-verify of DRAFT #77 tip 7215c87 after coverage/CI remediation. Live tip matches claim. All required CI green on this tip including Application readiness CI (run 31849268783, headSha=7215c87, Paper build pinned Tectonic SUCCESS). Atomic denominator 562 (not 138); independent weighted_state_score_v1 rebuild = 12.85% exact; summary-only 138 recomputes to prior 28.79% and is NOT used as denominator. UNMAPPED=0, DROPPED_WITHOUT_RATIONALE=0, no DROPPED_SILENTLY; legacy_mapped=1199 all status=MAPPED. Anime #76 / Ped #17 live main SHAs match register; GAME-RC-003 ACCEPTED_DEPENDENCY_STOP. Persona DIGITAL_PICKUP tokens false; device-os #115 merged but product_use_complete=false. IMPLEMENTED(0.35) ≪ DIGITALLY_VALIDATED(0.70). READINESS_PASS_CLAIM remains false. Cursor does not merge; WP-001 / WAIKE-003 / GAME-RC-004 not started.",
+  "challenges": {
+    "1_live_tip_and_ci_green": {
+      "verdict": "PASS",
+      "live_headRefOid": "7215c8778f1713f5d8326e2c92390e02434eb734",
+      "matches_claimed_tip": true,
+      "application_readiness": {
+        "workflow": "Application readiness CI",
+        "job": "readiness",
+        "conclusion": "SUCCESS",
+        "run_id": 31849268783,
+        "run_url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/actions/runs/31849268783",
+        "headSha": "7215c8778f1713f5d8326e2c92390e02434eb734",
+        "paper_build_step": "Paper build (pinned Tectonic) SUCCESS"
+      },
+      "all_observed_checks": "ALL SUCCESS (firewall×2, gate1, gate2×2, gate3-readiness×2, gate4, gate4-readiness×2, gate5, gate6, gate7, nonphysical, readiness, validate)",
+      "red_ci_challenged": false
+    },
+    "2_coverage_trace_unmapped_and_aggregation": {
+      "verdict": "PASS",
+      "artifacts": [
+        "program/convergence_100/LEGACY_TO_CONVERGENCE_TRACE.json",
+        "program/convergence_100/COVERAGE_AUDIT.json"
+      ],
+      "UNMAPPED_OLD_ATOMICS": 0,
+      "DROPPED_WITHOUT_RATIONALE": 0,
+      "DROPPED_SILENTLY_present": false,
+      "forbidden_mapping_types_present": false,
+      "legacy_mapped": 1199,
+      "mapping_types": {"SAME": 544, "SUPERSEDED": 476, "RENAMED": 179},
+      "all_mappings_status_MAPPED": true,
+      "aggregation_notes": {
+        "policy_aggregation_requires_criteria_subset": true,
+        "SAME_with_old_criteria_subset_true": 521,
+        "SAME_with_old_criteria_subset_false": 0,
+        "SUPERSEDED_RENAMED_aggregation_proof_null_by_generator": true,
+        "generator_ref": "scripts/rebuild_convergence_coverage.py sets aggregation_proof=None for SUPERSEDED/RENAMED",
+        "new_requirement_id_missing": 0,
+        "new_ids_nowhere": 0,
+        "prior_138_rows_retained_as_summaries_not_atomics": 138,
+        "waike_course_rc_tokens_map_to_summary_W00_COURSE_rows": 6,
+        "silent_denominator_shrink": false,
+        "denominator_direction": "EXPAND 138 summary → 562 atomic"
+      }
+    },
+    "3_rebuild_readiness_full_562": {
+      "verdict": "PASS",
+      "atomic_rows": 562,
+      "atomic_total_field": 562,
+      "summary_total": 138,
+      "register_role_all_atomic": true,
+      "formula": "weighted_state_score_v1",
+      "independent_rebuild_overall_percent": 12.85,
+      "dashboard_claimed_percent": 12.85,
+      "coverage_audit_claimed_percent": 12.85,
+      "weighted_score_sum": 156.14,
+      "importance_sum": 1215.5,
+      "state_score_mismatches": 0,
+      "area_percent_mismatches": 0,
+      "if_138_used_as_denominator_percent": 28.79,
+      "138_used_as_denominator": false,
+      "hand_edited_percent_upward": false,
+      "READINESS_PASS_CLAIM": false,
+      "by_state": {
+        "DIGITALLY_VALIDATED": 31,
+        "TARGET": 479,
+        "OWNER_DECISION_PENDING": 6,
+        "PHYSICAL_PENDING": 19,
+        "HUMAN_PENDING": 12,
+        "EXTERNAL_PENDING": 12,
+        "STANDARD_PENDING": 2,
+        "INTEGRATED": 1,
+        "IMPLEMENTED": 0
+      }
+    },
+    "4_game_shas_persona_and_115": {
+      "verdict": "PASS",
+      "anime_aggressors": {
+        "pr": 76,
+        "merged": true,
+        "live_main_sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
+        "register_sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
+        "match": true
+      },
+      "pedestrian_pursuit": {
+        "pr": 17,
+        "merged": true,
+        "live_main_sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3",
+        "register_sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3",
+        "match": true
+      },
+      "game_rc_003": "ACCEPTED_DEPENDENCY_STOP",
+      "persona_tokens": {
+        "STUDENT_DIGITAL_PICKUP_AND_USE_READY": false,
+        "OFFICE_DIGITAL_PICKUP_AND_USE_READY": false,
+        "TEACHER_DIGITAL_PICKUP_AND_USE_READY": false,
+        "BUILDER_DIGITAL_PICKUP_AND_USE_READY": false,
+        "CREATIVE_DIGITAL_PICKUP_AND_USE_READY": false
+      },
+      "device_os_115": {
+        "merged": true,
+        "merge_commit_sha": "1b86720bbd6484eabba0500962e9461e12c4a620",
+        "live_main_sha": "1b86720bbd6484eabba0500962e9461e12c4a620",
+        "product_use_complete": false,
+        "treated_as_product_use_complete": false
+      }
+    },
+    "5_formula_implemented_ll_digitally_validated": {
+      "verdict": "PASS",
+      "IMPLEMENTED_state_score": 0.35,
+      "DIGITALLY_VALIDATED_state_score": 0.7,
+      "IMPLEMENTED_ll_DV": true,
+      "atomic_IMPLEMENTED_count": 0,
+      "atomic_DIGITALLY_VALIDATED_count": 31,
+      "defs_forbid_treating_IMPLEMENTED_as_DV": true
+    }
+  },
+  "stamp": {
+    "result": "PASS",
+    "tip": "7215c8778f1713f5d8326e2c92390e02434eb734",
+    "CI": "GREEN (incl. Application readiness on tip)",
+    "denominator": 562,
+    "readiness_percent": 12.85,
+    "READINESS_PASS_CLAIM": false,
+    "Edmund_mergeable": "yes"
+  }
+}
