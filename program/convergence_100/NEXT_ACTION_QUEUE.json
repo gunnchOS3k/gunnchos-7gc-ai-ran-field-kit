@@ -1,0 +1,93 @@
+{
+  "schema": "gunnchos.convergence_100.next_action_queue.v1",
+  "generated_at_utc": "2026-08-14T23:07:00Z",
+  "cycle": 1,
+  "MAX_MAJOR_ACTIVE_STREAMS": 3,
+  "active_wip": [
+    {
+      "id": "PRODUCT-USE-RC-002",
+      "stream": "A",
+      "owner_repo": "gunnchos-device-os",
+      "priority": 1,
+      "objective": "Six-course WAIKE ingest; close G11–G15; Ring mutation; Dock continuity; reboot/resume; earn persona tokens; ≥25GiB guest gate",
+      "depends_on_accepted": [
+        "waike#43",
+        "waike#44",
+        "device-os#115"
+      ],
+      "blocks": [
+        "A02-*",
+        "D00-G11G15",
+        "A02-RING",
+        "A02-DOCK"
+      ]
+    },
+    {
+      "id": "AI-USER-READY-003",
+      "stream": "C",
+      "owner_repo": "gunnchAI3k",
+      "priority": 2,
+      "objective": "Complete remaining PARTIAL/OPEN AI-UR classes; Local Pro if feasible",
+      "depends_on_accepted": [
+        "gunnchAI#33",
+        "gunnchAI#34"
+      ],
+      "blocks": [
+        "AI00-AI-UR-008",
+        "AI00-AI-UR-011",
+        "AI00-LOCAL-PRO"
+      ]
+    }
+  ],
+  "accepted_dependency_stops": [
+    {
+      "id": "GAME-RC-003",
+      "status": "ACCEPTED_DEPENDENCY_STOP",
+      "anime_aggressors": {
+        "pr": 76,
+        "sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3"
+      },
+      "pedestrian_pursuit": {
+        "pr": 17,
+        "sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3"
+      },
+      "note": "Live mains merged. Playthrough/achieve digital path accepted; FEATURE/POLISH/HUMAN remain open. Do not start GAME-RC-004 from this packet."
+    }
+  ],
+  "held": [
+    {
+      "id": "WAIKE-003",
+      "reason": "WIP cap; remaining taxonomy courses after 6 RC — DO NOT START"
+    },
+    {
+      "id": "GAME-RC-004",
+      "reason": "Held; Archive+BeatLink feature/polish after GAME-RC-003 dependency stop — DO NOT START"
+    },
+    {
+      "id": "NET-SEC-6G",
+      "reason": "WIP cap — DO NOT START"
+    },
+    {
+      "id": "HW-FW",
+      "reason": "WIP cap — DO NOT START"
+    },
+    {
+      "id": "AI-004",
+      "reason": "WIP cap — DO NOT START"
+    },
+    {
+      "id": "OPS",
+      "reason": "WIP cap; factory/RMA/MDM field ops"
+    },
+    {
+      "id": "WP-001",
+      "reason": "OWNER_DECISION_PENDING_DO_NOT_START"
+    }
+  ],
+  "control_plane_packet": {
+    "id": "CONVERGENCE-100-REGISTER-C1",
+    "is_product_stream": false,
+    "branch": "operating-cycle-convergence/100-register",
+    "note": "Control-plane baseline only; coverage remediation; not a fourth product stream"
+  }
+}

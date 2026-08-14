@@ -1,0 +1,234 @@
+{
+  "schema": "gunnchos.convergence_100.register_c1.independent_verifier_result.v1",
+  "work_item": "field-kit-77-convergence-100-register-cycle-1",
+  "product": "convergence_100_control_plane",
+  "verifier_role": "INDEPENDENT_VERIFIER_AGENT",
+  "did_not_implement": true,
+  "did_not_merge": true,
+  "did_not_touch_field_kit_pr_71": true,
+  "did_not_start_wp001": true,
+  "cursor_must_not_merge": true,
+  "prefer_fail_over_false_pass": true,
+  "live_github_wins": true,
+  "pr": {
+    "number": 77,
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/77",
+    "draft": true,
+    "state": "OPEN",
+    "merged": false,
+    "mergeable": true,
+    "mergeable_state": "unstable",
+    "branch": "operating-cycle-convergence/100-register",
+    "title": "DRAFT: Cycle-1 convergence_100 control-plane register (NOT readiness PASS)",
+    "base": "main",
+    "changed_files": [
+      "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
+      "program/convergence_100/COMPLETION_DEFINITIONS.json",
+      "program/convergence_100/KNOWN_UNKNOWNS.json",
+      "program/convergence_100/NEXT_ACTION_QUEUE.json",
+      "program/convergence_100/READINESS_DASHBOARD.json"
+    ]
+  },
+  "claimed_tip": "63a273e7765f1c0e7c74fca6df6632f258615a48",
+  "claimed_tip_short": "63a273e",
+  "claimed_tip_live_confirmed": true,
+  "verified_tip": "63a273e7765f1c0e7c74fca6df6632f258615a48",
+  "verified_tip_short": "63a273e",
+  "tip_commit_subject": "docs(convergence): Cycle-1 100% register baseline from live accepted mains",
+  "base_main": "2e8baa365ea6855944491bac22b30b0d24240e79",
+  "base_main_short": "2e8baa3",
+  "base_main_confirmed": true,
+  "commits_on_pr_at_verification": 1,
+  "generated_at_utc": "2026-08-14T21:23:38Z",
+  "inspected_paths": {
+    "field_kit": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-7gc-ai-ran-field-kit",
+    "head": "63a273e7765f1c0e7c74fca6df6632f258615a48"
+  },
+  "VP_CONVERGENCE_100_REGISTER_C1_INDEPENDENT": "PASS",
+  "FIELD_KIT_77_READY_FOR_EDMUND_MERGE_AS_CONTROL_PLANE_DOCS": true,
+  "READY_FOR_EDMUND_MERGE": true,
+  "READINESS_PASS_CLAIM": false,
+  "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
+  "PHYSICAL_PICKUP_AND_USE_READY": false,
+  "SHIPPING_PRODUCT": false,
+  "PRODUCTION_RELEASE_CLAIMED": false,
+  "WP001_STARTED": false,
+  "fail_reason": null,
+  "pass_note": "Independent live-GitHub verification of DRAFT #77 tip 63a273e: all 13 accepted-main SHAs match live origin/main (security-lab via GitHub remote oulu-6g-security-trust-privacy-lab; register key is an alias). Owner PRs waike#43/#44, anime#75, ped#16, archive#29, beatlink#20, gunnchAI#33/#34, device-os#115 all MERGED; #115 product_use_complete=false. Atomic count 138 exact; weighted_state_score_v1 rebuilds overall 28.79% and all area % with zero state_score mismatches. Persona tokens remain false; Ring/Dock/G11/G14 not DV-closed; WAIKE 18 courses / 6 DV RC; AI-UR 7 DV / 3 INTEGRATED / 6 TARGET. Files-only control-plane packet; no PROFILE README; WP-001 held. Merging does NOT earn user-ready RC. Cursor does not merge.",
+  "challenges": {
+    "1_live_origin_main_shas": {
+      "verdict": "PASS",
+      "method": "git ls-remote https://github.com/gunnchOS3k/<repo>.git refs/heads/main + gh api commits/main; security via git ls-remote on oulu-6g-security-trust-privacy-lab (register alias gunnchos-6g-security-trust-privacy-lab)",
+      "stale_or_wrong_shas": [],
+      "naming_alias_non_blocking": {
+        "register_key": "gunnchos-6g-security-trust-privacy-lab",
+        "github_repo": "oulu-6g-security-trust-privacy-lab",
+        "sha_match": true,
+        "sha": "d276579333a8254c7424e8df50c8824b200bc122"
+      },
+      "diffs": [
+        {"repo": "gunnchos-7gc-ai-ran-field-kit", "json": "2e8baa365ea6855944491bac22b30b0d24240e79", "live": "2e8baa365ea6855944491bac22b30b0d24240e79", "match": true},
+        {"repo": "waike-research-ops", "json": "d36e97db659548b2363c97e683635c982e6f9ba0", "live": "d36e97db659548b2363c97e683635c982e6f9ba0", "match": true},
+        {"repo": "anime-aggressors", "json": "4c817f820ae8c992b5bac0d20e52c999650ca287", "live": "4c817f820ae8c992b5bac0d20e52c999650ca287", "match": true},
+        {"repo": "pedestrian-pursuit", "json": "cc965fc5d4d6f3a8cb02c1e6d8dfbbd99d173fe3", "live": "cc965fc5d4d6f3a8cb02c1e6d8dfbbd99d173fe3", "match": true},
+        {"repo": "archive-of-life-artifact-world", "json": "c2be7a26f56f1d80251cdb3ad7218e57c272635d", "live": "c2be7a26f56f1d80251cdb3ad7218e57c272635d", "match": true},
+        {"repo": "beatlink-party", "json": "b64ecb9d8223424f5d6e4b686d50f98fb7f73b05", "live": "b64ecb9d8223424f5d6e4b686d50f98fb7f73b05", "match": true},
+        {"repo": "gunnchAI3k", "json": "b646ac050cceff297fdf1a25ac270bd7f44636f3", "live": "b646ac050cceff297fdf1a25ac270bd7f44636f3", "match": true},
+        {"repo": "gunnchos-device-os", "json": "1b86720bbd6484eabba0500962e9461e12c4a620", "live": "1b86720bbd6484eabba0500962e9461e12c4a620", "match": true},
+        {"repo": "gunnchos-hardware-industrial-design", "json": "6c0b025e505505a74adca510e47c15b8f39bc980", "live": "6c0b025e505505a74adca510e47c15b8f39bc980", "match": true},
+        {"repo": "edge-io-measurement-node", "json": "3a16ba0b62758cdee20095289cdc91ba6a42b092", "live": "3a16ba0b62758cdee20095289cdc91ba6a42b092", "match": true},
+        {"repo": "7gc-digital-twin", "json": "ce09f2fddbf5935d06366ba8d37e3a8641e617c4", "live": "ce09f2fddbf5935d06366ba8d37e3a8641e617c4", "match": true},
+        {"repo": "gunnchos-research-portal", "json": "a755c79120584abf38ae448d3112fbe94feeb45d", "live": "a755c79120584abf38ae448d3112fbe94feeb45d", "match": true},
+        {"repo": "gunnchos-6g-security-trust-privacy-lab", "github_remote": "oulu-6g-security-trust-privacy-lab", "json": "d276579333a8254c7424e8df50c8824b200bc122", "live": "d276579333a8254c7424e8df50c8824b200bc122", "match": true}
+      ]
+    },
+    "2_owner_prs_merged_and_persona_tokens_false": {
+      "verdict": "PASS",
+      "owner_prs_live": {
+        "waike-research-ops#43": {"merged": true, "merge_commit_sha": "eb3f416300168ad0410eb76bc2e1c72243add8f8", "matches_register": true},
+        "waike-research-ops#44": {"merged": true, "merge_commit_sha": "d36e97db659548b2363c97e683635c982e6f9ba0", "matches_register": true},
+        "anime-aggressors#75": {"merged": true, "merge_commit_sha": "4c817f820ae8c992b5bac0d20e52c999650ca287", "matches_register": true},
+        "pedestrian-pursuit#16": {"merged": true, "merge_commit_sha": "cc965fc5d4d6f3a8cb02c1e6d8dfbbd99d173fe3", "matches_register": true},
+        "archive-of-life-artifact-world#29": {"merged": true, "merge_commit_sha": "c2be7a26f56f1d80251cdb3ad7218e57c272635d", "matches_register": true},
+        "beatlink-party#20": {"merged": true, "merge_commit_sha": "b64ecb9d8223424f5d6e4b686d50f98fb7f73b05", "matches_register": true},
+        "gunnchAI3k#33": {"merged": true, "merge_commit_sha": "c508675976605fda4611273a5014f5a4664e719f", "matches_register": true},
+        "gunnchAI3k#34": {"merged": true, "merge_commit_sha": "b646ac050cceff297fdf1a25ac270bd7f44636f3", "matches_register": true},
+        "gunnchos-device-os#115": {"merged": true, "merge_commit_sha": "1b86720bbd6484eabba0500962e9461e12c4a620", "matches_register": true, "product_use_complete": false}
+      },
+      "device_os_115_treated_as_product_use_complete": false,
+      "persona_tokens": {
+        "A02-STUDENT": false,
+        "A02-OFFICE": false,
+        "A02-TEACHER": false,
+        "A02-BUILDER": false,
+        "A02-CREATIVE": false,
+        "evidence_ref_pattern": "artifacts/product_use/PRODUCT_USE_RC_001_STATUS.json persona_tokens=false",
+        "states": "TARGET"
+      },
+      "ring_dock_g11_g14_not_digitally_validated_closed": {
+        "A02-RING": "IMPLEMENTED",
+        "A02-DOCK": "TARGET",
+        "A01-GJ-01_G11": "IMPLEMENTED",
+        "A02-G11": "IMPLEMENTED",
+        "A02-G14": "IMPLEMENTED",
+        "note": "Claimed OPEN means journey-not-earned; none are DIGITALLY_VALIDATED closed under Product-Use."
+      }
+    },
+    "3_readiness_arithmetic_rebuild": {
+      "verdict": "PASS",
+      "formula": "weighted_state_score_v1",
+      "implemented_score": 0.35,
+      "digitally_validated_score": 0.7,
+      "implemented_much_less_than_dv": true,
+      "state_score_row_mismatches": 0,
+      "duplicate_requirement_ids": 0,
+      "atomic_total_claimed": 138,
+      "atomic_total_actual": 138,
+      "overall": {
+        "derived_planning_readiness_percent_claimed": 28.79,
+        "derived_planning_readiness_percent_rebuilt": 28.79,
+        "weighted_score_sum": 142.46,
+        "importance_sum": 494.9,
+        "match": true
+      },
+      "by_state_rebuilt": {
+        "DIGITALLY_VALIDATED": 43,
+        "INTEGRATED": 12,
+        "IMPLEMENTED": 13,
+        "DESIGNED": 17,
+        "TARGET": 29,
+        "HUMAN_PENDING": 7,
+        "PHYSICAL_PENDING": 6,
+        "EXTERNAL_PENDING": 8,
+        "OWNER_DECISION_PENDING": 2,
+        "STANDARD_PENDING": 1
+      },
+      "area_percent_mismatches": [],
+      "fell_vs_old_planning_baselines": {
+        "A00": {"old": 70.0, "derived": 60.0, "fell": true},
+        "A01": {"old": 55.0, "derived": 35.99, "fell": true},
+        "A02": {"old": 35.0, "derived": 10.47, "fell": true},
+        "A03": {"old": 10.0, "derived": 10.0, "fell": false},
+        "G00": {"old": 40.0, "derived": 21.86, "fell": true},
+        "W00": {"old": 45.0, "derived": 30.17, "fell": true},
+        "D00": {"old": 45.0, "derived": 37.4, "fell": true},
+        "AI00": {"old": 35.0, "derived": 25.3, "fell": true},
+        "N00": {"old": 60.0, "derived": 63.33, "fell": false}
+      },
+      "hand_edited_pass_or_percent": false,
+      "READINESS_PASS_CLAIM": false,
+      "waike_taxonomy_audit": {"courses": 18, "course_rc_digitally_validated": 6, "course_designed": 12},
+      "ai_ur_audit": {"digitally_validated": 7, "integrated_partial": 3, "target_open": 6, "ai_ur_total": 16}
+    },
+    "4_required_files_exist": {
+      "verdict": "PASS",
+      "files": [
+        "program/convergence_100/COMPLETION_DEFINITIONS.json",
+        "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
+        "program/convergence_100/READINESS_DASHBOARD.json",
+        "program/convergence_100/NEXT_ACTION_QUEUE.json",
+        "program/convergence_100/KNOWN_UNKNOWNS.json"
+      ],
+      "all_present_on_tip": true
+    },
+    "5_no_product_implementation_no_profile_readme": {
+      "verdict": "PASS",
+      "product_implementation_claimed": false,
+      "PROFILE_README_edited": false,
+      "readme_files_in_pr": [],
+      "pr_paths_only_program_convergence_100": true,
+      "role": "CONTROL_PLANE_BASELINE_NOT_PRODUCT_STREAM"
+    },
+    "6_held_streams_and_wp001_locked": {
+      "verdict": "PASS",
+      "active_wip": ["PRODUCT-USE-RC-002", "GAME-RC-003", "AI-USER-READY-003"],
+      "held": ["WAIKE-003", "GAME-RC-004", "NET-SEC-6G", "HW-FW", "AI-004", "OPS", "WP-001"],
+      "WP001_START": "OWNER_DECISION_PENDING_DO_NOT_START",
+      "FIELD_KIT_71": "NOT_IN_SCOPE_THIS_PACKET",
+      "MAX_MAJOR_ACTIVE_STREAMS": 3,
+      "control_plane_not_counted_as_fourth_product_stream": true
+    }
+  },
+  "ci_on_tip": {
+    "verdict": "RESIDUAL_UNRELATED_FLAKE",
+    "head_sha": "63a273e7765f1c0e7c74fca6df6632f258615a48",
+    "unique_checks_observed": 12,
+    "failing": ["readiness"],
+    "fail_detail": "Paper build (pinned Tectonic): build finished but paper/main.pdf missing — unrelated to program/convergence_100 docs",
+    "passing_unique": ["validate", "firewall", "nonphysical", "gate1", "gate2", "gate3-readiness", "gate4", "gate4-readiness", "gate5", "gate6", "gate7"],
+    "accepted_main_readiness_was_success": true,
+    "blocks_content_pass": false,
+    "note": "mergeable_state=unstable due to readiness paper PDF flake; content challenges still PASS. Edmund may re-run readiness or merge acknowledging flake."
+  },
+  "fixture_as_product": {
+    "challenged": true,
+    "verdict": "NOT_FIXTURE_AS_PRODUCT",
+    "note": "Packet is control-plane register baseline only. READINESS_PASS_CLAIM false; overall derived 28.79%; persona tokens false; #115 not Product-Use complete; no product code paths."
+  },
+  "edmund_merge_guidance": {
+    "FIELD_KIT_77_READY_FOR_EDMUND_MERGE_AS_CONTROL_PLANE_DOCS": true,
+    "cursor_must_not_merge": true,
+    "merging_does_not_earn": [
+      "READINESS_PASS",
+      "USER_READY_DIGITAL_RELEASE_CANDIDATE",
+      "PHYSICAL_PICKUP_AND_USE_READY",
+      "persona tokens",
+      "Ring/Dock/G11/G14 DIGITALLY_VALIDATED",
+      "WP001_READY_FOR_OWNER_DECISION"
+    ],
+    "merging_does": "Land Cycle-1 convergence_100 register, definitions, dashboard, next-action queue, and known unknowns on field-kit main as the honesty control plane.",
+    "do_not_merge_71_as_part_of_this": true,
+    "do_not_start_wp001": true
+  },
+  "remaining_issues": [
+    "Overall derived planning readiness is 28.79% — not a readiness PASS.",
+    "Persona tokens remain false; Product-Use journeys still OPEN.",
+    "device-os #115 is merged scaffolding only — Product-Use incomplete.",
+    "Ring/Dock/G11/G14 not DIGITALLY_VALIDATED under Product-Use-002.",
+    "WAIKE full_18 still TARGET (6/18 course-RC DV).",
+    "AI-UR 6 TARGET + LOCAL-PRO/APP/FRONTIER still open.",
+    "WP-001 remains OWNER_DECISION_PENDING_DO_NOT_START; #71 not in scope.",
+    "CI readiness job red on tip due to unrelated paper/main.pdf flake (main tip previously green).",
+    "Register key gunnchos-6g-security-trust-privacy-lab is an alias for GitHub oulu-6g-security-trust-privacy-lab (SHA correct)."
+  ]
+}
