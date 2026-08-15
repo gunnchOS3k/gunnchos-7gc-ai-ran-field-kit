@@ -1,4 +1,4 @@
-.PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean verify-repo-lock gate1-validate
+.PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean verify-repo-lock gate1-validate r6g-reproduce
 
 # Prefer Python 3.11+ when present (system python3 on macOS is often 3.9 without deps).
 PYTHON ?= $(shell command -v python3.11 >/dev/null 2>&1 && echo python3.11 || (test -x /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 && echo /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 || echo python3))
@@ -398,3 +398,11 @@ gate-1: gate1-runtime-hygiene
 
 next-work-packet:
 	python3 scripts/next_work_packet.py
+
+
+# R6G digital replication / adoption (no SoA inflation)
+r6g-reproduce:
+	$(PYTHON) -m research.r6g.replication.reproduce
+	$(PYTHON) -m research.r6g.replication.verify_independent
+	$(PYTHON) -m research.r6g.evaluate
+	$(PYTHON) -m pytest -q tests/test_r6g_breakthroughs.py tests/test_r6g_replication.py

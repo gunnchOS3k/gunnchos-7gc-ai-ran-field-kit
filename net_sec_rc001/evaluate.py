@@ -66,6 +66,12 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     tokens["PREDICTIVE_RADIO_DT_DIGITAL"] = bool(r6g["tokens"]["PREDICTIVE_RADIO_DT_DIGITAL"])
     tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] = bool(r6g["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"])
     tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] = bool(r6g["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"])
+    tokens["R6G_DIGITAL_REPLICATION_PASS"] = bool(r6g["tokens"].get("R6G_DIGITAL_REPLICATION_PASS"))
+    tokens["R6G_MULTI_SEED_REPRODUCED"] = bool(r6g["tokens"].get("R6G_MULTI_SEED_REPRODUCED"))
+    tokens["R6G_FALSIFICATION_DOCUMENTED"] = bool(r6g["tokens"].get("R6G_FALSIFICATION_DOCUMENTED"))
+    tokens["R6G_ABLATIONS_DOCUMENTED"] = bool(r6g["tokens"].get("R6G_ABLATIONS_DOCUMENTED"))
+    tokens["R6G_INDEPENDENT_VERIFIER_PASS"] = bool(r6g["tokens"].get("R6G_INDEPENDENT_VERIFIER_PASS"))
+    tokens["R6G_ABLATIONS_PARTIAL"] = bool(r6g["tokens"].get("R6G_ABLATIONS_PARTIAL"))
     tokens["IMPROVED_STATE_OF_ART"] = False
     for k in FORBIDDEN_TOKENS:
         tokens[k] = False
@@ -112,7 +118,7 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "schema": "gunnchos.net_sec_rc001.aggregate.v1",
         "packet": "NET-SEC-6G-RC-001",
         "remediation": "PR78_R6G_FALSIFIABLE_DEMOTE_TAUTOLOGIES_AND_NAKED_HEADLINES",
-        "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
+        "r6g_extension": "R6G_REPLICATION_ADOPTION_001",
         "ok": digital_ok,
         "exit_state": "DIGITALLY_VALIDATED" if digital_ok else "INCOMPLETE_DIGITAL",
         "product_wording": PRODUCT_WORDING,

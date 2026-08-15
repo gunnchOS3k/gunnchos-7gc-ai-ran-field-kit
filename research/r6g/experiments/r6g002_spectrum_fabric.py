@@ -2,7 +2,11 @@
 from __future__ import annotations
 from typing import Any
 from research.r6g.claim_firewall import assert_no_soa
-from research.r6g.metrics.useful_connectivity import useful_connectivity_score
+from research.r6g.metrics.useful_connectivity import (
+    PREREGISTERED_WEIGHT_SCHEME,
+    sensitivity_analysis,
+    useful_connectivity_score,
+)
 
 BEARERS = {
     "sub6_terrestrial": {"status": "SIMULATED", "latency_ms": 20, "rate_mbps": 200},
@@ -16,9 +20,26 @@ BEARERS = {
 }
 
 
-def decide(task: str, blockage: bool, weather_bad: bool, battery_low: bool) -> dict[str, Any]:
-    if task == "offline_lesson" or battery_low:
-        return {"decision": "local_only", "mode": "defer_or_semantic_sync"}
+def decide(
+    task: str,
+    *,
+    blockage: bool = False,
+    weather_bad: bool = False,
+    battery_low: bool = False,
+    terrestrial_up: bool = True,
+    thz_available: bool = False,
+    optical_los: bool = False,
+) -> dict[str, Any]:
+    if task == "offline_lesson" or battery_low or not terrestrial_up and task == "local_first":
+        return {"decision": "local_only", "mode": "defer_or_semantic_sync", "scenario": "offline_or_local_first"}
+    if not terrestrial_up:
+        return {"decision": "single_bearer", "bearers": ["LEO_NTN"], "fallback": "semantic_sync", "scenario": "terrestrial_unavailable_ntn"}
+    if thz_available and task == "high_volume_sync":
+        return {"decision": "single_bearer", "bearers": ["THz"], "fallback": "FR3", "scenario": "thz_available"}
+    if blockage and (thz_available or weather_bad):
+        return {"decision": "multi_connectivity", "bearers": ["FR3", "mmWave"], "fallback": "sub6_terrestrial", "scenario": "thz_blocked_fr3_mmwave"}
+    if optical_los and task == "bulk_backhaul":
+        return {"decision": "single_bearer", "bearers": ["FSO_OWC"], "fallback": "sub_THz", "scenario": "optical_los_fso"}
     if blockage and weather_bad:
         return {"decision": "multi_connectivity", "bearers": ["sub6_terrestrial", "LEO_NTN"], "fallback": "semantic_sync"}
     if weather_bad:
@@ -30,15 +51,22 @@ def decide(task: str, blockage: bool, weather_bad: bool, battery_low: bool) -> d
 
 def run_r6g002() -> dict[str, Any]:
     decisions = {
-        "nominal": decide("interactive", False, False, False),
-        "blockage_weather": decide("interactive", True, True, False),
-        "battery_low": decide("offline_lesson", False, False, True),
-        "backhaul": decide("bulk_backhaul", False, False, False),
+        "nominal": decide("interactive"),
+        "thz_available": decide("high_volume_sync", thz_available=True),
+        "thz_blocked": decide("high_volume_sync", thz_available=True, blockage=True, weather_bad=True),
+        "terrestrial_unavailable_ntn": decide("interactive", terrestrial_up=False),
+        "optical_los_fso": decide("bulk_backhaul", optical_los=True),
+        "offline_local_first": decide("local_first", terrestrial_up=False, battery_low=True),
+        "blockage_weather": decide("interactive", blockage=True, weather_bad=True),
+        "battery_low": decide("offline_lesson", battery_low=True),
+        "backhaul": decide("bulk_backhaul"),
     }
     # Mark all non-sub6/local as HARDWARE_PENDING for physical
     hw = {k: {**v, "HARDWARE_PENDING": k not in {"sub6_terrestrial", "local_only", "LEO_NTN"}} for k, v in BEARERS.items()}
-    ucs_peak = useful_connectivity_score(R=0.95, D=0.3, A=0.4, Q=0.5, P=2.0, C=2.5)
-    ucs_useful = useful_connectivity_score(R=0.55, D=0.8, A=0.9, Q=0.85, P=1.0, C=1.0)
+    peak_comps = {"R": 0.95, "D": 0.3, "A": 0.4, "Q": 0.5, "P": 2.0, "C": 2.5}
+    useful_comps = {"R": 0.55, "D": 0.8, "A": 0.9, "Q": 0.85, "P": 1.0, "C": 1.0}
+    ucs_peak = useful_connectivity_score(**peak_comps)
+    ucs_useful = useful_connectivity_score(**useful_comps)
     report = {
         "schema": "gunnchos.r6g.r6g002.v1",
         "packet": "R6G-002",
@@ -47,9 +75,12 @@ def run_r6g002() -> dict[str, Any]:
         "bearers": hw,
         "decisions": decisions,
         "useful_connectivity_comparison": {
+            "metric_scheme": PREREGISTERED_WEIGHT_SCHEME,
             "peaky_link": ucs_peak,
             "useful_link": ucs_useful,
-            "observation": "useful_link score higher despite lower peak R — exploratory only",
+            "peak_vs_useful": "useful_link score higher despite lower peak R — exploratory only",
+            "sensitivity_useful_link": sensitivity_analysis(useful_comps, rel_delta=0.1),
+            "no_146_gt_145_claim": True,
         },
         "IMPROVED_STATE_OF_ART": False,
         "PHYSICAL_REPRODUCTION_PENDING": True,

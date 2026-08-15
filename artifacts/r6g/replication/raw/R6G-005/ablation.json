@@ -1,0 +1,133 @@
+{
+  "ablation": "method_family_conventional_vs_naive_vs_aware",
+  "ablation_ok": true,
+  "checks_passed": 3,
+  "checks_required": 3,
+  "interpretation": "Checked removal of uncertainty-aware fallback increases adversarial failure. No physical distance claim.",
+  "packet": "R6G-005",
+  "rows": [
+    {
+      "ablation_check_ok": true,
+      "aware_adversarial_failure": 0.0047,
+      "conventional_adversarial_failure": 0.0086,
+      "in_distribution": {
+        "AI_CSF": {
+          "BLER": 0.0811,
+          "confidence": 0.3809,
+          "coverage_norm": 0.4019,
+          "csi_mse": 0.5925,
+          "energy_norm": 1.05,
+          "failure_rate": 0.1117,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.3537
+        },
+        "AI_CSF_UNCERTAINTY_AWARE": {
+          "BLER": 0.0137,
+          "confidence": 0.3809,
+          "coverage_norm": 0.9074,
+          "csi_mse": 0.055,
+          "energy_norm": 1.05,
+          "failure_rate": 0.0119,
+          "fallback_rate": 0.7917,
+          "throughput_norm": 0.7997
+        },
+        "CONVENTIONAL_CSI": {
+          "BLER": 0.0122,
+          "confidence": 0.8,
+          "coverage_norm": 0.9827,
+          "csi_mse": 0.0182,
+          "energy_norm": 1.0,
+          "failure_rate": 0.0083,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.8673
+        }
+      },
+      "naive_adversarial_failure": 0.5405,
+      "naive_worse_than_conventional": true,
+      "removing_aware_increases_failure": true,
+      "seed": 3
+    },
+    {
+      "ablation_check_ok": true,
+      "aware_adversarial_failure": 0.0046,
+      "conventional_adversarial_failure": 0.0084,
+      "in_distribution": {
+        "AI_CSF": {
+          "BLER": 0.0829,
+          "confidence": 0.3615,
+          "coverage_norm": 0.3827,
+          "csi_mse": 0.6078,
+          "energy_norm": 1.05,
+          "failure_rate": 0.1144,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.3368
+        },
+        "AI_CSF_UNCERTAINTY_AWARE": {
+          "BLER": 0.0111,
+          "confidence": 0.3615,
+          "coverage_norm": 0.9471,
+          "csi_mse": 0.0351,
+          "energy_norm": 1.05,
+          "failure_rate": 0.0082,
+          "fallback_rate": 0.875,
+          "throughput_norm": 0.8374
+        },
+        "CONVENTIONAL_CSI": {
+          "BLER": 0.012,
+          "confidence": 0.8,
+          "coverage_norm": 0.9867,
+          "csi_mse": 0.0164,
+          "energy_norm": 1.0,
+          "failure_rate": 0.008,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.8734
+        }
+      },
+      "naive_adversarial_failure": 0.5316,
+      "naive_worse_than_conventional": true,
+      "removing_aware_increases_failure": true,
+      "seed": 5
+    },
+    {
+      "ablation_check_ok": true,
+      "aware_adversarial_failure": 0.0048,
+      "conventional_adversarial_failure": 0.0087,
+      "in_distribution": {
+        "AI_CSF": {
+          "BLER": 0.089,
+          "confidence": 0.3744,
+          "coverage_norm": 0.3952,
+          "csi_mse": 0.6582,
+          "energy_norm": 1.05,
+          "failure_rate": 0.1235,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.3478
+        },
+        "AI_CSF_UNCERTAINTY_AWARE": {
+          "BLER": 0.0131,
+          "confidence": 0.3744,
+          "coverage_norm": 0.914,
+          "csi_mse": 0.05,
+          "energy_norm": 1.05,
+          "failure_rate": 0.011,
+          "fallback_rate": 0.7917,
+          "throughput_norm": 0.8049
+        },
+        "CONVENTIONAL_CSI": {
+          "BLER": 0.0122,
+          "confidence": 0.8,
+          "coverage_norm": 0.9823,
+          "csi_mse": 0.0182,
+          "energy_norm": 1.0,
+          "failure_rate": 0.0083,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.8675
+        }
+      },
+      "naive_adversarial_failure": 0.5407,
+      "naive_worse_than_conventional": true,
+      "removing_aware_increases_failure": true,
+      "seed": 7
+    }
+  ]
+}

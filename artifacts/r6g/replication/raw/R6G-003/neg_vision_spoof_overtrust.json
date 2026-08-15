@@ -1,0 +1,65 @@
+{
+  "adversarial": true,
+  "all_multimodal_beat_rf": false,
+  "beats_rf_only": {
+    "RF_ALL_MODALITIES": false,
+    "RF_DEVICE_IMU": true,
+    "RF_RING_UWB_IMU": true,
+    "RF_VISION": false
+  },
+  "config_id": "neg_vision_spoof_overtrust",
+  "modality_matrix": {
+    "RF_ALL_MODALITIES": {
+      "beam_selection_accuracy": 0.2,
+      "blockage_prediction_horizon_s": 0.1,
+      "energy_j": 1.25,
+      "handover_failure": 0.4,
+      "latency_ms": 20.413,
+      "orientation_RMSE": 28.822,
+      "position_RMSE": 3.2066,
+      "privacy_exposure": 0.4
+    },
+    "RF_DEVICE_IMU": {
+      "beam_selection_accuracy": 0.8804,
+      "blockage_prediction_horizon_s": 1.6011,
+      "energy_j": 1.05,
+      "handover_failure": 0.0497,
+      "latency_ms": 10.398,
+      "orientation_RMSE": 4.3838,
+      "position_RMSE": 0.1989,
+      "privacy_exposure": 0.15
+    },
+    "RF_ONLY": {
+      "beam_selection_accuracy": 0.842,
+      "blockage_prediction_horizon_s": 1.4914,
+      "energy_j": 1.05,
+      "handover_failure": 0.0771,
+      "latency_ms": 10.617,
+      "orientation_RMSE": 5.1732,
+      "position_RMSE": 0.3086,
+      "privacy_exposure": 0.15
+    },
+    "RF_RING_UWB_IMU": {
+      "beam_selection_accuracy": 0.901,
+      "blockage_prediction_horizon_s": 1.66,
+      "energy_j": 1.05,
+      "handover_failure": 0.035,
+      "latency_ms": 10.28,
+      "orientation_RMSE": 4.3769,
+      "position_RMSE": 0.14,
+      "privacy_exposure": 0.15
+    },
+    "RF_VISION": {
+      "beam_selection_accuracy": 0.2,
+      "blockage_prediction_horizon_s": 0.1,
+      "energy_j": 1.25,
+      "handover_failure": 0.4,
+      "latency_ms": 19.285,
+      "orientation_RMSE": 24.4862,
+      "position_RMSE": 2.6423,
+      "privacy_exposure": 0.4
+    }
+  },
+  "rf_all_vs_rf_only_delta_m": 2.898,
+  "seed": 101
+}

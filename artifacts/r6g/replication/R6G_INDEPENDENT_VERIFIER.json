@@ -1,0 +1,85 @@
+{
+  "schema": "gunnchos.r6g.same_pr_arithmetic_verifier.v1",
+  "ok": true,
+  "R6G_INDEPENDENT_VERIFIER_PASS": false,
+  "earns_r6": false,
+  "method": "recalculate_from_raw_json_only_same_pr",
+  "R6G-003": {
+    "ok": true,
+    "arithmetic_ok": true,
+    "earns_r6": false,
+    "n_primary": 8,
+    "delta_summary": {
+      "n": 8,
+      "mean": -0.346613,
+      "median": -0.35275,
+      "min": -0.3712,
+      "max": -0.2957,
+      "note": "Descriptive only; no NHST / p-value claim"
+    },
+    "win_rate": {
+      "n": 8,
+      "wins": 8,
+      "win_rate": 1.0,
+      "note": "Fraction of seeds where predeclared win condition holds; not a p-value"
+    },
+    "negative_worse_count": 4,
+    "neg_files_counted": [
+      "neg_s101.json",
+      "neg_s202.json",
+      "neg_s303.json",
+      "neg_s404.json"
+    ],
+    "falsifiable": true,
+    "primary_mean_delta_negative": true,
+    "note": "Recalculated from raw modality matrices; does not confer R6 independence"
+  },
+  "R6G-005": {
+    "ok": true,
+    "arithmetic_ok": true,
+    "earns_r6": false,
+    "n_seeds": 8,
+    "aware_beats_naive_delta_summary": {
+      "n": 8,
+      "mean": 0.528062,
+      "median": 0.5319,
+      "min": 0.4991,
+      "max": 0.5412,
+      "note": "Descriptive only; no NHST / p-value claim"
+    },
+    "support_rate": 1.0,
+    "metrics_vary_across_seeds": true,
+    "falsifiable": true,
+    "note": "Recalculated failure deltas from raw results tables; does not confer R6"
+  },
+  "R6G-009": {
+    "ok": true,
+    "arithmetic_ok": true,
+    "earns_r6": false,
+    "n_seeds": 8,
+    "pred25_summary": {
+      "n": 8,
+      "mean": 0.021737,
+      "median": 0.0213,
+      "min": 0.0189,
+      "max": 0.0252,
+      "note": "Descriptive only; no NHST / p-value claim"
+    },
+    "cur25_summary": {
+      "n": 8,
+      "mean": 0.026562,
+      "median": 0.02665,
+      "min": 0.0258,
+      "max": 0.0269,
+      "note": "Descriptive only; no NHST / p-value claim"
+    },
+    "moderate_win_rate": 1.0,
+    "long_horizon_no_gain_rate": 1.0,
+    "metrics_vary_across_seeds": true,
+    "falsifiable": true,
+    "note": "Recalculated regrets from raw delay grids; does not confer R6"
+  },
+  "IMPROVED_STATE_OF_ART": false,
+  "BREAKTHROUGH_PROVEN": false,
+  "note": "Recalculates digital arithmetic from raw outputs. Does NOT upgrade claims, does NOT earn R6, does NOT set INDEPENDENT_VERIFIER_PASS."
+}

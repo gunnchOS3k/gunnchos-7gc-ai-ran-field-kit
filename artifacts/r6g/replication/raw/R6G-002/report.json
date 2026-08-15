@@ -1,0 +1,288 @@
+{
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "RM520N_GL_5GA": false,
+  "RM520N_GL_NTN": false,
+  "bearers": {
+    "FR3": {
+      "HARDWARE_PENDING": true,
+      "latency_ms": 18,
+      "rate_mbps": 800,
+      "status": "MODELED"
+    },
+    "FSO_OWC": {
+      "HARDWARE_PENDING": true,
+      "latency_ms": 5,
+      "rate_mbps": 20000,
+      "status": "MODELED"
+    },
+    "LEO_NTN": {
+      "HARDWARE_PENDING": false,
+      "latency_ms": 45,
+      "rate_mbps": 5,
+      "status": "SIMULATED"
+    },
+    "THz": {
+      "HARDWARE_PENDING": true,
+      "latency_ms": 10,
+      "rate_mbps": 50000,
+      "status": "MODELED"
+    },
+    "local_only": {
+      "HARDWARE_PENDING": false,
+      "latency_ms": 1,
+      "rate_mbps": 1000,
+      "status": "SIMULATED"
+    },
+    "mmWave": {
+      "HARDWARE_PENDING": true,
+      "latency_ms": 15,
+      "rate_mbps": 2000,
+      "status": "MODELED"
+    },
+    "sub6_terrestrial": {
+      "HARDWARE_PENDING": false,
+      "latency_ms": 20,
+      "rate_mbps": 200,
+      "status": "SIMULATED"
+    },
+    "sub_THz": {
+      "HARDWARE_PENDING": true,
+      "latency_ms": 12,
+      "rate_mbps": 10000,
+      "status": "MODELED"
+    }
+  },
+  "decisions": {
+    "backhaul": {
+      "bearers": [
+        "FSO_OWC"
+      ],
+      "decision": "single_bearer",
+      "fallback": "sub_THz"
+    },
+    "battery_low": {
+      "decision": "local_only",
+      "mode": "defer_or_semantic_sync",
+      "scenario": "offline_or_local_first"
+    },
+    "blockage_weather": {
+      "bearers": [
+        "FR3",
+        "mmWave"
+      ],
+      "decision": "multi_connectivity",
+      "fallback": "sub6_terrestrial",
+      "scenario": "thz_blocked_fr3_mmwave"
+    },
+    "nominal": {
+      "bearers": [
+        "sub6_terrestrial",
+        "FR3"
+      ],
+      "decision": "multi_connectivity",
+      "fallback": "LEO_NTN"
+    },
+    "offline_local_first": {
+      "decision": "local_only",
+      "mode": "defer_or_semantic_sync",
+      "scenario": "offline_or_local_first"
+    },
+    "optical_los_fso": {
+      "bearers": [
+        "FSO_OWC"
+      ],
+      "decision": "single_bearer",
+      "fallback": "sub_THz",
+      "scenario": "optical_los_fso"
+    },
+    "terrestrial_unavailable_ntn": {
+      "bearers": [
+        "LEO_NTN"
+      ],
+      "decision": "single_bearer",
+      "fallback": "semantic_sync",
+      "scenario": "terrestrial_unavailable_ntn"
+    },
+    "thz_available": {
+      "bearers": [
+        "THz"
+      ],
+      "decision": "single_bearer",
+      "fallback": "FR3",
+      "scenario": "thz_available"
+    },
+    "thz_blocked": {
+      "bearers": [
+        "THz"
+      ],
+      "decision": "single_bearer",
+      "fallback": "FR3",
+      "scenario": "thz_available"
+    }
+  },
+  "ok": true,
+  "packet": "R6G-002",
+  "schema": "gunnchos.r6g.r6g002.v1",
+  "status": "DIGITALLY_EXECUTED",
+  "useful_connectivity_comparison": {
+    "metric_scheme": {
+      "NOT_3GPP_METRIC": true,
+      "NOT_ITU_METRIC": true,
+      "NOT_STANDARDIZED_METRIC": true,
+      "amendments": [],
+      "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "comparison_policy": "weights_not_tuned_after_seeing_which_system_wins",
+      "component_definitions": {
+        "A": "availability_norm",
+        "C": "cost_penalty",
+        "D": "distance_or_reach_utility_norm",
+        "P": "energy_penalty",
+        "Q": "task_qoe_success_norm",
+        "R": "useful_application_throughput_norm"
+      },
+      "formula": "UCS = (R * D * A * Q) / (P * C)",
+      "locked_at": "2026-08-15",
+      "scheme_id": "UCS_V1_PRODUCT"
+    },
+    "no_146_gt_145_claim": true,
+    "peak_vs_useful": "useful_link score higher despite lower peak R \u2014 exploratory only",
+    "peaky_link": {
+      "NOT_3GPP_METRIC": true,
+      "NOT_ITU_METRIC": true,
+      "NOT_STANDARDIZED_METRIC": true,
+      "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "components": {
+        "A": 0.4,
+        "C": 2.5,
+        "D": 0.3,
+        "P": 2.0,
+        "Q": 0.5,
+        "R": 0.95
+      },
+      "formula": "UCS = (R * D * A * Q) / (P * C)",
+      "metric": "UsefulConnectivityScore",
+      "note": "Exploratory; use alongside standard metrics, never instead.",
+      "scheme_id": "UCS_V1_PRODUCT",
+      "score": 0.0114
+    },
+    "sensitivity_useful_link": {
+      "base": {
+        "A": 0.9,
+        "C": 1.0,
+        "D": 0.8,
+        "P": 1.0,
+        "Q": 0.85,
+        "R": 0.55
+      },
+      "base_score": 0.3366,
+      "note": "Descriptive sensitivity only; not a statistical significance claim.",
+      "rows": [
+        {
+          "component": "R",
+          "delta_vs_base": 0.03366,
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026
+        },
+        {
+          "component": "R",
+          "delta_vs_base": -0.03366,
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294
+        },
+        {
+          "component": "D",
+          "delta_vs_base": 0.03366,
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026
+        },
+        {
+          "component": "D",
+          "delta_vs_base": -0.03366,
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294
+        },
+        {
+          "component": "A",
+          "delta_vs_base": 0.03366,
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026
+        },
+        {
+          "component": "A",
+          "delta_vs_base": -0.03366,
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294
+        },
+        {
+          "component": "Q",
+          "delta_vs_base": 0.03366,
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026
+        },
+        {
+          "component": "Q",
+          "delta_vs_base": -0.03366,
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294
+        },
+        {
+          "component": "P",
+          "delta_vs_base": -0.0306,
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.306
+        },
+        {
+          "component": "P",
+          "delta_vs_base": 0.0374,
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.374
+        },
+        {
+          "component": "C",
+          "delta_vs_base": -0.0306,
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.306
+        },
+        {
+          "component": "C",
+          "delta_vs_base": 0.0374,
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.374
+        }
+      ],
+      "scheme_id": "UCS_V1_PRODUCT"
+    },
+    "useful_link": {
+      "NOT_3GPP_METRIC": true,
+      "NOT_ITU_METRIC": true,
+      "NOT_STANDARDIZED_METRIC": true,
+      "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "components": {
+        "A": 0.9,
+        "C": 1.0,
+        "D": 0.8,
+        "P": 1.0,
+        "Q": 0.85,
+        "R": 0.55
+      },
+      "formula": "UCS = (R * D * A * Q) / (P * C)",
+      "metric": "UsefulConnectivityScore",
+      "note": "Exploratory; use alongside standard metrics, never instead.",
+      "scheme_id": "UCS_V1_PRODUCT",
+      "score": 0.3366
+    }
+  }
+}

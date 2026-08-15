@@ -2,7 +2,7 @@
   "schema": "gunnchos.net_sec_rc001.aggregate.v1",
   "packet": "NET-SEC-6G-RC-001",
   "remediation": "PR78_R6G_FALSIFIABLE_DEMOTE_TAUTOLOGIES_AND_NAKED_HEADLINES",
-  "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
+  "r6g_extension": "R6G_REPLICATION_ADOPTION_001",
   "ok": true,
   "exit_state": "DIGITALLY_VALIDATED",
   "product_wording": "Software-defined architecture engineered for 5G-Advanced and NTN-capable paths (NTN via simulation), IMT-2030-aligned, and engineered for migration to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA Sub-6 terrestrial only \u2014 not 5G-Advanced hardware and not NTN.",
@@ -24,6 +24,12 @@
     "PREDICTIVE_RADIO_DT_DIGITAL": true,
     "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
     "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+    "R6G_DIGITAL_REPLICATION_PASS": false,
+    "R6G_MULTI_SEED_REPRODUCED": false,
+    "R6G_FALSIFICATION_DOCUMENTED": true,
+    "R6G_ABLATIONS_DOCUMENTED": false,
+    "R6G_INDEPENDENT_VERIFIER_PASS": false,
+    "R6G_ABLATIONS_PARTIAL": true,
     "STANDARDIZED_6G": false,
     "6G_CERTIFIED": false,
     "CARRIER_ACCEPTED": false,
@@ -49,7 +55,13 @@
     "AI_PHY_UNCERTAINTY_AWARE_DIGITAL",
     "PREDICTIVE_RADIO_DT_DIGITAL",
     "HYBRID_SPECTRUM_FABRIC_DIGITAL",
-    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL",
+    "R6G_DIGITAL_REPLICATION_PASS",
+    "R6G_MULTI_SEED_REPRODUCED",
+    "R6G_FALSIFICATION_DOCUMENTED",
+    "R6G_ABLATIONS_DOCUMENTED",
+    "R6G_INDEPENDENT_VERIFIER_PASS",
+    "R6G_ABLATIONS_PARTIAL"
   ],
   "forbidden_tokens": [
     "STANDARDIZED_6G",
@@ -780,9 +792,9 @@
           "case_id": "HN-TLS-MATERIAL-001",
           "passed": true,
           "evidence": {
-            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/mismatch.crt",
-            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/expired.crt",
-            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/server.crt"
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/server.crt"
           }
         },
         {
@@ -1272,10 +1284,20 @@
       "PREDICTIVE_RADIO_DT_DIGITAL": true,
       "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
       "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+      "R6G_DIGITAL_REPLICATION_PASS": false,
+      "R6G_MULTI_SEED_REPRODUCED": false,
+      "R6G_FALSIFICATION_DOCUMENTED": true,
+      "R6G_ABLATIONS_DOCUMENTED": false,
+      "R6G_INDEPENDENT_VERIFIER_PASS": false,
+      "R6G_ABLATIONS_PARTIAL": true,
       "IMPROVED_STATE_OF_ART": false,
       "6G_BREAKTHROUGH_PASS": null,
+      "BREAKTHROUGH_PROVEN": false,
       "PHYSICAL_REPRODUCTION_PENDING": true,
-      "COMPARABLE_EVIDENCE_PENDING": true
+      "EXTERNAL_REPRODUCTION_PENDING": true,
+      "COMPARABLE_EVIDENCE_PENDING": true,
+      "PEER_REVIEWED": false,
+      "STANDARDIZED_6G": false
     },
     "digital_improvements_observed": {
       "R6G-003": true,
@@ -1315,13 +1337,13 @@
         {
           "experiment": "neg_vision_spoof_overtrust",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 2.3556,
+          "delta_m": 3.0714,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         },
         {
           "experiment": "neg_vision_spoof_seed202",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 4.3951,
+          "delta_m": 4.0785,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         }
       ],
@@ -1329,22 +1351,22 @@
         {
           "experiment": "in_distribution_throughput",
           "result": "NO_GAIN_VS_CONVENTIONAL",
-          "aware_throughput_norm": 0.805,
-          "conventional_throughput_norm": 0.8541,
+          "aware_throughput_norm": 0.8468,
+          "conventional_throughput_norm": 0.8683,
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
         },
         {
           "experiment": "noisy_csi_failure_rate",
           "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
-          "aware_failure_rate": 0.0104,
-          "conventional_failure_rate": 0.0083,
+          "aware_failure_rate": 0.0096,
+          "conventional_failure_rate": 0.0085,
           "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
         },
         {
           "experiment": "adversarial_csi_naive_ai",
           "result": "NAIVE_AI_CSF_DEGRADES",
-          "naive_failure_rate": 0.5354,
-          "conventional_failure_rate": 0.0088,
+          "naive_failure_rate": 0.5042,
+          "conventional_failure_rate": 0.0086,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
         }
       ],
@@ -1416,9 +1438,11 @@
     "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
     "IMPROVED_STATE_OF_ART remains false",
     "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
-    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE (scaffolding/adoption stubs only)",
     "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
-    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)"
+    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)",
+    "EXTERNAL_REPRODUCTION_PENDING / PHYSICAL_REPRODUCTION_PENDING",
+    "Claim states are PROMISING_DIGITAL / DIGITAL_IMPROVEMENT_CANDIDATE \u2014 never BREAKTHROUGH_PROVEN"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",
@@ -1431,7 +1455,8 @@
     "ns-3 / Sionna / DeepMIMO campaign sweeps",
     "multi-hour RF / THz physical campaigns",
     "extra QEMU",
-    "large twin cinematic renders"
+    "large twin cinematic renders",
+    "physical RIS / THz purchase"
   ],
   "mock": false
 }

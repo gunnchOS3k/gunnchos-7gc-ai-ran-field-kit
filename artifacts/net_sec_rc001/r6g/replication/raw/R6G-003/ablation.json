@@ -1,0 +1,46 @@
+{
+  "ablation": "modality_drop_and_vision_trust0",
+  "ablation_ok": true,
+  "checks_passed": 3,
+  "checks_required": 3,
+  "interpretation": "Compares RF-only vs IMU vs Ring vs ALL; vision-trust=0 stresses fusion weight. Not an OTA SoA claim.",
+  "packet": "R6G-003",
+  "rows": [
+    {
+      "RF_ALL": 0.1528,
+      "RF_DEVICE_IMU": 0.2973,
+      "RF_ONLY": 0.5368,
+      "RF_RING_UWB_IMU": 0.1911,
+      "ablation_check_ok": true,
+      "delta_all_vs_rf": -0.384,
+      "delta_imu_vs_rf": -0.2395,
+      "delta_ring_vs_rf": -0.3457,
+      "no_vision_trust0_ALL": 0.2113,
+      "seed": 7
+    },
+    {
+      "RF_ALL": 0.154,
+      "RF_DEVICE_IMU": 0.2698,
+      "RF_ONLY": 0.5017,
+      "RF_RING_UWB_IMU": 0.1903,
+      "ablation_check_ok": true,
+      "delta_all_vs_rf": -0.3477,
+      "delta_imu_vs_rf": -0.2319,
+      "delta_ring_vs_rf": -0.3114,
+      "no_vision_trust0_ALL": 0.2199,
+      "seed": 11
+    },
+    {
+      "RF_ALL": 0.1604,
+      "RF_DEVICE_IMU": 0.3104,
+      "RF_ONLY": 0.4412,
+      "RF_RING_UWB_IMU": 0.1941,
+      "ablation_check_ok": true,
+      "delta_all_vs_rf": -0.2808,
+      "delta_imu_vs_rf": -0.1308,
+      "delta_ring_vs_rf": -0.2471,
+      "no_vision_trust0_ALL": 0.2252,
+      "seed": 19
+    }
+  ]
+}

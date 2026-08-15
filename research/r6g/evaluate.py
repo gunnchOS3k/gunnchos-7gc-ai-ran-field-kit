@@ -1,4 +1,4 @@
-"""Aggregate R6G evaluation for NET-SEC stream extension."""
+"""Aggregate R6G evaluation for NET-SEC stream extension + replication suite."""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -10,6 +10,8 @@ from research.r6g.experiments.r6g003_fr3_isac import run_r6g003
 from research.r6g.experiments.r6g005_ai_phy import run_r6g005
 from research.r6g.experiments.r6g009_predictive_twin import run_r6g009
 from research.r6g.experiments.semantic_continuity_ntn_education import run_semantic_continuity
+from research.r6g.replication.reproduce import run_replication_suite
+from research.r6g.replication.verify_independent import verify_from_raw
 
 ROOT = Path(__file__).resolve().parents[2]
 REG = ROOT / "research" / "6g_breakthroughs"
@@ -33,6 +35,12 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
     r002 = run_r6g002()
     sem = run_semantic_continuity()
 
+    rep_dir = (Path(out_dir) / "replication") if out_dir is not None else (ROOT / "artifacts" / "r6g" / "replication")
+    replication = run_replication_suite(rep_dir)
+    independent = verify_from_raw(rep_dir)
+    # Reload suite after verifier upgrades R6 flags / tokens
+    replication = json.loads((rep_dir / "R6G_REPLICATION_SUITE.json").read_text(encoding="utf-8"))
+
     active = {
         "R6G-001": {"status": "COMPLETE_DIGITAL_REGISTRY", "ok": r001["ok"]},
         "R6G-003": {"status": r003["status"], "ok": r003["ok"], "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": r003["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"]},
@@ -49,10 +57,20 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "PREDICTIVE_RADIO_DT_DIGITAL": bool(r009["HYPOTHESIS_SUPPORTED_DIGITALLY"]),
         "HYBRID_SPECTRUM_FABRIC_DIGITAL": bool(r002["ok"]),
         "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": bool(sem["ok"]),
+        "R6G_DIGITAL_REPLICATION_PASS": bool(replication["tokens"].get("R6G_DIGITAL_REPLICATION_PASS")),
+        "R6G_MULTI_SEED_REPRODUCED": bool(replication["tokens"].get("R6G_MULTI_SEED_REPRODUCED")),
+        "R6G_FALSIFICATION_DOCUMENTED": bool(replication["tokens"].get("R6G_FALSIFICATION_DOCUMENTED")),
+        "R6G_ABLATIONS_DOCUMENTED": bool(replication["tokens"].get("R6G_ABLATIONS_DOCUMENTED")),
+        "R6G_INDEPENDENT_VERIFIER_PASS": bool(independent.get("R6G_INDEPENDENT_VERIFIER_PASS")),
+        "R6G_ABLATIONS_PARTIAL": bool(replication.get("tokens", {}).get("R6G_ABLATIONS_PARTIAL")),
         "IMPROVED_STATE_OF_ART": False,
         "6G_BREAKTHROUGH_PASS": None,
+        "BREAKTHROUGH_PROVEN": False,
         "PHYSICAL_REPRODUCTION_PENDING": True,
+        "EXTERNAL_REPRODUCTION_PENDING": True,
         "COMPARABLE_EVIDENCE_PENDING": True,
+        "PEER_REVIEWED": False,
+        "STANDARDIZED_6G": False,
     }
 
     report = {
@@ -69,6 +87,21 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "R6G-009": r009["SIMULATION_IMPROVEMENT_OBSERVED"],
         },
         "independent_improvements_verified": False,
+        "independent_verifier_recalc_pass": bool(independent.get("ok")),
+        "independent_verifier": independent,
+        "replication": {
+            "negative_result_count": replication.get("negative_result_count"),
+            "adoption_levels": replication.get("adoption_levels"),
+            "candidates": {
+                k: {
+                    "claim_state": v.get("claim_state"),
+                    "ladder_earned": v.get("ladder_earned"),
+                    "IMPROVED_STATE_OF_ART": False,
+                }
+                for k, v in replication.get("candidates", {}).items()
+            },
+            "tokens": replication.get("tokens"),
+        },
         "physical_pending": True,
         "product_candidates": [
             {"id": "semantic_ntn_education_mode", "gate": "RESEARCH_ONLY"},
@@ -115,15 +148,18 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
             "IMPROVED_STATE_OF_ART remains false",
             "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
-            "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+            "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE (scaffolding/adoption stubs only)",
             "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
             "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)",
+            "EXTERNAL_REPRODUCTION_PENDING / PHYSICAL_REPRODUCTION_PENDING",
+            "Claim states are PROMISING_DIGITAL / DIGITAL_IMPROVEMENT_CANDIDATE — never BREAKTHROUGH_PROVEN",
         ],
         "deferred_heavy_work": [
             "ns-3 / Sionna / DeepMIMO campaign sweeps",
             "multi-hour RF / THz physical campaigns",
             "extra QEMU",
             "large twin cinematic renders",
+            "physical RIS / THz purchase",
         ],
     }
     assert_no_soa(report)
@@ -141,6 +177,11 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             ("R6G002_SPECTRUM_FABRIC.json", r002),
             ("SEMANTIC_CONTINUITY_NTN_EDU.json", sem),
             ("R6G_TOKEN_TABLE.json", {"tokens": tokens}),
+            ("R6G_CLAIM_STATES.json", {
+                "IMPROVED_STATE_OF_ART": False,
+                "BREAKTHROUGH_PROVEN": False,
+                "candidates": report["replication"]["candidates"],
+            }),
         ]:
             (out_dir / name).write_text(json.dumps(obj, indent=2) + "\n", encoding="utf-8")
     return report

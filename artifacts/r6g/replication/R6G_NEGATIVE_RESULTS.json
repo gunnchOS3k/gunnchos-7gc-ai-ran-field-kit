@@ -1,0 +1,211 @@
+{
+  "IMPROVED_STATE_OF_ART": false,
+  "as_of": "2026-08-15",
+  "count": 22,
+  "note": "Negative results define the operating envelope; not program failure.",
+  "results": [
+    {
+      "delta_m": 2.409,
+      "experiment": "rep_neg_s101",
+      "packet": "R6G-003",
+      "preserved": true,
+      "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
+    },
+    {
+      "delta_m": 2.9941,
+      "experiment": "rep_neg_s202",
+      "packet": "R6G-003",
+      "preserved": true,
+      "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
+    },
+    {
+      "delta_m": 2.533,
+      "experiment": "rep_neg_s303",
+      "packet": "R6G-003",
+      "preserved": true,
+      "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
+    },
+    {
+      "delta_m": 2.6434,
+      "experiment": "rep_neg_s404",
+      "packet": "R6G-003",
+      "preserved": true,
+      "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
+    },
+    {
+      "aware_throughput_norm": 0.7997,
+      "conventional_throughput_norm": 0.8673,
+      "experiment": "in_distribution_throughput",
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+      "result": "NO_GAIN_VS_CONVENTIONAL",
+      "seed": 3
+    },
+    {
+      "conventional_failure_rate": 0.0086,
+      "experiment": "adversarial_csi_naive_ai",
+      "naive_failure_rate": 0.5405,
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+      "result": "NAIVE_AI_CSF_DEGRADES",
+      "seed": 3
+    },
+    {
+      "aware_throughput_norm": 0.8374,
+      "conventional_throughput_norm": 0.8734,
+      "experiment": "in_distribution_throughput",
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+      "result": "NO_GAIN_VS_CONVENTIONAL",
+      "seed": 5
+    },
+    {
+      "conventional_failure_rate": 0.0084,
+      "experiment": "adversarial_csi_naive_ai",
+      "naive_failure_rate": 0.5316,
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+      "result": "NAIVE_AI_CSF_DEGRADES",
+      "seed": 5
+    },
+    {
+      "aware_throughput_norm": 0.8049,
+      "conventional_throughput_norm": 0.8675,
+      "experiment": "in_distribution_throughput",
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+      "result": "NO_GAIN_VS_CONVENTIONAL",
+      "seed": 7
+    },
+    {
+      "conventional_failure_rate": 0.0087,
+      "experiment": "adversarial_csi_naive_ai",
+      "naive_failure_rate": 0.5407,
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+      "result": "NAIVE_AI_CSF_DEGRADES",
+      "seed": 7
+    },
+    {
+      "aware_throughput_norm": 0.7995,
+      "conventional_throughput_norm": 0.8613,
+      "experiment": "in_distribution_throughput",
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+      "result": "NO_GAIN_VS_CONVENTIONAL",
+      "seed": 11
+    },
+    {
+      "aware_failure_rate": 0.0079,
+      "conventional_failure_rate": 0.0083,
+      "experiment": "noisy_csi_failure_rate",
+      "packet": "R6G-005",
+      "preserved": true,
+      "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim",
+      "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
+      "seed": 11
+    },
+    {
+      "current_regret": 0.1226,
+      "experiment": "smooth_sine_delay_100ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.2226,
+      "preserved": true,
+      "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 2
+    },
+    {
+      "current_regret": 0.0394,
+      "experiment": "jump_burst_delay_10ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.0745,
+      "preserved": true,
+      "reason": "Predictor misspecified under jump/burst channel dynamics",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 2
+    },
+    {
+      "current_regret": 0.1215,
+      "experiment": "smooth_sine_delay_100ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.2227,
+      "preserved": true,
+      "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 4
+    },
+    {
+      "current_regret": 0.0378,
+      "experiment": "jump_burst_delay_10ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.0689,
+      "preserved": true,
+      "reason": "Predictor misspecified under jump/burst channel dynamics",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 4
+    },
+    {
+      "current_regret": 0.122,
+      "experiment": "smooth_sine_delay_100ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.2186,
+      "preserved": true,
+      "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 6
+    },
+    {
+      "current_regret": 0.042,
+      "experiment": "jump_burst_delay_10ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.0824,
+      "preserved": true,
+      "reason": "Predictor misspecified under jump/burst channel dynamics",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 6
+    },
+    {
+      "current_regret": 0.1229,
+      "experiment": "smooth_sine_delay_100ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.2397,
+      "preserved": true,
+      "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 8
+    },
+    {
+      "current_regret": 0.0464,
+      "experiment": "jump_burst_delay_10ms",
+      "packet": "R6G-009",
+      "predictive_regret": 0.0783,
+      "preserved": true,
+      "reason": "Predictor misspecified under jump/burst channel dynamics",
+      "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+      "seed": 8
+    },
+    {
+      "experiment": "peaky_vs_useful_connectivity",
+      "packet": "R6G-002",
+      "preserved": true,
+      "reason": "Peak-only THz-style link can score worse on Useful Connectivity Score",
+      "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS"
+    },
+    {
+      "experiment": "full_content_long_outage",
+      "packet": "R6G-008",
+      "preserved": true,
+      "reason": "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
+      "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE"
+    }
+  ],
+  "schema": "gunnchos.r6g.negative_results.v1"
+}

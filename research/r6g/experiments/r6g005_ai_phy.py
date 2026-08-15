@@ -146,11 +146,12 @@ def _metrics_for_trial(
     }
 
 
-def run_r6g005() -> dict[str, Any]:
-    rng = random.Random(42)
-    basis = _train_basis(random.Random(0))  # fixed training basis
+def run_r6g005(seed: int = 42) -> dict[str, Any]:
+    """Run AI-CSF digital suite. ``seed`` varies channel draws, basis, and trial RNGs."""
+    seed = int(seed)
+    basis = _train_basis(random.Random(seed + 17))
 
-    # Monte Carlo per (method, stress)
+    # Monte Carlo per (method, stress) — seed-dependent channel/trial streams
     n_trials = 24
     grid: dict[str, dict[str, dict[str, float]]] = {m: {} for m in METHODS}
     raw_fail: dict[str, dict[str, list[float]]] = {m: {s: [] for s in STRESSES} for m in METHODS}
@@ -158,9 +159,18 @@ def run_r6g005() -> dict[str, Any]:
     for stress in STRESSES:
         acc: dict[str, list[dict[str, float]]] = {m: [] for m in METHODS}
         for t in range(n_trials):
-            h = _channel(stress, random.Random(1000 * (STRESSES.index(stress) + 1) + t))
+            h = _channel(
+                stress,
+                random.Random(seed * 10_000 + 1000 * (STRESSES.index(stress) + 1) + t),
+            )
             for method in METHODS:
-                m = _metrics_for_trial(method, stress, h, basis, random.Random(50_000 + t + hash(method) % 997))
+                m = _metrics_for_trial(
+                    method,
+                    stress,
+                    h,
+                    basis,
+                    random.Random(seed * 50_000 + 50_000 + t + (hash(method) % 997)),
+                )
                 acc[method].append(m)
                 raw_fail[method][stress].append(m["failure_rate"])
         for method in METHODS:
@@ -228,6 +238,7 @@ def run_r6g005() -> dict[str, Any]:
         "falsifiable": True,
         "methods": list(METHODS),
         "stresses": list(STRESSES),
+        "seed": seed,
         "n_trials_per_stress": n_trials,
         "results": grid,
         "confidence_fallback_rollback": {
