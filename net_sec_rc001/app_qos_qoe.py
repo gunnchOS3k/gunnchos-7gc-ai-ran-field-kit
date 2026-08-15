@@ -14,16 +14,25 @@ APPS = (
     "teacher",
 )
 
-# Intentional degradation model under constrained paths — synthetic, not fabricated community outcomes.
 PATH_QOE = {
     "ethernet": 0.95,
     "wifi": 0.88,
-    "cellular_5ga": 0.78,
+    "cellular_rel16": 0.78,
     "ntn_sim": 0.55,
     "edge": 0.82,
     "cloud": 0.70,
     "local": 0.98,
     "lan": 0.90,
+}
+
+QOS_CLASS = {
+    "waike": "interactive",
+    "office": "interactive",
+    "teacher": "interactive",
+    "builder": "interactive",
+    "games": "realtime",
+    "ring": "realtime",
+    "gunnchai": "ai_interactive",
 }
 
 
@@ -34,19 +43,17 @@ def app_effect(app: str, path: str) -> dict[str, Any]:
         "office": 0.04,
         "gunnchai": 0.08,
         "games": 0.12,
-        "game": 0.12,
         "ring": 0.10,
         "builder": 0.07,
         "teacher": 0.06,
     }[app]
-    # Higher sensitivity apps lose more on high-latency paths
-    latency_penalty = {"ntn_sim": 0.20, "cloud": 0.08, "cellular_5ga": 0.04}.get(path, 0.0)
+    latency_penalty = {"ntn_sim": 0.20, "cloud": 0.08, "cellular_rel16": 0.04}.get(path, 0.0)
     qoe = max(0.0, min(1.0, base - sensitivity * latency_penalty * 5))
     return {
         "app": app,
         "path": path,
         "qoe_score": round(qoe, 3),
-        "qos_class": "interactive" if app in {"waike", "office", "teacher", "builder"} else "realtime" if app in {"game", "ring"} else "ai_interactive",
+        "qos_class": QOS_CLASS[app],
         "community_outcome_fabricated": False,
     }
 
@@ -54,9 +61,16 @@ def app_effect(app: str, path: str) -> dict[str, Any]:
 def run_app_qos_qoe() -> dict[str, Any]:
     matrix = []
     for app in APPS:
-        for path in ("wifi", "cellular_5ga", "ntn_sim", "local"):
+        for path in ("wifi", "cellular_rel16", "ntn_sim", "local"):
             matrix.append(app_effect(app, path))
-    ok = all(m["community_outcome_fabricated"] is False for m in matrix) and len(matrix) == len(APPS) * 4
+    games_ok = all(
+        m["qos_class"] == "realtime" for m in matrix if m["app"] == "games"
+    )
+    ok = (
+        all(m["community_outcome_fabricated"] is False for m in matrix)
+        and len(matrix) == len(APPS) * 4
+        and games_ok
+    )
     return {
         "schema": "gunnchos.net_sec_rc001.app_qos_qoe.v1",
         "ok": ok,

@@ -21,7 +21,7 @@ def run_equitable_7gc() -> dict[str, Any]:
         scenarios.append({
             "campus": campus,
             "scenario": "affordable_edge_continuity",
-            "paths_considered": ["wifi", "cellular_5ga", "ntn_sim", "local"],
+            "paths_considered": ["wifi", "cellular_rel16", "ntn_sim", "local"],
             "metric_availability": "SYNTHETIC_LAB_ONLY",
             "coverage_fraction_measured": None,
             "coverage_fraction_status": "NOT_MEASURED_FIELD",

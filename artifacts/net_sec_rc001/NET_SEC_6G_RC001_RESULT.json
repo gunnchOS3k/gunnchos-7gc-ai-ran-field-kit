@@ -1,12 +1,13 @@
 {
   "schema": "gunnchos.net_sec_rc001.aggregate.v1",
   "packet": "NET-SEC-6G-RC-001",
+  "remediation": "PR78_HONESTY_DEMOTE_5GA_AND_HOSTILE_LOCAL_RUNTIME",
   "ok": true,
   "exit_state": "DIGITALLY_VALIDATED",
-  "product_wording": "5G-Advanced and NTN-capable, IMT-2030-aligned, software-defined, and engineered for migration to standardized 6G.",
-  "claim_boundary": "Digital / simulation / standards-mapping only. Quectel RM520N-GL is terrestrial Rel-16 NSA+SA Sub-6 \u2014 not NTN, not 6G. CARRIER EXTERNAL_PENDING. SM-DP+ EXTERNAL_PENDING. No unsafe carrier control. No global IMT2030_PASS.",
+  "product_wording": "Software-defined architecture engineered for 5G-Advanced and NTN-capable paths (NTN via simulation), IMT-2030-aligned, and engineered for migration to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA Sub-6 terrestrial only \u2014 not 5G-Advanced hardware and not NTN.",
+  "claim_boundary": "Digital / simulation / standards-mapping only. Quectel RM520N-GL is terrestrial Rel-16 NSA+SA Sub-6 \u2014 not 5G-Advanced hardware, not NTN, not 6G. CARRIER EXTERNAL_PENDING. SM-DP+ EXTERNAL_PENDING. No unsafe carrier control. No global IMT2030_PASS. 5GA_TERRESTRIAL_DIGITAL_RUNTIME requires a Rel-18+/5GA digital surface distinct from the Rel-16 modem path.",
   "tokens": {
-    "5GA_TERRESTRIAL_DIGITAL_RUNTIME": true,
+    "5GA_TERRESTRIAL_DIGITAL_RUNTIME": false,
     "NTN_SIMULATION_RUNTIME": true,
     "AI_RAN_DIGITAL_RUNTIME": true,
     "SERVICE_CONTINUITY_POLICY": true,
@@ -15,6 +16,7 @@
     "IMT2030_MAPPING_COMPLETE_CURRENT_PUBLIC_DRAFT": true,
     "IMT2030_EVAL_HARNESS_CURRENT_DRAFT": true,
     "REL20_REL21_MIGRATION_TRACKER": true,
+    "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME": true,
     "STANDARDIZED_6G": false,
     "6G_CERTIFIED": false,
     "CARRIER_ACCEPTED": false,
@@ -32,6 +34,9 @@
     "IMT2030_EVAL_HARNESS_CURRENT_DRAFT",
     "REL20_REL21_MIGRATION_TRACKER"
   ],
+  "supporting_tokens": [
+    "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"
+  ],
   "forbidden_tokens": [
     "STANDARDIZED_6G",
     "6G_CERTIFIED",
@@ -40,9 +45,9 @@
     "GATE_8_PASS"
   ],
   "modules": {
-    "terrestrial_5ga": {
+    "terrestrial_rel16": {
       "ok": true,
-      "schema": "gunnchos.net_sec_rc001.terrestrial_5ga.v1"
+      "schema": "gunnchos.net_sec_rc001.terrestrial_rel16.v1"
     },
     "esim_interfaces": {
       "ok": true,
@@ -82,8 +87,8 @@
     }
   },
   "module_details": {
-    "terrestrial_5ga": {
-      "schema": "gunnchos.net_sec_rc001.terrestrial_5ga.v1",
+    "terrestrial_rel16": {
+      "schema": "gunnchos.net_sec_rc001.terrestrial_rel16.v1",
       "ok": true,
       "sku": "RM520N-GL",
       "release": "Rel-16",
@@ -93,6 +98,7 @@
       ],
       "band_class": "Sub-6",
       "ntn_capable": false,
+      "five_ga_capable": false,
       "six_g_capable": false,
       "CARRIER": "EXTERNAL_PENDING",
       "CARRIER_ACCEPTED": false,
@@ -103,12 +109,14 @@
           "result": {
             "ok": true,
             "sku": "RM520N-GL",
+            "release": "Rel-16",
             "transports": [
               "mbim",
               "qmi",
               "modemmanager"
             ],
-            "ntn": false
+            "ntn": false,
+            "five_ga": false
           }
         },
         {
@@ -137,7 +145,9 @@
             "ok": true,
             "mode": "SA",
             "plmn": "00101",
-            "tech": "nr5g-sa"
+            "tech": "nr5g-sa",
+            "release": "Rel-16",
+            "five_ga_claimed": false
           }
         },
         {
@@ -147,7 +157,8 @@
             "rsrq_db": -10.0,
             "sinr_db": 12.0,
             "band": "n78",
-            "ntn": false
+            "ntn": false,
+            "five_ga": false
           }
         },
         {
@@ -164,14 +175,14 @@
           "result": {
             "ok": true,
             "connected": true,
-            "path": "terrestrial_5ga"
+            "path": "cellular_rel16"
           }
         },
         {
           "op": "failover",
           "result": {
             "ok": true,
-            "from": "cellular",
+            "from": "cellular_rel16",
             "to": "wifi",
             "policy": "service_continuity"
           }
@@ -180,6 +191,7 @@
           "op": "telemetry",
           "result": {
             "sku": "RM520N-GL",
+            "release": "Rel-16",
             "registered": true,
             "connected": true,
             "signal": {
@@ -187,11 +199,13 @@
               "rsrq_db": -10.0,
               "sinr_db": 12.0,
               "band": "n78",
-              "ntn": false
+              "ntn": false,
+              "five_ga": false
             },
             "apn": "internet",
             "mode": "SA",
             "ntn_claimed": false,
+            "five_ga_claimed": false,
             "six_g_claimed": false
           }
         },
@@ -212,10 +226,13 @@
         "ok": true,
         "mode": "NSA",
         "plmn": "00101",
-        "tech": "nr5g-nsa"
+        "tech": "nr5g-nsa",
+        "release": "Rel-16",
+        "five_ga_claimed": false
       },
-      "claim_boundary": "Simulated Quectel RM520N-GL Rel-16 NSA+SA Sub-6 terrestrial path. Not NTN. Not 6G. CARRIER_ACCEPTED=false. CARRIER EXTERNAL_PENDING.",
-      "token_candidate": "5GA_TERRESTRIAL_DIGITAL_RUNTIME"
+      "claim_boundary": "Simulated Quectel RM520N-GL Rel-16 NSA+SA Sub-6 terrestrial path only. Not 5G-Advanced modem capability. Not NTN. Not 6G. CARRIER_ACCEPTED=false. CARRIER EXTERNAL_PENDING. 5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false for this surface.",
+      "token_candidate": "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME",
+      "does_not_earn": "5GA_TERRESTRIAL_DIGITAL_RUNTIME"
     },
     "esim_interfaces": {
       "schema": "gunnchos.net_sec_rc001.esim_interfaces.v1",
@@ -359,7 +376,7 @@
         "lan",
         "wifi",
         "ethernet",
-        "cellular_5ga",
+        "cellular_rel16",
         "ntn_sim",
         "edge",
         "cloud"
@@ -372,16 +389,18 @@
         },
         {
           "drop": "wifi+lan",
-          "to": "cellular_5ga"
+          "to": "cellular_rel16"
         },
         {
-          "drop": "cellular_5ga",
+          "drop": "cellular_rel16",
           "to": "edge",
-          "ntn_is_sim": true
+          "ntn_is_sim": true,
+          "five_ga_hardware": false
         }
       ],
       "RM520N_GL_NTN": false,
-      "claim_boundary": "Multi-path continuity policy digital; NTN path is simulation.",
+      "RM520N_GL_5GA": false,
+      "claim_boundary": "Multi-path continuity policy digital; cellular path is Rel-16 terrestrial sim; NTN path is simulation only.",
       "token_candidate": "SERVICE_CONTINUITY_POLICY"
     },
     "app_qos_qoe": {
@@ -406,7 +425,7 @@
         },
         {
           "app": "waike",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.77,
           "qos_class": "interactive",
           "community_outcome_fabricated": false
@@ -434,7 +453,7 @@
         },
         {
           "app": "office",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.772,
           "qos_class": "interactive",
           "community_outcome_fabricated": false
@@ -462,7 +481,7 @@
         },
         {
           "app": "gunnchai",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.764,
           "qos_class": "ai_interactive",
           "community_outcome_fabricated": false
@@ -485,28 +504,28 @@
           "app": "games",
           "path": "wifi",
           "qoe_score": 0.88,
-          "qos_class": "ai_interactive",
+          "qos_class": "realtime",
           "community_outcome_fabricated": false
         },
         {
           "app": "games",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.756,
-          "qos_class": "ai_interactive",
+          "qos_class": "realtime",
           "community_outcome_fabricated": false
         },
         {
           "app": "games",
           "path": "ntn_sim",
           "qoe_score": 0.43,
-          "qos_class": "ai_interactive",
+          "qos_class": "realtime",
           "community_outcome_fabricated": false
         },
         {
           "app": "games",
           "path": "local",
           "qoe_score": 0.98,
-          "qos_class": "ai_interactive",
+          "qos_class": "realtime",
           "community_outcome_fabricated": false
         },
         {
@@ -518,7 +537,7 @@
         },
         {
           "app": "ring",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.76,
           "qos_class": "realtime",
           "community_outcome_fabricated": false
@@ -546,7 +565,7 @@
         },
         {
           "app": "builder",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.766,
           "qos_class": "interactive",
           "community_outcome_fabricated": false
@@ -574,7 +593,7 @@
         },
         {
           "app": "teacher",
-          "path": "cellular_5ga",
+          "path": "cellular_rel16",
           "qoe_score": 0.768,
           "qos_class": "interactive",
           "community_outcome_fabricated": false
@@ -600,54 +619,187 @@
     "hostile_network": {
       "schema": "gunnchos.net_sec_rc001.hostile_network_digital.v1",
       "ok": true,
-      "scope": "LOCAL_INPROCESS_ONLY",
+      "scope": "LOCAL_LOOPBACK_SOCKET_TLS_DNS_POLICY",
       "uncontrolled_external_attack": false,
+      "evidence_level": "E4_DIGITAL_LOCAL_RUNTIME",
       "RF_WIFI": "E5_E8_EXTERNAL_PENDING",
       "cases": [
         {
-          "name": "happy_tls_trusted",
-          "trusted": true,
-          "credentials_sent": true,
-          "passed": true
+          "case_id": "HN-TLS-SOCKET-001",
+          "passed": true,
+          "evidence": {
+            "ok": true,
+            "bytes": 40,
+            "peer": "updates.gunnchos.local",
+            "loopback": true
+          }
         },
         {
-          "name": "dns_poison",
-          "trusted": false,
-          "credentials_sent": false,
-          "passed": true
+          "case_id": "HN-DNS-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "malicious_dns",
+            "hostname": "updates.gunnchos.local",
+            "resolved": "198.51.100.66",
+            "trusted": false
+          }
         },
         {
-          "name": "http_downgrade",
-          "trusted": false,
-          "credentials_sent": false,
-          "passed": true
+          "case_id": "HN-TLS-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "untrusted_tls",
+            "credentials_sent": false
+          }
         },
         {
-          "name": "captive_portal",
-          "trusted": false,
-          "credentials_sent": false,
-          "passed": true
+          "case_id": "HN-TLS-002",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "hostname_mismatch",
+            "credentials_sent": false
+          }
         },
         {
-          "name": "expired_cert",
-          "trusted": false,
-          "credentials_sent": false,
-          "passed": true
+          "case_id": "HN-TLS-003",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "expired_cert",
+            "credentials_sent": false
+          }
         },
         {
-          "name": "hostname_mismatch",
-          "trusted": false,
-          "credentials_sent": false,
-          "passed": true
+          "case_id": "HN-CAPTIVE-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "captive_portal",
+            "credentials_sent": false,
+            "portal": true
+          }
         },
         {
-          "name": "link_loss_restore",
-          "trusted": true,
-          "credentials_sent": true,
-          "passed": true
+          "case_id": "HN-HTTP-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "http_downgrade",
+            "credentials_sent": false,
+            "origin": {
+              "trusted": false,
+              "reason": "http_downgrade",
+              "hostname": "updates.gunnchos.local",
+              "scheme": "http"
+            }
+          }
+        },
+        {
+          "case_id": "HN-CRED-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "untrusted_hostname",
+            "credentials_sent": false,
+            "origin": {
+              "trusted": false,
+              "reason": "untrusted_hostname",
+              "hostname": "evil.example"
+            }
+          }
+        },
+        {
+          "case_id": "HN-LINK-001",
+          "passed": true,
+          "evidence": {
+            "down": {
+              "ok": false,
+              "reason": "link_down",
+              "credentials_sent": false
+            },
+            "up": {
+              "ok": true,
+              "reason": "ok",
+              "credentials_sent": true,
+              "origin": {
+                "trusted": true,
+                "hostname": "api.gunnchos.local",
+                "scheme": "https"
+              }
+            }
+          }
+        },
+        {
+          "case_id": "HN-TLS-MATERIAL-001",
+          "passed": true,
+          "evidence": {
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-idn_u7tj/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-idn_u7tj/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-idn_u7tj/server.crt"
+          }
+        },
+        {
+          "case_id": "HN-COUPLE-REL16-CONTINUITY-001",
+          "passed": true,
+          "evidence": {
+            "dns": {
+              "ok": false,
+              "reason": "malicious_dns",
+              "hostname": "updates.gunnchos.local",
+              "resolved": "198.51.100.66",
+              "trusted": false
+            },
+            "modem_path_after": "wifi",
+            "continuity_selected": "wifi",
+            "cellular_rel16_disabled": true,
+            "rm520n_five_ga_claimed": false
+          }
         }
       ],
-      "claim_boundary": "Local digital hostile-network testbed only; no uncontrolled external attack.",
+      "credential_events": [
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "http://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://evil.example/phish",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://api.gunnchos.local/v1",
+          "credentials_sent": true
+        }
+      ],
+      "coupled_to": [
+        "terrestrial_rel16",
+        "service_continuity"
+      ],
+      "claim_boundary": "Local loopback socket/TLS/DNS/policy hostile-network testbed coupled to Rel-16 terrestrial + continuity failover. No uncontrolled external attack. RF/Wi-Fi E5/E8 EXTERNAL_PENDING.",
       "token_candidate": "HOSTILE_NETWORK_DIGITAL"
     },
     "migration_6g": {
@@ -698,7 +850,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -714,7 +866,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -730,7 +882,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -746,7 +898,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -762,7 +914,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -778,7 +930,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -794,7 +946,7 @@
           "scenario": "affordable_edge_continuity",
           "paths_considered": [
             "wifi",
-            "cellular_5ga",
+            "cellular_rel16",
             "ntn_sim",
             "local"
           ],
@@ -1054,6 +1206,7 @@
     "GSMA_Open_Gateway_CAMARA": "public API catalog; REAL_OPERATOR EXTERNAL_PENDING"
   },
   "OPEN": [
+    "5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false \u2014 Rel-16 RM520N digital \u2260 5G-Advanced; need distinct Rel-18+/5GA software surface to earn",
     "CARRIER attach / operator acceptance EXTERNAL_PENDING",
     "SM-DP+ / real eSIM profile download EXTERNAL_PENDING",
     "Official ITU TPR numeric values OFFICIAL_VALUE_PENDING (Doc 5/116 TIES / SG5 Dec 2026)",
@@ -1072,7 +1225,8 @@
     "large digital-twin renders",
     "extra QEMU guests (Product-Use likely active)",
     "large model downloads for AI-RAN",
-    "long soak / carrier lab attaches"
+    "long soak / carrier lab attaches",
+    "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)"
   ],
   "mock": false
 }

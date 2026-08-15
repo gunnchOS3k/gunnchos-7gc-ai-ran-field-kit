@@ -14,12 +14,13 @@ from .imt2030_eval import run_imt2030_eval_harness
 from .migration_6g import run_migration_abstraction
 from .ntn_sim import run_ntn_simulation
 from .service_continuity import run_service_continuity
-from .terrestrial_5ga import RM520NTerrestrialDigital
+from .terrestrial_rel16 import RM520NTerrestrialDigital
 from .tokens import (
     CLAIM_BOUNDARY,
     EARNABLE_TOKENS,
     FORBIDDEN_TOKENS,
     PRODUCT_WORDING,
+    SUPPORTING_TOKENS,
     assert_forbidden_remain_false,
     empty_token_table,
 )
@@ -29,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     modules = {
-        "terrestrial_5ga": RM520NTerrestrialDigital().run(),
+        "terrestrial_rel16": RM520NTerrestrialDigital().run(),
         "esim_interfaces": run_esim_digital(),
         "ntn_sim": run_ntn_simulation(),
         "ai_ran_safe": run_ai_ran_safe(),
@@ -42,7 +43,9 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     }
 
     tokens = empty_token_table()
-    tokens["5GA_TERRESTRIAL_DIGITAL_RUNTIME"] = bool(modules["terrestrial_5ga"]["ok"])
+    # Honesty: Rel-16 RM520N digital sim does NOT earn 5GA.
+    tokens["5GA_TERRESTRIAL_DIGITAL_RUNTIME"] = False
+    tokens["5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"] = bool(modules["terrestrial_rel16"]["ok"])
     tokens["NTN_SIMULATION_RUNTIME"] = bool(modules["ntn_sim"]["ok"])
     tokens["AI_RAN_DIGITAL_RUNTIME"] = bool(modules["ai_ran_safe"]["ok"])
     tokens["SERVICE_CONTINUITY_POLICY"] = bool(modules["service_continuity"]["ok"])
@@ -50,34 +53,31 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     tokens["HOSTILE_NETWORK_DIGITAL"] = bool(modules["hostile_network"]["ok"])
     tokens["IMT2030_EVAL_HARNESS_CURRENT_DRAFT"] = bool(modules["imt2030_eval"]["ok"])
     tokens["REL20_REL21_MIGRATION_TRACKER"] = bool(modules["migration_6g"]["ok"])
-    # Mapping complete for current public draft = scenarios+envs+tpr slots present with honest pending values
     tokens["IMT2030_MAPPING_COMPLETE_CURRENT_PUBLIC_DRAFT"] = bool(
         modules["imt2030_eval"]["ok"] and modules["migration_6g"]["ok"]
     )
-    # Forbidden remain false
     for k in FORBIDDEN_TOKENS:
         tokens[k] = False
     assert_forbidden_remain_false(tokens)
+    assert tokens["5GA_TERRESTRIAL_DIGITAL_RUNTIME"] is False
+    assert modules["terrestrial_rel16"]["five_ga_capable"] is False
+    assert modules["terrestrial_rel16"]["release"] == "Rel-16"
 
     digital_ok = all(modules[k]["ok"] for k in modules)
-    open_list = []
-    if modules["terrestrial_5ga"]["CARRIER"] == "EXTERNAL_PENDING":
-        open_list.append("CARRIER attach / operator acceptance EXTERNAL_PENDING")
-    if modules["esim_interfaces"]["sm_dp_plus"] == "EXTERNAL_PENDING":
-        open_list.append("SM-DP+ / real eSIM profile download EXTERNAL_PENDING")
-    open_list.extend(
-        [
-            "Official ITU TPR numeric values OFFICIAL_VALUE_PENDING (Doc 5/116 TIES / SG5 Dec 2026)",
-            "Official per-requirement evaluation-method assignment OFFICIAL_ASSIGNMENT_PENDING",
-            "Test-environment parameter tables OFFICIAL_PARAMS_PENDING",
-            "Large ns-3/Sionna/DeepMIMO sweeps DEFERRED (resource rule)",
-            "Large twin renders / multi-hour RF sims / extra QEMU DEFERRED",
-            "REAL_NTN_MODEM_VALIDATED remains false",
-            "GATE_8_PASS / STANDARDIZED_6G remain false",
-            "Field 7GC community outcomes not fabricated — field measurement OPEN",
-            "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING",
-        ]
-    )
+    open_list = [
+        "5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false — Rel-16 RM520N digital ≠ 5G-Advanced; need distinct Rel-18+/5GA software surface to earn",
+        "CARRIER attach / operator acceptance EXTERNAL_PENDING",
+        "SM-DP+ / real eSIM profile download EXTERNAL_PENDING",
+        "Official ITU TPR numeric values OFFICIAL_VALUE_PENDING (Doc 5/116 TIES / SG5 Dec 2026)",
+        "Official per-requirement evaluation-method assignment OFFICIAL_ASSIGNMENT_PENDING",
+        "Test-environment parameter tables OFFICIAL_PARAMS_PENDING",
+        "Large ns-3/Sionna/DeepMIMO sweeps DEFERRED (resource rule)",
+        "Large twin renders / multi-hour RF sims / extra QEMU DEFERRED",
+        "REAL_NTN_MODEM_VALIDATED remains false",
+        "GATE_8_PASS / STANDARDIZED_6G remain false",
+        "Field 7GC community outcomes not fabricated — field measurement OPEN",
+        "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING",
+    ]
 
     deferred = [
         "ns-3 / Sionna / DeepMIMO campaign sweeps",
@@ -86,17 +86,20 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "extra QEMU guests (Product-Use likely active)",
         "large model downloads for AI-RAN",
         "long soak / carrier lab attaches",
+        "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)",
     ]
 
     report = {
         "schema": "gunnchos.net_sec_rc001.aggregate.v1",
         "packet": "NET-SEC-6G-RC-001",
+        "remediation": "PR78_HONESTY_DEMOTE_5GA_AND_HOSTILE_LOCAL_RUNTIME",
         "ok": digital_ok,
         "exit_state": "DIGITALLY_VALIDATED" if digital_ok else "INCOMPLETE_DIGITAL",
         "product_wording": PRODUCT_WORDING,
         "claim_boundary": CLAIM_BOUNDARY,
         "tokens": tokens,
         "earnable_tokens": list(EARNABLE_TOKENS),
+        "supporting_tokens": list(SUPPORTING_TOKENS),
         "forbidden_tokens": list(FORBIDDEN_TOKENS),
         "modules": {k: {"ok": v["ok"], "schema": v.get("schema")} for k, v in modules.items()},
         "module_details": modules,
@@ -132,7 +135,16 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
             json.dumps(report, indent=2) + "\n", encoding="utf-8"
         )
         (out_dir / "TOKEN_TABLE.json").write_text(
-            json.dumps({"tokens": tokens, "product_wording": PRODUCT_WORDING}, indent=2) + "\n",
+            json.dumps(
+                {
+                    "tokens": tokens,
+                    "product_wording": PRODUCT_WORDING,
+                    "supporting_tokens": list(SUPPORTING_TOKENS),
+                    "note": "5GA_TERRESTRIAL_DIGITAL_RUNTIME=false; Rel-16 surface uses 5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME",
+                },
+                indent=2,
+            )
+            + "\n",
             encoding="utf-8",
         )
     return report

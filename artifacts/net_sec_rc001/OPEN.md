@@ -1,5 +1,6 @@
 # OPEN
 
+- 5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false — Rel-16 RM520N digital ≠ 5G-Advanced; need distinct Rel-18+/5GA software surface to earn
 - CARRIER attach / operator acceptance EXTERNAL_PENDING
 - SM-DP+ / real eSIM profile download EXTERNAL_PENDING
 - Official ITU TPR numeric values OFFICIAL_VALUE_PENDING (Doc 5/116 TIES / SG5 Dec 2026)
