@@ -15,14 +15,14 @@
   },
   "documented_negative_or_no_gain": [
     {
-      "aware_throughput_norm": 0.7997,
-      "conventional_throughput_norm": 0.8673,
+      "aware_throughput_norm": 0.7971,
+      "conventional_throughput_norm": 0.8596,
       "experiment": "in_distribution_throughput",
       "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
       "result": "NO_GAIN_VS_CONVENTIONAL"
     },
     {
-      "conventional_failure_rate": 0.0086,
+      "conventional_failure_rate": 0.0084,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5405,
       "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
@@ -126,166 +126,166 @@
     },
     "AI_CSF_UNCERTAINTY_AWARE": {
       "adversarial_csi": {
-        "BLER": 0.0087,
+        "BLER": 0.0089,
         "confidence": 0.0559,
-        "coverage_norm": 0.9769,
-        "csi_mse": 0.0202,
+        "coverage_norm": 0.9698,
+        "csi_mse": 0.0226,
         "energy_norm": 1.05,
-        "failure_rate": 0.0047,
+        "failure_rate": 0.005,
         "fallback_rate": 1.0,
-        "throughput_norm": 0.8612
+        "throughput_norm": 0.8538
       },
       "channel_shift": {
         "BLER": 0.0086,
         "confidence": 0.157,
-        "coverage_norm": 0.9827,
-        "csi_mse": 0.0183,
+        "coverage_norm": 0.9803,
+        "csi_mse": 0.0188,
         "energy_norm": 1.05,
         "failure_rate": 0.0046,
         "fallback_rate": 1.0,
-        "throughput_norm": 0.8671
+        "throughput_norm": 0.8657
       },
       "device_shift": {
-        "BLER": 0.0092,
+        "BLER": 0.0091,
         "confidence": 0.2635,
-        "coverage_norm": 0.9687,
-        "csi_mse": 0.0231,
+        "coverage_norm": 0.9737,
+        "csi_mse": 0.0217,
         "energy_norm": 1.05,
-        "failure_rate": 0.0054,
+        "failure_rate": 0.0053,
         "fallback_rate": 0.9583,
-        "throughput_norm": 0.8535
+        "throughput_norm": 0.8581
       },
       "in_distribution": {
-        "BLER": 0.0137,
+        "BLER": 0.0138,
         "confidence": 0.3809,
-        "coverage_norm": 0.9074,
-        "csi_mse": 0.055,
+        "coverage_norm": 0.905,
+        "csi_mse": 0.0558,
         "energy_norm": 1.05,
-        "failure_rate": 0.0119,
+        "failure_rate": 0.012,
         "fallback_rate": 0.7917,
-        "throughput_norm": 0.7997
+        "throughput_norm": 0.7971
       },
       "new_environment": {
-        "BLER": 0.0086,
+        "BLER": 0.0084,
         "confidence": 0.1754,
-        "coverage_norm": 0.9799,
-        "csi_mse": 0.0189,
+        "coverage_norm": 0.9855,
+        "csi_mse": 0.017,
         "energy_norm": 1.05,
-        "failure_rate": 0.0046,
+        "failure_rate": 0.0044,
         "fallback_rate": 1.0,
-        "throughput_norm": 0.8653
+        "throughput_norm": 0.871
       },
       "new_mobility_pattern": {
-        "BLER": 0.0089,
+        "BLER": 0.0088,
         "confidence": 0.3419,
-        "coverage_norm": 0.9733,
-        "csi_mse": 0.021,
+        "coverage_norm": 0.9775,
+        "csi_mse": 0.0196,
         "energy_norm": 1.05,
-        "failure_rate": 0.005,
+        "failure_rate": 0.0049,
         "fallback_rate": 0.9583,
-        "throughput_norm": 0.8591
+        "throughput_norm": 0.8633
       },
       "noisy_csi": {
-        "BLER": 0.0096,
+        "BLER": 0.0097,
         "confidence": 0.3325,
-        "coverage_norm": 0.9646,
-        "csi_mse": 0.0258,
+        "coverage_norm": 0.9606,
+        "csi_mse": 0.0275,
+        "energy_norm": 1.05,
+        "failure_rate": 0.0062,
+        "fallback_rate": 0.9583,
+        "throughput_norm": 0.849
+      },
+      "ntn_coexistence": {
+        "BLER": 0.0097,
+        "confidence": 0.2169,
+        "coverage_norm": 0.9607,
+        "csi_mse": 0.0271,
         "energy_norm": 1.05,
         "failure_rate": 0.0061,
         "fallback_rate": 0.9583,
-        "throughput_norm": 0.8541
-      },
-      "ntn_coexistence": {
-        "BLER": 0.0096,
-        "confidence": 0.2169,
-        "coverage_norm": 0.9638,
-        "csi_mse": 0.0259,
-        "energy_norm": 1.05,
-        "failure_rate": 0.006,
-        "fallback_rate": 0.9583,
-        "throughput_norm": 0.8514
+        "throughput_norm": 0.848
       }
     },
     "CONVENTIONAL_CSI": {
       "adversarial_csi": {
-        "BLER": 0.0124,
-        "confidence": 0.8,
-        "coverage_norm": 0.9796,
-        "csi_mse": 0.0198,
-        "energy_norm": 1.0,
-        "failure_rate": 0.0086,
-        "fallback_rate": 0.0,
-        "throughput_norm": 0.8624
-      },
-      "channel_shift": {
-        "BLER": 0.012,
-        "confidence": 0.8,
-        "coverage_norm": 0.9845,
-        "csi_mse": 0.0171,
-        "energy_norm": 1.0,
-        "failure_rate": 0.0081,
-        "fallback_rate": 0.0,
-        "throughput_norm": 0.8708
-      },
-      "device_shift": {
-        "BLER": 0.0124,
-        "confidence": 0.8,
-        "coverage_norm": 0.9785,
-        "csi_mse": 0.0198,
-        "energy_norm": 1.0,
-        "failure_rate": 0.0086,
-        "fallback_rate": 0.0,
-        "throughput_norm": 0.8623
-      },
-      "in_distribution": {
-        "BLER": 0.0122,
-        "confidence": 0.8,
-        "coverage_norm": 0.9827,
-        "csi_mse": 0.0182,
-        "energy_norm": 1.0,
-        "failure_rate": 0.0083,
-        "fallback_rate": 0.0,
-        "throughput_norm": 0.8673
-      },
-      "new_environment": {
         "BLER": 0.0123,
         "confidence": 0.8,
-        "coverage_norm": 0.9777,
-        "csi_mse": 0.0194,
+        "coverage_norm": 0.9806,
+        "csi_mse": 0.0191,
         "energy_norm": 1.0,
-        "failure_rate": 0.0085,
+        "failure_rate": 0.0084,
         "fallback_rate": 0.0,
-        "throughput_norm": 0.8641
+        "throughput_norm": 0.8645
       },
-      "new_mobility_pattern": {
-        "BLER": 0.0124,
+      "channel_shift": {
+        "BLER": 0.0123,
         "confidence": 0.8,
-        "coverage_norm": 0.9771,
-        "csi_mse": 0.0203,
+        "coverage_norm": 0.9798,
+        "csi_mse": 0.0191,
         "energy_norm": 1.0,
-        "failure_rate": 0.0086,
+        "failure_rate": 0.0084,
         "fallback_rate": 0.0,
-        "throughput_norm": 0.861
+        "throughput_norm": 0.8648
       },
-      "noisy_csi": {
+      "device_shift": {
+        "BLER": 0.0123,
+        "confidence": 0.8,
+        "coverage_norm": 0.9789,
+        "csi_mse": 0.0191,
+        "energy_norm": 1.0,
+        "failure_rate": 0.0084,
+        "fallback_rate": 0.0,
+        "throughput_norm": 0.8647
+      },
+      "in_distribution": {
+        "BLER": 0.0125,
+        "confidence": 0.8,
+        "coverage_norm": 0.9741,
+        "csi_mse": 0.0207,
+        "energy_norm": 1.0,
+        "failure_rate": 0.0087,
+        "fallback_rate": 0.0,
+        "throughput_norm": 0.8596
+      },
+      "new_environment": {
         "BLER": 0.0122,
         "confidence": 0.8,
-        "coverage_norm": 0.9802,
+        "coverage_norm": 0.9794,
         "csi_mse": 0.0185,
         "energy_norm": 1.0,
         "failure_rate": 0.0083,
         "fallback_rate": 0.0,
-        "throughput_norm": 0.8667
+        "throughput_norm": 0.8666
+      },
+      "new_mobility_pattern": {
+        "BLER": 0.0124,
+        "confidence": 0.8,
+        "coverage_norm": 0.9773,
+        "csi_mse": 0.0197,
+        "energy_norm": 1.0,
+        "failure_rate": 0.0085,
+        "fallback_rate": 0.0,
+        "throughput_norm": 0.8627
+      },
+      "noisy_csi": {
+        "BLER": 0.0122,
+        "confidence": 0.8,
+        "coverage_norm": 0.9809,
+        "csi_mse": 0.0184,
+        "energy_norm": 1.0,
+        "failure_rate": 0.0083,
+        "fallback_rate": 0.0,
+        "throughput_norm": 0.8672
       },
       "ntn_coexistence": {
-        "BLER": 0.0123,
+        "BLER": 0.0124,
         "confidence": 0.8,
-        "coverage_norm": 0.9774,
+        "coverage_norm": 0.9764,
         "csi_mse": 0.0195,
         "energy_norm": 1.0,
         "failure_rate": 0.0085,
         "fallback_rate": 0.0,
-        "throughput_norm": 0.8638
+        "throughput_norm": 0.8636
       }
     }
   },

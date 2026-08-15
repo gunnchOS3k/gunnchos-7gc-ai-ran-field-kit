@@ -34,8 +34,15 @@ def test_r6g_backlog_eleven_packets_ownership():
     assert by_id["R6G-005"]["status"] == "ACTIVE"
     assert by_id["R6G-009"]["status"] == "ACTIVE"
     assert by_id["R6G-002"]["status"] == "ACTIVE"
-    for pid in ("R6G-004", "R6G-006", "R6G-007", "R6G-008", "R6G-010", "R6G-011"):
-        assert by_id[pid]["status"] == "REGISTERED_NOT_ACTIVE"
+    for pid, st in (
+        ("R6G-004", "MODELED_SYNTHETIC_STUB"),
+        ("R6G-008", "MODELED_LOOKUP_TABLE"),
+        ("R6G-010", "MODELED_SCORING_HOOKS"),
+        ("R6G-011", "HARNESS_MAP_ONLY"),
+    ):
+        assert by_id[pid]["status"] == st
+    for pid in ("R6G-006", "R6G-007"):
+        assert by_id[pid]["status"] == "MODELED_CONTRACT_ONLY"
 
 
 def test_r6g_aggregate_and_firewall(tmp_path: Path):
@@ -84,6 +91,7 @@ def test_net_sec_includes_r6g_tokens(tmp_path: Path):
     assert report["tokens"]["5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"] is True
     assert report["tokens"]["R6G_REGISTRY_COMPLETE"] is True
     assert report["tokens"]["IMPROVED_STATE_OF_ART"] is False
+    # Capability depth (#80): spectrum/semantic digital tokens earned via execution
     assert report["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is True
     assert report["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is True
     for k in FORBIDDEN_TOKENS:
@@ -91,6 +99,8 @@ def test_net_sec_includes_r6g_tokens(tmp_path: Path):
     assert "Rel-16" in PRODUCT_WORDING
     assert report["r6g"]["breakthroughs_registered"] >= 20
     assert report["r6g"]["naked_numeric_headline_count"] == 0
+    # Dual-tree: authoritative path pointer, not a forked metric tree
+    assert (tmp_path / "r6g" / "AUTHORITATIVE_PATH.json").exists()
 
 
 def test_multimodal_improvement_only_vs_digital_rf_only():

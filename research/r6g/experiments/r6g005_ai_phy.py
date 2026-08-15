@@ -12,6 +12,7 @@ import random
 from typing import Any
 
 from research.r6g.claim_firewall import assert_no_soa
+from research.r6g.metrics.stable_seed import stable_int
 
 METHODS = ("CONVENTIONAL_CSI", "AI_CSF", "AI_CSF_UNCERTAINTY_AWARE")
 STRESSES = (
@@ -169,7 +170,7 @@ def run_r6g005(seed: int = 42) -> dict[str, Any]:
                     stress,
                     h,
                     basis,
-                    random.Random(seed * 50_000 + 50_000 + t + (hash(method) % 997)),
+                    random.Random(seed * 50_000 + 50_000 + t + stable_int(method, mod=997)),
                 )
                 acc[method].append(m)
                 raw_fail[method][stress].append(m["failure_rate"])

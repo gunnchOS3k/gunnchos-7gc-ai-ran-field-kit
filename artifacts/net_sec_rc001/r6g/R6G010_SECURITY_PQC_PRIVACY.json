@@ -1,0 +1,150 @@
+{
+  "schema": "gunnchos.r6g.r6g010.v1",
+  "packet": "R6G-010",
+  "ok": true,
+  "status": "MODELED_SCORING_HOOKS",
+  "claim_state": "MODELED_SCORING_HOOKS",
+  "ladder_earned": [
+    "R0",
+    "R1"
+  ],
+  "weight_scheme": {
+    "scheme_id": "SEC_PRIV_V1",
+    "locked_at": "2026-08-15",
+    "weights": {
+      "zero_trust_posture": 0.25,
+      "pqc_readiness": 0.25,
+      "sensing_privacy": 0.25,
+      "key_lifecycle": 0.15,
+      "auditability": 0.1
+    },
+    "amendments": [],
+    "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+    "NOT_CERTIFICATION": true
+  },
+  "profiles": {
+    "baseline_rel16_terrestrial": {
+      "components": {
+        "zero_trust_posture": {
+          "value": 0.45,
+          "weight": 0.25,
+          "weighted": 0.1125
+        },
+        "pqc_readiness": {
+          "value": 0.2,
+          "weight": 0.25,
+          "weighted": 0.05
+        },
+        "sensing_privacy": {
+          "value": 0.4,
+          "weight": 0.25,
+          "weighted": 0.1
+        },
+        "key_lifecycle": {
+          "value": 0.5,
+          "weight": 0.15,
+          "weighted": 0.075
+        },
+        "auditability": {
+          "value": 0.55,
+          "weight": 0.1,
+          "weighted": 0.055
+        }
+      },
+      "score": 0.3925,
+      "privacy_floor_fail": false,
+      "scheme_id": "SEC_PRIV_V1",
+      "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+      "NOT_CERTIFICATION": true
+    },
+    "research_candidate_digital": {
+      "components": {
+        "zero_trust_posture": {
+          "value": 0.7,
+          "weight": 0.25,
+          "weighted": 0.175
+        },
+        "pqc_readiness": {
+          "value": 0.55,
+          "weight": 0.25,
+          "weighted": 0.1375
+        },
+        "sensing_privacy": {
+          "value": 0.65,
+          "weight": 0.25,
+          "weighted": 0.1625
+        },
+        "key_lifecycle": {
+          "value": 0.6,
+          "weight": 0.15,
+          "weighted": 0.09
+        },
+        "auditability": {
+          "value": 0.7,
+          "weight": 0.1,
+          "weighted": 0.07
+        }
+      },
+      "score": 0.635,
+      "privacy_floor_fail": false,
+      "scheme_id": "SEC_PRIV_V1",
+      "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+      "NOT_CERTIFICATION": true
+    },
+    "overclaim_trap": {
+      "components": {
+        "zero_trust_posture": {
+          "value": 0.95,
+          "weight": 0.25,
+          "weighted": 0.2375
+        },
+        "pqc_readiness": {
+          "value": 0.95,
+          "weight": 0.25,
+          "weighted": 0.2375
+        },
+        "sensing_privacy": {
+          "value": 0.1,
+          "weight": 0.25,
+          "weighted": 0.025
+        },
+        "key_lifecycle": {
+          "value": 0.9,
+          "weight": 0.15,
+          "weighted": 0.135
+        },
+        "auditability": {
+          "value": 0.9,
+          "weight": 0.1,
+          "weighted": 0.09
+        }
+      },
+      "score": 0.725,
+      "privacy_floor_fail": true,
+      "scheme_id": "SEC_PRIV_V1",
+      "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+      "NOT_CERTIFICATION": true
+    }
+  },
+  "privacy_floor": 0.25,
+  "falsification": {
+    "overclaim_trap_scores_worse_when_privacy_collapses": true,
+    "note": "Illustrative privacy-floor gate; not a falsifiable security campaign",
+    "ILLUSTRATIVE": true
+  },
+  "hooks": {
+    "score_profile": "research.r6g.experiments.r6g010_security_pqc_privacy.score_profile",
+    "consumers": [
+      "adoption packages",
+      "WAIKE case study",
+      "portfolio matrix"
+    ]
+  },
+  "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": false,
+  "STANDARDIZED_6G": false,
+  "COMPLIANT": false,
+  "CERTIFIED": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "note": "Scoring hooks only \u2014 not DIGITALLY_EXECUTED evidence; not a certification."
+}

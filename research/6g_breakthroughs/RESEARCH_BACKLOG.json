@@ -77,10 +77,11 @@
     {
       "work_packet": "R6G-004",
       "title": "Multimodal ISAC Personal Sensing",
-      "status": "REGISTERED_NOT_ACTIVE",
-      "priority": "P3",
-      "primary_owner_repo": "7gc-digital-twin",
+      "status": "MODELED_SYNTHETIC_STUB",
+      "priority": "P2",
+      "primary_owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "supporting_repos": [
+        "7gc-digital-twin",
         "edge-io-measurement-node",
         "gunnchos-device-os"
       ],
@@ -88,13 +89,14 @@
         "ISAC",
         "HRLLC"
       ],
-      "input_datasets": "PUBLIC_PENDING_OR_SYNTHETIC_DIGITAL",
+      "input_datasets": "SYNTHETIC_LABELED_DIGITAL",
       "external_baseline": "see BREAKTHROUGH_REGISTRY mapped_packets",
-      "digital_evidence": null,
+      "digital_evidence": "artifacts/r6g/R6G004_PERSONAL_ISAC.json",
       "future_physical_evidence": "PHYSICAL_REPRODUCTION_PENDING",
       "evaluation_method": "SIMULATION/ANALYTICAL/INSPECTION as applicable",
       "environment": "DIGITAL_LOCAL",
-      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT"
+      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT",
+      "PHYSICAL_RING": false
     },
     {
       "work_packet": "R6G-005",
@@ -121,11 +123,11 @@
     {
       "work_packet": "R6G-006",
       "title": "Distributed/Cell-Free Massive MIMO",
-      "status": "REGISTERED_NOT_ACTIVE",
+      "status": "MODELED_CONTRACT_ONLY",
       "priority": "P3",
-      "primary_owner_repo": "gunnchos-mimo-smart-antenna-lab",
+      "primary_owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "supporting_repos": [
-        "gunnchos-7gc-ai-ran-field-kit"
+        "gunnchos-mimo-smart-antenna-lab"
       ],
       "imt2030_scenarios": [
         "MC",
@@ -133,20 +135,21 @@
       ],
       "input_datasets": "PUBLIC_PENDING_OR_SYNTHETIC_DIGITAL",
       "external_baseline": "see BREAKTHROUGH_REGISTRY mapped_packets",
-      "digital_evidence": null,
+      "digital_evidence": "artifacts/r6g/R6G006_CELLFREE_CONTRACT.json",
       "future_physical_evidence": "PHYSICAL_REPRODUCTION_PENDING",
       "evaluation_method": "SIMULATION/ANALYTICAL/INSPECTION as applicable",
       "environment": "DIGITAL_LOCAL",
-      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT"
+      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT",
+      "note": "Safe digital contract only; no physical exaggeration"
     },
     {
       "work_packet": "R6G-007",
       "title": "Adaptive RIS / Intelligent Environment",
-      "status": "REGISTERED_NOT_ACTIVE",
+      "status": "MODELED_CONTRACT_ONLY",
       "priority": "P3",
-      "primary_owner_repo": "7gc-digital-twin",
+      "primary_owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "supporting_repos": [
-        "gunnchos-7gc-ai-ran-field-kit"
+        "7gc-digital-twin"
       ],
       "imt2030_scenarios": [
         "IC",
@@ -154,20 +157,22 @@
       ],
       "input_datasets": "PUBLIC_PENDING_OR_SYNTHETIC_DIGITAL",
       "external_baseline": "see BREAKTHROUGH_REGISTRY mapped_packets",
-      "digital_evidence": null,
+      "digital_evidence": "artifacts/r6g/R6G007_RIS_CONTRACT.json",
       "future_physical_evidence": "PHYSICAL_REPRODUCTION_PENDING",
       "evaluation_method": "SIMULATION/ANALYTICAL/INSPECTION as applicable",
       "environment": "DIGITAL_LOCAL",
-      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT"
+      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT",
+      "RIS_PURCHASE": false,
+      "note": "Safe RIS contract; no purchase this cycle"
     },
     {
       "work_packet": "R6G-008",
       "title": "NTN Semantic Service Continuity",
-      "status": "REGISTERED_NOT_ACTIVE",
-      "priority": "P3",
-      "primary_owner_repo": "ntn-resilience-sim",
+      "status": "MODELED_LOOKUP_TABLE",
+      "priority": "P2",
+      "primary_owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "supporting_repos": [
-        "gunnchos-7gc-ai-ran-field-kit",
+        "ntn-resilience-sim",
         "waike-research-ops"
       ],
       "imt2030_scenarios": [
@@ -176,11 +181,13 @@
       ],
       "input_datasets": "PUBLIC_PENDING_OR_SYNTHETIC_DIGITAL",
       "external_baseline": "see BREAKTHROUGH_REGISTRY mapped_packets",
-      "digital_evidence": null,
+      "digital_evidence": "artifacts/r6g/R6G008_SEMANTIC_NTN.json",
       "future_physical_evidence": "PHYSICAL_REPRODUCTION_PENDING",
       "evaluation_method": "SIMULATION/ANALYTICAL/INSPECTION as applicable",
       "environment": "DIGITAL_LOCAL",
-      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT"
+      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT",
+      "real_education_outcome_claimed": false,
+      "guaranteed_learning_outcomes": false
     },
     {
       "work_packet": "R6G-009",
@@ -208,11 +215,11 @@
     {
       "work_packet": "R6G-010",
       "title": "6G Zero-Trust / PQC / ISAC Privacy",
-      "status": "REGISTERED_NOT_ACTIVE",
-      "priority": "P3",
-      "primary_owner_repo": "gunnchos-6g-security-trust-privacy-lab",
+      "status": "MODELED_SCORING_HOOKS",
+      "priority": "P2",
+      "primary_owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "supporting_repos": [
-        "gunnchos-7gc-ai-ran-field-kit"
+        "gunnchos-6g-security-trust-privacy-lab"
       ],
       "imt2030_scenarios": [
         "UC",
@@ -221,17 +228,19 @@
       ],
       "input_datasets": "PUBLIC_PENDING_OR_SYNTHETIC_DIGITAL",
       "external_baseline": "see BREAKTHROUGH_REGISTRY mapped_packets",
-      "digital_evidence": null,
+      "digital_evidence": "artifacts/r6g/R6G010_SECURITY_PQC_PRIVACY.json",
       "future_physical_evidence": "PHYSICAL_REPRODUCTION_PENDING",
       "evaluation_method": "SIMULATION/ANALYTICAL/INSPECTION as applicable",
       "environment": "DIGITAL_LOCAL",
-      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT"
+      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT",
+      "CERTIFIED": false,
+      "COMPLIANT": false
     },
     {
       "work_packet": "R6G-011",
       "title": "IMT-2030 Independent Evaluation Harness",
-      "status": "REGISTERED_NOT_ACTIVE",
-      "priority": "P3",
+      "status": "HARNESS_MAP_ONLY",
+      "priority": "P2",
       "primary_owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "supporting_repos": [
         "standards harness"
@@ -246,11 +255,13 @@
       ],
       "input_datasets": "PUBLIC_PENDING_OR_SYNTHETIC_DIGITAL",
       "external_baseline": "see BREAKTHROUGH_REGISTRY mapped_packets",
-      "digital_evidence": null,
+      "digital_evidence": "artifacts/r6g/R6G011_IMT2030_HARNESS.json",
       "future_physical_evidence": "PHYSICAL_REPRODUCTION_PENDING",
       "evaluation_method": "SIMULATION/ANALYTICAL/INSPECTION as applicable",
       "environment": "DIGITAL_LOCAL",
-      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT"
+      "current_public_standard_maturity": "PRE_STANDARD_OR_DRAFT",
+      "STANDARDIZED_6G": false,
+      "COMPLIANT": false
     }
   ]
 }

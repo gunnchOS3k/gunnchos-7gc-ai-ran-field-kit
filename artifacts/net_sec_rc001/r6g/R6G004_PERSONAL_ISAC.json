@@ -1,0 +1,173 @@
+{
+  "schema": "gunnchos.r6g.r6g004.v1",
+  "packet": "R6G-004",
+  "ok": true,
+  "status": "MODELED_SYNTHETIC_STUB",
+  "claim_state": "MODELED_SYNTHETIC_STUB",
+  "ladder_earned": [
+    "R0",
+    "R1"
+  ],
+  "dataset": {
+    "type": "SYNTHETIC_LABELED",
+    "n_samples": 64,
+    "seed": 17,
+    "real_humans": false,
+    "PHYSICAL_RING": false
+  },
+  "modalities": [
+    "RF_ONLY",
+    "RF_DEVICE",
+    "RF_RING_SIM",
+    "RF_VISION_SYNTH",
+    "RF_ALL"
+  ],
+  "privacy_modes": [
+    "RAW_STREAM",
+    "ON_DEVICE_FEATURE",
+    "DIFFERENTIAL_NOISE",
+    "AGGREGATE_ONLY"
+  ],
+  "matrix": {
+    "RF_ONLY": {
+      "RAW_STREAM": {
+        "rmse_m": 0.5582,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0513
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.5719,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.3499
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.802,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.4329
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.8629,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.4938
+      }
+    },
+    "RF_DEVICE": {
+      "RAW_STREAM": {
+        "rmse_m": 0.3609,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0588
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.3996,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.393
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.5719,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.4962
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.6208,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.5676
+      }
+    },
+    "RF_RING_SIM": {
+      "RAW_STREAM": {
+        "rmse_m": 0.2416,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0644
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.2318,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.4465
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.3103,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.5953
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.3955,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.6593
+      }
+    },
+    "RF_VISION_SYNTH": {
+      "RAW_STREAM": {
+        "rmse_m": 0.1827,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0676
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.1808,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.4658
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.2412,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.6284
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.2872,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.7147
+      }
+    },
+    "RF_ALL": {
+      "RAW_STREAM": {
+        "rmse_m": 0.1465,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0698
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.1633,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.4728
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.2043,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.6477
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.2339,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.7456
+      }
+    }
+  },
+  "ablations": {
+    "ring_drop_to_device": {
+      "rmse_m": 0.3236,
+      "privacy_leak_score": 0.45,
+      "utility_privacy_product": 0.4155
+    },
+    "vision_spoof_raw": {
+      "rmse_m": 0.455,
+      "privacy_leak_score": 0.92,
+      "utility_privacy_product": 0.0673,
+      "note": "synthetic vision spoof ablation"
+    },
+    "ILLUSTRATIVE": true
+  },
+  "documented_negative_or_no_gain": [
+    {
+      "case": "raw_stream_privacy",
+      "result": "HIGH_PRIVACY_LEAK_DESPITE_LOWER_RMSE",
+      "privacy_leak_score": 0.92,
+      "ILLUSTRATIVE": true,
+      "counts_toward_real_negatives": false
+    }
+  ],
+  "primary_multimodal_rmse_better_than_rf": true,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": false,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL": false,
+  "PHYSICAL_RING": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "note": "Synthetic stub only; not a falsifiable digital campaign; PHYSICAL_RING=false."
+}

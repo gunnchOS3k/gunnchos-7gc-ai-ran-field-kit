@@ -42,8 +42,25 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "equitable_7gc": run_equitable_7gc(),
         "imt2030_eval": run_imt2030_eval_harness(),
     }
-    r6g_out = (Path(out_dir) / "r6g") if out_dir is not None else (ROOT / "artifacts" / "r6g")
+    # Authoritative R6G tree is always artifacts/r6g (avoids dual-tree float drift mirrors).
+    r6g_out = ROOT / "artifacts" / "r6g"
     r6g = evaluate_r6g(r6g_out)
+    if out_dir is not None:
+        # Pointer only — do not fork a second metric implementation tree.
+        mirror = Path(out_dir) / "r6g"
+        mirror.mkdir(parents=True, exist_ok=True)
+        (mirror / "AUTHORITATIVE_PATH.json").write_text(
+            json.dumps(
+                {
+                    "authoritative": "artifacts/r6g",
+                    "note": "net_sec embeds R6G summary; regenerate via make r6g-reproduce",
+                    "dual_tree_disposition": "AUTHORITATIVE_SINGLE_TREE",
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
 
     tokens = empty_token_table()
     # Honesty: Rel-16 RM520N digital sim does NOT earn 5GA.
@@ -218,8 +235,8 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
                             len(r6g.get("documented_negative_experiments", {}).get(k, [])) >= 1
                             for k in ("R6G-003", "R6G-005", "R6G-009")
                         ),
-                        "hybrid_kept": tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is True,
-                        "semantic_kept": tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is True,
+                        "hybrid_demoted_illustrative": tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is False,
+                        "semantic_demoted_lookup": tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is False,
                         "product_wording_rel16": "Rel-16" in PRODUCT_WORDING,
                     },
                     "token_status": {
@@ -232,8 +249,8 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
                         "6G_BREAKTHROUGH_PASS": None,
                     },
                     "note": (
-                        "Author self-check after R6G tautology/naked-headline remediation on PR #78. "
-                        "IMPROVED_STATE_OF_ART=false. Cursor does not merge."
+                        "Author self-check after R6G-PORTFOLIO-ADOPTION-002 honesty demotions on PR #80. "
+                        "HYBRID/SEMANTIC digital tokens demoted. IMPROVED_STATE_OF_ART=false. Cursor does not merge."
                     ),
                 },
                 indent=2,

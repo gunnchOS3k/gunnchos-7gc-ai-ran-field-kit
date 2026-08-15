@@ -1,58 +1,78 @@
 {
+  "HYBRID_SPECTRUM_FABRIC_DIGITAL": false,
   "IMPROVED_STATE_OF_ART": false,
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "RM520N_GL_5GA": false,
   "RM520N_GL_NTN": false,
+  "bearer_continuum": [
+    "local_only",
+    "LEO_NTN",
+    "sub6_terrestrial",
+    "FR3",
+    "mmWave",
+    "sub_THz",
+    "FSO_OWC",
+    "THz"
+  ],
   "bearers": {
     "FR3": {
       "HARDWARE_PENDING": true,
+      "continuum_index": 3,
       "latency_ms": 18,
       "rate_mbps": 800,
       "status": "MODELED"
     },
     "FSO_OWC": {
       "HARDWARE_PENDING": true,
+      "continuum_index": 6,
       "latency_ms": 5,
       "rate_mbps": 20000,
       "status": "MODELED"
     },
     "LEO_NTN": {
       "HARDWARE_PENDING": false,
+      "continuum_index": 1,
       "latency_ms": 45,
       "rate_mbps": 5,
       "status": "SIMULATED"
     },
     "THz": {
       "HARDWARE_PENDING": true,
+      "continuum_index": 7,
       "latency_ms": 10,
       "rate_mbps": 50000,
       "status": "MODELED"
     },
     "local_only": {
       "HARDWARE_PENDING": false,
+      "continuum_index": 0,
       "latency_ms": 1,
       "rate_mbps": 1000,
       "status": "SIMULATED"
     },
     "mmWave": {
       "HARDWARE_PENDING": true,
+      "continuum_index": 4,
       "latency_ms": 15,
       "rate_mbps": 2000,
       "status": "MODELED"
     },
     "sub6_terrestrial": {
       "HARDWARE_PENDING": false,
+      "continuum_index": 2,
       "latency_ms": 20,
       "rate_mbps": 200,
       "status": "SIMULATED"
     },
     "sub_THz": {
       "HARDWARE_PENDING": true,
+      "continuum_index": 5,
       "latency_ms": 12,
       "rate_mbps": 10000,
       "status": "MODELED"
     }
   },
+  "claim_state": "MODELED_ILLUSTRATIVE",
   "decisions": {
     "backhaul": {
       "bearers": [
@@ -121,11 +141,60 @@
       "scenario": "thz_available"
     }
   },
+  "ladder_earned": [
+    "R0",
+    "R1"
+  ],
+  "note": "Illustrative spectrum-fabric policy sketch; not DIGITALLY_EXECUTED evidence.",
   "ok": true,
   "packet": "R6G-002",
+  "policy_comparisons": {
+    "availability_first": {
+      "bearers": [
+        "sub6_terrestrial",
+        "LEO_NTN"
+      ],
+      "fallback": "semantic_sync",
+      "policy": "availability_first"
+    },
+    "energy_first": {
+      "avoid": [
+        "THz",
+        "FSO_OWC"
+      ],
+      "bearers": [
+        "sub6_terrestrial"
+      ],
+      "policy": "energy_first"
+    },
+    "local_first": {
+      "bearers": [
+        "local_only"
+      ],
+      "fallback": "LEO_NTN",
+      "policy": "local_first"
+    },
+    "peak_rate_first": {
+      "bearers": [
+        "mmWave"
+      ],
+      "fallback": "FR3",
+      "policy": "peak_rate_first"
+    },
+    "ucs_predeclared": {
+      "bearers": [
+        "FR3",
+        "sub6_terrestrial"
+      ],
+      "fallback": "LEO_NTN",
+      "metric": "UCS",
+      "policy": "ucs_predeclared"
+    }
+  },
   "schema": "gunnchos.r6g.r6g002.v1",
-  "status": "DIGITALLY_EXECUTED",
+  "status": "MODELED_ILLUSTRATIVE",
   "useful_connectivity_comparison": {
+    "ILLUSTRATIVE": true,
     "metric_scheme": {
       "NOT_3GPP_METRIC": true,
       "NOT_ITU_METRIC": true,
@@ -143,10 +212,11 @@
       },
       "formula": "UCS = (R * D * A * Q) / (P * C)",
       "locked_at": "2026-08-15",
+      "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
       "scheme_id": "UCS_V1_PRODUCT"
     },
     "no_146_gt_145_claim": true,
-    "peak_vs_useful": "useful_link score higher despite lower peak R \u2014 exploratory only",
+    "peak_vs_useful": "illustrative only \u2014 not a falsifiable digital campaign",
     "peaky_link": {
       "NOT_3GPP_METRIC": true,
       "NOT_ITU_METRIC": true,
@@ -163,9 +233,11 @@
       "formula": "UCS = (R * D * A * Q) / (P * C)",
       "metric": "UsefulConnectivityScore",
       "note": "Exploratory; use alongside standard metrics, never instead.",
+      "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
       "scheme_id": "UCS_V1_PRODUCT",
       "score": 0.0114
     },
+    "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
     "sensitivity_useful_link": {
       "base": {
         "A": 0.9,
@@ -281,6 +353,7 @@
       "formula": "UCS = (R * D * A * Q) / (P * C)",
       "metric": "UsefulConnectivityScore",
       "note": "Exploratory; use alongside standard metrics, never instead.",
+      "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
       "scheme_id": "UCS_V1_PRODUCT",
       "score": 0.3366
     }

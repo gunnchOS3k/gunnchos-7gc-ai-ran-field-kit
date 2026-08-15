@@ -10,8 +10,12 @@ from typing import Any
 from research.r6g.claim_firewall import assert_no_soa
 from research.r6g.experiments.r6g002_spectrum_fabric import run_r6g002
 from research.r6g.experiments.r6g003_fr3_isac import NEGATIVE_CONFIGS, run_config
+from research.r6g.experiments.r6g004_multimodal_isac_personal import run_r6g004
 from research.r6g.experiments.r6g005_ai_phy import run_r6g005
+from research.r6g.experiments.r6g008_semantic_ntn import run_r6g008
 from research.r6g.experiments.r6g009_predictive_twin import run_r6g009
+from research.r6g.experiments.r6g010_security_pqc_privacy import run_r6g010
+from research.r6g.experiments.r6g011_imt2030_harness import run_r6g011
 from research.r6g.experiments.semantic_continuity_ntn_education import run_semantic_continuity
 from research.r6g.replication.ablations import ablate_r6g003, ablate_r6g005, ablate_r6g009
 from research.r6g.replication.ladder import CLAIM_STATES_ALLOWED, LADDER, contiguous_earned
@@ -330,7 +334,14 @@ def _replicate_r6g009(raw_dir: Path) -> dict[str, Any]:
     }
 
 
-def _collect_negatives(c003: dict, c005: dict, c009: dict) -> list[dict[str, Any]]:
+def _collect_negatives(
+    c003: dict,
+    c005: dict,
+    c009: dict,
+    *,
+    extra: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Real negatives (003/005/009 + executed 002/004/008/010). Illus. stubs separate."""
     out: list[dict[str, Any]] = []
     for r in c003.get("negative_runs", []):
         if r.get("multimodal_worse"):
@@ -340,38 +351,51 @@ def _collect_negatives(c003: dict, c005: dict, c009: dict) -> list[dict[str, Any
                 "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
                 "delta_m": r["rf_all_vs_rf_only_delta_m"],
                 "preserved": True,
+                "ILLUSTRATIVE": False,
             })
     for n in c005.get("documented_negative_or_no_gain", []):
-        out.append({"packet": "R6G-005", **n, "preserved": True})
+        out.append({"packet": "R6G-005", **n, "preserved": True, "ILLUSTRATIVE": False})
     for n in c009.get("documented_negative_or_no_gain", []):
-        out.append({"packet": "R6G-009", **n, "preserved": True})
-    out.append({
-        "packet": "R6G-002",
-        "experiment": "peaky_vs_useful_connectivity",
-        "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS",
-        "reason": "Peak-only THz-style link can score worse on Useful Connectivity Score",
-        "preserved": True,
-    })
-    out.append({
-        "packet": "R6G-008",
-        "experiment": "full_content_long_outage",
-        "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE",
-        "reason": "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
-        "preserved": True,
-    })
+        out.append({"packet": "R6G-009", **n, "preserved": True, "ILLUSTRATIVE": False})
+    for n in extra or []:
+        if n.get("ILLUSTRATIVE"):
+            continue
+        out.append(n)
     return out
 
 
+def _illustrative_negatives() -> list[dict[str, Any]]:
+    """Legacy construction stubs — do not count toward real negative_result_count."""
+    return []
+
 def _dashboard_row(c: dict[str, Any], *, adoption: str) -> dict[str, Any]:
+    """Dashboard consumes evidence manifests — never invents claim truth / ladder promotion.
+
+    Boolean evidence columns reflect published evidence fields. Ladder/claim stay
+    on the candidate record (preserved #79 caps for 005/009).
+    """
     flags = c.get("ladder_flags", {})
+    earned = c.get("ladder_earned") or contiguous_earned(flags)
+    falsification_ev = bool(c.get("falsification_evidence")) or bool(
+        c.get("documented_negative_or_no_gain")
+    )
+    multi_seed_ev = bool(c.get("multi_seed_evidence_ready")) or bool(
+        c.get("metrics_vary_across_seeds")
+    )
+    abl_ev = bool(c.get("ablation_evidence_ready")) or bool(
+        (c.get("ablation") or {}).get("ablation_ok")
+    )
     return {
         "packet": c["candidate"],
-        "baseline_registered": flags.get("R0", False),
-        "baseline_reproduced": flags.get("R3", False),
-        "multi_seed": flags.get("R3", False),
-        "falsification": flags.get("R4", False),
-        "negative_controls": flags.get("R4", False),
-        "ablation": flags.get("R5", False),
+        "baseline_registered": bool(flags.get("R0", False)) or "R0" in earned,
+        "baseline_reproduced": "R3" in earned,  # earned only — not evidence-ready alone
+        "multi_seed": multi_seed_ev,
+        "multi_seed_ladder_earned": "R3" in earned,
+        "falsification": falsification_ev,
+        "falsification_ladder_earned": "R4" in earned,
+        "negative_controls": falsification_ev,
+        "ablation": abl_ev,
+        "ablation_ladder_earned": "R5" in earned,
         "robustness": "EXECUTED_LIGHTWEIGHT" if c.get("robustness_runs") else "NOT_EXECUTED",
         "clean_checkout": False,
         "independent_verify": False,  # same-PR never counts
@@ -382,7 +406,48 @@ def _dashboard_row(c: dict[str, Any], *, adoption: str) -> dict[str, Any]:
         "paper_status": "NOT_SUBMITTED",
         "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED",
         "claim_state": c.get("claim_state"),
+        "ladder_earned": earned,
+        "evidence_manifest": {
+            "metrics_vary_across_seeds": bool(c.get("metrics_vary_across_seeds")),
+            "multi_seed_evidence_ready": bool(c.get("multi_seed_evidence_ready")),
+            "falsification_evidence": bool(c.get("falsification_evidence")),
+            "ablation_evidence_ready": bool(c.get("ablation_evidence_ready")),
+            "r3_r5_deferred": c.get("r3_r5_deferred"),
+            "ladder_cap_note": c.get("ladder_cap_note"),
+        },
         "IMPROVED_STATE_OF_ART": False,
+    }
+
+
+def _supporting_dashboard_row(packet: str, report: dict[str, Any], *, adoption: str) -> dict[str, Any]:
+    negatives = report.get("documented_negative_or_no_gain") or []
+    real_neg = [n for n in negatives if not n.get("ILLUSTRATIVE")]
+    return {
+        "packet": packet,
+        "baseline_registered": True,
+        "baseline_reproduced": False,
+        "multi_seed": bool(report.get("primary_seeds") or report.get("seeds")),
+        "falsification": len(real_neg) >= 1,
+        "negative_controls": len(real_neg) >= 1,
+        "ablation": bool(report.get("ablations")),
+        "robustness": "EXECUTED_LIGHTWEIGHT" if report.get("status", "").startswith("DIGITAL") else "NOT_EXECUTED",
+        "clean_checkout": False,
+        "independent_verify": False,
+        "integration": False,
+        "adoption_package": adoption,
+        "external_reproduction": False,
+        "physical_validation": False,
+        "paper_status": "NOT_SUBMITTED",
+        "standard_mapping": "N/A",
+        "claim_state": report.get("claim_state"),
+        "ladder_earned": report.get("ladder_earned", ["R0", "R1"]),
+        "evidence_manifest": {
+            "execution_class": report.get("execution_class"),
+            "status": report.get("status"),
+            "real_negative_count": len(real_neg),
+        },
+        "IMPROVED_STATE_OF_ART": False,
+        "real_education_outcome_claimed": report.get("real_education_outcome_claimed", False),
     }
 
 
@@ -395,18 +460,33 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
     c005 = _replicate_r6g005(raw_dir)
     c009 = _replicate_r6g009(raw_dir)
     r002 = run_r6g002()
+    r004 = run_r6g004()
+    r008 = run_r6g008()
+    r010 = run_r6g010()
+    r011 = run_r6g011()
     sem = run_semantic_continuity()
     _write_json(raw_dir / "R6G-002" / "report.json", r002)
+    _write_json(raw_dir / "R6G-004" / "report.json", r004)
+    _write_json(raw_dir / "R6G-008" / "report.json", r008)
     _write_json(raw_dir / "R6G-008" / "semantic_continuity.json", sem)
+    _write_json(raw_dir / "R6G-010" / "report.json", r010)
+    _write_json(raw_dir / "R6G-011" / "report.json", r011)
 
-    negatives = _collect_negatives(c003, c005, c009)
+    extra_negs: list[dict[str, Any]] = []
+    for packet, rep in (("R6G-002", r002), ("R6G-004", r004), ("R6G-008", r008), ("R6G-010", r010)):
+        for n in rep.get("documented_negative_or_no_gain") or []:
+            extra_negs.append({"packet": packet, **n})
+    negatives = _collect_negatives(c003, c005, c009, extra=extra_negs)
+    illustrative = _illustrative_negatives()
     neg_doc = {
         "schema": "gunnchos.r6g.negative_results.v1",
         "as_of": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "IMPROVED_STATE_OF_ART": False,
-        "note": "Negative results define the operating envelope; not program failure.",
+        "note": "Real negatives define the operating envelope; illustrative stubs are separate.",
         "count": len(negatives),
         "results": negatives,
+        "illustrative_count": len(illustrative),
+        "illustrative_results": illustrative,
     }
     _write_json(out / "R6G_NEGATIVE_RESULTS.json", neg_doc)
     _write_json(ROOT / "research" / "6g_breakthroughs" / "R6G_NEGATIVE_RESULTS.json", neg_doc)
@@ -421,12 +501,12 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
         ),
         "R6G-004": "A0_INTERNAL_EXPERIMENT",
         "R6G-005": "A0_INTERNAL_EXPERIMENT",  # incomplete until claim upgrades
-        "R6G-006": "A0_STAGED_NOT_EXECUTED",
-        "R6G-007": "A0_STAGED_NOT_EXECUTED",
+        "R6G-006": "A0_STAGED_MODELED_CONTRACT",
+        "R6G-007": "A0_STAGED_MODELED_CONTRACT",
         "R6G-008": "A0_INTERNAL_EXPERIMENT",
         "R6G-009": "A0_INTERNAL_EXPERIMENT",
-        "R6G-010": "A0_STAGED_NOT_EXECUTED",
-        "R6G-011": "A0_STAGED_NOT_EXECUTED",
+        "R6G-010": "A0_INTERNAL_EXPERIMENT",
+        "R6G-011": "A0_INTERNAL_EXPERIMENT",
         "levels_do_not_skip": True,
         "A2_plus": "NOT_CLAIMED_THIS_CYCLE",
     }
@@ -442,54 +522,18 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
         "disclaimer": (
             "Interesting simulation ≠ accepted breakthrough. "
             "Same-PR arithmetic verifier ≠ R6 independent. "
-            "No PROMISING_DIGITAL without external path."
+            "Dashboard evidence columns consume manifests; ladder/claim are not auto-promoted."
         ),
         "ladder_definition": LADDER,
         "rows": [
             _dashboard_row(c003, adoption=adoption["R6G-003"]),
-            {
-                "packet": "R6G-002",
-                "baseline_registered": True,
-                "baseline_reproduced": False,
-                "multi_seed": False,
-                "falsification": True,
-                "negative_controls": True,
-                "ablation": False,
-                "robustness": "NOT_EXECUTED",
-                "clean_checkout": False,
-                "independent_verify": False,
-                "integration": False,
-                "adoption_package": adoption["R6G-002"],
-                "external_reproduction": False,
-                "physical_validation": False,
-                "paper_status": "NOT_SUBMITTED",
-                "standard_mapping": "N/A",
-                "claim_state": "MODELED" if r002.get("ok") else "REPLICATION_INCOMPLETE",
-                "IMPROVED_STATE_OF_ART": False,
-            },
+            _supporting_dashboard_row("R6G-002", r002, adoption=adoption["R6G-002"]),
             _dashboard_row(c005, adoption=adoption["R6G-005"]),
             _dashboard_row(c009, adoption=adoption["R6G-009"]),
-            {
-                "packet": "R6G-008",
-                "baseline_registered": True,
-                "baseline_reproduced": False,
-                "multi_seed": False,
-                "falsification": True,
-                "negative_controls": True,
-                "ablation": False,
-                "robustness": "NOT_EXECUTED",
-                "clean_checkout": False,
-                "independent_verify": False,
-                "integration": False,
-                "adoption_package": adoption["R6G-008"],
-                "external_reproduction": False,
-                "physical_validation": False,
-                "paper_status": "NOT_SUBMITTED",
-                "standard_mapping": "N/A",
-                "claim_state": "MODELED" if sem.get("ok") else "REPLICATION_INCOMPLETE",
-                "IMPROVED_STATE_OF_ART": False,
-                "real_education_outcome_claimed": False,
-            },
+            _supporting_dashboard_row("R6G-008", r008, adoption=adoption["R6G-008"]),
+            _supporting_dashboard_row("R6G-004", r004, adoption=adoption["R6G-004"]),
+            _supporting_dashboard_row("R6G-010", r010, adoption=adoption["R6G-010"]),
+            _supporting_dashboard_row("R6G-011", r011, adoption=adoption["R6G-011"]),
         ],
     }
     _write_json(out / "R6G_PORTFOLIO_DASHBOARD.json", dashboard)
@@ -515,15 +559,40 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
         "seed_registry": SEED_REGISTRY,
         "candidates": {c["candidate"]: c for c in candidates},
         "supporting": {
-            "R6G-002": {"ok": r002["ok"], "claim_state": "MODELED", "IMPROVED_STATE_OF_ART": False},
+            "R6G-002": {
+                "ok": r002["ok"],
+                "claim_state": r002["claim_state"],
+                "ladder_earned": r002["ladder_earned"],
+                "IMPROVED_STATE_OF_ART": False,
+            },
+            "R6G-004": {
+                "ok": r004["ok"],
+                "claim_state": r004["claim_state"],
+                "ladder_earned": r004["ladder_earned"],
+                "IMPROVED_STATE_OF_ART": False,
+            },
             "R6G-008": {
-                "ok": sem["ok"],
-                "claim_state": "MODELED",
+                "ok": r008["ok"],
+                "claim_state": r008["claim_state"],
+                "ladder_earned": r008["ladder_earned"],
                 "real_education_outcome_claimed": False,
+                "IMPROVED_STATE_OF_ART": False,
+            },
+            "R6G-010": {
+                "ok": r010["ok"],
+                "claim_state": r010["claim_state"],
+                "ladder_earned": r010["ladder_earned"],
+                "IMPROVED_STATE_OF_ART": False,
+            },
+            "R6G-011": {
+                "ok": r011["ok"],
+                "claim_state": r011["claim_state"],
+                "ladder_earned": r011["ladder_earned"],
                 "IMPROVED_STATE_OF_ART": False,
             },
         },
         "negative_result_count": len(negatives),
+        "illustrative_negative_count": len(illustrative),
         "adoption_levels": adoption,
         "dashboard": dashboard,
         "tokens": {
@@ -549,10 +618,13 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
             "Clean-checkout CI soak (R7) EXTERNAL_PENDING",
             "External reproduction packet EXTERNAL_REPRODUCTION_PENDING",
             "Physical/SDR/OTA R8/R9 not claimed",
-            "R6G-006/007/010/011 staged — lightweight scaffolding only",
+            "R6G-006/007 MODELED_CONTRACT_ONLY — no physical exaggeration",
+            "R6G-002/008/010 DIGITALLY_EXECUTED; 011 harness executed; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
+            "Dual-tree: artifacts/r6g is authoritative; stable_seed replaces process-salted hash()",
             "Large robustness / Sionna / ns-3 sweeps deferred (Product-Use may own QEMU)",
             "IMPROVED_STATE_OF_ART remains false",
             "PROMISING_DIGITAL not awarded this cycle",
+            "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE; 005/009 REPLICATION_INCOMPLETE preserved",
         ],
         "deferred_heavy_work": [
             "ns-3 / Sionna / DeepMIMO campaign sweeps",

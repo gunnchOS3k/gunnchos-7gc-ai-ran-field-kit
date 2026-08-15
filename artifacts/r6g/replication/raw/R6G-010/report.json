@@ -1,0 +1,292 @@
+{
+  "CERTIFIED": false,
+  "COMPLIANT": false,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": true,
+  "STANDARDIZED_6G": false,
+  "accept_count": 3,
+  "all_tests_met_expected": true,
+  "claim_state": "DIGITALLY_EXECUTED",
+  "documented_negative_or_no_gain": [
+    {
+      "ILLUSTRATIVE": false,
+      "case": "overclaim_trap_privacy_floor",
+      "counts_toward_real_negatives": true,
+      "privacy_floor_fail": true,
+      "result": "HIGH_AGGREGATE_REJECTED_ON_PRIVACY_FLOOR"
+    }
+  ],
+  "executed_test_count": 13,
+  "executed_tests": [
+    {
+      "decision": "ACCEPT",
+      "detail": {
+        "alg": "HMAC-SHA256"
+      },
+      "expected": "ACCEPT",
+      "pass": true,
+      "test": "signature_verify_valid"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {},
+      "expected": "REJECT",
+      "pass": true,
+      "test": "signature_verify_tampered_message"
+    },
+    {
+      "decision": "ACCEPT",
+      "detail": {
+        "nonce": "nonce-001"
+      },
+      "expected": "ACCEPT",
+      "pass": true,
+      "test": "anti_replay_first_use"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "nonce": "nonce-001"
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "anti_replay_reuse"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "expires_at": 1723999940.0,
+        "now": 1724000000.0
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "expired_credential"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "claimed": "device:attacker-999",
+        "expected_identity": "device:ring-sim-001"
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "wrong_identity"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "expected": "6903dfbdfe04273e",
+        "presented": "eed7e298db5ba204"
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "tampered_model"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {},
+      "expected": "REJECT",
+      "pass": true,
+      "test": "tampered_telemetry"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "presented": "attacker_injected_camera"
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "spoofed_sensor_provenance"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "action": "force_exfiltrate_raw_stream"
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "unauthorized_policy_action"
+    },
+    {
+      "decision": "ACCEPT",
+      "detail": {
+        "catalog": [
+          "Dilithium2",
+          "Kyber768",
+          "Falcon512",
+          "SPHINCS+-SHA2-128s"
+        ],
+        "configured": [
+          "Dilithium2",
+          "Kyber768"
+        ]
+      },
+      "expected": "ACCEPT",
+      "pass": true,
+      "test": "pqc_agility_config"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "consent": {
+          "cloud_upload": false,
+          "sensing_share": false
+        },
+        "requested": "cloud_upload"
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "consent_denial"
+    },
+    {
+      "decision": "REJECT",
+      "detail": {
+        "injected_keys": [
+          "__proto__",
+          "admin_override",
+          "progress"
+        ]
+      },
+      "expected": "REJECT",
+      "pass": true,
+      "test": "malicious_state_injection"
+    }
+  ],
+  "execution_class": "EXECUTED_SECURITY_TEST_BATTERY",
+  "falsification": {
+    "ILLUSTRATIVE": false,
+    "note": "Privacy-floor gate plus executed reject paths",
+    "overclaim_trap_scores_worse_when_privacy_collapses": true
+  },
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "note": "Executed digital accept/reject battery; not a certification.",
+  "ok": true,
+  "packet": "R6G-010",
+  "privacy_floor": 0.25,
+  "profiles": {
+    "baseline_rel16_terrestrial": {
+      "NOT_CERTIFICATION": true,
+      "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+      "components": {
+        "auditability": {
+          "value": 0.55,
+          "weight": 0.1,
+          "weighted": 0.055
+        },
+        "key_lifecycle": {
+          "value": 0.5,
+          "weight": 0.15,
+          "weighted": 0.075
+        },
+        "pqc_readiness": {
+          "value": 0.2,
+          "weight": 0.25,
+          "weighted": 0.05
+        },
+        "sensing_privacy": {
+          "value": 0.4,
+          "weight": 0.25,
+          "weighted": 0.1
+        },
+        "zero_trust_posture": {
+          "value": 0.45,
+          "weight": 0.25,
+          "weighted": 0.1125
+        }
+      },
+      "privacy_floor_fail": false,
+      "scheme_id": "SEC_PRIV_V1",
+      "score": 0.3925
+    },
+    "overclaim_trap": {
+      "NOT_CERTIFICATION": true,
+      "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+      "components": {
+        "auditability": {
+          "value": 0.9,
+          "weight": 0.1,
+          "weighted": 0.09
+        },
+        "key_lifecycle": {
+          "value": 0.9,
+          "weight": 0.15,
+          "weighted": 0.135
+        },
+        "pqc_readiness": {
+          "value": 0.95,
+          "weight": 0.25,
+          "weighted": 0.2375
+        },
+        "sensing_privacy": {
+          "value": 0.1,
+          "weight": 0.25,
+          "weighted": 0.025
+        },
+        "zero_trust_posture": {
+          "value": 0.95,
+          "weight": 0.25,
+          "weighted": 0.2375
+        }
+      },
+      "privacy_floor_fail": true,
+      "scheme_id": "SEC_PRIV_V1",
+      "score": 0.725
+    },
+    "research_candidate_digital": {
+      "NOT_CERTIFICATION": true,
+      "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+      "components": {
+        "auditability": {
+          "value": 0.7,
+          "weight": 0.1,
+          "weighted": 0.07
+        },
+        "key_lifecycle": {
+          "value": 0.6,
+          "weight": 0.15,
+          "weighted": 0.09
+        },
+        "pqc_readiness": {
+          "value": 0.55,
+          "weight": 0.25,
+          "weighted": 0.1375
+        },
+        "sensing_privacy": {
+          "value": 0.65,
+          "weight": 0.25,
+          "weighted": 0.1625
+        },
+        "zero_trust_posture": {
+          "value": 0.7,
+          "weight": 0.25,
+          "weighted": 0.175
+        }
+      },
+      "privacy_floor_fail": false,
+      "scheme_id": "SEC_PRIV_V1",
+      "score": 0.635
+    }
+  },
+  "reject_count": 10,
+  "schema": "gunnchos.r6g.r6g010.v1",
+  "status": "DIGITALLY_EXECUTED",
+  "weight_scheme": {
+    "NOT_CERTIFICATION": true,
+    "amendments": [],
+    "classification": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
+    "locked_at": "2026-08-15",
+    "scheme_id": "SEC_PRIV_V1",
+    "weights": {
+      "auditability": 0.1,
+      "key_lifecycle": 0.15,
+      "pqc_readiness": 0.25,
+      "sensing_privacy": 0.25,
+      "zero_trust_posture": 0.25
+    }
+  }
+}

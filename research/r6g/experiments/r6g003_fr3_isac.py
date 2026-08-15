@@ -12,6 +12,7 @@ import random
 from typing import Any
 
 from research.r6g.claim_firewall import assert_no_soa
+from research.r6g.metrics.stable_seed import mix_seed
 from research.r6g.metrics.useful_connectivity import useful_connectivity_score
 
 MODALITIES = (
@@ -51,7 +52,7 @@ def _estimate_track(
     fusion_trust_vision: float = 0.35,
 ) -> list[tuple[float, float]]:
     """Digital sensing estimators. Fusion weights are explicit and can hurt under spoof."""
-    rng = random.Random(seed + (hash(modality) % 10_000))
+    rng = random.Random(mix_seed(seed, "modality", modality))
     est: list[tuple[float, float]] = []
     ix = iy = 0.0
     prev_true = track[0]
