@@ -6,10 +6,12 @@
     "Clean-checkout CI soak (R7) EXTERNAL_PENDING",
     "External reproduction packet EXTERNAL_REPRODUCTION_PENDING",
     "Physical/SDR/OTA R8/R9 not claimed",
-    "R6G-006/007/010/011 staged \u2014 lightweight scaffolding only",
+    "R6G-006/007 MODELED_CONTRACT_ONLY \u2014 no physical exaggeration",
+    "R6G-004/008/010/011 digitally executed this wave; adoption remains A0 unless earned",
     "Large robustness / Sionna / ns-3 sweeps deferred (Product-Use may own QEMU)",
     "IMPROVED_STATE_OF_ART remains false",
-    "PROMISING_DIGITAL not awarded this cycle"
+    "PROMISING_DIGITAL not awarded this cycle",
+    "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE; 005/009 REPLICATION_INCOMPLETE preserved"
   ],
   "adoption_levels": {
     "A2_plus": "NOT_CLAIMED_THIS_CYCLE",
@@ -18,15 +20,15 @@
     "R6G-003": "A1_STABLE_REFERENCE_IMPLEMENTATION",
     "R6G-004": "A0_INTERNAL_EXPERIMENT",
     "R6G-005": "A0_INTERNAL_EXPERIMENT",
-    "R6G-006": "A0_STAGED_NOT_EXECUTED",
-    "R6G-007": "A0_STAGED_NOT_EXECUTED",
+    "R6G-006": "A0_STAGED_MODELED_CONTRACT",
+    "R6G-007": "A0_STAGED_MODELED_CONTRACT",
     "R6G-008": "A0_INTERNAL_EXPERIMENT",
     "R6G-009": "A0_INTERNAL_EXPERIMENT",
-    "R6G-010": "A0_STAGED_NOT_EXECUTED",
-    "R6G-011": "A0_STAGED_NOT_EXECUTED",
+    "R6G-010": "A0_INTERNAL_EXPERIMENT",
+    "R6G-011": "A0_INTERNAL_EXPERIMENT",
     "levels_do_not_skip": true
   },
-  "as_of_utc": "2026-08-15T17:30:19.236768+00:00",
+  "as_of_utc": "2026-08-15T18:38:21.459219+00:00",
   "candidates": {
     "R6G-003": {
       "DIGITAL_REPRODUCTION_MATCHED_TO_PHYSICAL": false,
@@ -40,39 +42,39 @@
         "packet": "R6G-003",
         "rows": [
           {
-            "RF_ALL": 0.1542,
-            "RF_DEVICE_IMU": 0.341,
-            "RF_ONLY": 0.4888,
-            "RF_RING_UWB_IMU": 0.1822,
+            "RF_ALL": 0.1509,
+            "RF_DEVICE_IMU": 0.3058,
+            "RF_ONLY": 0.5404,
+            "RF_RING_UWB_IMU": 0.1972,
             "ablation_check_ok": true,
-            "delta_all_vs_rf": -0.3346,
-            "delta_imu_vs_rf": -0.1478,
-            "delta_ring_vs_rf": -0.3066,
-            "no_vision_trust0_ALL": 0.2102,
+            "delta_all_vs_rf": -0.3895,
+            "delta_imu_vs_rf": -0.2346,
+            "delta_ring_vs_rf": -0.3432,
+            "no_vision_trust0_ALL": 0.2097,
             "seed": 7
           },
           {
-            "RF_ALL": 0.158,
-            "RF_DEVICE_IMU": 0.3459,
-            "RF_ONLY": 0.5148,
-            "RF_RING_UWB_IMU": 0.2027,
+            "RF_ALL": 0.1584,
+            "RF_DEVICE_IMU": 0.3012,
+            "RF_ONLY": 0.4775,
+            "RF_RING_UWB_IMU": 0.1903,
             "ablation_check_ok": true,
-            "delta_all_vs_rf": -0.3568,
-            "delta_imu_vs_rf": -0.1689,
-            "delta_ring_vs_rf": -0.3121,
-            "no_vision_trust0_ALL": 0.2135,
+            "delta_all_vs_rf": -0.3191,
+            "delta_imu_vs_rf": -0.1763,
+            "delta_ring_vs_rf": -0.2872,
+            "no_vision_trust0_ALL": 0.2194,
             "seed": 11
           },
           {
-            "RF_ALL": 0.152,
-            "RF_DEVICE_IMU": 0.2771,
-            "RF_ONLY": 0.4517,
-            "RF_RING_UWB_IMU": 0.1795,
+            "RF_ALL": 0.1592,
+            "RF_DEVICE_IMU": 0.3254,
+            "RF_ONLY": 0.5051,
+            "RF_RING_UWB_IMU": 0.1821,
             "ablation_check_ok": true,
-            "delta_all_vs_rf": -0.2997,
-            "delta_imu_vs_rf": -0.1746,
-            "delta_ring_vs_rf": -0.2722,
-            "no_vision_trust0_ALL": 0.2177,
+            "delta_all_vs_rf": -0.3459,
+            "delta_imu_vs_rf": -0.1797,
+            "delta_ring_vs_rf": -0.323,
+            "no_vision_trust0_ALL": 0.2227,
             "seed": 19
           }
         ]
@@ -105,100 +107,100 @@
       "negative_runs": [
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.409,
+          "rf_all_vs_rf_only_delta_m": 2.9221,
           "seed": 101,
-          "sha256": "31568436766ce12f5563d5768f3e23450d628c55b1a8198afd2e2542cad12f2c"
+          "sha256": "a32c430aee891f55f52f1dea6c4da67b2a5dcafe3b4302637bf89a9d72fb45e8"
         },
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.9941,
+          "rf_all_vs_rf_only_delta_m": 2.7328,
           "seed": 202,
-          "sha256": "3bdb26130d34c683da4c767b2f31a1c8563860d0a799096ba263ab2332fe70fa"
+          "sha256": "36cbf56ab49307d68abebda426a6e1c66e90226e72e83b3ece3f5e5cc52eba6c"
         },
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.533,
+          "rf_all_vs_rf_only_delta_m": 3.1429,
           "seed": 303,
-          "sha256": "c861b65347d60ded59d3a7dfc344eb253f9cb484366510bc4a34a7e9f5139e82"
+          "sha256": "c7e399bd95f965ce4cd3c4ca2c46758bd4df613a294b39cdceb9ea48ef5ae027"
         },
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.6434,
+          "rf_all_vs_rf_only_delta_m": 2.6495,
           "seed": 404,
-          "sha256": "9d1d5f4bf4ec64c99a0dba24a5dc9c28fdc1819c5ec033f54499843c37b123d0"
+          "sha256": "da958165b994595cc87a44225276493ecc87580b7b5f72a67a251a02b6d551fc"
         }
       ],
       "primary_delta_summary": {
-        "max": -0.2957,
-        "mean": -0.346612,
-        "median": -0.35275,
-        "min": -0.3712,
+        "max": -0.3154,
+        "mean": -0.350788,
+        "median": -0.3422,
+        "min": -0.4011,
         "n": 8,
         "note": "Descriptive only; no NHST / p-value claim"
       },
       "primary_runs": [
         {
-          "RF_ALL": 0.1575,
-          "RF_ONLY": 0.4888,
-          "rf_all_vs_rf_only_delta_m": -0.3313,
+          "RF_ALL": 0.1544,
+          "RF_ONLY": 0.5404,
+          "rf_all_vs_rf_only_delta_m": -0.386,
           "seed": 7,
-          "sha256": "f31675f34544f6d95b20e54e312d8740a84d19408b80bab34323ca310836feae",
+          "sha256": "a5c9d2bbb3efb3d7908ac73f6244b0dcbda3ea9e47d855ee0f3aaffa71734eea",
           "win": true
         },
         {
-          "RF_ALL": 0.1614,
-          "RF_ONLY": 0.5148,
-          "rf_all_vs_rf_only_delta_m": -0.3534,
+          "RF_ALL": 0.1621,
+          "RF_ONLY": 0.4775,
+          "rf_all_vs_rf_only_delta_m": -0.3154,
           "seed": 11,
-          "sha256": "b2b984f3bfe06e48332a28ff28e7f8ef3e75116eb28ed6f16467d0422ce968ef",
+          "sha256": "20fcaf98d4894dd86889f3e826630aa15fe4815c511cfa6c77b68d6965afa153",
           "win": true
         },
         {
-          "RF_ALL": 0.156,
-          "RF_ONLY": 0.4517,
-          "rf_all_vs_rf_only_delta_m": -0.2957,
+          "RF_ALL": 0.1631,
+          "RF_ONLY": 0.5051,
+          "rf_all_vs_rf_only_delta_m": -0.342,
           "seed": 19,
-          "sha256": "5bcae2466a5092823c34e9a0066fa6f02a79f91557daa52e302f1ea2cbe8ccb8",
+          "sha256": "5a493e7a1443eec49a7bd81f73f29cf61eba3fb254a984974fdc1e24a3611f77",
           "win": true
         },
         {
-          "RF_ALL": 0.1588,
-          "RF_ONLY": 0.5015,
-          "rf_all_vs_rf_only_delta_m": -0.3427,
+          "RF_ALL": 0.1461,
+          "RF_ONLY": 0.4885,
+          "rf_all_vs_rf_only_delta_m": -0.3424,
           "seed": 23,
-          "sha256": "4cf322b799f338b09fe93583be29483cfe96fa37d18bf2a327a42c991b74869d",
+          "sha256": "2d672bc5a5f8e56cac5eeb87a41812286c4c64931b8d1edc3b612b3de108c3f9",
           "win": true
         },
         {
-          "RF_ALL": 0.1642,
-          "RF_ONLY": 0.5262,
-          "rf_all_vs_rf_only_delta_m": -0.362,
+          "RF_ALL": 0.1502,
+          "RF_ONLY": 0.5513,
+          "rf_all_vs_rf_only_delta_m": -0.4011,
           "seed": 29,
-          "sha256": "614db83a1fb401e4b758e3740aa1ed2208d9973572dfd2659e6fb448bd46abfa",
+          "sha256": "65405d9841f712c73bfcfb3cc654d5d489b17d2b4872352335fed1153c3ae6ac",
           "win": true
         },
         {
-          "RF_ALL": 0.1498,
-          "RF_ONLY": 0.5143,
-          "rf_all_vs_rf_only_delta_m": -0.3645,
+          "RF_ALL": 0.1578,
+          "RF_ONLY": 0.4974,
+          "rf_all_vs_rf_only_delta_m": -0.3396,
           "seed": 31,
-          "sha256": "6b048eff4b07952adcf2e80ecca273bc11cb2fdcf372011516eb9e1b1fe0b5ee",
+          "sha256": "9d939b718184467dfb655c3cb4691e527913de9dffe3ce90dee62c80db7f8573",
           "win": true
         },
         {
-          "RF_ALL": 0.1485,
-          "RF_ONLY": 0.5197,
-          "rf_all_vs_rf_only_delta_m": -0.3712,
+          "RF_ALL": 0.1629,
+          "RF_ONLY": 0.4822,
+          "rf_all_vs_rf_only_delta_m": -0.3193,
           "seed": 37,
-          "sha256": "42779ebb0c743102575227c68aaf5f254a6cd55b7c47be013c5447362ad910d4",
+          "sha256": "a498c3776de6c80c712a69f4c89d6575047fb4070c98037327a83c7484789adf",
           "win": true
         },
         {
-          "RF_ALL": 0.1386,
-          "RF_ONLY": 0.4907,
-          "rf_all_vs_rf_only_delta_m": -0.3521,
+          "RF_ALL": 0.1402,
+          "RF_ONLY": 0.5007,
+          "rf_all_vs_rf_only_delta_m": -0.3605,
           "seed": 41,
-          "sha256": "727c2bd47c04d6a191f02989635bc703ed13174249fbdef9a42c802cff5d6005",
+          "sha256": "172f51011a8498371375ec40a1626bc7ca3137753d741c1223ab2ebe6c53d278",
           "win": true
         }
       ],
@@ -210,19 +212,19 @@
       },
       "robustness_runs": [
         {
-          "rf_all_vs_rf_only_delta_m": 0.0159,
+          "rf_all_vs_rf_only_delta_m": -0.0328,
           "seed": 51,
-          "sha256": "8c99429e718f21872713c94ce9945269a61cbe6189a77f030bfa64ca0fa2b588"
+          "sha256": "14ce9e7432aaff7b45e39c8a5aa8a496cfbfc45d0ad42279b08d2584d2aa4910"
         },
         {
-          "rf_all_vs_rf_only_delta_m": 0.3765,
+          "rf_all_vs_rf_only_delta_m": 0.2256,
           "seed": 52,
-          "sha256": "093eb75cab44c7208e6ca633bd7b8e206f0432d7b4c3f5007de947e582dc2d29"
+          "sha256": "8f1000fd4e9612424175acd6ea8ac7b12a74ce94f1f0f8d033b1f09c3376223f"
         },
         {
-          "rf_all_vs_rf_only_delta_m": -0.0461,
+          "rf_all_vs_rf_only_delta_m": 0.001,
           "seed": 53,
-          "sha256": "6a988e8b4f8b48415bb55b25f488d2d725adfebcd5c346bc6e0dadcb40d8a5ef"
+          "sha256": "83cfb9d613db3a3dab90cbad6454771751061de3dfb83e1ef3b19a23574256fd"
         }
       ],
       "title": "FR3 multimodal ISAC digital fusion"
@@ -239,8 +241,8 @@
         "rows": [
           {
             "ablation_check_ok": true,
-            "aware_adversarial_failure": 0.0047,
-            "conventional_adversarial_failure": 0.0086,
+            "aware_adversarial_failure": 0.0049,
+            "conventional_adversarial_failure": 0.0087,
             "in_distribution": {
               "AI_CSF": {
                 "BLER": 0.0811,
@@ -255,22 +257,22 @@
               "AI_CSF_UNCERTAINTY_AWARE": {
                 "BLER": 0.0137,
                 "confidence": 0.3809,
-                "coverage_norm": 0.9074,
-                "csi_mse": 0.055,
+                "coverage_norm": 0.9083,
+                "csi_mse": 0.0547,
                 "energy_norm": 1.05,
                 "failure_rate": 0.0119,
                 "fallback_rate": 0.7917,
-                "throughput_norm": 0.7997
+                "throughput_norm": 0.8004
               },
               "CONVENTIONAL_CSI": {
-                "BLER": 0.0122,
+                "BLER": 0.0121,
                 "confidence": 0.8,
-                "coverage_norm": 0.9827,
-                "csi_mse": 0.0182,
+                "coverage_norm": 0.9844,
+                "csi_mse": 0.0177,
                 "energy_norm": 1.0,
-                "failure_rate": 0.0083,
+                "failure_rate": 0.0082,
                 "fallback_rate": 0.0,
-                "throughput_norm": 0.8673
+                "throughput_norm": 0.869
               }
             },
             "naive_adversarial_failure": 0.5405,
@@ -281,7 +283,7 @@
           {
             "ablation_check_ok": true,
             "aware_adversarial_failure": 0.0046,
-            "conventional_adversarial_failure": 0.0084,
+            "conventional_adversarial_failure": 0.0081,
             "in_distribution": {
               "AI_CSF": {
                 "BLER": 0.0829,
@@ -294,24 +296,24 @@
                 "throughput_norm": 0.3368
               },
               "AI_CSF_UNCERTAINTY_AWARE": {
-                "BLER": 0.0111,
+                "BLER": 0.0112,
                 "confidence": 0.3615,
-                "coverage_norm": 0.9471,
-                "csi_mse": 0.0351,
+                "coverage_norm": 0.9436,
+                "csi_mse": 0.0367,
                 "energy_norm": 1.05,
-                "failure_rate": 0.0082,
+                "failure_rate": 0.0084,
                 "fallback_rate": 0.875,
-                "throughput_norm": 0.8374
+                "throughput_norm": 0.8324
               },
               "CONVENTIONAL_CSI": {
-                "BLER": 0.012,
+                "BLER": 0.0121,
                 "confidence": 0.8,
-                "coverage_norm": 0.9867,
-                "csi_mse": 0.0164,
+                "coverage_norm": 0.9856,
+                "csi_mse": 0.0173,
                 "energy_norm": 1.0,
-                "failure_rate": 0.008,
+                "failure_rate": 0.0081,
                 "fallback_rate": 0.0,
-                "throughput_norm": 0.8734
+                "throughput_norm": 0.8701
               }
             },
             "naive_adversarial_failure": 0.5316,
@@ -321,8 +323,8 @@
           },
           {
             "ablation_check_ok": true,
-            "aware_adversarial_failure": 0.0048,
-            "conventional_adversarial_failure": 0.0087,
+            "aware_adversarial_failure": 0.0047,
+            "conventional_adversarial_failure": 0.0086,
             "in_distribution": {
               "AI_CSF": {
                 "BLER": 0.089,
@@ -335,24 +337,24 @@
                 "throughput_norm": 0.3478
               },
               "AI_CSF_UNCERTAINTY_AWARE": {
-                "BLER": 0.0131,
+                "BLER": 0.013,
                 "confidence": 0.3744,
-                "coverage_norm": 0.914,
-                "csi_mse": 0.05,
+                "coverage_norm": 0.9174,
+                "csi_mse": 0.0487,
                 "energy_norm": 1.05,
-                "failure_rate": 0.011,
+                "failure_rate": 0.0108,
                 "fallback_rate": 0.7917,
-                "throughput_norm": 0.8049
+                "throughput_norm": 0.809
               },
               "CONVENTIONAL_CSI": {
                 "BLER": 0.0122,
                 "confidence": 0.8,
-                "coverage_norm": 0.9823,
-                "csi_mse": 0.0182,
+                "coverage_norm": 0.982,
+                "csi_mse": 0.0185,
                 "energy_norm": 1.0,
                 "failure_rate": 0.0083,
                 "fallback_rate": 0.0,
-                "throughput_norm": 0.8675
+                "throughput_norm": 0.8666
               }
             },
             "naive_adversarial_failure": 0.5407,
@@ -368,15 +370,15 @@
       "claim_state": "REPLICATION_INCOMPLETE",
       "documented_negative_or_no_gain": [
         {
-          "aware_throughput_norm": 0.7997,
-          "conventional_throughput_norm": 0.8673,
+          "aware_throughput_norm": 0.8004,
+          "conventional_throughput_norm": 0.869,
           "experiment": "in_distribution_throughput",
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
           "result": "NO_GAIN_VS_CONVENTIONAL",
           "seed": 3
         },
         {
-          "conventional_failure_rate": 0.0086,
+          "conventional_failure_rate": 0.0087,
           "experiment": "adversarial_csi_naive_ai",
           "naive_failure_rate": 0.5405,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
@@ -384,15 +386,15 @@
           "seed": 3
         },
         {
-          "aware_throughput_norm": 0.8374,
-          "conventional_throughput_norm": 0.8734,
+          "aware_throughput_norm": 0.8324,
+          "conventional_throughput_norm": 0.8701,
           "experiment": "in_distribution_throughput",
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
           "result": "NO_GAIN_VS_CONVENTIONAL",
           "seed": 5
         },
         {
-          "conventional_failure_rate": 0.0084,
+          "conventional_failure_rate": 0.0081,
           "experiment": "adversarial_csi_naive_ai",
           "naive_failure_rate": 0.5316,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
@@ -400,15 +402,15 @@
           "seed": 5
         },
         {
-          "aware_throughput_norm": 0.8049,
-          "conventional_throughput_norm": 0.8675,
+          "aware_throughput_norm": 0.809,
+          "conventional_throughput_norm": 0.8666,
           "experiment": "in_distribution_throughput",
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
           "result": "NO_GAIN_VS_CONVENTIONAL",
           "seed": 7
         },
         {
-          "conventional_failure_rate": 0.0087,
+          "conventional_failure_rate": 0.0086,
           "experiment": "adversarial_csi_naive_ai",
           "naive_failure_rate": 0.5407,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
@@ -416,19 +418,19 @@
           "seed": 7
         },
         {
-          "aware_throughput_norm": 0.7995,
-          "conventional_throughput_norm": 0.8613,
+          "aware_throughput_norm": 0.8025,
+          "conventional_throughput_norm": 0.8642,
           "experiment": "in_distribution_throughput",
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
           "result": "NO_GAIN_VS_CONVENTIONAL",
           "seed": 11
         },
         {
-          "aware_failure_rate": 0.0079,
-          "conventional_failure_rate": 0.0083,
-          "experiment": "noisy_csi_failure_rate",
-          "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim",
-          "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
+          "conventional_failure_rate": 0.0086,
+          "experiment": "adversarial_csi_naive_ai",
+          "naive_failure_rate": 0.5325,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+          "result": "NAIVE_AI_CSF_DEGRADES",
           "seed": 11
         }
       ],
@@ -456,96 +458,96 @@
       "r3_r5_deferred": "PENDING_EXTERNAL_PROTOCOL_REVIEW",
       "robustness_runs": [
         {
-          "adv_aware_fail": 0.0046,
+          "adv_aware_fail": 0.0045,
           "adv_naive_fail": 0.5097,
           "seed": 41,
-          "sha256": "704ad4d59f9ca92d3988808417a27956ec998f2f82bd5e4f352359093810e3c7"
-        },
-        {
-          "adv_aware_fail": 0.0048,
-          "adv_naive_fail": 0.5042,
-          "seed": 42,
-          "sha256": "ecbb4b13f17f924f9f9053bdebcbfe3bd8f76647c04dcc891d8e8c2316b827e4"
+          "sha256": "adde7e6668e948dfc5054cffb56d07ecd02660b967c792cc1dd97768d7cd91e0"
         },
         {
           "adv_aware_fail": 0.0049,
+          "adv_naive_fail": 0.5042,
+          "seed": 42,
+          "sha256": "8d66b2b34d4cdb0c6bed6b8bc47ee1587771e55128cc0d73438ac8bf1de5d145"
+        },
+        {
+          "adv_aware_fail": 0.0048,
           "adv_naive_fail": 0.5366,
           "seed": 43,
-          "sha256": "06e06e2b070b6b60d462f508df97f13ffef58eeba1c608a93a81740df005473b"
+          "sha256": "d0ceed22feb16c6b1e0f74bd4c30e61cf576ae6c58c522f789aead3e4c12de70"
         }
       ],
       "seed_rows": [
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
-          "aware_vs_naive_adversarial_fail_delta": 0.5358,
-          "id_aware_throughput": 0.7997,
-          "id_conventional_throughput": 0.8673,
+          "aware_vs_naive_adversarial_fail_delta": 0.5356,
+          "id_aware_throughput": 0.8004,
+          "id_conventional_throughput": 0.869,
           "primary_support_aware_vs_naive": true,
           "seed": 3,
-          "sha256": "b54323cca7d49767c99f9a3584ee54bd140e7122ce66c49c7d0fc0f51e7a9621"
+          "sha256": "12d9285dd3ba512df99868a2c8391e9a58938f049cc0f7a4d5efef6c5e027eaf"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
           "aware_vs_naive_adversarial_fail_delta": 0.527,
-          "id_aware_throughput": 0.8374,
-          "id_conventional_throughput": 0.8734,
+          "id_aware_throughput": 0.8324,
+          "id_conventional_throughput": 0.8701,
           "primary_support_aware_vs_naive": true,
           "seed": 5,
-          "sha256": "9733aca64816e45c6ec6f8a06b9a22bb2a675d3c0e0e9695e057e7630db892a5"
+          "sha256": "7e9cb236c4d730193b47c94da2d9ad169e485b337411496dc31f21379d9c7b41"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
-          "aware_vs_naive_adversarial_fail_delta": 0.5359,
-          "id_aware_throughput": 0.8049,
-          "id_conventional_throughput": 0.8675,
+          "aware_vs_naive_adversarial_fail_delta": 0.536,
+          "id_aware_throughput": 0.809,
+          "id_conventional_throughput": 0.8666,
           "primary_support_aware_vs_naive": true,
           "seed": 7,
-          "sha256": "f4aba556aef5d7640a2301b6343f95db58b3ad1ba811d181c719675ca13e1797"
+          "sha256": "9b339dc242a70396285b2ef33b84b7e3bbeb1cb02a401b7f505893877c14d72d"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
           "aware_vs_naive_adversarial_fail_delta": 0.528,
-          "id_aware_throughput": 0.7995,
-          "id_conventional_throughput": 0.8613,
+          "id_aware_throughput": 0.8025,
+          "id_conventional_throughput": 0.8642,
           "primary_support_aware_vs_naive": true,
           "seed": 11,
-          "sha256": "b67ec91d117315b406883a10f97c6859f0b09fb98fecf86f38817bd7fc690829"
+          "sha256": "f5de5d31ab318bfc5fbb40a2fc452773158fa12700ba38932d7c9d90e7de81de"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
-          "aware_vs_naive_adversarial_fail_delta": 0.4991,
-          "id_aware_throughput": 0.838,
-          "id_conventional_throughput": 0.864,
+          "aware_vs_naive_adversarial_fail_delta": 0.4989,
+          "id_aware_throughput": 0.8382,
+          "id_conventional_throughput": 0.8691,
           "primary_support_aware_vs_naive": true,
           "seed": 13,
-          "sha256": "a47d8597adfd986cf2eb1a7eb69b6b542f7f466687cc5723d7af9456f67adf8c"
+          "sha256": "ea29b63a3570c680bd2861d804e07911d34fd558117ed975f10052d0cf4d79a2"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
-          "aware_vs_naive_adversarial_fail_delta": 0.5412,
-          "id_aware_throughput": 0.7856,
-          "id_conventional_throughput": 0.8536,
+          "aware_vs_naive_adversarial_fail_delta": 0.5413,
+          "id_aware_throughput": 0.7921,
+          "id_conventional_throughput": 0.8604,
           "primary_support_aware_vs_naive": true,
           "seed": 17,
-          "sha256": "07d7c137adbd87c61d6d9034f5ae971287dd3ed90e32ca68dab35369f46ca125"
+          "sha256": "8a79970f909c51e0ad2b2113fa8b0b48038245a1aa56453e68137366b99f56f2"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
-          "aware_vs_naive_adversarial_fail_delta": 0.5382,
-          "id_aware_throughput": 0.827,
-          "id_conventional_throughput": 0.8693,
+          "aware_vs_naive_adversarial_fail_delta": 0.5381,
+          "id_aware_throughput": 0.8264,
+          "id_conventional_throughput": 0.8628,
           "primary_support_aware_vs_naive": true,
           "seed": 19,
-          "sha256": "850f4d079c3f3929ab0682b1eeac34ea1e5187dc42e19427822906991596f410"
+          "sha256": "854a54a30998be0e32718e78a4ce2315742e385443b4bcf0f31156625ae6dd5b"
         },
         {
           "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
-          "aware_vs_naive_adversarial_fail_delta": 0.5193,
-          "id_aware_throughput": 0.823,
-          "id_conventional_throughput": 0.8669,
+          "aware_vs_naive_adversarial_fail_delta": 0.5192,
+          "id_aware_throughput": 0.825,
+          "id_conventional_throughput": 0.8606,
           "primary_support_aware_vs_naive": true,
           "seed": 23,
-          "sha256": "6729f89164d7f68e7784960fb7f8df85bfc39cd75985e55728f9f7508e6e335d"
+          "sha256": "efbbb0cf9919d0dd53f2c9ebdad102e055857bbeaf6418881433a29fe82594d7"
         }
       ],
       "title": "Uncertainty-aware AI CSF digital"
@@ -691,19 +693,19 @@
           "cur100": 0.1223,
           "pred100": 0.2164,
           "seed": 70,
-          "sha256": "eb2f41b435554f2966bd4768dfecb6d1a6e9c3a735f8924e301e1abf8c9025f9"
+          "sha256": "9257bb6740c4c48d08e1712e11c507695eb23fb5f825cc7b4aab50a0cf715403"
         },
         {
           "cur100": 0.1205,
           "pred100": 0.2193,
           "seed": 71,
-          "sha256": "9a3473917b3bf1f6e27b49e5882acdacfbbdf13c7aa90f5ff4afb928020af2cb"
+          "sha256": "bf701f42836eb7cd8023e8dad03c8378ae9ca2b12781a68020434dd016391172"
         },
         {
           "cur100": 0.1206,
           "pred100": 0.2215,
           "seed": 72,
-          "sha256": "40cfd18a670a6746fd4cb76d72da25d67ad977f6969ee1fa34789ed057ec2e1e"
+          "sha256": "1bc9870831646ee47fe3782d17c87e926a60a7855857be2c25423673b17ab617"
         }
       ],
       "seed_rows": [
@@ -712,7 +714,7 @@
           "predictive_regret_25ms": 0.0211,
           "primary_moderate_delay_improvement": true,
           "seed": 2,
-          "sha256": "2507e4e4e377939c8069afce6c50641e22ae73a55ff213320b128e14ec4967c4",
+          "sha256": "4573d3e9bd27e8a810c8367c731e4444eea3eb961fde30ac93601054e34a4791",
           "win_25ms": true
         },
         {
@@ -720,7 +722,7 @@
           "predictive_regret_25ms": 0.0209,
           "primary_moderate_delay_improvement": true,
           "seed": 4,
-          "sha256": "4641943a6caa2105450c81116ca87e74b87a8d911dfe27be574c65d0cbf4a582",
+          "sha256": "2e350735bbdac7c739ff8b2c12c494e9ebe21aadb7434d56d27e1adb0274aafd",
           "win_25ms": true
         },
         {
@@ -728,7 +730,7 @@
           "predictive_regret_25ms": 0.0215,
           "primary_moderate_delay_improvement": true,
           "seed": 6,
-          "sha256": "5d465d170ea91713713fec45020b910f978abc4f59852158e01e3b761df45a97",
+          "sha256": "4bb418f0d7294a4012bd7151713e5d7aa7d67d58714a1a9bb588d075a67bb3f7",
           "win_25ms": true
         },
         {
@@ -736,7 +738,7 @@
           "predictive_regret_25ms": 0.0238,
           "primary_moderate_delay_improvement": true,
           "seed": 8,
-          "sha256": "10f3957573c8f86ad84862550cbc1abd1cfc29a4a41288a49b4daed18421995b",
+          "sha256": "5263c4275182abb49228f7132ce244fc4cbfe12137538617b8d0158cfa1d7b9d",
           "win_25ms": true
         },
         {
@@ -744,7 +746,7 @@
           "predictive_regret_25ms": 0.0202,
           "primary_moderate_delay_improvement": true,
           "seed": 10,
-          "sha256": "a1c55b918be3159ecb27b0e534827a384c5f2cf782b78b673e31204ae9e46d82",
+          "sha256": "cde65b4748d50b70bfba2f5f2c145b431ada724e89312f689abfee84d81b1481",
           "win_25ms": true
         },
         {
@@ -752,7 +754,7 @@
           "predictive_regret_25ms": 0.0252,
           "primary_moderate_delay_improvement": true,
           "seed": 12,
-          "sha256": "9e9144054ec602fd4661589b5c76f2a825d4cab82dfcac3b88173b41351e96ed",
+          "sha256": "a965807ad3f5b587042db182a43c1b01aa823828cd4d0966125cc0d57ee4b2b8",
           "win_25ms": true
         },
         {
@@ -760,7 +762,7 @@
           "predictive_regret_25ms": 0.0223,
           "primary_moderate_delay_improvement": true,
           "seed": 14,
-          "sha256": "02bff657d44cad15f3765915280706d69488fc8579d1e2c3b3fc6def3ad9ab84",
+          "sha256": "b33f37adad77cf5a06f2959293e79b788c6600a04b5d5da8dc07bb3233055c8e",
           "win_25ms": true
         },
         {
@@ -768,7 +770,7 @@
           "predictive_regret_25ms": 0.0189,
           "primary_moderate_delay_improvement": true,
           "seed": 16,
-          "sha256": "4eccf4cdb9e76c02f59defea04a3d981fff29ee66cf82ba2516336d316bdf61d",
+          "sha256": "74995f3b463e95e05a7cc3708c9bb12021dc90637dad4ab8735b3c6e295fd060",
           "win_25ms": true
         }
       ],
@@ -1086,10 +1088,10 @@
       "n_primary": 8,
       "delta_summary": {
         "n": 8,
-        "mean": -0.346613,
-        "median": -0.35275,
-        "min": -0.3712,
-        "max": -0.2957,
+        "mean": -0.350788,
+        "median": -0.3422,
+        "min": -0.4011,
+        "max": -0.3154,
         "note": "Descriptive only; no NHST / p-value claim"
       },
       "win_rate": {
@@ -1116,10 +1118,10 @@
       "n_seeds": 8,
       "aware_beats_naive_delta_summary": {
         "n": 8,
-        "mean": 0.528062,
-        "median": 0.5319,
-        "min": 0.4991,
-        "max": 0.5412,
+        "mean": 0.528012,
+        "median": 0.5318,
+        "min": 0.4989,
+        "max": 0.5413,
         "note": "Descriptive only; no NHST / p-value claim"
       },
       "support_rate": 1.0,

@@ -1,4 +1,4 @@
-"""Useful Connectivity Score — GUNNCHOS_PROPOSED_METRIC only.
+"""Useful Connectivity Score — GUNNCHOS_PROPOSED_RESEARCH_METRIC only.
 
 Exact definition (pre-registered):
 
@@ -38,6 +38,7 @@ PREREGISTERED_WEIGHT_SCHEME = {
     },
     "comparison_policy": "weights_not_tuned_after_seeing_which_system_wins",
     "classification": "GUNNCHOS_PROPOSED_METRIC",
+    "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
     "NOT_ITU_METRIC": True,
     "NOT_3GPP_METRIC": True,
     "NOT_STANDARDIZED_METRIC": True,
@@ -51,6 +52,7 @@ def useful_connectivity_score(*, R: float, D: float, A: float, Q: float, P: floa
     return {
         "metric": "UsefulConnectivityScore",
         "classification": "GUNNCHOS_PROPOSED_METRIC",
+        "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
         "NOT_ITU_METRIC": True,
         "NOT_3GPP_METRIC": True,
         "NOT_STANDARDIZED_METRIC": True,

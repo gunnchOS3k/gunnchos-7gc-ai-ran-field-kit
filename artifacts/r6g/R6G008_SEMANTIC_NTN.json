@@ -1,0 +1,281 @@
+{
+  "schema": "gunnchos.r6g.r6g008.v1",
+  "packet": "R6G-008",
+  "ok": true,
+  "status": "DIGITALLY_EXECUTED",
+  "claim_state": "MODELED",
+  "waike_transfer": {
+    "case_study": "research/r6g/waike/case_studies/R6G-008.md",
+    "counts_as_scientific_validation": false,
+    "gunnchai_affordance": "explain continuity modes; flag overclaim"
+  },
+  "semantic_continuity": {
+    "schema": "gunnchos.r6g.semantic_continuity_ntn_education.v1",
+    "ok": true,
+    "scenario": "Semantic Continuity for Equitable NTN Education",
+    "uses": [
+      "WAIKE",
+      "gunnchAI",
+      "NTN simulator",
+      "service continuity"
+    ],
+    "modes": [
+      "FULL_CONTENT_TRANSFER",
+      "COMPRESSED_CONTENT_TRANSFER",
+      "TASK_RELEVANT_TRANSFER",
+      "LEARNING_STATE_DELTA"
+    ],
+    "conditions": [
+      "high_latency",
+      "low_bitrate",
+      "intermittent_visibility",
+      "packet_loss",
+      "long_outage",
+      "expensive_link"
+    ],
+    "matrix": {
+      "FULL_CONTENT_TRANSFER": {
+        "high_latency": {
+          "lesson_completion": 0.902,
+          "task_correctness": 0.95,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 1.0,
+          "time_to_useful_state_s": 50.0,
+          "energy_norm": 1.2,
+          "recovery_after_reconnect_s": 25.0
+        },
+        "low_bitrate": {
+          "lesson_completion": 0.902,
+          "task_correctness": 0.95,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 1.0,
+          "time_to_useful_state_s": 35.0,
+          "energy_norm": 1.2,
+          "recovery_after_reconnect_s": 25.0
+        },
+        "intermittent_visibility": {
+          "lesson_completion": 0.902,
+          "task_correctness": 0.95,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 1.0,
+          "time_to_useful_state_s": 35.0,
+          "energy_norm": 1.2,
+          "recovery_after_reconnect_s": 25.0
+        },
+        "packet_loss": {
+          "lesson_completion": 0.902,
+          "task_correctness": 0.95,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 1.0,
+          "time_to_useful_state_s": 35.0,
+          "energy_norm": 1.2,
+          "recovery_after_reconnect_s": 25.0
+        },
+        "long_outage": {
+          "lesson_completion": 0.28,
+          "task_correctness": 0.4,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 1.0,
+          "time_to_useful_state_s": 35.0,
+          "energy_norm": 1.2,
+          "recovery_after_reconnect_s": 25.0
+        },
+        "expensive_link": {
+          "lesson_completion": 0.902,
+          "task_correctness": 0.95,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 1.0,
+          "time_to_useful_state_s": 35.0,
+          "energy_norm": 1.2,
+          "recovery_after_reconnect_s": 25.0
+        }
+      },
+      "COMPRESSED_CONTENT_TRANSFER": {
+        "high_latency": {
+          "lesson_completion": 0.855,
+          "task_correctness": 0.9,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.45,
+          "time_to_useful_state_s": 33.5,
+          "energy_norm": 0.54,
+          "recovery_after_reconnect_s": 11.25
+        },
+        "low_bitrate": {
+          "lesson_completion": 0.855,
+          "task_correctness": 0.9,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.45,
+          "time_to_useful_state_s": 18.5,
+          "energy_norm": 0.54,
+          "recovery_after_reconnect_s": 11.25
+        },
+        "intermittent_visibility": {
+          "lesson_completion": 0.855,
+          "task_correctness": 0.9,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.45,
+          "time_to_useful_state_s": 18.5,
+          "energy_norm": 0.54,
+          "recovery_after_reconnect_s": 11.25
+        },
+        "packet_loss": {
+          "lesson_completion": 0.855,
+          "task_correctness": 0.9,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.45,
+          "time_to_useful_state_s": 18.5,
+          "energy_norm": 0.54,
+          "recovery_after_reconnect_s": 11.25
+        },
+        "long_outage": {
+          "lesson_completion": 0.522,
+          "task_correctness": 0.55,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.45,
+          "time_to_useful_state_s": 18.5,
+          "energy_norm": 0.54,
+          "recovery_after_reconnect_s": 11.25
+        },
+        "expensive_link": {
+          "lesson_completion": 0.855,
+          "task_correctness": 0.9,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.45,
+          "time_to_useful_state_s": 18.5,
+          "energy_norm": 0.54,
+          "recovery_after_reconnect_s": 11.25
+        }
+      },
+      "TASK_RELEVANT_TRANSFER": {
+        "high_latency": {
+          "lesson_completion": 0.836,
+          "task_correctness": 0.88,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.22,
+          "time_to_useful_state_s": 26.6,
+          "energy_norm": 0.264,
+          "recovery_after_reconnect_s": 5.5
+        },
+        "low_bitrate": {
+          "lesson_completion": 0.836,
+          "task_correctness": 0.88,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.22,
+          "time_to_useful_state_s": 11.6,
+          "energy_norm": 0.264,
+          "recovery_after_reconnect_s": 5.5
+        },
+        "intermittent_visibility": {
+          "lesson_completion": 0.836,
+          "task_correctness": 0.88,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.22,
+          "time_to_useful_state_s": 11.6,
+          "energy_norm": 0.264,
+          "recovery_after_reconnect_s": 5.5
+        },
+        "packet_loss": {
+          "lesson_completion": 0.836,
+          "task_correctness": 0.88,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.22,
+          "time_to_useful_state_s": 11.6,
+          "energy_norm": 0.264,
+          "recovery_after_reconnect_s": 5.5
+        },
+        "long_outage": {
+          "lesson_completion": 0.836,
+          "task_correctness": 0.88,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.22,
+          "time_to_useful_state_s": 11.6,
+          "energy_norm": 0.264,
+          "recovery_after_reconnect_s": 5.5
+        },
+        "expensive_link": {
+          "lesson_completion": 0.836,
+          "task_correctness": 0.88,
+          "learner_state_sync": 0.7,
+          "bytes_transferred_norm": 0.22,
+          "time_to_useful_state_s": 11.6,
+          "energy_norm": 0.264,
+          "recovery_after_reconnect_s": 5.5
+        }
+      },
+      "LEARNING_STATE_DELTA": {
+        "high_latency": {
+          "lesson_completion": 0.807,
+          "task_correctness": 0.85,
+          "learner_state_sync": 0.95,
+          "bytes_transferred_norm": 0.08,
+          "time_to_useful_state_s": 22.4,
+          "energy_norm": 0.096,
+          "recovery_after_reconnect_s": 5
+        },
+        "low_bitrate": {
+          "lesson_completion": 0.807,
+          "task_correctness": 0.85,
+          "learner_state_sync": 0.95,
+          "bytes_transferred_norm": 0.08,
+          "time_to_useful_state_s": 7.4,
+          "energy_norm": 0.096,
+          "recovery_after_reconnect_s": 5
+        },
+        "intermittent_visibility": {
+          "lesson_completion": 0.807,
+          "task_correctness": 0.85,
+          "learner_state_sync": 0.95,
+          "bytes_transferred_norm": 0.08,
+          "time_to_useful_state_s": 7.4,
+          "energy_norm": 0.096,
+          "recovery_after_reconnect_s": 5
+        },
+        "packet_loss": {
+          "lesson_completion": 0.807,
+          "task_correctness": 0.85,
+          "learner_state_sync": 0.95,
+          "bytes_transferred_norm": 0.08,
+          "time_to_useful_state_s": 7.4,
+          "energy_norm": 0.096,
+          "recovery_after_reconnect_s": 5
+        },
+        "long_outage": {
+          "lesson_completion": 0.807,
+          "task_correctness": 0.85,
+          "learner_state_sync": 0.95,
+          "bytes_transferred_norm": 0.08,
+          "time_to_useful_state_s": 7.4,
+          "energy_norm": 0.096,
+          "recovery_after_reconnect_s": 5
+        },
+        "expensive_link": {
+          "lesson_completion": 0.807,
+          "task_correctness": 0.85,
+          "learner_state_sync": 0.95,
+          "bytes_transferred_norm": 0.08,
+          "time_to_useful_state_s": 7.4,
+          "energy_norm": 0.096,
+          "recovery_after_reconnect_s": 5
+        }
+      }
+    },
+    "real_education_outcome_claimed": false,
+    "human_study": "EXTERNAL_PENDING",
+    "IMPROVED_STATE_OF_ART": false,
+    "note": "Digital research scenario only \u2014 no real educational outcome claim."
+  },
+  "digital_rank_long_outage_best_to_worst": [
+    "LEARNING_STATE_DELTA",
+    "TASK_RELEVANT_TRANSFER",
+    "COMPRESSED_CONTENT_TRANSFER",
+    "FULL_CONTENT_TRANSFER"
+  ],
+  "best_mode_under_long_outage": "LEARNING_STATE_DELTA",
+  "worst_mode_under_long_outage": "FULL_CONTENT_TRANSFER",
+  "real_education_outcome_claimed": false,
+  "guaranteed_learning_outcomes": false,
+  "human_study": "EXTERNAL_PENDING",
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "note": "NTN semantic continuity digital research only \u2014 no guaranteed learning outcomes."
+}

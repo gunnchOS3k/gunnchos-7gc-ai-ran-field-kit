@@ -49,6 +49,44 @@ def decide(
     return {"decision": "multi_connectivity", "bearers": ["sub6_terrestrial", "FR3"], "fallback": "LEO_NTN"}
 
 
+# Continuum order (low → high peak rate; not a standards ranking).
+BEARER_CONTINUUM = (
+    "local_only",
+    "LEO_NTN",
+    "sub6_terrestrial",
+    "FR3",
+    "mmWave",
+    "sub_THz",
+    "FSO_OWC",
+    "THz",
+)
+
+POLICIES = (
+    "peak_rate_first",
+    "availability_first",
+    "energy_first",
+    "local_first",
+    "ucs_predeclared",
+)
+
+
+def _policy_choice(policy: str, *, blockage: bool, weather_bad: bool, terrestrial_up: bool) -> dict[str, Any]:
+    if policy == "local_first" or not terrestrial_up:
+        return {"policy": policy, "bearers": ["local_only"], "fallback": "LEO_NTN"}
+    if policy == "peak_rate_first":
+        return {"policy": policy, "bearers": ["THz"] if not blockage else ["mmWave"], "fallback": "FR3"}
+    if policy == "availability_first":
+        return {
+            "policy": policy,
+            "bearers": ["sub6_terrestrial", "LEO_NTN"] if weather_bad or blockage else ["sub6_terrestrial", "FR3"],
+            "fallback": "semantic_sync",
+        }
+    if policy == "energy_first":
+        return {"policy": policy, "bearers": ["sub6_terrestrial"], "avoid": ["THz", "FSO_OWC"]}
+    # ucs_predeclared — prefer useful connectivity components, not peak R
+    return {"policy": policy, "bearers": ["FR3", "sub6_terrestrial"], "fallback": "LEO_NTN", "metric": "UCS"}
+
+
 def run_r6g002() -> dict[str, Any]:
     decisions = {
         "nominal": decide("interactive"),
@@ -61,8 +99,19 @@ def run_r6g002() -> dict[str, Any]:
         "battery_low": decide("offline_lesson", battery_low=True),
         "backhaul": decide("bulk_backhaul"),
     }
+    policy_comparisons = {
+        p: _policy_choice(p, blockage=True, weather_bad=True, terrestrial_up=True)
+        for p in POLICIES
+    }
     # Mark all non-sub6/local as HARDWARE_PENDING for physical
-    hw = {k: {**v, "HARDWARE_PENDING": k not in {"sub6_terrestrial", "local_only", "LEO_NTN"}} for k, v in BEARERS.items()}
+    hw = {
+        k: {
+            **v,
+            "HARDWARE_PENDING": k not in {"sub6_terrestrial", "local_only", "LEO_NTN"},
+            "continuum_index": BEARER_CONTINUUM.index(k) if k in BEARER_CONTINUUM else -1,
+        }
+        for k, v in BEARERS.items()
+    }
     peak_comps = {"R": 0.95, "D": 0.3, "A": 0.4, "Q": 0.5, "P": 2.0, "C": 2.5}
     useful_comps = {"R": 0.55, "D": 0.8, "A": 0.9, "Q": 0.85, "P": 1.0, "C": 1.0}
     ucs_peak = useful_connectivity_score(**peak_comps)
@@ -72,10 +121,13 @@ def run_r6g002() -> dict[str, Any]:
         "packet": "R6G-002",
         "ok": True,
         "status": "DIGITALLY_EXECUTED",
+        "bearer_continuum": list(BEARER_CONTINUUM),
         "bearers": hw,
         "decisions": decisions,
+        "policy_comparisons": policy_comparisons,
         "useful_connectivity_comparison": {
             "metric_scheme": PREREGISTERED_WEIGHT_SCHEME,
+            "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
             "peaky_link": ucs_peak,
             "useful_link": ucs_useful,
             "peak_vs_useful": "useful_link score higher despite lower peak R — exploratory only",

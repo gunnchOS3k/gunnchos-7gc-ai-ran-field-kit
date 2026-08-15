@@ -34,8 +34,10 @@ def test_r6g_backlog_eleven_packets_ownership():
     assert by_id["R6G-005"]["status"] == "ACTIVE"
     assert by_id["R6G-009"]["status"] == "ACTIVE"
     assert by_id["R6G-002"]["status"] == "ACTIVE"
-    for pid in ("R6G-004", "R6G-006", "R6G-007", "R6G-008", "R6G-010", "R6G-011"):
-        assert by_id[pid]["status"] == "REGISTERED_NOT_ACTIVE"
+    for pid in ("R6G-004", "R6G-008", "R6G-010", "R6G-011"):
+        assert by_id[pid]["status"] == "ACTIVE_DIGITAL"
+    for pid in ("R6G-006", "R6G-007"):
+        assert by_id[pid]["status"] == "MODELED_CONTRACT_ONLY"
 
 
 def test_r6g_aggregate_and_firewall(tmp_path: Path):

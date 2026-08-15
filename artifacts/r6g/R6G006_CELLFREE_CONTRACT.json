@@ -1,0 +1,32 @@
+{
+  "schema": "gunnchos.r6g.r6g006.v1",
+  "packet": "R6G-006",
+  "ok": true,
+  "status": "MODELED_CONTRACT_ONLY",
+  "claim_state": "MODELED",
+  "contract": {
+    "topology": "cell_free_ap_cluster",
+    "ap_count_modeled": 8,
+    "ue_count_modeled": 4,
+    "precoding": [
+      "MRT",
+      "RZF_DIGITAL"
+    ],
+    "fronthaul": "IDEALIZED_DIGITAL",
+    "channel": "IID_RAYLEIGH_SYNTHETIC",
+    "forbidden_claims": [
+      "PHYSICAL_CELL_FREE_DEPLOYMENT",
+      "BEATS_VENDOR_MASSIVE_MIMO_OTA",
+      "IMPROVED_STATE_OF_ART"
+    ]
+  },
+  "toy_spectral_efficiency_bps_hz": {
+    "MRT": 1.8,
+    "RZF_DIGITAL": 2.4
+  },
+  "delta_rzf_minus_mrt": 0.6,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "HARDWARE_PENDING": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "note": "Contract + toy digital proxy only; no cell-free hardware campaign."
+}

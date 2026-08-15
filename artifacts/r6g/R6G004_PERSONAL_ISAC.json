@@ -1,0 +1,165 @@
+{
+  "schema": "gunnchos.r6g.r6g004.v1",
+  "packet": "R6G-004",
+  "ok": true,
+  "status": "DIGITALLY_EXECUTED",
+  "claim_state": "MODELED",
+  "dataset": {
+    "type": "SYNTHETIC_LABELED",
+    "n_samples": 64,
+    "seed": 17,
+    "real_humans": false,
+    "PHYSICAL_RING": false
+  },
+  "modalities": [
+    "RF_ONLY",
+    "RF_DEVICE",
+    "RF_RING_SIM",
+    "RF_VISION_SYNTH",
+    "RF_ALL"
+  ],
+  "privacy_modes": [
+    "RAW_STREAM",
+    "ON_DEVICE_FEATURE",
+    "DIFFERENTIAL_NOISE",
+    "AGGREGATE_ONLY"
+  ],
+  "matrix": {
+    "RF_ONLY": {
+      "RAW_STREAM": {
+        "rmse_m": 0.5158,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0528
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.5401,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.3571
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.7466,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.4466
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.866,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.493
+      }
+    },
+    "RF_DEVICE": {
+      "RAW_STREAM": {
+        "rmse_m": 0.3818,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0579
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.4113,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.3897
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.5495,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.5034
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.6776,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.5484
+      }
+    },
+    "RF_RING_SIM": {
+      "RAW_STREAM": {
+        "rmse_m": 0.2245,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0653
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.226,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.4486
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.3545,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.5758
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.3887,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.6625
+      }
+    },
+    "RF_VISION_SYNTH": {
+      "RAW_STREAM": {
+        "rmse_m": 0.172,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0683
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.1886,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.4627
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.2781,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.6103
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.3072,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.7038
+      }
+    },
+    "RF_ALL": {
+      "RAW_STREAM": {
+        "rmse_m": 0.1349,
+        "privacy_leak_score": 0.92,
+        "utility_privacy_product": 0.0705
+      },
+      "ON_DEVICE_FEATURE": {
+        "rmse_m": 0.1739,
+        "privacy_leak_score": 0.45,
+        "utility_privacy_product": 0.4685
+      },
+      "DIFFERENTIAL_NOISE": {
+        "rmse_m": 0.2259,
+        "privacy_leak_score": 0.22,
+        "utility_privacy_product": 0.6363
+      },
+      "AGGREGATE_ONLY": {
+        "rmse_m": 0.2635,
+        "privacy_leak_score": 0.08,
+        "utility_privacy_product": 0.7281
+      }
+    }
+  },
+  "ablations": {
+    "ring_drop_to_device": {
+      "rmse_m": 0.4345,
+      "privacy_leak_score": 0.45,
+      "utility_privacy_product": 0.3834
+    },
+    "vision_spoof_raw": {
+      "rmse_m": 0.3797,
+      "privacy_leak_score": 0.92,
+      "utility_privacy_product": 0.0691,
+      "note": "synthetic vision spoof ablation"
+    }
+  },
+  "documented_negative_or_no_gain": [
+    {
+      "case": "raw_stream_privacy",
+      "result": "HIGH_PRIVACY_LEAK_DESPITE_LOWER_RMSE",
+      "privacy_leak_score": 0.92
+    }
+  ],
+  "primary_multimodal_rmse_better_than_rf": true,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": true,
+  "PHYSICAL_RING": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "note": "Synthetic personal sensing only; no ring SI, no OTA, no SoA claim."
+}
