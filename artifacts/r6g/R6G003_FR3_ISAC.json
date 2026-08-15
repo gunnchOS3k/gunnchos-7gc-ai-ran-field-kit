@@ -20,7 +20,7 @@
     "reason": "NYU measurement traces not fully public in-repo"
   },
   "rf_only_digital_baseline": {
-    "position_RMSE_m": 0.5404,
+    "position_RMSE_m": 0.4534,
     "note": "Measured digital RF-only estimator \u2014 NOT claimed matched to NYU physical ~0.2 m",
     "DIGITAL_REPRODUCTION_MATCHED": false,
     "COMPARABLE_EVIDENCE_PENDING": true,
@@ -28,52 +28,52 @@
   },
   "modality_matrix": {
     "RF_ONLY": {
-      "position_RMSE": 0.5404,
-      "orientation_RMSE": 7.0083,
-      "beam_selection_accuracy": 0.7609,
-      "handover_failure": 0.1351,
-      "blockage_prediction_horizon_s": 1.2596,
-      "latency_ms": 11.081,
+      "position_RMSE": 0.4534,
+      "orientation_RMSE": 6.3129,
+      "beam_selection_accuracy": 0.7913,
+      "handover_failure": 0.1134,
+      "blockage_prediction_horizon_s": 1.3466,
+      "latency_ms": 10.907,
       "energy_j": 1.05,
       "privacy_exposure": 0.15
     },
     "RF_DEVICE_IMU": {
-      "position_RMSE": 0.3058,
-      "orientation_RMSE": 5.771,
-      "beam_selection_accuracy": 0.843,
-      "handover_failure": 0.0765,
-      "blockage_prediction_horizon_s": 1.4942,
-      "latency_ms": 10.612,
+      "position_RMSE": 0.3315,
+      "orientation_RMSE": 5.9762,
+      "beam_selection_accuracy": 0.834,
+      "handover_failure": 0.0829,
+      "blockage_prediction_horizon_s": 1.4685,
+      "latency_ms": 10.663,
       "energy_j": 1.05,
       "privacy_exposure": 0.15
     },
     "RF_RING_UWB_IMU": {
-      "position_RMSE": 0.1972,
-      "orientation_RMSE": 4.9445,
-      "beam_selection_accuracy": 0.881,
-      "handover_failure": 0.0493,
-      "blockage_prediction_horizon_s": 1.6028,
-      "latency_ms": 10.394,
+      "position_RMSE": 0.1811,
+      "orientation_RMSE": 4.8157,
+      "beam_selection_accuracy": 0.8866,
+      "handover_failure": 0.0453,
+      "blockage_prediction_horizon_s": 1.6189,
+      "latency_ms": 10.362,
       "energy_j": 1.05,
       "privacy_exposure": 0.15
     },
     "RF_VISION": {
-      "position_RMSE": 0.3882,
-      "orientation_RMSE": 5.9946,
-      "beam_selection_accuracy": 0.8141,
-      "handover_failure": 0.097,
-      "blockage_prediction_horizon_s": 1.4118,
-      "latency_ms": 14.776,
+      "position_RMSE": 0.3653,
+      "orientation_RMSE": 5.8114,
+      "beam_selection_accuracy": 0.8222,
+      "handover_failure": 0.0913,
+      "blockage_prediction_horizon_s": 1.4347,
+      "latency_ms": 14.731,
       "energy_j": 1.25,
       "privacy_exposure": 0.4
     },
     "RF_ALL_MODALITIES": {
-      "position_RMSE": 0.1509,
-      "orientation_RMSE": 4.3773,
-      "beam_selection_accuracy": 0.8972,
-      "handover_failure": 0.0377,
-      "blockage_prediction_horizon_s": 1.6491,
-      "latency_ms": 14.302,
+      "position_RMSE": 0.1667,
+      "orientation_RMSE": 4.5038,
+      "beam_selection_accuracy": 0.8916,
+      "handover_failure": 0.0417,
+      "blockage_prediction_horizon_s": 1.6333,
+      "latency_ms": 14.333,
       "energy_j": 1.25,
       "privacy_exposure": 0.4
     }
@@ -83,25 +83,25 @@
       "config_id": "primary_cooperative_s7",
       "seed": 7,
       "all_multimodal_beat_rf": true,
-      "rf_all_vs_rf_only_delta_m": -0.3895,
-      "RF_ONLY_RMSE": 0.5404,
-      "RF_ALL_RMSE": 0.1509
+      "rf_all_vs_rf_only_delta_m": -0.2867,
+      "RF_ONLY_RMSE": 0.4534,
+      "RF_ALL_RMSE": 0.1667
     },
     {
       "config_id": "primary_cooperative_s11",
       "seed": 11,
       "all_multimodal_beat_rf": true,
-      "rf_all_vs_rf_only_delta_m": -0.3154,
-      "RF_ONLY_RMSE": 0.4775,
-      "RF_ALL_RMSE": 0.1621
+      "rf_all_vs_rf_only_delta_m": -0.4045,
+      "RF_ONLY_RMSE": 0.5446,
+      "RF_ALL_RMSE": 0.1401
     },
     {
       "config_id": "primary_cooperative_s19",
       "seed": 19,
       "all_multimodal_beat_rf": true,
-      "rf_all_vs_rf_only_delta_m": -0.322,
-      "RF_ONLY_RMSE": 0.5051,
-      "RF_ALL_RMSE": 0.1831
+      "rf_all_vs_rf_only_delta_m": -0.3054,
+      "RF_ONLY_RMSE": 0.4963,
+      "RF_ALL_RMSE": 0.1909
     }
   ],
   "negative_suite": [
@@ -109,18 +109,18 @@
       "config_id": "neg_vision_spoof_overtrust",
       "seed": 101,
       "adversarial": true,
-      "rf_all_vs_rf_only_delta_m": 2.9136,
-      "RF_ONLY_RMSE": 0.2668,
-      "RF_ALL_RMSE": 3.1804,
+      "rf_all_vs_rf_only_delta_m": 2.5991,
+      "RF_ONLY_RMSE": 0.3168,
+      "RF_ALL_RMSE": 2.9159,
       "multimodal_failed_to_beat_rf": true
     },
     {
       "config_id": "neg_vision_spoof_seed202",
       "seed": 202,
       "adversarial": true,
-      "rf_all_vs_rf_only_delta_m": 4.5248,
-      "RF_ONLY_RMSE": 0.2754,
-      "RF_ALL_RMSE": 4.8002,
+      "rf_all_vs_rf_only_delta_m": 4.533,
+      "RF_ONLY_RMSE": 0.2756,
+      "RF_ALL_RMSE": 4.8086,
       "multimodal_failed_to_beat_rf": true
     }
   ],
@@ -128,13 +128,13 @@
     {
       "experiment": "neg_vision_spoof_overtrust",
       "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-      "delta_m": 2.9136,
+      "delta_m": 2.5991,
       "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
     },
     {
       "experiment": "neg_vision_spoof_seed202",
       "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-      "delta_m": 4.5248,
+      "delta_m": 4.533,
       "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
     }
   ],

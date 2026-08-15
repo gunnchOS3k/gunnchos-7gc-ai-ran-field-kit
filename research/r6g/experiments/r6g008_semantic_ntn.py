@@ -24,8 +24,9 @@ def run_r6g008() -> dict[str, Any]:
         "schema": "gunnchos.r6g.r6g008.v1",
         "packet": "R6G-008",
         "ok": True,
-        "status": "DIGITALLY_EXECUTED",
-        "claim_state": "MODELED",
+        "status": "MODELED_LOOKUP_TABLE",
+        "claim_state": "MODELED_LOOKUP_TABLE",
+        "ladder_earned": ["R0", "R1"],
         "waike_transfer": {
             "case_study": "research/r6g/waike/case_studies/R6G-008.md",
             "counts_as_scientific_validation": False,
@@ -38,9 +39,10 @@ def run_r6g008() -> dict[str, Any]:
         "real_education_outcome_claimed": False,
         "guaranteed_learning_outcomes": False,
         "human_study": "EXTERNAL_PENDING",
+        "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": False,
         "PHYSICAL_REPRODUCTION_PENDING": True,
         "IMPROVED_STATE_OF_ART": False,
-        "note": "NTN semantic continuity digital research only — no guaranteed learning outcomes.",
+        "note": "Lookup-table continuity sketch only — not DIGITALLY_EXECUTED; no guaranteed learning outcomes.",
     }
     assert_no_soa(report)
     assert report["real_education_outcome_claimed"] is False

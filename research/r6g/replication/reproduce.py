@@ -331,6 +331,7 @@ def _replicate_r6g009(raw_dir: Path) -> dict[str, Any]:
 
 
 def _collect_negatives(c003: dict, c005: dict, c009: dict) -> list[dict[str, Any]]:
+    """Real negatives only (003/005/009). Construction stubs live in illustrative list."""
     out: list[dict[str, Any]] = []
     for r in c003.get("negative_runs", []):
         if r.get("multimodal_worse"):
@@ -340,27 +341,35 @@ def _collect_negatives(c003: dict, c005: dict, c009: dict) -> list[dict[str, Any
                 "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
                 "delta_m": r["rf_all_vs_rf_only_delta_m"],
                 "preserved": True,
+                "ILLUSTRATIVE": False,
             })
     for n in c005.get("documented_negative_or_no_gain", []):
-        out.append({"packet": "R6G-005", **n, "preserved": True})
+        out.append({"packet": "R6G-005", **n, "preserved": True, "ILLUSTRATIVE": False})
     for n in c009.get("documented_negative_or_no_gain", []):
-        out.append({"packet": "R6G-009", **n, "preserved": True})
-    out.append({
-        "packet": "R6G-002",
-        "experiment": "peaky_vs_useful_connectivity",
-        "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS",
-        "reason": "Peak-only THz-style link can score worse on Useful Connectivity Score",
-        "preserved": True,
-    })
-    out.append({
-        "packet": "R6G-008",
-        "experiment": "full_content_long_outage",
-        "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE",
-        "reason": "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
-        "preserved": True,
-    })
+        out.append({"packet": "R6G-009", **n, "preserved": True, "ILLUSTRATIVE": False})
     return out
 
+
+def _illustrative_negatives() -> list[dict[str, Any]]:
+    """Construction-stub negatives — do not count toward real negative_result_count."""
+    return [
+        {
+            "packet": "R6G-002",
+            "experiment": "peaky_vs_useful_connectivity",
+            "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS",
+            "reason": "Illustrative UCS sketch — not a falsifiable digital campaign",
+            "ILLUSTRATIVE": True,
+            "counts_toward_real_negatives": False,
+        },
+        {
+            "packet": "R6G-008",
+            "experiment": "full_content_long_outage",
+            "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE",
+            "reason": "Lookup-table sketch only — not replication-ladder evidence",
+            "ILLUSTRATIVE": True,
+            "counts_toward_real_negatives": False,
+        },
+    ]
 
 def _dashboard_row(c: dict[str, Any], *, adoption: str) -> dict[str, Any]:
     flags = c.get("ladder_flags", {})
@@ -400,13 +409,16 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
     _write_json(raw_dir / "R6G-008" / "semantic_continuity.json", sem)
 
     negatives = _collect_negatives(c003, c005, c009)
+    illustrative = _illustrative_negatives()
     neg_doc = {
         "schema": "gunnchos.r6g.negative_results.v1",
         "as_of": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "IMPROVED_STATE_OF_ART": False,
-        "note": "Negative results define the operating envelope; not program failure.",
+        "note": "Real negatives define the operating envelope; illustrative stubs are separate.",
         "count": len(negatives),
         "results": negatives,
+        "illustrative_count": len(illustrative),
+        "illustrative_results": illustrative,
     }
     _write_json(out / "R6G_NEGATIVE_RESULTS.json", neg_doc)
     _write_json(ROOT / "research" / "6g_breakthroughs" / "R6G_NEGATIVE_RESULTS.json", neg_doc)
@@ -452,8 +464,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
                 "baseline_registered": True,
                 "baseline_reproduced": False,
                 "multi_seed": False,
-                "falsification": True,
-                "negative_controls": True,
+                "falsification": False,
+                "negative_controls": False,
                 "ablation": False,
                 "robustness": "NOT_EXECUTED",
                 "clean_checkout": False,
@@ -464,7 +476,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
                 "physical_validation": False,
                 "paper_status": "NOT_SUBMITTED",
                 "standard_mapping": "N/A",
-                "claim_state": "MODELED" if r002.get("ok") else "REPLICATION_INCOMPLETE",
+                "claim_state": "MODELED_ILLUSTRATIVE",
+                "ladder_earned": ["R0", "R1"],
                 "IMPROVED_STATE_OF_ART": False,
             },
             _dashboard_row(c005, adoption=adoption["R6G-005"]),
@@ -474,8 +487,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
                 "baseline_registered": True,
                 "baseline_reproduced": False,
                 "multi_seed": False,
-                "falsification": True,
-                "negative_controls": True,
+                "falsification": False,
+                "negative_controls": False,
                 "ablation": False,
                 "robustness": "NOT_EXECUTED",
                 "clean_checkout": False,
@@ -486,7 +499,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
                 "physical_validation": False,
                 "paper_status": "NOT_SUBMITTED",
                 "standard_mapping": "N/A",
-                "claim_state": "MODELED" if sem.get("ok") else "REPLICATION_INCOMPLETE",
+                "claim_state": "MODELED_LOOKUP_TABLE",
+                "ladder_earned": ["R0", "R1"],
                 "IMPROVED_STATE_OF_ART": False,
                 "real_education_outcome_claimed": False,
             },
@@ -515,15 +529,22 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
         "seed_registry": SEED_REGISTRY,
         "candidates": {c["candidate"]: c for c in candidates},
         "supporting": {
-            "R6G-002": {"ok": r002["ok"], "claim_state": "MODELED", "IMPROVED_STATE_OF_ART": False},
+            "R6G-002": {
+                "ok": r002["ok"],
+                "claim_state": "MODELED_ILLUSTRATIVE",
+                "ladder_earned": ["R0", "R1"],
+                "IMPROVED_STATE_OF_ART": False,
+            },
             "R6G-008": {
                 "ok": sem["ok"],
-                "claim_state": "MODELED",
+                "claim_state": "MODELED_LOOKUP_TABLE",
+                "ladder_earned": ["R0", "R1"],
                 "real_education_outcome_claimed": False,
                 "IMPROVED_STATE_OF_ART": False,
             },
         },
         "negative_result_count": len(negatives),
+        "illustrative_negative_count": len(illustrative),
         "adoption_levels": adoption,
         "dashboard": dashboard,
         "tokens": {
@@ -550,7 +571,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
             "External reproduction packet EXTERNAL_REPRODUCTION_PENDING",
             "Physical/SDR/OTA R8/R9 not claimed",
             "R6G-006/007 MODELED_CONTRACT_ONLY — no physical exaggeration",
-            "R6G-004/008/010/011 digitally executed this wave; adoption remains A0 unless earned",
+            "R6G-002/004/008/010/011 honesty-demoted to illustrative/stub/hooks/map (R0–R1)",
+            "Construction-stub negatives marked ILLUSTRATIVE — excluded from real count",
             "Large robustness / Sionna / ns-3 sweeps deferred (Product-Use may own QEMU)",
             "IMPROVED_STATE_OF_ART remains false",
             "PROMISING_DIGITAL not awarded this cycle",

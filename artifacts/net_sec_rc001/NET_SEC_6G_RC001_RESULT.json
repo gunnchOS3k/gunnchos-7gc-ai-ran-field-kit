@@ -22,8 +22,8 @@
     "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
     "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
     "PREDICTIVE_RADIO_DT_DIGITAL": true,
-    "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
-    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+    "HYBRID_SPECTRUM_FABRIC_DIGITAL": false,
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": false,
     "R6G_DIGITAL_REPLICATION_PASS": false,
     "R6G_MULTI_SEED_REPRODUCED": false,
     "R6G_FALSIFICATION_DOCUMENTED": true,
@@ -668,7 +668,7 @@
           "evidence": {
             "ok": false,
             "reason": "tls_error",
-            "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:992)",
+            "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'updates.gunnchos.local'. (_ssl.c:992)",
             "loopback": true
           }
         },
@@ -676,16 +676,10 @@
           "case_id": "HN-TLS-SOCKET-NEG-EXPIRED-001",
           "passed": true,
           "evidence": {
-            "expired_as_ca": {
+            "verify_with_ca": {
               "ok": false,
               "reason": "tls_error",
               "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:992)",
-              "loopback": true
-            },
-            "verify_with_valid_ca": {
-              "ok": false,
-              "reason": "tls_error",
-              "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:992)",
               "loopback": true
             }
           }
@@ -792,9 +786,14 @@
           "case_id": "HN-TLS-MATERIAL-001",
           "passed": true,
           "evidence": {
-            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/mismatch.crt",
-            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/expired.crt",
-            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/server.crt"
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-1i7_4b36/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-1i7_4b36/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-1i7_4b36/server.crt",
+            "ca_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-1i7_4b36/ca.crt",
+            "valid_not_before": "2026-08-14T12:00:00+00:00",
+            "valid_not_after": "2027-08-15T12:00:00+00:00",
+            "expired_not_before": "2020-01-01T00:00:00+00:00",
+            "expired_not_after": "2020-01-02T00:00:00+00:00"
           }
         },
         {
@@ -1265,25 +1264,37 @@
         "HYPOTHESIS_SUPPORTED_DIGITALLY": true
       },
       "R6G-002": {
-        "status": "DIGITALLY_EXECUTED",
+        "status": "MODELED_ILLUSTRATIVE",
+        "ok": true
+      },
+      "R6G-004": {
+        "status": "MODELED_SYNTHETIC_STUB",
+        "ok": true
+      },
+      "R6G-008": {
+        "status": "MODELED_LOOKUP_TABLE",
+        "ok": true
+      },
+      "R6G-010": {
+        "status": "MODELED_SCORING_HOOKS",
+        "ok": true
+      },
+      "R6G-011": {
+        "status": "HARNESS_MAP_ONLY",
         "ok": true
       }
     },
-    "registered_not_active": [
-      "R6G-004",
-      "R6G-006",
-      "R6G-007",
-      "R6G-008",
-      "R6G-010",
-      "R6G-011"
-    ],
+    "registered_not_active": [],
     "tokens": {
       "R6G_REGISTRY_COMPLETE": true,
       "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
       "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
       "PREDICTIVE_RADIO_DT_DIGITAL": true,
-      "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
-      "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+      "HYBRID_SPECTRUM_FABRIC_DIGITAL": false,
+      "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": false,
+      "MULTIMODAL_ISAC_PERSONAL_DIGITAL": false,
+      "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": false,
+      "IMT2030_HARNESS_DIGITAL": false,
       "R6G_DIGITAL_REPLICATION_PASS": false,
       "R6G_MULTI_SEED_REPRODUCED": false,
       "R6G_FALSIFICATION_DOCUMENTED": true,
@@ -1297,10 +1308,13 @@
       "EXTERNAL_REPRODUCTION_PENDING": true,
       "COMPARABLE_EVIDENCE_PENDING": true,
       "PEER_REVIEWED": false,
-      "STANDARDIZED_6G": false
+      "STANDARDIZED_6G": false,
+      "COMPLIANT": false,
+      "PHYSICAL_RING": false
     },
     "digital_improvements_observed": {
       "R6G-003": true,
+      "R6G-004": false,
       "R6G-005": true,
       "R6G-009": true
     },
@@ -1322,6 +1336,14 @@
       {
         "id": "hybrid_spectrum_fabric_policy",
         "gate": "CANDIDATE_DIGITAL"
+      },
+      {
+        "id": "security_pqc_privacy_hooks",
+        "gate": "RESEARCH_HOOKS_ONLY"
+      },
+      {
+        "id": "imt2030_harness_map",
+        "gate": "HARNESS_ONLY"
       }
     ],
     "negative_or_no_gain_notes": [
@@ -1329,44 +1351,55 @@
       "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
       "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
       "R6G-003: vision spoof + over-trust fusion \u2192 multimodal RMSE worse than RF-only",
+      "R6G-004: raw stream privacy leak / vision spoof ablations",
       "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
-      "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics"
+      "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics",
+      "R6G-010: overclaim trap collapses when sensing privacy is ignored"
     ],
     "documented_negative_experiments": {
       "R6G-003": [
         {
           "experiment": "neg_vision_spoof_overtrust",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 3.0714,
+          "delta_m": 2.6694,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         },
         {
           "experiment": "neg_vision_spoof_seed202",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 4.0785,
+          "delta_m": 4.7122,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        }
+      ],
+      "R6G-004": [
+        {
+          "case": "raw_stream_privacy",
+          "result": "HIGH_PRIVACY_LEAK_DESPITE_LOWER_RMSE",
+          "privacy_leak_score": 0.92,
+          "ILLUSTRATIVE": true,
+          "counts_toward_real_negatives": false
         }
       ],
       "R6G-005": [
         {
           "experiment": "in_distribution_throughput",
           "result": "NO_GAIN_VS_CONVENTIONAL",
-          "aware_throughput_norm": 0.8468,
-          "conventional_throughput_norm": 0.8683,
+          "aware_throughput_norm": 0.8535,
+          "conventional_throughput_norm": 0.8674,
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
         },
         {
           "experiment": "noisy_csi_failure_rate",
           "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
-          "aware_failure_rate": 0.0096,
-          "conventional_failure_rate": 0.0085,
+          "aware_failure_rate": 0.0095,
+          "conventional_failure_rate": 0.0082,
           "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
         },
         {
           "experiment": "adversarial_csi_naive_ai",
           "result": "NAIVE_AI_CSF_DEGRADES",
           "naive_failure_rate": 0.5042,
-          "conventional_failure_rate": 0.0086,
+          "conventional_failure_rate": 0.0085,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
         }
       ],
@@ -1390,7 +1423,9 @@
     "falsifiability": {
       "R6G-003": true,
       "R6G-005": true,
-      "R6G-009": true
+      "R6G-009": true,
+      "R6G-004": false,
+      "R6G-010": false
     },
     "naked_numeric_headline_count": 0
   },
@@ -1434,15 +1469,20 @@
     "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING",
     "DOI/PDF pins for many atlas baselines still PENDING",
     "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural only)",
-    "Independent digital improvement verification (R5) not claimed this cycle",
+    "Independent digital improvement verification (R5/R6 external) not claimed this cycle",
     "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
     "IMPROVED_STATE_OF_ART remains false",
-    "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
-    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE (scaffolding/adoption stubs only)",
+    "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred (Product-Use may own QEMU)",
+    "R6G-006/007 MODELED_CONTRACT_ONLY \u2014 no physical exaggeration",
+    "R6G-002 MODELED_ILLUSTRATIVE; 004 MODELED_SYNTHETIC_STUB; 008 MODELED_LOOKUP_TABLE; 010 MODELED_SCORING_HOOKS; 011 HARNESS_MAP_ONLY (R0\u2013R1)",
+    "HYBRID_SPECTRUM / MULTIMODAL_ISAC_PERSONAL / SEMANTIC_NTN / SECURITY_PQC / IMT2030_HARNESS digital tokens demoted false",
+    "Construction-stub negatives marked ILLUSTRATIVE \u2014 excluded from real negative count",
     "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
-    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)",
     "EXTERNAL_REPRODUCTION_PENDING / PHYSICAL_REPRODUCTION_PENDING",
-    "Claim states are PROMISING_DIGITAL / DIGITAL_IMPROVEMENT_CANDIDATE \u2014 never BREAKTHROUGH_PROVEN"
+    "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE preserved; 005/009 REPLICATION_INCOMPLETE preserved",
+    "Never STANDARDIZED_6G/COMPLIANT without official evidence",
+    "WAIKE case studies do not count as scientific validation",
+    "No 11 new research repos (NEW_6G_RESEARCH_REPO_CREATION=FORBIDDEN_BY_DEFAULT)"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",
@@ -1454,7 +1494,7 @@
     "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)",
     "ns-3 / Sionna / DeepMIMO campaign sweeps",
     "multi-hour RF / THz physical campaigns",
-    "extra QEMU",
+    "extra QEMU (Product-Use may own)",
     "large twin cinematic renders",
     "physical RIS / THz purchase"
   ],

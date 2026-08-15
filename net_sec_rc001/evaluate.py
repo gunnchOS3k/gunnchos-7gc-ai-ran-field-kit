@@ -218,8 +218,8 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
                             len(r6g.get("documented_negative_experiments", {}).get(k, [])) >= 1
                             for k in ("R6G-003", "R6G-005", "R6G-009")
                         ),
-                        "hybrid_kept": tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is True,
-                        "semantic_kept": tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is True,
+                        "hybrid_demoted_illustrative": tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is False,
+                        "semantic_demoted_lookup": tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is False,
                         "product_wording_rel16": "Rel-16" in PRODUCT_WORDING,
                     },
                     "token_status": {
@@ -232,8 +232,8 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
                         "6G_BREAKTHROUGH_PASS": None,
                     },
                     "note": (
-                        "Author self-check after R6G tautology/naked-headline remediation on PR #78. "
-                        "IMPROVED_STATE_OF_ART=false. Cursor does not merge."
+                        "Author self-check after R6G-PORTFOLIO-ADOPTION-002 honesty demotions on PR #80. "
+                        "HYBRID/SEMANTIC digital tokens demoted. IMPROVED_STATE_OF_ART=false. Cursor does not merge."
                     ),
                 },
                 indent=2,

@@ -1,40 +1,64 @@
 {
   "IMPROVED_STATE_OF_ART": false,
   "as_of": "2026-08-15",
-  "count": 22,
-  "note": "Negative results define the operating envelope; not program failure.",
+  "count": 20,
+  "illustrative_count": 2,
+  "illustrative_results": [
+    {
+      "ILLUSTRATIVE": true,
+      "counts_toward_real_negatives": false,
+      "experiment": "peaky_vs_useful_connectivity",
+      "packet": "R6G-002",
+      "reason": "Illustrative UCS sketch \u2014 not a falsifiable digital campaign",
+      "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS"
+    },
+    {
+      "ILLUSTRATIVE": true,
+      "counts_toward_real_negatives": false,
+      "experiment": "full_content_long_outage",
+      "packet": "R6G-008",
+      "reason": "Lookup-table sketch only \u2014 not replication-ladder evidence",
+      "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE"
+    }
+  ],
+  "note": "Real negatives define the operating envelope; illustrative stubs are separate.",
   "results": [
     {
-      "delta_m": 3.0742,
+      "ILLUSTRATIVE": false,
+      "delta_m": 2.6694,
       "experiment": "rep_neg_s101",
       "packet": "R6G-003",
       "preserved": true,
       "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
     },
     {
-      "delta_m": 2.5033,
+      "ILLUSTRATIVE": false,
+      "delta_m": 3.0607,
       "experiment": "rep_neg_s202",
       "packet": "R6G-003",
       "preserved": true,
       "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
     },
     {
-      "delta_m": 2.7455,
+      "ILLUSTRATIVE": false,
+      "delta_m": 2.9969,
       "experiment": "rep_neg_s303",
       "packet": "R6G-003",
       "preserved": true,
       "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
     },
     {
-      "delta_m": 3.0428,
+      "ILLUSTRATIVE": false,
+      "delta_m": 2.9358,
       "experiment": "rep_neg_s404",
       "packet": "R6G-003",
       "preserved": true,
       "result": "MULTIMODAL_WORSE_THAN_RF_ONLY"
     },
     {
-      "aware_throughput_norm": 0.7991,
-      "conventional_throughput_norm": 0.8618,
+      "ILLUSTRATIVE": false,
+      "aware_throughput_norm": 0.7973,
+      "conventional_throughput_norm": 0.8669,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -43,6 +67,7 @@
       "seed": 3
     },
     {
+      "ILLUSTRATIVE": false,
       "conventional_failure_rate": 0.0085,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5405,
@@ -53,8 +78,9 @@
       "seed": 3
     },
     {
-      "aware_throughput_norm": 0.8358,
-      "conventional_throughput_norm": 0.8698,
+      "ILLUSTRATIVE": false,
+      "aware_throughput_norm": 0.8383,
+      "conventional_throughput_norm": 0.8665,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -63,7 +89,8 @@
       "seed": 5
     },
     {
-      "conventional_failure_rate": 0.0083,
+      "ILLUSTRATIVE": false,
+      "conventional_failure_rate": 0.0087,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5316,
       "packet": "R6G-005",
@@ -73,8 +100,9 @@
       "seed": 5
     },
     {
-      "aware_throughput_norm": 0.8058,
-      "conventional_throughput_norm": 0.8664,
+      "ILLUSTRATIVE": false,
+      "aware_throughput_norm": 0.8076,
+      "conventional_throughput_norm": 0.8706,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -83,7 +111,8 @@
       "seed": 7
     },
     {
-      "conventional_failure_rate": 0.0085,
+      "ILLUSTRATIVE": false,
+      "conventional_failure_rate": 0.0084,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5407,
       "packet": "R6G-005",
@@ -93,8 +122,9 @@
       "seed": 7
     },
     {
-      "aware_throughput_norm": 0.8029,
-      "conventional_throughput_norm": 0.8616,
+      "ILLUSTRATIVE": false,
+      "aware_throughput_norm": 0.7992,
+      "conventional_throughput_norm": 0.8638,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -103,7 +133,8 @@
       "seed": 11
     },
     {
-      "conventional_failure_rate": 0.0086,
+      "ILLUSTRATIVE": false,
+      "conventional_failure_rate": 0.0084,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5325,
       "packet": "R6G-005",
@@ -113,6 +144,7 @@
       "seed": 11
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.1226,
       "experiment": "smooth_sine_delay_100ms",
       "packet": "R6G-009",
@@ -123,6 +155,7 @@
       "seed": 2
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.0394,
       "experiment": "jump_burst_delay_10ms",
       "packet": "R6G-009",
@@ -133,6 +166,7 @@
       "seed": 2
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.1215,
       "experiment": "smooth_sine_delay_100ms",
       "packet": "R6G-009",
@@ -143,6 +177,7 @@
       "seed": 4
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.0378,
       "experiment": "jump_burst_delay_10ms",
       "packet": "R6G-009",
@@ -153,6 +188,7 @@
       "seed": 4
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.122,
       "experiment": "smooth_sine_delay_100ms",
       "packet": "R6G-009",
@@ -163,6 +199,7 @@
       "seed": 6
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.042,
       "experiment": "jump_burst_delay_10ms",
       "packet": "R6G-009",
@@ -173,6 +210,7 @@
       "seed": 6
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.1229,
       "experiment": "smooth_sine_delay_100ms",
       "packet": "R6G-009",
@@ -183,6 +221,7 @@
       "seed": 8
     },
     {
+      "ILLUSTRATIVE": false,
       "current_regret": 0.0464,
       "experiment": "jump_burst_delay_10ms",
       "packet": "R6G-009",
@@ -191,20 +230,6 @@
       "reason": "Predictor misspecified under jump/burst channel dynamics",
       "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
       "seed": 8
-    },
-    {
-      "experiment": "peaky_vs_useful_connectivity",
-      "packet": "R6G-002",
-      "preserved": true,
-      "reason": "Peak-only THz-style link can score worse on Useful Connectivity Score",
-      "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS"
-    },
-    {
-      "experiment": "full_content_long_outage",
-      "packet": "R6G-008",
-      "preserved": true,
-      "reason": "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
-      "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE"
     }
   ],
   "schema": "gunnchos.r6g.negative_results.v1"

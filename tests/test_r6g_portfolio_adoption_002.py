@@ -29,12 +29,32 @@ def test_portfolio_adoption_002_preserves_79_claims(tmp_path: Path):
     assert report["tokens"]["STANDARDIZED_6G"] is False
     assert report["tokens"]["COMPLIANT"] is False
     assert report["tokens"]["PHYSICAL_RING"] is False
+    # Honesty demotions (#80 remediation)
+    assert report["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is False
+    assert report["tokens"]["MULTIMODAL_ISAC_PERSONAL_DIGITAL"] is False
+    assert report["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is False
+    assert report["tokens"]["SECURITY_PQC_PRIVACY_HOOKS_DIGITAL"] is False
+    assert report["tokens"]["IMT2030_HARNESS_DIGITAL"] is False
     matrix = report["portfolio_matrix"]
     assert len(matrix["rows"]) == 11
     by = {r["packet"]: r for r in matrix["rows"]}
+    assert by["R6G-001"]["status"] == "COMPLETE_DIGITAL_REGISTRY"
     assert by["R6G-003"]["claim_state"] == "DIGITAL_IMPROVEMENT_CANDIDATE"
     assert by["R6G-005"]["claim_state"] == "REPLICATION_INCOMPLETE"
     assert by["R6G-009"]["claim_state"] == "REPLICATION_INCOMPLETE"
+    assert by["R6G-002"]["claim_state"] == "MODELED_ILLUSTRATIVE"
+    assert by["R6G-004"]["claim_state"] == "MODELED_SYNTHETIC_STUB"
+    assert by["R6G-008"]["claim_state"] == "MODELED_LOOKUP_TABLE"
+    assert by["R6G-010"]["claim_state"] == "MODELED_SCORING_HOOKS"
+    assert by["R6G-011"]["claim_state"] == "HARNESS_MAP_ONLY"
+    for pid in ("R6G-002", "R6G-004", "R6G-008", "R6G-010", "R6G-011"):
+        assert by[pid]["ladder_earned"] == ["R0", "R1"]
+    assert by["R6G-006"]["status"] == "MODELED_CONTRACT_ONLY"
+    assert by["R6G-007"]["status"] == "MODELED_CONTRACT_ONLY"
+    neg = json.loads((tmp_path / "replication" / "R6G_NEGATIVE_RESULTS.json").read_text())
+    assert neg["count"] == len(neg["results"])
+    assert all(not r.get("ILLUSTRATIVE") for r in neg["results"])
+    assert neg.get("illustrative_count", 0) >= 1
     assert (tmp_path / "OPEN.md").exists()
     assert (tmp_path / "R6G_PORTFOLIO_MATRIX.json").exists()
 
@@ -42,6 +62,10 @@ def test_portfolio_adoption_002_preserves_79_claims(tmp_path: Path):
 def test_spectrum_fabric_continuum_and_ucs():
     r = run_r6g002()
     assert r["ok"] is True
+    assert r["claim_state"] == "MODELED_ILLUSTRATIVE"
+    assert r["status"] == "MODELED_ILLUSTRATIVE"
+    assert r["ladder_earned"] == ["R0", "R1"]
+    assert r["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is False
     assert "bearer_continuum" in r
     assert len(r["bearer_continuum"]) >= 7
     assert "policy_comparisons" in r
@@ -56,14 +80,18 @@ def test_spectrum_fabric_continuum_and_ucs():
 def test_r6g004_synthetic_privacy_no_physical_ring():
     r = run_r6g004()
     assert r["PHYSICAL_RING"] is False
+    assert r["claim_state"] == "MODELED_SYNTHETIC_STUB"
+    assert r["MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT"] is False
     assert r["dataset"]["type"] == "SYNTHETIC_LABELED"
     assert r["dataset"]["real_humans"] is False
-    assert len(r["documented_negative_or_no_gain"]) >= 1
+    assert all(n.get("ILLUSTRATIVE") for n in r["documented_negative_or_no_gain"])
     assert r["IMPROVED_STATE_OF_ART"] is False
 
 
 def test_r6g008_no_learning_outcomes():
     r = run_r6g008()
+    assert r["claim_state"] == "MODELED_LOOKUP_TABLE"
+    assert r["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is False
     assert r["real_education_outcome_claimed"] is False
     assert r["guaranteed_learning_outcomes"] is False
     assert r["waike_transfer"]["counts_as_scientific_validation"] is False
@@ -81,6 +109,10 @@ def test_r6g006_007_contracts_safe():
 def test_r6g010_011_never_compliant():
     r10 = run_r6g010()
     r11 = run_r6g011()
+    assert r10["claim_state"] == "MODELED_SCORING_HOOKS"
+    assert r11["claim_state"] == "HARNESS_MAP_ONLY"
+    assert r10["SECURITY_PQC_PRIVACY_HOOKS_DIGITAL"] is False
+    assert r11["IMT2030_HARNESS_DIGITAL"] is False
     assert r10["COMPLIANT"] is False
     assert r10["STANDARDIZED_6G"] is False
     assert r11["claim_boundary"]["COMPLIANT"] is False

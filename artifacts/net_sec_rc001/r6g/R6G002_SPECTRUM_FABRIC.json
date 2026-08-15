@@ -2,55 +2,78 @@
   "schema": "gunnchos.r6g.r6g002.v1",
   "packet": "R6G-002",
   "ok": true,
-  "status": "DIGITALLY_EXECUTED",
+  "status": "MODELED_ILLUSTRATIVE",
+  "claim_state": "MODELED_ILLUSTRATIVE",
+  "ladder_earned": [
+    "R0",
+    "R1"
+  ],
+  "bearer_continuum": [
+    "local_only",
+    "LEO_NTN",
+    "sub6_terrestrial",
+    "FR3",
+    "mmWave",
+    "sub_THz",
+    "FSO_OWC",
+    "THz"
+  ],
   "bearers": {
     "sub6_terrestrial": {
       "status": "SIMULATED",
       "latency_ms": 20,
       "rate_mbps": 200,
-      "HARDWARE_PENDING": false
+      "HARDWARE_PENDING": false,
+      "continuum_index": 2
     },
     "FR3": {
       "status": "MODELED",
       "latency_ms": 18,
       "rate_mbps": 800,
-      "HARDWARE_PENDING": true
+      "HARDWARE_PENDING": true,
+      "continuum_index": 3
     },
     "mmWave": {
       "status": "MODELED",
       "latency_ms": 15,
       "rate_mbps": 2000,
-      "HARDWARE_PENDING": true
+      "HARDWARE_PENDING": true,
+      "continuum_index": 4
     },
     "sub_THz": {
       "status": "MODELED",
       "latency_ms": 12,
       "rate_mbps": 10000,
-      "HARDWARE_PENDING": true
+      "HARDWARE_PENDING": true,
+      "continuum_index": 5
     },
     "THz": {
       "status": "MODELED",
       "latency_ms": 10,
       "rate_mbps": 50000,
-      "HARDWARE_PENDING": true
+      "HARDWARE_PENDING": true,
+      "continuum_index": 7
     },
     "FSO_OWC": {
       "status": "MODELED",
       "latency_ms": 5,
       "rate_mbps": 20000,
-      "HARDWARE_PENDING": true
+      "HARDWARE_PENDING": true,
+      "continuum_index": 6
     },
     "LEO_NTN": {
       "status": "SIMULATED",
       "latency_ms": 45,
       "rate_mbps": 5,
-      "HARDWARE_PENDING": false
+      "HARDWARE_PENDING": false,
+      "continuum_index": 1
     },
     "local_only": {
       "status": "SIMULATED",
       "latency_ms": 1,
       "rate_mbps": 1000,
-      "HARDWARE_PENDING": false
+      "HARDWARE_PENDING": false,
+      "continuum_index": 0
     }
   },
   "decisions": {
@@ -121,6 +144,49 @@
       "fallback": "sub_THz"
     }
   },
+  "policy_comparisons": {
+    "peak_rate_first": {
+      "policy": "peak_rate_first",
+      "bearers": [
+        "mmWave"
+      ],
+      "fallback": "FR3"
+    },
+    "availability_first": {
+      "policy": "availability_first",
+      "bearers": [
+        "sub6_terrestrial",
+        "LEO_NTN"
+      ],
+      "fallback": "semantic_sync"
+    },
+    "energy_first": {
+      "policy": "energy_first",
+      "bearers": [
+        "sub6_terrestrial"
+      ],
+      "avoid": [
+        "THz",
+        "FSO_OWC"
+      ]
+    },
+    "local_first": {
+      "policy": "local_first",
+      "bearers": [
+        "local_only"
+      ],
+      "fallback": "LEO_NTN"
+    },
+    "ucs_predeclared": {
+      "policy": "ucs_predeclared",
+      "bearers": [
+        "FR3",
+        "sub6_terrestrial"
+      ],
+      "fallback": "LEO_NTN",
+      "metric": "UCS"
+    }
+  },
   "useful_connectivity_comparison": {
     "metric_scheme": {
       "scheme_id": "UCS_V1_PRODUCT",
@@ -137,13 +203,16 @@
       },
       "comparison_policy": "weights_not_tuned_after_seeing_which_system_wins",
       "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
       "NOT_ITU_METRIC": true,
       "NOT_3GPP_METRIC": true,
       "NOT_STANDARDIZED_METRIC": true
     },
+    "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
     "peaky_link": {
       "metric": "UsefulConnectivityScore",
       "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
       "NOT_ITU_METRIC": true,
       "NOT_3GPP_METRIC": true,
       "NOT_STANDARDIZED_METRIC": true,
@@ -163,6 +232,7 @@
     "useful_link": {
       "metric": "UsefulConnectivityScore",
       "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "research_metric_class": "GUNNCHOS_PROPOSED_RESEARCH_METRIC",
       "NOT_ITU_METRIC": true,
       "NOT_3GPP_METRIC": true,
       "NOT_STANDARDIZED_METRIC": true,
@@ -179,7 +249,7 @@
       "score": 0.3366,
       "note": "Exploratory; use alongside standard metrics, never instead."
     },
-    "peak_vs_useful": "useful_link score higher despite lower peak R \u2014 exploratory only",
+    "peak_vs_useful": "illustrative only \u2014 not a falsifiable digital campaign",
     "sensitivity_useful_link": {
       "scheme_id": "UCS_V1_PRODUCT",
       "base": {
@@ -279,10 +349,13 @@
       ],
       "note": "Descriptive sensitivity only; not a statistical significance claim."
     },
-    "no_146_gt_145_claim": true
+    "no_146_gt_145_claim": true,
+    "ILLUSTRATIVE": true
   },
+  "HYBRID_SPECTRUM_FABRIC_DIGITAL": false,
   "IMPROVED_STATE_OF_ART": false,
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "RM520N_GL_NTN": false,
-  "RM520N_GL_5GA": false
+  "RM520N_GL_5GA": false,
+  "note": "Illustrative spectrum-fabric policy sketch; not DIGITALLY_EXECUTED evidence."
 }

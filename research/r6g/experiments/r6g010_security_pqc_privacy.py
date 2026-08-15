@@ -81,25 +81,28 @@ def run_r6g010() -> dict[str, Any]:
         "schema": "gunnchos.r6g.r6g010.v1",
         "packet": "R6G-010",
         "ok": True,
-        "status": "DIGITALLY_EXECUTED",
-        "claim_state": "MODELED",
+        "status": "MODELED_SCORING_HOOKS",
+        "claim_state": "MODELED_SCORING_HOOKS",
+        "ladder_earned": ["R0", "R1"],
         "weight_scheme": PREREGISTERED_SECURITY_WEIGHTS,
         "profiles": profiles,
         "privacy_floor": 0.25,
         "falsification": {
             "overclaim_trap_scores_worse_when_privacy_collapses": trap_fails_floor,
-            "note": "Privacy floor gate fails even if other components are inflated",
+            "note": "Illustrative privacy-floor gate; not a falsifiable security campaign",
+            "ILLUSTRATIVE": True,
         },
         "hooks": {
             "score_profile": "research.r6g.experiments.r6g010_security_pqc_privacy.score_profile",
             "consumers": ["adoption packages", "WAIKE case study", "portfolio matrix"],
         },
+        "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": False,
         "STANDARDIZED_6G": False,
         "COMPLIANT": False,
         "CERTIFIED": False,
         "PHYSICAL_REPRODUCTION_PENDING": True,
         "IMPROVED_STATE_OF_ART": False,
-        "note": "Digital scoring hooks only — not a security certification.",
+        "note": "Scoring hooks only — not DIGITALLY_EXECUTED evidence; not a certification.",
     }
     assert_no_soa(report)
     assert report["STANDARDIZED_6G"] is False

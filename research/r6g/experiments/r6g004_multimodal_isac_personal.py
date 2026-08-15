@@ -100,12 +100,15 @@ def run_r6g004(*, seed: int = 17, n: int = 64) -> dict[str, Any]:
             "privacy_leak_score": raw_leak,
         })
 
+    # Construction negatives are ILLUSTRATIVE stubs — not replication-ladder evidence.
+    illustrative_negatives = [{**n, "ILLUSTRATIVE": True, "counts_toward_real_negatives": False} for n in negatives]
     report = {
         "schema": "gunnchos.r6g.r6g004.v1",
         "packet": "R6G-004",
         "ok": True,
-        "status": "DIGITALLY_EXECUTED",
-        "claim_state": "MODELED",
+        "status": "MODELED_SYNTHETIC_STUB",
+        "claim_state": "MODELED_SYNTHETIC_STUB",
+        "ladder_earned": ["R0", "R1"],
         "dataset": {
             "type": "SYNTHETIC_LABELED",
             "n_samples": n,
@@ -119,14 +122,16 @@ def run_r6g004(*, seed: int = 17, n: int = 64) -> dict[str, Any]:
         "ablations": {
             "ring_drop_to_device": abl_ring_drop,
             "vision_spoof_raw": abl_vision_spoof,
+            "ILLUSTRATIVE": True,
         },
-        "documented_negative_or_no_gain": negatives,
+        "documented_negative_or_no_gain": illustrative_negatives,
         "primary_multimodal_rmse_better_than_rf": multimodal_better,
-        "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": multimodal_better and len(negatives) >= 1,
+        "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": False,
+        "MULTIMODAL_ISAC_PERSONAL_DIGITAL": False,
         "PHYSICAL_RING": False,
         "PHYSICAL_REPRODUCTION_PENDING": True,
         "IMPROVED_STATE_OF_ART": False,
-        "note": "Synthetic personal sensing only; no ring SI, no OTA, no SoA claim.",
+        "note": "Synthetic stub only; not a falsifiable digital campaign; PHYSICAL_RING=false.",
     }
     assert_no_soa(report)
     assert report["PHYSICAL_RING"] is False

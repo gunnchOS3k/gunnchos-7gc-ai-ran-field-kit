@@ -37,8 +37,9 @@ def run_r6g011() -> dict[str, Any]:
         "schema": "gunnchos.r6g.r6g011.v1",
         "packet": "R6G-011",
         "ok": True,
-        "status": "DIGITALLY_EXECUTED",
-        "claim_state": "MODELED",
+        "status": "HARNESS_MAP_ONLY",
+        "claim_state": "HARNESS_MAP_ONLY",
+        "ladder_earned": ["R0", "R1"],
         "imt2030_tpr_source": str(TPR_PATH.relative_to(ROOT)),
         "requirement_count": len(reqs),
         "official_value_pending_count": pending,
@@ -53,10 +54,11 @@ def run_r6g011() -> dict[str, Any]:
             "source_boundary_STANDARDIZED_6G": boundary.get("STANDARDIZED_6G", False),
         },
         "evaluation_methods_allowed": ["SIMULATION", "ANALYTICAL", "INSPECTION"],
+        "IMT2030_HARNESS_DIGITAL": False,
         "PHYSICAL_REPRODUCTION_PENDING": True,
         "IMPROVED_STATE_OF_ART": False,
         "note": (
-            "Harness maps packets to IMT-2030 scenarios; never STANDARDIZED_6G/COMPLIANT "
+            "Harness map only — not DIGITALLY_EXECUTED evaluation; never STANDARDIZED_6G/COMPLIANT "
             "while official_value=OFFICIAL_VALUE_PENDING."
         ),
     }

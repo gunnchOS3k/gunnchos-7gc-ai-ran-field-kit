@@ -64,10 +64,10 @@ def build_portfolio_matrix(
         _matrix_row(
             "R6G-002",
             status=r002["status"],
-            claim_state="MODELED",
+            claim_state=r002.get("claim_state", "MODELED_ILLUSTRATIVE"),
             adoption=adopt.get("R6G-002", "A0_INTERNAL_EXPERIMENT"),
-            ladder=["R0", "R1", "R2"],
-            notes="Bearer continuum + policy comparisons + UCS research metric",
+            ladder=r002.get("ladder_earned", ["R0", "R1"]),
+            notes="Illustrative bearer/UCS sketch — not DIGITALLY_EXECUTED",
         ),
         _matrix_row(
             "R6G-003",
@@ -82,8 +82,8 @@ def build_portfolio_matrix(
             status=r004["status"],
             claim_state=r004["claim_state"],
             adoption=adopt.get("R6G-004", "A0_INTERNAL_EXPERIMENT"),
-            ladder=["R0", "R1", "R2"],
-            notes="Synthetic labeled personal ISAC; PHYSICAL_RING=false",
+            ladder=r004.get("ladder_earned", ["R0", "R1"]),
+            notes="Synthetic stub; PHYSICAL_RING=false; negatives ILLUSTRATIVE",
         ),
         _matrix_row(
             "R6G-005",
@@ -114,8 +114,8 @@ def build_portfolio_matrix(
             status=r008["status"],
             claim_state=r008["claim_state"],
             adoption=adopt.get("R6G-008", "A0_INTERNAL_EXPERIMENT"),
-            ladder=["R0", "R1", "R2"],
-            notes="WAIKE/gunnchAI transfer; no guaranteed learning outcomes",
+            ladder=r008.get("ladder_earned", ["R0", "R1"]),
+            notes="Lookup-table continuity sketch; no guaranteed learning outcomes",
         ),
         _matrix_row(
             "R6G-009",
@@ -130,16 +130,16 @@ def build_portfolio_matrix(
             status=r010["status"],
             claim_state=r010["claim_state"],
             adoption=adopt.get("R6G-010", "A0_INTERNAL_EXPERIMENT"),
-            ladder=["R0", "R1", "R2"],
-            notes="PQC/zero-trust/privacy scoring hooks; not certification",
+            ladder=r010.get("ladder_earned", ["R0", "R1"]),
+            notes="Scoring hooks only; not certification",
         ),
         _matrix_row(
             "R6G-011",
             status=r011["status"],
             claim_state=r011["claim_state"],
             adoption=adopt.get("R6G-011", "A0_INTERNAL_EXPERIMENT"),
-            ladder=["R0", "R1", "R2"],
-            notes="IMT-2030 harness; STANDARDIZED_6G/COMPLIANT remain false",
+            ladder=r011.get("ladder_earned", ["R0", "R1"]),
+            notes="Harness map only; STANDARDIZED_6G/COMPLIANT remain false",
         ),
     ]
     return {
@@ -214,11 +214,12 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": bool(r003["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"]),
         "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": bool(r005["HYPOTHESIS_SUPPORTED_DIGITALLY"]),
         "PREDICTIVE_RADIO_DT_DIGITAL": bool(r009["HYPOTHESIS_SUPPORTED_DIGITALLY"]),
-        "HYBRID_SPECTRUM_FABRIC_DIGITAL": bool(r002["ok"]),
-        "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": bool(sem["ok"]) and bool(r008["ok"]),
-        "MULTIMODAL_ISAC_PERSONAL_DIGITAL": bool(r004["ok"]),
-        "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": bool(r010["ok"]),
-        "IMT2030_HARNESS_DIGITAL": bool(r011["ok"]),
+        # Honesty demotion (#80 remediation): illustrative/stub packets do not earn DIGITAL tokens
+        "HYBRID_SPECTRUM_FABRIC_DIGITAL": False,
+        "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": False,
+        "MULTIMODAL_ISAC_PERSONAL_DIGITAL": False,
+        "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": False,
+        "IMT2030_HARNESS_DIGITAL": False,
         "R6G_DIGITAL_REPLICATION_PASS": bool(replication["tokens"].get("R6G_DIGITAL_REPLICATION_PASS")),
         "R6G_MULTI_SEED_REPRODUCED": bool(replication["tokens"].get("R6G_MULTI_SEED_REPRODUCED")),
         "R6G_FALSIFICATION_DOCUMENTED": bool(replication["tokens"].get("R6G_FALSIFICATION_DOCUMENTED")),
@@ -245,6 +246,9 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "IMPROVED_STATE_OF_ART remains false",
         "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred (Product-Use may own QEMU)",
         "R6G-006/007 MODELED_CONTRACT_ONLY — no physical exaggeration",
+        "R6G-002 MODELED_ILLUSTRATIVE; 004 MODELED_SYNTHETIC_STUB; 008 MODELED_LOOKUP_TABLE; 010 MODELED_SCORING_HOOKS; 011 HARNESS_MAP_ONLY (R0–R1)",
+        "HYBRID_SPECTRUM / MULTIMODAL_ISAC_PERSONAL / SEMANTIC_NTN / SECURITY_PQC / IMT2030_HARNESS digital tokens demoted false",
+        "Construction-stub negatives marked ILLUSTRATIVE — excluded from real negative count",
         "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
         "EXTERNAL_REPRODUCTION_PENDING / PHYSICAL_REPRODUCTION_PENDING",
         "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE preserved; 005/009 REPLICATION_INCOMPLETE preserved",
@@ -264,7 +268,7 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "baselines_digitally_matched_to_published_physical": False,
         "digital_improvements_observed": {
             "R6G-003": r003["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"],
-            "R6G-004": r004.get("MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT"),
+            "R6G-004": False,  # synthetic stub — improvement not earned
             "R6G-005": r005["SIMULATION_IMPROVEMENT_OBSERVED"],
             "R6G-009": r009["SIMULATION_IMPROVEMENT_OBSERVED"],
         },
@@ -314,8 +318,8 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "R6G-003": bool(r003.get("falsifiable")),
             "R6G-005": bool(r005.get("falsifiable")),
             "R6G-009": bool(r009.get("falsifiable")),
-            "R6G-004": len(r004.get("documented_negative_or_no_gain", [])) >= 1,
-            "R6G-010": bool(r010.get("falsification", {}).get("overclaim_trap_scores_worse_when_privacy_collapses")),
+            "R6G-004": False,  # synthetic stub — not ladder falsification evidence
+            "R6G-010": False,  # scoring hooks — illustrative only
         },
         "naked_numeric_headline_count": sum(
             1 for b in registry.get("breakthroughs", []) if b.get("headline_numeric_claim") is True
@@ -385,7 +389,7 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
                 "STANDARDIZED_6G": False,
                 "candidates": report["replication"]["candidates"],
                 "supporting": {
-                    "R6G-002": "MODELED",
+                    "R6G-002": r002["claim_state"],
                     "R6G-004": r004["claim_state"],
                     "R6G-006": r006["claim_state"],
                     "R6G-007": r007["claim_state"],
