@@ -1,0 +1,96 @@
+{
+  "schema": "gunnchos.standards.imt2030.test_environments.v1",
+  "as_of": "2026-08-14",
+  "source": {
+    "authority": "ITU-R WP 5D draft Report M.[IMT-2030.EVAL]",
+    "url": "https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/Pages/default.aspx",
+    "document": "Document 5/119",
+    "wp5d_complete": "2026-06",
+    "sg5_approval_target": "2026-12",
+    "status": "DRAFT_PENDING_SG5",
+    "secondary_public_summary": "https://research.samsung.com/blog/Building-the-Foundation-for-Global-6G-Standardization-A-Deep-Dive-into-ITU-R-IMT-2030-Requirements-and-Evaluation-Guidelines",
+    "retrieved": "2026-08-14T19:40:00Z"
+  },
+  "claim_boundary": {
+    "STANDARDIZED_6G": false,
+    "6G_CERTIFIED": false,
+    "CARRIER_ACCEPTED": false,
+    "REAL_NTN_MODEM_VALIDATED": false,
+    "GATE_8_PASS": false,
+    "product_wording": "5G-Advanced and NTN-capable, IMT-2030-aligned, software-defined, and engineered for migration to standardized 6G.",
+    "note": "No final standardized 6G claim. Draft ITU reports pending SG5 Dec 2026 approval."
+  },
+  "environments": [
+    {
+      "id": "IndoorHotspot-IC",
+      "usage_scenarios": [
+        "IC"
+      ],
+      "new_vs_imt2020": false,
+      "published_interface_status": "NAMED_IN_PUBLIC_SUMMARY",
+      "params_status": "OFFICIAL_PARAMS_PENDING"
+    },
+    {
+      "id": "DenseUrban-IC",
+      "usage_scenarios": [
+        "IC"
+      ],
+      "new_vs_imt2020": false,
+      "published_interface_status": "NAMED_IN_PUBLIC_SUMMARY",
+      "params_status": "OFFICIAL_PARAMS_PENDING"
+    },
+    {
+      "id": "Rural-IC",
+      "usage_scenarios": [
+        "IC"
+      ],
+      "new_vs_imt2020": false,
+      "published_interface_status": "NAMED_IN_PUBLIC_SUMMARY",
+      "params_status": "OFFICIAL_PARAMS_PENDING"
+    },
+    {
+      "id": "UrbanMacro-MC",
+      "usage_scenarios": [
+        "MC"
+      ],
+      "new_vs_imt2020": false,
+      "published_interface_status": "NAMED_IN_PUBLIC_SUMMARY",
+      "params_status": "OFFICIAL_PARAMS_PENDING"
+    },
+    {
+      "id": "IndoorFactory-HRLLC",
+      "usage_scenarios": [
+        "HRLLC"
+      ],
+      "new_vs_imt2020": true,
+      "published_interface_status": "NAMED_ON_ITU_PORTAL",
+      "params_status": "OFFICIAL_PARAMS_PENDING",
+      "note": "Named on ITU IMT-2030 portal as newly introduced vs IMT-2020."
+    },
+    {
+      "id": "IndoorFactory-ISAC",
+      "usage_scenarios": [
+        "ISAC"
+      ],
+      "new_vs_imt2020": true,
+      "published_interface_status": "NAMED_ON_ITU_PORTAL",
+      "params_status": "OFFICIAL_PARAMS_PENDING",
+      "note": "Named on ITU IMT-2030 portal as newly introduced vs IMT-2020."
+    },
+    {
+      "id": "UrbanMacro-ISAC",
+      "usage_scenarios": [
+        "ISAC"
+      ],
+      "new_vs_imt2020": true,
+      "published_interface_status": "NAMED_ON_ITU_PORTAL",
+      "params_status": "OFFICIAL_PARAMS_PENDING",
+      "note": "Named on ITU IMT-2030 portal as newly introduced vs IMT-2020."
+    }
+  ],
+  "missing_honest": [
+    "Full channel-model parameter tables remain TIES-restricted until SG5 approval / public release.",
+    "Near-field / spatial non-stationarity / ISAC-specific model coefficients: OFFICIAL_PARAMS_PENDING.",
+    "No invented deployment densities, ISD, or antenna configs claimed as official."
+  ]
+}

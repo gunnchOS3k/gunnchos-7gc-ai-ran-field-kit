@@ -1,34 +1,69 @@
 schema_version: "1.0.0"
-fetched_at_utc: "2026-08-07T22:20:00Z"
+fetched_at_utc: "2026-08-14T19:40:00Z"
 physical_execution_freeze: ACTIVE
+product_wording: >
+  5G-Advanced and NTN-capable, IMT-2030-aligned, software-defined, and engineered
+  for migration to standardized 6G.
 sources:
   - id: ITU-IMT-2030
     title: IMT towards 2030 and beyond (IMT-2030)
-    url: https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/pages/default.aspx
-    retrieved: "2026-08-07"
+    url: https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/Pages/default.aspx
+    retrieved: "2026-08-14"
     authority: ITU-R WP 5D
-    snapshot: source_snapshots/itu-imt-2030-2026-08-07.md
+    snapshot: source_snapshots/itu-imt-2030-2026-08-14.md
+  - id: ITU-IMT-2030-HUB
+    title: IMT-2030 technical requirements for the 6G future (ITU Hub)
+    url: https://www.itu.int/hub/2026/03/imt-2030-technical-requirements-for-the-6g-future/
+    retrieved: "2026-08-14"
+    authority: ITU public communications
+    note: Confirms 20 TPRs / SG5 Dec 2026; full draft TIES-restricted.
   - id: ITU-IMT-FAMILY
     title: ITU-R WP 5D IMT family page
     url: https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/pages/imt.aspx
     retrieved: "2026-08-07"
     authority: ITU-R WP 5D
     snapshot: source_snapshots/itu-imt-family-2026-08-07.md
-    note: Live fetch timed out during packaging; watch job re-fetches.
   - id: 3GPP-REL20
     title: 3GPP Release 20
     url: https://www.3gpp.org/specifications-technologies/releases/release-20
-    retrieved: "2026-08-07"
+    retrieved: "2026-08-14"
     authority: 3GPP
-    snapshot: source_snapshots/3gpp-rel20-2026-08-07.md
+    snapshot: source_snapshots/3gpp-rel20-2026-08-14.md
   - id: 3GPP-REL21
-    title: 3GPP Release 21 (tracker only)
-    url: https://www.3gpp.org/specifications-technologies/releases/release-20
-    retrieved: "2026-08-13"
+    title: 3GPP Release 21 (tracker + public timeline)
+    url: https://www.3gpp.org/specifications-technologies/releases/release-21
+    retrieved: "2026-08-14"
     authority: 3GPP
-    snapshot: source_snapshots/3gpp-rel21-2026-08-13.md
-    note: Rel-21 has no freeze in this repo. TRACKER_ONLY. Snapshot is derived from the Rel-20 pin + IMT-2030 current-state YAML. STANDARDIZED_6G=false. CARRIER_ACCEPTED=false.
+    snapshot: source_snapshots/3gpp-rel21-2026-08-14.md
+    note: Timeline published Jun 2026 (TSGs#112). No freeze claimed. STANDARDIZED_6G=false.
+  - id: 3GPP-REL21-TIMELINE
+    title: Timeline for Release 21
+    url: https://www.3gpp.org/news-events/3gpp-news/rel21-timeline
+    retrieved: "2026-08-14"
+    authority: 3GPP
+  - id: GSMA-SGP22-V27
+    title: GSMA SGP.22 v2.7 RSP Technical Specification
+    url: https://www.gsma.com/solutions-and-impact/technologies/esim/gsma_resources/sgp-22-v2-7/
+    retrieved: "2026-08-14"
+    authority: GSMA
+    snapshot: source_snapshots/gsma-esim-opengateway-2026-08-14.md
+  - id: GSMA-OPEN-GATEWAY-CAMARA
+    title: GSMA Open Gateway API Descriptions (CAMARA)
+    url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma-open-gateway-api-descriptions/
+    retrieved: "2026-08-14"
+    authority: GSMA / CAMARA
+    snapshot: source_snapshots/gsma-esim-opengateway-2026-08-14.md
+  - id: SECONDARY-SAMSUNG-IMT2030-SUMMARY
+    title: Samsung Research public summary of IMT-2030 TPR/EVAL naming
+    url: https://research.samsung.com/blog/Building-the-Foundation-for-Global-6G-Standardization-A-Deep-Dive-into-ITU-R-IMT-2030-Requirements-and-Evaluation-Guidelines
+    retrieved: "2026-08-14"
+    authority: secondary_public_summary
+    note: Used only for publicly named TPR families / environments; never as official numeric authority.
+machine_readable:
+  imt2030_dir: standards/imt2030/
+  release_tracker: standards/3gpp/release_tracker.json
 claim_policy: |
   GATE_8_PASS is forbidden until applicable normative 6G/certification path exists.
   No IMT-2030 compliant / 6G certified claims.
-  STANDARDIZED_6G=false. CARRIER_ACCEPTED=false.
+  STANDARDIZED_6G=false. CARRIER_ACCEPTED=false. REAL_NTN_MODEM_VALIDATED=false.
+  Official TPR numbers not present in unrestricted public sources → OFFICIAL_VALUE_PENDING.
