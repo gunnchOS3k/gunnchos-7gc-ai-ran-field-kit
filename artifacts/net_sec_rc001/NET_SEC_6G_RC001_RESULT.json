@@ -24,11 +24,12 @@
     "PREDICTIVE_RADIO_DT_DIGITAL": true,
     "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
     "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
-    "R6G_DIGITAL_REPLICATION_PASS": true,
-    "R6G_MULTI_SEED_REPRODUCED": true,
+    "R6G_DIGITAL_REPLICATION_PASS": false,
+    "R6G_MULTI_SEED_REPRODUCED": false,
     "R6G_FALSIFICATION_DOCUMENTED": true,
-    "R6G_ABLATIONS_DOCUMENTED": true,
-    "R6G_INDEPENDENT_VERIFIER_PASS": true,
+    "R6G_ABLATIONS_DOCUMENTED": false,
+    "R6G_INDEPENDENT_VERIFIER_PASS": false,
+    "R6G_ABLATIONS_PARTIAL": true,
     "STANDARDIZED_6G": false,
     "6G_CERTIFIED": false,
     "CARRIER_ACCEPTED": false,
@@ -59,7 +60,8 @@
     "R6G_MULTI_SEED_REPRODUCED",
     "R6G_FALSIFICATION_DOCUMENTED",
     "R6G_ABLATIONS_DOCUMENTED",
-    "R6G_INDEPENDENT_VERIFIER_PASS"
+    "R6G_INDEPENDENT_VERIFIER_PASS",
+    "R6G_ABLATIONS_PARTIAL"
   ],
   "forbidden_tokens": [
     "STANDARDIZED_6G",
@@ -790,9 +792,9 @@
           "case_id": "HN-TLS-MATERIAL-001",
           "passed": true,
           "evidence": {
-            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-phkkcpcm/mismatch.crt",
-            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-phkkcpcm/expired.crt",
-            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-phkkcpcm/server.crt"
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-v99l4it4/server.crt"
           }
         },
         {
@@ -1282,11 +1284,12 @@
       "PREDICTIVE_RADIO_DT_DIGITAL": true,
       "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
       "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
-      "R6G_DIGITAL_REPLICATION_PASS": true,
-      "R6G_MULTI_SEED_REPRODUCED": true,
+      "R6G_DIGITAL_REPLICATION_PASS": false,
+      "R6G_MULTI_SEED_REPRODUCED": false,
       "R6G_FALSIFICATION_DOCUMENTED": true,
-      "R6G_ABLATIONS_DOCUMENTED": true,
-      "R6G_INDEPENDENT_VERIFIER_PASS": true,
+      "R6G_ABLATIONS_DOCUMENTED": false,
+      "R6G_INDEPENDENT_VERIFIER_PASS": false,
+      "R6G_ABLATIONS_PARTIAL": true,
       "IMPROVED_STATE_OF_ART": false,
       "6G_BREAKTHROUGH_PASS": null,
       "BREAKTHROUGH_PROVEN": false,
@@ -1334,13 +1337,13 @@
         {
           "experiment": "neg_vision_spoof_overtrust",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 2.6178,
+          "delta_m": 3.0714,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         },
         {
           "experiment": "neg_vision_spoof_seed202",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 4.6529,
+          "delta_m": 4.0785,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         }
       ],
@@ -1348,22 +1351,22 @@
         {
           "experiment": "in_distribution_throughput",
           "result": "NO_GAIN_VS_CONVENTIONAL",
-          "aware_throughput_norm": 0.8054,
-          "conventional_throughput_norm": 0.8592,
+          "aware_throughput_norm": 0.8468,
+          "conventional_throughput_norm": 0.8683,
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
         },
         {
           "experiment": "noisy_csi_failure_rate",
           "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
-          "aware_failure_rate": 0.0103,
+          "aware_failure_rate": 0.0096,
           "conventional_failure_rate": 0.0085,
           "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
         },
         {
           "experiment": "adversarial_csi_naive_ai",
           "result": "NAIVE_AI_CSF_DEGRADES",
-          "naive_failure_rate": 0.5354,
-          "conventional_failure_rate": 0.0084,
+          "naive_failure_rate": 0.5042,
+          "conventional_failure_rate": 0.0086,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
         }
       ],

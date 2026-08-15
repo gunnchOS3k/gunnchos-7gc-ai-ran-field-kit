@@ -122,14 +122,22 @@ def _run_policy(
     }
 
 
-def run_r6g009() -> dict[str, Any]:
+def run_r6g009(seed: int = 9) -> dict[str, Any]:
+    """Run predictive twin suite. ``seed`` varies plant draws and policy RNGs."""
+    seed = int(seed)
     n = 200
-    series_smooth = _simulate_channel(n, random.Random(9), mode="smooth_sine")
+    series_smooth = _simulate_channel(n, random.Random(seed), mode="smooth_sine")
     delay_grid = {}
     for d_ms in DELAYS_MS:
         delay_steps = max(1, d_ms // 10)
         delay_grid[str(d_ms)] = {
-            p: _run_policy(p, series_smooth, delay_steps, random.Random(100 + d_ms), stress=None)
+            p: _run_policy(
+                p,
+                series_smooth,
+                delay_steps,
+                random.Random(seed * 1000 + 100 + d_ms + hash(p) % 97),
+                stress=None,
+            )
             for p in POLICIES
         }
 
@@ -147,9 +155,9 @@ def run_r6g009() -> dict[str, Any]:
     )
 
     # Negative B: jump/burst dynamics — predictor misspecification.
-    series_jump = _simulate_channel(n, random.Random(77), mode="jump_burst")
+    series_jump = _simulate_channel(n, random.Random(seed + 68), mode="jump_burst")
     neg_scores = {
-        p: _run_policy(p, series_jump, 1, random.Random(777), stress=None)
+        p: _run_policy(p, series_jump, 1, random.Random(seed * 777 + 7), stress=None)
         for p in POLICIES
     }
     jump_no_gain = (
@@ -159,7 +167,13 @@ def run_r6g009() -> dict[str, Any]:
 
     stress_grid = {
         s: {
-            p: _run_policy(p, series_smooth, 5, random.Random(500 + hash(s) % 1000), stress=s)
+            p: _run_policy(
+                p,
+                series_smooth,
+                5,
+                random.Random(seed * 500 + 500 + (hash(s) % 1000)),
+                stress=s,
+            )
             for p in POLICIES
         }
         for s in STRESSES
@@ -206,6 +220,7 @@ def run_r6g009() -> dict[str, Any]:
             "drift_detection",
         ],
         "pretty_3d_only": False,
+        "seed": seed,
         "policies": list(POLICIES),
         "delay_grid_ms": delay_grid,
         "stress_grid": stress_grid,

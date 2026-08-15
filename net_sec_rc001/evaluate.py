@@ -71,6 +71,7 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     tokens["R6G_FALSIFICATION_DOCUMENTED"] = bool(r6g["tokens"].get("R6G_FALSIFICATION_DOCUMENTED"))
     tokens["R6G_ABLATIONS_DOCUMENTED"] = bool(r6g["tokens"].get("R6G_ABLATIONS_DOCUMENTED"))
     tokens["R6G_INDEPENDENT_VERIFIER_PASS"] = bool(r6g["tokens"].get("R6G_INDEPENDENT_VERIFIER_PASS"))
+    tokens["R6G_ABLATIONS_PARTIAL"] = bool(r6g["tokens"].get("R6G_ABLATIONS_PARTIAL"))
     tokens["IMPROVED_STATE_OF_ART"] = False
     for k in FORBIDDEN_TOKENS:
         tokens[k] = False

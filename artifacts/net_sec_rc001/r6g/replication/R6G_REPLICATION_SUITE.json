@@ -1,13 +1,15 @@
 {
   "IMPROVED_STATE_OF_ART": false,
   "OPEN": [
-    "Independent verifier must recalculate from raw (R6)",
-    "Clean-checkout CI soak (R7) EXTERNAL_PENDING this cycle",
+    "R6 independent verification requires EXTERNAL path \u2014 same-PR arithmetic does not earn R6",
+    "R6G_DIGITAL_REPLICATION_PASS remains false until R3\u2013R5 all candidates + external R6",
+    "Clean-checkout CI soak (R7) EXTERNAL_PENDING",
     "External reproduction packet EXTERNAL_REPRODUCTION_PENDING",
     "Physical/SDR/OTA R8/R9 not claimed",
     "R6G-006/007/010/011 staged \u2014 lightweight scaffolding only",
     "Large robustness / Sionna / ns-3 sweeps deferred (Product-Use may own QEMU)",
-    "IMPROVED_STATE_OF_ART remains false"
+    "IMPROVED_STATE_OF_ART remains false",
+    "PROMISING_DIGITAL not awarded this cycle"
   ],
   "adoption_levels": {
     "A2_plus": "NOT_CLAIMED_THIS_CYCLE",
@@ -15,70 +17,76 @@
     "R6G-002": "A0_INTERNAL_EXPERIMENT",
     "R6G-003": "A1_STABLE_REFERENCE_IMPLEMENTATION",
     "R6G-004": "A0_INTERNAL_EXPERIMENT",
-    "R6G-005": "A1_STABLE_REFERENCE_IMPLEMENTATION",
+    "R6G-005": "A0_INTERNAL_EXPERIMENT",
     "R6G-006": "A0_STAGED_NOT_EXECUTED",
     "R6G-007": "A0_STAGED_NOT_EXECUTED",
     "R6G-008": "A0_INTERNAL_EXPERIMENT",
-    "R6G-009": "A1_STABLE_REFERENCE_IMPLEMENTATION",
+    "R6G-009": "A0_INTERNAL_EXPERIMENT",
     "R6G-010": "A0_STAGED_NOT_EXECUTED",
     "R6G-011": "A0_STAGED_NOT_EXECUTED",
     "levels_do_not_skip": true
   },
-  "as_of_utc": "2026-08-15T17:23:59.734308+00:00",
+  "as_of_utc": "2026-08-15T17:30:20.120414+00:00",
   "candidates": {
     "R6G-003": {
       "DIGITAL_REPRODUCTION_MATCHED_TO_PHYSICAL": false,
       "IMPROVED_STATE_OF_ART": false,
       "ablation": {
         "ablation": "modality_drop_and_vision_trust0",
+        "ablation_ok": true,
+        "checks_passed": 3,
+        "checks_required": 3,
         "interpretation": "Compares RF-only vs IMU vs Ring vs ALL; vision-trust=0 stresses fusion weight. Not an OTA SoA claim.",
         "packet": "R6G-003",
         "rows": [
           {
-            "RF_ALL": 0.1346,
-            "RF_DEVICE_IMU": 0.3022,
-            "RF_ONLY": 0.4777,
-            "RF_RING_UWB_IMU": 0.1997,
-            "delta_all_vs_rf": -0.3431,
-            "delta_imu_vs_rf": -0.1755,
-            "delta_ring_vs_rf": -0.278,
-            "no_vision_trust0_ALL": 0.1881,
+            "RF_ALL": 0.1528,
+            "RF_DEVICE_IMU": 0.2973,
+            "RF_ONLY": 0.5368,
+            "RF_RING_UWB_IMU": 0.1911,
+            "ablation_check_ok": true,
+            "delta_all_vs_rf": -0.384,
+            "delta_imu_vs_rf": -0.2395,
+            "delta_ring_vs_rf": -0.3457,
+            "no_vision_trust0_ALL": 0.2113,
             "seed": 7
           },
           {
-            "RF_ALL": 0.1642,
-            "RF_DEVICE_IMU": 0.3413,
-            "RF_ONLY": 0.5162,
-            "RF_RING_UWB_IMU": 0.1933,
-            "delta_all_vs_rf": -0.352,
-            "delta_imu_vs_rf": -0.1749,
-            "delta_ring_vs_rf": -0.3229,
-            "no_vision_trust0_ALL": 0.2305,
+            "RF_ALL": 0.154,
+            "RF_DEVICE_IMU": 0.2698,
+            "RF_ONLY": 0.5017,
+            "RF_RING_UWB_IMU": 0.1903,
+            "ablation_check_ok": true,
+            "delta_all_vs_rf": -0.3477,
+            "delta_imu_vs_rf": -0.2319,
+            "delta_ring_vs_rf": -0.3114,
+            "no_vision_trust0_ALL": 0.2199,
             "seed": 11
           },
           {
-            "RF_ALL": 0.1513,
-            "RF_DEVICE_IMU": 0.3187,
-            "RF_ONLY": 0.5414,
-            "RF_RING_UWB_IMU": 0.1774,
-            "delta_all_vs_rf": -0.3901,
-            "delta_imu_vs_rf": -0.2227,
-            "delta_ring_vs_rf": -0.364,
-            "no_vision_trust0_ALL": 0.2133,
+            "RF_ALL": 0.1604,
+            "RF_DEVICE_IMU": 0.3104,
+            "RF_ONLY": 0.4412,
+            "RF_RING_UWB_IMU": 0.1941,
+            "ablation_check_ok": true,
+            "delta_all_vs_rf": -0.2808,
+            "delta_imu_vs_rf": -0.1308,
+            "delta_ring_vs_rf": -0.2471,
+            "no_vision_trust0_ALL": 0.2252,
             "seed": 19
           }
         ]
       },
       "candidate": "R6G-003",
-      "claim_state": "PROMISING_DIGITAL",
+      "claim_state": "DIGITAL_IMPROVEMENT_CANDIDATE",
+      "ladder_cap_note": "R6+ requires external independent path; same-PR verifier does not earn R6",
       "ladder_earned": [
         "R0",
         "R1",
         "R2",
         "R3",
         "R4",
-        "R5",
-        "R6"
+        "R5"
       ],
       "ladder_flags": {
         "R0": true,
@@ -87,109 +95,110 @@
         "R3": true,
         "R4": true,
         "R5": true,
-        "R6": true,
+        "R6": false,
         "R7": false,
         "R8": false,
         "R9": false
       },
+      "metrics_vary_across_seeds": true,
       "negative_controls_observed": true,
       "negative_runs": [
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.6473,
+          "rf_all_vs_rf_only_delta_m": 3.0742,
           "seed": 101,
-          "sha256": "f6b1a1afe2825b6b0aaedca1e30c94dbffdf8af200423d4316dfa6a945e4a7d3"
+          "sha256": "9bbabb74db50624b7f81f063d0ca86e8a9bab89a359417685afdaa1137f9a6b8"
         },
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.6987,
+          "rf_all_vs_rf_only_delta_m": 2.5033,
           "seed": 202,
-          "sha256": "1f4c040bc1afaa97c9787c35c78cda128954f7075dcbd2e913e56d8a87232c12"
+          "sha256": "b22fa6af69641b39d0773b8dceccad42d3e3d1601c97b17d2981e19c2b08ec49"
         },
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.5909,
+          "rf_all_vs_rf_only_delta_m": 2.7455,
           "seed": 303,
-          "sha256": "dad11bc61bfd080d241035c4555241aa97106a0e2e6c650310be07be38c44d64"
+          "sha256": "28c1d50faa838de1f887afa1ae221cc2bb7a5f636e185d76970f344991ca0a9d"
         },
         {
           "multimodal_worse": true,
-          "rf_all_vs_rf_only_delta_m": 2.8393,
+          "rf_all_vs_rf_only_delta_m": 3.0428,
           "seed": 404,
-          "sha256": "a8fb914ab649f66f73d9e61af16ae5481b65011201fbc227b9d81e5c378af05f"
+          "sha256": "cc6f2ba67bf2993e31b85892cdfb32e9bc86b0ce67c51fa226aaee02c4e92875"
         }
       ],
       "primary_delta_summary": {
-        "max": -0.2621,
-        "mean": -0.3305,
-        "median": -0.3439,
-        "min": -0.3864,
+        "max": -0.2768,
+        "mean": -0.33485,
+        "median": -0.344,
+        "min": -0.3805,
         "n": 8,
         "note": "Descriptive only; no NHST / p-value claim"
       },
       "primary_runs": [
         {
-          "RF_ALL": 0.1378,
-          "RF_ONLY": 0.4777,
-          "rf_all_vs_rf_only_delta_m": -0.3399,
+          "RF_ALL": 0.1563,
+          "RF_ONLY": 0.5368,
+          "rf_all_vs_rf_only_delta_m": -0.3805,
           "seed": 7,
-          "sha256": "a14f6d668caf106325fc33b845a55b7442d4243de7089156e9d746f7803dc860",
+          "sha256": "f2c90847936e3da1d52423c2cbf4d047453261e0d862d22a9ef02aaf9e45eeda",
           "win": true
         },
         {
-          "RF_ALL": 0.1683,
-          "RF_ONLY": 0.5162,
-          "rf_all_vs_rf_only_delta_m": -0.3479,
+          "RF_ALL": 0.1579,
+          "RF_ONLY": 0.5017,
+          "rf_all_vs_rf_only_delta_m": -0.3438,
           "seed": 11,
-          "sha256": "02a8a864c5690fc2d57cbb37e1ea2154765a308189b6ad86260eb566d5e46691",
+          "sha256": "5ce887746f4c7040aea51bf4e58dbeb05a0e3de2383f0020c97b3b9982f13a0e",
           "win": true
         },
         {
-          "RF_ALL": 0.155,
-          "RF_ONLY": 0.5414,
-          "rf_all_vs_rf_only_delta_m": -0.3864,
+          "RF_ALL": 0.1644,
+          "RF_ONLY": 0.4412,
+          "rf_all_vs_rf_only_delta_m": -0.2768,
           "seed": 19,
-          "sha256": "8ecb33cb398b8a6db72f07fa31e3bff5b2bdd5a8f965e398d839d4b3d34fc249",
+          "sha256": "77714abeae5126ab1494dc81704a3f962b4dbaad86596c3249cb31dd5e646daa",
           "win": true
         },
         {
-          "RF_ALL": 0.1525,
-          "RF_ONLY": 0.5118,
-          "rf_all_vs_rf_only_delta_m": -0.3593,
+          "RF_ALL": 0.1452,
+          "RF_ONLY": 0.457,
+          "rf_all_vs_rf_only_delta_m": -0.3118,
           "seed": 23,
-          "sha256": "04c55ccf2651e1dc404579ecdc82a27da590ce0e9f2b1069c1d454198c54a620",
+          "sha256": "1523598b9bbca4047ecaf8e5782ab9a9ab02217adf2aabf62b0d6c28cbbd2b23",
           "win": true
         },
         {
-          "RF_ALL": 0.1505,
-          "RF_ONLY": 0.5031,
-          "rf_all_vs_rf_only_delta_m": -0.3526,
+          "RF_ALL": 0.1425,
+          "RF_ONLY": 0.4936,
+          "rf_all_vs_rf_only_delta_m": -0.3511,
           "seed": 29,
-          "sha256": "9228947adc635299dc4589c2730e6a8d87a201aee3cb23e5a30deca7a97b772d",
+          "sha256": "2bba35b3a7e55cf6f72b9c1cbef27b2659e2dba06277a64e4e4b0767d6cfb38c",
           "win": true
         },
         {
-          "RF_ALL": 0.1572,
-          "RF_ONLY": 0.4302,
-          "rf_all_vs_rf_only_delta_m": -0.273,
+          "RF_ALL": 0.1583,
+          "RF_ONLY": 0.4821,
+          "rf_all_vs_rf_only_delta_m": -0.3238,
           "seed": 31,
-          "sha256": "26396eeee539679950a99e7c5d5ca97b04c040ec64098a185273f77cccd53b91",
+          "sha256": "c956227d1c84a453c6cd00dcf02ab1dba2b6697f21c25e1f240d1d834082eb80",
           "win": true
         },
         {
-          "RF_ALL": 0.1548,
-          "RF_ONLY": 0.4776,
-          "rf_all_vs_rf_only_delta_m": -0.3228,
+          "RF_ALL": 0.1562,
+          "RF_ONLY": 0.503,
+          "rf_all_vs_rf_only_delta_m": -0.3468,
           "seed": 37,
-          "sha256": "705dcb8a8dddfea47f66f0ed201639e245268646ce9c9eff02596aff842ea6b9",
+          "sha256": "95805c7cb67c95b03ec51b066e252cce9b3b12b16ab03e70b6bef7a34aaf420b",
           "win": true
         },
         {
-          "RF_ALL": 0.1614,
-          "RF_ONLY": 0.4235,
-          "rf_all_vs_rf_only_delta_m": -0.2621,
+          "RF_ALL": 0.149,
+          "RF_ONLY": 0.4932,
+          "rf_all_vs_rf_only_delta_m": -0.3442,
           "seed": 41,
-          "sha256": "8ea6f873dca8e7249da343fe927506d9abb6900411a7abdb9720ab2967738c97",
+          "sha256": "0c0dbe66aa8cb660440580ba1e5107e36852fdefde9093f03e4726bcce81a03a",
           "win": true
         }
       ],
@@ -199,183 +208,344 @@
         "win_rate": 1.0,
         "wins": 8
       },
+      "robustness_runs": [
+        {
+          "rf_all_vs_rf_only_delta_m": 0.0604,
+          "seed": 51,
+          "sha256": "8b4dc4918f82528c970a37e89bfaa730d139c4ae9ee2b38134eeeb242f2f5d0f"
+        },
+        {
+          "rf_all_vs_rf_only_delta_m": 0.164,
+          "seed": 52,
+          "sha256": "82c83c39322c98eb9ab64cb90b34cc5d9584b9f046d972c9c623b44ce753ab3c"
+        },
+        {
+          "rf_all_vs_rf_only_delta_m": -0.0275,
+          "seed": 53,
+          "sha256": "e111d7593744d7e8a5330437c30a374c626d9804a38c3f552de2f38d75443bb4"
+        }
+      ],
       "title": "FR3 multimodal ISAC digital fusion"
     },
     "R6G-005": {
       "IMPROVED_STATE_OF_ART": false,
       "ablation": {
         "ablation": "method_family_conventional_vs_naive_vs_aware",
-        "adversarial_csi": {
-          "AI_CSF": {
-            "BLER": 0.418,
-            "confidence": 0.0657,
-            "coverage_norm": 0.065,
-            "csi_mse": 6.0354,
-            "energy_norm": 1.05,
-            "failure_rate": 0.5354,
-            "fallback_rate": 0.0,
-            "throughput_norm": 0.0572
+        "ablation_ok": true,
+        "checks_passed": 3,
+        "checks_required": 3,
+        "interpretation": "Checked removal of uncertainty-aware fallback increases adversarial failure. No physical distance claim.",
+        "packet": "R6G-005",
+        "rows": [
+          {
+            "ablation_check_ok": true,
+            "aware_adversarial_failure": 0.0048,
+            "conventional_adversarial_failure": 0.0085,
+            "in_distribution": {
+              "AI_CSF": {
+                "BLER": 0.0811,
+                "confidence": 0.3809,
+                "coverage_norm": 0.4019,
+                "csi_mse": 0.5925,
+                "energy_norm": 1.05,
+                "failure_rate": 0.1117,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.3537
+              },
+              "AI_CSF_UNCERTAINTY_AWARE": {
+                "BLER": 0.0137,
+                "confidence": 0.3809,
+                "coverage_norm": 0.9065,
+                "csi_mse": 0.0551,
+                "energy_norm": 1.05,
+                "failure_rate": 0.0119,
+                "fallback_rate": 0.7917,
+                "throughput_norm": 0.7991
+              },
+              "CONVENTIONAL_CSI": {
+                "BLER": 0.0124,
+                "confidence": 0.8,
+                "coverage_norm": 0.9772,
+                "csi_mse": 0.02,
+                "energy_norm": 1.0,
+                "failure_rate": 0.0086,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.8618
+              }
+            },
+            "naive_adversarial_failure": 0.5405,
+            "naive_worse_than_conventional": true,
+            "removing_aware_increases_failure": true,
+            "seed": 3
           },
-          "AI_CSF_UNCERTAINTY_AWARE": {
-            "BLER": 0.0087,
-            "confidence": 0.0657,
-            "coverage_norm": 0.9776,
-            "csi_mse": 0.0199,
-            "energy_norm": 1.05,
-            "failure_rate": 0.0047,
-            "fallback_rate": 1.0,
-            "throughput_norm": 0.8621
+          {
+            "ablation_check_ok": true,
+            "aware_adversarial_failure": 0.0046,
+            "conventional_adversarial_failure": 0.0083,
+            "in_distribution": {
+              "AI_CSF": {
+                "BLER": 0.0829,
+                "confidence": 0.3615,
+                "coverage_norm": 0.3827,
+                "csi_mse": 0.6078,
+                "energy_norm": 1.05,
+                "failure_rate": 0.1144,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.3368
+              },
+              "AI_CSF_UNCERTAINTY_AWARE": {
+                "BLER": 0.0111,
+                "confidence": 0.3615,
+                "coverage_norm": 0.9456,
+                "csi_mse": 0.0357,
+                "energy_norm": 1.05,
+                "failure_rate": 0.0083,
+                "fallback_rate": 0.875,
+                "throughput_norm": 0.8358
+              },
+              "CONVENTIONAL_CSI": {
+                "BLER": 0.0121,
+                "confidence": 0.8,
+                "coverage_norm": 0.9847,
+                "csi_mse": 0.0174,
+                "energy_norm": 1.0,
+                "failure_rate": 0.0082,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.8698
+              }
+            },
+            "naive_adversarial_failure": 0.5316,
+            "naive_worse_than_conventional": true,
+            "removing_aware_increases_failure": true,
+            "seed": 5
           },
-          "CONVENTIONAL_CSI": {
-            "BLER": 0.0123,
-            "confidence": 0.8,
-            "coverage_norm": 0.9807,
-            "csi_mse": 0.0189,
-            "energy_norm": 1.0,
-            "failure_rate": 0.0084,
-            "fallback_rate": 0.0,
-            "throughput_norm": 0.8652
+          {
+            "ablation_check_ok": true,
+            "aware_adversarial_failure": 0.0046,
+            "conventional_adversarial_failure": 0.0085,
+            "in_distribution": {
+              "AI_CSF": {
+                "BLER": 0.089,
+                "confidence": 0.3744,
+                "coverage_norm": 0.3952,
+                "csi_mse": 0.6582,
+                "energy_norm": 1.05,
+                "failure_rate": 0.1235,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.3478
+              },
+              "AI_CSF_UNCERTAINTY_AWARE": {
+                "BLER": 0.013,
+                "confidence": 0.3744,
+                "coverage_norm": 0.9147,
+                "csi_mse": 0.0497,
+                "energy_norm": 1.05,
+                "failure_rate": 0.0109,
+                "fallback_rate": 0.7917,
+                "throughput_norm": 0.8058
+              },
+              "CONVENTIONAL_CSI": {
+                "BLER": 0.0122,
+                "confidence": 0.8,
+                "coverage_norm": 0.9798,
+                "csi_mse": 0.0186,
+                "energy_norm": 1.0,
+                "failure_rate": 0.0083,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.8664
+              }
+            },
+            "naive_adversarial_failure": 0.5407,
+            "naive_worse_than_conventional": true,
+            "removing_aware_increases_failure": true,
+            "seed": 7
           }
-        },
-        "in_distribution": {
-          "AI_CSF": {
-            "BLER": 0.0813,
-            "confidence": 0.3976,
-            "coverage_norm": 0.4188,
-            "csi_mse": 0.5943,
-            "energy_norm": 1.05,
-            "failure_rate": 0.112,
-            "fallback_rate": 0.0,
-            "throughput_norm": 0.3686
-          },
-          "AI_CSF_UNCERTAINTY_AWARE": {
-            "BLER": 0.0128,
-            "confidence": 0.3976,
-            "coverage_norm": 0.9143,
-            "csi_mse": 0.0484,
-            "energy_norm": 1.05,
-            "failure_rate": 0.0106,
-            "fallback_rate": 0.7917,
-            "throughput_norm": 0.8054
-          },
-          "CONVENTIONAL_CSI": {
-            "BLER": 0.0125,
-            "confidence": 0.8,
-            "coverage_norm": 0.9744,
-            "csi_mse": 0.021,
-            "energy_norm": 1.0,
-            "failure_rate": 0.0088,
-            "fallback_rate": 0.0,
-            "throughput_norm": 0.8592
-          }
-        },
-        "interpretation": "Naive AI may win compression on IID but fails OOD; aware falls back. No physical distance claim.",
-        "packet": "R6G-005"
+        ]
       },
+      "ablation_evidence_ready": true,
       "beats_nokia_qualcomm_ota": false,
       "candidate": "R6G-005",
-      "claim_state": "PROMISING_DIGITAL",
+      "claim_state": "REPLICATION_INCOMPLETE",
       "documented_negative_or_no_gain": [
         {
-          "aware_throughput_norm": 0.8054,
-          "conventional_throughput_norm": 0.8592,
+          "aware_throughput_norm": 0.7991,
+          "conventional_throughput_norm": 0.8618,
           "experiment": "in_distribution_throughput",
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
-          "result": "NO_GAIN_VS_CONVENTIONAL"
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "seed": 3
         },
         {
-          "aware_failure_rate": 0.0103,
           "conventional_failure_rate": 0.0085,
-          "experiment": "noisy_csi_failure_rate",
-          "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim",
-          "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL"
+          "experiment": "adversarial_csi_naive_ai",
+          "naive_failure_rate": 0.5405,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "seed": 3
         },
         {
-          "conventional_failure_rate": 0.0084,
+          "aware_throughput_norm": 0.8358,
+          "conventional_throughput_norm": 0.8698,
+          "experiment": "in_distribution_throughput",
+          "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "seed": 5
+        },
+        {
+          "conventional_failure_rate": 0.0083,
           "experiment": "adversarial_csi_naive_ai",
-          "naive_failure_rate": 0.5354,
+          "naive_failure_rate": 0.5316,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
-          "result": "NAIVE_AI_CSF_DEGRADES"
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "seed": 5
+        },
+        {
+          "aware_throughput_norm": 0.8058,
+          "conventional_throughput_norm": 0.8664,
+          "experiment": "in_distribution_throughput",
+          "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "seed": 7
+        },
+        {
+          "conventional_failure_rate": 0.0085,
+          "experiment": "adversarial_csi_naive_ai",
+          "naive_failure_rate": 0.5407,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "seed": 7
+        },
+        {
+          "aware_throughput_norm": 0.8029,
+          "conventional_throughput_norm": 0.8616,
+          "experiment": "in_distribution_throughput",
+          "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI",
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "seed": 11
+        },
+        {
+          "conventional_failure_rate": 0.0086,
+          "experiment": "adversarial_csi_naive_ai",
+          "naive_failure_rate": 0.5325,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI",
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "seed": 11
         }
       ],
+      "falsification_evidence": true,
+      "ladder_cap_note": "R0\u2013R2 this cycle; real multi-seed evidence published but R3\u2013R5 not awarded until external protocol review. R6 requires external independent path.",
       "ladder_earned": [
         "R0",
         "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6"
+        "R2"
       ],
       "ladder_flags": {
         "R0": true,
         "R1": true,
         "R2": true,
-        "R3": true,
+        "R3": false,
         "R4": true,
-        "R5": true,
-        "R6": true,
+        "R5": false,
+        "R6": false,
         "R7": false,
         "R8": false,
         "R9": false
       },
-      "report_sha256": "f9da0d8d1a42f4b39b46dd4118edaf439be72894df6bb7ac3d45bc66f8c8e92a",
+      "metrics_vary_across_seeds": true,
+      "multi_seed_evidence_ready": true,
+      "r3_r5_deferred": "PENDING_EXTERNAL_PROTOCOL_REVIEW",
+      "robustness_runs": [
+        {
+          "adv_aware_fail": 0.0046,
+          "adv_naive_fail": 0.5097,
+          "seed": 41,
+          "sha256": "620c2b1f67b3c1845dc00cf582785ad4760f2fb46a90bc1182083128eed9ad7b"
+        },
+        {
+          "adv_aware_fail": 0.0045,
+          "adv_naive_fail": 0.5042,
+          "seed": 42,
+          "sha256": "7d4ec4543bfb8edf60341014e5defe0d583cb95bc17c8142eab9a68db2d8e068"
+        },
+        {
+          "adv_aware_fail": 0.0047,
+          "adv_naive_fail": 0.5366,
+          "seed": 43,
+          "sha256": "e3159de6e33d3ac2c86771ff9024416a7bc5f6504ff3cca68955d1da6f9db2c9"
+        }
+      ],
       "seed_rows": [
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 3
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.5357,
+          "id_aware_throughput": 0.7991,
+          "id_conventional_throughput": 0.8618,
+          "primary_support_aware_vs_naive": true,
+          "seed": 3,
+          "sha256": "818976fa99b33478eb13ef82d2cb0207dff7119301d379fc4ebcdc85d9f1091e"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 5
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.527,
+          "id_aware_throughput": 0.8358,
+          "id_conventional_throughput": 0.8698,
+          "primary_support_aware_vs_naive": true,
+          "seed": 5,
+          "sha256": "875625601a285ec839338292765147b243fa258e01b5d660d2a2869eba69d568"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 7
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.5361,
+          "id_aware_throughput": 0.8058,
+          "id_conventional_throughput": 0.8664,
+          "primary_support_aware_vs_naive": true,
+          "seed": 7,
+          "sha256": "385ae18627d3e8c15d4f23d67191c45ee5c7c1cd466529c6d40c8aa1f72df578"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 11
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.528,
+          "id_aware_throughput": 0.8029,
+          "id_conventional_throughput": 0.8616,
+          "primary_support_aware_vs_naive": true,
+          "seed": 11,
+          "sha256": "06c17e575ce26b02a5c4d4ce39ef84de0101b805a7fac9aff8c1bc2165611543"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 13
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.4988,
+          "id_aware_throughput": 0.8402,
+          "id_conventional_throughput": 0.8638,
+          "primary_support_aware_vs_naive": true,
+          "seed": 13,
+          "sha256": "ca691657874768bd6616956681718942778979e9eee6740a1ac6e65fcef48cfc"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 17
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.5411,
+          "id_aware_throughput": 0.7874,
+          "id_conventional_throughput": 0.8529,
+          "primary_support_aware_vs_naive": true,
+          "seed": 17,
+          "sha256": "f6e7fbbe824482c45edb1c15bceea6a7c152b18680e3a86bb310b9c86c3349e1"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 19
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.538,
+          "id_aware_throughput": 0.8236,
+          "id_conventional_throughput": 0.8631,
+          "primary_support_aware_vs_naive": true,
+          "seed": 19,
+          "sha256": "29d08ddcdab6db6fa49436c1998ad60ad8e6f5aec9da68b4fc714bb1c03062fe"
         },
         {
-          "aware_vs_naive_adversarial_fail_delta": 0.5307,
-          "id_aware_throughput": 0.8054,
-          "id_conventional_throughput": 0.8592,
-          "note": "Packet uses fixed codec basis; seed reserved for future stochastic CSI draws",
-          "seed": 23
+          "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+          "aware_vs_naive_adversarial_fail_delta": 0.519,
+          "id_aware_throughput": 0.824,
+          "id_conventional_throughput": 0.8625,
+          "primary_support_aware_vs_naive": true,
+          "seed": 23,
+          "sha256": "d1401760877328e14b5089184dbeaff558689e4c6ca426149e157f3dc9a62237"
         }
       ],
       "title": "Uncertainty-aware AI CSF digital"
@@ -384,258 +554,221 @@
       "IMPROVED_STATE_OF_ART": false,
       "ablation": {
         "ablation": "policy_family_across_delay",
-        "delay_grid_ms": {
-          "10": {
-            "BELIEF_STATE": {
-              "application_throughput_norm": 0.4506,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1049,
-              "policy_regret": 0.0304,
-              "recovery_time_s": 1.0494,
-              "reliability_violations": 0.1324,
-              "sensing_error": 0.0897
-            },
-            "CURRENT_STATE_ONLY": {
-              "application_throughput_norm": 0.4677,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1032,
-              "policy_regret": 0.0134,
-              "recovery_time_s": 1.0323,
-              "reliability_violations": 0.1298,
-              "sensing_error": 0.0395
-            },
-            "DELAYED_STATE": {
-              "application_throughput_norm": 0.4677,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1032,
-              "policy_regret": 0.0134,
-              "recovery_time_s": 1.0323,
-              "reliability_violations": 0.1298,
-              "sensing_error": 0.0395
-            },
-            "PREDICTIVE_BELIEF_STATE": {
-              "application_throughput_norm": 0.4727,
-              "calibration_error": 0.12,
-              "handover_failure": 0.1027,
-              "policy_regret": 0.0084,
-              "recovery_time_s": 1.0273,
-              "reliability_violations": 0.1291,
-              "sensing_error": 0.0242
-            }
+        "ablation_ok": true,
+        "checks_passed": 3,
+        "checks_required": 3,
+        "interpretation": "Checked policy removal: predictive vs current/belief; long-horizon can negate gains.",
+        "packet": "R6G-009",
+        "rows": [
+          {
+            "ablation_check_ok": true,
+            "belief25": 0.0442,
+            "cur100": 0.1226,
+            "cur25": 0.0266,
+            "long_horizon_predictive_no_gain": true,
+            "policies_distinct_at_25ms": true,
+            "pred100": 0.2226,
+            "pred25": 0.0211,
+            "seed": 2
           },
-          "100": {
-            "BELIEF_STATE": {
-              "application_throughput_norm": 0.3515,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1148,
-              "policy_regret": 0.1295,
-              "recovery_time_s": 1.1485,
-              "reliability_violations": 0.1473,
-              "sensing_error": 0.3854
-            },
-            "CURRENT_STATE_ONLY": {
-              "application_throughput_norm": 0.3631,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1137,
-              "policy_regret": 0.1179,
-              "recovery_time_s": 1.1369,
-              "reliability_violations": 0.1455,
-              "sensing_error": 0.3501
-            },
-            "DELAYED_STATE": {
-              "application_throughput_norm": 0.3631,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1137,
-              "policy_regret": 0.1179,
-              "recovery_time_s": 1.1369,
-              "reliability_violations": 0.1455,
-              "sensing_error": 0.3501
-            },
-            "PREDICTIVE_BELIEF_STATE": {
-              "application_throughput_norm": 0.2687,
-              "calibration_error": 0.12,
-              "handover_failure": 0.1231,
-              "policy_regret": 0.2123,
-              "recovery_time_s": 1.2313,
-              "reliability_violations": 0.1597,
-              "sensing_error": 0.6363
-            }
+          {
+            "ablation_check_ok": true,
+            "belief25": 0.0441,
+            "cur100": 0.1215,
+            "cur25": 0.0265,
+            "long_horizon_predictive_no_gain": true,
+            "policies_distinct_at_25ms": true,
+            "pred100": 0.2227,
+            "pred25": 0.0209,
+            "seed": 4
           },
-          "25": {
-            "BELIEF_STATE": {
-              "application_throughput_norm": 0.4383,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1062,
-              "policy_regret": 0.0427,
-              "recovery_time_s": 1.0617,
-              "reliability_violations": 0.1343,
-              "sensing_error": 0.1261
-            },
-            "CURRENT_STATE_ONLY": {
-              "application_throughput_norm": 0.4552,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1045,
-              "policy_regret": 0.0259,
-              "recovery_time_s": 1.0448,
-              "reliability_violations": 0.1317,
-              "sensing_error": 0.0766
-            },
-            "DELAYED_STATE": {
-              "application_throughput_norm": 0.4552,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1045,
-              "policy_regret": 0.0259,
-              "recovery_time_s": 1.0448,
-              "reliability_violations": 0.1317,
-              "sensing_error": 0.0766
-            },
-            "PREDICTIVE_BELIEF_STATE": {
-              "application_throughput_norm": 0.461,
-              "calibration_error": 0.12,
-              "handover_failure": 0.1039,
-              "policy_regret": 0.02,
-              "recovery_time_s": 1.039,
-              "reliability_violations": 0.1308,
-              "sensing_error": 0.0589
-            }
-          },
-          "50": {
-            "BELIEF_STATE": {
-              "application_throughput_norm": 0.4027,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1097,
-              "policy_regret": 0.0784,
-              "recovery_time_s": 1.0973,
-              "reliability_violations": 0.1396,
-              "sensing_error": 0.2319
-            },
-            "CURRENT_STATE_ONLY": {
-              "application_throughput_norm": 0.4181,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1082,
-              "policy_regret": 0.063,
-              "recovery_time_s": 1.0819,
-              "reliability_violations": 0.1373,
-              "sensing_error": 0.186
-            },
-            "DELAYED_STATE": {
-              "application_throughput_norm": 0.4181,
-              "calibration_error": 0.2,
-              "handover_failure": 0.1082,
-              "policy_regret": 0.063,
-              "recovery_time_s": 1.0819,
-              "reliability_violations": 0.1373,
-              "sensing_error": 0.186
-            },
-            "PREDICTIVE_BELIEF_STATE": {
-              "application_throughput_norm": 0.3888,
-              "calibration_error": 0.12,
-              "handover_failure": 0.1111,
-              "policy_regret": 0.0922,
-              "recovery_time_s": 1.1112,
-              "reliability_violations": 0.1417,
-              "sensing_error": 0.274
-            }
+          {
+            "ablation_check_ok": true,
+            "belief25": 0.0444,
+            "cur100": 0.122,
+            "cur25": 0.0267,
+            "long_horizon_predictive_no_gain": true,
+            "policies_distinct_at_25ms": true,
+            "pred100": 0.2186,
+            "pred25": 0.0215,
+            "seed": 6
           }
-        },
-        "interpretation": "Predictive vs current/belief/delayed; long-horizon and jump can negate gains.",
-        "packet": "R6G-009"
+        ]
       },
+      "ablation_evidence_ready": true,
       "candidate": "R6G-009",
-      "claim_state": "PROMISING_DIGITAL",
+      "claim_state": "REPLICATION_INCOMPLETE",
       "documented_negative_or_no_gain": [
         {
-          "current_regret": 0.1179,
+          "current_regret": 0.1226,
           "experiment": "smooth_sine_delay_100ms",
-          "predictive_regret": 0.2123,
+          "predictive_regret": 0.2226,
           "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
-          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT"
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 2
         },
         {
-          "current_regret": 0.04,
+          "current_regret": 0.0394,
           "experiment": "jump_burst_delay_10ms",
-          "predictive_regret": 0.0785,
+          "predictive_regret": 0.0745,
           "reason": "Predictor misspecified under jump/burst channel dynamics",
-          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT"
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 2
+        },
+        {
+          "current_regret": 0.1215,
+          "experiment": "smooth_sine_delay_100ms",
+          "predictive_regret": 0.2227,
+          "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 4
+        },
+        {
+          "current_regret": 0.0378,
+          "experiment": "jump_burst_delay_10ms",
+          "predictive_regret": 0.0689,
+          "reason": "Predictor misspecified under jump/burst channel dynamics",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 4
+        },
+        {
+          "current_regret": 0.122,
+          "experiment": "smooth_sine_delay_100ms",
+          "predictive_regret": 0.2186,
+          "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 6
+        },
+        {
+          "current_regret": 0.042,
+          "experiment": "jump_burst_delay_10ms",
+          "predictive_regret": 0.0824,
+          "reason": "Predictor misspecified under jump/burst channel dynamics",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 6
+        },
+        {
+          "current_regret": 0.1229,
+          "experiment": "smooth_sine_delay_100ms",
+          "predictive_regret": 0.2397,
+          "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 8
+        },
+        {
+          "current_regret": 0.0464,
+          "experiment": "jump_burst_delay_10ms",
+          "predictive_regret": 0.0783,
+          "reason": "Predictor misspecified under jump/burst channel dynamics",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "seed": 8
         }
       ],
+      "falsification_evidence": true,
+      "ladder_cap_note": "R0\u2013R2 this cycle; real multi-seed evidence published but R3\u2013R5 not awarded until external protocol review. R6 requires external independent path.",
       "ladder_earned": [
         "R0",
         "R1",
-        "R2",
-        "R3",
-        "R4",
-        "R5",
-        "R6"
+        "R2"
       ],
       "ladder_flags": {
         "R0": true,
         "R1": true,
         "R2": true,
-        "R3": true,
-        "R4": true,
-        "R5": true,
-        "R6": true,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false,
         "R7": false,
         "R8": false,
         "R9": false
       },
-      "report_sha256": "1d8691b0a68f1ff8f9e2ae9bfef828e6d103f82bada4e1fb73531ed22ca6660c",
+      "metrics_vary_across_seeds": true,
+      "multi_seed_evidence_ready": true,
+      "r3_r5_deferred": "PENDING_EXTERNAL_PROTOCOL_REVIEW",
+      "robustness_runs": [
+        {
+          "cur100": 0.1223,
+          "pred100": 0.2164,
+          "seed": 70,
+          "sha256": "b6fdd8455edbdb0eb0b9d0071fd833589e3e1840110fe81727d4db54befc2b86"
+        },
+        {
+          "cur100": 0.1205,
+          "pred100": 0.2193,
+          "seed": 71,
+          "sha256": "61ff2c69af729e7c2ac1303149b99ac565b6bdecbd4f6119815aaac662a940e6"
+        },
+        {
+          "cur100": 0.1206,
+          "pred100": 0.2215,
+          "seed": 72,
+          "sha256": "a7958dea8393363751ec7730a32a98f36180921eba368141f3fc531d765fef66"
+        }
+      ],
       "seed_rows": [
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0266,
+          "predictive_regret_25ms": 0.0211,
+          "primary_moderate_delay_improvement": true,
           "seed": 2,
+          "sha256": "97f71b5d6d6b86e8f98ddaaa5bc3dbd45524c40aaa33a97e4cf22b1cffabcafc",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0265,
+          "predictive_regret_25ms": 0.0209,
+          "primary_moderate_delay_improvement": true,
           "seed": 4,
+          "sha256": "17a9b511585d30908aa7f36dd0842713fae486e62220bd4df018bb613e112b8e",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0267,
+          "predictive_regret_25ms": 0.0215,
+          "primary_moderate_delay_improvement": true,
           "seed": 6,
+          "sha256": "ec6c160cfa9a20953c0790ca9770d8a31ca262174029218b481603a2191cf631",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0268,
+          "predictive_regret_25ms": 0.0238,
+          "primary_moderate_delay_improvement": true,
           "seed": 8,
+          "sha256": "fe002f11da10352b86e2526fc6a49d3f0113843d4306b9cf7c2c8bd35b060f1f",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0265,
+          "predictive_regret_25ms": 0.0202,
+          "primary_moderate_delay_improvement": true,
           "seed": 10,
+          "sha256": "087ac054de31b87ef03e416a8d5cc3352bdcde6653183ba8423e62823841aed4",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0267,
+          "predictive_regret_25ms": 0.0252,
+          "primary_moderate_delay_improvement": true,
           "seed": 12,
+          "sha256": "b88617bc12d7dc86485d01eb2389fde58d6150ef02fe01715527921865ecc38c",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0258,
+          "predictive_regret_25ms": 0.0223,
+          "primary_moderate_delay_improvement": true,
           "seed": 14,
+          "sha256": "a4fe8da06978aeeef77fe4017b841aaf3189233e07cc8f719cad508a3be64252",
           "win_25ms": true
         },
         {
-          "current_regret_25ms": 0.0259,
-          "note": "Deterministic plant; seed reserved for future stochastic plant draws",
-          "predictive_regret_25ms": 0.02,
+          "current_regret_25ms": 0.0269,
+          "predictive_regret_25ms": 0.0189,
+          "primary_moderate_delay_improvement": true,
           "seed": 16,
+          "sha256": "38cc65c1df7bd40309c5b2afb7f7a50d8d02a0e46f035e8bc1b3fc3e8e1dbd9c",
           "win_25ms": true
         }
       ],
@@ -644,7 +777,7 @@
   },
   "dashboard": {
     "IMPROVED_STATE_OF_ART": false,
-    "disclaimer": "Interesting simulation \u2260 accepted breakthrough. PROMISING_DIGITAL / DIGITAL_IMPROVEMENT_CANDIDATE only.",
+    "disclaimer": "Interesting simulation \u2260 accepted breakthrough. Same-PR arithmetic verifier \u2260 R6 independent. No PROMISING_DIGITAL without external path.",
     "ladder_definition": [
       {
         "auto_inherit": false,
@@ -715,7 +848,7 @@
         "packet": "R6G-003",
         "paper_status": "NOT_SUBMITTED",
         "physical_validation": false,
-        "robustness": "LIGHTWEIGHT_ONLY",
+        "robustness": "EXECUTED_LIGHTWEIGHT",
         "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED"
       },
       {
@@ -724,7 +857,7 @@
         "adoption_package": "A0_INTERNAL_EXPERIMENT",
         "baseline_registered": true,
         "baseline_reproduced": false,
-        "claim_state": "PROMISING_DIGITAL",
+        "claim_state": "MODELED",
         "clean_checkout": false,
         "external_reproduction": false,
         "falsification": true,
@@ -735,47 +868,27 @@
         "packet": "R6G-002",
         "paper_status": "NOT_SUBMITTED",
         "physical_validation": false,
-        "robustness": "LIGHTWEIGHT_ONLY",
+        "robustness": "NOT_EXECUTED",
         "standard_mapping": "N/A"
       },
       {
         "IMPROVED_STATE_OF_ART": false,
-        "ablation": true,
-        "adoption_package": "A1_STABLE_REFERENCE_IMPLEMENTATION",
+        "ablation": false,
+        "adoption_package": "A0_INTERNAL_EXPERIMENT",
         "baseline_registered": true,
-        "baseline_reproduced": true,
-        "claim_state": "DIGITAL_IMPROVEMENT_CANDIDATE",
+        "baseline_reproduced": false,
+        "claim_state": "REPLICATION_INCOMPLETE",
         "clean_checkout": false,
         "external_reproduction": false,
         "falsification": true,
         "independent_verify": false,
         "integration": false,
-        "multi_seed": true,
+        "multi_seed": false,
         "negative_controls": true,
         "packet": "R6G-005",
         "paper_status": "NOT_SUBMITTED",
         "physical_validation": false,
-        "robustness": "LIGHTWEIGHT_ONLY",
-        "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED"
-      },
-      {
-        "IMPROVED_STATE_OF_ART": false,
-        "ablation": true,
-        "adoption_package": "A1_STABLE_REFERENCE_IMPLEMENTATION",
-        "baseline_registered": true,
-        "baseline_reproduced": true,
-        "claim_state": "DIGITAL_IMPROVEMENT_CANDIDATE",
-        "clean_checkout": false,
-        "external_reproduction": false,
-        "falsification": true,
-        "independent_verify": false,
-        "integration": false,
-        "multi_seed": true,
-        "negative_controls": true,
-        "packet": "R6G-009",
-        "paper_status": "NOT_SUBMITTED",
-        "physical_validation": false,
-        "robustness": "LIGHTWEIGHT_ONLY",
+        "robustness": "EXECUTED_LIGHTWEIGHT",
         "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED"
       },
       {
@@ -784,7 +897,27 @@
         "adoption_package": "A0_INTERNAL_EXPERIMENT",
         "baseline_registered": true,
         "baseline_reproduced": false,
-        "claim_state": "PROMISING_DIGITAL",
+        "claim_state": "REPLICATION_INCOMPLETE",
+        "clean_checkout": false,
+        "external_reproduction": false,
+        "falsification": false,
+        "independent_verify": false,
+        "integration": false,
+        "multi_seed": false,
+        "negative_controls": false,
+        "packet": "R6G-009",
+        "paper_status": "NOT_SUBMITTED",
+        "physical_validation": false,
+        "robustness": "EXECUTED_LIGHTWEIGHT",
+        "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED"
+      },
+      {
+        "IMPROVED_STATE_OF_ART": false,
+        "ablation": false,
+        "adoption_package": "A0_INTERNAL_EXPERIMENT",
+        "baseline_registered": true,
+        "baseline_reproduced": false,
+        "claim_state": "MODELED",
         "clean_checkout": false,
         "external_reproduction": false,
         "falsification": true,
@@ -796,7 +929,7 @@
         "paper_status": "NOT_SUBMITTED",
         "physical_validation": false,
         "real_education_outcome_claimed": false,
-        "robustness": "LIGHTWEIGHT_ONLY",
+        "robustness": "NOT_EXECUTED",
         "standard_mapping": "N/A"
       }
     ],
@@ -808,7 +941,7 @@
     "extra QEMU",
     "physical RIS / THz purchase"
   ],
-  "negative_result_count": 11,
+  "negative_result_count": 22,
   "schema": "gunnchos.r6g.replication_suite.v1",
   "seed_registry": {
     "amendments": [],
@@ -908,12 +1041,12 @@
   "supporting": {
     "R6G-002": {
       "IMPROVED_STATE_OF_ART": false,
-      "claim_state": "PROMISING_DIGITAL",
+      "claim_state": "MODELED",
       "ok": true
     },
     "R6G-008": {
       "IMPROVED_STATE_OF_ART": false,
-      "claim_state": "PROMISING_DIGITAL",
+      "claim_state": "MODELED",
       "ok": true,
       "real_education_outcome_claimed": false
     }
@@ -925,26 +1058,38 @@
     "IMPROVED_STATE_OF_ART": false,
     "PEER_REVIEWED": false,
     "PHYSICAL_REPRODUCTION_PENDING": true,
-    "R6G_ABLATIONS_DOCUMENTED": true,
-    "R6G_DIGITAL_REPLICATION_PASS": true,
+    "PROMISING_DIGITAL_ANY": false,
+    "R6G_ABLATIONS_DOCUMENTED": false,
+    "R6G_ABLATIONS_PARTIAL": true,
+    "R6G_DIGITAL_REPLICATION_PASS": false,
     "R6G_FALSIFICATION_DOCUMENTED": true,
-    "R6G_INDEPENDENT_VERIFIER_PASS": true,
-    "R6G_MULTI_SEED_REPRODUCED": true,
+    "R6G_INDEPENDENT_VERIFIER_PASS": false,
+    "R6G_MULTI_SEED_REPRODUCED": false,
     "STANDARDIZED_6G": false
   },
+  "same_pr_arithmetic_verifier": {
+    "arithmetic_ok": true,
+    "earns_r6": false,
+    "earns_independent_verifier_pass": false,
+    "note": "Same-PR recalculator is a sanity check only"
+  },
   "independent_verifier": {
-    "schema": "gunnchos.r6g.independent_verifier.v1",
+    "schema": "gunnchos.r6g.same_pr_arithmetic_verifier.v1",
     "ok": true,
-    "method": "recalculate_from_raw_json_only",
+    "R6G_INDEPENDENT_VERIFIER_PASS": false,
+    "earns_r6": false,
+    "method": "recalculate_from_raw_json_only_same_pr",
     "R6G-003": {
       "ok": true,
+      "arithmetic_ok": true,
+      "earns_r6": false,
       "n_primary": 8,
       "delta_summary": {
         "n": 8,
-        "mean": -0.3305,
-        "median": -0.3439,
-        "min": -0.3864,
-        "max": -0.2621,
+        "mean": -0.33485,
+        "median": -0.344,
+        "min": -0.3805,
+        "max": -0.2768,
         "note": "Descriptive only; no NHST / p-value claim"
       },
       "win_rate": {
@@ -953,32 +1098,64 @@
         "win_rate": 1.0,
         "note": "Fraction of seeds where predeclared win condition holds; not a p-value"
       },
-      "negative_worse_count": 10,
+      "negative_worse_count": 4,
+      "neg_files_counted": [
+        "neg_s101.json",
+        "neg_s202.json",
+        "neg_s303.json",
+        "neg_s404.json"
+      ],
       "falsifiable": true,
-      "primary_mean_delta_negative": true
+      "primary_mean_delta_negative": true,
+      "note": "Recalculated from raw modality matrices; does not confer R6 independence"
     },
     "R6G-005": {
       "ok": true,
-      "aware_beats_naive_adversarial_failure": true,
-      "recalc_naive_failure": 0.5354,
-      "recalc_aware_failure": 0.0047,
-      "iid_no_gain_vs_conventional": true,
-      "documented_negatives": 3,
-      "falsifiable": true
+      "arithmetic_ok": true,
+      "earns_r6": false,
+      "n_seeds": 8,
+      "aware_beats_naive_delta_summary": {
+        "n": 8,
+        "mean": 0.527963,
+        "median": 0.53185,
+        "min": 0.4988,
+        "max": 0.5411,
+        "note": "Descriptive only; no NHST / p-value claim"
+      },
+      "support_rate": 1.0,
+      "metrics_vary_across_seeds": true,
+      "falsifiable": true,
+      "note": "Recalculated failure deltas from raw results tables; does not confer R6"
     },
     "R6G-009": {
       "ok": true,
-      "moderate_delay_improvement_recalc": true,
-      "long_horizon_no_gain_recalc": true,
-      "pred25": 0.02,
-      "cur25": 0.0259,
-      "pred100": 0.2123,
-      "cur100": 0.1179,
-      "falsifiable": true
+      "arithmetic_ok": true,
+      "earns_r6": false,
+      "n_seeds": 8,
+      "pred25_summary": {
+        "n": 8,
+        "mean": 0.021737,
+        "median": 0.0213,
+        "min": 0.0189,
+        "max": 0.0252,
+        "note": "Descriptive only; no NHST / p-value claim"
+      },
+      "cur25_summary": {
+        "n": 8,
+        "mean": 0.026562,
+        "median": 0.02665,
+        "min": 0.0258,
+        "max": 0.0269,
+        "note": "Descriptive only; no NHST / p-value claim"
+      },
+      "moderate_win_rate": 1.0,
+      "long_horizon_no_gain_rate": 1.0,
+      "metrics_vary_across_seeds": true,
+      "falsifiable": true,
+      "note": "Recalculated regrets from raw delay grids; does not confer R6"
     },
-    "R6G_INDEPENDENT_VERIFIER_PASS": true,
     "IMPROVED_STATE_OF_ART": false,
     "BREAKTHROUGH_PROVEN": false,
-    "note": "Verifier confirms digital arithmetic; does not confer physical SoA."
+    "note": "Recalculates digital arithmetic from raw outputs. Does NOT upgrade claims, does NOT earn R6, does NOT set INDEPENDENT_VERIFIER_PASS."
   }
 }

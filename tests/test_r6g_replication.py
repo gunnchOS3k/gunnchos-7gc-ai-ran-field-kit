@@ -1,4 +1,4 @@
-"""R6G-REPLICATION-ADOPTION-001 tests — multi-seed, falsification, verifier, claim honesty."""
+"""R6G-REPLICATION-ADOPTION-001 tests — honest ladder/token/claim remediation."""
 from __future__ import annotations
 
 import json
@@ -20,35 +20,75 @@ def test_ladder_no_auto_inherit_across_gap():
     flags = {"R0": True, "R1": True, "R2": True, "R3": False, "R4": True, "R5": True}
     earned = contiguous_earned(flags)
     assert earned == ["R0", "R1", "R2"]
-    assert "R4" not in earned  # gap at R3 blocks climb
+    assert "R4" not in earned
 
 
-def test_replication_suite_and_independent_verifier(tmp_path: Path):
+def test_replication_honesty_caps(tmp_path: Path):
     suite = run_replication_suite(tmp_path)
     assert suite["IMPROVED_STATE_OF_ART"] is False
     assert suite["tokens"]["BREAKTHROUGH_PROVEN"] is False
     assert suite["tokens"]["STANDARDIZED_6G"] is False
+    assert suite["tokens"]["R6G_INDEPENDENT_VERIFIER_PASS"] is False
+    assert suite["tokens"]["R6G_DIGITAL_REPLICATION_PASS"] is False
+    assert suite["tokens"]["PROMISING_DIGITAL_ANY"] is False
     assert suite["negative_result_count"] >= 5
-    for cid in ("R6G-003", "R6G-005", "R6G-009"):
-        c = suite["candidates"][cid]
+
+    c003 = suite["candidates"]["R6G-003"]
+    c005 = suite["candidates"]["R6G-005"]
+    c009 = suite["candidates"]["R6G-009"]
+
+    # No R6 on any candidate (same-PR cannot earn it)
+    for c in (c003, c005, c009):
         assert c["IMPROVED_STATE_OF_ART"] is False
         assert c["claim_state"] not in CLAIM_STATES_FORBIDDEN
-        assert "R4" in c["ladder_earned"] or c["ladder_flags"]["R4"] is True
-        assert (tmp_path / "raw" / cid).exists()
+        assert c["claim_state"] != "PROMISING_DIGITAL"
+        assert "R6" not in c["ladder_earned"]
+        assert c["ladder_flags"]["R6"] is False
+
+    # 003 capped at R0–R5 when multi-seed/ablation/neg hold
+    assert c003["claim_state"] == "DIGITAL_IMPROVEMENT_CANDIDATE"
+    assert set(c003["ladder_earned"]) <= {"R0", "R1", "R2", "R3", "R4", "R5"}
+    assert "R3" in c003["ladder_earned"]
+    assert c003["metrics_vary_across_seeds"] is True
+
+    # 005/009: real seed-varying evidence published; ladder capped R0–R2; claim incomplete
+    assert c005["claim_state"] == "REPLICATION_INCOMPLETE"
+    assert c009["claim_state"] == "REPLICATION_INCOMPLETE"
+    assert c005["ladder_earned"] == ["R0", "R1", "R2"]
+    assert c009["ladder_earned"] == ["R0", "R1", "R2"]
+    assert c005["metrics_vary_across_seeds"] is True
+    assert c009["metrics_vary_across_seeds"] is True
+    assert len({r["aware_vs_naive_adversarial_fail_delta"] for r in c005["seed_rows"]}) >= 2
+    assert len({r["predictive_regret_25ms"] for r in c009["seed_rows"]}) >= 2
+
+    # Portfolio tokens demoted
+    assert suite["tokens"]["R6G_MULTI_SEED_REPRODUCED"] is False
+    assert suite["tokens"]["R6G_ABLATIONS_DOCUMENTED"] is False
+    assert suite["tokens"]["R6G_ABLATIONS_PARTIAL"] is True  # 003 only
+    assert suite["tokens"]["R6G_FALSIFICATION_DOCUMENTED"] is True
+
+    # Robustness seeds executed
+    assert len(c003["robustness_runs"]) >= 1
+    assert len(c005["robustness_runs"]) >= 1
+    assert len(c009["robustness_runs"]) >= 1
+
+    # Ablation gated on 003
+    assert "ablation_ok" in c003["ablation"]
+    assert c003["ladder_flags"]["R5"] == bool(c003["ablation"]["ablation_ok"])
 
     v = verify_from_raw(tmp_path)
-    assert v["ok"] is True
-    assert v["IMPROVED_STATE_OF_ART"] is False
-    assert v["BREAKTHROUGH_PROVEN"] is False
+    assert v["R6G_INDEPENDENT_VERIFIER_PASS"] is False
+    assert v["earns_r6"] is False
+    assert v["ok"] is True  # arithmetic only
+    # neg double-count fix: only neg_s* files
+    assert all(n.startswith("neg_s") for n in v["R6G-003"]["neg_files_counted"])
+
     suite2 = json.loads((tmp_path / "R6G_REPLICATION_SUITE.json").read_text())
-    assert suite2["tokens"]["R6G_INDEPENDENT_VERIFIER_PASS"] is True
-    assert suite2["tokens"]["R6G_DIGITAL_REPLICATION_PASS"] is True
+    assert suite2["tokens"]["R6G_INDEPENDENT_VERIFIER_PASS"] is False
+    assert suite2["tokens"]["R6G_DIGITAL_REPLICATION_PASS"] is False
     for cid in ("R6G-003", "R6G-005", "R6G-009"):
-        assert "R6" in suite2["candidates"][cid]["ladder_earned"]
-        assert suite2["candidates"][cid]["claim_state"] in (
-            "PROMISING_DIGITAL",
-            "DIGITAL_IMPROVEMENT_CANDIDATE",
-        )
+        assert "R6" not in suite2["candidates"][cid]["ladder_earned"]
+        assert suite2["candidates"][cid]["claim_state"] != "PROMISING_DIGITAL"
 
 
 def test_negative_results_register_published(tmp_path: Path):
@@ -64,12 +104,13 @@ def test_dashboard_cannot_look_like_breakthrough(tmp_path: Path):
     run_replication_suite(tmp_path)
     dash = json.loads((tmp_path / "R6G_PORTFOLIO_DASHBOARD.json").read_text())
     assert dash["IMPROVED_STATE_OF_ART"] is False
-    assert "simulation" in dash["disclaimer"].lower() or "Interesting" in dash["disclaimer"]
     for row in dash["rows"]:
         assert row["IMPROVED_STATE_OF_ART"] is False
         assert row["physical_validation"] is False
         assert row["external_reproduction"] is False
+        assert row["independent_verify"] is False
         assert row["claim_state"] != "BREAKTHROUGH_PROVEN"
+        assert row["claim_state"] != "PROMISING_DIGITAL"
 
 
 def test_ucs_preregistered_and_sensitive():

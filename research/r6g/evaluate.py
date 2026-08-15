@@ -62,6 +62,7 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "R6G_FALSIFICATION_DOCUMENTED": bool(replication["tokens"].get("R6G_FALSIFICATION_DOCUMENTED")),
         "R6G_ABLATIONS_DOCUMENTED": bool(replication["tokens"].get("R6G_ABLATIONS_DOCUMENTED")),
         "R6G_INDEPENDENT_VERIFIER_PASS": bool(independent.get("R6G_INDEPENDENT_VERIFIER_PASS")),
+        "R6G_ABLATIONS_PARTIAL": bool(replication.get("tokens", {}).get("R6G_ABLATIONS_PARTIAL")),
         "IMPROVED_STATE_OF_ART": False,
         "6G_BREAKTHROUGH_PASS": None,
         "BREAKTHROUGH_PROVEN": False,
