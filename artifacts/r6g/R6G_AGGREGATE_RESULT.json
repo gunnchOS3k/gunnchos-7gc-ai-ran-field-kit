@@ -34,8 +34,72 @@
   "negative_or_no_gain_notes": [
     "AI_CSF without uncertainty can catastrophically degrade under adversarial/shift stresses",
     "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
-    "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA"
+    "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
+    "R6G-003: vision spoof + over-trust fusion \u2192 multimodal RMSE worse than RF-only",
+    "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
+    "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics"
   ],
+  "documented_negative_experiments": {
+    "R6G-003": [
+      {
+        "experiment": "neg_vision_spoof_overtrust",
+        "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+        "delta_m": 2.5101,
+        "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+      },
+      {
+        "experiment": "neg_vision_spoof_seed202",
+        "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+        "delta_m": 4.2193,
+        "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+      }
+    ],
+    "R6G-005": [
+      {
+        "experiment": "in_distribution_throughput",
+        "result": "NO_GAIN_VS_CONVENTIONAL",
+        "aware_throughput_norm": 0.812,
+        "conventional_throughput_norm": 0.861,
+        "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
+      },
+      {
+        "experiment": "noisy_csi_failure_rate",
+        "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
+        "aware_failure_rate": 0.0104,
+        "conventional_failure_rate": 0.0083,
+        "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
+      },
+      {
+        "experiment": "adversarial_csi_naive_ai",
+        "result": "NAIVE_AI_CSF_DEGRADES",
+        "naive_failure_rate": 0.5354,
+        "conventional_failure_rate": 0.0087,
+        "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
+      }
+    ],
+    "R6G-009": [
+      {
+        "experiment": "smooth_sine_delay_100ms",
+        "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+        "predictive_regret": 0.2123,
+        "current_regret": 0.1179,
+        "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win"
+      },
+      {
+        "experiment": "jump_burst_delay_10ms",
+        "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+        "predictive_regret": 0.0785,
+        "current_regret": 0.04,
+        "reason": "Predictor misspecified under jump/burst channel dynamics"
+      }
+    ]
+  },
+  "falsifiability": {
+    "R6G-003": true,
+    "R6G-005": true,
+    "R6G-009": true
+  },
+  "naked_numeric_headline_count": 0,
   "active_packet_status": {
     "R6G-001": {
       "status": "COMPLETE_DIGITAL_REGISTRY",
@@ -84,6 +148,8 @@
       "packet": "R6G-003",
       "ok": true,
       "status": "DIGITALLY_EXECUTED",
+      "model": "seeded_digital_channel_sensing_fusion_v2",
+      "falsifiable": true,
       "fr3_baseline": {
         "bands_ghz": [
           6.75,
@@ -99,65 +165,124 @@
         "reason": "NYU measurement traces not fully public in-repo"
       },
       "rf_only_digital_baseline": {
-        "position_RMSE_m": 0.45,
-        "orientation_RMSE_deg": 8.0,
-        "note": "Structural digital baseline \u2014 NOT claimed matched to NYU physical ~0.2 m",
+        "position_RMSE_m": 0.5339,
+        "note": "Measured digital RF-only estimator \u2014 NOT claimed matched to NYU physical ~0.2 m",
         "DIGITAL_REPRODUCTION_MATCHED": false,
         "COMPARABLE_EVIDENCE_PENDING": true,
         "published_target_m": 0.2
       },
       "modality_matrix": {
         "RF_ONLY": {
-          "position_RMSE": 0.4505,
-          "orientation_RMSE": 8.0087,
-          "beam_selection_accuracy": 0.62,
-          "handover_failure": 0.12,
-          "blockage_prediction_horizon_s": 0.4,
-          "latency_ms": 20.0,
-          "energy_j": 1.04,
+          "position_RMSE": 0.5339,
+          "orientation_RMSE": 6.9563,
+          "beam_selection_accuracy": 0.7631,
+          "handover_failure": 0.1335,
+          "blockage_prediction_horizon_s": 1.2661,
+          "latency_ms": 11.068,
+          "energy_j": 1.05,
           "privacy_exposure": 0.15
         },
         "RF_DEVICE_IMU": {
-          "position_RMSE": 0.3254,
-          "orientation_RMSE": 5.7847,
-          "beam_selection_accuracy": 0.69,
-          "handover_failure": 0.0864,
-          "blockage_prediction_horizon_s": 0.82,
-          "latency_ms": 17.76,
-          "energy_j": 1.152,
+          "position_RMSE": 0.2897,
+          "orientation_RMSE": 5.6423,
+          "beam_selection_accuracy": 0.8486,
+          "handover_failure": 0.0724,
+          "blockage_prediction_horizon_s": 1.5103,
+          "latency_ms": 10.579,
+          "energy_j": 1.05,
           "privacy_exposure": 0.15
         },
         "RF_RING_UWB_IMU": {
-          "position_RMSE": 0.243,
-          "orientation_RMSE": 4.3207,
-          "beam_selection_accuracy": 0.7325,
-          "handover_failure": 0.066,
-          "blockage_prediction_horizon_s": 1.075,
-          "latency_ms": 16.4,
-          "energy_j": 1.22,
+          "position_RMSE": 0.2008,
+          "orientation_RMSE": 4.9731,
+          "beam_selection_accuracy": 0.8797,
+          "handover_failure": 0.0502,
+          "blockage_prediction_horizon_s": 1.5992,
+          "latency_ms": 10.402,
+          "energy_j": 1.05,
           "privacy_exposure": 0.15
         },
         "RF_VISION": {
-          "position_RMSE": 0.2715,
-          "orientation_RMSE": 4.8275,
-          "beam_selection_accuracy": 0.72,
-          "handover_failure": 0.072,
-          "blockage_prediction_horizon_s": 1.0,
-          "latency_ms": 16.8,
-          "energy_j": 1.2,
-          "privacy_exposure": 0.35
+          "position_RMSE": 0.3384,
+          "orientation_RMSE": 5.5961,
+          "beam_selection_accuracy": 0.8316,
+          "handover_failure": 0.0846,
+          "blockage_prediction_horizon_s": 1.4616,
+          "latency_ms": 14.677,
+          "energy_j": 1.25,
+          "privacy_exposure": 0.4
         },
         "RF_ALL_MODALITIES": {
-          "position_RMSE": 0.1844,
-          "orientation_RMSE": 3.2784,
-          "beam_selection_accuracy": 0.765,
-          "handover_failure": 0.0504,
-          "blockage_prediction_horizon_s": 1.27,
-          "latency_ms": 15.36,
-          "energy_j": 1.272,
-          "privacy_exposure": 0.35
+          "position_RMSE": 0.1583,
+          "orientation_RMSE": 4.4364,
+          "beam_selection_accuracy": 0.8946,
+          "handover_failure": 0.0396,
+          "blockage_prediction_horizon_s": 1.6417,
+          "latency_ms": 14.317,
+          "energy_j": 1.25,
+          "privacy_exposure": 0.4
         }
       },
+      "primary_suite": [
+        {
+          "config_id": "primary_cooperative_s7",
+          "seed": 7,
+          "all_multimodal_beat_rf": true,
+          "rf_all_vs_rf_only_delta_m": -0.3756,
+          "RF_ONLY_RMSE": 0.5339,
+          "RF_ALL_RMSE": 0.1583
+        },
+        {
+          "config_id": "primary_cooperative_s11",
+          "seed": 11,
+          "all_multimodal_beat_rf": true,
+          "rf_all_vs_rf_only_delta_m": -0.2973,
+          "RF_ONLY_RMSE": 0.4567,
+          "RF_ALL_RMSE": 0.1594
+        },
+        {
+          "config_id": "primary_cooperative_s19",
+          "seed": 19,
+          "all_multimodal_beat_rf": true,
+          "rf_all_vs_rf_only_delta_m": -0.3545,
+          "RF_ONLY_RMSE": 0.5149,
+          "RF_ALL_RMSE": 0.1604
+        }
+      ],
+      "negative_suite": [
+        {
+          "config_id": "neg_vision_spoof_overtrust",
+          "seed": 101,
+          "adversarial": true,
+          "rf_all_vs_rf_only_delta_m": 2.5101,
+          "RF_ONLY_RMSE": 0.3184,
+          "RF_ALL_RMSE": 2.8285,
+          "multimodal_failed_to_beat_rf": true
+        },
+        {
+          "config_id": "neg_vision_spoof_seed202",
+          "seed": 202,
+          "adversarial": true,
+          "rf_all_vs_rf_only_delta_m": 4.2193,
+          "RF_ONLY_RMSE": 0.3021,
+          "RF_ALL_RMSE": 4.5214,
+          "multimodal_failed_to_beat_rf": true
+        }
+      ],
+      "documented_negative_or_no_gain": [
+        {
+          "experiment": "neg_vision_spoof_overtrust",
+          "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+          "delta_m": 2.5101,
+          "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        },
+        {
+          "experiment": "neg_vision_spoof_seed202",
+          "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+          "delta_m": 4.2193,
+          "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        }
+      ],
       "tn_ntn": {
         "pipeline": [
           "detect",
@@ -172,12 +297,15 @@
         "PHYSICAL_REPRODUCTION_PENDING": true
       },
       "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+      "primary_improvement_observed": true,
+      "negative_cases_observed": true,
       "IMPROVED_STATE_OF_ART": false,
       "PHYSICAL_REPRODUCTION_PENDING": true,
       "claims": [
         "SIMULATION_IMPROVEMENT_OBSERVED",
         "PHYSICAL_REPRODUCTION_PENDING",
-        "COMPARABLE_EVIDENCE_PENDING"
+        "COMPARABLE_EVIDENCE_PENDING",
+        "FALSIFIABLE_NEGATIVE_CASES_DOCUMENTED"
       ],
       "useful_connectivity_score": {
         "metric": "UsefulConnectivityScore",
@@ -212,6 +340,8 @@
       "packet": "R6G-005",
       "ok": true,
       "status": "DIGITALLY_EXECUTED",
+      "model": "digital_csi_csf_compress_reconstruct_with_confidence_fallback_v2",
+      "falsifiable": true,
       "methods": [
         "CONVENTIONAL_CSI",
         "AI_CSF",
@@ -227,239 +357,289 @@
         "noisy_csi",
         "adversarial_csi"
       ],
+      "n_trials_per_stress": 24,
       "results": {
         "CONVENTIONAL_CSI": {
           "in_distribution": {
-            "throughput_norm": 1.0084,
-            "BLER": 0.0105,
-            "coverage_norm": 0.9075,
+            "throughput_norm": 0.861,
+            "BLER": 0.0124,
+            "coverage_norm": 0.9778,
             "energy_norm": 1.0,
-            "confidence": 0.7446,
-            "failure_rate": 0.0091,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0086,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0202
           },
           "new_environment": {
-            "throughput_norm": 1.0142,
-            "BLER": 0.0235,
-            "coverage_norm": 0.9128,
+            "throughput_norm": 0.8673,
+            "BLER": 0.0122,
+            "coverage_norm": 0.9821,
             "energy_norm": 1.0,
-            "confidence": 0.7174,
-            "failure_rate": 0.0184,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0083,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0182
           },
           "new_mobility_pattern": {
-            "throughput_norm": 0.9953,
-            "BLER": 0.0106,
-            "coverage_norm": 0.8958,
+            "throughput_norm": 0.8602,
+            "BLER": 0.0125,
+            "coverage_norm": 0.9749,
             "energy_norm": 1.0,
-            "confidence": 0.8011,
-            "failure_rate": 0.0083,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0087,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0205
           },
           "device_shift": {
-            "throughput_norm": 0.9716,
-            "BLER": 0.014,
-            "coverage_norm": 0.8744,
+            "throughput_norm": 0.8636,
+            "BLER": 0.0123,
+            "coverage_norm": 0.9765,
             "energy_norm": 1.0,
-            "confidence": 0.809,
-            "failure_rate": 0.0147,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0085,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0195
           },
           "channel_shift": {
-            "throughput_norm": 0.9832,
-            "BLER": 0.0218,
-            "coverage_norm": 0.8849,
+            "throughput_norm": 0.8623,
+            "BLER": 0.0124,
+            "coverage_norm": 0.9768,
             "energy_norm": 1.0,
-            "confidence": 0.7013,
-            "failure_rate": 0.0171,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0086,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0199
           },
           "ntn_coexistence": {
-            "throughput_norm": 1.0183,
-            "BLER": 0.024,
-            "coverage_norm": 0.9165,
+            "throughput_norm": 0.8587,
+            "BLER": 0.0125,
+            "coverage_norm": 0.9746,
             "energy_norm": 1.0,
-            "confidence": 0.7311,
-            "failure_rate": 0.0101,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0088,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.021
           },
           "noisy_csi": {
-            "throughput_norm": 1.0274,
-            "BLER": 0.0167,
-            "coverage_norm": 0.9247,
+            "throughput_norm": 0.8671,
+            "BLER": 0.0122,
+            "coverage_norm": 0.9813,
             "energy_norm": 1.0,
-            "confidence": 0.7193,
-            "failure_rate": 0.0064,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0083,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0183
           },
           "adversarial_csi": {
-            "throughput_norm": 1.0208,
-            "BLER": 0.0221,
-            "coverage_norm": 0.9188,
+            "throughput_norm": 0.8595,
+            "BLER": 0.0125,
+            "coverage_norm": 0.9759,
             "energy_norm": 1.0,
-            "confidence": 0.8459,
-            "failure_rate": 0.0171,
-            "fallback_rate": 0.0
+            "confidence": 0.8,
+            "failure_rate": 0.0087,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0207
           }
         },
         "AI_CSF": {
           "in_distribution": {
-            "throughput_norm": 1.1826,
-            "BLER": 0.0295,
-            "coverage_norm": 1.0,
+            "throughput_norm": 0.3686,
+            "BLER": 0.0813,
+            "coverage_norm": 0.4188,
             "energy_norm": 1.05,
-            "confidence": 0.8104,
-            "failure_rate": 0.0107,
-            "fallback_rate": 0.0
+            "confidence": 0.3976,
+            "failure_rate": 0.112,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.5943
           },
           "new_environment": {
-            "throughput_norm": 0.8447,
-            "BLER": 0.1419,
-            "coverage_norm": 0.7603,
+            "throughput_norm": 0.1993,
+            "BLER": 0.1897,
+            "coverage_norm": 0.2265,
             "energy_norm": 1.05,
-            "confidence": 0.8655,
-            "failure_rate": 0.232,
-            "fallback_rate": 0.0
+            "confidence": 0.21,
+            "failure_rate": 0.2683,
+            "fallback_rate": 0.0,
+            "csi_mse": 1.4972
           },
           "new_mobility_pattern": {
-            "throughput_norm": 0.8153,
-            "BLER": 0.0846,
-            "coverage_norm": 0.7338,
+            "throughput_norm": 0.263,
+            "BLER": 0.1299,
+            "coverage_norm": 0.2989,
             "energy_norm": 1.05,
-            "confidence": 0.8079,
-            "failure_rate": 0.1496,
-            "fallback_rate": 0.0
+            "confidence": 0.2798,
+            "failure_rate": 0.183,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.9995
           },
           "device_shift": {
-            "throughput_norm": 0.6678,
-            "BLER": 0.1033,
-            "coverage_norm": 0.601,
+            "throughput_norm": 0.2102,
+            "BLER": 0.1579,
+            "coverage_norm": 0.2389,
             "energy_norm": 1.05,
-            "confidence": 0.8056,
-            "failure_rate": 0.1331,
-            "fallback_rate": 0.0
+            "confidence": 0.2212,
+            "failure_rate": 0.2268,
+            "fallback_rate": 0.0,
+            "csi_mse": 1.2323
           },
           "channel_shift": {
-            "throughput_norm": 0.799,
-            "BLER": 0.1165,
-            "coverage_norm": 0.7191,
+            "throughput_norm": 0.1773,
+            "BLER": 0.2138,
+            "coverage_norm": 0.2015,
             "energy_norm": 1.05,
-            "confidence": 0.7919,
-            "failure_rate": 0.1681,
-            "fallback_rate": 0.0
+            "confidence": 0.1859,
+            "failure_rate": 0.3059,
+            "fallback_rate": 0.0,
+            "csi_mse": 1.7064
           },
           "ntn_coexistence": {
-            "throughput_norm": 0.712,
-            "BLER": 0.1737,
-            "coverage_norm": 0.6408,
+            "throughput_norm": 0.2444,
+            "BLER": 0.1467,
+            "coverage_norm": 0.2778,
             "energy_norm": 1.05,
-            "confidence": 0.8718,
-            "failure_rate": 0.2042,
-            "fallback_rate": 0.0
+            "confidence": 0.2595,
+            "failure_rate": 0.2101,
+            "fallback_rate": 0.0,
+            "csi_mse": 1.1394
           },
           "noisy_csi": {
-            "throughput_norm": 0.6894,
-            "BLER": 0.1529,
-            "coverage_norm": 0.6204,
+            "throughput_norm": 0.3415,
+            "BLER": 0.0871,
+            "coverage_norm": 0.3881,
             "energy_norm": 1.05,
-            "confidence": 0.8259,
-            "failure_rate": 0.1412,
-            "fallback_rate": 0.0
+            "confidence": 0.3672,
+            "failure_rate": 0.1207,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.6427
           },
           "adversarial_csi": {
-            "throughput_norm": 0.8825,
-            "BLER": 0.144,
-            "coverage_norm": 0.7943,
+            "throughput_norm": 0.0572,
+            "BLER": 0.418,
+            "coverage_norm": 0.065,
             "energy_norm": 1.05,
-            "confidence": 0.8869,
-            "failure_rate": 0.1924,
-            "fallback_rate": 0.0
+            "confidence": 0.0657,
+            "failure_rate": 0.5354,
+            "fallback_rate": 0.0,
+            "csi_mse": 6.0354
           }
         },
         "AI_CSF_UNCERTAINTY_AWARE": {
           "in_distribution": {
-            "throughput_norm": 1.143,
-            "BLER": 0.0255,
-            "coverage_norm": 1.0,
+            "throughput_norm": 0.812,
+            "BLER": 0.0126,
+            "coverage_norm": 0.9194,
             "energy_norm": 1.05,
-            "confidence": 0.7631,
-            "failure_rate": 0.0084,
-            "fallback_rate": 0.0032
+            "confidence": 0.3976,
+            "failure_rate": 0.0104,
+            "fallback_rate": 0.7917,
+            "csi_mse": 0.0462
           },
           "new_environment": {
-            "throughput_norm": 0.9548,
-            "BLER": 0.0263,
-            "coverage_norm": 0.8593,
+            "throughput_norm": 0.8521,
+            "BLER": 0.0097,
+            "coverage_norm": 0.9658,
             "energy_norm": 1.05,
-            "confidence": 0.5129,
-            "failure_rate": 0.0383,
-            "fallback_rate": 0.8129
+            "confidence": 0.21,
+            "failure_rate": 0.0062,
+            "fallback_rate": 0.9583,
+            "csi_mse": 0.0267
           },
           "new_mobility_pattern": {
-            "throughput_norm": 1.0052,
-            "BLER": 0.0319,
-            "coverage_norm": 0.9047,
+            "throughput_norm": 0.8499,
+            "BLER": 0.0095,
+            "coverage_norm": 0.9628,
             "energy_norm": 1.05,
-            "confidence": 0.503,
-            "failure_rate": 0.0374,
-            "fallback_rate": 0.6877
+            "confidence": 0.2798,
+            "failure_rate": 0.0059,
+            "fallback_rate": 0.9583,
+            "csi_mse": 0.0257
           },
           "device_shift": {
-            "throughput_norm": 0.9521,
-            "BLER": 0.0368,
-            "coverage_norm": 0.8569,
+            "throughput_norm": 0.8519,
+            "BLER": 0.0097,
+            "coverage_norm": 0.9626,
             "energy_norm": 1.05,
-            "confidence": 0.6296,
-            "failure_rate": 0.0179,
-            "fallback_rate": 0.7254
+            "confidence": 0.2212,
+            "failure_rate": 0.0063,
+            "fallback_rate": 0.9583,
+            "csi_mse": 0.027
           },
           "channel_shift": {
-            "throughput_norm": 0.9719,
-            "BLER": 0.0266,
-            "coverage_norm": 0.8747,
+            "throughput_norm": 0.8648,
+            "BLER": 0.0086,
+            "coverage_norm": 0.9801,
             "energy_norm": 1.05,
-            "confidence": 0.4682,
-            "failure_rate": 0.0399,
-            "fallback_rate": 0.7029
+            "confidence": 0.1859,
+            "failure_rate": 0.0046,
+            "fallback_rate": 1.0,
+            "csi_mse": 0.019
           },
           "ntn_coexistence": {
-            "throughput_norm": 0.9261,
-            "BLER": 0.0233,
-            "coverage_norm": 0.8335,
+            "throughput_norm": 0.8549,
+            "BLER": 0.0089,
+            "coverage_norm": 0.9705,
             "energy_norm": 1.05,
-            "confidence": 0.5344,
-            "failure_rate": 0.0288,
-            "fallback_rate": 0.7876
+            "confidence": 0.2595,
+            "failure_rate": 0.005,
+            "fallback_rate": 1.0,
+            "csi_mse": 0.0223
           },
           "noisy_csi": {
-            "throughput_norm": 0.9283,
-            "BLER": 0.0314,
-            "coverage_norm": 0.8354,
+            "throughput_norm": 0.8119,
+            "BLER": 0.0126,
+            "coverage_norm": 0.9212,
             "energy_norm": 1.05,
-            "confidence": 0.6442,
-            "failure_rate": 0.0399,
-            "fallback_rate": 0.7087
+            "confidence": 0.3672,
+            "failure_rate": 0.0104,
+            "fallback_rate": 0.8333,
+            "csi_mse": 0.0475
           },
           "adversarial_csi": {
-            "throughput_norm": 1.0319,
-            "BLER": 0.0203,
-            "coverage_norm": 0.9287,
+            "throughput_norm": 0.8642,
+            "BLER": 0.0086,
+            "coverage_norm": 0.9798,
             "energy_norm": 1.05,
-            "confidence": 0.5574,
-            "failure_rate": 0.0316,
-            "fallback_rate": 0.7545
+            "confidence": 0.0657,
+            "failure_rate": 0.0047,
+            "fallback_rate": 1.0,
+            "csi_mse": 0.0192
           }
         }
       },
       "confidence_fallback_rollback": {
         "confidence_estimate": true,
-        "fallback_trigger": "confidence_below_threshold_or_shift_detected",
+        "fallback_trigger": "confidence_below_threshold",
+        "confidence_threshold": 0.55,
         "conventional_csi_fallback": true,
         "rollback": true,
         "telemetry": true
       },
       "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
       "SIMULATION_IMPROVEMENT_OBSERVED": true,
+      "primary_support_aware_vs_naive": true,
+      "documented_negative_or_no_gain": [
+        {
+          "experiment": "in_distribution_throughput",
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "aware_throughput_norm": 0.812,
+          "conventional_throughput_norm": 0.861,
+          "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
+        },
+        {
+          "experiment": "noisy_csi_failure_rate",
+          "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
+          "aware_failure_rate": 0.0104,
+          "conventional_failure_rate": 0.0083,
+          "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
+        },
+        {
+          "experiment": "adversarial_csi_naive_ai",
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "naive_failure_rate": 0.5354,
+          "conventional_failure_rate": 0.0087,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
+        }
+      ],
       "beats_nokia_qualcomm_ota": false,
       "IMPROVED_STATE_OF_ART": false,
       "PHYSICAL_REPRODUCTION_PENDING": true,
@@ -471,6 +651,8 @@
       "packet": "R6G-009",
       "ok": true,
       "status": "DIGITALLY_EXECUTED",
+      "model": "seeded_plant_predictor_twin_v2",
+      "falsifiable": true,
       "twin_loop": [
         "measurement_ingest",
         "multimodal_state",
@@ -493,351 +675,410 @@
       "delay_grid_ms": {
         "10": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.5135,
-            "sensing_error": 0.2932,
-            "reliability_violations": 0.1473,
-            "handover_failure": 0.123,
-            "policy_regret": 0.2865,
+            "application_throughput_norm": 0.4677,
+            "sensing_error": 0.0395,
+            "reliability_violations": 0.1298,
+            "handover_failure": 0.1032,
+            "policy_regret": 0.0134,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.2297
+            "recovery_time_s": 1.0323
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.4649,
-            "sensing_error": 0.3175,
-            "reliability_violations": 0.157,
-            "handover_failure": 0.1303,
-            "policy_regret": 0.3351,
+            "application_throughput_norm": 0.4677,
+            "sensing_error": 0.0395,
+            "reliability_violations": 0.1298,
+            "handover_failure": 0.1032,
+            "policy_regret": 0.0134,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.3026
+            "recovery_time_s": 1.0323
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.5875,
-            "sensing_error": 0.2562,
-            "reliability_violations": 0.1325,
-            "handover_failure": 0.1119,
-            "policy_regret": 0.2125,
+            "application_throughput_norm": 0.4506,
+            "sensing_error": 0.0897,
+            "reliability_violations": 0.1324,
+            "handover_failure": 0.1049,
+            "policy_regret": 0.0304,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.1187
+            "recovery_time_s": 1.0494
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.7047,
-            "sensing_error": 0.1977,
-            "reliability_violations": 0.1091,
-            "handover_failure": 0.0943,
-            "policy_regret": 0.0953,
+            "application_throughput_norm": 0.4727,
+            "sensing_error": 0.0242,
+            "reliability_violations": 0.1291,
+            "handover_failure": 0.1027,
+            "policy_regret": 0.0084,
             "calibration_error": 0.12,
-            "recovery_time_s": 0.943
+            "recovery_time_s": 1.0273
           }
         },
         "25": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.4428,
-            "sensing_error": 0.3286,
-            "reliability_violations": 0.1614,
-            "handover_failure": 0.1336,
-            "policy_regret": 0.3572,
+            "application_throughput_norm": 0.4552,
+            "sensing_error": 0.0766,
+            "reliability_violations": 0.1317,
+            "handover_failure": 0.1045,
+            "policy_regret": 0.0259,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.3359
+            "recovery_time_s": 1.0448
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.4251,
-            "sensing_error": 0.3374,
-            "reliability_violations": 0.165,
-            "handover_failure": 0.1362,
-            "policy_regret": 0.3749,
+            "application_throughput_norm": 0.4552,
+            "sensing_error": 0.0766,
+            "reliability_violations": 0.1317,
+            "handover_failure": 0.1045,
+            "policy_regret": 0.0259,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.3623
+            "recovery_time_s": 1.0448
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.5909,
-            "sensing_error": 0.2545,
-            "reliability_violations": 0.1318,
-            "handover_failure": 0.1114,
-            "policy_regret": 0.2091,
+            "application_throughput_norm": 0.4383,
+            "sensing_error": 0.1261,
+            "reliability_violations": 0.1343,
+            "handover_failure": 0.1062,
+            "policy_regret": 0.0427,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.1136
+            "recovery_time_s": 1.0617
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.6582,
-            "sensing_error": 0.2209,
-            "reliability_violations": 0.1184,
-            "handover_failure": 0.1013,
-            "policy_regret": 0.1418,
+            "application_throughput_norm": 0.461,
+            "sensing_error": 0.0589,
+            "reliability_violations": 0.1308,
+            "handover_failure": 0.1039,
+            "policy_regret": 0.02,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.0127
+            "recovery_time_s": 1.039
           }
         },
         "50": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.3772,
-            "sensing_error": 0.3614,
-            "reliability_violations": 0.1746,
-            "handover_failure": 0.1434,
-            "policy_regret": 0.4228,
+            "application_throughput_norm": 0.4181,
+            "sensing_error": 0.186,
+            "reliability_violations": 0.1373,
+            "handover_failure": 0.1082,
+            "policy_regret": 0.063,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4342
+            "recovery_time_s": 1.0819
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.3547,
-            "sensing_error": 0.3727,
-            "reliability_violations": 0.1791,
-            "handover_failure": 0.1468,
-            "policy_regret": 0.4453,
+            "application_throughput_norm": 0.4181,
+            "sensing_error": 0.186,
+            "reliability_violations": 0.1373,
+            "handover_failure": 0.1082,
+            "policy_regret": 0.063,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.468
+            "recovery_time_s": 1.0819
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.5116,
-            "sensing_error": 0.2942,
-            "reliability_violations": 0.1477,
-            "handover_failure": 0.1233,
-            "policy_regret": 0.2884,
+            "application_throughput_norm": 0.4027,
+            "sensing_error": 0.2319,
+            "reliability_violations": 0.1396,
+            "handover_failure": 0.1097,
+            "policy_regret": 0.0784,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.2325
+            "recovery_time_s": 1.0973
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.6452,
-            "sensing_error": 0.2274,
-            "reliability_violations": 0.121,
-            "handover_failure": 0.1032,
-            "policy_regret": 0.1548,
+            "application_throughput_norm": 0.3888,
+            "sensing_error": 0.274,
+            "reliability_violations": 0.1417,
+            "handover_failure": 0.1111,
+            "policy_regret": 0.0922,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.0323
+            "recovery_time_s": 1.1112
           }
         },
         "100": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.2081,
-            "sensing_error": 0.4459,
-            "reliability_violations": 0.2084,
-            "handover_failure": 0.1688,
-            "policy_regret": 0.5919,
+            "application_throughput_norm": 0.3631,
+            "sensing_error": 0.3501,
+            "reliability_violations": 0.1455,
+            "handover_failure": 0.1137,
+            "policy_regret": 0.1179,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.6878
+            "recovery_time_s": 1.1369
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.1981,
-            "sensing_error": 0.451,
-            "reliability_violations": 0.2104,
-            "handover_failure": 0.1703,
-            "policy_regret": 0.6019,
+            "application_throughput_norm": 0.3631,
+            "sensing_error": 0.3501,
+            "reliability_violations": 0.1455,
+            "handover_failure": 0.1137,
+            "policy_regret": 0.1179,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.7029
+            "recovery_time_s": 1.1369
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.449,
-            "sensing_error": 0.3255,
-            "reliability_violations": 0.1602,
-            "handover_failure": 0.1326,
-            "policy_regret": 0.351,
+            "application_throughput_norm": 0.3515,
+            "sensing_error": 0.3854,
+            "reliability_violations": 0.1473,
+            "handover_failure": 0.1148,
+            "policy_regret": 0.1295,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.3265
+            "recovery_time_s": 1.1485
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.5863,
-            "sensing_error": 0.2569,
-            "reliability_violations": 0.1327,
-            "handover_failure": 0.1121,
-            "policy_regret": 0.2137,
+            "application_throughput_norm": 0.2687,
+            "sensing_error": 0.6363,
+            "reliability_violations": 0.1597,
+            "handover_failure": 0.1231,
+            "policy_regret": 0.2123,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.1206
+            "recovery_time_s": 1.2313
           }
         }
       },
       "stress_grid": {
         "missing_data": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.2708,
-            "sensing_error": 0.4146,
-            "reliability_violations": 0.1958,
-            "handover_failure": 0.1594,
-            "policy_regret": 0.5292,
+            "application_throughput_norm": 0.4156,
+            "sensing_error": 0.1932,
+            "reliability_violations": 0.1377,
+            "handover_failure": 0.1084,
+            "policy_regret": 0.0654,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.5938
+            "recovery_time_s": 1.0844
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.2469,
-            "sensing_error": 0.4265,
-            "reliability_violations": 0.2006,
-            "handover_failure": 0.163,
-            "policy_regret": 0.5531,
+            "application_throughput_norm": 0.4156,
+            "sensing_error": 0.1932,
+            "reliability_violations": 0.1377,
+            "handover_failure": 0.1084,
+            "policy_regret": 0.0654,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.6296
+            "recovery_time_s": 1.0844
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.4879,
-            "sensing_error": 0.3061,
-            "reliability_violations": 0.1524,
-            "handover_failure": 0.1268,
-            "policy_regret": 0.3121,
+            "application_throughput_norm": 0.4017,
+            "sensing_error": 0.2349,
+            "reliability_violations": 0.1397,
+            "handover_failure": 0.1098,
+            "policy_regret": 0.0794,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.2682
+            "recovery_time_s": 1.0983
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.615,
-            "sensing_error": 0.2425,
-            "reliability_violations": 0.127,
-            "handover_failure": 0.1078,
-            "policy_regret": 0.185,
+            "application_throughput_norm": 0.358,
+            "sensing_error": 0.3722,
+            "reliability_violations": 0.1463,
+            "handover_failure": 0.1142,
+            "policy_regret": 0.123,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.0776
+            "recovery_time_s": 1.142
           }
         },
         "stale_data": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.3786,
-            "sensing_error": 0.3607,
-            "reliability_violations": 0.1743,
-            "handover_failure": 0.1432,
-            "policy_regret": 0.4214,
+            "application_throughput_norm": 0.3206,
+            "sensing_error": 0.4794,
+            "reliability_violations": 0.1519,
+            "handover_failure": 0.1179,
+            "policy_regret": 0.1604,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4321
+            "recovery_time_s": 1.1794
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.361,
-            "sensing_error": 0.3695,
-            "reliability_violations": 0.1778,
-            "handover_failure": 0.1459,
-            "policy_regret": 0.439,
+            "application_throughput_norm": 0.3206,
+            "sensing_error": 0.4794,
+            "reliability_violations": 0.1519,
+            "handover_failure": 0.1179,
+            "policy_regret": 0.1604,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4585
+            "recovery_time_s": 1.1794
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.5253,
-            "sensing_error": 0.2873,
-            "reliability_violations": 0.1449,
-            "handover_failure": 0.1212,
-            "policy_regret": 0.2747,
+            "application_throughput_norm": 0.3138,
+            "sensing_error": 0.5006,
+            "reliability_violations": 0.1529,
+            "handover_failure": 0.1186,
+            "policy_regret": 0.1673,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.212
+            "recovery_time_s": 1.1862
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.6598,
-            "sensing_error": 0.2201,
-            "reliability_violations": 0.118,
-            "handover_failure": 0.101,
-            "policy_regret": 0.1402,
+            "application_throughput_norm": 0.3417,
+            "sensing_error": 0.4189,
+            "reliability_violations": 0.1488,
+            "handover_failure": 0.1158,
+            "policy_regret": 0.1394,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.0102
+            "recovery_time_s": 1.1583
           }
         },
         "spoofed_adversarial_data": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.1903,
-            "sensing_error": 0.4548,
-            "reliability_violations": 0.2119,
-            "handover_failure": 0.1715,
-            "policy_regret": 0.6097,
+            "application_throughput_norm": 0.0936,
+            "sensing_error": 1.2424,
+            "reliability_violations": 0.186,
+            "handover_failure": 0.1406,
+            "policy_regret": 0.3875,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.7145
+            "recovery_time_s": 1.4064
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.3416,
-            "sensing_error": 0.3792,
-            "reliability_violations": 0.1817,
-            "handover_failure": 0.1488,
-            "policy_regret": 0.4584,
+            "application_throughput_norm": 0.0936,
+            "sensing_error": 1.2424,
+            "reliability_violations": 0.186,
+            "handover_failure": 0.1406,
+            "policy_regret": 0.3875,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4875
+            "recovery_time_s": 1.4064
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.537,
-            "sensing_error": 0.2815,
-            "reliability_violations": 0.1426,
-            "handover_failure": 0.1195,
-            "policy_regret": 0.263,
+            "application_throughput_norm": 0.3244,
+            "sensing_error": 0.5049,
+            "reliability_violations": 0.1513,
+            "handover_failure": 0.1176,
+            "policy_regret": 0.1566,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.1945
+            "recovery_time_s": 1.1756
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.594,
-            "sensing_error": 0.253,
-            "reliability_violations": 0.1312,
-            "handover_failure": 0.1109,
-            "policy_regret": 0.206,
+            "application_throughput_norm": 0.1494,
+            "sensing_error": 1.0913,
+            "reliability_violations": 0.1776,
+            "handover_failure": 0.1351,
+            "policy_regret": 0.3316,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.109
+            "recovery_time_s": 1.3506
           }
         },
         "sensor_disagreement": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.3719,
-            "sensing_error": 0.3641,
-            "reliability_violations": 0.1756,
-            "handover_failure": 0.1442,
-            "policy_regret": 0.4281,
+            "application_throughput_norm": 0.3957,
+            "sensing_error": 0.254,
+            "reliability_violations": 0.1406,
+            "handover_failure": 0.1104,
+            "policy_regret": 0.0853,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4422
+            "recovery_time_s": 1.1043
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.3335,
-            "sensing_error": 0.3832,
-            "reliability_violations": 0.1833,
-            "handover_failure": 0.15,
-            "policy_regret": 0.4665,
+            "application_throughput_norm": 0.3957,
+            "sensing_error": 0.254,
+            "reliability_violations": 0.1406,
+            "handover_failure": 0.1104,
+            "policy_regret": 0.0853,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4997
+            "recovery_time_s": 1.1043
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.5207,
-            "sensing_error": 0.2897,
-            "reliability_violations": 0.1459,
-            "handover_failure": 0.1219,
-            "policy_regret": 0.2793,
+            "application_throughput_norm": 0.4027,
+            "sensing_error": 0.2318,
+            "reliability_violations": 0.1396,
+            "handover_failure": 0.1097,
+            "policy_regret": 0.0784,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.219
+            "recovery_time_s": 1.0973
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.6384,
-            "sensing_error": 0.2308,
-            "reliability_violations": 0.1223,
-            "handover_failure": 0.1042,
-            "policy_regret": 0.1616,
+            "application_throughput_norm": 0.3888,
+            "sensing_error": 0.274,
+            "reliability_violations": 0.1417,
+            "handover_failure": 0.1111,
+            "policy_regret": 0.0922,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.0424
+            "recovery_time_s": 1.1112
           }
         },
         "bearer_transition": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.3662,
-            "sensing_error": 0.3669,
-            "reliability_violations": 0.1768,
-            "handover_failure": 0.1451,
-            "policy_regret": 0.4338,
+            "application_throughput_norm": 0.3442,
+            "sensing_error": 0.3562,
+            "reliability_violations": 0.1484,
+            "handover_failure": 0.1156,
+            "policy_regret": 0.1368,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4506
+            "recovery_time_s": 1.1558
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.3624,
-            "sensing_error": 0.3688,
-            "reliability_violations": 0.1775,
-            "handover_failure": 0.1456,
-            "policy_regret": 0.4376,
+            "application_throughput_norm": 0.3442,
+            "sensing_error": 0.3562,
+            "reliability_violations": 0.1484,
+            "handover_failure": 0.1156,
+            "policy_regret": 0.1368,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4564
+            "recovery_time_s": 1.1558
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.518,
-            "sensing_error": 0.291,
-            "reliability_violations": 0.1464,
-            "handover_failure": 0.1223,
-            "policy_regret": 0.282,
+            "application_throughput_norm": 0.3824,
+            "sensing_error": 0.2699,
+            "reliability_violations": 0.1426,
+            "handover_failure": 0.1118,
+            "policy_regret": 0.0987,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.223
+            "recovery_time_s": 1.1176
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.6655,
-            "sensing_error": 0.2173,
-            "reliability_violations": 0.1169,
-            "handover_failure": 0.1002,
-            "policy_regret": 0.1345,
+            "application_throughput_norm": 0.225,
+            "sensing_error": 0.6649,
+            "reliability_violations": 0.1663,
+            "handover_failure": 0.1275,
+            "policy_regret": 0.2561,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.0018
+            "recovery_time_s": 1.275
           }
         }
       },
+      "negative_suite": {
+        "jump_burst_10ms": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.4618,
+            "sensing_error": 0.1206,
+            "reliability_violations": 0.1307,
+            "handover_failure": 0.1038,
+            "policy_regret": 0.04,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.0382
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.4618,
+            "sensing_error": 0.1206,
+            "reliability_violations": 0.1307,
+            "handover_failure": 0.1038,
+            "policy_regret": 0.04,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.0382
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.4584,
+            "sensing_error": 0.1279,
+            "reliability_violations": 0.1312,
+            "handover_failure": 0.1042,
+            "policy_regret": 0.0435,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.0416
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.4234,
+            "sensing_error": 0.23,
+            "reliability_violations": 0.1365,
+            "handover_failure": 0.1077,
+            "policy_regret": 0.0785,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0766
+          }
+        },
+        "long_horizon_no_gain": true,
+        "jump_no_gain": true
+      },
+      "documented_negative_or_no_gain": [
+        {
+          "experiment": "smooth_sine_delay_100ms",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "predictive_regret": 0.2123,
+          "current_regret": 0.1179,
+          "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win"
+        },
+        {
+          "experiment": "jump_burst_delay_10ms",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "predictive_regret": 0.0785,
+          "current_regret": 0.04,
+          "reason": "Predictor misspecified under jump/burst channel dynamics"
+        }
+      ],
       "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
       "SIMULATION_IMPROVEMENT_OBSERVED": true,
+      "primary_moderate_delay_improvement": true,
       "IMPROVED_STATE_OF_ART": false,
       "PHYSICAL_REPRODUCTION_PENDING": true
     },
@@ -1242,7 +1483,9 @@
     "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
     "IMPROVED_STATE_OF_ART remains false",
     "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
-    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE"
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+    "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
+    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",

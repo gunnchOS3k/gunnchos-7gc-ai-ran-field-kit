@@ -48,6 +48,33 @@ def test_r6g_aggregate_and_firewall(tmp_path: Path):
     assert report["independent_improvements_verified"] is False
     assert report["physical_pending"] is True
     assert report["baselines_digitally_matched_to_published_physical"] is False
+    assert report["naked_numeric_headline_count"] == 0
+    assert report["falsifiability"]["R6G-003"] is True
+    assert report["falsifiability"]["R6G-005"] is True
+    assert report["falsifiability"]["R6G-009"] is True
+    assert len(report["documented_negative_experiments"]["R6G-003"]) >= 1
+    assert len(report["documented_negative_experiments"]["R6G-005"]) >= 1
+    assert len(report["documented_negative_experiments"]["R6G-009"]) >= 1
+
+
+def test_registry_no_naked_numeric_headlines():
+    reg = json.loads((ROOT / "research/6g_breakthroughs/BREAKTHROUGH_REGISTRY.json").read_text())
+    naked = 0
+    for b in reg["breakthroughs"]:
+        val = b.get("baseline_value")
+        if isinstance(val, (int, float)) and b.get("headline_numeric_claim") is True:
+            dist = str(b.get("distance", "")).upper()
+            bw = str(b.get("bandwidth", "")).upper()
+            if "NOT_PUBLICLY_PINNED" in dist or "NOT_PUBLICLY_PINNED" in bw:
+                naked += 1
+        if isinstance(val, (int, float)):
+            # Soft policy: numeric values require explicit pin status
+            assert b.get("baseline_value_status") == "PINNED_WITH_CONTEXT"
+            assert b.get("headline_numeric_claim") is True
+        else:
+            assert b.get("headline_numeric_claim") is not True
+    assert naked == 0
+    assert reg.get("naked_headline_policy", {}).get("naked_numeric_headline_count", 0) == 0
 
 
 def test_net_sec_includes_r6g_tokens(tmp_path: Path):
@@ -57,10 +84,13 @@ def test_net_sec_includes_r6g_tokens(tmp_path: Path):
     assert report["tokens"]["5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"] is True
     assert report["tokens"]["R6G_REGISTRY_COMPLETE"] is True
     assert report["tokens"]["IMPROVED_STATE_OF_ART"] is False
+    assert report["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is True
+    assert report["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is True
     for k in FORBIDDEN_TOKENS:
         assert report["tokens"][k] is False
     assert "Rel-16" in PRODUCT_WORDING
     assert report["r6g"]["breakthroughs_registered"] >= 20
+    assert report["r6g"]["naked_numeric_headline_count"] == 0
 
 
 def test_multimodal_improvement_only_vs_digital_rf_only():
@@ -68,14 +98,38 @@ def test_multimodal_improvement_only_vs_digital_rf_only():
 
     r = run_r6g003()
     assert r["IMPROVED_STATE_OF_ART"] is False
+    assert r["falsifiable"] is True
     assert r["rf_only_digital_baseline"]["DIGITAL_REPRODUCTION_MATCHED"] is False
+    assert r["negative_cases_observed"] is True
+    assert len(r["documented_negative_or_no_gain"]) >= 1
+    # Negative suite must include at least one multimodal loss vs RF-only
+    assert any(n["multimodal_failed_to_beat_rf"] for n in r["negative_suite"])
     if r["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"]:
-        rf = r["modality_matrix"]["RF_ONLY"]["position_RMSE"]
-        assert all(
-            r["modality_matrix"][m]["position_RMSE"] < rf
-            for m in r["modality_matrix"]
-            if m != "RF_ONLY"
-        )
+        assert r["primary_improvement_observed"] is True
+        for p in r["primary_suite"]:
+            assert p["RF_ALL_RMSE"] < p["RF_ONLY_RMSE"]
+
+
+def test_ai_phy_and_predictive_are_falsifiable():
+    from research.r6g.experiments.r6g005_ai_phy import run_r6g005
+    from research.r6g.experiments.r6g009_predictive_twin import run_r6g009
+
+    r5 = run_r6g005()
+    assert r5["falsifiable"] is True
+    assert r5["beats_nokia_qualcomm_ota"] is False
+    assert r5["IMPROVED_STATE_OF_ART"] is False
+    assert len(r5["documented_negative_or_no_gain"]) >= 1
+    if r5["HYPOTHESIS_SUPPORTED_DIGITALLY"]:
+        assert r5["primary_support_aware_vs_naive"] is True
+
+    r9 = run_r6g009()
+    assert r9["falsifiable"] is True
+    assert r9["IMPROVED_STATE_OF_ART"] is False
+    assert len(r9["documented_negative_or_no_gain"]) >= 1
+    # Must be able to lose: long horizon or jump suite
+    assert r9["negative_suite"]["long_horizon_no_gain"] or r9["negative_suite"]["jump_no_gain"]
+    if r9["HYPOTHESIS_SUPPORTED_DIGITALLY"]:
+        assert r9["primary_moderate_delay_improvement"] is True
 
 
 def test_useful_connectivity_is_proposed_metric_only():

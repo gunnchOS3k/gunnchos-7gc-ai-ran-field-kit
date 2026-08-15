@@ -111,7 +111,7 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     report = {
         "schema": "gunnchos.net_sec_rc001.aggregate.v1",
         "packet": "NET-SEC-6G-RC-001",
-        "remediation": "PR78_HONESTY_DEMOTE_5GA_AND_HOSTILE_LOCAL_RUNTIME",
+        "remediation": "PR78_R6G_FALSIFIABLE_DEMOTE_TAUTOLOGIES_AND_NAKED_HEADLINES",
         "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
         "ok": digital_ok,
         "exit_state": "DIGITALLY_VALIDATED" if digital_ok else "INCOMPLETE_DIGITAL",
@@ -135,6 +135,9 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
             "physical_pending": r6g["physical_pending"],
             "product_candidates": r6g["product_candidates"],
             "negative_or_no_gain_notes": r6g["negative_or_no_gain_notes"],
+            "documented_negative_experiments": r6g.get("documented_negative_experiments", {}),
+            "falsifiability": r6g.get("falsifiability", {}),
+            "naked_numeric_headline_count": r6g.get("naked_numeric_headline_count", None),
         },
         "owners": {
             "primary": "gunnchos-7gc-ai-ran-field-kit",
@@ -173,7 +176,59 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
                     "tokens": tokens,
                     "product_wording": PRODUCT_WORDING,
                     "supporting_tokens": list(SUPPORTING_TOKENS),
-                    "note": "5GA_TERRESTRIAL_DIGITAL_RUNTIME=false; Rel-16 surface uses 5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME",
+                    "note": (
+                        "5GA_TERRESTRIAL_DIGITAL_RUNTIME=false; Rel-16 surface uses "
+                        "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME. R6G multimodal/AI-PHY/predictive "
+                        "tokens re-earned only via falsifiable digital experiments with "
+                        "documented negative/no-gain cases. IMPROVED_STATE_OF_ART=false."
+                    ),
+                    "r6g_falsifiability": r6g.get("falsifiability"),
+                    "naked_numeric_headline_count": r6g.get("naked_numeric_headline_count"),
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        (out_dir / "AUTHOR_SELF_CHECK.json").write_text(
+            json.dumps(
+                {
+                    "schema": "gunnchos.net_sec_rc001.author_self_check.v1",
+                    "ok": digital_ok,
+                    "remediation": "PR78_R6G_FALSIFIABLE_DEMOTE_TAUTOLOGIES_AND_NAKED_HEADLINES",
+                    "challenges": {
+                        "5ga_false": tokens["5GA_TERRESTRIAL_DIGITAL_RUNTIME"] is False,
+                        "rel16_true": tokens["5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"] is True,
+                        "r6g_registry": tokens["R6G_REGISTRY_COMPLETE"] is True,
+                        "improved_soa_false": tokens["IMPROVED_STATE_OF_ART"] is False,
+                        "forbidden_false": all(tokens[k] is False for k in FORBIDDEN_TOKENS),
+                        "breakthroughs_ge_20": r6g["breakthroughs_registered"] >= 20,
+                        "no_matched_physical": r6g["baselines_digitally_matched_to_published_physical"] is False,
+                        "naked_headlines_zero": r6g.get("naked_numeric_headline_count", -1) == 0,
+                        "r6g003_falsifiable": bool(r6g.get("falsifiability", {}).get("R6G-003")),
+                        "r6g005_falsifiable": bool(r6g.get("falsifiability", {}).get("R6G-005")),
+                        "r6g009_falsifiable": bool(r6g.get("falsifiability", {}).get("R6G-009")),
+                        "documented_negatives": all(
+                            len(r6g.get("documented_negative_experiments", {}).get(k, [])) >= 1
+                            for k in ("R6G-003", "R6G-005", "R6G-009")
+                        ),
+                        "hybrid_kept": tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is True,
+                        "semantic_kept": tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is True,
+                        "product_wording_rel16": "Rel-16" in PRODUCT_WORDING,
+                    },
+                    "token_status": {
+                        "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": tokens["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"],
+                        "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": tokens["AI_PHY_UNCERTAINTY_AWARE_DIGITAL"],
+                        "PREDICTIVE_RADIO_DT_DIGITAL": tokens["PREDICTIVE_RADIO_DT_DIGITAL"],
+                        "HYBRID_SPECTRUM_FABRIC_DIGITAL": tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"],
+                        "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"],
+                        "IMPROVED_STATE_OF_ART": False,
+                        "6G_BREAKTHROUGH_PASS": None,
+                    },
+                    "note": (
+                        "Author self-check after R6G tautology/naked-headline remediation on PR #78. "
+                        "IMPROVED_STATE_OF_ART=false. Cursor does not merge."
+                    ),
                 },
                 indent=2,
             )

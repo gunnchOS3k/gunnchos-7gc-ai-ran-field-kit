@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.r6g.breakthrough_registry.v1",
   "as_of": "2026-08-14",
-  "updated_at_utc": "2026-08-14T20:00:00Z",
+  "updated_at_utc": "2026-08-14T20:10:00Z",
   "NEW_6G_RESEARCH_REPO_CREATION": "FORBIDDEN_BY_DEFAULT",
   "claim_firewall": {
     "IMPROVED_STATE_OF_ART": false,
@@ -59,7 +59,7 @@
       "environment": "field pilot",
       "channel_environment": "LOS-dominated THz pilot conditions (assumed; pin pending)",
       "baseline_metric": "peak_throughput",
-      "baseline_value": 145.0,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "Gbps",
       "claimed_improvement": "headline peak throughput demonstration",
       "comparison_baseline": "prior THz lab demos (context only)",
@@ -75,7 +75,8 @@
         "headline ~145 Gbps; exact distance/BW pending primary pin"
       ],
       "known_limitations": [
-        "EXACT_REPRODUCTION_NOT_POSSIBLE without full setup disclosure"
+        "EXACT_REPRODUCTION_NOT_POSSIBLE without full setup disclosure",
+        "Numeric headline 145.0 Gbps withheld until distance/bandwidth pinned from primary source (distance='NOT_PUBLICLY_PINNED', bandwidth='NOT_PUBLICLY_PINNED')."
       ],
       "gunnchOS_integration_point": "hybrid spectrum fabric / useful connectivity score",
       "improvement_hypothesis": "sustained useful app throughput + availability + energy + fallback > peak-only",
@@ -86,7 +87,10 @@
         "R6G-001"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "baseline_value_was": 145.0,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "headline_numeric_claim": false
     },
     {
       "id": "BT-THZ-SEU-PML-27P84G-2P2KM",
@@ -108,7 +112,7 @@
       "environment": "outdoor field",
       "channel_environment": "outdoor long-range 335 GHz",
       "baseline_metric": "net_throughput",
-      "baseline_value": 27.84,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "Gbps",
       "claimed_improvement": "long-range high-rate outdoor THz",
       "comparison_baseline": "prior short-range THz demos",
@@ -124,7 +128,8 @@
         "2.2 km / 27.84 Gbps / 335 GHz as published headline"
       ],
       "known_limitations": [
-        "no gunnchOS TWTA; EXACT_REPRODUCTION_NOT_POSSIBLE"
+        "no gunnchOS TWTA; EXACT_REPRODUCTION_NOT_POSSIBLE",
+        "Numeric headline 27.84 Gbps withheld until distance/bandwidth pinned from primary source (distance='2.2 km', bandwidth='NOT_PUBLICLY_PINNED')."
       ],
       "gunnchOS_integration_point": "R6G-002 FR3/FSO fallback + predictive weather routing",
       "improvement_hypothesis": "predictive weather/blockage routing + FR3/FSO fallback improves sustained useful rate",
@@ -135,7 +140,10 @@
         "R6G-001"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "baseline_value_was": 27.84,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "headline_numeric_claim": false
     },
     {
       "id": "BT-THZ-NTT-KEYSIGHT-280G",
@@ -157,7 +165,7 @@
       "environment": "lab",
       "channel_environment": "controlled lab",
       "baseline_metric": "throughput",
-      "baseline_value": 280.0,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "Gbps",
       "claimed_improvement": "high-baud 256-QAM at 300 GHz class",
       "comparison_baseline": "prior lower-order / lower-baud THz gen",
@@ -173,7 +181,8 @@
         "280 Gbps / 35 GBaud / 256-QAM headline"
       ],
       "known_limitations": [
-        "instrumentation-class HW absent"
+        "instrumentation-class HW absent",
+        "Numeric headline 280.0 Gbps scrubbed pending primary-source pin (distance='lab/short', bandwidth='35 GBaud class')."
       ],
       "gunnchOS_integration_point": "R6G-005 AI-assisted DPD hooks (digital)",
       "improvement_hypothesis": "uncertainty-aware / feed-forward DPD joint EVM+power+efficiency",
@@ -184,7 +193,10 @@
         "R6G-002"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "baseline_value_was": 280.0
     },
     {
       "id": "BT-SUBTHZ-DOCOMO-NTT-NEC-FUJITSU-100G",
@@ -206,7 +218,7 @@
       "environment": "trial",
       "channel_environment": "access/backhaul trial",
       "baseline_metric": "throughput",
-      "baseline_value": 100.0,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "Gbps",
       "claimed_improvement": "practical sub-THz access/backhaul",
       "comparison_baseline": "mmWave access",
@@ -222,7 +234,8 @@
         "100 Gbps / \u2264100 m headline"
       ],
       "known_limitations": [
-        "vendor arrays unavailable"
+        "vendor arrays unavailable",
+        "Numeric headline 100.0 Gbps withheld until distance/bandwidth pinned from primary source (distance='up to 100 m', bandwidth='NOT_PUBLICLY_PINNED')."
       ],
       "gunnchOS_integration_point": "R6G-002 seamless sub-THz\u2194FR3\u2194terrestrial fallback",
       "improvement_hypothesis": "mobility/blockage-aware multi-band fallback",
@@ -233,7 +246,10 @@
         "R6G-003"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "baseline_value_was": 100.0,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "headline_numeric_claim": false
     },
     {
       "id": "BT-PHOTONIC-THZ-400G",
@@ -255,7 +271,7 @@
       "environment": "lab",
       "channel_environment": "short-range lab",
       "baseline_metric": "throughput",
-      "baseline_value": 400.0,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "Gbps",
       "claimed_improvement": "photonic THz wireless class",
       "comparison_baseline": "electronic THz backends",
@@ -271,7 +287,8 @@
         "400 Gbps / ~4 m / >100 GBaud class"
       ],
       "known_limitations": [
-        "photonic HW absent"
+        "photonic HW absent",
+        "Numeric headline 400.0 Gbps scrubbed pending primary-source pin (distance='~4 m', bandwidth='>100 GBaud class')."
       ],
       "gunnchOS_integration_point": "R6G-002 common photonic fabric abstraction",
       "improvement_hypothesis": "shared photonic fabric for edge/backhaul/wireless",
@@ -281,7 +298,10 @@
         "R6G-002"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "baseline_value_was": 400.0
     },
     {
       "id": "BT-FSO-225G-200M",
@@ -303,7 +323,7 @@
       "environment": "lab/field demo",
       "channel_environment": "LOS optical",
       "baseline_metric": "throughput",
-      "baseline_value": 225.0,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "Gbps",
       "claimed_improvement": "wide-FoV high-rate FSO",
       "comparison_baseline": "narrow-beam FSO",
@@ -319,7 +339,8 @@
         "225 Gbps / ~200 m class"
       ],
       "known_limitations": [
-        "optical HW absent"
+        "optical HW absent",
+        "Numeric headline 225.0 Gbps withheld until distance/bandwidth pinned from primary source (distance='~200 m', bandwidth='NOT_PUBLICLY_PINNED')."
       ],
       "gunnchOS_integration_point": "R6G-002 hybrid RF+FSO path selection",
       "improvement_hypothesis": "automatic RF\u2194FSO fallback under weather/blockage",
@@ -329,7 +350,10 @@
         "R6G-002"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "baseline_value_was": 225.0,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "headline_numeric_claim": false
     },
     {
       "id": "BT-FR3-NYU-PROP",
@@ -378,7 +402,9 @@
         "R6G-002"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-FR3-ISAC-NYU-0P2M",
@@ -400,7 +426,7 @@
       "environment": "controlled study",
       "channel_environment": "multi-band FR3 sensing",
       "baseline_metric": "position_RMSE",
-      "baseline_value": 0.2,
+      "baseline_value": "OFFICIAL_VALUE_PENDING",
       "baseline_units": "m",
       "claimed_improvement": "multi-band ambiguity resolution for localization",
       "comparison_baseline": "single-band RF-only",
@@ -416,7 +442,8 @@
         "~0.2 m RMSE headline under study conditions"
       ],
       "known_limitations": [
-        "exact geometry/noise model pending"
+        "exact geometry/noise model pending",
+        "Numeric headline 0.2 m withheld until distance/bandwidth pinned from primary source (distance='bistatic localization geometry (study)', bandwidth='study-dependent')."
       ],
       "gunnchOS_integration_point": "R6G-003 multimodal ISAC matrix + Rings/IMU",
       "improvement_hypothesis": "RF+IMU/Ring/vision reduces RMSE vs reproduced RF-only digital baseline",
@@ -427,7 +454,10 @@
         "R6G-004"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "baseline_value_was": 0.2,
+      "baseline_value_status": "UNPINNED_PENDING_PRIMARY_SOURCE",
+      "headline_numeric_claim": false
     },
     {
       "id": "BT-FR3-TN-NTN-NYU",
@@ -475,7 +505,9 @@
         "R6G-003"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-AI-CSF-NOKIA-QUALCOMM",
@@ -523,7 +555,9 @@
         "R6G-005"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-AI-RX-NOKIA-RS",
@@ -571,7 +605,9 @@
         "R6G-005"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-AI-JSCC-SHAPING",
@@ -620,7 +656,9 @@
         "R6G-008"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-CF-MMIMO-NOKIA-SAMSUNG",
@@ -668,7 +706,9 @@
         "R6G-006"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-ISAC-NETWORK-SENSING",
@@ -718,7 +758,9 @@
         "R6G-009"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-ISAC-DT-BELIEF-RL-50MS",
@@ -766,7 +808,9 @@
         "R6G-009"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-RADIO-DT-QCOM-OULU",
@@ -814,7 +858,9 @@
         "R6G-009"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-RIS-ADAPTIVE",
@@ -862,7 +908,9 @@
         "R6G-007"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-NTN-D2D-STARLINK-TMO",
@@ -910,7 +958,9 @@
         "R6G-008"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-SEMANTIC-COMMS",
@@ -958,7 +1008,9 @@
         "R6G-008"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     },
     {
       "id": "BT-PQC-TRUST-PRIVACY",
@@ -1006,7 +1058,15 @@
         "R6G-010"
       ],
       "evidence_ladder_current": "R0_SOURCE_VERIFIED",
-      "IMPROVED_STATE_OF_ART": false
+      "IMPROVED_STATE_OF_ART": false,
+      "headline_numeric_claim": false,
+      "baseline_value_status": "NON_NUMERIC_OR_PENDING"
     }
-  ]
+  ],
+  "naked_headline_policy": {
+    "rule": "No numeric baseline_value unless distance and bandwidth are publicly pinned",
+    "scrubbed_count": 7,
+    "kept_numeric_with_context": 0,
+    "naked_numeric_headline_count": 0
+  }
 }

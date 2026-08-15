@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.net_sec_rc001.aggregate.v1",
   "packet": "NET-SEC-6G-RC-001",
-  "remediation": "PR78_HONESTY_DEMOTE_5GA_AND_HOSTILE_LOCAL_RUNTIME",
+  "remediation": "PR78_R6G_FALSIFIABLE_DEMOTE_TAUTOLOGIES_AND_NAKED_HEADLINES",
   "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
   "ok": true,
   "exit_state": "DIGITALLY_VALIDATED",
@@ -780,9 +780,9 @@
           "case_id": "HN-TLS-MATERIAL-001",
           "passed": true,
           "evidence": {
-            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-d49f3y2n/mismatch.crt",
-            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-d49f3y2n/expired.crt",
-            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-d49f3y2n/server.crt"
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/server.crt"
           }
         },
         {
@@ -1305,8 +1305,72 @@
     "negative_or_no_gain_notes": [
       "AI_CSF without uncertainty can catastrophically degrade under adversarial/shift stresses",
       "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
-      "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA"
-    ]
+      "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
+      "R6G-003: vision spoof + over-trust fusion \u2192 multimodal RMSE worse than RF-only",
+      "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
+      "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics"
+    ],
+    "documented_negative_experiments": {
+      "R6G-003": [
+        {
+          "experiment": "neg_vision_spoof_overtrust",
+          "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+          "delta_m": 2.3556,
+          "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        },
+        {
+          "experiment": "neg_vision_spoof_seed202",
+          "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+          "delta_m": 4.3951,
+          "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        }
+      ],
+      "R6G-005": [
+        {
+          "experiment": "in_distribution_throughput",
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "aware_throughput_norm": 0.805,
+          "conventional_throughput_norm": 0.8541,
+          "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
+        },
+        {
+          "experiment": "noisy_csi_failure_rate",
+          "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
+          "aware_failure_rate": 0.0104,
+          "conventional_failure_rate": 0.0083,
+          "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
+        },
+        {
+          "experiment": "adversarial_csi_naive_ai",
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "naive_failure_rate": 0.5354,
+          "conventional_failure_rate": 0.0088,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
+        }
+      ],
+      "R6G-009": [
+        {
+          "experiment": "smooth_sine_delay_100ms",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "predictive_regret": 0.2123,
+          "current_regret": 0.1179,
+          "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win"
+        },
+        {
+          "experiment": "jump_burst_delay_10ms",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "predictive_regret": 0.0785,
+          "current_regret": 0.04,
+          "reason": "Predictor misspecified under jump/burst channel dynamics"
+        }
+      ]
+    },
+    "falsifiability": {
+      "R6G-003": true,
+      "R6G-005": true,
+      "R6G-009": true
+    },
+    "naked_numeric_headline_count": 0
   },
   "owners": {
     "primary": "gunnchos-7gc-ai-ran-field-kit",
@@ -1352,7 +1416,9 @@
     "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
     "IMPROVED_STATE_OF_ART remains false",
     "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
-    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE"
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+    "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
+    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",

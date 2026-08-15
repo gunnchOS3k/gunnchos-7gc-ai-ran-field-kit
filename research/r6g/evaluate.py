@@ -80,7 +80,23 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "AI_CSF without uncertainty can catastrophically degrade under adversarial/shift stresses",
             "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
             "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
+            "R6G-003: vision spoof + over-trust fusion → multimodal RMSE worse than RF-only",
+            "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
+            "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics",
         ],
+        "documented_negative_experiments": {
+            "R6G-003": r003.get("documented_negative_or_no_gain", []),
+            "R6G-005": r005.get("documented_negative_or_no_gain", []),
+            "R6G-009": r009.get("documented_negative_or_no_gain", []),
+        },
+        "falsifiability": {
+            "R6G-003": bool(r003.get("falsifiable")),
+            "R6G-005": bool(r005.get("falsifiable")),
+            "R6G-009": bool(r009.get("falsifiable")),
+        },
+        "naked_numeric_headline_count": sum(
+            1 for b in registry.get("breakthroughs", []) if b.get("headline_numeric_claim") is True
+        ),
         "active_packet_status": active,
         "registered_not_active": not_active,
         "packets": {
@@ -100,6 +116,8 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "IMPROVED_STATE_OF_ART remains false",
             "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
             "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+            "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
+            "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)",
         ],
         "deferred_heavy_work": [
             "ns-3 / Sionna / DeepMIMO campaign sweeps",
