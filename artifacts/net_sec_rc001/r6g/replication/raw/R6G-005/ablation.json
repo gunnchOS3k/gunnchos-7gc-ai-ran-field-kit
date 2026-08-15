@@ -1,0 +1,69 @@
+{
+  "ablation": "method_family_conventional_vs_naive_vs_aware",
+  "adversarial_csi": {
+    "AI_CSF": {
+      "BLER": 0.418,
+      "confidence": 0.0657,
+      "coverage_norm": 0.065,
+      "csi_mse": 6.0354,
+      "energy_norm": 1.05,
+      "failure_rate": 0.5354,
+      "fallback_rate": 0.0,
+      "throughput_norm": 0.0572
+    },
+    "AI_CSF_UNCERTAINTY_AWARE": {
+      "BLER": 0.0087,
+      "confidence": 0.0657,
+      "coverage_norm": 0.9776,
+      "csi_mse": 0.0199,
+      "energy_norm": 1.05,
+      "failure_rate": 0.0047,
+      "fallback_rate": 1.0,
+      "throughput_norm": 0.8621
+    },
+    "CONVENTIONAL_CSI": {
+      "BLER": 0.0123,
+      "confidence": 0.8,
+      "coverage_norm": 0.9807,
+      "csi_mse": 0.0189,
+      "energy_norm": 1.0,
+      "failure_rate": 0.0084,
+      "fallback_rate": 0.0,
+      "throughput_norm": 0.8652
+    }
+  },
+  "in_distribution": {
+    "AI_CSF": {
+      "BLER": 0.0813,
+      "confidence": 0.3976,
+      "coverage_norm": 0.4188,
+      "csi_mse": 0.5943,
+      "energy_norm": 1.05,
+      "failure_rate": 0.112,
+      "fallback_rate": 0.0,
+      "throughput_norm": 0.3686
+    },
+    "AI_CSF_UNCERTAINTY_AWARE": {
+      "BLER": 0.0128,
+      "confidence": 0.3976,
+      "coverage_norm": 0.9143,
+      "csi_mse": 0.0484,
+      "energy_norm": 1.05,
+      "failure_rate": 0.0106,
+      "fallback_rate": 0.7917,
+      "throughput_norm": 0.8054
+    },
+    "CONVENTIONAL_CSI": {
+      "BLER": 0.0125,
+      "confidence": 0.8,
+      "coverage_norm": 0.9744,
+      "csi_mse": 0.021,
+      "energy_norm": 1.0,
+      "failure_rate": 0.0088,
+      "fallback_rate": 0.0,
+      "throughput_norm": 0.8592
+    }
+  },
+  "interpretation": "Naive AI may win compression on IID but fails OOD; aware falls back. No physical distance claim.",
+  "packet": "R6G-005"
+}

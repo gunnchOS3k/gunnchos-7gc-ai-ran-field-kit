@@ -62,17 +62,56 @@
       ],
       "fallback": "LEO_NTN"
     },
+    "thz_available": {
+      "decision": "single_bearer",
+      "bearers": [
+        "THz"
+      ],
+      "fallback": "FR3",
+      "scenario": "thz_available"
+    },
+    "thz_blocked": {
+      "decision": "single_bearer",
+      "bearers": [
+        "THz"
+      ],
+      "fallback": "FR3",
+      "scenario": "thz_available"
+    },
+    "terrestrial_unavailable_ntn": {
+      "decision": "single_bearer",
+      "bearers": [
+        "LEO_NTN"
+      ],
+      "fallback": "semantic_sync",
+      "scenario": "terrestrial_unavailable_ntn"
+    },
+    "optical_los_fso": {
+      "decision": "single_bearer",
+      "bearers": [
+        "FSO_OWC"
+      ],
+      "fallback": "sub_THz",
+      "scenario": "optical_los_fso"
+    },
+    "offline_local_first": {
+      "decision": "local_only",
+      "mode": "defer_or_semantic_sync",
+      "scenario": "offline_or_local_first"
+    },
     "blockage_weather": {
       "decision": "multi_connectivity",
       "bearers": [
-        "sub6_terrestrial",
-        "LEO_NTN"
+        "FR3",
+        "mmWave"
       ],
-      "fallback": "semantic_sync"
+      "fallback": "sub6_terrestrial",
+      "scenario": "thz_blocked_fr3_mmwave"
     },
     "battery_low": {
       "decision": "local_only",
-      "mode": "defer_or_semantic_sync"
+      "mode": "defer_or_semantic_sync",
+      "scenario": "offline_or_local_first"
     },
     "backhaul": {
       "decision": "single_bearer",
@@ -83,12 +122,33 @@
     }
   },
   "useful_connectivity_comparison": {
+    "metric_scheme": {
+      "scheme_id": "UCS_V1_PRODUCT",
+      "formula": "UCS = (R * D * A * Q) / (P * C)",
+      "locked_at": "2026-08-15",
+      "amendments": [],
+      "component_definitions": {
+        "R": "useful_application_throughput_norm",
+        "D": "distance_or_reach_utility_norm",
+        "A": "availability_norm",
+        "Q": "task_qoe_success_norm",
+        "P": "energy_penalty",
+        "C": "cost_penalty"
+      },
+      "comparison_policy": "weights_not_tuned_after_seeing_which_system_wins",
+      "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "NOT_ITU_METRIC": true,
+      "NOT_3GPP_METRIC": true,
+      "NOT_STANDARDIZED_METRIC": true
+    },
     "peaky_link": {
       "metric": "UsefulConnectivityScore",
       "classification": "GUNNCHOS_PROPOSED_METRIC",
       "NOT_ITU_METRIC": true,
       "NOT_3GPP_METRIC": true,
       "NOT_STANDARDIZED_METRIC": true,
+      "formula": "UCS = (R * D * A * Q) / (P * C)",
+      "scheme_id": "UCS_V1_PRODUCT",
       "components": {
         "R": 0.95,
         "D": 0.3,
@@ -106,6 +166,8 @@
       "NOT_ITU_METRIC": true,
       "NOT_3GPP_METRIC": true,
       "NOT_STANDARDIZED_METRIC": true,
+      "formula": "UCS = (R * D * A * Q) / (P * C)",
+      "scheme_id": "UCS_V1_PRODUCT",
       "components": {
         "R": 0.55,
         "D": 0.8,
@@ -117,7 +179,107 @@
       "score": 0.3366,
       "note": "Exploratory; use alongside standard metrics, never instead."
     },
-    "observation": "useful_link score higher despite lower peak R \u2014 exploratory only"
+    "peak_vs_useful": "useful_link score higher despite lower peak R \u2014 exploratory only",
+    "sensitivity_useful_link": {
+      "scheme_id": "UCS_V1_PRODUCT",
+      "base": {
+        "R": 0.55,
+        "D": 0.8,
+        "A": 0.9,
+        "Q": 0.85,
+        "P": 1.0,
+        "C": 1.0
+      },
+      "base_score": 0.3366,
+      "rows": [
+        {
+          "component": "R",
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026,
+          "delta_vs_base": 0.03366
+        },
+        {
+          "component": "R",
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294,
+          "delta_vs_base": -0.03366
+        },
+        {
+          "component": "D",
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026,
+          "delta_vs_base": 0.03366
+        },
+        {
+          "component": "D",
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294,
+          "delta_vs_base": -0.03366
+        },
+        {
+          "component": "A",
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026,
+          "delta_vs_base": 0.03366
+        },
+        {
+          "component": "A",
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294,
+          "delta_vs_base": -0.03366
+        },
+        {
+          "component": "Q",
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.37026,
+          "delta_vs_base": 0.03366
+        },
+        {
+          "component": "Q",
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.30294,
+          "delta_vs_base": -0.03366
+        },
+        {
+          "component": "P",
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.306,
+          "delta_vs_base": -0.0306
+        },
+        {
+          "component": "P",
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.374,
+          "delta_vs_base": 0.0374
+        },
+        {
+          "component": "C",
+          "perturbation": "plus",
+          "rel_delta": 0.1,
+          "score": 0.306,
+          "delta_vs_base": -0.0306
+        },
+        {
+          "component": "C",
+          "perturbation": "minus",
+          "rel_delta": 0.1,
+          "score": 0.374,
+          "delta_vs_base": 0.0374
+        }
+      ],
+      "note": "Descriptive sensitivity only; not a statistical significance claim."
+    },
+    "no_146_gt_145_claim": true
   },
   "IMPROVED_STATE_OF_ART": false,
   "PHYSICAL_REPRODUCTION_PENDING": true,

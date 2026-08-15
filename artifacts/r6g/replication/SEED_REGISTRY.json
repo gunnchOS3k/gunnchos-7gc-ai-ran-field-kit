@@ -1,0 +1,95 @@
+{
+  "amendments": [],
+  "candidates": {
+    "R6G-002": {
+      "note": "Deterministic orchestrator; seed reserved for future stochastic channel",
+      "scenario_seeds": [
+        1
+      ]
+    },
+    "R6G-003": {
+      "ablation_seeds": [
+        7,
+        11,
+        19
+      ],
+      "negative_seeds": [
+        101,
+        202,
+        303,
+        404
+      ],
+      "primary_seeds": [
+        7,
+        11,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41
+      ],
+      "robustness_seeds": [
+        51,
+        52,
+        53
+      ]
+    },
+    "R6G-005": {
+      "ablation_seeds": [
+        3,
+        5,
+        7
+      ],
+      "negative_stresses": [
+        "in_distribution",
+        "noisy_csi",
+        "adversarial_csi"
+      ],
+      "primary_seeds": [
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "robustness_seeds": [
+        41,
+        42,
+        43
+      ]
+    },
+    "R6G-009": {
+      "ablation_seeds": [
+        2,
+        4,
+        6
+      ],
+      "negative_seeds": [
+        90,
+        91
+      ],
+      "primary_seeds": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ],
+      "robustness_seeds": [
+        70,
+        71,
+        72
+      ]
+    }
+  },
+  "note": "Seeds fixed for replication; adding seeds requires amendment log.",
+  "preregistered": true,
+  "schema": "gunnchos.r6g.seed_registry.v1"
+}

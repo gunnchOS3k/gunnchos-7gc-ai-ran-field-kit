@@ -1,0 +1,49 @@
+{
+  "schema": "gunnchos.r6g.independent_verifier.v1",
+  "ok": true,
+  "method": "recalculate_from_raw_json_only",
+  "R6G-003": {
+    "ok": true,
+    "n_primary": 8,
+    "delta_summary": {
+      "n": 8,
+      "mean": -0.3305,
+      "median": -0.3439,
+      "min": -0.3864,
+      "max": -0.2621,
+      "note": "Descriptive only; no NHST / p-value claim"
+    },
+    "win_rate": {
+      "n": 8,
+      "wins": 8,
+      "win_rate": 1.0,
+      "note": "Fraction of seeds where predeclared win condition holds; not a p-value"
+    },
+    "negative_worse_count": 10,
+    "falsifiable": true,
+    "primary_mean_delta_negative": true
+  },
+  "R6G-005": {
+    "ok": true,
+    "aware_beats_naive_adversarial_failure": true,
+    "recalc_naive_failure": 0.5354,
+    "recalc_aware_failure": 0.0047,
+    "iid_no_gain_vs_conventional": true,
+    "documented_negatives": 3,
+    "falsifiable": true
+  },
+  "R6G-009": {
+    "ok": true,
+    "moderate_delay_improvement_recalc": true,
+    "long_horizon_no_gain_recalc": true,
+    "pred25": 0.02,
+    "cur25": 0.0259,
+    "pred100": 0.2123,
+    "cur100": 0.1179,
+    "falsifiable": true
+  },
+  "R6G_INDEPENDENT_VERIFIER_PASS": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "BREAKTHROUGH_PROVEN": false,
+  "note": "Verifier confirms digital arithmetic; does not confer physical SoA."
+}

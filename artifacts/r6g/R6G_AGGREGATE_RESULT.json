@@ -12,6 +12,129 @@
     "R6G-009": true
   },
   "independent_improvements_verified": false,
+  "independent_verifier_recalc_pass": true,
+  "independent_verifier": {
+    "schema": "gunnchos.r6g.independent_verifier.v1",
+    "ok": true,
+    "method": "recalculate_from_raw_json_only",
+    "R6G-003": {
+      "ok": true,
+      "n_primary": 8,
+      "delta_summary": {
+        "n": 8,
+        "mean": -0.337775,
+        "median": -0.33165,
+        "min": -0.4049,
+        "max": -0.2924,
+        "note": "Descriptive only; no NHST / p-value claim"
+      },
+      "win_rate": {
+        "n": 8,
+        "wins": 8,
+        "win_rate": 1.0,
+        "note": "Fraction of seeds where predeclared win condition holds; not a p-value"
+      },
+      "negative_worse_count": 10,
+      "falsifiable": true,
+      "primary_mean_delta_negative": true
+    },
+    "R6G-005": {
+      "ok": true,
+      "aware_beats_naive_adversarial_failure": true,
+      "recalc_naive_failure": 0.5354,
+      "recalc_aware_failure": 0.0046,
+      "iid_no_gain_vs_conventional": true,
+      "documented_negatives": 3,
+      "falsifiable": true
+    },
+    "R6G-009": {
+      "ok": true,
+      "moderate_delay_improvement_recalc": true,
+      "long_horizon_no_gain_recalc": true,
+      "pred25": 0.02,
+      "cur25": 0.0259,
+      "pred100": 0.2123,
+      "cur100": 0.1179,
+      "falsifiable": true
+    },
+    "R6G_INDEPENDENT_VERIFIER_PASS": true,
+    "IMPROVED_STATE_OF_ART": false,
+    "BREAKTHROUGH_PROVEN": false,
+    "note": "Verifier confirms digital arithmetic; does not confer physical SoA."
+  },
+  "replication": {
+    "negative_result_count": 11,
+    "adoption_levels": {
+      "A2_plus": "NOT_CLAIMED_THIS_CYCLE",
+      "R6G-001": "A1_STABLE_REFERENCE_REGISTRY",
+      "R6G-002": "A0_INTERNAL_EXPERIMENT",
+      "R6G-003": "A1_STABLE_REFERENCE_IMPLEMENTATION",
+      "R6G-004": "A0_INTERNAL_EXPERIMENT",
+      "R6G-005": "A1_STABLE_REFERENCE_IMPLEMENTATION",
+      "R6G-006": "A0_STAGED_NOT_EXECUTED",
+      "R6G-007": "A0_STAGED_NOT_EXECUTED",
+      "R6G-008": "A0_INTERNAL_EXPERIMENT",
+      "R6G-009": "A1_STABLE_REFERENCE_IMPLEMENTATION",
+      "R6G-010": "A0_STAGED_NOT_EXECUTED",
+      "R6G-011": "A0_STAGED_NOT_EXECUTED",
+      "levels_do_not_skip": true
+    },
+    "candidates": {
+      "R6G-003": {
+        "claim_state": "PROMISING_DIGITAL",
+        "ladder_earned": [
+          "R0",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6"
+        ],
+        "IMPROVED_STATE_OF_ART": false
+      },
+      "R6G-005": {
+        "claim_state": "PROMISING_DIGITAL",
+        "ladder_earned": [
+          "R0",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6"
+        ],
+        "IMPROVED_STATE_OF_ART": false
+      },
+      "R6G-009": {
+        "claim_state": "PROMISING_DIGITAL",
+        "ladder_earned": [
+          "R0",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6"
+        ],
+        "IMPROVED_STATE_OF_ART": false
+      }
+    },
+    "tokens": {
+      "6G_BREAKTHROUGH_PASS": null,
+      "BREAKTHROUGH_PROVEN": false,
+      "EXTERNAL_REPRODUCTION_PENDING": true,
+      "IMPROVED_STATE_OF_ART": false,
+      "PEER_REVIEWED": false,
+      "PHYSICAL_REPRODUCTION_PENDING": true,
+      "R6G_ABLATIONS_DOCUMENTED": true,
+      "R6G_DIGITAL_REPLICATION_PASS": true,
+      "R6G_FALSIFICATION_DOCUMENTED": true,
+      "R6G_INDEPENDENT_VERIFIER_PASS": true,
+      "R6G_MULTI_SEED_REPRODUCED": true,
+      "STANDARDIZED_6G": false
+    }
+  },
   "physical_pending": true,
   "product_candidates": [
     {
@@ -44,13 +167,13 @@
       {
         "experiment": "neg_vision_spoof_overtrust",
         "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-        "delta_m": 2.5101,
+        "delta_m": 2.3038,
         "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
       },
       {
         "experiment": "neg_vision_spoof_seed202",
         "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-        "delta_m": 4.2193,
+        "delta_m": 4.3656,
         "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
       }
     ],
@@ -58,22 +181,22 @@
       {
         "experiment": "in_distribution_throughput",
         "result": "NO_GAIN_VS_CONVENTIONAL",
-        "aware_throughput_norm": 0.812,
-        "conventional_throughput_norm": 0.861,
+        "aware_throughput_norm": 0.8055,
+        "conventional_throughput_norm": 0.858,
         "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
       },
       {
         "experiment": "noisy_csi_failure_rate",
         "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
-        "aware_failure_rate": 0.0104,
-        "conventional_failure_rate": 0.0083,
+        "aware_failure_rate": 0.0105,
+        "conventional_failure_rate": 0.0086,
         "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
       },
       {
         "experiment": "adversarial_csi_naive_ai",
         "result": "NAIVE_AI_CSF_DEGRADES",
         "naive_failure_rate": 0.5354,
-        "conventional_failure_rate": 0.0087,
+        "conventional_failure_rate": 0.0086,
         "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
       }
     ],
@@ -165,7 +288,7 @@
         "reason": "NYU measurement traces not fully public in-repo"
       },
       "rf_only_digital_baseline": {
-        "position_RMSE_m": 0.5339,
+        "position_RMSE_m": 0.5644,
         "note": "Measured digital RF-only estimator \u2014 NOT claimed matched to NYU physical ~0.2 m",
         "DIGITAL_REPRODUCTION_MATCHED": false,
         "COMPARABLE_EVIDENCE_PENDING": true,
@@ -173,52 +296,52 @@
       },
       "modality_matrix": {
         "RF_ONLY": {
-          "position_RMSE": 0.5339,
-          "orientation_RMSE": 6.9563,
-          "beam_selection_accuracy": 0.7631,
-          "handover_failure": 0.1335,
-          "blockage_prediction_horizon_s": 1.2661,
-          "latency_ms": 11.068,
+          "position_RMSE": 0.5644,
+          "orientation_RMSE": 7.2005,
+          "beam_selection_accuracy": 0.7525,
+          "handover_failure": 0.1411,
+          "blockage_prediction_horizon_s": 1.2356,
+          "latency_ms": 11.129,
           "energy_j": 1.05,
           "privacy_exposure": 0.15
         },
         "RF_DEVICE_IMU": {
-          "position_RMSE": 0.2897,
-          "orientation_RMSE": 5.6423,
-          "beam_selection_accuracy": 0.8486,
-          "handover_failure": 0.0724,
-          "blockage_prediction_horizon_s": 1.5103,
-          "latency_ms": 10.579,
+          "position_RMSE": 0.32,
+          "orientation_RMSE": 5.8845,
+          "beam_selection_accuracy": 0.838,
+          "handover_failure": 0.08,
+          "blockage_prediction_horizon_s": 1.48,
+          "latency_ms": 10.64,
           "energy_j": 1.05,
           "privacy_exposure": 0.15
         },
         "RF_RING_UWB_IMU": {
-          "position_RMSE": 0.2008,
-          "orientation_RMSE": 4.9731,
-          "beam_selection_accuracy": 0.8797,
-          "handover_failure": 0.0502,
-          "blockage_prediction_horizon_s": 1.5992,
-          "latency_ms": 10.402,
+          "position_RMSE": 0.1993,
+          "orientation_RMSE": 4.9607,
+          "beam_selection_accuracy": 0.8803,
+          "handover_failure": 0.0498,
+          "blockage_prediction_horizon_s": 1.6007,
+          "latency_ms": 10.399,
           "energy_j": 1.05,
           "privacy_exposure": 0.15
         },
         "RF_VISION": {
-          "position_RMSE": 0.3384,
-          "orientation_RMSE": 5.5961,
-          "beam_selection_accuracy": 0.8316,
-          "handover_failure": 0.0846,
-          "blockage_prediction_horizon_s": 1.4616,
-          "latency_ms": 14.677,
+          "position_RMSE": 0.3566,
+          "orientation_RMSE": 5.7421,
+          "beam_selection_accuracy": 0.8252,
+          "handover_failure": 0.0892,
+          "blockage_prediction_horizon_s": 1.4434,
+          "latency_ms": 14.713,
           "energy_j": 1.25,
           "privacy_exposure": 0.4
         },
         "RF_ALL_MODALITIES": {
-          "position_RMSE": 0.1583,
-          "orientation_RMSE": 4.4364,
-          "beam_selection_accuracy": 0.8946,
-          "handover_failure": 0.0396,
-          "blockage_prediction_horizon_s": 1.6417,
-          "latency_ms": 14.317,
+          "position_RMSE": 0.1557,
+          "orientation_RMSE": 4.4151,
+          "beam_selection_accuracy": 0.8955,
+          "handover_failure": 0.0389,
+          "blockage_prediction_horizon_s": 1.6443,
+          "latency_ms": 14.311,
           "energy_j": 1.25,
           "privacy_exposure": 0.4
         }
@@ -228,25 +351,25 @@
           "config_id": "primary_cooperative_s7",
           "seed": 7,
           "all_multimodal_beat_rf": true,
-          "rf_all_vs_rf_only_delta_m": -0.3756,
-          "RF_ONLY_RMSE": 0.5339,
-          "RF_ALL_RMSE": 0.1583
+          "rf_all_vs_rf_only_delta_m": -0.4087,
+          "RF_ONLY_RMSE": 0.5644,
+          "RF_ALL_RMSE": 0.1557
         },
         {
           "config_id": "primary_cooperative_s11",
           "seed": 11,
           "all_multimodal_beat_rf": true,
-          "rf_all_vs_rf_only_delta_m": -0.2973,
-          "RF_ONLY_RMSE": 0.4567,
-          "RF_ALL_RMSE": 0.1594
+          "rf_all_vs_rf_only_delta_m": -0.32,
+          "RF_ONLY_RMSE": 0.4685,
+          "RF_ALL_RMSE": 0.1485
         },
         {
           "config_id": "primary_cooperative_s19",
           "seed": 19,
           "all_multimodal_beat_rf": true,
-          "rf_all_vs_rf_only_delta_m": -0.3545,
-          "RF_ONLY_RMSE": 0.5149,
-          "RF_ALL_RMSE": 0.1604
+          "rf_all_vs_rf_only_delta_m": -0.2804,
+          "RF_ONLY_RMSE": 0.4993,
+          "RF_ALL_RMSE": 0.2189
         }
       ],
       "negative_suite": [
@@ -254,18 +377,18 @@
           "config_id": "neg_vision_spoof_overtrust",
           "seed": 101,
           "adversarial": true,
-          "rf_all_vs_rf_only_delta_m": 2.5101,
-          "RF_ONLY_RMSE": 0.3184,
-          "RF_ALL_RMSE": 2.8285,
+          "rf_all_vs_rf_only_delta_m": 2.3038,
+          "RF_ONLY_RMSE": 0.3361,
+          "RF_ALL_RMSE": 2.6399,
           "multimodal_failed_to_beat_rf": true
         },
         {
           "config_id": "neg_vision_spoof_seed202",
           "seed": 202,
           "adversarial": true,
-          "rf_all_vs_rf_only_delta_m": 4.2193,
-          "RF_ONLY_RMSE": 0.3021,
-          "RF_ALL_RMSE": 4.5214,
+          "rf_all_vs_rf_only_delta_m": 4.3656,
+          "RF_ONLY_RMSE": 0.2679,
+          "RF_ALL_RMSE": 4.6335,
           "multimodal_failed_to_beat_rf": true
         }
       ],
@@ -273,13 +396,13 @@
         {
           "experiment": "neg_vision_spoof_overtrust",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 2.5101,
+          "delta_m": 2.3038,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         },
         {
           "experiment": "neg_vision_spoof_seed202",
           "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
-          "delta_m": 4.2193,
+          "delta_m": 4.3656,
           "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
         }
       ],
@@ -313,6 +436,8 @@
         "NOT_ITU_METRIC": true,
         "NOT_3GPP_METRIC": true,
         "NOT_STANDARDIZED_METRIC": true,
+        "formula": "UCS = (R * D * A * Q) / (P * C)",
+        "scheme_id": "UCS_V1_PRODUCT",
         "components": {
           "R": 0.55,
           "D": 0.7,
@@ -361,84 +486,84 @@
       "results": {
         "CONVENTIONAL_CSI": {
           "in_distribution": {
-            "throughput_norm": 0.861,
-            "BLER": 0.0124,
-            "coverage_norm": 0.9778,
+            "throughput_norm": 0.858,
+            "BLER": 0.0125,
+            "coverage_norm": 0.9739,
             "energy_norm": 1.0,
             "confidence": 0.8,
-            "failure_rate": 0.0086,
+            "failure_rate": 0.0088,
             "fallback_rate": 0.0,
-            "csi_mse": 0.0202
+            "csi_mse": 0.0212
           },
           "new_environment": {
-            "throughput_norm": 0.8673,
-            "BLER": 0.0122,
-            "coverage_norm": 0.9821,
+            "throughput_norm": 0.8731,
+            "BLER": 0.012,
+            "coverage_norm": 0.9881,
             "energy_norm": 1.0,
             "confidence": 0.8,
-            "failure_rate": 0.0083,
+            "failure_rate": 0.0079,
             "fallback_rate": 0.0,
-            "csi_mse": 0.0182
+            "csi_mse": 0.0163
           },
           "new_mobility_pattern": {
-            "throughput_norm": 0.8602,
+            "throughput_norm": 0.86,
             "BLER": 0.0125,
             "coverage_norm": 0.9749,
             "energy_norm": 1.0,
             "confidence": 0.8,
             "failure_rate": 0.0087,
             "fallback_rate": 0.0,
-            "csi_mse": 0.0205
+            "csi_mse": 0.0206
           },
           "device_shift": {
-            "throughput_norm": 0.8636,
-            "BLER": 0.0123,
-            "coverage_norm": 0.9765,
+            "throughput_norm": 0.8602,
+            "BLER": 0.0125,
+            "coverage_norm": 0.9753,
             "energy_norm": 1.0,
             "confidence": 0.8,
-            "failure_rate": 0.0085,
+            "failure_rate": 0.0087,
             "fallback_rate": 0.0,
-            "csi_mse": 0.0195
+            "csi_mse": 0.0206
           },
           "channel_shift": {
-            "throughput_norm": 0.8623,
+            "throughput_norm": 0.8583,
+            "BLER": 0.0125,
+            "coverage_norm": 0.9736,
+            "energy_norm": 1.0,
+            "confidence": 0.8,
+            "failure_rate": 0.0088,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0212
+          },
+          "ntn_coexistence": {
+            "throughput_norm": 0.8573,
+            "BLER": 0.0126,
+            "coverage_norm": 0.9725,
+            "energy_norm": 1.0,
+            "confidence": 0.8,
+            "failure_rate": 0.0089,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0215
+          },
+          "noisy_csi": {
+            "throughput_norm": 0.8614,
             "BLER": 0.0124,
-            "coverage_norm": 0.9768,
+            "coverage_norm": 0.9766,
+            "energy_norm": 1.0,
+            "confidence": 0.8,
+            "failure_rate": 0.0086,
+            "fallback_rate": 0.0,
+            "csi_mse": 0.0202
+          },
+          "adversarial_csi": {
+            "throughput_norm": 0.862,
+            "BLER": 0.0124,
+            "coverage_norm": 0.9781,
             "energy_norm": 1.0,
             "confidence": 0.8,
             "failure_rate": 0.0086,
             "fallback_rate": 0.0,
             "csi_mse": 0.0199
-          },
-          "ntn_coexistence": {
-            "throughput_norm": 0.8587,
-            "BLER": 0.0125,
-            "coverage_norm": 0.9746,
-            "energy_norm": 1.0,
-            "confidence": 0.8,
-            "failure_rate": 0.0088,
-            "fallback_rate": 0.0,
-            "csi_mse": 0.021
-          },
-          "noisy_csi": {
-            "throughput_norm": 0.8671,
-            "BLER": 0.0122,
-            "coverage_norm": 0.9813,
-            "energy_norm": 1.0,
-            "confidence": 0.8,
-            "failure_rate": 0.0083,
-            "fallback_rate": 0.0,
-            "csi_mse": 0.0183
-          },
-          "adversarial_csi": {
-            "throughput_norm": 0.8595,
-            "BLER": 0.0125,
-            "coverage_norm": 0.9759,
-            "energy_norm": 1.0,
-            "confidence": 0.8,
-            "failure_rate": 0.0087,
-            "fallback_rate": 0.0,
-            "csi_mse": 0.0207
           }
         },
         "AI_CSF": {
@@ -525,84 +650,84 @@
         },
         "AI_CSF_UNCERTAINTY_AWARE": {
           "in_distribution": {
-            "throughput_norm": 0.812,
-            "BLER": 0.0126,
-            "coverage_norm": 0.9194,
+            "throughput_norm": 0.8055,
+            "BLER": 0.0128,
+            "coverage_norm": 0.9148,
             "energy_norm": 1.05,
             "confidence": 0.3976,
-            "failure_rate": 0.0104,
+            "failure_rate": 0.0106,
             "fallback_rate": 0.7917,
-            "csi_mse": 0.0462
+            "csi_mse": 0.0483
           },
           "new_environment": {
-            "throughput_norm": 0.8521,
+            "throughput_norm": 0.8536,
             "BLER": 0.0097,
-            "coverage_norm": 0.9658,
+            "coverage_norm": 0.9669,
             "energy_norm": 1.05,
             "confidence": 0.21,
             "failure_rate": 0.0062,
             "fallback_rate": 0.9583,
-            "csi_mse": 0.0267
+            "csi_mse": 0.0263
           },
           "new_mobility_pattern": {
-            "throughput_norm": 0.8499,
-            "BLER": 0.0095,
-            "coverage_norm": 0.9628,
+            "throughput_norm": 0.8465,
+            "BLER": 0.0096,
+            "coverage_norm": 0.961,
             "energy_norm": 1.05,
             "confidence": 0.2798,
-            "failure_rate": 0.0059,
+            "failure_rate": 0.006,
             "fallback_rate": 0.9583,
-            "csi_mse": 0.0257
+            "csi_mse": 0.0268
           },
           "device_shift": {
-            "throughput_norm": 0.8519,
-            "BLER": 0.0097,
-            "coverage_norm": 0.9626,
+            "throughput_norm": 0.845,
+            "BLER": 0.0099,
+            "coverage_norm": 0.9575,
             "energy_norm": 1.05,
             "confidence": 0.2212,
-            "failure_rate": 0.0063,
+            "failure_rate": 0.0065,
             "fallback_rate": 0.9583,
-            "csi_mse": 0.027
+            "csi_mse": 0.0293
           },
           "channel_shift": {
-            "throughput_norm": 0.8648,
-            "BLER": 0.0086,
-            "coverage_norm": 0.9801,
+            "throughput_norm": 0.8561,
+            "BLER": 0.0088,
+            "coverage_norm": 0.9711,
             "energy_norm": 1.05,
             "confidence": 0.1859,
-            "failure_rate": 0.0046,
+            "failure_rate": 0.0049,
             "fallback_rate": 1.0,
-            "csi_mse": 0.019
+            "csi_mse": 0.0219
           },
           "ntn_coexistence": {
-            "throughput_norm": 0.8549,
-            "BLER": 0.0089,
-            "coverage_norm": 0.9705,
+            "throughput_norm": 0.8516,
+            "BLER": 0.009,
+            "coverage_norm": 0.9665,
             "energy_norm": 1.05,
             "confidence": 0.2595,
-            "failure_rate": 0.005,
+            "failure_rate": 0.0051,
             "fallback_rate": 1.0,
-            "csi_mse": 0.0223
+            "csi_mse": 0.0235
           },
           "noisy_csi": {
-            "throughput_norm": 0.8119,
-            "BLER": 0.0126,
-            "coverage_norm": 0.9212,
+            "throughput_norm": 0.8077,
+            "BLER": 0.0128,
+            "coverage_norm": 0.9157,
             "energy_norm": 1.05,
             "confidence": 0.3672,
-            "failure_rate": 0.0104,
+            "failure_rate": 0.0105,
             "fallback_rate": 0.8333,
-            "csi_mse": 0.0475
+            "csi_mse": 0.049
           },
           "adversarial_csi": {
-            "throughput_norm": 0.8642,
+            "throughput_norm": 0.8665,
             "BLER": 0.0086,
-            "coverage_norm": 0.9798,
+            "coverage_norm": 0.982,
             "energy_norm": 1.05,
             "confidence": 0.0657,
-            "failure_rate": 0.0047,
+            "failure_rate": 0.0046,
             "fallback_rate": 1.0,
-            "csi_mse": 0.0192
+            "csi_mse": 0.0185
           }
         }
       },
@@ -621,22 +746,22 @@
         {
           "experiment": "in_distribution_throughput",
           "result": "NO_GAIN_VS_CONVENTIONAL",
-          "aware_throughput_norm": 0.812,
-          "conventional_throughput_norm": 0.861,
+          "aware_throughput_norm": 0.8055,
+          "conventional_throughput_norm": 0.858,
           "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
         },
         {
           "experiment": "noisy_csi_failure_rate",
           "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
-          "aware_failure_rate": 0.0104,
-          "conventional_failure_rate": 0.0083,
+          "aware_failure_rate": 0.0105,
+          "conventional_failure_rate": 0.0086,
           "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
         },
         {
           "experiment": "adversarial_csi_naive_ai",
           "result": "NAIVE_AI_CSF_DEGRADES",
           "naive_failure_rate": 0.5354,
-          "conventional_failure_rate": 0.0087,
+          "conventional_failure_rate": 0.0086,
           "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
         }
       ],
@@ -905,64 +1030,64 @@
         },
         "spoofed_adversarial_data": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.0936,
-            "sensing_error": 1.2424,
+            "application_throughput_norm": 0.093,
+            "sensing_error": 1.2523,
             "reliability_violations": 0.186,
-            "handover_failure": 0.1406,
-            "policy_regret": 0.3875,
+            "handover_failure": 0.1407,
+            "policy_regret": 0.388,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4064
+            "recovery_time_s": 1.407
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.0936,
-            "sensing_error": 1.2424,
+            "application_throughput_norm": 0.093,
+            "sensing_error": 1.2523,
             "reliability_violations": 0.186,
-            "handover_failure": 0.1406,
-            "policy_regret": 0.3875,
+            "handover_failure": 0.1407,
+            "policy_regret": 0.388,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.4064
+            "recovery_time_s": 1.407
           },
           "BELIEF_STATE": {
-            "application_throughput_norm": 0.3244,
-            "sensing_error": 0.5049,
-            "reliability_violations": 0.1513,
-            "handover_failure": 0.1176,
-            "policy_regret": 0.1566,
+            "application_throughput_norm": 0.3226,
+            "sensing_error": 0.509,
+            "reliability_violations": 0.1516,
+            "handover_failure": 0.1177,
+            "policy_regret": 0.1584,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.1756
+            "recovery_time_s": 1.1774
           },
           "PREDICTIVE_BELIEF_STATE": {
-            "application_throughput_norm": 0.1494,
-            "sensing_error": 1.0913,
-            "reliability_violations": 0.1776,
-            "handover_failure": 0.1351,
-            "policy_regret": 0.3316,
+            "application_throughput_norm": 0.1446,
+            "sensing_error": 1.104,
+            "reliability_violations": 0.1783,
+            "handover_failure": 0.1355,
+            "policy_regret": 0.3365,
             "calibration_error": 0.12,
-            "recovery_time_s": 1.3506
+            "recovery_time_s": 1.3554
           }
         },
         "sensor_disagreement": {
           "CURRENT_STATE_ONLY": {
-            "application_throughput_norm": 0.3957,
-            "sensing_error": 0.254,
-            "reliability_violations": 0.1406,
-            "handover_failure": 0.1104,
-            "policy_regret": 0.0853,
+            "application_throughput_norm": 0.3981,
+            "sensing_error": 0.2488,
+            "reliability_violations": 0.1403,
+            "handover_failure": 0.1102,
+            "policy_regret": 0.083,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.1043
+            "recovery_time_s": 1.1019
           },
           "DELAYED_STATE": {
-            "application_throughput_norm": 0.3957,
-            "sensing_error": 0.254,
-            "reliability_violations": 0.1406,
-            "handover_failure": 0.1104,
-            "policy_regret": 0.0853,
+            "application_throughput_norm": 0.3981,
+            "sensing_error": 0.2488,
+            "reliability_violations": 0.1403,
+            "handover_failure": 0.1102,
+            "policy_regret": 0.083,
             "calibration_error": 0.2,
-            "recovery_time_s": 1.1043
+            "recovery_time_s": 1.1019
           },
           "BELIEF_STATE": {
             "application_throughput_norm": 0.4027,
-            "sensing_error": 0.2318,
+            "sensing_error": 0.232,
             "reliability_violations": 0.1396,
             "handover_failure": 0.1097,
             "policy_regret": 0.0784,
@@ -1146,17 +1271,56 @@
           ],
           "fallback": "LEO_NTN"
         },
+        "thz_available": {
+          "decision": "single_bearer",
+          "bearers": [
+            "THz"
+          ],
+          "fallback": "FR3",
+          "scenario": "thz_available"
+        },
+        "thz_blocked": {
+          "decision": "single_bearer",
+          "bearers": [
+            "THz"
+          ],
+          "fallback": "FR3",
+          "scenario": "thz_available"
+        },
+        "terrestrial_unavailable_ntn": {
+          "decision": "single_bearer",
+          "bearers": [
+            "LEO_NTN"
+          ],
+          "fallback": "semantic_sync",
+          "scenario": "terrestrial_unavailable_ntn"
+        },
+        "optical_los_fso": {
+          "decision": "single_bearer",
+          "bearers": [
+            "FSO_OWC"
+          ],
+          "fallback": "sub_THz",
+          "scenario": "optical_los_fso"
+        },
+        "offline_local_first": {
+          "decision": "local_only",
+          "mode": "defer_or_semantic_sync",
+          "scenario": "offline_or_local_first"
+        },
         "blockage_weather": {
           "decision": "multi_connectivity",
           "bearers": [
-            "sub6_terrestrial",
-            "LEO_NTN"
+            "FR3",
+            "mmWave"
           ],
-          "fallback": "semantic_sync"
+          "fallback": "sub6_terrestrial",
+          "scenario": "thz_blocked_fr3_mmwave"
         },
         "battery_low": {
           "decision": "local_only",
-          "mode": "defer_or_semantic_sync"
+          "mode": "defer_or_semantic_sync",
+          "scenario": "offline_or_local_first"
         },
         "backhaul": {
           "decision": "single_bearer",
@@ -1167,12 +1331,33 @@
         }
       },
       "useful_connectivity_comparison": {
+        "metric_scheme": {
+          "scheme_id": "UCS_V1_PRODUCT",
+          "formula": "UCS = (R * D * A * Q) / (P * C)",
+          "locked_at": "2026-08-15",
+          "amendments": [],
+          "component_definitions": {
+            "R": "useful_application_throughput_norm",
+            "D": "distance_or_reach_utility_norm",
+            "A": "availability_norm",
+            "Q": "task_qoe_success_norm",
+            "P": "energy_penalty",
+            "C": "cost_penalty"
+          },
+          "comparison_policy": "weights_not_tuned_after_seeing_which_system_wins",
+          "classification": "GUNNCHOS_PROPOSED_METRIC",
+          "NOT_ITU_METRIC": true,
+          "NOT_3GPP_METRIC": true,
+          "NOT_STANDARDIZED_METRIC": true
+        },
         "peaky_link": {
           "metric": "UsefulConnectivityScore",
           "classification": "GUNNCHOS_PROPOSED_METRIC",
           "NOT_ITU_METRIC": true,
           "NOT_3GPP_METRIC": true,
           "NOT_STANDARDIZED_METRIC": true,
+          "formula": "UCS = (R * D * A * Q) / (P * C)",
+          "scheme_id": "UCS_V1_PRODUCT",
           "components": {
             "R": 0.95,
             "D": 0.3,
@@ -1190,6 +1375,8 @@
           "NOT_ITU_METRIC": true,
           "NOT_3GPP_METRIC": true,
           "NOT_STANDARDIZED_METRIC": true,
+          "formula": "UCS = (R * D * A * Q) / (P * C)",
+          "scheme_id": "UCS_V1_PRODUCT",
           "components": {
             "R": 0.55,
             "D": 0.8,
@@ -1201,7 +1388,107 @@
           "score": 0.3366,
           "note": "Exploratory; use alongside standard metrics, never instead."
         },
-        "observation": "useful_link score higher despite lower peak R \u2014 exploratory only"
+        "peak_vs_useful": "useful_link score higher despite lower peak R \u2014 exploratory only",
+        "sensitivity_useful_link": {
+          "scheme_id": "UCS_V1_PRODUCT",
+          "base": {
+            "R": 0.55,
+            "D": 0.8,
+            "A": 0.9,
+            "Q": 0.85,
+            "P": 1.0,
+            "C": 1.0
+          },
+          "base_score": 0.3366,
+          "rows": [
+            {
+              "component": "R",
+              "perturbation": "plus",
+              "rel_delta": 0.1,
+              "score": 0.37026,
+              "delta_vs_base": 0.03366
+            },
+            {
+              "component": "R",
+              "perturbation": "minus",
+              "rel_delta": 0.1,
+              "score": 0.30294,
+              "delta_vs_base": -0.03366
+            },
+            {
+              "component": "D",
+              "perturbation": "plus",
+              "rel_delta": 0.1,
+              "score": 0.37026,
+              "delta_vs_base": 0.03366
+            },
+            {
+              "component": "D",
+              "perturbation": "minus",
+              "rel_delta": 0.1,
+              "score": 0.30294,
+              "delta_vs_base": -0.03366
+            },
+            {
+              "component": "A",
+              "perturbation": "plus",
+              "rel_delta": 0.1,
+              "score": 0.37026,
+              "delta_vs_base": 0.03366
+            },
+            {
+              "component": "A",
+              "perturbation": "minus",
+              "rel_delta": 0.1,
+              "score": 0.30294,
+              "delta_vs_base": -0.03366
+            },
+            {
+              "component": "Q",
+              "perturbation": "plus",
+              "rel_delta": 0.1,
+              "score": 0.37026,
+              "delta_vs_base": 0.03366
+            },
+            {
+              "component": "Q",
+              "perturbation": "minus",
+              "rel_delta": 0.1,
+              "score": 0.30294,
+              "delta_vs_base": -0.03366
+            },
+            {
+              "component": "P",
+              "perturbation": "plus",
+              "rel_delta": 0.1,
+              "score": 0.306,
+              "delta_vs_base": -0.0306
+            },
+            {
+              "component": "P",
+              "perturbation": "minus",
+              "rel_delta": 0.1,
+              "score": 0.374,
+              "delta_vs_base": 0.0374
+            },
+            {
+              "component": "C",
+              "perturbation": "plus",
+              "rel_delta": 0.1,
+              "score": 0.306,
+              "delta_vs_base": -0.0306
+            },
+            {
+              "component": "C",
+              "perturbation": "minus",
+              "rel_delta": 0.1,
+              "score": 0.374,
+              "delta_vs_base": 0.0374
+            }
+          ],
+          "note": "Descriptive sensitivity only; not a statistical significance claim."
+        },
+        "no_146_gt_145_claim": true
       },
       "IMPROVED_STATE_OF_ART": false,
       "PHYSICAL_REPRODUCTION_PENDING": true,
@@ -1471,10 +1758,19 @@
     "PREDICTIVE_RADIO_DT_DIGITAL": true,
     "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
     "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+    "R6G_DIGITAL_REPLICATION_PASS": true,
+    "R6G_MULTI_SEED_REPRODUCED": true,
+    "R6G_FALSIFICATION_DOCUMENTED": true,
+    "R6G_ABLATIONS_DOCUMENTED": true,
+    "R6G_INDEPENDENT_VERIFIER_PASS": true,
     "IMPROVED_STATE_OF_ART": false,
     "6G_BREAKTHROUGH_PASS": null,
+    "BREAKTHROUGH_PROVEN": false,
     "PHYSICAL_REPRODUCTION_PENDING": true,
-    "COMPARABLE_EVIDENCE_PENDING": true
+    "EXTERNAL_REPRODUCTION_PENDING": true,
+    "COMPARABLE_EVIDENCE_PENDING": true,
+    "PEER_REVIEWED": false,
+    "STANDARDIZED_6G": false
   },
   "OPEN": [
     "DOI/PDF pins for many atlas baselines still PENDING",
@@ -1483,14 +1779,17 @@
     "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
     "IMPROVED_STATE_OF_ART remains false",
     "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
-    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE (scaffolding/adoption stubs only)",
     "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
-    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)"
+    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)",
+    "EXTERNAL_REPRODUCTION_PENDING / PHYSICAL_REPRODUCTION_PENDING",
+    "Claim states are PROMISING_DIGITAL / DIGITAL_IMPROVEMENT_CANDIDATE \u2014 never BREAKTHROUGH_PROVEN"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",
     "multi-hour RF / THz physical campaigns",
     "extra QEMU",
-    "large twin cinematic renders"
+    "large twin cinematic renders",
+    "physical RIS / THz purchase"
   ]
 }
