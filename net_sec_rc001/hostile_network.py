@@ -3,19 +3,28 @@
 Hits a real local runtime: loopback TCP/TLS socket, in-process DNS policy,
 credential vault, and coupling to Rel-16 terrestrial + service-continuity
 failover. No uncontrolled external attack. No RF field claim.
+
+TLS fixtures are generated with the ``cryptography`` library (portable PEM
+issuance). Do not use OpenSSL CLI absolute-date generation flags on this path —
+those flags are non-portable across runner OpenSSL builds.
 """
 from __future__ import annotations
 
 import ipaddress
 import socket
 import ssl
-import subprocess
 import tempfile
 import threading
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+from cryptography import x509
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.x509.oid import NameOID
 
 from .service_continuity import select_path
 from .terrestrial_rel16 import RM520NTerrestrialDigital
@@ -23,6 +32,167 @@ from .terrestrial_rel16 import RM520NTerrestrialDigital
 
 EVIDENCE_LEVEL = "E4_DIGITAL_LOCAL_RUNTIME"
 RF_WIFI_STATUS = "E5_E8_EXTERNAL_PENDING"
+
+# Deterministic validity windows (fixed epoch — not wall-clock dependent).
+_FIXED_NOW = datetime(2026, 8, 15, 12, 0, 0, tzinfo=timezone.utc)
+_VALID_NOT_BEFORE = _FIXED_NOW - timedelta(days=1)
+_VALID_NOT_AFTER = _FIXED_NOW + timedelta(days=365)
+_EXPIRED_NOT_BEFORE = datetime(2020, 1, 1, 0, 0, 0, tzinfo=timezone.utc)
+_EXPIRED_NOT_AFTER = datetime(2020, 1, 2, 0, 0, 0, tzinfo=timezone.utc)
+
+
+def _write_key(path: Path, key: rsa.RSAPrivateKey) -> None:
+    path.write_bytes(
+        key.private_bytes(
+            encoding=serialization.Encoding.PEM,
+            format=serialization.PrivateFormat.TraditionalOpenSSL,
+            encryption_algorithm=serialization.NoEncryption(),
+        )
+    )
+
+
+def _write_cert(path: Path, cert: x509.Certificate) -> None:
+    path.write_bytes(cert.public_bytes(serialization.Encoding.PEM))
+
+
+def _build_key() -> rsa.RSAPrivateKey:
+    return rsa.generate_private_key(public_exponent=65537, key_size=2048)
+
+
+def _name(cn: str) -> x509.Name:
+    return x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, cn)])
+
+
+def _sign_cert(
+    *,
+    subject: x509.Name,
+    issuer: x509.Name,
+    public_key: rsa.RSAPublicKey,
+    signer_key: rsa.RSAPrivateKey,
+    not_before: datetime,
+    not_after: datetime,
+    is_ca: bool = False,
+    san: x509.SubjectAlternativeName | None = None,
+    serial: int,
+) -> x509.Certificate:
+    builder = (
+        x509.CertificateBuilder()
+        .subject_name(subject)
+        .issuer_name(issuer)
+        .public_key(public_key)
+        .serial_number(serial)
+        .not_valid_before(not_before)
+        .not_valid_after(not_after)
+    )
+    if is_ca:
+        builder = builder.add_extension(
+            x509.BasicConstraints(ca=True, path_length=0),
+            critical=True,
+        )
+    if san is not None:
+        builder = builder.add_extension(san, critical=False)
+    return builder.sign(private_key=signer_key, algorithm=hashes.SHA256())
+
+
+def generate_hostile_tls_fixtures(root: Path) -> dict[str, Path]:
+    """Create CA + valid / hostname-mismatch / expired leaf certs under ``root``.
+
+    Deterministic validity windows; PEM material only. No OpenSSL CLI date flags.
+    """
+    root.mkdir(parents=True, exist_ok=True)
+
+    ca_key = _build_key()
+    ca_cert = _sign_cert(
+        subject=_name("gunnchos-hostile-test-ca"),
+        issuer=_name("gunnchos-hostile-test-ca"),
+        public_key=ca_key.public_key(),
+        signer_key=ca_key,
+        not_before=_VALID_NOT_BEFORE,
+        not_after=_VALID_NOT_AFTER,
+        is_ca=True,
+        serial=1,
+    )
+    ca_path = root / "ca.crt"
+    ca_key_path = root / "ca.key"
+    _write_cert(ca_path, ca_cert)
+    _write_key(ca_key_path, ca_key)
+
+    # Valid leaf for updates.gunnchos.local (+ SAN)
+    server_key = _build_key()
+    server_cert = _sign_cert(
+        subject=_name("updates.gunnchos.local"),
+        issuer=ca_cert.subject,
+        public_key=server_key.public_key(),
+        signer_key=ca_key,
+        not_before=_VALID_NOT_BEFORE,
+        not_after=_VALID_NOT_AFTER,
+        san=x509.SubjectAlternativeName(
+            [
+                x509.DNSName("updates.gunnchos.local"),
+                x509.DNSName("api.gunnchos.local"),
+                x509.IPAddress(ipaddress.IPv4Address("127.0.0.1")),
+            ]
+        ),
+        serial=2,
+    )
+    key = root / "server.key"
+    cert = root / "server.crt"
+    _write_key(key, server_key)
+    _write_cert(cert, server_cert)
+
+    # Hostname mismatch leaf (evil CN), still signed by same CA
+    evil_key = _build_key()
+    evil_cert = _sign_cert(
+        subject=_name("evil.example"),
+        issuer=ca_cert.subject,
+        public_key=evil_key.public_key(),
+        signer_key=ca_key,
+        not_before=_VALID_NOT_BEFORE,
+        not_after=_VALID_NOT_AFTER,
+        san=x509.SubjectAlternativeName([x509.DNSName("evil.example")]),
+        serial=3,
+    )
+    bad_cert = root / "mismatch.crt"
+    evil_key_path = root / "evil.key"
+    _write_key(evil_key_path, evil_key)
+    _write_cert(bad_cert, evil_cert)
+
+    # Expired leaf for updates.gunnchos.local (past not_after)
+    exp_key = _build_key()
+    exp_cert = _sign_cert(
+        subject=_name("updates.gunnchos.local"),
+        issuer=ca_cert.subject,
+        public_key=exp_key.public_key(),
+        signer_key=ca_key,
+        not_before=_EXPIRED_NOT_BEFORE,
+        not_after=_EXPIRED_NOT_AFTER,
+        san=x509.SubjectAlternativeName(
+            [
+                x509.DNSName("updates.gunnchos.local"),
+                x509.IPAddress(ipaddress.IPv4Address("127.0.0.1")),
+            ]
+        ),
+        serial=4,
+    )
+    expired_cert = root / "expired.crt"
+    exp_key_path = root / "exp.key"
+    _write_key(exp_key_path, exp_key)
+    _write_cert(expired_cert, exp_cert)
+
+    return {
+        "ca": ca_path,
+        "ca_key": ca_key_path,
+        "key": key,
+        "cert": cert,
+        "mismatch": bad_cert,
+        "mismatch_key": evil_key_path,
+        "expired": expired_cert,
+        "expired_key": exp_key_path,
+        "valid_not_before": _VALID_NOT_BEFORE.isoformat(),
+        "valid_not_after": _VALID_NOT_AFTER.isoformat(),
+        "expired_not_before": _EXPIRED_NOT_BEFORE.isoformat(),
+        "expired_not_after": _EXPIRED_NOT_AFTER.isoformat(),
+    }
 
 
 @dataclass
@@ -60,7 +230,6 @@ class LocalHostileRuntime:
     events: list[dict[str, Any]] = field(default_factory=list)
     _tls_dir: Path | None = None
     _server_sock: socket.socket | None = None
-    _server_port: int | None = None
     _server_thread: threading.Thread | None = None
     _stop: threading.Event = field(default_factory=threading.Event)
 
@@ -87,7 +256,6 @@ class LocalHostileRuntime:
                 "resolved": ip,
                 "trusted": False,
             }
-        # Reject non-loopback for this local-only testbed
         try:
             addr = ipaddress.ip_address(ip)
             if not (addr.is_loopback or addr.is_private):
@@ -179,87 +347,10 @@ class LocalHostileRuntime:
     def _make_certs(self) -> dict[str, Path]:
         root = Path(tempfile.mkdtemp(prefix="netsec-hostile-tls-"))
         self._tls_dir = root
-        key = root / "server.key"
-        cert = root / "server.crt"
-        bad_cert = root / "mismatch.crt"
-        expired_cert = root / "expired.crt"
-        # Valid local cert
-        subprocess.run(
-            [
-                "openssl",
-                "req",
-                "-x509",
-                "-newkey",
-                "rsa:2048",
-                "-keyout",
-                str(key),
-                "-out",
-                str(cert),
-                "-days",
-                "1",
-                "-nodes",
-                "-subj",
-                "/CN=updates.gunnchos.local",
-                "-addext",
-                "subjectAltName=DNS:updates.gunnchos.local,DNS:api.gunnchos.local,IP:127.0.0.1",
-            ],
-            check=True,
-            capture_output=True,
-        )
-        # Hostname mismatch cert (evil CN)
-        subprocess.run(
-            [
-                "openssl",
-                "req",
-                "-x509",
-                "-newkey",
-                "rsa:2048",
-                "-keyout",
-                str(root / "evil.key"),
-                "-out",
-                str(bad_cert),
-                "-days",
-                "1",
-                "-nodes",
-                "-subj",
-                "/CN=evil.example",
-            ],
-            check=True,
-            capture_output=True,
-        )
-        # Expired cert
-        subprocess.run(
-            [
-                "openssl",
-                "req",
-                "-x509",
-                "-newkey",
-                "rsa:2048",
-                "-keyout",
-                str(root / "exp.key"),
-                "-out",
-                str(expired_cert),
-                "-nodes",
-                "-subj",
-                "/CN=updates.gunnchos.local",
-                "-not_before",
-                "250101000000Z",
-                "-not_after",
-                "250102000000Z",
-            ],
-            check=True,
-            capture_output=True,
-        )
-        return {
-            "key": key,
-            "cert": cert,
-            "mismatch": bad_cert,
-            "mismatch_key": root / "evil.key",
-            "expired": expired_cert,
-            "expired_key": root / "exp.key",
-        }
+        return generate_hostile_tls_fixtures(root)
 
     def start_tls_server(self, cert: Path, key: Path) -> int:
+        self.stop_tls_server()
         ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
         ctx.load_cert_chain(certfile=str(cert), keyfile=str(key))
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -267,7 +358,6 @@ class LocalHostileRuntime:
         sock.bind(("127.0.0.1", 0))
         sock.listen(5)
         self._server_sock = sock
-        self._server_port = sock.getsockname()[1]
         self._stop.clear()
 
         def _serve() -> None:
@@ -292,7 +382,7 @@ class LocalHostileRuntime:
         t = threading.Thread(target=_serve, name="netsec-hostile-tls", daemon=True)
         self._server_thread = t
         t.start()
-        return self._server_port
+        return sock.getsockname()[1]
 
     def stop_tls_server(self) -> None:
         self._stop.set()
@@ -301,13 +391,17 @@ class LocalHostileRuntime:
                 self._server_sock.close()
             except OSError:
                 pass
+            self._server_sock = None
         if self._server_thread is not None:
             self._server_thread.join(timeout=2.0)
+            self._server_thread = None
 
     def tls_client_probe(self, port: int, *, server_hostname: str, cafile: Path | None) -> dict[str, Any]:
         ctx = ssl.create_default_context()
         if cafile is not None:
             ctx.load_verify_locations(cafile=str(cafile))
+            ctx.check_hostname = True
+            ctx.verify_mode = ssl.CERT_REQUIRED
         else:
             ctx.check_hostname = False
             ctx.verify_mode = ssl.CERT_NONE
@@ -339,7 +433,6 @@ class LocalHostileRuntime:
             "ntn_sim": True,
             "local": True,
         }
-        # Hostile DNS against update path while on cellular → mark cellular untrusted
         dns = self.resolve_dns(
             "updates.gunnchos.local",
             poisoned={"updates.gunnchos.local": "198.51.100.66"},
@@ -366,48 +459,40 @@ def run_hostile_network_digital() -> dict[str, Any]:
 
     try:
         certs = rt._make_certs()
+        ca = certs["ca"]
         port = rt.start_tls_server(certs["cert"], certs["key"])
 
-        # Real loopback TLS handshake against local server
-        probe = rt.tls_client_probe(port, server_hostname="updates.gunnchos.local", cafile=certs["cert"])
+        probe = rt.tls_client_probe(port, server_hostname="updates.gunnchos.local", cafile=ca)
         add("HN-TLS-SOCKET-001", probe.get("ok") is True and probe.get("loopback") is True, probe)
 
-        # Negative SSL probes against mismatch / expired material (local only)
         bad_port = rt.start_tls_server(certs["mismatch"], certs["mismatch_key"])
         bad_probe = rt.tls_client_probe(
-            bad_port, server_hostname="updates.gunnchos.local", cafile=certs["cert"]
+            bad_port, server_hostname="updates.gunnchos.local", cafile=ca
         )
         add(
             "HN-TLS-SOCKET-NEG-MISMATCH-001",
             bad_probe.get("ok") is False and bad_probe.get("loopback") is True,
             bad_probe,
         )
-        rt.stop_tls_server()
+
         exp_port = rt.start_tls_server(certs["expired"], certs["expired_key"])
         exp_probe = rt.tls_client_probe(
-            exp_port, server_hostname="updates.gunnchos.local", cafile=certs["expired"]
-        )
-        # Force verify against valid CA so expired peer is rejected.
-        exp_probe2 = rt.tls_client_probe(
-            exp_port, server_hostname="updates.gunnchos.local", cafile=certs["cert"]
+            exp_port, server_hostname="updates.gunnchos.local", cafile=ca
         )
         add(
             "HN-TLS-SOCKET-NEG-EXPIRED-001",
-            exp_probe2.get("ok") is False and exp_probe2.get("loopback") is True,
-            {"expired_as_ca": exp_probe, "verify_with_valid_ca": exp_probe2},
+            exp_probe.get("ok") is False and exp_probe.get("loopback") is True,
+            {"verify_with_ca": exp_probe},
         )
-        rt.stop_tls_server()
-        # Restart happy-path server for any subsequent probes
+
         port = rt.start_tls_server(certs["cert"], certs["key"])
 
-        # Malicious DNS (policy)
         dns = rt.resolve_dns(
             "updates.gunnchos.local",
             poisoned={"updates.gunnchos.local": "198.51.100.66"},
         )
         add("HN-DNS-001", dns.get("reason") == "malicious_dns", dns)
 
-        # TLS policy fails
         r1 = rt.request("https://updates.gunnchos.local/pkg", tls_status="untrusted_ca")
         add("HN-TLS-001", r1["reason"] == "untrusted_tls" and r1["credentials_sent"] is False, r1)
         r2 = rt.request("https://updates.gunnchos.local/pkg", tls_status="hostname_mismatch")
@@ -415,7 +500,6 @@ def run_hostile_network_digital() -> dict[str, Any]:
         r3 = rt.request("https://updates.gunnchos.local/pkg", tls_status="expired_cert")
         add("HN-TLS-003", r3["reason"] == "expired_cert" and r3["credentials_sent"] is False, r3)
 
-        # Captive + HTTP downgrade + evil origin
         r4 = rt.request("https://updates.gunnchos.local/pkg", captive_portal=True)
         add("HN-CAPTIVE-001", r4["reason"] == "captive_portal" and r4["credentials_sent"] is False, r4)
         r5 = rt.request("http://updates.gunnchos.local/pkg")
@@ -423,7 +507,6 @@ def run_hostile_network_digital() -> dict[str, Any]:
         r6 = rt.request("https://evil.example/phish")
         add("HN-CRED-001", r6["credentials_sent"] is False and r6["ok"] is False, r6)
 
-        # Link loss / restore
         rt.set_link(False)
         r7 = rt.request("https://api.gunnchos.local/v1")
         rt.set_link(True)
@@ -440,18 +523,24 @@ def run_hostile_network_digital() -> dict[str, Any]:
             {"down": r7, "up": r8},
         )
 
-        # Cert material honesty
         add(
             "HN-TLS-MATERIAL-001",
-            certs["mismatch"].is_file() and certs["expired"].is_file() and certs["cert"].is_file(),
+            certs["mismatch"].is_file()
+            and certs["expired"].is_file()
+            and certs["cert"].is_file()
+            and certs["ca"].is_file(),
             {
                 "mismatch_cert": str(certs["mismatch"]),
                 "expired_cert": str(certs["expired"]),
                 "valid_cert": str(certs["cert"]),
+                "ca_cert": str(certs["ca"]),
+                "valid_not_before": certs["valid_not_before"],
+                "valid_not_after": certs["valid_not_after"],
+                "expired_not_before": certs["expired_not_before"],
+                "expired_not_after": certs["expired_not_after"],
             },
         )
 
-        # Couple hostile DNS to Rel-16 terrestrial + continuity failover
         coupled = rt.couple_to_continuity_on_cellular_compromise()
         add(
             "HN-COUPLE-REL16-CONTINUITY-001",
