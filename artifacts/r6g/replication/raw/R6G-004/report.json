@@ -1,0 +1,215 @@
+{
+  "COMPLIANT": false,
+  "IMPROVED_STATE_OF_ART": false,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL": true,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": true,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "PHYSICAL_RING": false,
+  "STANDARDIZED_6G": false,
+  "ablation_names": [
+    "RF",
+    "RF_IMU",
+    "RF_RING_UWB_IMU",
+    "RF_CAMERA",
+    "RF_WIFI_BT",
+    "FULL",
+    "camera_spoof_FULL",
+    "camera_spoof_RF_CAMERA",
+    "ring_bias",
+    "wifi_drop_FULL"
+  ],
+  "ablations": {
+    "FULL": {
+      "beam_accuracy": 1.0,
+      "blockage_prediction": 0.7,
+      "handover_failure": 0.0,
+      "latency_ms": 12.372,
+      "orientation_RMSE": 0.0375,
+      "position_RMSE": 0.1368,
+      "privacy_cost": 0.8
+    },
+    "RF": {
+      "beam_accuracy": 0.275,
+      "blockage_prediction": 0.3375,
+      "handover_failure": 0.1625,
+      "latency_ms": 9.524,
+      "orientation_RMSE": 0.1312,
+      "position_RMSE": 0.5501,
+      "privacy_cost": 0.1
+    },
+    "RF_CAMERA": {
+      "beam_accuracy": 0.8625,
+      "blockage_prediction": 0.7125,
+      "handover_failure": 0.0,
+      "latency_ms": 12.652,
+      "orientation_RMSE": 0.0607,
+      "position_RMSE": 0.2456,
+      "privacy_cost": 0.72
+    },
+    "RF_IMU": {
+      "beam_accuracy": 0.6,
+      "blockage_prediction": 0.575,
+      "handover_failure": 0.0375,
+      "latency_ms": 8.944,
+      "orientation_RMSE": 0.0646,
+      "position_RMSE": 0.3507,
+      "privacy_cost": 0.18
+    },
+    "RF_RING_UWB_IMU": {
+      "beam_accuracy": 0.95,
+      "blockage_prediction": 0.75,
+      "handover_failure": 0.0,
+      "latency_ms": 8.522,
+      "orientation_RMSE": 0.0488,
+      "position_RMSE": 0.1948,
+      "privacy_cost": 0.28
+    },
+    "RF_WIFI_BT": {
+      "beam_accuracy": 0.8125,
+      "blockage_prediction": 0.6375,
+      "handover_failure": 0.0,
+      "latency_ms": 8.744,
+      "orientation_RMSE": 0.0743,
+      "position_RMSE": 0.2839,
+      "privacy_cost": 0.35
+    },
+    "camera_spoof_FULL": {
+      "beam_accuracy": 0.0,
+      "blockage_prediction": 0.0,
+      "handover_failure": 0.3,
+      "latency_ms": 16.602,
+      "orientation_RMSE": 0.0309,
+      "position_RMSE": 1.536,
+      "privacy_cost": 0.8
+    },
+    "camera_spoof_RF_CAMERA": {
+      "beam_accuracy": 0.0,
+      "blockage_prediction": 0.0,
+      "handover_failure": 0.2375,
+      "latency_ms": 18.315,
+      "orientation_RMSE": 0.0371,
+      "position_RMSE": 2.1081,
+      "privacy_cost": 0.72
+    },
+    "ring_bias": {
+      "beam_accuracy": 0.8,
+      "blockage_prediction": 0.65,
+      "handover_failure": 0.0125,
+      "latency_ms": 8.794,
+      "orientation_RMSE": 0.0411,
+      "position_RMSE": 0.2857,
+      "privacy_cost": 0.28
+    },
+    "wifi_drop_FULL": {
+      "beam_accuracy": 0.9875,
+      "blockage_prediction": 0.7625,
+      "handover_failure": 0.0,
+      "latency_ms": 12.443,
+      "orientation_RMSE": 0.0384,
+      "position_RMSE": 0.1658,
+      "privacy_cost": 0.8
+    }
+  },
+  "claim_state": "DIGITAL_SYNTHETIC_EXPERIMENT",
+  "dataset": {
+    "PHYSICAL_RING": false,
+    "label": "DIGITAL_SYNTHETIC_EXPERIMENT",
+    "n_samples": 80,
+    "real_humans": false,
+    "seed": 17,
+    "type": "SYNTHETIC_LABELED"
+  },
+  "documented_negative_or_no_gain": [
+    {
+      "ILLUSTRATIVE": false,
+      "case": "camera_spoof_full_worse_than_rf",
+      "counts_toward_real_negatives": true,
+      "delta_m": 0.9819,
+      "result": "MULTIMODAL_WORSE_THAN_RF"
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "full_privacy_cost",
+      "counts_toward_real_negatives": true,
+      "privacy_cost": 0.8,
+      "result": "HIGH_PRIVACY_COST_DESPITE_RMSE"
+    }
+  ],
+  "execution_class": "DIGITAL_SYNTHETIC_EXPERIMENT",
+  "guaranteed_treatment_improvement": false,
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "matrix": {
+    "FULL": {
+      "beam_accuracy": 0.9875,
+      "blockage_prediction": 0.775,
+      "handover_failure": 0.0,
+      "latency_ms": 12.403,
+      "orientation_RMSE": 0.0377,
+      "position_RMSE": 0.1525,
+      "privacy_cost": 0.8
+    },
+    "RF": {
+      "beam_accuracy": 0.2625,
+      "blockage_prediction": 0.4375,
+      "handover_failure": 0.05,
+      "latency_ms": 9.489,
+      "orientation_RMSE": 0.1011,
+      "position_RMSE": 0.5541,
+      "privacy_cost": 0.1
+    },
+    "RF_CAMERA": {
+      "beam_accuracy": 0.825,
+      "blockage_prediction": 0.65,
+      "handover_failure": 0.0,
+      "latency_ms": 12.71,
+      "orientation_RMSE": 0.0574,
+      "position_RMSE": 0.2666,
+      "privacy_cost": 0.72
+    },
+    "RF_IMU": {
+      "beam_accuracy": 0.7625,
+      "blockage_prediction": 0.625,
+      "handover_failure": 0.0,
+      "latency_ms": 8.814,
+      "orientation_RMSE": 0.0699,
+      "position_RMSE": 0.3052,
+      "privacy_cost": 0.18
+    },
+    "RF_RING_UWB_IMU": {
+      "beam_accuracy": 0.9375,
+      "blockage_prediction": 0.7375,
+      "handover_failure": 0.0,
+      "latency_ms": 8.565,
+      "orientation_RMSE": 0.0441,
+      "position_RMSE": 0.2151,
+      "privacy_cost": 0.28
+    },
+    "RF_WIFI_BT": {
+      "beam_accuracy": 0.725,
+      "blockage_prediction": 0.625,
+      "handover_failure": 0.0,
+      "latency_ms": 8.83,
+      "orientation_RMSE": 0.0715,
+      "position_RMSE": 0.3156,
+      "privacy_cost": 0.35
+    }
+  },
+  "modalities": [
+    "RF",
+    "RF_IMU",
+    "RF_RING_UWB_IMU",
+    "RF_CAMERA",
+    "RF_WIFI_BT",
+    "FULL"
+  ],
+  "note": "Digital synthetic multimodal ISAC experiment with independent noisy modalities; PHYSICAL_RING=false; improvement not treatment-guaranteed.",
+  "ok": true,
+  "packet": "R6G-004",
+  "primary_multimodal_rmse_better_than_rf": true,
+  "schema": "gunnchos.r6g.r6g004.v1",
+  "status": "DIGITAL_SYNTHETIC_EXECUTED"
+}

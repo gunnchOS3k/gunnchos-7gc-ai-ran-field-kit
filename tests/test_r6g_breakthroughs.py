@@ -91,13 +91,16 @@ def test_net_sec_includes_r6g_tokens(tmp_path: Path):
     assert report["tokens"]["5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"] is True
     assert report["tokens"]["R6G_REGISTRY_COMPLETE"] is True
     assert report["tokens"]["IMPROVED_STATE_OF_ART"] is False
-    assert report["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is False
-    assert report["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is False
+    # Capability depth (#80): spectrum/semantic digital tokens earned via execution
+    assert report["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"] is True
+    assert report["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] is True
     for k in FORBIDDEN_TOKENS:
         assert report["tokens"][k] is False
     assert "Rel-16" in PRODUCT_WORDING
     assert report["r6g"]["breakthroughs_registered"] >= 20
     assert report["r6g"]["naked_numeric_headline_count"] == 0
+    # Dual-tree: authoritative path pointer, not a forked metric tree
+    assert (tmp_path / "r6g" / "AUTHORITATIVE_PATH.json").exists()
 
 
 def test_multimodal_improvement_only_vs_digital_rf_only():

@@ -11,6 +11,7 @@ import random
 from typing import Any
 
 from research.r6g.claim_firewall import assert_no_soa
+from research.r6g.metrics.stable_seed import stable_int
 
 POLICIES = ("CURRENT_STATE_ONLY", "DELAYED_STATE", "BELIEF_STATE", "PREDICTIVE_BELIEF_STATE")
 DELAYS_MS = (10, 25, 50, 100)
@@ -135,7 +136,7 @@ def run_r6g009(seed: int = 9) -> dict[str, Any]:
                 p,
                 series_smooth,
                 delay_steps,
-                random.Random(seed * 1000 + 100 + d_ms + hash(p) % 97),
+                random.Random(seed * 1000 + 100 + d_ms + stable_int(p, mod=97)),
                 stress=None,
             )
             for p in POLICIES
@@ -171,7 +172,7 @@ def run_r6g009(seed: int = 9) -> dict[str, Any]:
                 p,
                 series_smooth,
                 5,
-                random.Random(seed * 500 + 500 + (hash(s) % 1000)),
+                random.Random(seed * 500 + 500 + stable_int(s, mod=1000)),
                 stress=s,
             )
             for p in POLICIES

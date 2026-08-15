@@ -405,4 +405,4 @@ r6g-reproduce:
 	$(PYTHON) -m research.r6g.replication.reproduce
 	$(PYTHON) -m research.r6g.replication.verify_independent
 	$(PYTHON) -m research.r6g.evaluate
-	$(PYTHON) -m pytest -q tests/test_r6g_breakthroughs.py tests/test_r6g_replication.py
+	$(PYTHON) -m pytest -q tests/test_r6g_breakthroughs.py tests/test_r6g_replication.py tests/test_r6g_portfolio_adoption_002.py

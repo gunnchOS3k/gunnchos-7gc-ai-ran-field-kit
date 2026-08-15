@@ -1,255 +1,193 @@
 {
   "schema": "gunnchos.r6g.semantic_continuity_ntn_education.v1",
   "ok": true,
-  "scenario": "Semantic Continuity for Equitable NTN Education",
-  "uses": [
-    "WAIKE",
-    "gunnchAI",
-    "NTN simulator",
-    "service continuity"
-  ],
   "modes": [
     "FULL_CONTENT_TRANSFER",
     "COMPRESSED_CONTENT_TRANSFER",
-    "TASK_RELEVANT_TRANSFER",
     "LEARNING_STATE_DELTA"
   ],
   "conditions": [
+    "high_bw_stable",
+    "bw_cap_low",
     "high_latency",
-    "low_bitrate",
-    "intermittent_visibility",
     "packet_loss",
-    "long_outage",
-    "expensive_link"
+    "intermittent",
+    "long_outage"
   ],
   "matrix": {
     "FULL_CONTENT_TRANSFER": {
+      "high_bw_stable": {
+        "mean_bytes": 980.4,
+        "mean_completion_latency_s": 0.2379,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0004,
+        "mean_energy_proxy": 1.1882,
+        "delivery_rate": 1.0
+      },
+      "bw_cap_low": {
+        "mean_bytes": 980.4,
+        "mean_completion_latency_s": 2.8173,
+        "mean_state_fidelity": 0.8,
+        "mean_semantic_loss": 0.2,
+        "mean_reconnect_recovery_s": 5.0098,
+        "mean_energy_proxy": 1.2235,
+        "delivery_rate": 0.8
+      },
       "high_latency": {
-        "lesson_completion": 0.902,
-        "task_correctness": 0.95,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 1.0,
-        "time_to_useful_state_s": 50.0,
-        "energy_norm": 1.2,
-        "recovery_after_reconnect_s": 25.0
-      },
-      "low_bitrate": {
-        "lesson_completion": 0.902,
-        "task_correctness": 0.95,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 1.0,
-        "time_to_useful_state_s": 35.0,
-        "energy_norm": 1.2,
-        "recovery_after_reconnect_s": 25.0
-      },
-      "intermittent_visibility": {
-        "lesson_completion": 0.902,
-        "task_correctness": 0.95,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 1.0,
-        "time_to_useful_state_s": 35.0,
-        "energy_norm": 1.2,
-        "recovery_after_reconnect_s": 25.0
+        "mean_bytes": 980.4,
+        "mean_completion_latency_s": 1.7084,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0016,
+        "mean_energy_proxy": 1.2,
+        "delivery_rate": 1.0
       },
       "packet_loss": {
-        "lesson_completion": 0.902,
-        "task_correctness": 0.95,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 1.0,
-        "time_to_useful_state_s": 35.0,
-        "energy_norm": 1.2,
-        "recovery_after_reconnect_s": 25.0
+        "mean_bytes": 980.4,
+        "mean_completion_latency_s": 4.0377,
+        "mean_state_fidelity": 0.8,
+        "mean_semantic_loss": 0.2,
+        "mean_reconnect_recovery_s": 5.202,
+        "mean_energy_proxy": 1.4588,
+        "delivery_rate": 0.8
+      },
+      "intermittent": {
+        "mean_bytes": 980.4,
+        "mean_completion_latency_s": 11.407,
+        "mean_state_fidelity": 0.8,
+        "mean_semantic_loss": 0.2,
+        "mean_reconnect_recovery_s": 6.2026,
+        "mean_energy_proxy": 1.2706,
+        "delivery_rate": 0.8
       },
       "long_outage": {
-        "lesson_completion": 0.28,
-        "task_correctness": 0.4,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 1.0,
-        "time_to_useful_state_s": 35.0,
-        "energy_norm": 1.2,
-        "recovery_after_reconnect_s": 25.0
-      },
-      "expensive_link": {
-        "lesson_completion": 0.902,
-        "task_correctness": 0.95,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 1.0,
-        "time_to_useful_state_s": 35.0,
-        "energy_norm": 1.2,
-        "recovery_after_reconnect_s": 25.0
+        "mean_bytes": 980.4,
+        "mean_completion_latency_s": 47.8065,
+        "mean_state_fidelity": 0.4,
+        "mean_semantic_loss": 0.6,
+        "mean_reconnect_recovery_s": 36.8039,
+        "mean_energy_proxy": 1.3177,
+        "delivery_rate": 0.4
       }
     },
     "COMPRESSED_CONTENT_TRANSFER": {
+      "high_bw_stable": {
+        "mean_bytes": 544.4,
+        "mean_completion_latency_s": 0.2349,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0002,
+        "mean_energy_proxy": 0.3849,
+        "delivery_rate": 1.0
+      },
+      "bw_cap_low": {
+        "mean_bytes": 544.4,
+        "mean_completion_latency_s": 2.8528,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0054,
+        "mean_energy_proxy": 0.3963,
+        "delivery_rate": 1.0
+      },
       "high_latency": {
-        "lesson_completion": 0.855,
-        "task_correctness": 0.9,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.45,
-        "time_to_useful_state_s": 33.5,
-        "energy_norm": 0.54,
-        "recovery_after_reconnect_s": 11.25
-      },
-      "low_bitrate": {
-        "lesson_completion": 0.855,
-        "task_correctness": 0.9,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.45,
-        "time_to_useful_state_s": 18.5,
-        "energy_norm": 0.54,
-        "recovery_after_reconnect_s": 11.25
-      },
-      "intermittent_visibility": {
-        "lesson_completion": 0.855,
-        "task_correctness": 0.9,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.45,
-        "time_to_useful_state_s": 18.5,
-        "energy_norm": 0.54,
-        "recovery_after_reconnect_s": 11.25
+        "mean_bytes": 544.4,
+        "mean_completion_latency_s": 1.6438,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0009,
+        "mean_energy_proxy": 0.3887,
+        "delivery_rate": 1.0
       },
       "packet_loss": {
-        "lesson_completion": 0.855,
-        "task_correctness": 0.9,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.45,
-        "time_to_useful_state_s": 18.5,
-        "energy_norm": 0.54,
-        "recovery_after_reconnect_s": 11.25
+        "mean_bytes": 544.4,
+        "mean_completion_latency_s": 4.1233,
+        "mean_state_fidelity": 0.8,
+        "mean_semantic_loss": 0.2,
+        "mean_reconnect_recovery_s": 5.2011,
+        "mean_energy_proxy": 0.4725,
+        "delivery_rate": 0.8
+      },
+      "intermittent": {
+        "mean_bytes": 544.4,
+        "mean_completion_latency_s": 11.6764,
+        "mean_state_fidelity": 0.6,
+        "mean_semantic_loss": 0.4,
+        "mean_reconnect_recovery_s": 10.4015,
+        "mean_energy_proxy": 0.4116,
+        "delivery_rate": 0.6
       },
       "long_outage": {
-        "lesson_completion": 0.522,
-        "task_correctness": 0.55,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.45,
-        "time_to_useful_state_s": 18.5,
-        "energy_norm": 0.54,
-        "recovery_after_reconnect_s": 11.25
-      },
-      "expensive_link": {
-        "lesson_completion": 0.855,
-        "task_correctness": 0.9,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.45,
-        "time_to_useful_state_s": 18.5,
-        "energy_norm": 0.54,
-        "recovery_after_reconnect_s": 11.25
-      }
-    },
-    "TASK_RELEVANT_TRANSFER": {
-      "high_latency": {
-        "lesson_completion": 0.836,
-        "task_correctness": 0.88,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.22,
-        "time_to_useful_state_s": 26.6,
-        "energy_norm": 0.264,
-        "recovery_after_reconnect_s": 5.5
-      },
-      "low_bitrate": {
-        "lesson_completion": 0.836,
-        "task_correctness": 0.88,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.22,
-        "time_to_useful_state_s": 11.6,
-        "energy_norm": 0.264,
-        "recovery_after_reconnect_s": 5.5
-      },
-      "intermittent_visibility": {
-        "lesson_completion": 0.836,
-        "task_correctness": 0.88,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.22,
-        "time_to_useful_state_s": 11.6,
-        "energy_norm": 0.264,
-        "recovery_after_reconnect_s": 5.5
-      },
-      "packet_loss": {
-        "lesson_completion": 0.836,
-        "task_correctness": 0.88,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.22,
-        "time_to_useful_state_s": 11.6,
-        "energy_norm": 0.264,
-        "recovery_after_reconnect_s": 5.5
-      },
-      "long_outage": {
-        "lesson_completion": 0.836,
-        "task_correctness": 0.88,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.22,
-        "time_to_useful_state_s": 11.6,
-        "energy_norm": 0.264,
-        "recovery_after_reconnect_s": 5.5
-      },
-      "expensive_link": {
-        "lesson_completion": 0.836,
-        "task_correctness": 0.88,
-        "learner_state_sync": 0.7,
-        "bytes_transferred_norm": 0.22,
-        "time_to_useful_state_s": 11.6,
-        "energy_norm": 0.264,
-        "recovery_after_reconnect_s": 5.5
+        "mean_bytes": 544.4,
+        "mean_completion_latency_s": 47.7936,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0022,
+        "mean_energy_proxy": 0.4268,
+        "delivery_rate": 1.0
       }
     },
     "LEARNING_STATE_DELTA": {
+      "high_bw_stable": {
+        "mean_bytes": 360.2,
+        "mean_completion_latency_s": 0.2405,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0,
+        "mean_energy_proxy": 0.2546,
+        "delivery_rate": 1.0
+      },
+      "bw_cap_low": {
+        "mean_bytes": 253.4,
+        "mean_completion_latency_s": 2.9348,
+        "mean_state_fidelity": 0.6,
+        "mean_semantic_loss": 0.4,
+        "mean_reconnect_recovery_s": 2.0008,
+        "mean_energy_proxy": 0.1845,
+        "delivery_rate": 1.0
+      },
       "high_latency": {
-        "lesson_completion": 0.807,
-        "task_correctness": 0.85,
-        "learner_state_sync": 0.95,
-        "bytes_transferred_norm": 0.08,
-        "time_to_useful_state_s": 22.4,
-        "energy_norm": 0.096,
-        "recovery_after_reconnect_s": 5
-      },
-      "low_bitrate": {
-        "lesson_completion": 0.807,
-        "task_correctness": 0.85,
-        "learner_state_sync": 0.95,
-        "bytes_transferred_norm": 0.08,
-        "time_to_useful_state_s": 7.4,
-        "energy_norm": 0.096,
-        "recovery_after_reconnect_s": 5
-      },
-      "intermittent_visibility": {
-        "lesson_completion": 0.807,
-        "task_correctness": 0.85,
-        "learner_state_sync": 0.95,
-        "bytes_transferred_norm": 0.08,
-        "time_to_useful_state_s": 7.4,
-        "energy_norm": 0.096,
-        "recovery_after_reconnect_s": 5
+        "mean_bytes": 360.2,
+        "mean_completion_latency_s": 1.6932,
+        "mean_state_fidelity": 1.0,
+        "mean_semantic_loss": 0.0,
+        "mean_reconnect_recovery_s": 2.0002,
+        "mean_energy_proxy": 0.2572,
+        "delivery_rate": 1.0
       },
       "packet_loss": {
-        "lesson_completion": 0.807,
-        "task_correctness": 0.85,
-        "learner_state_sync": 0.95,
-        "bytes_transferred_norm": 0.08,
-        "time_to_useful_state_s": 7.4,
-        "energy_norm": 0.096,
-        "recovery_after_reconnect_s": 5
+        "mean_bytes": 360.2,
+        "mean_completion_latency_s": 4.0573,
+        "mean_state_fidelity": 0.6,
+        "mean_semantic_loss": 0.4,
+        "mean_reconnect_recovery_s": 8.4004,
+        "mean_energy_proxy": 0.3126,
+        "delivery_rate": 0.6
+      },
+      "intermittent": {
+        "mean_bytes": 253.4,
+        "mean_completion_latency_s": 11.3525,
+        "mean_state_fidelity": 0.48,
+        "mean_semantic_loss": 0.52,
+        "mean_reconnect_recovery_s": 6.2003,
+        "mean_energy_proxy": 0.1916,
+        "delivery_rate": 0.8
       },
       "long_outage": {
-        "lesson_completion": 0.807,
-        "task_correctness": 0.85,
-        "learner_state_sync": 0.95,
-        "bytes_transferred_norm": 0.08,
-        "time_to_useful_state_s": 7.4,
-        "energy_norm": 0.096,
-        "recovery_after_reconnect_s": 5
-      },
-      "expensive_link": {
-        "lesson_completion": 0.807,
-        "task_correctness": 0.85,
-        "learner_state_sync": 0.95,
-        "bytes_transferred_norm": 0.08,
-        "time_to_useful_state_s": 7.4,
-        "energy_norm": 0.096,
-        "recovery_after_reconnect_s": 5
+        "mean_bytes": 253.4,
+        "mean_completion_latency_s": 47.6863,
+        "mean_state_fidelity": 0.48,
+        "mean_semantic_loss": 0.52,
+        "mean_reconnect_recovery_s": 13.6004,
+        "mean_energy_proxy": 0.1987,
+        "delivery_rate": 0.8
       }
     }
   },
   "real_education_outcome_claimed": false,
   "human_study": "EXTERNAL_PENDING",
   "IMPROVED_STATE_OF_ART": false,
-  "note": "Digital research scenario only \u2014 no real educational outcome claim."
+  "parent_packet": "R6G-008",
+  "execution_class": "CONTROLLED_TRACE_PAYLOAD_EXPERIMENT",
+  "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true
 }

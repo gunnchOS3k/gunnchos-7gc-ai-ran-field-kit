@@ -42,8 +42,25 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "equitable_7gc": run_equitable_7gc(),
         "imt2030_eval": run_imt2030_eval_harness(),
     }
-    r6g_out = (Path(out_dir) / "r6g") if out_dir is not None else (ROOT / "artifacts" / "r6g")
+    # Authoritative R6G tree is always artifacts/r6g (avoids dual-tree float drift mirrors).
+    r6g_out = ROOT / "artifacts" / "r6g"
     r6g = evaluate_r6g(r6g_out)
+    if out_dir is not None:
+        # Pointer only — do not fork a second metric implementation tree.
+        mirror = Path(out_dir) / "r6g"
+        mirror.mkdir(parents=True, exist_ok=True)
+        (mirror / "AUTHORITATIVE_PATH.json").write_text(
+            json.dumps(
+                {
+                    "authoritative": "artifacts/r6g",
+                    "note": "net_sec embeds R6G summary; regenerate via make r6g-reproduce",
+                    "dual_tree_disposition": "AUTHORITATIVE_SINGLE_TREE",
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
 
     tokens = empty_token_table()
     # Honesty: Rel-16 RM520N digital sim does NOT earn 5GA.

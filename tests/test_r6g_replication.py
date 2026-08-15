@@ -104,6 +104,7 @@ def test_dashboard_cannot_look_like_breakthrough(tmp_path: Path):
     run_replication_suite(tmp_path)
     dash = json.loads((tmp_path / "R6G_PORTFOLIO_DASHBOARD.json").read_text())
     assert dash["IMPROVED_STATE_OF_ART"] is False
+    by = {r["packet"]: r for r in dash["rows"]}
     for row in dash["rows"]:
         assert row["IMPROVED_STATE_OF_ART"] is False
         assert row["physical_validation"] is False
@@ -111,6 +112,14 @@ def test_dashboard_cannot_look_like_breakthrough(tmp_path: Path):
         assert row["independent_verify"] is False
         assert row["claim_state"] != "BREAKTHROUGH_PROVEN"
         assert row["claim_state"] != "PROMISING_DIGITAL"
+    # R6G-009: evidence manifest drives falsification column; ladder not promoted
+    r009 = by["R6G-009"]
+    assert r009["claim_state"] == "REPLICATION_INCOMPLETE"
+    assert r009["falsification"] is True
+    assert r009.get("falsification_ladder_earned") is False
+    assert r009["ladder_earned"] == ["R0", "R1", "R2"]
+    assert "evidence_manifest" in r009
+    assert r009["evidence_manifest"]["falsification_evidence"] is True
 
 
 def test_ucs_preregistered_and_sensitive():

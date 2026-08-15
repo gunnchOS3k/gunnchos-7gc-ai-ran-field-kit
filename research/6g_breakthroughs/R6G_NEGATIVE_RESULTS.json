@@ -1,31 +1,14 @@
 {
   "IMPROVED_STATE_OF_ART": false,
   "as_of": "2026-08-15",
-  "count": 20,
-  "illustrative_count": 2,
-  "illustrative_results": [
-    {
-      "ILLUSTRATIVE": true,
-      "counts_toward_real_negatives": false,
-      "experiment": "peaky_vs_useful_connectivity",
-      "packet": "R6G-002",
-      "reason": "Illustrative UCS sketch \u2014 not a falsifiable digital campaign",
-      "result": "PEAK_RATE_OPTIMIZER_WORSE_UCS"
-    },
-    {
-      "ILLUSTRATIVE": true,
-      "counts_toward_real_negatives": false,
-      "experiment": "full_content_long_outage",
-      "packet": "R6G-008",
-      "reason": "Lookup-table sketch only \u2014 not replication-ladder evidence",
-      "result": "FULL_SYNC_FAILS_UNDER_LONG_OUTAGE"
-    }
-  ],
+  "count": 42,
+  "illustrative_count": 0,
+  "illustrative_results": [],
   "note": "Real negatives define the operating envelope; illustrative stubs are separate.",
   "results": [
     {
       "ILLUSTRATIVE": false,
-      "delta_m": 2.6694,
+      "delta_m": 2.759,
       "experiment": "rep_neg_s101",
       "packet": "R6G-003",
       "preserved": true,
@@ -33,7 +16,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "delta_m": 3.0607,
+      "delta_m": 2.3312,
       "experiment": "rep_neg_s202",
       "packet": "R6G-003",
       "preserved": true,
@@ -41,7 +24,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "delta_m": 2.9969,
+      "delta_m": 2.7419,
       "experiment": "rep_neg_s303",
       "packet": "R6G-003",
       "preserved": true,
@@ -49,7 +32,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "delta_m": 2.9358,
+      "delta_m": 2.6421,
       "experiment": "rep_neg_s404",
       "packet": "R6G-003",
       "preserved": true,
@@ -57,8 +40,8 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "aware_throughput_norm": 0.7973,
-      "conventional_throughput_norm": 0.8669,
+      "aware_throughput_norm": 0.7971,
+      "conventional_throughput_norm": 0.8596,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -68,7 +51,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "conventional_failure_rate": 0.0085,
+      "conventional_failure_rate": 0.0084,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5405,
       "packet": "R6G-005",
@@ -79,8 +62,8 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "aware_throughput_norm": 0.8383,
-      "conventional_throughput_norm": 0.8665,
+      "aware_throughput_norm": 0.838,
+      "conventional_throughput_norm": 0.8638,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -90,7 +73,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "conventional_failure_rate": 0.0087,
+      "conventional_failure_rate": 0.0083,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5316,
       "packet": "R6G-005",
@@ -101,8 +84,8 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "aware_throughput_norm": 0.8076,
-      "conventional_throughput_norm": 0.8706,
+      "aware_throughput_norm": 0.8068,
+      "conventional_throughput_norm": 0.8664,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -112,7 +95,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "conventional_failure_rate": 0.0084,
+      "conventional_failure_rate": 0.0085,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5407,
       "packet": "R6G-005",
@@ -123,8 +106,8 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "aware_throughput_norm": 0.7992,
-      "conventional_throughput_norm": 0.8638,
+      "aware_throughput_norm": 0.7962,
+      "conventional_throughput_norm": 0.8663,
       "experiment": "in_distribution_throughput",
       "packet": "R6G-005",
       "preserved": true,
@@ -134,7 +117,7 @@
     },
     {
       "ILLUSTRATIVE": false,
-      "conventional_failure_rate": 0.0084,
+      "conventional_failure_rate": 0.0081,
       "experiment": "adversarial_csi_naive_ai",
       "naive_failure_rate": 0.5325,
       "packet": "R6G-005",
@@ -230,6 +213,301 @@
       "reason": "Predictor misspecified under jump/burst channel dynamics",
       "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
       "seed": 8
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "task_aware_loses_under_adverse",
+      "conditions": {
+        "blockage": true,
+        "ntn_only": false,
+        "terrestrial_up": true,
+        "weather_bad": true
+      },
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-002",
+      "seed": 101,
+      "task": "gaming",
+      "task_aware_bearer": "FSO",
+      "task_aware_ucs": 0.002188,
+      "ucs_winner_policy": "UTILITY_WEIGHTED",
+      "winner_bearer": "FR3",
+      "winner_ucs": 0.263287
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "task_aware_loses_under_adverse",
+      "conditions": {
+        "blockage": true,
+        "ntn_only": false,
+        "terrestrial_up": true,
+        "weather_bad": true
+      },
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-002",
+      "seed": 101,
+      "task": "creator",
+      "task_aware_bearer": "THz",
+      "task_aware_ucs": 0.001195,
+      "ucs_winner_policy": "UTILITY_WEIGHTED",
+      "winner_bearer": "FR3",
+      "winner_ucs": 0.245102
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "task_aware_loses_under_adverse",
+      "conditions": {
+        "blockage": true,
+        "ntn_only": false,
+        "terrestrial_up": true,
+        "weather_bad": true
+      },
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-002",
+      "seed": 101,
+      "task": "ISAC",
+      "task_aware_bearer": "FSO",
+      "task_aware_ucs": 0.002391,
+      "ucs_winner_policy": "UTILITY_WEIGHTED",
+      "winner_bearer": "FR3",
+      "winner_ucs": 0.300236
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "task_aware_loses_under_adverse",
+      "conditions": {
+        "blockage": true,
+        "ntn_only": false,
+        "terrestrial_up": true,
+        "weather_bad": true
+      },
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-002",
+      "seed": 202,
+      "task": "gaming",
+      "task_aware_bearer": "FSO",
+      "task_aware_ucs": 0.003262,
+      "ucs_winner_policy": "UTILITY_WEIGHTED",
+      "winner_bearer": "FR3",
+      "winner_ucs": 0.274388
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "task_aware_loses_under_adverse",
+      "conditions": {
+        "blockage": true,
+        "ntn_only": false,
+        "terrestrial_up": true,
+        "weather_bad": true
+      },
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-002",
+      "seed": 202,
+      "task": "creator",
+      "task_aware_bearer": "FSO",
+      "task_aware_ucs": 0.003146,
+      "ucs_winner_policy": "STATIC_PRIORITY",
+      "winner_bearer": "sub6",
+      "winner_ucs": 0.257959
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "task_aware_loses_under_adverse",
+      "conditions": {
+        "blockage": true,
+        "ntn_only": false,
+        "terrestrial_up": true,
+        "weather_bad": true
+      },
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-002",
+      "seed": 202,
+      "task": "ISAC",
+      "task_aware_bearer": "FSO",
+      "task_aware_ucs": 0.003567,
+      "ucs_winner_policy": "STATIC_PRIORITY",
+      "winner_bearer": "sub6",
+      "winner_ucs": 0.337694
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "highest_rate_worse_ucs_than_robust",
+      "counts_toward_real_negatives": true,
+      "highest_rate_ucs": 0.025904,
+      "packet": "R6G-002",
+      "robust_ucs": 0.349621,
+      "seed": 7,
+      "task": "student"
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "camera_spoof_full_worse_than_rf",
+      "counts_toward_real_negatives": true,
+      "delta_m": 0.9819,
+      "packet": "R6G-004",
+      "result": "MULTIMODAL_WORSE_THAN_RF"
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "full_privacy_cost",
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-004",
+      "privacy_cost": 0.8,
+      "result": "HIGH_PRIVACY_COST_DESPITE_RMSE"
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "bw_cap_low",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 7,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "intermittent",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 7,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "long_outage",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 7,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "bw_cap_low",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 11,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "intermittent",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 11,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "long_outage",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 11,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "bw_cap_low",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s"
+      ],
+      "packet": "R6G-008",
+      "seed": 19,
+      "semantic_loss": 0.4
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "semantic_sync_drops_necessary_state",
+      "condition_id": "packet_loss",
+      "counts_toward_real_negatives": true,
+      "missing_required_fields": [
+        "progress.lesson_id",
+        "progress.checkpoint",
+        "queued_assignment_metadata.assignment_id",
+        "queued_assignment_metadata.due_epoch_s",
+        "learner_delta.mastery_delta"
+      ],
+      "packet": "R6G-008",
+      "seed": 19,
+      "semantic_loss": 1.0
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "bytes": 981,
+      "case": "full_sync_fails_under_long_outage",
+      "completion_latency_s": 47.7672,
+      "counts_toward_real_negatives": true,
+      "delivered": false,
+      "packet": "R6G-008",
+      "seed": 7
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "bytes": 981,
+      "case": "full_sync_fails_under_long_outage",
+      "completion_latency_s": 47.5651,
+      "counts_toward_real_negatives": true,
+      "delivered": false,
+      "packet": "R6G-008",
+      "seed": 11
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "bytes": 961,
+      "case": "full_sync_fails_under_long_outage",
+      "completion_latency_s": 48.015,
+      "counts_toward_real_negatives": true,
+      "delivered": true,
+      "packet": "R6G-008",
+      "seed": 19
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "bytes": 992,
+      "case": "full_sync_fails_under_long_outage",
+      "completion_latency_s": 47.6058,
+      "counts_toward_real_negatives": true,
+      "delivered": true,
+      "packet": "R6G-008",
+      "seed": 29
+    },
+    {
+      "ILLUSTRATIVE": false,
+      "case": "overclaim_trap_privacy_floor",
+      "counts_toward_real_negatives": true,
+      "packet": "R6G-010",
+      "privacy_floor_fail": true,
+      "result": "HIGH_AGGREGATE_REJECTED_ON_PRIVACY_FLOOR"
     }
   ],
   "schema": "gunnchos.r6g.negative_results.v1"

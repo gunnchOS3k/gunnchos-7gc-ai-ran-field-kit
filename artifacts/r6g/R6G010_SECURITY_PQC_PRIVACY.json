@@ -2,12 +2,14 @@
   "schema": "gunnchos.r6g.r6g010.v1",
   "packet": "R6G-010",
   "ok": true,
-  "status": "MODELED_SCORING_HOOKS",
-  "claim_state": "MODELED_SCORING_HOOKS",
+  "status": "DIGITALLY_EXECUTED",
+  "claim_state": "DIGITALLY_EXECUTED",
   "ladder_earned": [
     "R0",
-    "R1"
+    "R1",
+    "R2"
   ],
+  "execution_class": "EXECUTED_SECURITY_TEST_BATTERY",
   "weight_scheme": {
     "scheme_id": "SEC_PRIV_V1",
     "locked_at": "2026-08-15",
@@ -127,24 +129,164 @@
     }
   },
   "privacy_floor": 0.25,
+  "executed_tests": [
+    {
+      "test": "signature_verify_valid",
+      "expected": "ACCEPT",
+      "decision": "ACCEPT",
+      "pass": true,
+      "detail": {
+        "alg": "HMAC-SHA256"
+      }
+    },
+    {
+      "test": "signature_verify_tampered_message",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "test": "anti_replay_first_use",
+      "expected": "ACCEPT",
+      "decision": "ACCEPT",
+      "pass": true,
+      "detail": {
+        "nonce": "nonce-001"
+      }
+    },
+    {
+      "test": "anti_replay_reuse",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "nonce": "nonce-001"
+      }
+    },
+    {
+      "test": "expired_credential",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "expires_at": 1723999940.0,
+        "now": 1724000000.0
+      }
+    },
+    {
+      "test": "wrong_identity",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "claimed": "device:attacker-999",
+        "expected_identity": "device:ring-sim-001"
+      }
+    },
+    {
+      "test": "tampered_model",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "expected": "6903dfbdfe04273e",
+        "presented": "eed7e298db5ba204"
+      }
+    },
+    {
+      "test": "tampered_telemetry",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "test": "spoofed_sensor_provenance",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "presented": "attacker_injected_camera"
+      }
+    },
+    {
+      "test": "unauthorized_policy_action",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "action": "force_exfiltrate_raw_stream"
+      }
+    },
+    {
+      "test": "pqc_agility_config",
+      "expected": "ACCEPT",
+      "decision": "ACCEPT",
+      "pass": true,
+      "detail": {
+        "configured": [
+          "Dilithium2",
+          "Kyber768"
+        ],
+        "catalog": [
+          "Dilithium2",
+          "Kyber768",
+          "Falcon512",
+          "SPHINCS+-SHA2-128s"
+        ]
+      }
+    },
+    {
+      "test": "consent_denial",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "requested": "cloud_upload",
+        "consent": {
+          "sensing_share": false,
+          "cloud_upload": false
+        }
+      }
+    },
+    {
+      "test": "malicious_state_injection",
+      "expected": "REJECT",
+      "decision": "REJECT",
+      "pass": true,
+      "detail": {
+        "injected_keys": [
+          "__proto__",
+          "admin_override",
+          "progress"
+        ]
+      }
+    }
+  ],
+  "executed_test_count": 13,
+  "accept_count": 3,
+  "reject_count": 10,
+  "all_tests_met_expected": true,
   "falsification": {
     "overclaim_trap_scores_worse_when_privacy_collapses": true,
-    "note": "Illustrative privacy-floor gate; not a falsifiable security campaign",
-    "ILLUSTRATIVE": true
+    "note": "Privacy-floor gate plus executed reject paths",
+    "ILLUSTRATIVE": false
   },
-  "hooks": {
-    "score_profile": "research.r6g.experiments.r6g010_security_pqc_privacy.score_profile",
-    "consumers": [
-      "adoption packages",
-      "WAIKE case study",
-      "portfolio matrix"
-    ]
-  },
-  "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": false,
+  "documented_negative_or_no_gain": [
+    {
+      "case": "overclaim_trap_privacy_floor",
+      "result": "HIGH_AGGREGATE_REJECTED_ON_PRIVACY_FLOOR",
+      "privacy_floor_fail": true,
+      "ILLUSTRATIVE": false,
+      "counts_toward_real_negatives": true
+    }
+  ],
+  "SECURITY_PQC_PRIVACY_HOOKS_DIGITAL": true,
   "STANDARDIZED_6G": false,
   "COMPLIANT": false,
   "CERTIFIED": false,
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "IMPROVED_STATE_OF_ART": false,
-  "note": "Scoring hooks only \u2014 not DIGITALLY_EXECUTED evidence; not a certification."
+  "note": "Executed digital accept/reject battery; not a certification."
 }

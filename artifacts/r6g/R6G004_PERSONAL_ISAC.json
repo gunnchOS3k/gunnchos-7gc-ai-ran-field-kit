@@ -2,172 +2,214 @@
   "schema": "gunnchos.r6g.r6g004.v1",
   "packet": "R6G-004",
   "ok": true,
-  "status": "MODELED_SYNTHETIC_STUB",
-  "claim_state": "MODELED_SYNTHETIC_STUB",
+  "status": "DIGITAL_SYNTHETIC_EXECUTED",
+  "claim_state": "DIGITAL_SYNTHETIC_EXPERIMENT",
   "ladder_earned": [
     "R0",
-    "R1"
+    "R1",
+    "R2"
   ],
+  "execution_class": "DIGITAL_SYNTHETIC_EXPERIMENT",
   "dataset": {
     "type": "SYNTHETIC_LABELED",
-    "n_samples": 64,
+    "label": "DIGITAL_SYNTHETIC_EXPERIMENT",
+    "n_samples": 80,
     "seed": 17,
     "real_humans": false,
     "PHYSICAL_RING": false
   },
   "modalities": [
-    "RF_ONLY",
-    "RF_DEVICE",
-    "RF_RING_SIM",
-    "RF_VISION_SYNTH",
-    "RF_ALL"
+    "RF",
+    "RF_IMU",
+    "RF_RING_UWB_IMU",
+    "RF_CAMERA",
+    "RF_WIFI_BT",
+    "FULL"
   ],
-  "privacy_modes": [
-    "RAW_STREAM",
-    "ON_DEVICE_FEATURE",
-    "DIFFERENTIAL_NOISE",
-    "AGGREGATE_ONLY"
+  "ablation_names": [
+    "RF",
+    "RF_IMU",
+    "RF_RING_UWB_IMU",
+    "RF_CAMERA",
+    "RF_WIFI_BT",
+    "FULL",
+    "camera_spoof_FULL",
+    "camera_spoof_RF_CAMERA",
+    "ring_bias",
+    "wifi_drop_FULL"
   ],
   "matrix": {
-    "RF_ONLY": {
-      "RAW_STREAM": {
-        "rmse_m": 0.5933,
-        "privacy_leak_score": 0.92,
-        "utility_privacy_product": 0.0502
-      },
-      "ON_DEVICE_FEATURE": {
-        "rmse_m": 0.5305,
-        "privacy_leak_score": 0.45,
-        "utility_privacy_product": 0.3594
-      },
-      "DIFFERENTIAL_NOISE": {
-        "rmse_m": 0.842,
-        "privacy_leak_score": 0.22,
-        "utility_privacy_product": 0.4235
-      },
-      "AGGREGATE_ONLY": {
-        "rmse_m": 0.8791,
-        "privacy_leak_score": 0.08,
-        "utility_privacy_product": 0.4896
-      }
+    "RF": {
+      "position_RMSE": 0.5541,
+      "orientation_RMSE": 0.1011,
+      "beam_accuracy": 0.2625,
+      "blockage_prediction": 0.4375,
+      "handover_failure": 0.05,
+      "latency_ms": 9.489,
+      "privacy_cost": 0.1
     },
-    "RF_DEVICE": {
-      "RAW_STREAM": {
-        "rmse_m": 0.3679,
-        "privacy_leak_score": 0.92,
-        "utility_privacy_product": 0.0585
-      },
-      "ON_DEVICE_FEATURE": {
-        "rmse_m": 0.3749,
-        "privacy_leak_score": 0.45,
-        "utility_privacy_product": 0.4
-      },
-      "DIFFERENTIAL_NOISE": {
-        "rmse_m": 0.5906,
-        "privacy_leak_score": 0.22,
-        "utility_privacy_product": 0.4904
-      },
-      "AGGREGATE_ONLY": {
-        "rmse_m": 0.6342,
-        "privacy_leak_score": 0.08,
-        "utility_privacy_product": 0.563
-      }
+    "RF_IMU": {
+      "position_RMSE": 0.3052,
+      "orientation_RMSE": 0.0699,
+      "beam_accuracy": 0.7625,
+      "blockage_prediction": 0.625,
+      "handover_failure": 0.0,
+      "latency_ms": 8.814,
+      "privacy_cost": 0.18
     },
-    "RF_RING_SIM": {
-      "RAW_STREAM": {
-        "rmse_m": 0.239,
-        "privacy_leak_score": 0.92,
-        "utility_privacy_product": 0.0646
-      },
-      "ON_DEVICE_FEATURE": {
-        "rmse_m": 0.2686,
-        "privacy_leak_score": 0.45,
-        "utility_privacy_product": 0.4335
-      },
-      "DIFFERENTIAL_NOISE": {
-        "rmse_m": 0.3421,
-        "privacy_leak_score": 0.22,
-        "utility_privacy_product": 0.5812
-      },
-      "AGGREGATE_ONLY": {
-        "rmse_m": 0.3915,
-        "privacy_leak_score": 0.08,
-        "utility_privacy_product": 0.6611
-      }
+    "RF_RING_UWB_IMU": {
+      "position_RMSE": 0.2151,
+      "orientation_RMSE": 0.0441,
+      "beam_accuracy": 0.9375,
+      "blockage_prediction": 0.7375,
+      "handover_failure": 0.0,
+      "latency_ms": 8.565,
+      "privacy_cost": 0.28
     },
-    "RF_VISION_SYNTH": {
-      "RAW_STREAM": {
-        "rmse_m": 0.1738,
-        "privacy_leak_score": 0.92,
-        "utility_privacy_product": 0.0682
-      },
-      "ON_DEVICE_FEATURE": {
-        "rmse_m": 0.1951,
-        "privacy_leak_score": 0.45,
-        "utility_privacy_product": 0.4602
-      },
-      "DIFFERENTIAL_NOISE": {
-        "rmse_m": 0.2565,
-        "privacy_leak_score": 0.22,
-        "utility_privacy_product": 0.6208
-      },
-      "AGGREGATE_ONLY": {
-        "rmse_m": 0.2991,
-        "privacy_leak_score": 0.08,
-        "utility_privacy_product": 0.7082
-      }
+    "RF_CAMERA": {
+      "position_RMSE": 0.2666,
+      "orientation_RMSE": 0.0574,
+      "beam_accuracy": 0.825,
+      "blockage_prediction": 0.65,
+      "handover_failure": 0.0,
+      "latency_ms": 12.71,
+      "privacy_cost": 0.72
     },
-    "RF_ALL": {
-      "RAW_STREAM": {
-        "rmse_m": 0.1364,
-        "privacy_leak_score": 0.92,
-        "utility_privacy_product": 0.0704
-      },
-      "ON_DEVICE_FEATURE": {
-        "rmse_m": 0.1564,
-        "privacy_leak_score": 0.45,
-        "utility_privacy_product": 0.4756
-      },
-      "DIFFERENTIAL_NOISE": {
-        "rmse_m": 0.1917,
-        "privacy_leak_score": 0.22,
-        "utility_privacy_product": 0.6545
-      },
-      "AGGREGATE_ONLY": {
-        "rmse_m": 0.2357,
-        "privacy_leak_score": 0.08,
-        "utility_privacy_product": 0.7445
-      }
+    "RF_WIFI_BT": {
+      "position_RMSE": 0.3156,
+      "orientation_RMSE": 0.0715,
+      "beam_accuracy": 0.725,
+      "blockage_prediction": 0.625,
+      "handover_failure": 0.0,
+      "latency_ms": 8.83,
+      "privacy_cost": 0.35
+    },
+    "FULL": {
+      "position_RMSE": 0.1525,
+      "orientation_RMSE": 0.0377,
+      "beam_accuracy": 0.9875,
+      "blockage_prediction": 0.775,
+      "handover_failure": 0.0,
+      "latency_ms": 12.403,
+      "privacy_cost": 0.8
     }
   },
   "ablations": {
-    "ring_drop_to_device": {
-      "rmse_m": 0.3636,
-      "privacy_leak_score": 0.45,
-      "utility_privacy_product": 0.4033
+    "RF": {
+      "position_RMSE": 0.5501,
+      "orientation_RMSE": 0.1312,
+      "beam_accuracy": 0.275,
+      "blockage_prediction": 0.3375,
+      "handover_failure": 0.1625,
+      "latency_ms": 9.524,
+      "privacy_cost": 0.1
     },
-    "vision_spoof_raw": {
-      "rmse_m": 0.4478,
-      "privacy_leak_score": 0.92,
-      "utility_privacy_product": 0.0674,
-      "note": "synthetic vision spoof ablation"
+    "RF_IMU": {
+      "position_RMSE": 0.3507,
+      "orientation_RMSE": 0.0646,
+      "beam_accuracy": 0.6,
+      "blockage_prediction": 0.575,
+      "handover_failure": 0.0375,
+      "latency_ms": 8.944,
+      "privacy_cost": 0.18
     },
-    "ILLUSTRATIVE": true
+    "RF_RING_UWB_IMU": {
+      "position_RMSE": 0.1948,
+      "orientation_RMSE": 0.0488,
+      "beam_accuracy": 0.95,
+      "blockage_prediction": 0.75,
+      "handover_failure": 0.0,
+      "latency_ms": 8.522,
+      "privacy_cost": 0.28
+    },
+    "RF_CAMERA": {
+      "position_RMSE": 0.2456,
+      "orientation_RMSE": 0.0607,
+      "beam_accuracy": 0.8625,
+      "blockage_prediction": 0.7125,
+      "handover_failure": 0.0,
+      "latency_ms": 12.652,
+      "privacy_cost": 0.72
+    },
+    "RF_WIFI_BT": {
+      "position_RMSE": 0.2839,
+      "orientation_RMSE": 0.0743,
+      "beam_accuracy": 0.8125,
+      "blockage_prediction": 0.6375,
+      "handover_failure": 0.0,
+      "latency_ms": 8.744,
+      "privacy_cost": 0.35
+    },
+    "FULL": {
+      "position_RMSE": 0.1368,
+      "orientation_RMSE": 0.0375,
+      "beam_accuracy": 1.0,
+      "blockage_prediction": 0.7,
+      "handover_failure": 0.0,
+      "latency_ms": 12.372,
+      "privacy_cost": 0.8
+    },
+    "camera_spoof_FULL": {
+      "position_RMSE": 1.536,
+      "orientation_RMSE": 0.0309,
+      "beam_accuracy": 0.0,
+      "blockage_prediction": 0.0,
+      "handover_failure": 0.3,
+      "latency_ms": 16.602,
+      "privacy_cost": 0.8
+    },
+    "camera_spoof_RF_CAMERA": {
+      "position_RMSE": 2.1081,
+      "orientation_RMSE": 0.0371,
+      "beam_accuracy": 0.0,
+      "blockage_prediction": 0.0,
+      "handover_failure": 0.2375,
+      "latency_ms": 18.315,
+      "privacy_cost": 0.72
+    },
+    "ring_bias": {
+      "position_RMSE": 0.2857,
+      "orientation_RMSE": 0.0411,
+      "beam_accuracy": 0.8,
+      "blockage_prediction": 0.65,
+      "handover_failure": 0.0125,
+      "latency_ms": 8.794,
+      "privacy_cost": 0.28
+    },
+    "wifi_drop_FULL": {
+      "position_RMSE": 0.1658,
+      "orientation_RMSE": 0.0384,
+      "beam_accuracy": 0.9875,
+      "blockage_prediction": 0.7625,
+      "handover_failure": 0.0,
+      "latency_ms": 12.443,
+      "privacy_cost": 0.8
+    }
   },
   "documented_negative_or_no_gain": [
     {
-      "case": "raw_stream_privacy",
-      "result": "HIGH_PRIVACY_LEAK_DESPITE_LOWER_RMSE",
-      "privacy_leak_score": 0.92,
-      "ILLUSTRATIVE": true,
-      "counts_toward_real_negatives": false
+      "case": "camera_spoof_full_worse_than_rf",
+      "result": "MULTIMODAL_WORSE_THAN_RF",
+      "delta_m": 0.9819,
+      "ILLUSTRATIVE": false,
+      "counts_toward_real_negatives": true
+    },
+    {
+      "case": "full_privacy_cost",
+      "result": "HIGH_PRIVACY_COST_DESPITE_RMSE",
+      "privacy_cost": 0.8,
+      "ILLUSTRATIVE": false,
+      "counts_toward_real_negatives": true
     }
   ],
   "primary_multimodal_rmse_better_than_rf": true,
-  "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": false,
-  "MULTIMODAL_ISAC_PERSONAL_DIGITAL": false,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL_IMPROVEMENT": true,
+  "MULTIMODAL_ISAC_PERSONAL_DIGITAL": true,
   "PHYSICAL_RING": false,
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "IMPROVED_STATE_OF_ART": false,
-  "note": "Synthetic stub only; not a falsifiable digital campaign; PHYSICAL_RING=false."
+  "STANDARDIZED_6G": false,
+  "COMPLIANT": false,
+  "guaranteed_treatment_improvement": false,
+  "note": "Digital synthetic multimodal ISAC experiment with independent noisy modalities; PHYSICAL_RING=false; improvement not treatment-guaranteed."
 }

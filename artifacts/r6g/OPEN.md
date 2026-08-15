@@ -7,9 +7,8 @@
 - IMPROVED_STATE_OF_ART remains false
 - Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred (Product-Use may own QEMU)
 - R6G-006/007 MODELED_CONTRACT_ONLY — no physical exaggeration
-- R6G-002 MODELED_ILLUSTRATIVE; 004 MODELED_SYNTHETIC_STUB; 008 MODELED_LOOKUP_TABLE; 010 MODELED_SCORING_HOOKS; 011 HARNESS_MAP_ONLY (R0–R1)
-- HYBRID_SPECTRUM / MULTIMODAL_ISAC_PERSONAL / SEMANTIC_NTN / SECURITY_PQC / IMT2030_HARNESS digital tokens demoted false
-- Construction-stub negatives marked ILLUSTRATIVE — excluded from real negative count
+- R6G-002/008/010 DIGITALLY_EXECUTED; 011 DIGITALLY_EXECUTED_HARNESS; 004 DIGITAL_SYNTHETIC_EXPERIMENT
+- Dual-tree disposition: artifacts/r6g authoritative; stable_seed fixes PYTHONHASHSEED drift
 - Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned
 - EXTERNAL_REPRODUCTION_PENDING / PHYSICAL_REPRODUCTION_PENDING
 - R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE preserved; 005/009 REPLICATION_INCOMPLETE preserved
