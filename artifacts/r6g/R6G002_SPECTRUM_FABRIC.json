@@ -1,0 +1,126 @@
+{
+  "schema": "gunnchos.r6g.r6g002.v1",
+  "packet": "R6G-002",
+  "ok": true,
+  "status": "DIGITALLY_EXECUTED",
+  "bearers": {
+    "sub6_terrestrial": {
+      "status": "SIMULATED",
+      "latency_ms": 20,
+      "rate_mbps": 200,
+      "HARDWARE_PENDING": false
+    },
+    "FR3": {
+      "status": "MODELED",
+      "latency_ms": 18,
+      "rate_mbps": 800,
+      "HARDWARE_PENDING": true
+    },
+    "mmWave": {
+      "status": "MODELED",
+      "latency_ms": 15,
+      "rate_mbps": 2000,
+      "HARDWARE_PENDING": true
+    },
+    "sub_THz": {
+      "status": "MODELED",
+      "latency_ms": 12,
+      "rate_mbps": 10000,
+      "HARDWARE_PENDING": true
+    },
+    "THz": {
+      "status": "MODELED",
+      "latency_ms": 10,
+      "rate_mbps": 50000,
+      "HARDWARE_PENDING": true
+    },
+    "FSO_OWC": {
+      "status": "MODELED",
+      "latency_ms": 5,
+      "rate_mbps": 20000,
+      "HARDWARE_PENDING": true
+    },
+    "LEO_NTN": {
+      "status": "SIMULATED",
+      "latency_ms": 45,
+      "rate_mbps": 5,
+      "HARDWARE_PENDING": false
+    },
+    "local_only": {
+      "status": "SIMULATED",
+      "latency_ms": 1,
+      "rate_mbps": 1000,
+      "HARDWARE_PENDING": false
+    }
+  },
+  "decisions": {
+    "nominal": {
+      "decision": "multi_connectivity",
+      "bearers": [
+        "sub6_terrestrial",
+        "FR3"
+      ],
+      "fallback": "LEO_NTN"
+    },
+    "blockage_weather": {
+      "decision": "multi_connectivity",
+      "bearers": [
+        "sub6_terrestrial",
+        "LEO_NTN"
+      ],
+      "fallback": "semantic_sync"
+    },
+    "battery_low": {
+      "decision": "local_only",
+      "mode": "defer_or_semantic_sync"
+    },
+    "backhaul": {
+      "decision": "single_bearer",
+      "bearers": [
+        "FSO_OWC"
+      ],
+      "fallback": "sub_THz"
+    }
+  },
+  "useful_connectivity_comparison": {
+    "peaky_link": {
+      "metric": "UsefulConnectivityScore",
+      "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "NOT_ITU_METRIC": true,
+      "NOT_3GPP_METRIC": true,
+      "NOT_STANDARDIZED_METRIC": true,
+      "components": {
+        "R": 0.95,
+        "D": 0.3,
+        "A": 0.4,
+        "Q": 0.5,
+        "P": 2.0,
+        "C": 2.5
+      },
+      "score": 0.0114,
+      "note": "Exploratory; use alongside standard metrics, never instead."
+    },
+    "useful_link": {
+      "metric": "UsefulConnectivityScore",
+      "classification": "GUNNCHOS_PROPOSED_METRIC",
+      "NOT_ITU_METRIC": true,
+      "NOT_3GPP_METRIC": true,
+      "NOT_STANDARDIZED_METRIC": true,
+      "components": {
+        "R": 0.55,
+        "D": 0.8,
+        "A": 0.9,
+        "Q": 0.85,
+        "P": 1.0,
+        "C": 1.0
+      },
+      "score": 0.3366,
+      "note": "Exploratory; use alongside standard metrics, never instead."
+    },
+    "observation": "useful_link score higher despite lower peak R \u2014 exploratory only"
+  },
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "RM520N_GL_NTN": false,
+  "RM520N_GL_5GA": false
+}

@@ -1,0 +1,375 @@
+{
+  "schema": "gunnchos.r6g.r6g009.v1",
+  "packet": "R6G-009",
+  "ok": true,
+  "status": "DIGITALLY_EXECUTED",
+  "twin_loop": [
+    "measurement_ingest",
+    "multimodal_state",
+    "uncertainty",
+    "belief_state",
+    "prediction_horizon",
+    "policy_simulation",
+    "action_recommendation",
+    "observed_outcome",
+    "calibration",
+    "drift_detection"
+  ],
+  "pretty_3d_only": false,
+  "policies": [
+    "CURRENT_STATE_ONLY",
+    "DELAYED_STATE",
+    "BELIEF_STATE",
+    "PREDICTIVE_BELIEF_STATE"
+  ],
+  "delay_grid_ms": {
+    "10": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.5135,
+        "sensing_error": 0.2932,
+        "reliability_violations": 0.1473,
+        "handover_failure": 0.123,
+        "policy_regret": 0.2865,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.2297
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.4649,
+        "sensing_error": 0.3175,
+        "reliability_violations": 0.157,
+        "handover_failure": 0.1303,
+        "policy_regret": 0.3351,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.3026
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.5875,
+        "sensing_error": 0.2562,
+        "reliability_violations": 0.1325,
+        "handover_failure": 0.1119,
+        "policy_regret": 0.2125,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.1187
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.7047,
+        "sensing_error": 0.1977,
+        "reliability_violations": 0.1091,
+        "handover_failure": 0.0943,
+        "policy_regret": 0.0953,
+        "calibration_error": 0.12,
+        "recovery_time_s": 0.943
+      }
+    },
+    "25": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.4428,
+        "sensing_error": 0.3286,
+        "reliability_violations": 0.1614,
+        "handover_failure": 0.1336,
+        "policy_regret": 0.3572,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.3359
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.4251,
+        "sensing_error": 0.3374,
+        "reliability_violations": 0.165,
+        "handover_failure": 0.1362,
+        "policy_regret": 0.3749,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.3623
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.5909,
+        "sensing_error": 0.2545,
+        "reliability_violations": 0.1318,
+        "handover_failure": 0.1114,
+        "policy_regret": 0.2091,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.1136
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.6582,
+        "sensing_error": 0.2209,
+        "reliability_violations": 0.1184,
+        "handover_failure": 0.1013,
+        "policy_regret": 0.1418,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.0127
+      }
+    },
+    "50": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.3772,
+        "sensing_error": 0.3614,
+        "reliability_violations": 0.1746,
+        "handover_failure": 0.1434,
+        "policy_regret": 0.4228,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4342
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.3547,
+        "sensing_error": 0.3727,
+        "reliability_violations": 0.1791,
+        "handover_failure": 0.1468,
+        "policy_regret": 0.4453,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.468
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.5116,
+        "sensing_error": 0.2942,
+        "reliability_violations": 0.1477,
+        "handover_failure": 0.1233,
+        "policy_regret": 0.2884,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.2325
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.6452,
+        "sensing_error": 0.2274,
+        "reliability_violations": 0.121,
+        "handover_failure": 0.1032,
+        "policy_regret": 0.1548,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.0323
+      }
+    },
+    "100": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.2081,
+        "sensing_error": 0.4459,
+        "reliability_violations": 0.2084,
+        "handover_failure": 0.1688,
+        "policy_regret": 0.5919,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.6878
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.1981,
+        "sensing_error": 0.451,
+        "reliability_violations": 0.2104,
+        "handover_failure": 0.1703,
+        "policy_regret": 0.6019,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.7029
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.449,
+        "sensing_error": 0.3255,
+        "reliability_violations": 0.1602,
+        "handover_failure": 0.1326,
+        "policy_regret": 0.351,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.3265
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.5863,
+        "sensing_error": 0.2569,
+        "reliability_violations": 0.1327,
+        "handover_failure": 0.1121,
+        "policy_regret": 0.2137,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.1206
+      }
+    }
+  },
+  "stress_grid": {
+    "missing_data": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.2708,
+        "sensing_error": 0.4146,
+        "reliability_violations": 0.1958,
+        "handover_failure": 0.1594,
+        "policy_regret": 0.5292,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.5938
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.2469,
+        "sensing_error": 0.4265,
+        "reliability_violations": 0.2006,
+        "handover_failure": 0.163,
+        "policy_regret": 0.5531,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.6296
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.4879,
+        "sensing_error": 0.3061,
+        "reliability_violations": 0.1524,
+        "handover_failure": 0.1268,
+        "policy_regret": 0.3121,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.2682
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.615,
+        "sensing_error": 0.2425,
+        "reliability_violations": 0.127,
+        "handover_failure": 0.1078,
+        "policy_regret": 0.185,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.0776
+      }
+    },
+    "stale_data": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.3786,
+        "sensing_error": 0.3607,
+        "reliability_violations": 0.1743,
+        "handover_failure": 0.1432,
+        "policy_regret": 0.4214,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4321
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.361,
+        "sensing_error": 0.3695,
+        "reliability_violations": 0.1778,
+        "handover_failure": 0.1459,
+        "policy_regret": 0.439,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4585
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.5253,
+        "sensing_error": 0.2873,
+        "reliability_violations": 0.1449,
+        "handover_failure": 0.1212,
+        "policy_regret": 0.2747,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.212
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.6598,
+        "sensing_error": 0.2201,
+        "reliability_violations": 0.118,
+        "handover_failure": 0.101,
+        "policy_regret": 0.1402,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.0102
+      }
+    },
+    "spoofed_adversarial_data": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.1903,
+        "sensing_error": 0.4548,
+        "reliability_violations": 0.2119,
+        "handover_failure": 0.1715,
+        "policy_regret": 0.6097,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.7145
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.3416,
+        "sensing_error": 0.3792,
+        "reliability_violations": 0.1817,
+        "handover_failure": 0.1488,
+        "policy_regret": 0.4584,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4875
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.537,
+        "sensing_error": 0.2815,
+        "reliability_violations": 0.1426,
+        "handover_failure": 0.1195,
+        "policy_regret": 0.263,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.1945
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.594,
+        "sensing_error": 0.253,
+        "reliability_violations": 0.1312,
+        "handover_failure": 0.1109,
+        "policy_regret": 0.206,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.109
+      }
+    },
+    "sensor_disagreement": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.3719,
+        "sensing_error": 0.3641,
+        "reliability_violations": 0.1756,
+        "handover_failure": 0.1442,
+        "policy_regret": 0.4281,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4422
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.3335,
+        "sensing_error": 0.3832,
+        "reliability_violations": 0.1833,
+        "handover_failure": 0.15,
+        "policy_regret": 0.4665,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4997
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.5207,
+        "sensing_error": 0.2897,
+        "reliability_violations": 0.1459,
+        "handover_failure": 0.1219,
+        "policy_regret": 0.2793,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.219
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.6384,
+        "sensing_error": 0.2308,
+        "reliability_violations": 0.1223,
+        "handover_failure": 0.1042,
+        "policy_regret": 0.1616,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.0424
+      }
+    },
+    "bearer_transition": {
+      "CURRENT_STATE_ONLY": {
+        "application_throughput_norm": 0.3662,
+        "sensing_error": 0.3669,
+        "reliability_violations": 0.1768,
+        "handover_failure": 0.1451,
+        "policy_regret": 0.4338,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4506
+      },
+      "DELAYED_STATE": {
+        "application_throughput_norm": 0.3624,
+        "sensing_error": 0.3688,
+        "reliability_violations": 0.1775,
+        "handover_failure": 0.1456,
+        "policy_regret": 0.4376,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.4564
+      },
+      "BELIEF_STATE": {
+        "application_throughput_norm": 0.518,
+        "sensing_error": 0.291,
+        "reliability_violations": 0.1464,
+        "handover_failure": 0.1223,
+        "policy_regret": 0.282,
+        "calibration_error": 0.2,
+        "recovery_time_s": 1.223
+      },
+      "PREDICTIVE_BELIEF_STATE": {
+        "application_throughput_norm": 0.6655,
+        "sensing_error": 0.2173,
+        "reliability_violations": 0.1169,
+        "handover_failure": 0.1002,
+        "policy_regret": 0.1345,
+        "calibration_error": 0.12,
+        "recovery_time_s": 1.0018
+      }
+    }
+  },
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+  "SIMULATION_IMPROVEMENT_OBSERVED": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true
+}

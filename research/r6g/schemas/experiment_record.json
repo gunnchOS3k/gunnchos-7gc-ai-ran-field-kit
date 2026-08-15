@@ -1,0 +1,16 @@
+{
+  "schema": "gunnchos.r6g.experiment_record.v1",
+  "required_fields": [
+    "experiment_id", "packet", "baseline_id", "hypothesis_id", "method",
+    "evidence_rung", "metrics", "security_privacy_scorecard",
+    "IMPROVED_STATE_OF_ART", "claims", "negative_or_no_gain"
+  ],
+  "security_privacy_scorecard_dimensions": [
+    "performance", "energy", "reliability", "privacy", "security",
+    "model_integrity", "sensor_consent", "adversarial_robustness"
+  ],
+  "product_adoption_gate": {
+    "statuses": ["RESEARCH_ONLY", "CANDIDATE_DIGITAL", "HARDWARE_PENDING", "EXTERNAL_PENDING"],
+    "default": "RESEARCH_ONLY"
+  }
+}

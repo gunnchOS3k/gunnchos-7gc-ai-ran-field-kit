@@ -250,7 +250,14 @@ class LocalHostileRuntime:
             check=True,
             capture_output=True,
         )
-        return {"key": key, "cert": cert, "mismatch": bad_cert, "expired": expired_cert}
+        return {
+            "key": key,
+            "cert": cert,
+            "mismatch": bad_cert,
+            "mismatch_key": root / "evil.key",
+            "expired": expired_cert,
+            "expired_key": root / "exp.key",
+        }
 
     def start_tls_server(self, cert: Path, key: Path) -> int:
         ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
@@ -364,6 +371,34 @@ def run_hostile_network_digital() -> dict[str, Any]:
         # Real loopback TLS handshake against local server
         probe = rt.tls_client_probe(port, server_hostname="updates.gunnchos.local", cafile=certs["cert"])
         add("HN-TLS-SOCKET-001", probe.get("ok") is True and probe.get("loopback") is True, probe)
+
+        # Negative SSL probes against mismatch / expired material (local only)
+        bad_port = rt.start_tls_server(certs["mismatch"], certs["mismatch_key"])
+        bad_probe = rt.tls_client_probe(
+            bad_port, server_hostname="updates.gunnchos.local", cafile=certs["cert"]
+        )
+        add(
+            "HN-TLS-SOCKET-NEG-MISMATCH-001",
+            bad_probe.get("ok") is False and bad_probe.get("loopback") is True,
+            bad_probe,
+        )
+        rt.stop_tls_server()
+        exp_port = rt.start_tls_server(certs["expired"], certs["expired_key"])
+        exp_probe = rt.tls_client_probe(
+            exp_port, server_hostname="updates.gunnchos.local", cafile=certs["expired"]
+        )
+        # Force verify against valid CA so expired peer is rejected.
+        exp_probe2 = rt.tls_client_probe(
+            exp_port, server_hostname="updates.gunnchos.local", cafile=certs["cert"]
+        )
+        add(
+            "HN-TLS-SOCKET-NEG-EXPIRED-001",
+            exp_probe2.get("ok") is False and exp_probe2.get("loopback") is True,
+            {"expired_as_ca": exp_probe, "verify_with_valid_ca": exp_probe2},
+        )
+        rt.stop_tls_server()
+        # Restart happy-path server for any subsequent probes
+        port = rt.start_tls_server(certs["cert"], certs["key"])
 
         # Malicious DNS (policy)
         dns = rt.resolve_dns(

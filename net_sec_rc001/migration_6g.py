@@ -44,8 +44,10 @@ def run_migration_abstraction() -> dict[str, Any]:
         "delta": delta,
         "abstraction": abstraction,
         "product_wording": (
-            "5G-Advanced and NTN-capable, IMT-2030-aligned, software-defined, "
-            "and engineered for migration to standardized 6G."
+            "Software-defined architecture engineered for 5G-Advanced and NTN-capable "
+            "paths (NTN via simulation), IMT-2030-aligned, and engineered for migration "
+            "to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA "
+            "Sub-6 terrestrial only — not 5G-Advanced hardware and not NTN."
         ),
         "STANDARDIZED_6G": False,
         "6G_CERTIFIED": False,

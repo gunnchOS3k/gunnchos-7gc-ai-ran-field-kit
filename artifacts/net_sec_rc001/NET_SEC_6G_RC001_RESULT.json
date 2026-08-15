@@ -2,6 +2,7 @@
   "schema": "gunnchos.net_sec_rc001.aggregate.v1",
   "packet": "NET-SEC-6G-RC-001",
   "remediation": "PR78_HONESTY_DEMOTE_5GA_AND_HOSTILE_LOCAL_RUNTIME",
+  "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
   "ok": true,
   "exit_state": "DIGITALLY_VALIDATED",
   "product_wording": "Software-defined architecture engineered for 5G-Advanced and NTN-capable paths (NTN via simulation), IMT-2030-aligned, and engineered for migration to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA Sub-6 terrestrial only \u2014 not 5G-Advanced hardware and not NTN.",
@@ -17,11 +18,18 @@
     "IMT2030_EVAL_HARNESS_CURRENT_DRAFT": true,
     "REL20_REL21_MIGRATION_TRACKER": true,
     "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME": true,
+    "R6G_REGISTRY_COMPLETE": true,
+    "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+    "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
+    "PREDICTIVE_RADIO_DT_DIGITAL": true,
+    "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
     "STANDARDIZED_6G": false,
     "6G_CERTIFIED": false,
     "CARRIER_ACCEPTED": false,
     "REAL_NTN_MODEM_VALIDATED": false,
-    "GATE_8_PASS": false
+    "GATE_8_PASS": false,
+    "IMPROVED_STATE_OF_ART": false
   },
   "earnable_tokens": [
     "5GA_TERRESTRIAL_DIGITAL_RUNTIME",
@@ -35,15 +43,23 @@
     "REL20_REL21_MIGRATION_TRACKER"
   ],
   "supporting_tokens": [
-    "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME"
+    "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME",
+    "R6G_REGISTRY_COMPLETE",
+    "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT",
+    "AI_PHY_UNCERTAINTY_AWARE_DIGITAL",
+    "PREDICTIVE_RADIO_DT_DIGITAL",
+    "HYBRID_SPECTRUM_FABRIC_DIGITAL",
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"
   ],
   "forbidden_tokens": [
     "STANDARDIZED_6G",
     "6G_CERTIFIED",
     "CARRIER_ACCEPTED",
     "REAL_NTN_MODEM_VALIDATED",
-    "GATE_8_PASS"
+    "GATE_8_PASS",
+    "IMPROVED_STATE_OF_ART"
   ],
+  "IMPROVED_STATE_OF_ART": false,
   "modules": {
     "terrestrial_rel16": {
       "ok": true,
@@ -635,6 +651,34 @@
           }
         },
         {
+          "case_id": "HN-TLS-SOCKET-NEG-MISMATCH-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "tls_error",
+            "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:992)",
+            "loopback": true
+          }
+        },
+        {
+          "case_id": "HN-TLS-SOCKET-NEG-EXPIRED-001",
+          "passed": true,
+          "evidence": {
+            "expired_as_ca": {
+              "ok": false,
+              "reason": "tls_error",
+              "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:992)",
+              "loopback": true
+            },
+            "verify_with_valid_ca": {
+              "ok": false,
+              "reason": "tls_error",
+              "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:992)",
+              "loopback": true
+            }
+          }
+        },
+        {
           "case_id": "HN-DNS-001",
           "passed": true,
           "evidence": {
@@ -736,9 +780,9 @@
           "case_id": "HN-TLS-MATERIAL-001",
           "passed": true,
           "evidence": {
-            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-idn_u7tj/mismatch.crt",
-            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-idn_u7tj/expired.crt",
-            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-idn_u7tj/server.crt"
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-d49f3y2n/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-d49f3y2n/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-d49f3y2n/server.crt"
           }
         },
         {
@@ -823,7 +867,7 @@
         ],
         "normative_6g_specs": "NOT_YET"
       },
-      "product_wording": "5G-Advanced and NTN-capable, IMT-2030-aligned, software-defined, and engineered for migration to standardized 6G.",
+      "product_wording": "Software-defined architecture engineered for 5G-Advanced and NTN-capable paths (NTN via simulation), IMT-2030-aligned, and engineered for migration to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA Sub-6 terrestrial only \u2014 not 5G-Advanced hardware and not NTN.",
       "STANDARDIZED_6G": false,
       "6G_CERTIFIED": false,
       "GATE_8_PASS": false,
@@ -1185,6 +1229,85 @@
       "token_candidate": "IMT2030_EVAL_HARNESS_CURRENT_DRAFT"
     }
   },
+  "r6g": {
+    "ok": true,
+    "breakthroughs_registered": 20,
+    "active_packet_status": {
+      "R6G-001": {
+        "status": "COMPLETE_DIGITAL_REGISTRY",
+        "ok": true
+      },
+      "R6G-003": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true,
+        "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true
+      },
+      "R6G-005": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true,
+        "HYPOTHESIS_SUPPORTED_DIGITALLY": true
+      },
+      "R6G-009": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true,
+        "HYPOTHESIS_SUPPORTED_DIGITALLY": true
+      },
+      "R6G-002": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true
+      }
+    },
+    "registered_not_active": [
+      "R6G-004",
+      "R6G-006",
+      "R6G-007",
+      "R6G-008",
+      "R6G-010",
+      "R6G-011"
+    ],
+    "tokens": {
+      "R6G_REGISTRY_COMPLETE": true,
+      "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+      "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
+      "PREDICTIVE_RADIO_DT_DIGITAL": true,
+      "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
+      "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+      "IMPROVED_STATE_OF_ART": false,
+      "6G_BREAKTHROUGH_PASS": null,
+      "PHYSICAL_REPRODUCTION_PENDING": true,
+      "COMPARABLE_EVIDENCE_PENDING": true
+    },
+    "digital_improvements_observed": {
+      "R6G-003": true,
+      "R6G-005": true,
+      "R6G-009": true
+    },
+    "independent_improvements_verified": false,
+    "physical_pending": true,
+    "product_candidates": [
+      {
+        "id": "semantic_ntn_education_mode",
+        "gate": "RESEARCH_ONLY"
+      },
+      {
+        "id": "uncertainty_aware_ai_csf_digital",
+        "gate": "CANDIDATE_DIGITAL"
+      },
+      {
+        "id": "predictive_radio_dt_policy",
+        "gate": "CANDIDATE_DIGITAL"
+      },
+      {
+        "id": "hybrid_spectrum_fabric_policy",
+        "gate": "CANDIDATE_DIGITAL"
+      }
+    ],
+    "negative_or_no_gain_notes": [
+      "AI_CSF without uncertainty can catastrophically degrade under adversarial/shift stresses",
+      "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
+      "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA"
+    ]
+  },
   "owners": {
     "primary": "gunnchos-7gc-ai-ran-field-kit",
     "supporting": [
@@ -1216,17 +1339,33 @@
     "Large twin renders / multi-hour RF sims / extra QEMU DEFERRED",
     "REAL_NTN_MODEM_VALIDATED remains false",
     "GATE_8_PASS / STANDARDIZED_6G remain false",
+    "IMPROVED_STATE_OF_ART remains false \u2014 physical SoA not claimed",
+    "R6G atlas DOI/PDF pins PENDING for many baselines",
+    "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural)",
+    "R5 independent digital improvement verification not claimed",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
     "Field 7GC community outcomes not fabricated \u2014 field measurement OPEN",
-    "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING"
+    "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING",
+    "DOI/PDF pins for many atlas baselines still PENDING",
+    "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural only)",
+    "Independent digital improvement verification (R5) not claimed this cycle",
+    "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
+    "IMPROVED_STATE_OF_ART remains false",
+    "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",
-    "multi-hour RF / NTN physical campaigns",
+    "multi-hour RF / NTN / THz physical campaigns",
     "large digital-twin renders",
     "extra QEMU guests (Product-Use likely active)",
     "large model downloads for AI-RAN",
     "long soak / carrier lab attaches",
-    "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)"
+    "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)",
+    "ns-3 / Sionna / DeepMIMO campaign sweeps",
+    "multi-hour RF / THz physical campaigns",
+    "extra QEMU",
+    "large twin cinematic renders"
   ],
   "mock": false
 }

@@ -1,0 +1,1253 @@
+{
+  "schema": "gunnchos.r6g.aggregate.v1",
+  "ok": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "breakthroughs_registered": 20,
+  "sources_verified": "PUBLIC_PORTALS_AND_PENDING_DOI_PINS",
+  "baselines_digitally_reproducible_or_structural": true,
+  "baselines_digitally_matched_to_published_physical": false,
+  "digital_improvements_observed": {
+    "R6G-003": true,
+    "R6G-005": true,
+    "R6G-009": true
+  },
+  "independent_improvements_verified": false,
+  "physical_pending": true,
+  "product_candidates": [
+    {
+      "id": "semantic_ntn_education_mode",
+      "gate": "RESEARCH_ONLY"
+    },
+    {
+      "id": "uncertainty_aware_ai_csf_digital",
+      "gate": "CANDIDATE_DIGITAL"
+    },
+    {
+      "id": "predictive_radio_dt_policy",
+      "gate": "CANDIDATE_DIGITAL"
+    },
+    {
+      "id": "hybrid_spectrum_fabric_policy",
+      "gate": "CANDIDATE_DIGITAL"
+    }
+  ],
+  "negative_or_no_gain_notes": [
+    "AI_CSF without uncertainty can catastrophically degrade under adversarial/shift stresses",
+    "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
+    "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA"
+  ],
+  "active_packet_status": {
+    "R6G-001": {
+      "status": "COMPLETE_DIGITAL_REGISTRY",
+      "ok": true
+    },
+    "R6G-003": {
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true,
+      "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true
+    },
+    "R6G-005": {
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true,
+      "HYPOTHESIS_SUPPORTED_DIGITALLY": true
+    },
+    "R6G-009": {
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true,
+      "HYPOTHESIS_SUPPORTED_DIGITALLY": true
+    },
+    "R6G-002": {
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true
+    }
+  },
+  "registered_not_active": [
+    "R6G-004",
+    "R6G-006",
+    "R6G-007",
+    "R6G-008",
+    "R6G-010",
+    "R6G-011"
+  ],
+  "packets": {
+    "R6G-001": {
+      "packet": "R6G-001",
+      "ok": true,
+      "status": "COMPLETE_DIGITAL_REGISTRY",
+      "breakthroughs_registered": 20,
+      "IMPROVED_STATE_OF_ART": false,
+      "sources_verified": "PORTAL_OR_PENDING_DOI_PIN",
+      "NEW_6G_RESEARCH_REPO_CREATION": "FORBIDDEN_BY_DEFAULT"
+    },
+    "R6G-003": {
+      "schema": "gunnchos.r6g.r6g003.v1",
+      "packet": "R6G-003",
+      "ok": true,
+      "status": "DIGITALLY_EXECUTED",
+      "fr3_baseline": {
+        "bands_ghz": [
+          6.75,
+          16.95
+        ],
+        "model": "structural_pathloss_plus_shadowing",
+        "pathloss_db_at_100m": {
+          "6.75": 98.5,
+          "16.95": 108.2
+        },
+        "evidence_rung": "R1_MODEL_IMPLEMENTED",
+        "EXACT_REPRODUCTION_NOT_POSSIBLE": true,
+        "reason": "NYU measurement traces not fully public in-repo"
+      },
+      "rf_only_digital_baseline": {
+        "position_RMSE_m": 0.45,
+        "orientation_RMSE_deg": 8.0,
+        "note": "Structural digital baseline \u2014 NOT claimed matched to NYU physical ~0.2 m",
+        "DIGITAL_REPRODUCTION_MATCHED": false,
+        "COMPARABLE_EVIDENCE_PENDING": true,
+        "published_target_m": 0.2
+      },
+      "modality_matrix": {
+        "RF_ONLY": {
+          "position_RMSE": 0.4422,
+          "orientation_RMSE": 7.8606,
+          "beam_selection_accuracy": 0.62,
+          "handover_failure": 0.12,
+          "blockage_prediction_horizon_s": 0.4,
+          "latency_ms": 20.0,
+          "energy_j": 1.04,
+          "privacy_exposure": 0.15
+        },
+        "RF_DEVICE_IMU": {
+          "position_RMSE": 0.3223,
+          "orientation_RMSE": 5.7302,
+          "beam_selection_accuracy": 0.69,
+          "handover_failure": 0.0864,
+          "blockage_prediction_horizon_s": 0.82,
+          "latency_ms": 17.76,
+          "energy_j": 1.152,
+          "privacy_exposure": 0.15
+        },
+        "RF_RING_UWB_IMU": {
+          "position_RMSE": 0.2405,
+          "orientation_RMSE": 4.2762,
+          "beam_selection_accuracy": 0.7325,
+          "handover_failure": 0.066,
+          "blockage_prediction_horizon_s": 1.075,
+          "latency_ms": 16.4,
+          "energy_j": 1.22,
+          "privacy_exposure": 0.15
+        },
+        "RF_VISION": {
+          "position_RMSE": 0.2655,
+          "orientation_RMSE": 4.7209,
+          "beam_selection_accuracy": 0.72,
+          "handover_failure": 0.072,
+          "blockage_prediction_horizon_s": 1.0,
+          "latency_ms": 16.8,
+          "energy_j": 1.2,
+          "privacy_exposure": 0.35
+        },
+        "RF_ALL_MODALITIES": {
+          "position_RMSE": 0.1896,
+          "orientation_RMSE": 3.37,
+          "beam_selection_accuracy": 0.765,
+          "handover_failure": 0.0504,
+          "blockage_prediction_horizon_s": 1.27,
+          "latency_ms": 15.36,
+          "energy_j": 1.272,
+          "privacy_exposure": 0.35
+        }
+      },
+      "tn_ntn": {
+        "pipeline": [
+          "detect",
+          "estimate_interferer_direction",
+          "null"
+        ],
+        "satellite_direction_uncertainty_deg": 4.0,
+        "null_depth_db_structural": 18.0,
+        "array_elements_assumed": 64,
+        "note": "STRUCTURAL; massive-array requirements may exceed product antennas",
+        "evidence_rung": "R1_MODEL_IMPLEMENTED",
+        "PHYSICAL_REPRODUCTION_PENDING": true
+      },
+      "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+      "IMPROVED_STATE_OF_ART": false,
+      "PHYSICAL_REPRODUCTION_PENDING": true,
+      "claims": [
+        "SIMULATION_IMPROVEMENT_OBSERVED",
+        "PHYSICAL_REPRODUCTION_PENDING",
+        "COMPARABLE_EVIDENCE_PENDING"
+      ],
+      "useful_connectivity_score": {
+        "metric": "UsefulConnectivityScore",
+        "classification": "GUNNCHOS_PROPOSED_METRIC",
+        "NOT_ITU_METRIC": true,
+        "NOT_3GPP_METRIC": true,
+        "NOT_STANDARDIZED_METRIC": true,
+        "components": {
+          "R": 0.55,
+          "D": 0.7,
+          "A": 0.8,
+          "Q": 0.75,
+          "P": 1.2,
+          "C": 1.0
+        },
+        "score": 0.1925,
+        "note": "Exploratory; use alongside standard metrics, never instead."
+      },
+      "security_privacy_scorecard": {
+        "performance": "SCORED",
+        "energy": "SCORED",
+        "reliability": "SCORED",
+        "privacy": "SCORED",
+        "security": "GATED",
+        "model_integrity": "GATED",
+        "sensor_consent": "REQUIRED_FOR_VISION_RING",
+        "adversarial_robustness": "PARTIAL_DIGITAL"
+      }
+    },
+    "R6G-005": {
+      "schema": "gunnchos.r6g.r6g005.v1",
+      "packet": "R6G-005",
+      "ok": true,
+      "status": "DIGITALLY_EXECUTED",
+      "methods": [
+        "CONVENTIONAL_CSI",
+        "AI_CSF",
+        "AI_CSF_UNCERTAINTY_AWARE"
+      ],
+      "stresses": [
+        "in_distribution",
+        "new_environment",
+        "new_mobility_pattern",
+        "device_shift",
+        "channel_shift",
+        "ntn_coexistence",
+        "noisy_csi",
+        "adversarial_csi"
+      ],
+      "results": {
+        "CONVENTIONAL_CSI": {
+          "in_distribution": {
+            "throughput_norm": 1.0084,
+            "BLER": 0.0105,
+            "coverage_norm": 0.9075,
+            "energy_norm": 1.0,
+            "confidence": 0.7446,
+            "failure_rate": 0.0091,
+            "fallback_rate": 0.0
+          },
+          "new_environment": {
+            "throughput_norm": 1.0142,
+            "BLER": 0.0235,
+            "coverage_norm": 0.9128,
+            "energy_norm": 1.0,
+            "confidence": 0.7174,
+            "failure_rate": 0.0184,
+            "fallback_rate": 0.0
+          },
+          "new_mobility_pattern": {
+            "throughput_norm": 0.9953,
+            "BLER": 0.0106,
+            "coverage_norm": 0.8958,
+            "energy_norm": 1.0,
+            "confidence": 0.8011,
+            "failure_rate": 0.0083,
+            "fallback_rate": 0.0
+          },
+          "device_shift": {
+            "throughput_norm": 0.9716,
+            "BLER": 0.014,
+            "coverage_norm": 0.8744,
+            "energy_norm": 1.0,
+            "confidence": 0.809,
+            "failure_rate": 0.0147,
+            "fallback_rate": 0.0
+          },
+          "channel_shift": {
+            "throughput_norm": 0.9832,
+            "BLER": 0.0218,
+            "coverage_norm": 0.8849,
+            "energy_norm": 1.0,
+            "confidence": 0.7013,
+            "failure_rate": 0.0171,
+            "fallback_rate": 0.0
+          },
+          "ntn_coexistence": {
+            "throughput_norm": 1.0183,
+            "BLER": 0.024,
+            "coverage_norm": 0.9165,
+            "energy_norm": 1.0,
+            "confidence": 0.7311,
+            "failure_rate": 0.0101,
+            "fallback_rate": 0.0
+          },
+          "noisy_csi": {
+            "throughput_norm": 1.0274,
+            "BLER": 0.0167,
+            "coverage_norm": 0.9247,
+            "energy_norm": 1.0,
+            "confidence": 0.7193,
+            "failure_rate": 0.0064,
+            "fallback_rate": 0.0
+          },
+          "adversarial_csi": {
+            "throughput_norm": 1.0208,
+            "BLER": 0.0221,
+            "coverage_norm": 0.9188,
+            "energy_norm": 1.0,
+            "confidence": 0.8459,
+            "failure_rate": 0.0171,
+            "fallback_rate": 0.0
+          }
+        },
+        "AI_CSF": {
+          "in_distribution": {
+            "throughput_norm": 1.1826,
+            "BLER": 0.0295,
+            "coverage_norm": 1.0,
+            "energy_norm": 1.05,
+            "confidence": 0.8104,
+            "failure_rate": 0.0107,
+            "fallback_rate": 0.0
+          },
+          "new_environment": {
+            "throughput_norm": 0.8447,
+            "BLER": 0.1419,
+            "coverage_norm": 0.7603,
+            "energy_norm": 1.05,
+            "confidence": 0.8655,
+            "failure_rate": 0.232,
+            "fallback_rate": 0.0
+          },
+          "new_mobility_pattern": {
+            "throughput_norm": 0.8153,
+            "BLER": 0.0846,
+            "coverage_norm": 0.7338,
+            "energy_norm": 1.05,
+            "confidence": 0.8079,
+            "failure_rate": 0.1496,
+            "fallback_rate": 0.0
+          },
+          "device_shift": {
+            "throughput_norm": 0.6678,
+            "BLER": 0.1033,
+            "coverage_norm": 0.601,
+            "energy_norm": 1.05,
+            "confidence": 0.8056,
+            "failure_rate": 0.1331,
+            "fallback_rate": 0.0
+          },
+          "channel_shift": {
+            "throughput_norm": 0.799,
+            "BLER": 0.1165,
+            "coverage_norm": 0.7191,
+            "energy_norm": 1.05,
+            "confidence": 0.7919,
+            "failure_rate": 0.1681,
+            "fallback_rate": 0.0
+          },
+          "ntn_coexistence": {
+            "throughput_norm": 0.712,
+            "BLER": 0.1737,
+            "coverage_norm": 0.6408,
+            "energy_norm": 1.05,
+            "confidence": 0.8718,
+            "failure_rate": 0.2042,
+            "fallback_rate": 0.0
+          },
+          "noisy_csi": {
+            "throughput_norm": 0.6894,
+            "BLER": 0.1529,
+            "coverage_norm": 0.6204,
+            "energy_norm": 1.05,
+            "confidence": 0.8259,
+            "failure_rate": 0.1412,
+            "fallback_rate": 0.0
+          },
+          "adversarial_csi": {
+            "throughput_norm": 0.8825,
+            "BLER": 0.144,
+            "coverage_norm": 0.7943,
+            "energy_norm": 1.05,
+            "confidence": 0.8869,
+            "failure_rate": 0.1924,
+            "fallback_rate": 0.0
+          }
+        },
+        "AI_CSF_UNCERTAINTY_AWARE": {
+          "in_distribution": {
+            "throughput_norm": 1.143,
+            "BLER": 0.0255,
+            "coverage_norm": 1.0,
+            "energy_norm": 1.05,
+            "confidence": 0.7631,
+            "failure_rate": 0.0084,
+            "fallback_rate": 0.0032
+          },
+          "new_environment": {
+            "throughput_norm": 0.9548,
+            "BLER": 0.0263,
+            "coverage_norm": 0.8593,
+            "energy_norm": 1.05,
+            "confidence": 0.5129,
+            "failure_rate": 0.0383,
+            "fallback_rate": 0.8129
+          },
+          "new_mobility_pattern": {
+            "throughput_norm": 1.0052,
+            "BLER": 0.0319,
+            "coverage_norm": 0.9047,
+            "energy_norm": 1.05,
+            "confidence": 0.503,
+            "failure_rate": 0.0374,
+            "fallback_rate": 0.6877
+          },
+          "device_shift": {
+            "throughput_norm": 0.9521,
+            "BLER": 0.0368,
+            "coverage_norm": 0.8569,
+            "energy_norm": 1.05,
+            "confidence": 0.6296,
+            "failure_rate": 0.0179,
+            "fallback_rate": 0.7254
+          },
+          "channel_shift": {
+            "throughput_norm": 0.9719,
+            "BLER": 0.0266,
+            "coverage_norm": 0.8747,
+            "energy_norm": 1.05,
+            "confidence": 0.4682,
+            "failure_rate": 0.0399,
+            "fallback_rate": 0.7029
+          },
+          "ntn_coexistence": {
+            "throughput_norm": 0.9261,
+            "BLER": 0.0233,
+            "coverage_norm": 0.8335,
+            "energy_norm": 1.05,
+            "confidence": 0.5344,
+            "failure_rate": 0.0288,
+            "fallback_rate": 0.7876
+          },
+          "noisy_csi": {
+            "throughput_norm": 0.9283,
+            "BLER": 0.0314,
+            "coverage_norm": 0.8354,
+            "energy_norm": 1.05,
+            "confidence": 0.6442,
+            "failure_rate": 0.0399,
+            "fallback_rate": 0.7087
+          },
+          "adversarial_csi": {
+            "throughput_norm": 1.0319,
+            "BLER": 0.0203,
+            "coverage_norm": 0.9287,
+            "energy_norm": 1.05,
+            "confidence": 0.5574,
+            "failure_rate": 0.0316,
+            "fallback_rate": 0.7545
+          }
+        }
+      },
+      "confidence_fallback_rollback": {
+        "confidence_estimate": true,
+        "fallback_trigger": "confidence_below_threshold_or_shift_detected",
+        "conventional_csi_fallback": true,
+        "rollback": true,
+        "telemetry": true
+      },
+      "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+      "SIMULATION_IMPROVEMENT_OBSERVED": true,
+      "beats_nokia_qualcomm_ota": false,
+      "IMPROVED_STATE_OF_ART": false,
+      "PHYSICAL_REPRODUCTION_PENDING": true,
+      "COMPARABLE_EVIDENCE_PENDING": true,
+      "note": "Do not claim beat Nokia/Qualcomm OTA without comparable OTA evidence."
+    },
+    "R6G-009": {
+      "schema": "gunnchos.r6g.r6g009.v1",
+      "packet": "R6G-009",
+      "ok": true,
+      "status": "DIGITALLY_EXECUTED",
+      "twin_loop": [
+        "measurement_ingest",
+        "multimodal_state",
+        "uncertainty",
+        "belief_state",
+        "prediction_horizon",
+        "policy_simulation",
+        "action_recommendation",
+        "observed_outcome",
+        "calibration",
+        "drift_detection"
+      ],
+      "pretty_3d_only": false,
+      "policies": [
+        "CURRENT_STATE_ONLY",
+        "DELAYED_STATE",
+        "BELIEF_STATE",
+        "PREDICTIVE_BELIEF_STATE"
+      ],
+      "delay_grid_ms": {
+        "10": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.5135,
+            "sensing_error": 0.2932,
+            "reliability_violations": 0.1473,
+            "handover_failure": 0.123,
+            "policy_regret": 0.2865,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.2297
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.4649,
+            "sensing_error": 0.3175,
+            "reliability_violations": 0.157,
+            "handover_failure": 0.1303,
+            "policy_regret": 0.3351,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.3026
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.5875,
+            "sensing_error": 0.2562,
+            "reliability_violations": 0.1325,
+            "handover_failure": 0.1119,
+            "policy_regret": 0.2125,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.1187
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.7047,
+            "sensing_error": 0.1977,
+            "reliability_violations": 0.1091,
+            "handover_failure": 0.0943,
+            "policy_regret": 0.0953,
+            "calibration_error": 0.12,
+            "recovery_time_s": 0.943
+          }
+        },
+        "25": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.4428,
+            "sensing_error": 0.3286,
+            "reliability_violations": 0.1614,
+            "handover_failure": 0.1336,
+            "policy_regret": 0.3572,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.3359
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.4251,
+            "sensing_error": 0.3374,
+            "reliability_violations": 0.165,
+            "handover_failure": 0.1362,
+            "policy_regret": 0.3749,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.3623
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.5909,
+            "sensing_error": 0.2545,
+            "reliability_violations": 0.1318,
+            "handover_failure": 0.1114,
+            "policy_regret": 0.2091,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.1136
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.6582,
+            "sensing_error": 0.2209,
+            "reliability_violations": 0.1184,
+            "handover_failure": 0.1013,
+            "policy_regret": 0.1418,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0127
+          }
+        },
+        "50": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.3772,
+            "sensing_error": 0.3614,
+            "reliability_violations": 0.1746,
+            "handover_failure": 0.1434,
+            "policy_regret": 0.4228,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4342
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.3547,
+            "sensing_error": 0.3727,
+            "reliability_violations": 0.1791,
+            "handover_failure": 0.1468,
+            "policy_regret": 0.4453,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.468
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.5116,
+            "sensing_error": 0.2942,
+            "reliability_violations": 0.1477,
+            "handover_failure": 0.1233,
+            "policy_regret": 0.2884,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.2325
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.6452,
+            "sensing_error": 0.2274,
+            "reliability_violations": 0.121,
+            "handover_failure": 0.1032,
+            "policy_regret": 0.1548,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0323
+          }
+        },
+        "100": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.2081,
+            "sensing_error": 0.4459,
+            "reliability_violations": 0.2084,
+            "handover_failure": 0.1688,
+            "policy_regret": 0.5919,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.6878
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.1981,
+            "sensing_error": 0.451,
+            "reliability_violations": 0.2104,
+            "handover_failure": 0.1703,
+            "policy_regret": 0.6019,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.7029
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.449,
+            "sensing_error": 0.3255,
+            "reliability_violations": 0.1602,
+            "handover_failure": 0.1326,
+            "policy_regret": 0.351,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.3265
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.5863,
+            "sensing_error": 0.2569,
+            "reliability_violations": 0.1327,
+            "handover_failure": 0.1121,
+            "policy_regret": 0.2137,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.1206
+          }
+        }
+      },
+      "stress_grid": {
+        "missing_data": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.2708,
+            "sensing_error": 0.4146,
+            "reliability_violations": 0.1958,
+            "handover_failure": 0.1594,
+            "policy_regret": 0.5292,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.5938
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.2469,
+            "sensing_error": 0.4265,
+            "reliability_violations": 0.2006,
+            "handover_failure": 0.163,
+            "policy_regret": 0.5531,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.6296
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.4879,
+            "sensing_error": 0.3061,
+            "reliability_violations": 0.1524,
+            "handover_failure": 0.1268,
+            "policy_regret": 0.3121,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.2682
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.615,
+            "sensing_error": 0.2425,
+            "reliability_violations": 0.127,
+            "handover_failure": 0.1078,
+            "policy_regret": 0.185,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0776
+          }
+        },
+        "stale_data": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.3786,
+            "sensing_error": 0.3607,
+            "reliability_violations": 0.1743,
+            "handover_failure": 0.1432,
+            "policy_regret": 0.4214,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4321
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.361,
+            "sensing_error": 0.3695,
+            "reliability_violations": 0.1778,
+            "handover_failure": 0.1459,
+            "policy_regret": 0.439,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4585
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.5253,
+            "sensing_error": 0.2873,
+            "reliability_violations": 0.1449,
+            "handover_failure": 0.1212,
+            "policy_regret": 0.2747,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.212
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.6598,
+            "sensing_error": 0.2201,
+            "reliability_violations": 0.118,
+            "handover_failure": 0.101,
+            "policy_regret": 0.1402,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0102
+          }
+        },
+        "spoofed_adversarial_data": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.1903,
+            "sensing_error": 0.4548,
+            "reliability_violations": 0.2119,
+            "handover_failure": 0.1715,
+            "policy_regret": 0.6097,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.7145
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.3416,
+            "sensing_error": 0.3792,
+            "reliability_violations": 0.1817,
+            "handover_failure": 0.1488,
+            "policy_regret": 0.4584,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4875
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.537,
+            "sensing_error": 0.2815,
+            "reliability_violations": 0.1426,
+            "handover_failure": 0.1195,
+            "policy_regret": 0.263,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.1945
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.594,
+            "sensing_error": 0.253,
+            "reliability_violations": 0.1312,
+            "handover_failure": 0.1109,
+            "policy_regret": 0.206,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.109
+          }
+        },
+        "sensor_disagreement": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.3719,
+            "sensing_error": 0.3641,
+            "reliability_violations": 0.1756,
+            "handover_failure": 0.1442,
+            "policy_regret": 0.4281,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4422
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.3335,
+            "sensing_error": 0.3832,
+            "reliability_violations": 0.1833,
+            "handover_failure": 0.15,
+            "policy_regret": 0.4665,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4997
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.5207,
+            "sensing_error": 0.2897,
+            "reliability_violations": 0.1459,
+            "handover_failure": 0.1219,
+            "policy_regret": 0.2793,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.219
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.6384,
+            "sensing_error": 0.2308,
+            "reliability_violations": 0.1223,
+            "handover_failure": 0.1042,
+            "policy_regret": 0.1616,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0424
+          }
+        },
+        "bearer_transition": {
+          "CURRENT_STATE_ONLY": {
+            "application_throughput_norm": 0.3662,
+            "sensing_error": 0.3669,
+            "reliability_violations": 0.1768,
+            "handover_failure": 0.1451,
+            "policy_regret": 0.4338,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4506
+          },
+          "DELAYED_STATE": {
+            "application_throughput_norm": 0.3624,
+            "sensing_error": 0.3688,
+            "reliability_violations": 0.1775,
+            "handover_failure": 0.1456,
+            "policy_regret": 0.4376,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.4564
+          },
+          "BELIEF_STATE": {
+            "application_throughput_norm": 0.518,
+            "sensing_error": 0.291,
+            "reliability_violations": 0.1464,
+            "handover_failure": 0.1223,
+            "policy_regret": 0.282,
+            "calibration_error": 0.2,
+            "recovery_time_s": 1.223
+          },
+          "PREDICTIVE_BELIEF_STATE": {
+            "application_throughput_norm": 0.6655,
+            "sensing_error": 0.2173,
+            "reliability_violations": 0.1169,
+            "handover_failure": 0.1002,
+            "policy_regret": 0.1345,
+            "calibration_error": 0.12,
+            "recovery_time_s": 1.0018
+          }
+        }
+      },
+      "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+      "SIMULATION_IMPROVEMENT_OBSERVED": true,
+      "IMPROVED_STATE_OF_ART": false,
+      "PHYSICAL_REPRODUCTION_PENDING": true
+    },
+    "R6G-002": {
+      "schema": "gunnchos.r6g.r6g002.v1",
+      "packet": "R6G-002",
+      "ok": true,
+      "status": "DIGITALLY_EXECUTED",
+      "bearers": {
+        "sub6_terrestrial": {
+          "status": "SIMULATED",
+          "latency_ms": 20,
+          "rate_mbps": 200,
+          "HARDWARE_PENDING": false
+        },
+        "FR3": {
+          "status": "MODELED",
+          "latency_ms": 18,
+          "rate_mbps": 800,
+          "HARDWARE_PENDING": true
+        },
+        "mmWave": {
+          "status": "MODELED",
+          "latency_ms": 15,
+          "rate_mbps": 2000,
+          "HARDWARE_PENDING": true
+        },
+        "sub_THz": {
+          "status": "MODELED",
+          "latency_ms": 12,
+          "rate_mbps": 10000,
+          "HARDWARE_PENDING": true
+        },
+        "THz": {
+          "status": "MODELED",
+          "latency_ms": 10,
+          "rate_mbps": 50000,
+          "HARDWARE_PENDING": true
+        },
+        "FSO_OWC": {
+          "status": "MODELED",
+          "latency_ms": 5,
+          "rate_mbps": 20000,
+          "HARDWARE_PENDING": true
+        },
+        "LEO_NTN": {
+          "status": "SIMULATED",
+          "latency_ms": 45,
+          "rate_mbps": 5,
+          "HARDWARE_PENDING": false
+        },
+        "local_only": {
+          "status": "SIMULATED",
+          "latency_ms": 1,
+          "rate_mbps": 1000,
+          "HARDWARE_PENDING": false
+        }
+      },
+      "decisions": {
+        "nominal": {
+          "decision": "multi_connectivity",
+          "bearers": [
+            "sub6_terrestrial",
+            "FR3"
+          ],
+          "fallback": "LEO_NTN"
+        },
+        "blockage_weather": {
+          "decision": "multi_connectivity",
+          "bearers": [
+            "sub6_terrestrial",
+            "LEO_NTN"
+          ],
+          "fallback": "semantic_sync"
+        },
+        "battery_low": {
+          "decision": "local_only",
+          "mode": "defer_or_semantic_sync"
+        },
+        "backhaul": {
+          "decision": "single_bearer",
+          "bearers": [
+            "FSO_OWC"
+          ],
+          "fallback": "sub_THz"
+        }
+      },
+      "useful_connectivity_comparison": {
+        "peaky_link": {
+          "metric": "UsefulConnectivityScore",
+          "classification": "GUNNCHOS_PROPOSED_METRIC",
+          "NOT_ITU_METRIC": true,
+          "NOT_3GPP_METRIC": true,
+          "NOT_STANDARDIZED_METRIC": true,
+          "components": {
+            "R": 0.95,
+            "D": 0.3,
+            "A": 0.4,
+            "Q": 0.5,
+            "P": 2.0,
+            "C": 2.5
+          },
+          "score": 0.0114,
+          "note": "Exploratory; use alongside standard metrics, never instead."
+        },
+        "useful_link": {
+          "metric": "UsefulConnectivityScore",
+          "classification": "GUNNCHOS_PROPOSED_METRIC",
+          "NOT_ITU_METRIC": true,
+          "NOT_3GPP_METRIC": true,
+          "NOT_STANDARDIZED_METRIC": true,
+          "components": {
+            "R": 0.55,
+            "D": 0.8,
+            "A": 0.9,
+            "Q": 0.85,
+            "P": 1.0,
+            "C": 1.0
+          },
+          "score": 0.3366,
+          "note": "Exploratory; use alongside standard metrics, never instead."
+        },
+        "observation": "useful_link score higher despite lower peak R \u2014 exploratory only"
+      },
+      "IMPROVED_STATE_OF_ART": false,
+      "PHYSICAL_REPRODUCTION_PENDING": true,
+      "RM520N_GL_NTN": false,
+      "RM520N_GL_5GA": false
+    },
+    "semantic_continuity": {
+      "schema": "gunnchos.r6g.semantic_continuity_ntn_education.v1",
+      "ok": true,
+      "scenario": "Semantic Continuity for Equitable NTN Education",
+      "uses": [
+        "WAIKE",
+        "gunnchAI",
+        "NTN simulator",
+        "service continuity"
+      ],
+      "modes": [
+        "FULL_CONTENT_TRANSFER",
+        "COMPRESSED_CONTENT_TRANSFER",
+        "TASK_RELEVANT_TRANSFER",
+        "LEARNING_STATE_DELTA"
+      ],
+      "conditions": [
+        "high_latency",
+        "low_bitrate",
+        "intermittent_visibility",
+        "packet_loss",
+        "long_outage",
+        "expensive_link"
+      ],
+      "matrix": {
+        "FULL_CONTENT_TRANSFER": {
+          "high_latency": {
+            "lesson_completion": 0.902,
+            "task_correctness": 0.95,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 1.0,
+            "time_to_useful_state_s": 50.0,
+            "energy_norm": 1.2,
+            "recovery_after_reconnect_s": 25.0
+          },
+          "low_bitrate": {
+            "lesson_completion": 0.902,
+            "task_correctness": 0.95,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 1.0,
+            "time_to_useful_state_s": 35.0,
+            "energy_norm": 1.2,
+            "recovery_after_reconnect_s": 25.0
+          },
+          "intermittent_visibility": {
+            "lesson_completion": 0.902,
+            "task_correctness": 0.95,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 1.0,
+            "time_to_useful_state_s": 35.0,
+            "energy_norm": 1.2,
+            "recovery_after_reconnect_s": 25.0
+          },
+          "packet_loss": {
+            "lesson_completion": 0.902,
+            "task_correctness": 0.95,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 1.0,
+            "time_to_useful_state_s": 35.0,
+            "energy_norm": 1.2,
+            "recovery_after_reconnect_s": 25.0
+          },
+          "long_outage": {
+            "lesson_completion": 0.28,
+            "task_correctness": 0.4,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 1.0,
+            "time_to_useful_state_s": 35.0,
+            "energy_norm": 1.2,
+            "recovery_after_reconnect_s": 25.0
+          },
+          "expensive_link": {
+            "lesson_completion": 0.902,
+            "task_correctness": 0.95,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 1.0,
+            "time_to_useful_state_s": 35.0,
+            "energy_norm": 1.2,
+            "recovery_after_reconnect_s": 25.0
+          }
+        },
+        "COMPRESSED_CONTENT_TRANSFER": {
+          "high_latency": {
+            "lesson_completion": 0.855,
+            "task_correctness": 0.9,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.45,
+            "time_to_useful_state_s": 33.5,
+            "energy_norm": 0.54,
+            "recovery_after_reconnect_s": 11.25
+          },
+          "low_bitrate": {
+            "lesson_completion": 0.855,
+            "task_correctness": 0.9,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.45,
+            "time_to_useful_state_s": 18.5,
+            "energy_norm": 0.54,
+            "recovery_after_reconnect_s": 11.25
+          },
+          "intermittent_visibility": {
+            "lesson_completion": 0.855,
+            "task_correctness": 0.9,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.45,
+            "time_to_useful_state_s": 18.5,
+            "energy_norm": 0.54,
+            "recovery_after_reconnect_s": 11.25
+          },
+          "packet_loss": {
+            "lesson_completion": 0.855,
+            "task_correctness": 0.9,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.45,
+            "time_to_useful_state_s": 18.5,
+            "energy_norm": 0.54,
+            "recovery_after_reconnect_s": 11.25
+          },
+          "long_outage": {
+            "lesson_completion": 0.522,
+            "task_correctness": 0.55,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.45,
+            "time_to_useful_state_s": 18.5,
+            "energy_norm": 0.54,
+            "recovery_after_reconnect_s": 11.25
+          },
+          "expensive_link": {
+            "lesson_completion": 0.855,
+            "task_correctness": 0.9,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.45,
+            "time_to_useful_state_s": 18.5,
+            "energy_norm": 0.54,
+            "recovery_after_reconnect_s": 11.25
+          }
+        },
+        "TASK_RELEVANT_TRANSFER": {
+          "high_latency": {
+            "lesson_completion": 0.836,
+            "task_correctness": 0.88,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.22,
+            "time_to_useful_state_s": 26.6,
+            "energy_norm": 0.264,
+            "recovery_after_reconnect_s": 5.5
+          },
+          "low_bitrate": {
+            "lesson_completion": 0.836,
+            "task_correctness": 0.88,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.22,
+            "time_to_useful_state_s": 11.6,
+            "energy_norm": 0.264,
+            "recovery_after_reconnect_s": 5.5
+          },
+          "intermittent_visibility": {
+            "lesson_completion": 0.836,
+            "task_correctness": 0.88,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.22,
+            "time_to_useful_state_s": 11.6,
+            "energy_norm": 0.264,
+            "recovery_after_reconnect_s": 5.5
+          },
+          "packet_loss": {
+            "lesson_completion": 0.836,
+            "task_correctness": 0.88,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.22,
+            "time_to_useful_state_s": 11.6,
+            "energy_norm": 0.264,
+            "recovery_after_reconnect_s": 5.5
+          },
+          "long_outage": {
+            "lesson_completion": 0.836,
+            "task_correctness": 0.88,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.22,
+            "time_to_useful_state_s": 11.6,
+            "energy_norm": 0.264,
+            "recovery_after_reconnect_s": 5.5
+          },
+          "expensive_link": {
+            "lesson_completion": 0.836,
+            "task_correctness": 0.88,
+            "learner_state_sync": 0.7,
+            "bytes_transferred_norm": 0.22,
+            "time_to_useful_state_s": 11.6,
+            "energy_norm": 0.264,
+            "recovery_after_reconnect_s": 5.5
+          }
+        },
+        "LEARNING_STATE_DELTA": {
+          "high_latency": {
+            "lesson_completion": 0.807,
+            "task_correctness": 0.85,
+            "learner_state_sync": 0.95,
+            "bytes_transferred_norm": 0.08,
+            "time_to_useful_state_s": 22.4,
+            "energy_norm": 0.096,
+            "recovery_after_reconnect_s": 5
+          },
+          "low_bitrate": {
+            "lesson_completion": 0.807,
+            "task_correctness": 0.85,
+            "learner_state_sync": 0.95,
+            "bytes_transferred_norm": 0.08,
+            "time_to_useful_state_s": 7.4,
+            "energy_norm": 0.096,
+            "recovery_after_reconnect_s": 5
+          },
+          "intermittent_visibility": {
+            "lesson_completion": 0.807,
+            "task_correctness": 0.85,
+            "learner_state_sync": 0.95,
+            "bytes_transferred_norm": 0.08,
+            "time_to_useful_state_s": 7.4,
+            "energy_norm": 0.096,
+            "recovery_after_reconnect_s": 5
+          },
+          "packet_loss": {
+            "lesson_completion": 0.807,
+            "task_correctness": 0.85,
+            "learner_state_sync": 0.95,
+            "bytes_transferred_norm": 0.08,
+            "time_to_useful_state_s": 7.4,
+            "energy_norm": 0.096,
+            "recovery_after_reconnect_s": 5
+          },
+          "long_outage": {
+            "lesson_completion": 0.807,
+            "task_correctness": 0.85,
+            "learner_state_sync": 0.95,
+            "bytes_transferred_norm": 0.08,
+            "time_to_useful_state_s": 7.4,
+            "energy_norm": 0.096,
+            "recovery_after_reconnect_s": 5
+          },
+          "expensive_link": {
+            "lesson_completion": 0.807,
+            "task_correctness": 0.85,
+            "learner_state_sync": 0.95,
+            "bytes_transferred_norm": 0.08,
+            "time_to_useful_state_s": 7.4,
+            "energy_norm": 0.096,
+            "recovery_after_reconnect_s": 5
+          }
+        }
+      },
+      "real_education_outcome_claimed": false,
+      "human_study": "EXTERNAL_PENDING",
+      "IMPROVED_STATE_OF_ART": false,
+      "note": "Digital research scenario only \u2014 no real educational outcome claim."
+    }
+  },
+  "tokens": {
+    "R6G_REGISTRY_COMPLETE": true,
+    "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+    "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
+    "PREDICTIVE_RADIO_DT_DIGITAL": true,
+    "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+    "IMPROVED_STATE_OF_ART": false,
+    "6G_BREAKTHROUGH_PASS": null,
+    "PHYSICAL_REPRODUCTION_PENDING": true,
+    "COMPARABLE_EVIDENCE_PENDING": true
+  },
+  "OPEN": [
+    "DOI/PDF pins for many atlas baselines still PENDING",
+    "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural only)",
+    "Independent digital improvement verification (R5) not claimed this cycle",
+    "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
+    "IMPROVED_STATE_OF_ART remains false",
+    "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE"
+  ],
+  "deferred_heavy_work": [
+    "ns-3 / Sionna / DeepMIMO campaign sweeps",
+    "multi-hour RF / THz physical campaigns",
+    "extra QEMU",
+    "large twin cinematic renders"
+  ]
+}

@@ -24,6 +24,7 @@ from .tokens import (
     assert_forbidden_remain_false,
     empty_token_table,
 )
+from research.r6g.evaluate import evaluate_r6g
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -41,6 +42,8 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "equitable_7gc": run_equitable_7gc(),
         "imt2030_eval": run_imt2030_eval_harness(),
     }
+    r6g_out = (Path(out_dir) / "r6g") if out_dir is not None else (ROOT / "artifacts" / "r6g")
+    r6g = evaluate_r6g(r6g_out)
 
     tokens = empty_token_table()
     # Honesty: Rel-16 RM520N digital sim does NOT earn 5GA.
@@ -56,14 +59,23 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
     tokens["IMT2030_MAPPING_COMPLETE_CURRENT_PUBLIC_DRAFT"] = bool(
         modules["imt2030_eval"]["ok"] and modules["migration_6g"]["ok"]
     )
+    # R6G extension tokens (honest digital-only)
+    tokens["R6G_REGISTRY_COMPLETE"] = bool(r6g["tokens"]["R6G_REGISTRY_COMPLETE"])
+    tokens["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"] = bool(r6g["tokens"]["MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT"])
+    tokens["AI_PHY_UNCERTAINTY_AWARE_DIGITAL"] = bool(r6g["tokens"]["AI_PHY_UNCERTAINTY_AWARE_DIGITAL"])
+    tokens["PREDICTIVE_RADIO_DT_DIGITAL"] = bool(r6g["tokens"]["PREDICTIVE_RADIO_DT_DIGITAL"])
+    tokens["HYBRID_SPECTRUM_FABRIC_DIGITAL"] = bool(r6g["tokens"]["HYBRID_SPECTRUM_FABRIC_DIGITAL"])
+    tokens["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"] = bool(r6g["tokens"]["SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"])
+    tokens["IMPROVED_STATE_OF_ART"] = False
     for k in FORBIDDEN_TOKENS:
         tokens[k] = False
     assert_forbidden_remain_false(tokens)
     assert tokens["5GA_TERRESTRIAL_DIGITAL_RUNTIME"] is False
+    assert tokens["IMPROVED_STATE_OF_ART"] is False
     assert modules["terrestrial_rel16"]["five_ga_capable"] is False
     assert modules["terrestrial_rel16"]["release"] == "Rel-16"
 
-    digital_ok = all(modules[k]["ok"] for k in modules)
+    digital_ok = all(modules[k]["ok"] for k in modules) and bool(r6g["ok"])
     open_list = [
         "5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false — Rel-16 RM520N digital ≠ 5G-Advanced; need distinct Rel-18+/5GA software surface to earn",
         "CARRIER attach / operator acceptance EXTERNAL_PENDING",
@@ -75,24 +87,32 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "Large twin renders / multi-hour RF sims / extra QEMU DEFERRED",
         "REAL_NTN_MODEM_VALIDATED remains false",
         "GATE_8_PASS / STANDARDIZED_6G remain false",
+        "IMPROVED_STATE_OF_ART remains false — physical SoA not claimed",
+        "R6G atlas DOI/PDF pins PENDING for many baselines",
+        "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural)",
+        "R5 independent digital improvement verification not claimed",
+        "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
         "Field 7GC community outcomes not fabricated — field measurement OPEN",
         "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING",
     ]
+    open_list.extend(r6g.get("OPEN", []))
 
     deferred = [
         "ns-3 / Sionna / DeepMIMO campaign sweeps",
-        "multi-hour RF / NTN physical campaigns",
+        "multi-hour RF / NTN / THz physical campaigns",
         "large digital-twin renders",
         "extra QEMU guests (Product-Use likely active)",
         "large model downloads for AI-RAN",
         "long soak / carrier lab attaches",
         "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)",
     ]
+    deferred.extend(r6g.get("deferred_heavy_work", []))
 
     report = {
         "schema": "gunnchos.net_sec_rc001.aggregate.v1",
         "packet": "NET-SEC-6G-RC-001",
         "remediation": "PR78_HONESTY_DEMOTE_5GA_AND_HOSTILE_LOCAL_RUNTIME",
+        "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
         "ok": digital_ok,
         "exit_state": "DIGITALLY_VALIDATED" if digital_ok else "INCOMPLETE_DIGITAL",
         "product_wording": PRODUCT_WORDING,
@@ -101,8 +121,21 @@ def evaluate_net_sec_rc001(out_dir: Path | None = None) -> dict[str, Any]:
         "earnable_tokens": list(EARNABLE_TOKENS),
         "supporting_tokens": list(SUPPORTING_TOKENS),
         "forbidden_tokens": list(FORBIDDEN_TOKENS),
+        "IMPROVED_STATE_OF_ART": False,
         "modules": {k: {"ok": v["ok"], "schema": v.get("schema")} for k, v in modules.items()},
         "module_details": modules,
+        "r6g": {
+            "ok": r6g["ok"],
+            "breakthroughs_registered": r6g["breakthroughs_registered"],
+            "active_packet_status": r6g["active_packet_status"],
+            "registered_not_active": r6g["registered_not_active"],
+            "tokens": r6g["tokens"],
+            "digital_improvements_observed": r6g["digital_improvements_observed"],
+            "independent_improvements_verified": r6g["independent_improvements_verified"],
+            "physical_pending": r6g["physical_pending"],
+            "product_candidates": r6g["product_candidates"],
+            "negative_or_no_gain_notes": r6g["negative_or_no_gain_notes"],
+        },
         "owners": {
             "primary": "gunnchos-7gc-ai-ran-field-kit",
             "supporting": [
