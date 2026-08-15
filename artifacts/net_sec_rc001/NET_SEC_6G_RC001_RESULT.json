@@ -1,0 +1,1437 @@
+{
+  "schema": "gunnchos.net_sec_rc001.aggregate.v1",
+  "packet": "NET-SEC-6G-RC-001",
+  "remediation": "PR78_R6G_FALSIFIABLE_DEMOTE_TAUTOLOGIES_AND_NAKED_HEADLINES",
+  "r6g_extension": "R6G_BREAKTHROUGH_PROGRAM_ACTIVE_SUBPACKETS",
+  "ok": true,
+  "exit_state": "DIGITALLY_VALIDATED",
+  "product_wording": "Software-defined architecture engineered for 5G-Advanced and NTN-capable paths (NTN via simulation), IMT-2030-aligned, and engineered for migration to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA Sub-6 terrestrial only \u2014 not 5G-Advanced hardware and not NTN.",
+  "claim_boundary": "Digital / simulation / standards-mapping only. Quectel RM520N-GL is terrestrial Rel-16 NSA+SA Sub-6 \u2014 not 5G-Advanced hardware, not NTN, not 6G. CARRIER EXTERNAL_PENDING. SM-DP+ EXTERNAL_PENDING. No unsafe carrier control. No global IMT2030_PASS. 5GA_TERRESTRIAL_DIGITAL_RUNTIME requires a Rel-18+/5GA digital surface distinct from the Rel-16 modem path.",
+  "tokens": {
+    "5GA_TERRESTRIAL_DIGITAL_RUNTIME": false,
+    "NTN_SIMULATION_RUNTIME": true,
+    "AI_RAN_DIGITAL_RUNTIME": true,
+    "SERVICE_CONTINUITY_POLICY": true,
+    "APP_QOS_QOE_DIGITAL": true,
+    "HOSTILE_NETWORK_DIGITAL": true,
+    "IMT2030_MAPPING_COMPLETE_CURRENT_PUBLIC_DRAFT": true,
+    "IMT2030_EVAL_HARNESS_CURRENT_DRAFT": true,
+    "REL20_REL21_MIGRATION_TRACKER": true,
+    "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME": true,
+    "R6G_REGISTRY_COMPLETE": true,
+    "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+    "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
+    "PREDICTIVE_RADIO_DT_DIGITAL": true,
+    "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+    "STANDARDIZED_6G": false,
+    "6G_CERTIFIED": false,
+    "CARRIER_ACCEPTED": false,
+    "REAL_NTN_MODEM_VALIDATED": false,
+    "GATE_8_PASS": false,
+    "IMPROVED_STATE_OF_ART": false
+  },
+  "earnable_tokens": [
+    "5GA_TERRESTRIAL_DIGITAL_RUNTIME",
+    "NTN_SIMULATION_RUNTIME",
+    "AI_RAN_DIGITAL_RUNTIME",
+    "SERVICE_CONTINUITY_POLICY",
+    "APP_QOS_QOE_DIGITAL",
+    "HOSTILE_NETWORK_DIGITAL",
+    "IMT2030_MAPPING_COMPLETE_CURRENT_PUBLIC_DRAFT",
+    "IMT2030_EVAL_HARNESS_CURRENT_DRAFT",
+    "REL20_REL21_MIGRATION_TRACKER"
+  ],
+  "supporting_tokens": [
+    "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME",
+    "R6G_REGISTRY_COMPLETE",
+    "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT",
+    "AI_PHY_UNCERTAINTY_AWARE_DIGITAL",
+    "PREDICTIVE_RADIO_DT_DIGITAL",
+    "HYBRID_SPECTRUM_FABRIC_DIGITAL",
+    "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL"
+  ],
+  "forbidden_tokens": [
+    "STANDARDIZED_6G",
+    "6G_CERTIFIED",
+    "CARRIER_ACCEPTED",
+    "REAL_NTN_MODEM_VALIDATED",
+    "GATE_8_PASS",
+    "IMPROVED_STATE_OF_ART"
+  ],
+  "IMPROVED_STATE_OF_ART": false,
+  "modules": {
+    "terrestrial_rel16": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.terrestrial_rel16.v1"
+    },
+    "esim_interfaces": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.esim_interfaces.v1"
+    },
+    "ntn_sim": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.ntn_sim.v1"
+    },
+    "ai_ran_safe": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.ai_ran_safe.v1"
+    },
+    "service_continuity": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.service_continuity.v1"
+    },
+    "app_qos_qoe": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.app_qos_qoe.v1"
+    },
+    "hostile_network": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.hostile_network_digital.v1"
+    },
+    "migration_6g": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.migration_6g.v1"
+    },
+    "equitable_7gc": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.equitable_7gc.v1"
+    },
+    "imt2030_eval": {
+      "ok": true,
+      "schema": "gunnchos.net_sec_rc001.imt2030_eval_harness.v1"
+    }
+  },
+  "module_details": {
+    "terrestrial_rel16": {
+      "schema": "gunnchos.net_sec_rc001.terrestrial_rel16.v1",
+      "ok": true,
+      "sku": "RM520N-GL",
+      "release": "Rel-16",
+      "modes_exercised": [
+        "SA",
+        "NSA"
+      ],
+      "band_class": "Sub-6",
+      "ntn_capable": false,
+      "five_ga_capable": false,
+      "six_g_capable": false,
+      "CARRIER": "EXTERNAL_PENDING",
+      "CARRIER_ACCEPTED": false,
+      "STANDARDIZED_6G": false,
+      "steps": [
+        {
+          "op": "discovery",
+          "result": {
+            "ok": true,
+            "sku": "RM520N-GL",
+            "release": "Rel-16",
+            "transports": [
+              "mbim",
+              "qmi",
+              "modemmanager"
+            ],
+            "ntn": false,
+            "five_ga": false
+          }
+        },
+        {
+          "op": "sim",
+          "result": {
+            "ok": true,
+            "present": true,
+            "ready": true,
+            "pin_required": false
+          }
+        },
+        {
+          "op": "esim_interface",
+          "result": {
+            "ok": true,
+            "interface": "LPA_DIGITAL",
+            "sgp22_mapped": "2.7",
+            "sm_dp_plus": "EXTERNAL_PENDING",
+            "profile_download": "EXTERNAL_PENDING",
+            "CARRIER": "EXTERNAL_PENDING"
+          }
+        },
+        {
+          "op": "register_sa",
+          "result": {
+            "ok": true,
+            "mode": "SA",
+            "plmn": "00101",
+            "tech": "nr5g-sa",
+            "release": "Rel-16",
+            "five_ga_claimed": false
+          }
+        },
+        {
+          "op": "signal",
+          "result": {
+            "rsrp_dbm": -88.0,
+            "rsrq_db": -10.0,
+            "sinr_db": 12.0,
+            "band": "n78",
+            "ntn": false,
+            "five_ga": false
+          }
+        },
+        {
+          "op": "bearer",
+          "result": {
+            "ok": true,
+            "apn": "internet",
+            "pdn": "ipv4v6",
+            "qos": "default"
+          }
+        },
+        {
+          "op": "connect",
+          "result": {
+            "ok": true,
+            "connected": true,
+            "path": "cellular_rel16"
+          }
+        },
+        {
+          "op": "failover",
+          "result": {
+            "ok": true,
+            "from": "cellular_rel16",
+            "to": "wifi",
+            "policy": "service_continuity"
+          }
+        },
+        {
+          "op": "telemetry",
+          "result": {
+            "sku": "RM520N-GL",
+            "release": "Rel-16",
+            "registered": true,
+            "connected": true,
+            "signal": {
+              "rsrp_dbm": -88.0,
+              "rsrq_db": -10.0,
+              "sinr_db": 12.0,
+              "band": "n78",
+              "ntn": false,
+              "five_ga": false
+            },
+            "apn": "internet",
+            "mode": "SA",
+            "ntn_claimed": false,
+            "five_ga_claimed": false,
+            "six_g_claimed": false
+          }
+        },
+        {
+          "op": "data_policy",
+          "result": {
+            "apn_allowlist": [
+              "internet",
+              "campus.internet"
+            ],
+            "metered": true,
+            "roaming_default": "deny_until_confirmed",
+            "CARRIER": "EXTERNAL_PENDING"
+          }
+        }
+      ],
+      "nsa_register": {
+        "ok": true,
+        "mode": "NSA",
+        "plmn": "00101",
+        "tech": "nr5g-nsa",
+        "release": "Rel-16",
+        "five_ga_claimed": false
+      },
+      "claim_boundary": "Simulated Quectel RM520N-GL Rel-16 NSA+SA Sub-6 terrestrial path only. Not 5G-Advanced modem capability. Not NTN. Not 6G. CARRIER_ACCEPTED=false. CARRIER EXTERNAL_PENDING. 5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false for this surface.",
+      "token_candidate": "5G_REL16_TERRESTRIAL_DIGITAL_RUNTIME",
+      "does_not_earn": "5GA_TERRESTRIAL_DIGITAL_RUNTIME"
+    },
+    "esim_interfaces": {
+      "schema": "gunnchos.net_sec_rc001.esim_interfaces.v1",
+      "ok": true,
+      "sgp22_version": "2.7",
+      "sm_dp_plus": "EXTERNAL_PENDING",
+      "CARRIER_ACCEPTED": false,
+      "surfaces": {
+        "LPA": {
+          "implemented": true,
+          "mode": "DIGITAL_STUB"
+        },
+        "ES9plus": {
+          "implemented": true,
+          "mode": "INTERFACE_ONLY",
+          "sm_dp_plus": "EXTERNAL_PENDING"
+        },
+        "profile_list": {
+          "implemented": true,
+          "profiles": []
+        },
+        "profile_download": {
+          "implemented": false,
+          "status": "EXTERNAL_PENDING"
+        },
+        "profile_enable": {
+          "implemented": false,
+          "status": "EXTERNAL_PENDING"
+        },
+        "profile_delete": {
+          "implemented": false,
+          "status": "EXTERNAL_PENDING"
+        },
+        "open_gateway_camara": {
+          "mapped": true,
+          "real_operator": "EXTERNAL_PENDING",
+          "modes": [
+            "UNAVAILABLE",
+            "SIMULATED",
+            "SANDBOX"
+          ]
+        }
+      },
+      "claim_boundary": "Digital eSIM interfaces only; no SM-DP+ credentials in repo."
+    },
+    "ntn_sim": {
+      "schema": "gunnchos.net_sec_rc001.ntn_sim.v1",
+      "ok": true,
+      "orbits": {
+        "LEO": {
+          "orbit": "LEO",
+          "one_way_delay_ms": 25.0,
+          "round_trip_delay_ms": 50.0,
+          "max_doppler_hz": 40000.0,
+          "visibility_fraction": 0.72,
+          "handover_interval_s": 480.0,
+          "service_gap_probability": 0.08,
+          "rm520n_ntn_claimed": false
+        },
+        "MEO": {
+          "orbit": "MEO",
+          "one_way_delay_ms": 90.0,
+          "round_trip_delay_ms": 180.0,
+          "max_doppler_hz": 8000.0,
+          "visibility_fraction": 0.85,
+          "handover_interval_s": 1800.0,
+          "service_gap_probability": 0.04,
+          "rm520n_ntn_claimed": false
+        },
+        "GEO": {
+          "orbit": "GEO",
+          "one_way_delay_ms": 270.0,
+          "round_trip_delay_ms": 540.0,
+          "max_doppler_hz": 50.0,
+          "visibility_fraction": 0.98,
+          "handover_interval_s": 86400.0,
+          "service_gap_probability": 0.01,
+          "rm520n_ntn_claimed": false
+        }
+      },
+      "handover": {
+        "from": "LEO-A",
+        "to": "LEO-B",
+        "break_before_make": true,
+        "gap_ms": 120.0,
+        "policy": "simulate_gap_then_resume"
+      },
+      "visibility_gaps_modeled": true,
+      "doppler_modeled": true,
+      "RM520N_GL_NTN": false,
+      "REAL_NTN_MODEM_VALIDATED": false,
+      "claim_boundary": "Software NTN simulation only; RM520N-GL is not NTN.",
+      "token_candidate": "NTN_SIMULATION_RUNTIME"
+    },
+    "ai_ran_safe": {
+      "schema": "gunnchos.net_sec_rc001.ai_ran_safe.v1",
+      "ok": true,
+      "telemetry": {
+        "cell_load": 0.72,
+        "worst_user_qoe": 0.61,
+        "privacy_budget_remaining": 0.9,
+        "path": "terrestrial"
+      },
+      "recommendation": {
+        "action": "prefer_local_edge_cache",
+        "rationale": "worst_user_qoe_below_threshold",
+        "carrier_control": false,
+        "requires_human_ack_for_external": true
+      },
+      "applied": {
+        "applied": true,
+        "action": "prefer_local_edge_cache",
+        "guardrails": [
+          "no_carrier_control",
+          "privacy_budget",
+          "rollback_ready"
+        ]
+      },
+      "rollback": {
+        "triggered": true,
+        "reason": "qoe_did_not_improve",
+        "restored_policy": "static_baseline",
+        "carrier_mutated": false
+      },
+      "forbidden_actions": [
+        "disable_lawful_intercept",
+        "force_carrier_attach",
+        "inject_false_measurement_to_operator",
+        "mutate_live_ran_without_guardrail",
+        "override_operator_amf"
+      ],
+      "CARRIER_ACCEPTED": false,
+      "claim_boundary": "Advisory AI-RAN policy only; no unsafe carrier control.",
+      "token_candidate": "AI_RAN_DIGITAL_RUNTIME"
+    },
+    "service_continuity": {
+      "schema": "gunnchos.net_sec_rc001.service_continuity.v1",
+      "ok": true,
+      "paths": [
+        "local",
+        "lan",
+        "wifi",
+        "ethernet",
+        "cellular_rel16",
+        "ntn_sim",
+        "edge",
+        "cloud"
+      ],
+      "initial": "ethernet",
+      "events": [
+        {
+          "drop": "ethernet",
+          "to": "wifi"
+        },
+        {
+          "drop": "wifi+lan",
+          "to": "cellular_rel16"
+        },
+        {
+          "drop": "cellular_rel16",
+          "to": "edge",
+          "ntn_is_sim": true,
+          "five_ga_hardware": false
+        }
+      ],
+      "RM520N_GL_NTN": false,
+      "RM520N_GL_5GA": false,
+      "claim_boundary": "Multi-path continuity policy digital; cellular path is Rel-16 terrestrial sim; NTN path is simulation only.",
+      "token_candidate": "SERVICE_CONTINUITY_POLICY"
+    },
+    "app_qos_qoe": {
+      "schema": "gunnchos.net_sec_rc001.app_qos_qoe.v1",
+      "ok": true,
+      "apps": [
+        "waike",
+        "office",
+        "gunnchai",
+        "games",
+        "ring",
+        "builder",
+        "teacher"
+      ],
+      "matrix": [
+        {
+          "app": "waike",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "waike",
+          "path": "cellular_rel16",
+          "qoe_score": 0.77,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "waike",
+          "path": "ntn_sim",
+          "qoe_score": 0.5,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "waike",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "office",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "office",
+          "path": "cellular_rel16",
+          "qoe_score": 0.772,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "office",
+          "path": "ntn_sim",
+          "qoe_score": 0.51,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "office",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "gunnchai",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "ai_interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "gunnchai",
+          "path": "cellular_rel16",
+          "qoe_score": 0.764,
+          "qos_class": "ai_interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "gunnchai",
+          "path": "ntn_sim",
+          "qoe_score": 0.47,
+          "qos_class": "ai_interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "gunnchai",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "ai_interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "games",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "games",
+          "path": "cellular_rel16",
+          "qoe_score": 0.756,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "games",
+          "path": "ntn_sim",
+          "qoe_score": 0.43,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "games",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "ring",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "ring",
+          "path": "cellular_rel16",
+          "qoe_score": 0.76,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "ring",
+          "path": "ntn_sim",
+          "qoe_score": 0.45,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "ring",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "realtime",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "builder",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "builder",
+          "path": "cellular_rel16",
+          "qoe_score": 0.766,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "builder",
+          "path": "ntn_sim",
+          "qoe_score": 0.48,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "builder",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "teacher",
+          "path": "wifi",
+          "qoe_score": 0.88,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "teacher",
+          "path": "cellular_rel16",
+          "qoe_score": 0.768,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "teacher",
+          "path": "ntn_sim",
+          "qoe_score": 0.49,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        },
+        {
+          "app": "teacher",
+          "path": "local",
+          "qoe_score": 0.98,
+          "qos_class": "interactive",
+          "community_outcome_fabricated": false
+        }
+      ],
+      "claim_boundary": "Synthetic digital QoE effects only; no fabricated community outcomes.",
+      "token_candidate": "APP_QOS_QOE_DIGITAL"
+    },
+    "hostile_network": {
+      "schema": "gunnchos.net_sec_rc001.hostile_network_digital.v1",
+      "ok": true,
+      "scope": "LOCAL_LOOPBACK_SOCKET_TLS_DNS_POLICY",
+      "uncontrolled_external_attack": false,
+      "evidence_level": "E4_DIGITAL_LOCAL_RUNTIME",
+      "RF_WIFI": "E5_E8_EXTERNAL_PENDING",
+      "cases": [
+        {
+          "case_id": "HN-TLS-SOCKET-001",
+          "passed": true,
+          "evidence": {
+            "ok": true,
+            "bytes": 40,
+            "peer": "updates.gunnchos.local",
+            "loopback": true
+          }
+        },
+        {
+          "case_id": "HN-TLS-SOCKET-NEG-MISMATCH-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "tls_error",
+            "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:992)",
+            "loopback": true
+          }
+        },
+        {
+          "case_id": "HN-TLS-SOCKET-NEG-EXPIRED-001",
+          "passed": true,
+          "evidence": {
+            "expired_as_ca": {
+              "ok": false,
+              "reason": "tls_error",
+              "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:992)",
+              "loopback": true
+            },
+            "verify_with_valid_ca": {
+              "ok": false,
+              "reason": "tls_error",
+              "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate (_ssl.c:992)",
+              "loopback": true
+            }
+          }
+        },
+        {
+          "case_id": "HN-DNS-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "malicious_dns",
+            "hostname": "updates.gunnchos.local",
+            "resolved": "198.51.100.66",
+            "trusted": false
+          }
+        },
+        {
+          "case_id": "HN-TLS-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "untrusted_tls",
+            "credentials_sent": false
+          }
+        },
+        {
+          "case_id": "HN-TLS-002",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "hostname_mismatch",
+            "credentials_sent": false
+          }
+        },
+        {
+          "case_id": "HN-TLS-003",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "expired_cert",
+            "credentials_sent": false
+          }
+        },
+        {
+          "case_id": "HN-CAPTIVE-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "captive_portal",
+            "credentials_sent": false,
+            "portal": true
+          }
+        },
+        {
+          "case_id": "HN-HTTP-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "http_downgrade",
+            "credentials_sent": false,
+            "origin": {
+              "trusted": false,
+              "reason": "http_downgrade",
+              "hostname": "updates.gunnchos.local",
+              "scheme": "http"
+            }
+          }
+        },
+        {
+          "case_id": "HN-CRED-001",
+          "passed": true,
+          "evidence": {
+            "ok": false,
+            "reason": "untrusted_hostname",
+            "credentials_sent": false,
+            "origin": {
+              "trusted": false,
+              "reason": "untrusted_hostname",
+              "hostname": "evil.example"
+            }
+          }
+        },
+        {
+          "case_id": "HN-LINK-001",
+          "passed": true,
+          "evidence": {
+            "down": {
+              "ok": false,
+              "reason": "link_down",
+              "credentials_sent": false
+            },
+            "up": {
+              "ok": true,
+              "reason": "ok",
+              "credentials_sent": true,
+              "origin": {
+                "trusted": true,
+                "hostname": "api.gunnchos.local",
+                "scheme": "https"
+              }
+            }
+          }
+        },
+        {
+          "case_id": "HN-TLS-MATERIAL-001",
+          "passed": true,
+          "evidence": {
+            "mismatch_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/mismatch.crt",
+            "expired_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/expired.crt",
+            "valid_cert": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/netsec-hostile-tls-3sjuoy19/server.crt"
+          }
+        },
+        {
+          "case_id": "HN-COUPLE-REL16-CONTINUITY-001",
+          "passed": true,
+          "evidence": {
+            "dns": {
+              "ok": false,
+              "reason": "malicious_dns",
+              "hostname": "updates.gunnchos.local",
+              "resolved": "198.51.100.66",
+              "trusted": false
+            },
+            "modem_path_after": "wifi",
+            "continuity_selected": "wifi",
+            "cellular_rel16_disabled": true,
+            "rm520n_five_ga_claimed": false
+          }
+        }
+      ],
+      "credential_events": [
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "http://updates.gunnchos.local/pkg",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://evil.example/phish",
+          "credentials_sent": false,
+          "reason": "untrusted_origin"
+        },
+        {
+          "origin": "https://api.gunnchos.local/v1",
+          "credentials_sent": true
+        }
+      ],
+      "coupled_to": [
+        "terrestrial_rel16",
+        "service_continuity"
+      ],
+      "claim_boundary": "Local loopback socket/TLS/DNS/policy hostile-network testbed coupled to Rel-16 terrestrial + continuity failover. No uncontrolled external attack. RF/Wi-Fi E5/E8 EXTERNAL_PENDING.",
+      "token_candidate": "HOSTILE_NETWORK_DIGITAL"
+    },
+    "migration_6g": {
+      "schema": "gunnchos.net_sec_rc001.migration_6g.v1",
+      "ok": true,
+      "delta": {
+        "rel20_status": "STUDY_OR_NORMATIVE_IN_PROGRESS",
+        "rel21_status": "TRACKER_ONLY_TIMELINE_PUBLISHED",
+        "rel21_freeze_claimed": false,
+        "tpr_count": 20,
+        "official_value_pending_count": 20,
+        "STANDARDIZED_6G": false
+      },
+      "abstraction": {
+        "replaceable_wwan": true,
+        "software_defined_policy": true,
+        "future_ran_core_hooks": [
+          "radio_capability_provider",
+          "core_amf_stub",
+          "ntn_sim_adapter"
+        ],
+        "normative_6g_specs": "NOT_YET"
+      },
+      "product_wording": "Software-defined architecture engineered for 5G-Advanced and NTN-capable paths (NTN via simulation), IMT-2030-aligned, and engineered for migration to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA Sub-6 terrestrial only \u2014 not 5G-Advanced hardware and not NTN.",
+      "STANDARDIZED_6G": false,
+      "6G_CERTIFIED": false,
+      "GATE_8_PASS": false,
+      "token_candidates": [
+        "REL20_REL21_MIGRATION_TRACKER",
+        "IMT2030_MAPPING_COMPLETE_CURRENT_PUBLIC_DRAFT"
+      ]
+    },
+    "equitable_7gc": {
+      "schema": "gunnchos.net_sec_rc001.equitable_7gc.v1",
+      "ok": true,
+      "campuses": [
+        "campus_alpha",
+        "campus_beta",
+        "campus_gamma",
+        "campus_delta",
+        "campus_epsilon",
+        "campus_zeta",
+        "campus_eta"
+      ],
+      "scenarios": [
+        {
+          "campus": "campus_alpha",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.55,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        },
+        {
+          "campus": "campus_beta",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.58,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        },
+        {
+          "campus": "campus_gamma",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.61,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        },
+        {
+          "campus": "campus_delta",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.64,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        },
+        {
+          "campus": "campus_epsilon",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.67,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        },
+        {
+          "campus": "campus_zeta",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.7,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        },
+        {
+          "campus": "campus_eta",
+          "scenario": "affordable_edge_continuity",
+          "paths_considered": [
+            "wifi",
+            "cellular_rel16",
+            "ntn_sim",
+            "local"
+          ],
+          "metric_availability": "SYNTHETIC_LAB_ONLY",
+          "coverage_fraction_measured": null,
+          "coverage_fraction_status": "NOT_MEASURED_FIELD",
+          "worst_user_qoe_lab": 0.73,
+          "community_outcome_fabricated": false,
+          "note": "Lab-synthetic continuity score only; no claimed campus population outcome."
+        }
+      ],
+      "claim_boundary": "Honest metrics only; no fabricated community outcomes."
+    },
+    "imt2030_eval": {
+      "schema": "gunnchos.net_sec_rc001.imt2030_eval_harness.v1",
+      "ok": true,
+      "IMT2030_PASS": null,
+      "global_imt2030_pass_forbidden": true,
+      "per_requirement": [
+        {
+          "id": "TPR-01",
+          "name": "peak_data_rate",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-02",
+          "name": "user_experienced_data_rate",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-03",
+          "name": "peak_spectral_efficiency",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-04",
+          "name": "average_spectral_efficiency",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-05",
+          "name": "fifth_percentile_user_spectral_efficiency",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-06",
+          "name": "area_traffic_capacity",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-07",
+          "name": "connection_density",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-08",
+          "name": "mobility",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-09",
+          "name": "mobility_interruption_time",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-10",
+          "name": "user_plane_latency",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-11",
+          "name": "control_plane_latency",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-12",
+          "name": "reliability",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-13",
+          "name": "bandwidth",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-14",
+          "name": "energy_efficiency",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-15",
+          "name": "composite_requirements",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-16",
+          "name": "positioning_accuracy",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-17",
+          "name": "sensing_related_requirements",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-18",
+          "name": "ai_related_requirements",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-19",
+          "name": "resilience_and_extended_connectivity",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        },
+        {
+          "id": "TPR-20",
+          "name": "link_distance",
+          "evaluation_method": "OFFICIAL_ASSIGNMENT_PENDING",
+          "evidence_state": "STANDARD_PENDING",
+          "official_value": "OFFICIAL_VALUE_PENDING"
+        }
+      ],
+      "environments": [
+        {
+          "id": "IndoorHotspot-IC",
+          "usage_scenarios": [
+            "IC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        },
+        {
+          "id": "DenseUrban-IC",
+          "usage_scenarios": [
+            "IC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        },
+        {
+          "id": "Rural-IC",
+          "usage_scenarios": [
+            "IC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        },
+        {
+          "id": "UrbanMacro-MC",
+          "usage_scenarios": [
+            "MC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        },
+        {
+          "id": "IndoorFactory-HRLLC",
+          "usage_scenarios": [
+            "HRLLC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        },
+        {
+          "id": "IndoorFactory-ISAC",
+          "usage_scenarios": [
+            "ISAC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        },
+        {
+          "id": "UrbanMacro-ISAC",
+          "usage_scenarios": [
+            "ISAC"
+          ],
+          "params_status": "OFFICIAL_PARAMS_PENDING",
+          "evidence_state": "NOT_YET_EVALUATABLE"
+        }
+      ],
+      "methods": [
+        "SIMULATION",
+        "ANALYTICAL",
+        "INSPECTION"
+      ],
+      "scenarios": [
+        "IC",
+        "HRLLC",
+        "MC",
+        "UC",
+        "AIAC",
+        "ISAC"
+      ],
+      "IndoorFactory_HRLLC_present": true,
+      "IndoorFactory_ISAC_present": true,
+      "UrbanMacro_ISAC_present": true,
+      "claim_boundary": "Per-requirement evidence only; no global IMT2030_PASS.",
+      "token_candidate": "IMT2030_EVAL_HARNESS_CURRENT_DRAFT"
+    }
+  },
+  "r6g": {
+    "ok": true,
+    "breakthroughs_registered": 20,
+    "active_packet_status": {
+      "R6G-001": {
+        "status": "COMPLETE_DIGITAL_REGISTRY",
+        "ok": true
+      },
+      "R6G-003": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true,
+        "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true
+      },
+      "R6G-005": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true,
+        "HYPOTHESIS_SUPPORTED_DIGITALLY": true
+      },
+      "R6G-009": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true,
+        "HYPOTHESIS_SUPPORTED_DIGITALLY": true
+      },
+      "R6G-002": {
+        "status": "DIGITALLY_EXECUTED",
+        "ok": true
+      }
+    },
+    "registered_not_active": [
+      "R6G-004",
+      "R6G-006",
+      "R6G-007",
+      "R6G-008",
+      "R6G-010",
+      "R6G-011"
+    ],
+    "tokens": {
+      "R6G_REGISTRY_COMPLETE": true,
+      "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+      "AI_PHY_UNCERTAINTY_AWARE_DIGITAL": true,
+      "PREDICTIVE_RADIO_DT_DIGITAL": true,
+      "HYBRID_SPECTRUM_FABRIC_DIGITAL": true,
+      "SEMANTIC_CONTINUITY_NTN_EDU_DIGITAL": true,
+      "IMPROVED_STATE_OF_ART": false,
+      "6G_BREAKTHROUGH_PASS": null,
+      "PHYSICAL_REPRODUCTION_PENDING": true,
+      "COMPARABLE_EVIDENCE_PENDING": true
+    },
+    "digital_improvements_observed": {
+      "R6G-003": true,
+      "R6G-005": true,
+      "R6G-009": true
+    },
+    "independent_improvements_verified": false,
+    "physical_pending": true,
+    "product_candidates": [
+      {
+        "id": "semantic_ntn_education_mode",
+        "gate": "RESEARCH_ONLY"
+      },
+      {
+        "id": "uncertainty_aware_ai_csf_digital",
+        "gate": "CANDIDATE_DIGITAL"
+      },
+      {
+        "id": "predictive_radio_dt_policy",
+        "gate": "CANDIDATE_DIGITAL"
+      },
+      {
+        "id": "hybrid_spectrum_fabric_policy",
+        "gate": "CANDIDATE_DIGITAL"
+      }
+    ],
+    "negative_or_no_gain_notes": [
+      "AI_CSF without uncertainty can catastrophically degrade under adversarial/shift stresses",
+      "Peak-only THz links can score worse on Useful Connectivity Score than lower-rate high-availability paths",
+      "FULL_CONTENT_TRANSFER fails hardest under long NTN outage vs LEARNING_STATE_DELTA",
+      "R6G-003: vision spoof + over-trust fusion \u2192 multimodal RMSE worse than RF-only",
+      "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
+      "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics"
+    ],
+    "documented_negative_experiments": {
+      "R6G-003": [
+        {
+          "experiment": "neg_vision_spoof_overtrust",
+          "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+          "delta_m": 2.3556,
+          "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        },
+        {
+          "experiment": "neg_vision_spoof_seed202",
+          "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+          "delta_m": 4.3951,
+          "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+        }
+      ],
+      "R6G-005": [
+        {
+          "experiment": "in_distribution_throughput",
+          "result": "NO_GAIN_VS_CONVENTIONAL",
+          "aware_throughput_norm": 0.805,
+          "conventional_throughput_norm": 0.8541,
+          "reason": "Uncertainty-aware compressor does not guarantee throughput beat on IID CSI"
+        },
+        {
+          "experiment": "noisy_csi_failure_rate",
+          "result": "NO_GAIN_OR_NEAR_PARITY_VS_CONVENTIONAL",
+          "aware_failure_rate": 0.0104,
+          "conventional_failure_rate": 0.0083,
+          "reason": "Fallback-heavy regime approaches conventional CSI; not an OTA SoA claim"
+        },
+        {
+          "experiment": "adversarial_csi_naive_ai",
+          "result": "NAIVE_AI_CSF_DEGRADES",
+          "naive_failure_rate": 0.5354,
+          "conventional_failure_rate": 0.0088,
+          "reason": "Hardcoded-shift-free: adversarial CSI inflates reconstruction MSE for always-trust AI"
+        }
+      ],
+      "R6G-009": [
+        {
+          "experiment": "smooth_sine_delay_100ms",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "predictive_regret": 0.2123,
+          "current_regret": 0.1179,
+          "reason": "Long-horizon kinematic extrapolation overshoots; predictive is not always-win"
+        },
+        {
+          "experiment": "jump_burst_delay_10ms",
+          "result": "NO_GAIN_OR_NEGATIVE_VS_CURRENT",
+          "predictive_regret": 0.0785,
+          "current_regret": 0.04,
+          "reason": "Predictor misspecified under jump/burst channel dynamics"
+        }
+      ]
+    },
+    "falsifiability": {
+      "R6G-003": true,
+      "R6G-005": true,
+      "R6G-009": true
+    },
+    "naked_numeric_headline_count": 0
+  },
+  "owners": {
+    "primary": "gunnchos-7gc-ai-ran-field-kit",
+    "supporting": [
+      "gunnchos-device-os (5G-A/eSIM surfaces; Product-Use QEMU active \u2014 not disturbed)",
+      "ntn-resilience-sim",
+      "spectrumx-ai-ran-gary",
+      "gunnchos-6g-security-trust-privacy-lab",
+      "7gc-digital-twin",
+      "edge-io-measurement-node"
+    ]
+  },
+  "standards_versions": {
+    "ITU-R_M.2160": "APPROVED",
+    "IMT-2030.TECH_PERF_REQ": "WP5D draft Feb 2026 / Doc 5/116 \u2192 SG5 Dec 2026",
+    "IMT-2030.EVAL": "WP5D draft Jun 2026 / Doc 5/119 \u2192 SG5 Dec 2026",
+    "3GPP_Rel-20": "5G-Advanced + 6G studies (in progress)",
+    "3GPP_Rel-21": "TRACKER_ONLY timeline published TSGs#112 Jun 2026",
+    "GSMA_SGP.22": "v2.7 (2026-04-24)",
+    "GSMA_Open_Gateway_CAMARA": "public API catalog; REAL_OPERATOR EXTERNAL_PENDING"
+  },
+  "OPEN": [
+    "5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false \u2014 Rel-16 RM520N digital \u2260 5G-Advanced; need distinct Rel-18+/5GA software surface to earn",
+    "CARRIER attach / operator acceptance EXTERNAL_PENDING",
+    "SM-DP+ / real eSIM profile download EXTERNAL_PENDING",
+    "Official ITU TPR numeric values OFFICIAL_VALUE_PENDING (Doc 5/116 TIES / SG5 Dec 2026)",
+    "Official per-requirement evaluation-method assignment OFFICIAL_ASSIGNMENT_PENDING",
+    "Test-environment parameter tables OFFICIAL_PARAMS_PENDING",
+    "Large ns-3/Sionna/DeepMIMO sweeps DEFERRED (resource rule)",
+    "Large twin renders / multi-hour RF sims / extra QEMU DEFERRED",
+    "REAL_NTN_MODEM_VALIDATED remains false",
+    "GATE_8_PASS / STANDARDIZED_6G remain false",
+    "IMPROVED_STATE_OF_ART remains false \u2014 physical SoA not claimed",
+    "R6G atlas DOI/PDF pins PENDING for many baselines",
+    "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural)",
+    "R5 independent digital improvement verification not claimed",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+    "Field 7GC community outcomes not fabricated \u2014 field measurement OPEN",
+    "RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING",
+    "DOI/PDF pins for many atlas baselines still PENDING",
+    "DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural only)",
+    "Independent digital improvement verification (R5) not claimed this cycle",
+    "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
+    "IMPROVED_STATE_OF_ART remains false",
+    "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred",
+    "R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE",
+    "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
+    "MULTIMODAL/AI_PHY/PREDICTIVE tokens require falsifiable negatives to re-earn (no tautological multipliers)"
+  ],
+  "deferred_heavy_work": [
+    "ns-3 / Sionna / DeepMIMO campaign sweeps",
+    "multi-hour RF / NTN / THz physical campaigns",
+    "large digital-twin renders",
+    "extra QEMU guests (Product-Use likely active)",
+    "large model downloads for AI-RAN",
+    "long soak / carrier lab attaches",
+    "distinct Rel-18+/5GA terrestrial digital runtime (not RM520N Rel-16)",
+    "ns-3 / Sionna / DeepMIMO campaign sweeps",
+    "multi-hour RF / THz physical campaigns",
+    "extra QEMU",
+    "large twin cinematic renders"
+  ],
+  "mock": false
+}

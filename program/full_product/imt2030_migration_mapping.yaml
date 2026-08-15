@@ -1,14 +1,33 @@
-schema_version: 1.1.0
-updated_at_utc: '2026-08-13T14:00:00Z'
+schema_version: 1.2.0
+updated_at_utc: '2026-08-14T19:40:00Z'
 STANDARDIZED_6G: false
 CARRIER_ACCEPTED: false
 GATE_8_PASS: false
+product_wording: >
+  Software-defined architecture engineered for 5G-Advanced and NTN-capable
+  paths (NTN via simulation), IMT-2030-aligned, and engineered for migration
+  to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA
+  Sub-6 terrestrial only — not 5G-Advanced hardware and not NTN.
 rel20_status: STUDY_OR_NORMATIVE_IN_PROGRESS
-rel21_status: TRACKER_ONLY
+rel21_status: TRACKER_ONLY_TIMELINE_PUBLISHED
+machine_readable:
+  - standards/imt2030/framework.json
+  - standards/imt2030/technical_performance_requirements.json
+  - standards/imt2030/evaluation_methods.json
+  - standards/imt2030/test_environments.json
+  - standards/imt2030/usage_scenarios.json
+  - standards/3gpp/release_tracker.json
+evidence_states_allowed:
+  - REQUIREMENT_EVALUATED
+  - NOT_YET_EVALUATABLE
+  - STANDARD_PENDING
+global_imt2030_pass_forbidden: true
 claim_boundary: >
   Executable mapping of IMT-2030 usage scenarios onto replaceable WWAN/OS
   software paths. Rel-20 is 5G-Advanced + early 6G studies. Rel-21 is
-  TRACKER_ONLY. No standardized 6G, no carrier acceptance, no RM520N-GL NTN.
+  TRACKER_ONLY with a public timeline (not a freeze). No standardized 6G,
+  no carrier acceptance, no RM520N-GL NTN. Official TPR numbers remain
+  OFFICIAL_VALUE_PENDING pending SG5 / unrestricted publication.
 scenarios:
   immersive_communication:
     product_relevance: software_path_mapped_pending_normative_specs

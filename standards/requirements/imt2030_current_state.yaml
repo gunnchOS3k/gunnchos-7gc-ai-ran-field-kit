@@ -1,43 +1,61 @@
-schema_version: "1.0.0"
-as_of: "2026-08-07"
-updated_at_utc: "2026-08-08T00:10:00Z"
+schema_version: "1.1.0"
+as_of: "2026-08-14"
+updated_at_utc: "2026-08-14T19:40:00Z"
+product_wording: >
+  Software-defined architecture engineered for 5G-Advanced and NTN-capable
+  paths (NTN via simulation), IMT-2030-aligned, and engineered for migration
+  to standardized 6G; Quectel RM520N-GL digital baseline is Rel-16 NSA+SA
+  Sub-6 terrestrial only — not 5G-Advanced hardware and not NTN.
 live_tracker:
   itu_r_wp5d:
     imt2030_technical_performance_requirements:
       status: DRAFT_COMPLETE
       completed: "2026-02"
+      document: "5/116"
       approval: Pending ITU-R Study Group 5 approval expected 2026-12
+      public_count: 20
+      official_values: OFFICIAL_VALUE_PENDING
     imt2030_evaluation_guidelines:
       status: DRAFT_COMPLETE
       completed: "2026-06"
+      document: "5/119"
       approval: Pending ITU-R Study Group 5 approval expected 2026-12
+      methods: [SIMULATION, ANALYTICAL, INSPECTION]
+      environments_named_public: 7
     refs:
-      - https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/pages/default.aspx
-      - https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/pages/imt.aspx
+      - https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/Pages/default.aspx
+      - https://www.itu.int/hub/2026/03/imt-2030-technical-requirements-for-the-6g-future/
   3gpp:
     release_20:
       contains:
         - 5G-Advanced work
         - early 6G studies
-      role: study phase for 6G
+      role: study phase for 6G + 5G-Advanced normative progression
       ref: https://www.3gpp.org/specifications-technologies/releases/release-20
     release_21:
-      role: planned normative 6G phase
-      status: TRACKER_ONLY
+      role: planned first normative 6G phase + continued 5G-Advanced
+      status: TRACKER_ONLY_TIMELINE_PUBLISHED
       freeze_claimed: false
-      snapshot: source_snapshots/3gpp-rel21-2026-08-13.md
+      timeline_agreed: "2026-06 TSGs#112"
+      snapshot: source_snapshots/3gpp-rel21-2026-08-14.md
       claim_language_allowed: tracker only; never 6G certified
-    news_ref: https://www.3gpp.org/news-events/3gpp-news/sa1-6g-road
+    news_ref: https://www.3gpp.org/news-events/3gpp-news/rel21-timeline
+  gsma:
+    sgp22: {version: "2.7", date: "2026-04-24", sm_dp_plus: EXTERNAL_PENDING}
+    open_gateway_camara: {real_operator: EXTERNAL_PENDING}
   honest_tokens:
     STANDARDIZED_6G: false
+    6G_CERTIFIED: false
     CARRIER_ACCEPTED: false
+    REAL_NTN_MODEM_VALIDATED: false
     GATE_8_PASS: false
     RM520N_GL_NTN: false
     RM520N_GL_6G: false
   product_claims_policy:
     allowed:
       - IMT-2030 aligned
-      - 6G migration ready
+      - 5G-Advanced and NTN-capable (architecture / sim)
+      - engineered for migration to standardized 6G
       - Rel-20 study mapped
       - Rel-21 tracker
       - evaluation harness
@@ -47,22 +65,23 @@ live_tracker:
       - 6G certified
       - carrier-approved 6G
       - GATE_8_PASS
+      - IMT2030_PASS global token
 requirements:
   - id: IMT2030-FRAMEWORK-M2160
     source: ITU-IMT-2030
     document: ITU-R M.2160
     status: APPROVED
     category: framework
-    claim_language_allowed: "standards mapping current as of 2026-08-07"
+    claim_language_allowed: "standards mapping current as of 2026-08-14"
   - id: IMT2030-TPR-DRAFT
     source: ITU-IMT-2030
-    document: Draft minimum TPRs (WP5D Feb 2026)
+    document: Draft minimum TPRs (WP5D Feb 2026 / Doc 5/116)
     status: DRAFT
     category: performance
-    gap: pending SG5 Dec 2026 — cannot claim compliance
+    gap: pending SG5 Dec 2026 — OFFICIAL_VALUE_PENDING — cannot claim compliance
   - id: IMT2030-EVAL-DRAFT
     source: ITU-IMT-2030
-    document: Draft evaluation guidelines (WP5D June 2026)
+    document: Draft evaluation guidelines (WP5D June 2026 / Doc 5/119)
     status: DRAFT
     category: evaluation
     gap: pending SG5 Dec 2026
@@ -79,10 +98,16 @@ requirements:
     claim_language_allowed: study-phase mapping; never 6G certified
   - id: 3GPP-R21-TRACKER
     source: 3GPP-REL21
-    document: Rel-21 planned normative 6G (tracker only)
+    document: Rel-21 planned normative 6G (tracker + public timeline)
     status: TRACKER_ONLY
     category: 6G-normative-planned
     claim_language_allowed: tracker only; never 6G certified; freeze_claimed=false
+  - id: GSMA-SGP22-V27
+    source: GSMA-SGP22-V27
+    document: SGP.22 v2.7
+    status: PUBLISHED
+    category: esim
+    gap: SM-DP+ / carrier credentials EXTERNAL_PENDING
 usage_scenarios_mapping_required:
   - immersive_communication
   - hyper_reliable_low_latency_communication
@@ -90,4 +115,11 @@ usage_scenarios_mapping_required:
   - ubiquitous_connectivity
   - ai_and_communication
   - integrated_sensing_and_communication
+machine_readable:
+  - standards/imt2030/framework.json
+  - standards/imt2030/technical_performance_requirements.json
+  - standards/imt2030/evaluation_methods.json
+  - standards/imt2030/test_environments.json
+  - standards/imt2030/usage_scenarios.json
+  - standards/3gpp/release_tracker.json
 mapping_file: program/full_product/imt2030_migration_mapping.yaml

@@ -1,0 +1,192 @@
+{
+  "schema": "gunnchos.r6g.r6g003.v1",
+  "packet": "R6G-003",
+  "ok": true,
+  "status": "DIGITALLY_EXECUTED",
+  "model": "seeded_digital_channel_sensing_fusion_v2",
+  "falsifiable": true,
+  "fr3_baseline": {
+    "bands_ghz": [
+      6.75,
+      16.95
+    ],
+    "model": "structural_pathloss_plus_shadowing",
+    "pathloss_db_at_100m": {
+      "6.75": 98.5,
+      "16.95": 108.2
+    },
+    "evidence_rung": "R1_MODEL_IMPLEMENTED",
+    "EXACT_REPRODUCTION_NOT_POSSIBLE": true,
+    "reason": "NYU measurement traces not fully public in-repo"
+  },
+  "rf_only_digital_baseline": {
+    "position_RMSE_m": 0.4662,
+    "note": "Measured digital RF-only estimator \u2014 NOT claimed matched to NYU physical ~0.2 m",
+    "DIGITAL_REPRODUCTION_MATCHED": false,
+    "COMPARABLE_EVIDENCE_PENDING": true,
+    "published_target_m": 0.2
+  },
+  "modality_matrix": {
+    "RF_ONLY": {
+      "position_RMSE": 0.4662,
+      "orientation_RMSE": 6.4149,
+      "beam_selection_accuracy": 0.7868,
+      "handover_failure": 0.1165,
+      "blockage_prediction_horizon_s": 1.3338,
+      "latency_ms": 10.932,
+      "energy_j": 1.05,
+      "privacy_exposure": 0.15
+    },
+    "RF_DEVICE_IMU": {
+      "position_RMSE": 0.2924,
+      "orientation_RMSE": 5.6635,
+      "beam_selection_accuracy": 0.8477,
+      "handover_failure": 0.0731,
+      "blockage_prediction_horizon_s": 1.5076,
+      "latency_ms": 10.585,
+      "energy_j": 1.05,
+      "privacy_exposure": 0.15
+    },
+    "RF_RING_UWB_IMU": {
+      "position_RMSE": 0.1798,
+      "orientation_RMSE": 4.8053,
+      "beam_selection_accuracy": 0.8871,
+      "handover_failure": 0.045,
+      "blockage_prediction_horizon_s": 1.6202,
+      "latency_ms": 10.36,
+      "energy_j": 1.05,
+      "privacy_exposure": 0.15
+    },
+    "RF_VISION": {
+      "position_RMSE": 0.3296,
+      "orientation_RMSE": 5.5263,
+      "beam_selection_accuracy": 0.8346,
+      "handover_failure": 0.0824,
+      "blockage_prediction_horizon_s": 1.4704,
+      "latency_ms": 14.659,
+      "energy_j": 1.25,
+      "privacy_exposure": 0.4
+    },
+    "RF_ALL_MODALITIES": {
+      "position_RMSE": 0.1716,
+      "orientation_RMSE": 4.5428,
+      "beam_selection_accuracy": 0.8899,
+      "handover_failure": 0.0429,
+      "blockage_prediction_horizon_s": 1.6284,
+      "latency_ms": 14.343,
+      "energy_j": 1.25,
+      "privacy_exposure": 0.4
+    }
+  },
+  "primary_suite": [
+    {
+      "config_id": "primary_cooperative_s7",
+      "seed": 7,
+      "all_multimodal_beat_rf": true,
+      "rf_all_vs_rf_only_delta_m": -0.2946,
+      "RF_ONLY_RMSE": 0.4662,
+      "RF_ALL_RMSE": 0.1716
+    },
+    {
+      "config_id": "primary_cooperative_s11",
+      "seed": 11,
+      "all_multimodal_beat_rf": true,
+      "rf_all_vs_rf_only_delta_m": -0.3885,
+      "RF_ONLY_RMSE": 0.5408,
+      "RF_ALL_RMSE": 0.1523
+    },
+    {
+      "config_id": "primary_cooperative_s19",
+      "seed": 19,
+      "all_multimodal_beat_rf": true,
+      "rf_all_vs_rf_only_delta_m": -0.127,
+      "RF_ONLY_RMSE": 0.5277,
+      "RF_ALL_RMSE": 0.4007
+    }
+  ],
+  "negative_suite": [
+    {
+      "config_id": "neg_vision_spoof_overtrust",
+      "seed": 101,
+      "adversarial": true,
+      "rf_all_vs_rf_only_delta_m": 2.3556,
+      "RF_ONLY_RMSE": 0.3368,
+      "RF_ALL_RMSE": 2.6924,
+      "multimodal_failed_to_beat_rf": true
+    },
+    {
+      "config_id": "neg_vision_spoof_seed202",
+      "seed": 202,
+      "adversarial": true,
+      "rf_all_vs_rf_only_delta_m": 4.3951,
+      "RF_ONLY_RMSE": 0.2716,
+      "RF_ALL_RMSE": 4.6667,
+      "multimodal_failed_to_beat_rf": true
+    }
+  ],
+  "documented_negative_or_no_gain": [
+    {
+      "experiment": "neg_vision_spoof_overtrust",
+      "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+      "delta_m": 2.3556,
+      "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+    },
+    {
+      "experiment": "neg_vision_spoof_seed202",
+      "result": "MULTIMODAL_WORSE_THAN_RF_ONLY",
+      "delta_m": 4.3951,
+      "reason": "Vision spoof + over-trust fusion weights pull estimate off true track"
+    }
+  ],
+  "tn_ntn": {
+    "pipeline": [
+      "detect",
+      "estimate_interferer_direction",
+      "null"
+    ],
+    "satellite_direction_uncertainty_deg": 4.0,
+    "null_depth_db_structural": 18.0,
+    "array_elements_assumed": 64,
+    "note": "STRUCTURAL; massive-array requirements may exceed product antennas",
+    "evidence_rung": "R1_MODEL_IMPLEMENTED",
+    "PHYSICAL_REPRODUCTION_PENDING": true
+  },
+  "MULTIMODAL_ISAC_DIGITAL_IMPROVEMENT": true,
+  "primary_improvement_observed": true,
+  "negative_cases_observed": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "claims": [
+    "SIMULATION_IMPROVEMENT_OBSERVED",
+    "PHYSICAL_REPRODUCTION_PENDING",
+    "COMPARABLE_EVIDENCE_PENDING",
+    "FALSIFIABLE_NEGATIVE_CASES_DOCUMENTED"
+  ],
+  "useful_connectivity_score": {
+    "metric": "UsefulConnectivityScore",
+    "classification": "GUNNCHOS_PROPOSED_METRIC",
+    "NOT_ITU_METRIC": true,
+    "NOT_3GPP_METRIC": true,
+    "NOT_STANDARDIZED_METRIC": true,
+    "components": {
+      "R": 0.55,
+      "D": 0.7,
+      "A": 0.8,
+      "Q": 0.75,
+      "P": 1.2,
+      "C": 1.0
+    },
+    "score": 0.1925,
+    "note": "Exploratory; use alongside standard metrics, never instead."
+  },
+  "security_privacy_scorecard": {
+    "performance": "SCORED",
+    "energy": "SCORED",
+    "reliability": "SCORED",
+    "privacy": "SCORED",
+    "security": "GATED",
+    "model_integrity": "GATED",
+    "sensor_consent": "REQUIRED_FOR_VISION_RING",
+    "adversarial_robustness": "PARTIAL_DIGITAL"
+  }
+}

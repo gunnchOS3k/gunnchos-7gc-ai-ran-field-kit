@@ -1,0 +1,25 @@
+# OPEN
+
+- 5GA_TERRESTRIAL_DIGITAL_RUNTIME remains false — Rel-16 RM520N digital ≠ 5G-Advanced; need distinct Rel-18+/5GA software surface to earn
+- CARRIER attach / operator acceptance EXTERNAL_PENDING
+- SM-DP+ / real eSIM profile download EXTERNAL_PENDING
+- Official ITU TPR numeric values OFFICIAL_VALUE_PENDING (Doc 5/116 TIES / SG5 Dec 2026)
+- Official per-requirement evaluation-method assignment OFFICIAL_ASSIGNMENT_PENDING
+- Test-environment parameter tables OFFICIAL_PARAMS_PENDING
+- Large ns-3/Sionna/DeepMIMO sweeps DEFERRED (resource rule)
+- Large twin renders / multi-hour RF sims / extra QEMU DEFERRED
+- REAL_NTN_MODEM_VALIDATED remains false
+- GATE_8_PASS / STANDARDIZED_6G remain false
+- IMPROVED_STATE_OF_ART remains false — physical SoA not claimed
+- R6G atlas DOI/PDF pins PENDING for many baselines
+- DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural)
+- R5 independent digital improvement verification not claimed
+- R6G-004/006/007/008/010/011 REGISTERED_NOT_ACTIVE
+- Field 7GC community outcomes not fabricated — field measurement OPEN
+- RF/Wi-Fi hostile physical E5/E8 EXTERNAL_PENDING
+- DOI/PDF pins for many atlas baselines still PENDING
+- DIGITAL_REPRODUCTION_MATCHED to published physical values generally false (structural only)
+- Independent digital improvement verification (R5) not claimed this cycle
+- Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING
+- IMPROVED_STATE_OF_ART remains false
+- Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred

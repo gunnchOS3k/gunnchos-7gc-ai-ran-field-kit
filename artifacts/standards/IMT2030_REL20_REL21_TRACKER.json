@@ -1,0 +1,90 @@
+{
+  "schema": "gunnchos.field_kit.imt2030_rel20_rel21_tracker.v1",
+  "ok": true,
+  "exit_state": "DIGITALLY_VALIDATED",
+  "STANDARDIZED_6G": false,
+  "CARRIER_ACCEPTED": false,
+  "GATE_8_PASS": false,
+  "rel20": {
+    "status": "STUDY_OR_NORMATIVE_IN_PROGRESS",
+    "role": "5G-Advanced + early 6G studies",
+    "snapshot": "3gpp-rel20-2026-08-14.md"
+  },
+  "rel21": {
+    "status": "TRACKER_ONLY",
+    "role": "planned normative 6G phase",
+    "snapshot": "3gpp-rel21-2026-08-14.md",
+    "freeze_claimed": false
+  },
+  "usage_scenarios": {
+    "immersive_communication": {
+      "mapped": true,
+      "os_dependency": "connectivity_orchestrator",
+      "future_conformance_method": "pending_normative_specs",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false
+    },
+    "hyper_reliable_low_latency_communication": {
+      "mapped": true,
+      "os_dependency": "connectivity_orchestrator",
+      "future_conformance_method": "pending_normative_specs",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false
+    },
+    "massive_communication": {
+      "mapped": true,
+      "os_dependency": "connectivity_orchestrator",
+      "future_conformance_method": "pending_normative_specs",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false
+    },
+    "ubiquitous_connectivity": {
+      "mapped": true,
+      "os_dependency": "connectivity_orchestrator",
+      "future_conformance_method": "pending_normative_specs",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false
+    },
+    "ai_and_communication": {
+      "mapped": true,
+      "os_dependency": "connectivity_orchestrator",
+      "future_conformance_method": "pending_normative_specs",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false
+    },
+    "integrated_sensing_and_communication": {
+      "mapped": true,
+      "os_dependency": "connectivity_orchestrator",
+      "future_conformance_method": "pending_normative_specs",
+      "STANDARDIZED_6G": false,
+      "CARRIER_ACCEPTED": false
+    }
+  },
+  "checks": {
+    "snapshots_present": true,
+    "tracker_yaml_present": true,
+    "mapping_yaml_present": true,
+    "sources_yaml_present": true,
+    "release_tracker_json_present": true,
+    "imt2030_machine_json_present": true,
+    "rel20_mentions_5g_advanced": true,
+    "rel20_mentions_early_6g_studies": true,
+    "rel21_tracker_only": true,
+    "rel21_forbids_compliance": true,
+    "itu_m2160_approved": true,
+    "STANDARDIZED_6G_false": true,
+    "CARRIER_ACCEPTED_false": true,
+    "GATE_8_PASS_false": true
+  },
+  "missing_snapshots": [],
+  "missing_imt2030_json": [],
+  "resolved_snapshots": [
+    "itu-imt-2030-2026-08-14.md",
+    "3gpp-rel20-2026-08-14.md",
+    "3gpp-rel21-2026-08-14.md"
+  ],
+  "rm520n_ntn_claimed": false,
+  "rm520n_6g_claimed": false,
+  "claim_boundary": "Pinned-standards tracker only. Rel-20 is 5G-Advanced + early 6G studies. Rel-21 is TRACKER_ONLY with a published timeline (not a freeze). No standardized 6G, no carrier acceptance, no IMT-2030 compliance claim. RM520N-GL is not NTN and not 6G.",
+  "mock": false
+}
