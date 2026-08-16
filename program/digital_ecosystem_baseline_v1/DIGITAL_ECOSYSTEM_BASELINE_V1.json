@@ -1,0 +1,120 @@
+{
+  "schema": "gunnchos.digital_ecosystem_baseline.v1",
+  "audit_id": "GUNNCHOS_DIGITAL_ECOSYSTEM_BASELINE_V1",
+  "generated_at_utc": "2026-08-16T16:15:56Z",
+  "phase": "PHASE_0_LIVE_ACCEPTED_MAIN_CONVERGENCE",
+  "CURSOR_NEVER_MERGES": true,
+  "merge_authority": "Edmund sole",
+  "default_branch_policy": "main only",
+  "WIP_CAP": 3,
+  "accepted_main_shas_path": "ACCEPTED_MAIN_SHAS.json",
+  "completion_ledger_path": "COMPLETION_LEDGER.json",
+  "blocker_ledger_path": "BLOCKER_LEDGER.json",
+  "front_progress_path": "FRONT_PROGRESS.json",
+  "open_pr_disposition_path": "OPEN_PR_DISPOSITION.json",
+  "claim_matrix_path": "CLAIM_MATRIX.json",
+  "dependency_graph_path": "DEPENDENCY_GRAPH.json",
+  "cross_repo_api_contracts_path": "CROSS_REPO_API_CONTRACTS.json",
+  "reproduce_path": "REPRODUCE.md",
+  "overall": {
+    "atoms": 569,
+    "PASS": 35,
+    "DIGITAL_OPEN": 483,
+    "HUMAN_PENDING": 12,
+    "PHYSICAL_PENDING": 19,
+    "EXTERNAL_PENDING": 18,
+    "STANDARD_PENDING": 2,
+    "digital_controllable": 518,
+    "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 6.76
+  },
+  "merged_recent_work": {
+    "product_use_116": {
+      "state": "MERGED",
+      "sha": "a1e11efcb502ce053d755a2539c26d252e216226",
+      "at": "2026-08-15T20:36:27Z"
+    },
+    "gunnchai_36": {
+      "state": "MERGED",
+      "sha": "c429750ff83b2a5344a6e1f40f5c7d27a863bf4d",
+      "at": "2026-08-15T20:36:15Z"
+    },
+    "gunnchai_38": {
+      "state": "MERGED",
+      "sha": "2eb24aeb1cc22f129deb57482e1c27105bcd1703",
+      "at": "2026-08-15T20:25:22Z"
+    },
+    "waike_48": {
+      "state": "MERGED",
+      "sha": "7a0d4fe3d0f3da39d105ef21a97d1fd1d792c997",
+      "at": "2026-08-15T20:23:05Z"
+    },
+    "field_kit_80": {
+      "state": "MERGED",
+      "sha": "d1b330a11564120416cde745ff298453bafa27f0",
+      "at": "2026-08-15T19:30:33Z"
+    },
+    "field_kit_79": {
+      "state": "MERGED",
+      "sha": "0b60c60c4469fcd72cdb36b3b64d525962fc4b62",
+      "at": "2026-08-15T18:25:19Z"
+    },
+    "device_os_115": {
+      "state": "MERGED",
+      "sha": "1b86720bbd6484eabba0500962e9461e12c4a620",
+      "at": "2026-08-14T03:12:40Z"
+    },
+    "anime_76": {
+      "state": "MERGED",
+      "sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
+      "at": "2026-08-14T22:48:10Z"
+    },
+    "pedestrian_17": {
+      "state": "MERGED",
+      "sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3",
+      "at": "2026-08-14T22:48:47Z"
+    },
+    "archive_30": {
+      "state": "MERGED",
+      "sha": "74f5761cdc47fdb7de34ff93b402fac311bf2e47",
+      "note": "GAME-RC-004"
+    },
+    "beatlink_21": {
+      "state": "MERGED",
+      "sha": "4fc8fe017634ba6bdab62c676fde1355db0d36e0",
+      "note": "GAME-RC-004"
+    },
+    "hardware_64": {
+      "state": "MERGED",
+      "sha": "08b4d227241852c1b85fa2e0ba63138501f7ff67",
+      "note": "HW-FW-RC-001"
+    }
+  },
+  "recommend_start_streams_GHI": true,
+  "destructive_ambiguity": {
+    "present": true,
+    "items": [
+      {
+        "id": "DA-ANIME-UNITY",
+        "blocks_stream": "B",
+        "detail": "anime-aggressors #51/#52 Unity stack vs Godot GAME-RC-003 main \u2014 auto-start unsafe"
+      },
+      {
+        "id": "DA-DEVICE-103",
+        "blocks_stream": "A",
+        "detail": "device-os #103 CONFLICTING lab acceptance vs #116 main \u2014 rebase/supersede before lab stream work"
+      },
+      {
+        "id": "DA-FK-71",
+        "blocks_stream": "A",
+        "detail": "field-kit #71 draft burndown overlaps BASELINE_V1 \u2014 supersession record required"
+      },
+      {
+        "id": "DA-WAIKE-41",
+        "blocks_stream": "B",
+        "detail": "WAIKE #41 PhD docs vs #48 mastery corpus \u2014 owner review before close/merge"
+      }
+    ],
+    "blocks_auto_start_all_three": false,
+    "note": "Streams can start if B avoids Unity path and A avoids merging #103/#71 without disposition; C unblocked for digital HW/R6G (emergent merge is owner-only)."
+  }
+}

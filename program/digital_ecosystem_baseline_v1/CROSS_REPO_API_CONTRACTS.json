@@ -1,0 +1,120 @@
+{
+  "schema": "gunnchos.cross_repo_api_contracts.v1",
+  "status": "INVENTORY_HARDENING_STARTED",
+  "updated_at_utc": "2026-08-16T16:23:24Z",
+  "packet": "STREAM-A-PKT-001",
+  "owner_source_of_truth": {
+    "middleware_schemas": "gunnchos-device-os/shared_contracts/middleware/",
+    "inventory": "gunnchos-device-os/shared_contracts/middleware/INVENTORY.json"
+  },
+  "contracts": [
+    {
+      "id": "API-MW-IDENTITY",
+      "mw_id": "MW-IDENTITY",
+      "schema_id": "gunnchos.middleware.identity.v1",
+      "version": "1.0.0",
+      "provider": "gunnchos-device-os",
+      "consumer": [
+        "device_lab continuity",
+        "sdk sandbox"
+      ],
+      "stability": "hardening",
+      "tests": [
+        "tests/middleware/test_middleware_contracts_a2.py"
+      ],
+      "evidence_pr": "device-os STREAM-A-PKT-001"
+    },
+    {
+      "id": "API-MW-PACKAGE",
+      "mw_id": "MW-PACKAGE",
+      "schema_id": "gunnchos.sdk.app_manifest.v1",
+      "version": "1.0.0",
+      "provider": "gunnchos-device-os",
+      "consumer": [
+        "sdk installer/runner"
+      ],
+      "stability": "rc",
+      "tests": [
+        "tests/wp013/test_sdk_pipeline.py",
+        "tests/middleware/test_middleware_contracts_a2.py"
+      ],
+      "evidence_pr": "device-os STREAM-A-PKT-001"
+    },
+    {
+      "id": "API-MW-RING-INPUT",
+      "mw_id": "MW-RING-INPUT",
+      "schema_id": "gunnchos.middleware.ring_input.v1",
+      "version": "1.0.0",
+      "provider": "edge-io-measurement-node + gunnchos-device-os",
+      "consumer": [
+        "device-os guest proofs",
+        "apps"
+      ],
+      "stability": "digital_pass_physical_pending",
+      "tests": [
+        "tests/middleware/test_middleware_contracts_a2.py"
+      ],
+      "SILICON_EXACT_EMULATION": false,
+      "PHYSICAL_RING_E6": false
+    },
+    {
+      "id": "API-MW-AI-INTERFACE",
+      "mw_id": "MW-AI-INTERFACE",
+      "schema_id": "gunnchos.middleware.ai_interface.v1",
+      "version": "1.0.0",
+      "provider": "gunnchAI3k",
+      "consumer": [
+        "gunnchos-device-os"
+      ],
+      "stability": "partial",
+      "tests": [
+        "tests/middleware/test_middleware_contracts_a2.py"
+      ]
+    },
+    {
+      "id": "API-MW-GAME-LAUNCH",
+      "mw_id": "MW-GAME-LAUNCH",
+      "schema_id": "gunnchos.middleware.game_launch.v1",
+      "version": "1.0.0",
+      "provider": "games owner repos",
+      "consumer": [
+        "gunnchos-device-os"
+      ],
+      "stability": "rc",
+      "tests": [
+        "tests/middleware/test_middleware_contracts_a2.py"
+      ]
+    },
+    {
+      "id": "API-MW-SESSION-CONTINUITY",
+      "mw_id": "MW-SESSION-CONTINUITY",
+      "schema_id": "gunnchos.middleware.session_continuity.v1",
+      "version": "1.0.0",
+      "provider": "gunnchos-device-os",
+      "consumer": [
+        "ECO journeys",
+        "dock continuity"
+      ],
+      "stability": "hardening",
+      "tests": [
+        "tests/middleware/test_middleware_contracts_a2.py"
+      ]
+    },
+    {
+      "id": "API-AI-WAIKE-CORPUS",
+      "provider": "waike-research-ops",
+      "consumer": "gunnchAI3k",
+      "interface": "course package discovery + quiz/mid/final items",
+      "stability": "evolving",
+      "notes": "12 discoverable courses on #48/#38 path; Product-Use guest re-earn OPEN after pin advance"
+    },
+    {
+      "id": "API-FK-CONTROL-PLANE",
+      "provider": "gunnchos-7gc-ai-ran-field-kit",
+      "consumer": "all",
+      "interface": "baseline ledgers + claim firewall",
+      "stability": "baseline_v1"
+    }
+  ],
+  "claim_boundary": "Contract inventory/hardening started on STREAM-A-PKT-001. Not production middleware completeness."
+}
