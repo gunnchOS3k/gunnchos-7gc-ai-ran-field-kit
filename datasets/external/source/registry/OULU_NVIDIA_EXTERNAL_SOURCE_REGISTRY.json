@@ -1,0 +1,65 @@
+{
+  "schema": "gunnchos.external_source_registry.v1",
+  "registry_id": "OULU_NVIDIA_EXTERNAL_SOURCES_SKELETON",
+  "generated_at_utc": "2026-08-16T17:05:59Z",
+  "status": "SKELETON_ONLY",
+  "full_execution": "DEFERRED_TO_C-PKT-002",
+  "CURSOR_NEVER_MERGES": true,
+  "targets": [
+    {
+      "id": "OULU_CWC_SCIENCE",
+      "org": "University of Oulu / CWC",
+      "primary_repo": "gunnchOS3k/gunnchos-emergent-service-intent-protocols",
+      "accepted_main_sha": "1c39d6f36112759954bf2b6dd1e83618ebc6c8d3",
+      "evidence_pack": "application_evidence/OULU_APPLICATION_EVIDENCE_PACK.json",
+      "schema": "schemas/oulu_scientific_evidence_manifest.schema.json",
+      "admin_checklist": "supervisor-alignment/OULU_CWC_ADMIN_CHECKLIST.md",
+      "source_class": "PUBLICATION_GRADE_SCIENCE_TRACK",
+      "execution_status": "MAIN_MERGED_PKT001_PR2 \u2014 external reproduction / physical still OPEN",
+      "pins": [],
+      "datasets": [],
+      "notes": [
+        "Do not claim EXTERNAL_REPRODUCTION without registered pins + verifier"
+      ]
+    },
+    {
+      "id": "NVIDIA_AERIAL_6G",
+      "org": "NVIDIA",
+      "primary_repo": "gunnchOS3k/gunnchos-gpu-nr-baseband-platform",
+      "evidence_pack": "application_evidence/NVIDIA_APPLICATION_EVIDENCE_PACK.json",
+      "schema": "schemas/nvidia_aerial_depth_manifest.schema.json",
+      "source_class": "AERIAL_DEPTH_APPLICATION",
+      "execution_status": "ENVIRONMENT_UNAVAILABLE_ON_DISCOVERY_HOST",
+      "pins": [],
+      "datasets": [],
+      "notes": [
+        "Skeleton only; C-PKT-002 executes after GPU/Aerial access or honest CPU-only scope"
+      ]
+    },
+    {
+      "id": "NORDICDAT_GENERALIZATION",
+      "org": "Nordic / external dataset",
+      "local_stub": "datasets/external/source/nordicdat/",
+      "source_class": "DATASET",
+      "execution_status": "DOWNLOAD_STUB_ONLY",
+      "pins": [
+        {
+          "expected_md5": "3681daeaccfa78654858922c0df4a863"
+        }
+      ],
+      "datasets": [
+        "nordicdat"
+      ],
+      "notes": [
+        "Full CSV not committed; make generalization-download"
+      ]
+    }
+  ],
+  "honesty": {
+    "EXTERNAL_REPRODUCTION": false,
+    "PHYSICAL": false,
+    "STANDARDIZED_6G": false,
+    "6G_CERTIFIED": false,
+    "CARRIER_ACCEPTED": false
+  }
+}
