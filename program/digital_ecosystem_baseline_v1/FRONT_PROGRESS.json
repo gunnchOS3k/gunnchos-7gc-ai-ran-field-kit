@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.front_progress.v1",
-  "generated_at_utc": "2026-08-16T16:15:56Z",
-  "overall_DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 6.76,
+  "generated_at_utc": "2026-08-16T19:40:09Z",
+  "overall_DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 7.14,
   "fronts": {
     "ENGINEERING": {
       "total_atoms": 59,
@@ -16,14 +16,14 @@
     },
     "CURRICULUM": {
       "total_atoms": 39,
-      "PASS": 2,
-      "DIGITAL_OPEN": 35,
+      "PASS": 3,
+      "DIGITAL_OPEN": 34,
       "HUMAN_PENDING": 2,
       "PHYSICAL_PENDING": 0,
       "EXTERNAL_PENDING": 0,
       "STANDARD_PENDING": 0,
       "digital_controllable": 37,
-      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 5.41
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 8.11
     },
     "AI": {
       "total_atoms": 53,
@@ -104,64 +104,58 @@
     },
     "RESEARCHER_ENABLEMENT": {
       "total_atoms": 3,
-      "PASS": 0,
-      "DIGITAL_OPEN": 3,
+      "PASS": 1,
+      "DIGITAL_OPEN": 2,
       "HUMAN_PENDING": 0,
       "PHYSICAL_PENDING": 0,
       "EXTERNAL_PENDING": 0,
       "STANDARD_PENDING": 0,
       "digital_controllable": 3,
-      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 0.0
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 33.33
     }
   },
   "proposed_streams": {
     "A": {
       "name": "SYSTEM/ENGINEERING/CREATION",
       "wip_slot": 1,
-      "first_packet": {
-        "id": "STREAM-A-PKT-001",
-        "title": "Product-Use residual digital + control-plane lock + creation enablement spine",
+      "next_packet": {
+        "id": "A-PKT-003",
+        "title": "Product-Use guest re-earn on PKT-002 pins + middleware depth + consume PKT002 delta",
         "owner_repos": [
           "gunnchos-device-os",
           "gunnchos-7gc-ai-ran-field-kit"
         ],
         "accepted_base_shas": {
-          "gunnchos-device-os": "a1e11efcb502ce053d755a2539c26d252e216226",
-          "gunnchos-7gc-ai-ran-field-kit": "d1b330a11564120416cde745ff298453bafa27f0"
+          "gunnchos-device-os": "626dca297698ac3126c6445d2e9c05a946955787",
+          "gunnchos-7gc-ai-ran-field-kit": "6bb2f970e90d25dd2e7a493adce4c81302a7ee56"
         },
         "scope": [
-          "Re-verify Product-Use journeys on a1e11ef; close highest-impact DIGITAL_OPEN engineering atoms",
-          "Land/consume BASELINE_V1 control plane (this PR) after Edmund merge",
-          "Creation-enablement: one narrow creator\u2192device path with real evidence (no fixture-as-product)"
+          "Preserve CREATOR_END_TO_END_DIGITAL_PASS + 10-fault middleware; SILICON_EXACT=false",
+          "Re-earn Product-Use guest leg vs gunnchAI/WAIKE PKT-002 pins",
+          "Consume PKT002_ACCEPTED_DELTA (no BASELINE_V1 rewrite)"
         ],
         "out_of_scope": [
-          "Physical EVT",
-          "Unity vs Godot path decision without owner",
-          "Merging"
+          "Physical ring E6",
+          "Merging #103/#71",
+          "Unity"
         ],
         "depends_on_owner": [
           "Disposition device-os #103",
-          "Approve BASELINE_V1 draft PR"
+          "Disposition field-kit #71"
         ]
       },
       "packet_status": {
-        "id": "STREAM-A-PKT-001",
-        "state": "IN_PROGRESS_EVIDENCE_LANDED",
-        "device_os_branch": "stream/a-pkt-001-middleware-emulation-creation",
-        "field_kit_pr": 81,
+        "id": "STREAM-A-PKT-002",
+        "state": "MERGED_ON_MAIN",
+        "device_os_pr": 118,
+        "device_os_merge_sha": "626dca297698ac3126c6445d2e9c05a946955787",
         "closed_digitally": [
-          "middleware contract inventory/schemas/tests (6)",
-          "reusable Device Lab emulation pack index",
-          "creation host chain for stream_a_sample_memo",
-          "targeted SHA delta vs BASELINE_V1"
+          "CREATOR_END_TO_END_DIGITAL_PASS (guest BUILD/INSTALL/RUN/UPDATE/ROLLBACK)",
+          "middleware 10-fault resilience matrix"
         ],
         "OPEN": [
           {
             "id": "FULL_PRODUCT_USE_GUEST_RERUN",
-            "blocker_class": "DIGITAL_OPEN"
-          },
-          {
-            "id": "CREATOR_END_TO_END_DIGITAL_PASS",
             "blocker_class": "DIGITAL_OPEN"
           },
           {
@@ -174,8 +168,9 @@
           }
         ],
         "tokens": {
-          "CREATOR_END_TO_END_DIGITAL_PASS": false,
+          "CREATOR_END_TO_END_DIGITAL_PASS": true,
           "SILICON_EXACT_EMULATION": false,
+          "MIDDLEWARE_RESILIENCE_PASS": true,
           "MIDDLEWARE_CONTRACT_INVENTORY_STARTED": true,
           "EMULATION_REUSABLE_PACK_INDEXED": true,
           "CREATION_HOST_CHAIN_PASS": true
@@ -185,32 +180,31 @@
     "B": {
       "name": "AI/CURRICULUM/GAMES",
       "wip_slot": 2,
-      "first_packet": {
-        "id": "STREAM-B-PKT-001",
-        "title": "AI-UR PARTIAL closures + WAIKE consumption + game digital polish",
+      "next_packet": {
+        "id": "B-PKT-003",
+        "title": "DATA_DASHBOARDS DIGITAL_RC (taxonomy rank-1) + unblended mastery hygiene + Godot-only polish",
         "owner_repos": [
-          "gunnchAI3k",
           "waike-research-ops",
-          "anime-aggressors",
-          "pedestrian-pursuit"
+          "gunnchAI3k",
+          "anime-aggressors"
         ],
         "accepted_base_shas": {
-          "gunnchAI3k": "c429750ff83b2a5344a6e1f40f5c7d27a863bf4d",
-          "waike-research-ops": "7a0d4fe3d0f3da39d105ef21a97d1fd1d792c997",
-          "anime-aggressors": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
-          "pedestrian-pursuit": "80ca8ee7e96da0e86184fe24b10831265588c1a3"
+          "waike-research-ops": "5a3cf859376f1260f5a5614c95eb27e16552c85c",
+          "gunnchAI3k": "54be5feef43f7f6517c77b536582563fdfbf7e34",
+          "anime-aggressors": "a65671a7b0d175be74bc45a02ce0dacc7ba4effd"
         },
         "scope": [
-          "Advance one AI-UR PARTIAL family with honest COMPLETE-or-PARTIAL evidence (prefer 009 tools or 015 companion wiring)",
-          "WAIKE: learner/teacher consumption path against 12-course corpus on 7a0d4fe",
-          "Games: digital FEATURE/POLISH evidence on anime+pedestrian without claiming HUMAN polish"
+          "DATA_DASHBOARDS COURSE_DIGITAL_RC (confirmed taxonomy remaining_rank=1)",
+          "Preserve four score families unblended; historical 120=37/0.308333…",
+          "Godot-only polish; HUMAN_PLAYTEST_VALIDATED=false"
         ],
         "out_of_scope": [
-          "WAIKE_AI_DIGITAL_MASTERY_PASS false\u2192true without stronger model packet",
-          "Unity stack #51/#52 without owner path"
+          "Unity #51/#52",
+          "WAIKE #41 merge without Edmund",
+          "Blending into historical 120"
         ],
         "depends_on_owner": [
-          "Unity vs Godot decision if touching anime launch path",
+          "Unity vs Godot decision if touching anime Unity path",
           "WAIKE #41 disposition"
         ]
       }
@@ -218,32 +212,30 @@
     "C": {
       "name": "HARDWARE/6G/RESEARCH",
       "wip_slot": 3,
-      "first_packet": {
-        "id": "STREAM-C-PKT-001",
-        "title": "HW digital package deepen + R6G children + emergent science gate",
+      "next_packet": {
+        "id": "C-PKT-003",
+        "title": "OULU-001/002 honest advance + NVIDIA fail-closed depth + HW digital residuals",
         "owner_repos": [
-          "gunnchos-hardware-industrial-design",
           "gunnchos-7gc-ai-ran-field-kit",
+          "gunnchos-hardware-industrial-design",
           "gunnchos-emergent-service-intent-protocols"
         ],
         "accepted_base_shas": {
-          "gunnchos-hardware-industrial-design": "08b4d227241852c1b85fa2e0ba63138501f7ff67",
-          "gunnchos-7gc-ai-ran-field-kit": "d1b330a11564120416cde745ff298453bafa27f0",
-          "gunnchos-emergent-service-intent-protocols": "9b3fec9fdff752f97fbe9950b7db5d9874aea72d"
+          "gunnchos-7gc-ai-ran-field-kit": "6bb2f970e90d25dd2e7a493adce4c81302a7ee56",
+          "gunnchos-hardware-industrial-design": "0e11dea8e8745a551d616e3f6fb93832385096fd",
+          "gunnchos-emergent-service-intent-protocols": "1c39d6f36112759954bf2b6dd1e83618ebc6c8d3"
         },
         "scope": [
-          "Hardware digital package residuals on 08b4d22 (no physical claims)",
-          "R6G child deepening on field-kit post-#80",
-          "Prepare emergent #2 for OWNER_REVIEW (CI/science checklist) \u2014 Cursor does not merge"
+          "Advance OULU-001 REFERENCE_SPEC_INCOMPLETE / OULU-002 BASELINE_MATCH_PENDING only with verifier earn",
+          "NVIDIA fail-closed CPU depth; no invented Aerial PASS",
+          "HW digital residuals on 0e11dea"
         ],
         "out_of_scope": [
-          "KiCad CLI without Edmund install approval",
-          "Carrier/cert",
-          "Publication merge"
+          "Carrier/cert/SoA invention",
+          "Force GPU claims on Mac host"
         ],
         "depends_on_owner": [
-          "KiCad CLI admin install if ERC/DRC required",
-          "Emergent #2 merge authority"
+          "Aerial GPU host access if NVIDIA validation required"
         ]
       }
     }
@@ -309,26 +301,26 @@
       {
         "id": "DA-ANIME-UNITY",
         "blocks_stream": "B",
-        "detail": "anime-aggressors #51/#52 Unity stack vs Godot GAME-RC-003 main \u2014 auto-start unsafe"
+        "detail": "anime-aggressors #51/#52 Unity stack vs Godot GAME-RC-003 main — auto-start unsafe"
       },
       {
         "id": "DA-DEVICE-103",
         "blocks_stream": "A",
-        "detail": "device-os #103 CONFLICTING lab acceptance vs #116 main \u2014 rebase/supersede before lab stream work"
+        "detail": "device-os #103 CONFLICTING lab acceptance vs #116 main — rebase/supersede before lab stream work"
       },
       {
         "id": "DA-FK-71",
         "blocks_stream": "A",
-        "detail": "field-kit #71 draft burndown overlaps BASELINE_V1 \u2014 supersession record required"
+        "detail": "field-kit #71 draft burndown overlaps BASELINE_V1 — supersession record required"
       },
       {
         "id": "DA-WAIKE-41",
         "blocks_stream": "B",
-        "detail": "WAIKE #41 PhD docs vs #48 mastery corpus \u2014 owner review before close/merge"
+        "detail": "WAIKE #41 PhD docs vs #48 mastery corpus — owner review before close/merge"
       }
     ],
     "blocks_auto_start_all_three": false,
-    "note": "Streams can start if B avoids Unity path and A avoids merging #103/#71 without disposition; C unblocked for digital HW/R6G (emergent merge is owner-only)."
+    "note": "Streams can start A/B/C-PKT-003 if B avoids Unity and A avoids merging #103/#71; C digital Oulu path open post-#84."
   },
   "digitally_executable_gaps_ranked": [
     {
@@ -352,19 +344,27 @@
       "id": "PU-RESIDUAL-JOURNEYS",
       "front": "ENGINEERING",
       "impact": "HIGH",
-      "gap": "Product-Use residual digital journeys / persona completeness beyond RC-002 merge",
+      "gap": "Product-Use residual digital journeys re-earn vs PKT-002 pins (creator E2E already true)",
       "owner_repo": "gunnchos-device-os"
     },
     {
       "rank": 4,
-      "id": "WAIKE-FULL-COURSE-RC",
+      "id": "WAIKE-DATA-DASHBOARDS",
       "front": "CURRICULUM",
       "impact": "HIGH",
-      "gap": "full_18 course RC false; teacher/learner product consumption incomplete",
+      "gap": "Taxonomy remaining_rank=1: DATA_DASHBOARDS standalone COURSE_DIGITAL_RC not earned",
       "owner_repo": "waike-research-ops"
     },
     {
       "rank": 5,
+      "id": "WAIKE-FULL-COURSE-RC",
+      "front": "CURRICULUM",
+      "impact": "HIGH",
+      "gap": "full_18 course RC false (13 mature incl COMM_PD); DATA_DASHBOARDS next (rank-1 ledger)",
+      "owner_repo": "waike-research-ops"
+    },
+    {
+      "rank": 6,
       "id": "GAME-FEATURE-POLISH-DIGITAL",
       "front": "GAME_DEV",
       "impact": "HIGH",
@@ -372,7 +372,7 @@
       "owner_repo": "anime-aggressors"
     },
     {
-      "rank": 6,
+      "rank": 7,
       "id": "CREATION-ENABLEMENT",
       "front": "CREATION_ENABLEMENT",
       "impact": "MEDIUM",
@@ -380,15 +380,15 @@
       "owner_repo": "gunnchos-device-os"
     },
     {
-      "rank": 7,
+      "rank": 8,
       "id": "EMULATION-LAB",
       "front": "EMULATION",
       "impact": "MEDIUM",
-      "gap": "Device-lab G11\u2013G15 / guest realism residuals; #103 conflicting",
+      "gap": "Device-lab G11–G15 / guest realism residuals; #103 conflicting",
       "owner_repo": "gunnchos-device-os"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "id": "HW-DIGITAL-PACKAGE",
       "front": "HARDWARE",
       "impact": "MEDIUM",
@@ -396,23 +396,23 @@
       "owner_repo": "gunnchos-hardware-industrial-design"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "id": "R6G-CHILDREN",
       "front": "SIX_G",
       "impact": "MEDIUM",
-      "gap": "Remaining R6G adoption children not all CLOSED despite #79/#80",
+      "gap": "OULU-001 REFERENCE_SPEC_INCOMPLETE / OULU-002 BASELINE_MATCH_PENDING post-#84; SoA/PHYSICAL/EXTERNAL remain false",
       "owner_repo": "gunnchos-7gc-ai-ran-field-kit"
     },
     {
-      "rank": 10,
+      "rank": 11,
       "id": "RES-EMERGENT-001",
       "front": "RESEARCHER_ENABLEMENT",
-      "impact": "MEDIUM",
-      "gap": "Emergent intent publication science still on PR #2 not main",
+      "impact": "LOW",
+      "gap": "Emergent #2 MERGED on main (1c39d6f); residual EXTERNAL/HUMAN publication claims",
       "owner_repo": "gunnchos-emergent-service-intent-protocols"
     },
     {
-      "rank": 11,
+      "rank": 12,
       "id": "MIDDLEWARE-TRUST",
       "front": "MIDDLEWARE",
       "impact": "MEDIUM",
@@ -420,7 +420,7 @@
       "owner_repo": "gunnchos-device-os"
     },
     {
-      "rank": 12,
+      "rank": 13,
       "id": "TWIN-README",
       "front": "RESEARCHER_ENABLEMENT",
       "impact": "LOW",
@@ -428,6 +428,7 @@
       "owner_repo": "7gc-digital-twin"
     }
   ],
-  "updated_at_utc": "2026-08-16T16:23:24Z",
-  "stream_a_pkt_001_note": "A2/A3/A4 digital starts landed on device-os PR; ledger atoms for identity/package/etc remain DIGITAL_OPEN (inventory evidence attached, not service PASS). Guest Product-Use re-earn OPEN due to WAIKE/gunnchAI SHA advance."
+  "updated_at_utc": "2026-08-16T19:40:09Z",
+  "pkt002_derived_note": "Derived PASS 37/518=7.14% after COMM_PD course + emergent #2 catch-up overrides. Frozen COMPLETION_LEDGER.json not rewritten. CREATOR_END_TO_END_DIGITAL_PASS=true on device-os main; Product-Use guest re-earn still OPEN for A-PKT-003 vs new pins.",
+  "stream_a_pkt_001_note": "A-PKT-001/#117 and A-PKT-002/#118 MERGED. CREATOR_END_TO_END_DIGITAL_PASS earned. Next=A-PKT-003."
 }

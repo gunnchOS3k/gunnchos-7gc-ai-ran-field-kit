@@ -1,43 +1,44 @@
 {
   "schema": "gunnchos.resource_schedule.v1",
-  "generated_at_utc": "2026-08-16T17:05:59Z",
+  "generated_at_utc": "2026-08-16T19:40:09Z",
   "WIP_CAP": 3,
   "merge_authority": "Edmund sole",
   "CURSOR_NEVER_MERGES": true,
-  "phase": "POST_PKT001_FIRST_RETURN",
+  "phase": "POST_PKT002_FIRST_RETURN_PKT003",
   "slots": [
     {
       "slot": 1,
       "stream": "A",
-      "packet": "A-PKT-002",
+      "packet": "A-PKT-003",
       "repos": [
         "gunnchos-device-os",
         "gunnchos-7gc-ai-ran-field-kit"
       ],
-      "compute": "CPU_HOST_OK",
+      "compute": "CPU_HOST_OK; Product-Use guest may need QEMU RAM headroom",
       "gpu": "NOT_REQUIRED",
+      "heavy_class": "GUEST_QEMU_MEDIUM",
       "start_recommendation": "YES_NOW",
-      "serialize_notes": "Owns device-os + baseline delta consumption; avoid #103; do not fight R6G paths"
+      "serialize_notes": "Owns device-os + PKT002 delta consumption; avoid #103; do not fight R6G/Oulu paths"
     },
     {
       "slot": 2,
       "stream": "B",
-      "packet": "B-PKT-002",
+      "packet": "B-PKT-003",
       "repos": [
-        "gunnchAI3k",
         "waike-research-ops",
-        "pedestrian-pursuit",
+        "gunnchAI3k",
         "anime-aggressors(Godot-only)"
       ],
-      "compute": "CPU_OK; Local Pro download needs >=2GiB free RAM",
+      "compute": "CPU_OK; DATA_DASHBOARDS package authoring light; Local Pro download needs >=2GiB free RAM",
       "gpu": "OPTIONAL_FOR_LOCAL_PRO",
+      "heavy_class": "CURRICULUM_AUTHORING_LIGHT; LOCAL_PRO_HEAVY_IF_RAM",
       "start_recommendation": "YES_NOW",
-      "serialize_notes": "Avoid Unity #51/#52; WAIKE #41 owner disposition; Local Pro RESOURCE_PENDING until freemem gate"
+      "serialize_notes": "Confirmed next=DATA_DASHBOARDS; avoid Unity #51/#52; WAIKE #41 owner disposition; Local Pro RESOURCE_PENDING until freemem gate"
     },
     {
       "slot": 3,
       "stream": "C",
-      "packet": "C-PKT-002",
+      "packet": "C-PKT-003",
       "repos": [
         "gunnchos-7gc-ai-ran-field-kit",
         "gunnchos-hardware-industrial-design",
@@ -45,9 +46,10 @@
         "gunnchos-gpu-nr-baseband-platform"
       ],
       "compute": "CPU digital OK; NVIDIA Aerial BLOCKED on discovery host",
-      "gpu": "REQUIRED_FOR_AERIAL_PATH \u2014 UNAVAILABLE_HERE",
-      "start_recommendation": "YES_NOW_DIGITAL_ONLY \u2014 #82 already MERGED; Aerial/Oulu external execution needs access or scoped CPU honesty",
-      "serialize_notes": "Field-kit control-plane delta branch stream/pkt001-accepted-delta; C owns R6G/external registry paths"
+      "gpu": "REQUIRED_FOR_AERIAL_PATH — UNAVAILABLE_HERE",
+      "heavy_class": "OULU_ANALYTICAL_CPU; AERIAL_BLOCKED",
+      "start_recommendation": "YES_NOW_DIGITAL_ONLY — #84 already MERGED; Aerial needs access or scoped CPU honesty",
+      "serialize_notes": "Field-kit control-plane delta on stream/pkt002-accepted-delta; C owns OULU/NVIDIA repro paths only"
     }
   ],
   "conflicts": [
@@ -57,7 +59,14 @@
         "A",
         "delta-PR"
       ],
-      "mitigation": "A consumes delta; C does not rewrite BASELINE_V1 snapshot"
+      "mitigation": "A consumes PKT002 delta; C does not rewrite BASELINE_V1 snapshot"
+    },
+    {
+      "resource": "field-kit artifacts/external_reproduction",
+      "holders": [
+        "C"
+      ],
+      "mitigation": "A/B stay out of Oulu/NVIDIA repro trees"
     },
     {
       "resource": "Edmund merge bandwidth",
@@ -69,11 +78,12 @@
       "mitigation": "One DRAFT PR per stream; WIP CAP=3"
     },
     {
-      "resource": "RAM for Local Pro ~1GB model",
+      "resource": "RAM for Local Pro ~1GB model + QEMU guest",
       "holders": [
+        "A",
         "B"
       ],
-      "mitigation": "Defer Pro download until freemem>=2GiB"
+      "mitigation": "Do not schedule Local Pro download concurrent with Product-Use guest; freemem>=2GiB gate"
     }
   ],
   "destructive_ambiguity": {
@@ -83,6 +93,7 @@
       "DA-DEVICE-103",
       "DA-FK-71",
       "DA-WAIKE-41"
-    ]
+    ],
+    "blocks_auto_start_all_three": false
   }
 }
