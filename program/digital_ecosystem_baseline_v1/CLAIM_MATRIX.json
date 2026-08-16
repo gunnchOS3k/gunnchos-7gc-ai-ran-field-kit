@@ -1,0 +1,85 @@
+{
+  "schema": "gunnchos.claim_matrix.v1",
+  "generated_at_utc": "2026-08-16T16:15:56Z",
+  "claims": [
+    {
+      "claim_id": "CLAIM-PU-116",
+      "statement": "PRODUCT-USE-RC-002 merged to device-os main",
+      "status": "SUPPORTED",
+      "evidence": "gh #116 MERGED a1e11ef",
+      "not_claiming": "Full Product-Use human E6 / all personas complete"
+    },
+    {
+      "claim_id": "CLAIM-AI-36",
+      "statement": "AI-USER-READY-004 surfaces on gunnchAI main",
+      "status": "SUPPORTED_PARTIAL",
+      "evidence": "c429750 user-ready modules + 004C report; several AI-UR PARTIAL",
+      "not_claiming": "GUNNCHAI_APP_PRODUCT_COMPLETE / HUMAN_E6"
+    },
+    {
+      "claim_id": "CLAIM-AI-38",
+      "statement": "AI-WAIKE-MASTERY-002 preserved on same main as #36",
+      "status": "SUPPORTED",
+      "evidence": "#38 ancestor; 12 courses; n=120; baseline intact; no-key-leak",
+      "not_claiming": "WAIKE_AI_DIGITAL_MASTERY_PASS (false)"
+    },
+    {
+      "claim_id": "CLAIM-WAIKE-48",
+      "statement": "WAIKE mastery corpus normalize on waike main",
+      "status": "SUPPORTED",
+      "evidence": "#48 MERGED 7a0d4fe",
+      "not_claiming": "full_18 course RC / REAL_STUDENT"
+    },
+    {
+      "claim_id": "CLAIM-FK-80",
+      "statement": "R6G-PORTFOLIO-ADOPTION-002 on field-kit main",
+      "status": "SUPPORTED",
+      "evidence": "#80 MERGED d1b330a preserves #79",
+      "not_claiming": "All R6G children CLOSED"
+    },
+    {
+      "claim_id": "CLAIM-READINESS-PCT",
+      "statement": "Any marketing readiness %",
+      "status": "FORBIDDEN",
+      "evidence": "Derived DIGITAL_CONTROLLABLE_COMPLETION_PERCENT only from ledger",
+      "not_claiming": "N/A"
+    }
+  ],
+  "gunnchai_dual_preserve": {
+    "merge_order_regression": false,
+    "main_sha": "c429750ff83b2a5344a6e1f40f5c7d27a863bf4d",
+    "mastery_38_merge": "2eb24aeb1cc22f129deb57482e1c27105bcd1703",
+    "user_ready_36_merge": "c429750ff83b2a5344a6e1f40f5c7d27a863bf4d",
+    "proof": {
+      "twelve_course_discovery": true,
+      "course_ids": [
+        "AI_ML_EDGE",
+        "CLOUD_DEVOPS",
+        "COMPUTER_NETWORKING",
+        "CYBERSECURITY",
+        "DATA_VIZ_BI",
+        "GAME_DEV_INTERACTIVE",
+        "GENERAL_IT",
+        "HARDWARE_ENGINEERING",
+        "PM_AGILE_LSS",
+        "ROBOTICS_CONTROL",
+        "SOFTWARE_BUILDER",
+        "WIRELESS_6G"
+      ],
+      "larger_sample_items_attempted": 120,
+      "larger_sample_overall_score": 0.30833333333333335,
+      "frozen_baseline": 0.16666666666666666,
+      "baseline_intact": true,
+      "WAIKE_AI_NO_KEY_LEAK_PASS": true,
+      "learner_educator_architecture": true,
+      "cowrite": true,
+      "custom_agent": true,
+      "computer_use": true,
+      "audio": true,
+      "companion": true,
+      "WAIKE_AI_DIGITAL_MASTERY_PASS": false
+    },
+    "reconciliation_pr_recommended": false,
+    "note": "No merge-order gap; #36 merge parents include #38 tip. Optional evidence-only matrix refresh not required for audit honesty."
+  }
+}

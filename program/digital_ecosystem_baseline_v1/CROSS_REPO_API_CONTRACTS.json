@@ -1,0 +1,50 @@
+{
+  "schema": "gunnchos.cross_repo_api_contracts.v1",
+  "status": "SKELETON",
+  "generated_at_utc": "2026-08-16T16:15:56Z",
+  "contracts": [
+    {
+      "id": "API-AI-WAIKE-CORPUS",
+      "provider": "waike-research-ops",
+      "consumer": "gunnchAI3k",
+      "interface": "course package discovery + quiz/mid/final items",
+      "stability": "evolving",
+      "notes": "12 discoverable courses on #48/#38 path"
+    },
+    {
+      "id": "API-OS-AI-INVOKE",
+      "provider": "gunnchAI3k",
+      "consumer": "gunnchos-device-os",
+      "interface": "local inference / tutor / companion surfaces",
+      "stability": "partial"
+    },
+    {
+      "id": "API-OS-GAME-LAUNCH",
+      "provider": "games",
+      "consumer": "gunnchos-device-os",
+      "interface": "launch manifests + achievement runtime",
+      "stability": "RC"
+    },
+    {
+      "id": "API-RING-EDGEIO",
+      "provider": "edge-io-measurement-node",
+      "consumer": "gunnchos-device-os",
+      "interface": "ring input digital path",
+      "stability": "digital_pass_physical_pending"
+    },
+    {
+      "id": "API-FK-CONTROL-PLANE",
+      "provider": "gunnchos-7gc-ai-ran-field-kit",
+      "consumer": "all",
+      "interface": "baseline ledgers + claim firewall",
+      "stability": "baseline_v1"
+    },
+    {
+      "id": "API-R6G-EVAL",
+      "provider": "field-kit/spectrumx/ntn/readygary",
+      "consumer": "researchers",
+      "interface": "replication/adoption eval artifacts",
+      "stability": "deepening"
+    }
+  ]
+}

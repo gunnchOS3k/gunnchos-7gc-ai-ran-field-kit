@@ -1,0 +1,394 @@
+{
+  "schema": "gunnchos.front_progress.v1",
+  "generated_at_utc": "2026-08-16T16:15:56Z",
+  "overall_DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 6.76,
+  "fronts": {
+    "ENGINEERING": {
+      "total_atoms": 59,
+      "PASS": 10,
+      "DIGITAL_OPEN": 38,
+      "HUMAN_PENDING": 1,
+      "PHYSICAL_PENDING": 4,
+      "EXTERNAL_PENDING": 6,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 48,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 20.83
+    },
+    "CURRICULUM": {
+      "total_atoms": 39,
+      "PASS": 2,
+      "DIGITAL_OPEN": 35,
+      "HUMAN_PENDING": 2,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 0,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 37,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 5.41
+    },
+    "AI": {
+      "total_atoms": 53,
+      "PASS": 11,
+      "DIGITAL_OPEN": 42,
+      "HUMAN_PENDING": 0,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 0,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 53,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 20.75
+    },
+    "GAME_DEV": {
+      "total_atoms": 114,
+      "PASS": 8,
+      "DIGITAL_OPEN": 97,
+      "HUMAN_PENDING": 4,
+      "PHYSICAL_PENDING": 4,
+      "EXTERNAL_PENDING": 1,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 105,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 7.62
+    },
+    "SIX_G": {
+      "total_atoms": 26,
+      "PASS": 1,
+      "DIGITAL_OPEN": 24,
+      "HUMAN_PENDING": 0,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 0,
+      "STANDARD_PENDING": 1,
+      "digital_controllable": 25,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 4.0
+    },
+    "HARDWARE": {
+      "total_atoms": 196,
+      "PASS": 1,
+      "DIGITAL_OPEN": 176,
+      "HUMAN_PENDING": 1,
+      "PHYSICAL_PENDING": 11,
+      "EXTERNAL_PENDING": 7,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 177,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 0.56
+    },
+    "MIDDLEWARE": {
+      "total_atoms": 32,
+      "PASS": 1,
+      "DIGITAL_OPEN": 25,
+      "HUMAN_PENDING": 2,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 3,
+      "STANDARD_PENDING": 1,
+      "digital_controllable": 26,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 3.85
+    },
+    "EMULATION": {
+      "total_atoms": 16,
+      "PASS": 0,
+      "DIGITAL_OPEN": 16,
+      "HUMAN_PENDING": 0,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 0,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 16,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 0.0
+    },
+    "CREATION_ENABLEMENT": {
+      "total_atoms": 31,
+      "PASS": 1,
+      "DIGITAL_OPEN": 27,
+      "HUMAN_PENDING": 2,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 1,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 28,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 3.57
+    },
+    "RESEARCHER_ENABLEMENT": {
+      "total_atoms": 3,
+      "PASS": 0,
+      "DIGITAL_OPEN": 3,
+      "HUMAN_PENDING": 0,
+      "PHYSICAL_PENDING": 0,
+      "EXTERNAL_PENDING": 0,
+      "STANDARD_PENDING": 0,
+      "digital_controllable": 3,
+      "DIGITAL_CONTROLLABLE_COMPLETION_PERCENT": 0.0
+    }
+  },
+  "proposed_streams": {
+    "A": {
+      "name": "SYSTEM/ENGINEERING/CREATION",
+      "wip_slot": 1,
+      "first_packet": {
+        "id": "STREAM-A-PKT-001",
+        "title": "Product-Use residual digital + control-plane lock + creation enablement spine",
+        "owner_repos": [
+          "gunnchos-device-os",
+          "gunnchos-7gc-ai-ran-field-kit"
+        ],
+        "accepted_base_shas": {
+          "gunnchos-device-os": "a1e11efcb502ce053d755a2539c26d252e216226",
+          "gunnchos-7gc-ai-ran-field-kit": "d1b330a11564120416cde745ff298453bafa27f0"
+        },
+        "scope": [
+          "Re-verify Product-Use journeys on a1e11ef; close highest-impact DIGITAL_OPEN engineering atoms",
+          "Land/consume BASELINE_V1 control plane (this PR) after Edmund merge",
+          "Creation-enablement: one narrow creator\u2192device path with real evidence (no fixture-as-product)"
+        ],
+        "out_of_scope": [
+          "Physical EVT",
+          "Unity vs Godot path decision without owner",
+          "Merging"
+        ],
+        "depends_on_owner": [
+          "Disposition device-os #103",
+          "Approve BASELINE_V1 draft PR"
+        ]
+      }
+    },
+    "B": {
+      "name": "AI/CURRICULUM/GAMES",
+      "wip_slot": 2,
+      "first_packet": {
+        "id": "STREAM-B-PKT-001",
+        "title": "AI-UR PARTIAL closures + WAIKE consumption + game digital polish",
+        "owner_repos": [
+          "gunnchAI3k",
+          "waike-research-ops",
+          "anime-aggressors",
+          "pedestrian-pursuit"
+        ],
+        "accepted_base_shas": {
+          "gunnchAI3k": "c429750ff83b2a5344a6e1f40f5c7d27a863bf4d",
+          "waike-research-ops": "7a0d4fe3d0f3da39d105ef21a97d1fd1d792c997",
+          "anime-aggressors": "9770674fdce94e19270d0f5683e6fcf74b4111f3",
+          "pedestrian-pursuit": "80ca8ee7e96da0e86184fe24b10831265588c1a3"
+        },
+        "scope": [
+          "Advance one AI-UR PARTIAL family with honest COMPLETE-or-PARTIAL evidence (prefer 009 tools or 015 companion wiring)",
+          "WAIKE: learner/teacher consumption path against 12-course corpus on 7a0d4fe",
+          "Games: digital FEATURE/POLISH evidence on anime+pedestrian without claiming HUMAN polish"
+        ],
+        "out_of_scope": [
+          "WAIKE_AI_DIGITAL_MASTERY_PASS false\u2192true without stronger model packet",
+          "Unity stack #51/#52 without owner path"
+        ],
+        "depends_on_owner": [
+          "Unity vs Godot decision if touching anime launch path",
+          "WAIKE #41 disposition"
+        ]
+      }
+    },
+    "C": {
+      "name": "HARDWARE/6G/RESEARCH",
+      "wip_slot": 3,
+      "first_packet": {
+        "id": "STREAM-C-PKT-001",
+        "title": "HW digital package deepen + R6G children + emergent science gate",
+        "owner_repos": [
+          "gunnchos-hardware-industrial-design",
+          "gunnchos-7gc-ai-ran-field-kit",
+          "gunnchos-emergent-service-intent-protocols"
+        ],
+        "accepted_base_shas": {
+          "gunnchos-hardware-industrial-design": "08b4d227241852c1b85fa2e0ba63138501f7ff67",
+          "gunnchos-7gc-ai-ran-field-kit": "d1b330a11564120416cde745ff298453bafa27f0",
+          "gunnchos-emergent-service-intent-protocols": "9b3fec9fdff752f97fbe9950b7db5d9874aea72d"
+        },
+        "scope": [
+          "Hardware digital package residuals on 08b4d22 (no physical claims)",
+          "R6G child deepening on field-kit post-#80",
+          "Prepare emergent #2 for OWNER_REVIEW (CI/science checklist) \u2014 Cursor does not merge"
+        ],
+        "out_of_scope": [
+          "KiCad CLI without Edmund install approval",
+          "Carrier/cert",
+          "Publication merge"
+        ],
+        "depends_on_owner": [
+          "KiCad CLI admin install if ERC/DRC required",
+          "Emergent #2 merge authority"
+        ]
+      }
+    }
+  },
+  "resource_conflicts": [
+    {
+      "resource": "gunnchos-7gc-ai-ran-field-kit main/control-plane",
+      "streams": [
+        "A",
+        "C"
+      ],
+      "risk": "Both write field-kit; serialize control-plane vs R6G file ownership",
+      "mitigation": "A owns program/digital_ecosystem_baseline_v1; C owns R6G artifact paths only"
+    },
+    {
+      "resource": "gunnchAI3k main",
+      "streams": [
+        "B"
+      ],
+      "risk": "Mastery vs user-ready file overlap historically",
+      "mitigation": "Keep mastery tree and user-ready tree disjoint; rebase on c429750"
+    },
+    {
+      "resource": "gunnchos-device-os main",
+      "streams": [
+        "A",
+        "B"
+      ],
+      "risk": "Product-Use vs game-launch integration touchpoints",
+      "mitigation": "B games stay in game repos; A owns device-os; integrate via manifests"
+    },
+    {
+      "resource": "anime-aggressors Unity vs Godot",
+      "streams": [
+        "B"
+      ],
+      "risk": "Destructive ambiguity on #51/#52",
+      "mitigation": "Do not auto-start Unity work; Godot RC-003 path only until owner decision"
+    },
+    {
+      "resource": "Compute/GPU for mastery + Local Pro",
+      "streams": [
+        "B",
+        "C"
+      ],
+      "risk": "Heavy downloads/evals contend with hardware sims",
+      "mitigation": "Schedule mastery stronger-model packet separately; mark RESOURCE_PENDING"
+    },
+    {
+      "resource": "Edmund merge bandwidth",
+      "streams": [
+        "A",
+        "B",
+        "C"
+      ],
+      "risk": "WIP CAP=3 drafts queue",
+      "mitigation": "One DRAFT PR per stream; Cursor never merges"
+    }
+  ],
+  "destructive_ambiguity": {
+    "present": true,
+    "items": [
+      {
+        "id": "DA-ANIME-UNITY",
+        "blocks_stream": "B",
+        "detail": "anime-aggressors #51/#52 Unity stack vs Godot GAME-RC-003 main \u2014 auto-start unsafe"
+      },
+      {
+        "id": "DA-DEVICE-103",
+        "blocks_stream": "A",
+        "detail": "device-os #103 CONFLICTING lab acceptance vs #116 main \u2014 rebase/supersede before lab stream work"
+      },
+      {
+        "id": "DA-FK-71",
+        "blocks_stream": "A",
+        "detail": "field-kit #71 draft burndown overlaps BASELINE_V1 \u2014 supersession record required"
+      },
+      {
+        "id": "DA-WAIKE-41",
+        "blocks_stream": "B",
+        "detail": "WAIKE #41 PhD docs vs #48 mastery corpus \u2014 owner review before close/merge"
+      }
+    ],
+    "blocks_auto_start_all_three": false,
+    "note": "Streams can start if B avoids Unity path and A avoids merging #103/#71 without disposition; C unblocked for digital HW/R6G (emergent merge is owner-only)."
+  },
+  "digitally_executable_gaps_ranked": [
+    {
+      "rank": 1,
+      "id": "AI-MASTERY-DIGITAL-PASS-001",
+      "front": "AI",
+      "impact": "CRITICAL",
+      "gap": "Digital mastery PASS still false (0.308@120; need stronger model/path)",
+      "owner_repo": "gunnchAI3k"
+    },
+    {
+      "rank": 2,
+      "id": "AI-UR-PARTIALS",
+      "front": "AI",
+      "impact": "HIGH",
+      "gap": "AI-UR-009/010/011/012/014/015 remain PARTIAL on main",
+      "owner_repo": "gunnchAI3k"
+    },
+    {
+      "rank": 3,
+      "id": "PU-RESIDUAL-JOURNEYS",
+      "front": "ENGINEERING",
+      "impact": "HIGH",
+      "gap": "Product-Use residual digital journeys / persona completeness beyond RC-002 merge",
+      "owner_repo": "gunnchos-device-os"
+    },
+    {
+      "rank": 4,
+      "id": "WAIKE-FULL-COURSE-RC",
+      "front": "CURRICULUM",
+      "impact": "HIGH",
+      "gap": "full_18 course RC false; teacher/learner product consumption incomplete",
+      "owner_repo": "waike-research-ops"
+    },
+    {
+      "rank": 5,
+      "id": "GAME-FEATURE-POLISH-DIGITAL",
+      "front": "GAME_DEV",
+      "impact": "HIGH",
+      "gap": "Anime/Pedestrian FEATURE/POLISH digital gates still open post RC-003",
+      "owner_repo": "anime-aggressors"
+    },
+    {
+      "rank": 6,
+      "id": "CREATION-ENABLEMENT",
+      "front": "CREATION_ENABLEMENT",
+      "impact": "MEDIUM",
+      "gap": "Creator/publish pipelines and pickup-use digital gaps (A02/P00 TARGET mass)",
+      "owner_repo": "gunnchos-device-os"
+    },
+    {
+      "rank": 7,
+      "id": "EMULATION-LAB",
+      "front": "EMULATION",
+      "impact": "MEDIUM",
+      "gap": "Device-lab G11\u2013G15 / guest realism residuals; #103 conflicting",
+      "owner_repo": "gunnchos-device-os"
+    },
+    {
+      "rank": 8,
+      "id": "HW-DIGITAL-PACKAGE",
+      "front": "HARDWARE",
+      "impact": "MEDIUM",
+      "gap": "Large H00 TARGET set; KiCad CLI install EXTERNAL action for ERC/DRC",
+      "owner_repo": "gunnchos-hardware-industrial-design"
+    },
+    {
+      "rank": 9,
+      "id": "R6G-CHILDREN",
+      "front": "SIX_G",
+      "impact": "MEDIUM",
+      "gap": "Remaining R6G adoption children not all CLOSED despite #79/#80",
+      "owner_repo": "gunnchos-7gc-ai-ran-field-kit"
+    },
+    {
+      "rank": 10,
+      "id": "RES-EMERGENT-001",
+      "front": "RESEARCHER_ENABLEMENT",
+      "impact": "MEDIUM",
+      "gap": "Emergent intent publication science still on PR #2 not main",
+      "owner_repo": "gunnchos-emergent-service-intent-protocols"
+    },
+    {
+      "rank": 11,
+      "id": "MIDDLEWARE-TRUST",
+      "front": "MIDDLEWARE",
+      "impact": "MEDIUM",
+      "gap": "Security/privacy digital hostile-network + SBOM residuals (S00)",
+      "owner_repo": "gunnchos-device-os"
+    },
+    {
+      "rank": 12,
+      "id": "TWIN-README",
+      "front": "RESEARCHER_ENABLEMENT",
+      "impact": "LOW",
+      "gap": "digital-twin README contract draft #29",
+      "owner_repo": "7gc-digital-twin"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schema": "gunnchos.dependency_graph.v1",
+  "generated_at_utc": "2026-08-16T16:15:56Z",
+  "nodes": [
+    {
+      "id": "gunnchos-device-os",
+      "type": "repo",
+      "sha": "a1e11efcb502ce053d755a2539c26d252e216226"
+    },
+    {
+      "id": "gunnchAI3k",
+      "type": "repo",
+      "sha": "c429750ff83b2a5344a6e1f40f5c7d27a863bf4d"
+    },
+    {
+      "id": "waike-research-ops",
+      "type": "repo",
+      "sha": "7a0d4fe3d0f3da39d105ef21a97d1fd1d792c997"
+    },
+    {
+      "id": "gunnchos-7gc-ai-ran-field-kit",
+      "type": "repo",
+      "sha": "d1b330a11564120416cde745ff298453bafa27f0"
+    },
+    {
+      "id": "gunnchos-hardware-industrial-design",
+      "type": "repo",
+      "sha": "08b4d227241852c1b85fa2e0ba63138501f7ff67"
+    },
+    {
+      "id": "edge-io-measurement-node",
+      "type": "repo",
+      "sha": "3a16ba0b62758cdee20095289cdc91ba6a42b092"
+    },
+    {
+      "id": "anime-aggressors",
+      "type": "repo",
+      "sha": "9770674fdce94e19270d0f5683e6fcf74b4111f3"
+    },
+    {
+      "id": "pedestrian-pursuit",
+      "type": "repo",
+      "sha": "80ca8ee7e96da0e86184fe24b10831265588c1a3"
+    },
+    {
+      "id": "archive-of-life-artifact-world",
+      "type": "repo",
+      "sha": "74f5761cdc47fdb7de34ff93b402fac311bf2e47"
+    },
+    {
+      "id": "beatlink-party",
+      "type": "repo",
+      "sha": "4fc8fe017634ba6bdab62c676fde1355db0d36e0"
+    },
+    {
+      "id": "7gc-digital-twin",
+      "type": "repo",
+      "sha": "ce09f2fddbf5935d06366ba8d37e3a8641e617c4"
+    },
+    {
+      "id": "spectrumx-ai-ran-gary",
+      "type": "repo",
+      "sha": "8f0df4cb62877506543a231cfd402752bdf72be5"
+    },
+    {
+      "id": "ntn-resilience-sim",
+      "type": "repo",
+      "sha": "cd49b6619aa403c73f8284a90999a96a58f7e00b"
+    },
+    {
+      "id": "readygary-6g-beam-selection",
+      "type": "repo",
+      "sha": "525405cb19d7987ad218272f5897d4917c10dd75"
+    },
+    {
+      "id": "gunnchos-gpu-nr-baseband-platform",
+      "type": "repo",
+      "sha": "64909eeea4be2a07581e725373684d1c5a71ffa0"
+    },
+    {
+      "id": "gunnchos-emergent-service-intent-protocols",
+      "type": "repo",
+      "sha": "9b3fec9fdff752f97fbe9950b7db5d9874aea72d"
+    }
+  ],
+  "edges": [
+    {
+      "from": "gunnchos-device-os",
+      "to": "gunnchAI3k",
+      "relation": "embeds_or_invokes"
+    },
+    {
+      "from": "gunnchos-device-os",
+      "to": "waike-research-ops",
+      "relation": "curriculum_consume"
+    },
+    {
+      "from": "gunnchAI3k",
+      "to": "waike-research-ops",
+      "relation": "mastery_corpus"
+    },
+    {
+      "from": "gunnchos-device-os",
+      "to": "anime-aggressors",
+      "relation": "game_launch"
+    },
+    {
+      "from": "gunnchos-device-os",
+      "to": "pedestrian-pursuit",
+      "relation": "game_launch"
+    },
+    {
+      "from": "gunnchos-device-os",
+      "to": "archive-of-life-artifact-world",
+      "relation": "game_launch"
+    },
+    {
+      "from": "gunnchos-device-os",
+      "to": "beatlink-party",
+      "relation": "game_launch"
+    },
+    {
+      "from": "gunnchos-device-os",
+      "to": "edge-io-measurement-node",
+      "relation": "ring_io"
+    },
+    {
+      "from": "gunnchos-hardware-industrial-design",
+      "to": "gunnchos-device-os",
+      "relation": "target_platform"
+    },
+    {
+      "from": "gunnchos-7gc-ai-ran-field-kit",
+      "to": "*",
+      "relation": "control_plane_aggregation"
+    },
+    {
+      "from": "spectrumx-ai-ran-gary",
+      "to": "gunnchos-7gc-ai-ran-field-kit",
+      "relation": "r6g_research_feed"
+    },
+    {
+      "from": "ntn-resilience-sim",
+      "to": "gunnchos-7gc-ai-ran-field-kit",
+      "relation": "r6g_research_feed"
+    },
+    {
+      "from": "readygary-6g-beam-selection",
+      "to": "gunnchos-7gc-ai-ran-field-kit",
+      "relation": "r6g_research_feed"
+    },
+    {
+      "from": "7gc-digital-twin",
+      "to": "gunnchos-7gc-ai-ran-field-kit",
+      "relation": "twin_contract"
+    },
+    {
+      "from": "gunnchos-gpu-nr-baseband-platform",
+      "to": "gunnchos-hardware-industrial-design",
+      "relation": "baseband_platform"
+    },
+    {
+      "from": "gunnchos-emergent-service-intent-protocols",
+      "to": "gunnchos-7gc-ai-ran-field-kit",
+      "relation": "intent_science_feed"
+    }
+  ]
+}
