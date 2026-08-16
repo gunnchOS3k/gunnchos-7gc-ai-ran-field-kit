@@ -1,0 +1,88 @@
+{
+  "schema": "gunnchos.resource_schedule.v1",
+  "generated_at_utc": "2026-08-16T17:05:59Z",
+  "WIP_CAP": 3,
+  "merge_authority": "Edmund sole",
+  "CURSOR_NEVER_MERGES": true,
+  "phase": "POST_PKT001_FIRST_RETURN",
+  "slots": [
+    {
+      "slot": 1,
+      "stream": "A",
+      "packet": "A-PKT-002",
+      "repos": [
+        "gunnchos-device-os",
+        "gunnchos-7gc-ai-ran-field-kit"
+      ],
+      "compute": "CPU_HOST_OK",
+      "gpu": "NOT_REQUIRED",
+      "start_recommendation": "YES_NOW",
+      "serialize_notes": "Owns device-os + baseline delta consumption; avoid #103; do not fight R6G paths"
+    },
+    {
+      "slot": 2,
+      "stream": "B",
+      "packet": "B-PKT-002",
+      "repos": [
+        "gunnchAI3k",
+        "waike-research-ops",
+        "pedestrian-pursuit",
+        "anime-aggressors(Godot-only)"
+      ],
+      "compute": "CPU_OK; Local Pro download needs >=2GiB free RAM",
+      "gpu": "OPTIONAL_FOR_LOCAL_PRO",
+      "start_recommendation": "YES_NOW",
+      "serialize_notes": "Avoid Unity #51/#52; WAIKE #41 owner disposition; Local Pro RESOURCE_PENDING until freemem gate"
+    },
+    {
+      "slot": 3,
+      "stream": "C",
+      "packet": "C-PKT-002",
+      "repos": [
+        "gunnchos-7gc-ai-ran-field-kit",
+        "gunnchos-hardware-industrial-design",
+        "gunnchos-emergent-service-intent-protocols",
+        "gunnchos-gpu-nr-baseband-platform"
+      ],
+      "compute": "CPU digital OK; NVIDIA Aerial BLOCKED on discovery host",
+      "gpu": "REQUIRED_FOR_AERIAL_PATH \u2014 UNAVAILABLE_HERE",
+      "start_recommendation": "YES_NOW_DIGITAL_ONLY \u2014 #82 already MERGED; Aerial/Oulu external execution needs access or scoped CPU honesty",
+      "serialize_notes": "Field-kit control-plane delta branch stream/pkt001-accepted-delta; C owns R6G/external registry paths"
+    }
+  ],
+  "conflicts": [
+    {
+      "resource": "field-kit program/digital_ecosystem_baseline_v1",
+      "holders": [
+        "A",
+        "delta-PR"
+      ],
+      "mitigation": "A consumes delta; C does not rewrite BASELINE_V1 snapshot"
+    },
+    {
+      "resource": "Edmund merge bandwidth",
+      "holders": [
+        "A",
+        "B",
+        "C"
+      ],
+      "mitigation": "One DRAFT PR per stream; WIP CAP=3"
+    },
+    {
+      "resource": "RAM for Local Pro ~1GB model",
+      "holders": [
+        "B"
+      ],
+      "mitigation": "Defer Pro download until freemem>=2GiB"
+    }
+  ],
+  "destructive_ambiguity": {
+    "present": true,
+    "items": [
+      "DA-ANIME-UNITY",
+      "DA-DEVICE-103",
+      "DA-FK-71",
+      "DA-WAIKE-41"
+    ]
+  }
+}
