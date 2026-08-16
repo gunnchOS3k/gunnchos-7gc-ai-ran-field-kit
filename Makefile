@@ -406,3 +406,10 @@ r6g-reproduce:
 	$(PYTHON) -m research.r6g.replication.verify_independent
 	$(PYTHON) -m research.r6g.evaluate
 	$(PYTHON) -m pytest -q tests/test_r6g_breakthroughs.py tests/test_r6g_replication.py tests/test_r6g_portfolio_adoption_002.py
+
+.PHONY: nvidia-6g-probe nvidia-6g-leak-scan
+nvidia-6g-probe:
+	$(PYTHON) -m research.external_reproduction.cli.researcher_cli nvidia-6g-probe
+
+nvidia-6g-leak-scan:
+	$(PYTHON) scripts/scan_nvidia_secret_leaks.py --root . --fail
