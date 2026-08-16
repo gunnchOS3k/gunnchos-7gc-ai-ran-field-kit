@@ -74,3 +74,15 @@ See `FRONT_PROGRESS.json` (front ledger + streams A/B/C packets + gaps + conflic
 - `FRONT_PROGRESS.json`
 - `OPEN_PR_DISPOSITION.json`
 - `REPRODUCE.md`
+
+
+## Stream A packet progress (updated 2026-08-16T16:23:24Z)
+
+`STREAM-A-PKT-001` evidence landed (device-os branch `stream/a-pkt-001-middleware-emulation-creation`):
+
+- A2 middleware contract inventory/schemas/tests for identity, package, Ring input, AI interface, game launch, session continuity
+- A3 reusable Device Lab emulation pack (`SILICON_EXACT_EMULATION=false`)
+- A4 host create→edit→build→package→install→run for `gunnchos.stream_a_sample_memo` (`CREATOR_END_TO_END_DIGITAL_PASS=false`)
+- Targeted delta: WAIKE/gunnchAI advanced past RC-002 pins → guest Product-Use re-earn **DIGITAL_OPEN** (full campaign not executed)
+
+See `STREAM_A_PKT_001_EVIDENCE.json`. Cursor never merges.

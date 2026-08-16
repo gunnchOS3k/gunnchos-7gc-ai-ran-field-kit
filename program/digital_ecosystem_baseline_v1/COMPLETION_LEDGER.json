@@ -2414,35 +2414,39 @@
       "requirement": "gunnchOS + middleware digital product depth",
       "evidence": [
         "sdk/",
-        "artifacts/wp013/"
+        "artifacts/wp013/",
+        "gunnchos-device-os/shared_contracts/middleware/INVENTORY.json",
+        "gunnchos-device-os/tests/middleware/test_middleware_contracts_a2.py"
       ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "PLATFORM-001",
       "verifier": "accepted_main",
-      "last_verified_sha": null,
+      "last_verified_sha": "pending_device_os_stream_a_pkt_001",
       "source_register": "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
       "source_state_raw": "TARGET",
       "area_legacy": "OS00",
-      "next_action": "Deepen services beyond WP-013 foundation on accepted main 3858e76.",
-      "honesty_note": "Seeded from Aug-14 atomic register; SHA pointers refreshed to 2026-08-16 live mains. PASS not fabricated for recent merges without per-atom re-verification."
+      "next_action": "Contract schema inventory landed (STREAM-A-PKT-001). Remain DIGITAL_OPEN until runtime service hardening + accepted-main verifier.",
+      "honesty_note": "STREAM-A-PKT-001 attached schema/inventory evidence only. PASS not earned."
     },
     {
       "id": "GUNNCHOS_IDENTITY",
       "front": "ENGINEERING",
       "owner_repo": "gunnchos-device-os",
       "requirement": "gunnchOS service: identity",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/shared_contracts/middleware/schemas/identity.v1.schema.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "PLATFORM-001",
       "verifier": "not_accepted_main",
-      "last_verified_sha": null,
+      "last_verified_sha": "pending_device_os_stream_a_pkt_001",
       "source_register": "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
       "source_state_raw": "TARGET",
       "area_legacy": "OS00",
-      "next_action": "Implement/harden identity beyond stubs/thin clients.",
-      "honesty_note": "Seeded from Aug-14 atomic register; SHA pointers refreshed to 2026-08-16 live mains. PASS not fabricated for recent merges without per-atom re-verification."
+      "next_action": "Contract schema inventory landed (STREAM-A-PKT-001). Remain DIGITAL_OPEN until runtime service hardening + accepted-main verifier.",
+      "honesty_note": "STREAM-A-PKT-001 attached schema/inventory evidence only. PASS not earned."
     },
     {
       "id": "GUNNCHOS_HAL",
@@ -2534,51 +2538,58 @@
       "front": "ENGINEERING",
       "owner_repo": "gunnchos-device-os",
       "requirement": "gunnchOS service: ring",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/shared_contracts/middleware/schemas/ring_input.v1.schema.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "PLATFORM-001",
       "verifier": "not_accepted_main",
-      "last_verified_sha": null,
+      "last_verified_sha": "pending_device_os_stream_a_pkt_001",
       "source_register": "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
       "source_state_raw": "TARGET",
       "area_legacy": "OS00",
-      "next_action": "Implement/harden ring beyond stubs/thin clients.",
-      "honesty_note": "Seeded from Aug-14 atomic register; SHA pointers refreshed to 2026-08-16 live mains. PASS not fabricated for recent merges without per-atom re-verification."
+      "next_action": "Contract schema inventory landed (STREAM-A-PKT-001). Remain DIGITAL_OPEN until runtime service hardening + accepted-main verifier.",
+      "honesty_note": "STREAM-A-PKT-001 attached schema/inventory evidence only. PASS not earned."
     },
     {
       "id": "GUNNCHOS_CONTINUITY",
       "front": "ENGINEERING",
       "owner_repo": "gunnchos-device-os",
       "requirement": "gunnchOS service: continuity",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/shared_contracts/middleware/schemas/session_continuity.v1.schema.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "PLATFORM-001",
       "verifier": "not_accepted_main",
-      "last_verified_sha": null,
+      "last_verified_sha": "pending_device_os_stream_a_pkt_001",
       "source_register": "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
       "source_state_raw": "TARGET",
       "area_legacy": "OS00",
-      "next_action": "Implement/harden continuity beyond stubs/thin clients.",
-      "honesty_note": "Seeded from Aug-14 atomic register; SHA pointers refreshed to 2026-08-16 live mains. PASS not fabricated for recent merges without per-atom re-verification."
+      "next_action": "Contract schema inventory landed (STREAM-A-PKT-001). Remain DIGITAL_OPEN until runtime service hardening + accepted-main verifier.",
+      "honesty_note": "STREAM-A-PKT-001 attached schema/inventory evidence only. PASS not earned."
     },
     {
       "id": "GUNNCHOS_PACKAGING",
       "front": "ENGINEERING",
       "owner_repo": "gunnchos-device-os",
       "requirement": "gunnchOS service: packaging",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/shared_contracts/middleware/schemas/package_manifest.v1.schema.json",
+        "gunnchos-device-os/artifacts/stream_a_pkt_001/CREATION_HOST_CHAIN_EVIDENCE.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "PLATFORM-001",
       "verifier": "not_accepted_main",
-      "last_verified_sha": null,
+      "last_verified_sha": "pending_device_os_stream_a_pkt_001",
       "source_register": "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
       "source_state_raw": "TARGET",
       "area_legacy": "OS00",
-      "next_action": "Implement/harden packaging beyond stubs/thin clients.",
-      "honesty_note": "Seeded from Aug-14 atomic register; SHA pointers refreshed to 2026-08-16 live mains. PASS not fabricated for recent merges without per-atom re-verification."
+      "next_action": "Contract schema inventory landed (STREAM-A-PKT-001). Remain DIGITAL_OPEN until runtime service hardening + accepted-main verifier.",
+      "honesty_note": "STREAM-A-PKT-001 attached schema/inventory evidence only. PASS not earned."
     },
     {
       "id": "GUNNCHOS_PERMISSIONS",
@@ -2602,17 +2613,19 @@
       "front": "ENGINEERING",
       "owner_repo": "gunnchos-device-os",
       "requirement": "gunnchOS service: ai_interface",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/shared_contracts/middleware/schemas/ai_interface.v1.schema.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "PLATFORM-001",
       "verifier": "not_accepted_main",
-      "last_verified_sha": null,
+      "last_verified_sha": "pending_device_os_stream_a_pkt_001",
       "source_register": "program/convergence_100/ATOMIC_COMPLETION_REGISTER.json",
       "source_state_raw": "TARGET",
       "area_legacy": "OS00",
-      "next_action": "Implement/harden ai_interface beyond stubs/thin clients.",
-      "honesty_note": "Seeded from Aug-14 atomic register; SHA pointers refreshed to 2026-08-16 live mains. PASS not fabricated for recent merges without per-atom re-verification."
+      "next_action": "Contract schema inventory landed (STREAM-A-PKT-001). Remain DIGITAL_OPEN until runtime service hardening + accepted-main verifier.",
+      "honesty_note": "STREAM-A-PKT-001 attached schema/inventory evidence only. PASS not earned."
     },
     {
       "id": "GUNNCHOS_CONNECTIVITY",
@@ -2959,7 +2972,9 @@
       "front": "EMULATION",
       "owner_repo": "gunnchos-device-os",
       "requirement": "Device Lab final digital acceptance",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/gunnchos_device_os/device_lab/emulation_packs/STREAM_A_REUSABLE_LAB_PACK_001.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "WP-011R.2",
@@ -2976,7 +2991,9 @@
       "front": "EMULATION",
       "owner_repo": "gunnchos-device-os",
       "requirement": "Independent 10/10 Device Lab on accepted mains",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/gunnchos_device_os/device_lab/emulation_packs/STREAM_A_REUSABLE_LAB_PACK_001.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": "WP-011R.2",
@@ -8976,7 +8993,9 @@
       "front": "EMULATION",
       "owner_repo": "gunnchos-7gc-ai-ran-field-kit",
       "requirement": "Track Device Lab interactive/dev guest vs EVT/factory/recovery/shipping images and trust realms",
-      "evidence": [],
+      "evidence": [
+        "gunnchos-device-os/gunnchos_device_os/device_lab/emulation_packs/STREAM_A_REUSABLE_LAB_PACK_001.json"
+      ],
       "state": "DIGITAL_OPEN",
       "blocker_class": null,
       "dependency": null,
@@ -9703,5 +9722,17 @@
       "last_verified_sha": "a1e11efcb502ce053d755a2539c26d252e216226",
       "next_action": "Continue Product-Use residual digital journeys; #103 CONFLICTING \u2014 REBASE_AND_VERIFY or SUPERSEDED_CLOSE with record"
     }
+  ],
+  "updated_at_utc": "2026-08-16T16:23:24Z",
+  "stream_a_pkt_001_atoms_touched": [
+    "DEVICE_LAB",
+    "DEVICE_LAB_10_10_DIGITAL",
+    "GUNNCHOS_AI_INTERFACE",
+    "GUNNCHOS_CONTINUITY",
+    "GUNNCHOS_IDENTITY",
+    "GUNNCHOS_MIDDLEWARE",
+    "GUNNCHOS_PACKAGING",
+    "GUNNCHOS_RING",
+    "WP012-DEVICE_LAB_IMAGE_REALMS"
   ]
 }
