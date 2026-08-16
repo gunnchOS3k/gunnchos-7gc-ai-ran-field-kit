@@ -72,6 +72,26 @@ def test_replication_honesty_caps(tmp_path: Path):
     assert len(c005["robustness_runs"]) >= 1
     assert len(c009["robustness_runs"]) >= 1
 
+    # STREAM-C-PKT-001: 006/007 exited MODELED_CONTRACT_ONLY
+    s006 = suite["supporting"]["R6G-006"]
+    s007 = suite["supporting"]["R6G-007"]
+    assert s006["claim_state"] == "DIGITALLY_EXECUTED"
+    assert s007["claim_state"] == "DIGITALLY_EXECUTED"
+    assert s006["ladder_earned"] == ["R0", "R1", "R2"]
+    assert s007["ladder_earned"] == ["R0", "R1", "R2"]
+    assert suite["tokens"]["R6G_006_007_DIGITALLY_EXECUTED"] is True
+    assert suite["tokens"]["IMPROVED_STATE_OF_ART"] is False
+    assert suite["tokens"]["STANDARDIZED_6G"] is False
+    ex006 = suite["executed_support_candidates"]["R6G-006"]
+    ex007 = suite["executed_support_candidates"]["R6G-007"]
+    assert ex006["metrics_vary_across_seeds"] is True
+    assert ex007["metrics_vary_across_seeds"] is True
+    assert ex006["falsification_evidence"] is True
+    assert ex007["falsification_evidence"] is True
+    assert "R6" not in ex006["ladder_earned"]
+    packets = {r["packet"] for r in json.loads((tmp_path / "R6G_NEGATIVE_RESULTS.json").read_text())["results"]}
+    assert "R6G-006" in packets and "R6G-007" in packets
+
     # Ablation gated on 003
     assert "ablation_ok" in c003["ablation"]
     assert c003["ladder_flags"]["R5"] == bool(c003["ablation"]["ablation_ok"])

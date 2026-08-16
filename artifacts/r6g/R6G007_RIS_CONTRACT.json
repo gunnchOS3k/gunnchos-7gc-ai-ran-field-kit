@@ -2,8 +2,10 @@
   "schema": "gunnchos.r6g.r6g007.v1",
   "packet": "R6G-007",
   "ok": true,
-  "status": "MODELED_CONTRACT_ONLY",
-  "claim_state": "MODELED",
+  "status": "DIGITALLY_EXECUTED",
+  "claim_state": "DIGITALLY_EXECUTED",
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "seed": 11,
   "contract": {
     "elements_modeled": 64,
     "control": "PHASE_ONLY_DIGITAL",
@@ -15,13 +17,60 @@
       "IMPROVED_STATE_OF_ART"
     ]
   },
-  "toy_snr_db": {
-    "passive_reflect": 8.0,
-    "adaptive_phase": 11.5
+  "controls": [
+    "PASSIVE_FIXED",
+    "RANDOM_PHASE",
+    "ADAPTIVE_PHASE"
+  ],
+  "stresses": [
+    "static_los",
+    "blocked_direct",
+    "phase_quant_2bit",
+    "element_failure",
+    "mobility_mismatch"
+  ],
+  "results_snr_db": {
+    "static_los": {
+      "PASSIVE_FIXED": -4.589416,
+      "RANDOM_PHASE": 14.842131,
+      "ADAPTIVE_PHASE": 29.394332
+    },
+    "blocked_direct": {
+      "PASSIVE_FIXED": 6.598142,
+      "RANDOM_PHASE": 11.699539,
+      "ADAPTIVE_PHASE": 29.078418
+    },
+    "phase_quant_2bit": {
+      "PASSIVE_FIXED": 1.958329,
+      "RANDOM_PHASE": -0.851073,
+      "ADAPTIVE_PHASE": 26.80139
+    },
+    "element_failure": {
+      "PASSIVE_FIXED": 18.410991,
+      "RANDOM_PHASE": 10.002082,
+      "ADAPTIVE_PHASE": 25.975822
+    },
+    "mobility_mismatch": {
+      "PASSIVE_FIXED": 9.467925,
+      "RANDOM_PHASE": 9.892911,
+      "ADAPTIVE_PHASE": 13.720939
+    }
   },
-  "delta_db": 3.5,
+  "static_los": {
+    "PASSIVE_FIXED": -4.589416,
+    "RANDOM_PHASE": 14.842131,
+    "ADAPTIVE_PHASE": 29.394332
+  },
+  "delta_adaptive_minus_passive_db": 33.983748,
+  "documented_negative_or_no_gain": [],
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": false,
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "RIS_PURCHASE": false,
   "IMPROVED_STATE_OF_ART": false,
-  "note": "Digital RIS contract only; no physical purchase this cycle."
+  "note": "Seeded RIS phase-control digital experiment only; no physical purchase or panel validation this cycle."
 }

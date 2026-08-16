@@ -101,7 +101,7 @@
     "note": "Recalculates digital arithmetic from raw outputs. Does NOT upgrade claims, does NOT earn R6, does NOT set INDEPENDENT_VERIFIER_PASS."
   },
   "replication": {
-    "negative_result_count": 42,
+    "negative_result_count": 58,
     "adoption_levels": {
       "A2_plus": "NOT_CLAIMED_THIS_CYCLE",
       "R6G-001": "A1_STABLE_REFERENCE_REGISTRY",
@@ -109,8 +109,8 @@
       "R6G-003": "A1_STABLE_REFERENCE_IMPLEMENTATION",
       "R6G-004": "A0_INTERNAL_EXPERIMENT",
       "R6G-005": "A0_INTERNAL_EXPERIMENT",
-      "R6G-006": "A0_STAGED_MODELED_CONTRACT",
-      "R6G-007": "A0_STAGED_MODELED_CONTRACT",
+      "R6G-006": "A0_INTERNAL_EXPERIMENT",
+      "R6G-007": "A0_INTERNAL_EXPERIMENT",
       "R6G-008": "A0_INTERNAL_EXPERIMENT",
       "R6G-009": "A0_INTERNAL_EXPERIMENT",
       "R6G-010": "A0_INTERNAL_EXPERIMENT",
@@ -157,6 +157,7 @@
       "PEER_REVIEWED": false,
       "PHYSICAL_REPRODUCTION_PENDING": true,
       "PROMISING_DIGITAL_ANY": false,
+      "R6G_006_007_DIGITALLY_EXECUTED": true,
       "R6G_ABLATIONS_DOCUMENTED": false,
       "R6G_ABLATIONS_PARTIAL": true,
       "R6G_DIGITAL_REPLICATION_PASS": false,
@@ -240,9 +241,9 @@
       },
       {
         "packet": "R6G-006",
-        "status": "MODELED_CONTRACT_ONLY",
-        "claim_state": "MODELED",
-        "adoption_package": "A0_STAGED_MODELED_CONTRACT",
+        "status": "DIGITALLY_EXECUTED",
+        "claim_state": "DIGITALLY_EXECUTED",
+        "adoption_package": "A0_INTERNAL_EXPERIMENT",
         "ladder_earned": [
           "R0",
           "R1"
@@ -252,9 +253,9 @@
       },
       {
         "packet": "R6G-007",
-        "status": "MODELED_CONTRACT_ONLY",
-        "claim_state": "MODELED",
-        "adoption_package": "A0_STAGED_MODELED_CONTRACT",
+        "status": "DIGITALLY_EXECUTED",
+        "claim_state": "DIGITALLY_EXECUTED",
+        "adoption_package": "A0_INTERNAL_EXPERIMENT",
         "ladder_earned": [
           "R0",
           "R1"
@@ -357,6 +358,8 @@
     "R6G-004: camera spoof / ring bias / privacy-cost negatives on synthetic personal sensing",
     "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
     "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics",
+    "R6G-006: RZF can lose to MRT under fronthaul quantization / AP dropout",
+    "R6G-007: adaptive RIS phases can lose under element failure / mobility mismatch / 2-bit quant",
     "R6G-010: overclaim trap collapses when sensing privacy is ignored"
   ],
   "documented_negative_experiments": {
@@ -685,6 +688,23 @@
         "reason": "Predictor misspecified under jump/burst channel dynamics"
       }
     ],
+    "R6G-006": [
+      {
+        "stress": "fronthaul_quantize",
+        "result": "RZF_NO_GAIN_VS_MRT",
+        "rzf": 1.412273,
+        "mrt": 1.442359,
+        "delta": -0.030086
+      },
+      {
+        "stress": "ap_dropout",
+        "result": "RZF_NO_GAIN_VS_MRT",
+        "rzf": 1.285311,
+        "mrt": 1.47418,
+        "delta": -0.188869
+      }
+    ],
+    "R6G-007": [],
     "R6G-010": [
       {
         "case": "overclaim_trap_privacy_floor",
@@ -699,6 +719,8 @@
     "R6G-003": true,
     "R6G-005": true,
     "R6G-009": true,
+    "R6G-006": true,
+    "R6G-007": false,
     "R6G-002": true,
     "R6G-004": true,
     "R6G-008": true,
@@ -739,6 +761,14 @@
       "status": "DIGITAL_SYNTHETIC_EXECUTED",
       "ok": true
     },
+    "R6G-006": {
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true
+    },
+    "R6G-007": {
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true
+    },
     "R6G-008": {
       "status": "DIGITALLY_EXECUTED",
       "ok": true
@@ -754,12 +784,14 @@
   },
   "modeled_contract_status": {
     "R6G-006": {
-      "status": "MODELED_CONTRACT_ONLY",
-      "ok": true
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true,
+      "prior": "MODELED_CONTRACT_ONLY"
     },
     "R6G-007": {
-      "status": "MODELED_CONTRACT_ONLY",
-      "ok": true
+      "status": "DIGITALLY_EXECUTED",
+      "ok": true,
+      "prior": "MODELED_CONTRACT_ONLY"
     }
   },
   "registered_not_active": [],
@@ -3989,15 +4021,18 @@
       "schema": "gunnchos.r6g.r6g006.v1",
       "packet": "R6G-006",
       "ok": true,
-      "status": "MODELED_CONTRACT_ONLY",
-      "claim_state": "MODELED",
+      "status": "DIGITALLY_EXECUTED",
+      "claim_state": "DIGITALLY_EXECUTED",
+      "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+      "seed": 7,
       "contract": {
         "topology": "cell_free_ap_cluster",
         "ap_count_modeled": 8,
         "ue_count_modeled": 4,
         "precoding": [
           "MRT",
-          "RZF_DIGITAL"
+          "RZF_DIGITAL",
+          "MATCHED_FILTER_BASELINE"
         ],
         "fronthaul": "IDEALIZED_DIGITAL",
         "channel": "IID_RAYLEIGH_SYNTHETIC",
@@ -4007,22 +4042,86 @@
           "IMPROVED_STATE_OF_ART"
         ]
       },
-      "toy_spectral_efficiency_bps_hz": {
-        "MRT": 1.8,
-        "RZF_DIGITAL": 2.4
+      "precoders": [
+        "MATCHED_FILTER_BASELINE",
+        "MRT",
+        "RZF_DIGITAL"
+      ],
+      "stresses": [
+        "ideal_iid",
+        "pilot_contamination",
+        "fronthaul_quantize",
+        "ap_dropout",
+        "ue_mobility_fast"
+      ],
+      "results_se_bps_hz": {
+        "ideal_iid": {
+          "MATCHED_FILTER_BASELINE": 0.182387,
+          "MRT": 1.335759,
+          "RZF_DIGITAL": 1.44517
+        },
+        "pilot_contamination": {
+          "MATCHED_FILTER_BASELINE": 0.336107,
+          "MRT": 1.922596,
+          "RZF_DIGITAL": 2.510929
+        },
+        "fronthaul_quantize": {
+          "MATCHED_FILTER_BASELINE": 0.165789,
+          "MRT": 1.442359,
+          "RZF_DIGITAL": 1.412273
+        },
+        "ap_dropout": {
+          "MATCHED_FILTER_BASELINE": 0.159915,
+          "MRT": 1.47418,
+          "RZF_DIGITAL": 1.285311
+        },
+        "ue_mobility_fast": {
+          "MATCHED_FILTER_BASELINE": 0.229025,
+          "MRT": 1.790065,
+          "RZF_DIGITAL": 1.862621
+        }
       },
-      "delta_rzf_minus_mrt": 0.6,
+      "ideal_iid": {
+        "MATCHED_FILTER_BASELINE": 0.182387,
+        "MRT": 1.335759,
+        "RZF_DIGITAL": 1.44517
+      },
+      "delta_rzf_minus_mrt_ideal": 0.109411,
+      "documented_negative_or_no_gain": [
+        {
+          "stress": "fronthaul_quantize",
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.412273,
+          "mrt": 1.442359,
+          "delta": -0.030086
+        },
+        {
+          "stress": "ap_dropout",
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.285311,
+          "mrt": 1.47418,
+          "delta": -0.188869
+        }
+      ],
+      "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+      "ladder_earned": [
+        "R0",
+        "R1",
+        "R2"
+      ],
       "PHYSICAL_REPRODUCTION_PENDING": true,
       "HARDWARE_PENDING": true,
       "IMPROVED_STATE_OF_ART": false,
-      "note": "Contract + toy digital proxy only; no cell-free hardware campaign."
+      "note": "Seeded cell-free MIMO digital experiment (synthetic Rayleigh). Not a physical deployment; not a vendor OTA beat."
     },
     "R6G-007": {
       "schema": "gunnchos.r6g.r6g007.v1",
       "packet": "R6G-007",
       "ok": true,
-      "status": "MODELED_CONTRACT_ONLY",
-      "claim_state": "MODELED",
+      "status": "DIGITALLY_EXECUTED",
+      "claim_state": "DIGITALLY_EXECUTED",
+      "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+      "seed": 11,
       "contract": {
         "elements_modeled": 64,
         "control": "PHASE_ONLY_DIGITAL",
@@ -4034,15 +4133,62 @@
           "IMPROVED_STATE_OF_ART"
         ]
       },
-      "toy_snr_db": {
-        "passive_reflect": 8.0,
-        "adaptive_phase": 11.5
+      "controls": [
+        "PASSIVE_FIXED",
+        "RANDOM_PHASE",
+        "ADAPTIVE_PHASE"
+      ],
+      "stresses": [
+        "static_los",
+        "blocked_direct",
+        "phase_quant_2bit",
+        "element_failure",
+        "mobility_mismatch"
+      ],
+      "results_snr_db": {
+        "static_los": {
+          "PASSIVE_FIXED": -4.589416,
+          "RANDOM_PHASE": 14.842131,
+          "ADAPTIVE_PHASE": 29.394332
+        },
+        "blocked_direct": {
+          "PASSIVE_FIXED": 6.598142,
+          "RANDOM_PHASE": 11.699539,
+          "ADAPTIVE_PHASE": 29.078418
+        },
+        "phase_quant_2bit": {
+          "PASSIVE_FIXED": 1.958329,
+          "RANDOM_PHASE": -0.851073,
+          "ADAPTIVE_PHASE": 26.80139
+        },
+        "element_failure": {
+          "PASSIVE_FIXED": 18.410991,
+          "RANDOM_PHASE": 10.002082,
+          "ADAPTIVE_PHASE": 25.975822
+        },
+        "mobility_mismatch": {
+          "PASSIVE_FIXED": 9.467925,
+          "RANDOM_PHASE": 9.892911,
+          "ADAPTIVE_PHASE": 13.720939
+        }
       },
-      "delta_db": 3.5,
+      "static_los": {
+        "PASSIVE_FIXED": -4.589416,
+        "RANDOM_PHASE": 14.842131,
+        "ADAPTIVE_PHASE": 29.394332
+      },
+      "delta_adaptive_minus_passive_db": 33.983748,
+      "documented_negative_or_no_gain": [],
+      "HYPOTHESIS_SUPPORTED_DIGITALLY": false,
+      "ladder_earned": [
+        "R0",
+        "R1",
+        "R2"
+      ],
       "PHYSICAL_REPRODUCTION_PENDING": true,
       "RIS_PURCHASE": false,
       "IMPROVED_STATE_OF_ART": false,
-      "note": "Digital RIS contract only; no physical purchase this cycle."
+      "note": "Seeded RIS phase-control digital experiment only; no physical purchase or panel validation this cycle."
     },
     "R6G-008": {
       "schema": "gunnchos.r6g.r6g008.v1",
@@ -6072,9 +6218,38 @@
             "ISAC"
           ]
         },
+        "digital_observable_mapped": 11,
+        "digital_observable_coverage_ratio": 0.55,
         "inputs_validated": true,
-        "units_official_pending": true
+        "units_official_pending": true,
+        "negative_controls_documented": 3
       },
+      "documented_negative_or_no_gain": [
+        {
+          "case_id": "NEG_OVERCLAIM_MEASURED_WHILE_PENDING",
+          "result": "REJECTED",
+          "detail": "Harness refuses MEASURED / COMPLIANT labels while official_value pending",
+          "pending_requirement_ids_sample": [
+            "TPR-01",
+            "TPR-02",
+            "TPR-03",
+            "TPR-04",
+            "TPR-05"
+          ],
+          "would_have_been_non_compliant_claim": true
+        },
+        {
+          "case_id": "NEG_UNMAPPED_REQUIREMENT",
+          "result": "INSUFFICIENT_EVIDENCE",
+          "detail": "Unknown requirement name yields no digital observable and never COMPLIANT"
+        },
+        {
+          "case_id": "ABL_DROP_PACKET_SCENARIO_MAP",
+          "result": "COVERAGE_INCOMPLETE",
+          "detail": "Without PACKET_SCENARIO_MAP, scenario coverage cannot be claimed",
+          "ablation": true
+        }
+      ],
       "evidence_labels_used": [
         "STANDARD_PENDING"
       ],
@@ -6095,7 +6270,8 @@
       "PHYSICAL_REPRODUCTION_PENDING": true,
       "IMPROVED_STATE_OF_ART": false,
       "hardcoded_6g_compliant": false,
-      "note": "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels; never STANDARDIZED_6G/COMPLIANT while official values pending."
+      "stream_c_pkt001_harness_deepened": true,
+      "note": "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels, negative overclaim traps, and coverage ratios; never STANDARDIZED_6G/COMPLIANT while official values pending."
     },
     "semantic_continuity": {
       "schema": "gunnchos.r6g.semantic_continuity_ntn_education.v1",
@@ -6325,7 +6501,7 @@
     "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
     "IMPROVED_STATE_OF_ART remains false",
     "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred (Product-Use may own QEMU)",
-    "R6G-006/007 MODELED_CONTRACT_ONLY \u2014 no physical exaggeration",
+    "R6G-006/007 DIGITALLY_EXECUTED (R0\u2013R2) \u2014 no physical / purchase / SoA claim",
     "R6G-002/008/010 DIGITALLY_EXECUTED; 011 DIGITALLY_EXECUTED_HARNESS; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
     "Dual-tree disposition: artifacts/r6g authoritative; stable_seed fixes PYTHONHASHSEED drift",
     "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
@@ -6333,7 +6509,8 @@
     "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE preserved; 005/009 REPLICATION_INCOMPLETE preserved",
     "Never STANDARDIZED_6G/COMPLIANT without official evidence",
     "WAIKE case studies do not count as scientific validation",
-    "No 11 new research repos (NEW_6G_RESEARCH_REPO_CREATION=FORBIDDEN_BY_DEFAULT)"
+    "No 11 new research repos (NEW_6G_RESEARCH_REPO_CREATION=FORBIDDEN_BY_DEFAULT)",
+    "STREAM-C-PKT-001: deepened 003/005/009 seeds; 006/007 exited MODELED_CONTRACT_ONLY"
   ],
   "deferred_heavy_work": [
     "ns-3 / Sionna / DeepMIMO campaign sweeps",

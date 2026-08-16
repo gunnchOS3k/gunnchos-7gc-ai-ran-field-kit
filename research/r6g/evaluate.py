@@ -97,7 +97,7 @@ def build_portfolio_matrix(
             "R6G-006",
             status=r006["status"],
             claim_state=r006["claim_state"],
-            adoption=adopt.get("R6G-006", "A0_STAGED_MODELED_CONTRACT"),
+            adoption=adopt.get("R6G-006", "A0_INTERNAL_EXPERIMENT"),
             ladder=["R0", "R1"],
             notes="Safe digital contract only; no physical MIMO campaign",
         ),
@@ -105,7 +105,7 @@ def build_portfolio_matrix(
             "R6G-007",
             status=r007["status"],
             claim_state=r007["claim_state"],
-            adoption=adopt.get("R6G-007", "A0_STAGED_MODELED_CONTRACT"),
+            adoption=adopt.get("R6G-007", "A0_INTERNAL_EXPERIMENT"),
             ladder=["R0", "R1"],
             notes="Safe RIS contract; RIS_PURCHASE=false",
         ),
@@ -193,13 +193,16 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "R6G-009": {"status": r009["status"], "ok": r009["ok"], "HYPOTHESIS_SUPPORTED_DIGITALLY": r009["HYPOTHESIS_SUPPORTED_DIGITALLY"]},
         "R6G-002": {"status": r002["status"], "ok": r002["ok"]},
         "R6G-004": {"status": r004["status"], "ok": r004["ok"]},
+        "R6G-006": {"status": r006["status"], "ok": r006["ok"]},
+        "R6G-007": {"status": r007["status"], "ok": r007["ok"]},
         "R6G-008": {"status": r008["status"], "ok": r008["ok"]},
         "R6G-010": {"status": r010["status"], "ok": r010["ok"]},
         "R6G-011": {"status": r011["status"], "ok": r011["ok"]},
     }
     modeled_contracts = {
-        "R6G-006": {"status": r006["status"], "ok": r006["ok"]},
-        "R6G-007": {"status": r007["status"], "ok": r007["ok"]},
+        # Retained key for consumers; packets are DIGITALLY_EXECUTED as of STREAM-C-PKT-001.
+        "R6G-006": {"status": r006["status"], "ok": r006["ok"], "prior": "MODELED_CONTRACT_ONLY"},
+        "R6G-007": {"status": r007["status"], "ok": r007["ok"], "prior": "MODELED_CONTRACT_ONLY"},
     }
     not_active = [p["work_packet"] for p in backlog["packets"] if p["status"] == "REGISTERED_NOT_ACTIVE"]
 
@@ -245,7 +248,7 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "Physical/SDR/OTA (R6+) PHYSICAL_REPRODUCTION_PENDING",
         "IMPROVED_STATE_OF_ART remains false",
         "Large ns-3/Sionna/DeepMIMO/multi-hour RF deferred (Product-Use may own QEMU)",
-        "R6G-006/007 MODELED_CONTRACT_ONLY — no physical exaggeration",
+        "R6G-006/007 DIGITALLY_EXECUTED (R0–R2) — no physical / purchase / SoA claim",
         "R6G-002/008/010 DIGITALLY_EXECUTED; 011 DIGITALLY_EXECUTED_HARNESS; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
         "Dual-tree disposition: artifacts/r6g authoritative; stable_seed fixes PYTHONHASHSEED drift",
         "Registry numeric headlines scrubbed to OFFICIAL_VALUE_PENDING until distance+bandwidth pinned",
@@ -254,6 +257,7 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
         "Never STANDARDIZED_6G/COMPLIANT without official evidence",
         "WAIKE case studies do not count as scientific validation",
         "No 11 new research repos (NEW_6G_RESEARCH_REPO_CREATION=FORBIDDEN_BY_DEFAULT)",
+        "STREAM-C-PKT-001: deepened 003/005/009 seeds; 006/007 exited MODELED_CONTRACT_ONLY",
     ]
 
     report = {
@@ -306,6 +310,8 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "R6G-004: camera spoof / ring bias / privacy-cost negatives on synthetic personal sensing",
             "R6G-005: uncertainty-aware CSF shows no throughput gain vs conventional on IID CSI",
             "R6G-009: predictive belief worse than current at 100 ms horizon and under jump/burst dynamics",
+            "R6G-006: RZF can lose to MRT under fronthaul quantization / AP dropout",
+            "R6G-007: adaptive RIS phases can lose under element failure / mobility mismatch / 2-bit quant",
             "R6G-010: overclaim trap collapses when sensing privacy is ignored",
         ],
         "documented_negative_experiments": {
@@ -315,12 +321,16 @@ def evaluate_r6g(out_dir: Path | None = None) -> dict[str, Any]:
             "R6G-005": r005.get("documented_negative_or_no_gain", []),
             "R6G-008": r008.get("documented_negative_or_no_gain", []),
             "R6G-009": r009.get("documented_negative_or_no_gain", []),
+            "R6G-006": r006.get("documented_negative_or_no_gain", []),
+            "R6G-007": r007.get("documented_negative_or_no_gain", []),
             "R6G-010": r010.get("documented_negative_or_no_gain", []),
         },
         "falsifiability": {
             "R6G-003": bool(r003.get("falsifiable")),
             "R6G-005": bool(r005.get("falsifiable")),
             "R6G-009": bool(r009.get("falsifiable")),
+            "R6G-006": len(r006.get("documented_negative_or_no_gain", [])) >= 1,
+            "R6G-007": len(r007.get("documented_negative_or_no_gain", [])) >= 1,
             "R6G-002": len(r002.get("documented_negative_or_no_gain", [])) >= 1,
             "R6G-004": len(r004.get("documented_negative_or_no_gain", [])) >= 1,
             "R6G-008": len(r008.get("documented_negative_or_no_gain", [])) >= 1,

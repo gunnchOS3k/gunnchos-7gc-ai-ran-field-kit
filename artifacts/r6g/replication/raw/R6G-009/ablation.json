@@ -1,8 +1,8 @@
 {
   "ablation": "policy_family_across_delay",
   "ablation_ok": true,
-  "checks_passed": 3,
-  "checks_required": 3,
+  "checks_passed": 4,
+  "checks_required": 4,
   "interpretation": "Checked policy removal: predictive vs current/belief; long-horizon can negate gains.",
   "packet": "R6G-009",
   "rows": [
@@ -38,6 +38,17 @@
       "pred100": 0.2186,
       "pred25": 0.0215,
       "seed": 6
+    },
+    {
+      "ablation_check_ok": true,
+      "belief25": 0.0446,
+      "cur100": 0.1229,
+      "cur25": 0.0268,
+      "long_horizon_predictive_no_gain": true,
+      "policies_distinct_at_25ms": true,
+      "pred100": 0.2397,
+      "pred25": 0.0238,
+      "seed": 8
     }
   ]
 }
