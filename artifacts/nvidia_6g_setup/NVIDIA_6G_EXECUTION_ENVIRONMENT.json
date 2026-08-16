@@ -1,0 +1,85 @@
+{
+  "schema": "gunnchos.nvidia_6g_execution_environment.v1",
+  "generated_at_utc": "2026-08-16T20:45:13Z",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "cpu": "Apple M2",
+    "python": "3.14.7",
+    "ram_bytes": 8589934592
+  },
+  "credentials": {
+    "accepted_for_setup": true,
+    "store": "PENDING_USER_KEYCHAIN",
+    "keychain_services": {
+      "gunnchos-ngc-aodt": {
+        "find_exit_code": 44,
+        "present": false
+      },
+      "gunnchos-ngc-aerial": {
+        "find_exit_code": 44,
+        "present": false
+      }
+    },
+    "ngc_docker_auth": "NOT_CLAIMED"
+  },
+  "ngc": {
+    "org_or_context": "aerial-ov-digital-twin",
+    "membership_active": true,
+    "console_access": true
+  },
+  "upstream_lock_ref": "/Users/gunnchos/nvidia-6g-research/probes/NVIDIA_UPSTREAM_SOURCE_LOCK.json",
+  "upstream_shas": {
+    "sionna": "04ddb9312116b408093b9d3ad363a3df355093a6",
+    "sionna-rt": "bc0549155c7b782c7614a0ec06a0ac4e32b979ae",
+    "aerial-cuda-accelerated-ran": "29f5870fd84b0176df48b40667c1b8f1740e6d09",
+    "aerial-omniverse-digital-twin": "3cc464a9f44a9303ff597f118b498c95080a94fb"
+  },
+  "software_immediate": {
+    "SIONNA_PHY": true,
+    "SIONNA_SYS": true,
+    "SIONNA_RT": true,
+    "AODT_MAC_REMOTE_CLIENT_BUILD": true,
+    "CPU_NUMPY_SCIPY": true
+  },
+  "software_blocked_on_gpu_worker": {
+    "AODT_EXECUTION": true,
+    "PYAERIAL": true,
+    "AERIAL_CUDA_RAN_RUNTIME": true,
+    "AERIAL_SDK": true,
+    "NGC_PRIVATE_CONTAINER_PULL": true,
+    "OTA": true
+  },
+  "gpu_worker": {
+    "required": true,
+    "ssh_alias": "nvidia6g-worker",
+    "ssh_G_hostname": "nvidia6g-worker",
+    "connectivity_tested": false,
+    "GPU_WORKER_REQUIRED": true
+  },
+  "claims": {
+    "AODT_EXECUTION_PASS": false,
+    "AODT_VALIDATED": false,
+    "PYAERIAL_VALIDATED": false,
+    "NVIDIA_AERIAL_VALIDATED": false,
+    "OTA": false,
+    "PHYSICAL": false,
+    "6G_CERTIFIED": false,
+    "IMPROVED_STATE_OF_ART": false,
+    "NGC_DOCKER_AUTH": false
+  },
+  "docker": {
+    "present": false,
+    "ngc_login": "NOT_ATTEMPTED_NO_DOCKER"
+  },
+  "disk_estimate_gb": {
+    "upstream_cloned_approx": 1.7,
+    "sionna_venv_approx": 1.5,
+    "remaining_home_free_approx": 62,
+    "schedule": [
+      "Mac source/client done",
+      "Keychain+docker when available",
+      "GPU worker for AODT/pyAerial/Aerial"
+    ]
+  }
+}

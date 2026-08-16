@@ -1,0 +1,79 @@
+{
+  "schema": "gunnchos.mac_nvidia_6g_client_probe.v1",
+  "generated_at_utc": "2026-08-16T20:40:29Z",
+  "host": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "machine": "arm64",
+    "cpu": "Apple M2",
+    "ram_bytes": 8589934592,
+    "python": "3.11.2",
+    "macos": "26.6.1"
+  },
+  "tools": {
+    "git": "/opt/homebrew/bin/git",
+    "git_lfs": "/opt/homebrew/bin/git-lfs",
+    "python3": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+    "cmake": "/opt/homebrew/bin/cmake",
+    "brew": "/opt/homebrew/bin/brew",
+    "docker": null,
+    "nvidia_smi": null,
+    "ssh": "/usr/bin/ssh"
+  },
+  "docker": {
+    "present": false,
+    "app_bundle": false,
+    "ngc_docker_auth": "NOT_ATTEMPTED_KEYCHAIN_PENDING"
+  },
+  "credential_store": {
+    "type": "macos_keychain",
+    "status": "PENDING_USER_KEYCHAIN",
+    "services": {
+      "gunnchos-ngc-aodt": {
+        "find_exit_code": 44,
+        "present": false
+      },
+      "gunnchos-ngc-aerial": {
+        "find_exit_code": 44,
+        "present": false
+      }
+    },
+    "credentials_accepted_for_setup": true,
+    "note": "User confirmed keys; agent find exit 44 = not visible to this shell yet"
+  },
+  "ngc": {
+    "org_or_context_visible": "aerial-ov-digital-twin",
+    "membership_active": true,
+    "console_access": true,
+    "private_registry_subscription_visible": true,
+    "docker_login": "NOT_CLAIMED"
+  },
+  "gpu_worker": {
+    "ssh_config_alias": "nvidia6g-worker",
+    "ssh_G": {
+      "user": "gunnchos",
+      "hostname": "nvidia6g-worker",
+      "port": "22",
+      "identityfile": [
+        "~/.ssh/id_rsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ecdsa_sk",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_ed25519_sk"
+      ]
+    },
+    "connectivity_tested": false,
+    "note": "Discovery via ssh -G only; no network scan"
+  },
+  "disk": {
+    "df_home": "/dev/disk3s5   460Gi   368Gi    60Gi    86%    3.5M  629M    1%   /System/Volumes/Data"
+  },
+  "claims": {
+    "AODT_EXECUTION_PASS": false,
+    "PYAERIAL_VALIDATED": false,
+    "NVIDIA_AERIAL_VALIDATED": false,
+    "OTA": false,
+    "IMPROVED_STATE_OF_ART": false,
+    "GPU_WORKER_REQUIRED": true
+  }
+}

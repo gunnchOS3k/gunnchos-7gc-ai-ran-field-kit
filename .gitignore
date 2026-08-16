@@ -62,3 +62,18 @@ gate1/evidence/pending/*
 gate1/evidence/rejected/*
 gate1/evidence/runs/*
 !gate1/evidence/**/.gitkeep
+
+# --- nvidia-6g NGC / secrets (never commit) ---
+.env
+.env.*
+!.env.example
+**/ngc_api_key*
+**/*ngc*key*
+**/*api_key*
+*.pem
+*.p12
+secrets/
+.secrets/
+**/credentials.json
+# Key material patterns (defense in depth)
+**/ngc-api-token-*
