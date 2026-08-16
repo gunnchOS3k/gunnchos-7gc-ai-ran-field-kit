@@ -1,0 +1,49 @@
+{
+  "ablation": "control_family_adaptive_vs_failure_and_mobility",
+  "ablation_ok": true,
+  "checks_passed": 3,
+  "checks_required": 3,
+  "interpretation": "Checked adaptive vs passive/random; element failure and mobility mismatch hurt adaptive SNR. No RIS purchase.",
+  "packet": "R6G-007",
+  "rows": [
+    {
+      "ablation_check_ok": true,
+      "adaptive_drops_on_failure": true,
+      "controls_distinct": true,
+      "fail_adaptive": 26.318141,
+      "mobility_adaptive": 1.188077,
+      "mobility_hurts_adaptive": true,
+      "mobility_passive": 0.302327,
+      "seed": 5,
+      "static_adaptive": 29.396403,
+      "static_passive": 16.602743,
+      "static_random": 9.609053
+    },
+    {
+      "ablation_check_ok": true,
+      "adaptive_drops_on_failure": true,
+      "controls_distinct": true,
+      "fail_adaptive": 26.461512,
+      "mobility_adaptive": 9.39945,
+      "mobility_hurts_adaptive": true,
+      "mobility_passive": -4.911203,
+      "seed": 9,
+      "static_adaptive": 29.400799,
+      "static_passive": 13.259297,
+      "static_random": 8.72377
+    },
+    {
+      "ablation_check_ok": true,
+      "adaptive_drops_on_failure": true,
+      "controls_distinct": true,
+      "fail_adaptive": 25.975822,
+      "mobility_adaptive": 13.720939,
+      "mobility_hurts_adaptive": true,
+      "mobility_passive": 9.467925,
+      "seed": 11,
+      "static_adaptive": 29.394332,
+      "static_passive": -4.589416,
+      "static_random": 14.842131
+    }
+  ]
+}

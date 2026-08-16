@@ -6,13 +6,14 @@
     "Clean-checkout CI soak (R7) EXTERNAL_PENDING",
     "External reproduction packet EXTERNAL_REPRODUCTION_PENDING",
     "Physical/SDR/OTA R8/R9 not claimed",
-    "R6G-006/007 MODELED_CONTRACT_ONLY \u2014 no physical exaggeration",
-    "R6G-002/008/010 DIGITALLY_EXECUTED; 011 harness executed; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
+    "R6G-006/007 DIGITALLY_EXECUTED (R0\u2013R2) \u2014 still no physical / purchase / SoA claim",
+    "R6G-002/008/010 DIGITALLY_EXECUTED; 011 DIGITALLY_EXECUTED_HARNESS; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
     "Dual-tree: artifacts/r6g is authoritative; stable_seed replaces process-salted hash()",
     "Large robustness / Sionna / ns-3 sweeps deferred (Product-Use may own QEMU)",
     "IMPROVED_STATE_OF_ART remains false",
     "PROMISING_DIGITAL not awarded this cycle",
-    "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE; 005/009 REPLICATION_INCOMPLETE preserved"
+    "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE; 005/009 REPLICATION_INCOMPLETE preserved",
+    "STREAM-C-PKT-001 deepened 003/005/009 seed sets; 011 harness seeds reserved"
   ],
   "adoption_levels": {
     "A2_plus": "NOT_CLAIMED_THIS_CYCLE",
@@ -21,15 +22,15 @@
     "R6G-003": "A1_STABLE_REFERENCE_IMPLEMENTATION",
     "R6G-004": "A0_INTERNAL_EXPERIMENT",
     "R6G-005": "A0_INTERNAL_EXPERIMENT",
-    "R6G-006": "A0_STAGED_MODELED_CONTRACT",
-    "R6G-007": "A0_STAGED_MODELED_CONTRACT",
+    "R6G-006": "A0_INTERNAL_EXPERIMENT",
+    "R6G-007": "A0_INTERNAL_EXPERIMENT",
     "R6G-008": "A0_INTERNAL_EXPERIMENT",
     "R6G-009": "A0_INTERNAL_EXPERIMENT",
     "R6G-010": "A0_INTERNAL_EXPERIMENT",
     "R6G-011": "A0_INTERNAL_EXPERIMENT",
     "levels_do_not_skip": true
   },
-  "as_of_utc": "2026-08-15T18:58:56.451935+00:00",
+  "as_of_utc": "2026-08-16T16:32:17.387163+00:00",
   "candidates": {
     "R6G-003": {
       "DIGITAL_REPRODUCTION_MATCHED_TO_PHYSICAL": false,
@@ -37,8 +38,8 @@
       "ablation": {
         "ablation": "modality_drop_and_vision_trust0",
         "ablation_ok": true,
-        "checks_passed": 3,
-        "checks_required": 3,
+        "checks_passed": 4,
+        "checks_required": 4,
         "interpretation": "Compares RF-only vs IMU vs Ring vs ALL; vision-trust=0 stresses fusion weight. Not an OTA SoA claim.",
         "packet": "R6G-003",
         "rows": [
@@ -77,6 +78,18 @@
             "delta_ring_vs_rf": -0.3173,
             "no_vision_trust0_ALL": 0.1917,
             "seed": 19
+          },
+          {
+            "RF_ALL": 0.1638,
+            "RF_DEVICE_IMU": 0.3186,
+            "RF_ONLY": 0.4942,
+            "RF_RING_UWB_IMU": 0.1806,
+            "ablation_check_ok": true,
+            "delta_all_vs_rf": -0.3304,
+            "delta_imu_vs_rf": -0.1756,
+            "delta_ring_vs_rf": -0.3136,
+            "no_vision_trust0_ALL": 0.238,
+            "seed": 23
           }
         ]
       },
@@ -226,6 +239,16 @@
           "rf_all_vs_rf_only_delta_m": 0.0199,
           "seed": 53,
           "sha256": "850ae6956ada3b15fd49cee570125bcc7f5b4c4aa13ce29c962d7a40fd1d2c24"
+        },
+        {
+          "rf_all_vs_rf_only_delta_m": 0.0277,
+          "seed": 54,
+          "sha256": "fd314e85050c63b53c6ce281065429e33f8e3614e800ebdb887c737b617ffb46"
+        },
+        {
+          "rf_all_vs_rf_only_delta_m": -0.2935,
+          "seed": 55,
+          "sha256": "11db00d9addfb5ca67cbe829c1df45efa62b9b3b4e2f5e23f1568928c0c9175e"
         }
       ],
       "title": "FR3 multimodal ISAC digital fusion"
@@ -235,8 +258,8 @@
       "ablation": {
         "ablation": "method_family_conventional_vs_naive_vs_aware",
         "ablation_ok": true,
-        "checks_passed": 3,
-        "checks_required": 3,
+        "checks_passed": 4,
+        "checks_required": 4,
         "interpretation": "Checked removal of uncertainty-aware fallback increases adversarial failure. No physical distance claim.",
         "packet": "R6G-005",
         "rows": [
@@ -362,6 +385,47 @@
             "naive_worse_than_conventional": true,
             "removing_aware_increases_failure": true,
             "seed": 7
+          },
+          {
+            "ablation_check_ok": true,
+            "aware_adversarial_failure": 0.0046,
+            "conventional_adversarial_failure": 0.0081,
+            "in_distribution": {
+              "AI_CSF": {
+                "BLER": 0.077,
+                "confidence": 0.3973,
+                "coverage_norm": 0.4185,
+                "csi_mse": 0.558,
+                "energy_norm": 1.05,
+                "failure_rate": 0.1054,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.3683
+              },
+              "AI_CSF_UNCERTAINTY_AWARE": {
+                "BLER": 0.0136,
+                "confidence": 0.3973,
+                "coverage_norm": 0.9033,
+                "csi_mse": 0.0546,
+                "energy_norm": 1.05,
+                "failure_rate": 0.0117,
+                "fallback_rate": 0.7917,
+                "throughput_norm": 0.7962
+              },
+              "CONVENTIONAL_CSI": {
+                "BLER": 0.0122,
+                "confidence": 0.8,
+                "coverage_norm": 0.9823,
+                "csi_mse": 0.0185,
+                "energy_norm": 1.0,
+                "failure_rate": 0.0083,
+                "fallback_rate": 0.0,
+                "throughput_norm": 0.8663
+              }
+            },
+            "naive_adversarial_failure": 0.5325,
+            "naive_worse_than_conventional": true,
+            "removing_aware_increases_failure": true,
+            "seed": 11
           }
         ]
       },
@@ -475,6 +539,18 @@
           "adv_naive_fail": 0.5366,
           "seed": 43,
           "sha256": "d00d6eed7cec900b5008106595d22d1806ce9cbc68ca138d718a35967bfbdc1d"
+        },
+        {
+          "adv_aware_fail": 0.0047,
+          "adv_naive_fail": 0.5294,
+          "seed": 44,
+          "sha256": "875ffb1fdfd203361f9e8815dc33d7323b353dee6a970cff80f1c0d20ec038c2"
+        },
+        {
+          "adv_aware_fail": 0.0047,
+          "adv_naive_fail": 0.5461,
+          "seed": 45,
+          "sha256": "d3e45af1e69af8a20c392dcaecc0e24d6de4a9934c1d81aa690e9b19ffcd961a"
         }
       ],
       "seed_rows": [
@@ -558,8 +634,8 @@
       "ablation": {
         "ablation": "policy_family_across_delay",
         "ablation_ok": true,
-        "checks_passed": 3,
-        "checks_required": 3,
+        "checks_passed": 4,
+        "checks_required": 4,
         "interpretation": "Checked policy removal: predictive vs current/belief; long-horizon can negate gains.",
         "packet": "R6G-009",
         "rows": [
@@ -595,6 +671,17 @@
             "pred100": 0.2186,
             "pred25": 0.0215,
             "seed": 6
+          },
+          {
+            "ablation_check_ok": true,
+            "belief25": 0.0446,
+            "cur100": 0.1229,
+            "cur25": 0.0268,
+            "long_horizon_predictive_no_gain": true,
+            "policies_distinct_at_25ms": true,
+            "pred100": 0.2397,
+            "pred25": 0.0238,
+            "seed": 8
           }
         ]
       },
@@ -707,6 +794,18 @@
           "pred100": 0.2215,
           "seed": 72,
           "sha256": "0f587a1c5350de8332c144324d161b6013204843a90dde19721eb1c48111fd04"
+        },
+        {
+          "cur100": 0.12,
+          "pred100": 0.2173,
+          "seed": 73,
+          "sha256": "b8759cd361efa076fca2b04e6b3525f50dd4debd99d442b56f0ee3f9d6f9b0a2"
+        },
+        {
+          "cur100": 0.1188,
+          "pred100": 0.2166,
+          "seed": 74,
+          "sha256": "d176a0cfd2ec35ca79519556b0840784343b6906f3a085aeffaae26223b4122e"
         }
       ],
       "seed_rows": [
@@ -978,6 +1077,78 @@
       },
       {
         "IMPROVED_STATE_OF_ART": false,
+        "ablation": true,
+        "ablation_ladder_earned": false,
+        "adoption_package": "A0_INTERNAL_EXPERIMENT",
+        "baseline_registered": true,
+        "baseline_reproduced": false,
+        "claim_state": "DIGITALLY_EXECUTED",
+        "clean_checkout": false,
+        "evidence_manifest": {
+          "ablation_evidence_ready": true,
+          "falsification_evidence": true,
+          "ladder_cap_note": "R0\u2013R2 this cycle after MODELED_CONTRACT_ONLY \u2192 DIGITALLY_EXECUTED. R3+ deferred; R6 external-only. No physical cell-free claim.",
+          "metrics_vary_across_seeds": true,
+          "multi_seed_evidence_ready": true,
+          "r3_r5_deferred": null
+        },
+        "external_reproduction": false,
+        "falsification": true,
+        "falsification_ladder_earned": false,
+        "independent_verify": false,
+        "integration": false,
+        "ladder_earned": [
+          "R0",
+          "R1",
+          "R2"
+        ],
+        "multi_seed": true,
+        "multi_seed_ladder_earned": false,
+        "negative_controls": true,
+        "packet": "R6G-006",
+        "paper_status": "NOT_SUBMITTED",
+        "physical_validation": false,
+        "robustness": "EXECUTED_LIGHTWEIGHT",
+        "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED"
+      },
+      {
+        "IMPROVED_STATE_OF_ART": false,
+        "ablation": true,
+        "ablation_ladder_earned": false,
+        "adoption_package": "A0_INTERNAL_EXPERIMENT",
+        "baseline_registered": true,
+        "baseline_reproduced": false,
+        "claim_state": "DIGITALLY_EXECUTED",
+        "clean_checkout": false,
+        "evidence_manifest": {
+          "ablation_evidence_ready": true,
+          "falsification_evidence": true,
+          "ladder_cap_note": "R0\u2013R2 this cycle after MODELED_CONTRACT_ONLY \u2192 DIGITALLY_EXECUTED. R3+ deferred; R6 external-only. RIS_PURCHASE=false.",
+          "metrics_vary_across_seeds": true,
+          "multi_seed_evidence_ready": true,
+          "r3_r5_deferred": null
+        },
+        "external_reproduction": false,
+        "falsification": true,
+        "falsification_ladder_earned": false,
+        "independent_verify": false,
+        "integration": false,
+        "ladder_earned": [
+          "R0",
+          "R1",
+          "R2"
+        ],
+        "multi_seed": true,
+        "multi_seed_ladder_earned": false,
+        "negative_controls": true,
+        "packet": "R6G-007",
+        "paper_status": "NOT_SUBMITTED",
+        "physical_validation": false,
+        "robustness": "EXECUTED_LIGHTWEIGHT",
+        "standard_mapping": "STANDARD_PENDING_WHERE_UNFINALIZED"
+      },
+      {
+        "IMPROVED_STATE_OF_ART": false,
         "ablation": false,
         "adoption_package": "A0_INTERNAL_EXPERIMENT",
         "baseline_registered": true,
@@ -1079,11 +1250,11 @@
         "clean_checkout": false,
         "evidence_manifest": {
           "execution_class": "EXECUTABLE_IMT2030_HARNESS",
-          "real_negative_count": 0,
+          "real_negative_count": 3,
           "status": "DIGITALLY_EXECUTED_HARNESS"
         },
         "external_reproduction": false,
-        "falsification": false,
+        "falsification": true,
         "independent_verify": false,
         "integration": false,
         "ladder_earned": [
@@ -1092,7 +1263,7 @@
           "R2"
         ],
         "multi_seed": false,
-        "negative_controls": false,
+        "negative_controls": true,
         "packet": "R6G-011",
         "paper_status": "NOT_SUBMITTED",
         "physical_validation": false,
@@ -1109,11 +1280,488 @@
     "extra QEMU",
     "physical RIS / THz purchase"
   ],
+  "executed_support_candidates": {
+    "R6G-006": {
+      "IMPROVED_STATE_OF_ART": false,
+      "ablation": {
+        "ablation": "precoder_family_mrt_rzf_vs_dropout",
+        "ablation_ok": true,
+        "checks_passed": 3,
+        "checks_required": 3,
+        "interpretation": "Checked precoder family under ideal vs AP dropout; not a physical cell-free claim.",
+        "packet": "R6G-006",
+        "rows": [
+          {
+            "ablation_check_ok": true,
+            "dropout_mrt": 1.47418,
+            "dropout_rzf": 1.285311,
+            "dropout_shrinks_rzf_edge": true,
+            "ideal_mf": 0.182387,
+            "ideal_mrt": 1.335759,
+            "ideal_rzf": 1.44517,
+            "precoders_distinct": true,
+            "seed": 7
+          },
+          {
+            "ablation_check_ok": true,
+            "dropout_mrt": 1.381539,
+            "dropout_rzf": 1.113589,
+            "dropout_shrinks_rzf_edge": true,
+            "ideal_mf": 0.180881,
+            "ideal_mrt": 1.518094,
+            "ideal_rzf": 1.446488,
+            "precoders_distinct": true,
+            "seed": 11
+          },
+          {
+            "ablation_check_ok": true,
+            "dropout_mrt": 1.091023,
+            "dropout_rzf": 0.911843,
+            "dropout_shrinks_rzf_edge": true,
+            "ideal_mf": 0.158642,
+            "ideal_mrt": 1.22236,
+            "ideal_rzf": 1.29508,
+            "precoders_distinct": true,
+            "seed": 13
+          }
+        ]
+      },
+      "ablation_evidence_ready": true,
+      "candidate": "R6G-006",
+      "claim_state": "DIGITALLY_EXECUTED",
+      "documented_negative_or_no_gain": [
+        {
+          "delta": -0.030086,
+          "mrt": 1.442359,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.412273,
+          "seed": 7,
+          "stress": "fronthaul_quantize"
+        },
+        {
+          "delta": -0.188869,
+          "mrt": 1.47418,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.285311,
+          "seed": 7,
+          "stress": "ap_dropout"
+        },
+        {
+          "delta": -0.071606,
+          "mrt": 1.518094,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.446488,
+          "seed": 11,
+          "stress": "ideal_iid"
+        },
+        {
+          "delta": -0.26795,
+          "mrt": 1.381539,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.113589,
+          "seed": 11,
+          "stress": "ap_dropout"
+        },
+        {
+          "delta": -0.17918,
+          "mrt": 1.091023,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 0.911843,
+          "seed": 13,
+          "stress": "ap_dropout"
+        },
+        {
+          "delta": -0.015118,
+          "mrt": 1.712911,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.697793,
+          "seed": 13,
+          "stress": "ue_mobility_fast"
+        },
+        {
+          "delta": -0.222747,
+          "mrt": 1.407226,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 1.184479,
+          "seed": 17,
+          "stress": "ap_dropout"
+        },
+        {
+          "delta": -0.238469,
+          "mrt": 0.861587,
+          "result": "RZF_NO_GAIN_VS_MRT",
+          "rzf": 0.623118,
+          "seed": 19,
+          "stress": "ap_dropout"
+        }
+      ],
+      "falsification_evidence": true,
+      "ladder_cap_note": "R0\u2013R2 this cycle after MODELED_CONTRACT_ONLY \u2192 DIGITALLY_EXECUTED. R3+ deferred; R6 external-only. No physical cell-free claim.",
+      "ladder_earned": [
+        "R0",
+        "R1",
+        "R2"
+      ],
+      "ladder_flags": {
+        "R0": true,
+        "R1": true,
+        "R2": true,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false,
+        "R7": false,
+        "R8": false,
+        "R9": false
+      },
+      "metrics_vary_across_seeds": true,
+      "multi_seed_evidence_ready": true,
+      "prior_status": "MODELED_CONTRACT_ONLY",
+      "robustness_runs": [
+        {
+          "delta_rzf_mrt": 0.07862,
+          "neg_count": 1,
+          "seed": 61,
+          "sha256": "1f104f34852461e2b6ec970378cbd02104cb55838e9934e8a24202a428fe9185"
+        },
+        {
+          "delta_rzf_mrt": 0.278427,
+          "neg_count": 2,
+          "seed": 62,
+          "sha256": "0c64c40d444cd5311e85b123c534dede53f2671c17794aaa8441f34cdeba1d11"
+        },
+        {
+          "delta_rzf_mrt": 0.017174,
+          "neg_count": 1,
+          "seed": 63,
+          "sha256": "914e42115c7f918cf9f429940d5242d3cf387f72744b8de98682d4171c697b97"
+        }
+      ],
+      "seed_rows": [
+        {
+          "delta_rzf_mrt": 0.109411,
+          "hypothesis": true,
+          "mf": 0.182387,
+          "mrt": 1.335759,
+          "rzf": 1.44517,
+          "seed": 7,
+          "sha256": "ce1d9fcd43de1fb72d6162d9e2c9da15f577bdb3ef0e62c6fc5cdd1b19a900f4"
+        },
+        {
+          "delta_rzf_mrt": -0.071606,
+          "hypothesis": false,
+          "mf": 0.180881,
+          "mrt": 1.518094,
+          "rzf": 1.446488,
+          "seed": 11,
+          "sha256": "6e953ca6293b2934586fa3dd9ad09b460bdd3deaa8406b64960e2f4e5a6b5ee9"
+        },
+        {
+          "delta_rzf_mrt": 0.07272,
+          "hypothesis": true,
+          "mf": 0.158642,
+          "mrt": 1.22236,
+          "rzf": 1.29508,
+          "seed": 13,
+          "sha256": "d3059e643823ca90477bcc17f68d2267f7a81f3ab0d2a2cd669924636465f42b"
+        },
+        {
+          "delta_rzf_mrt": 0.057065,
+          "hypothesis": true,
+          "mf": 0.235917,
+          "mrt": 1.837056,
+          "rzf": 1.894121,
+          "seed": 17,
+          "sha256": "48d73ea8b97be18335ae3a7ece6edba3d76197328898efd4350375b1e02cb312"
+        },
+        {
+          "delta_rzf_mrt": 0.195388,
+          "hypothesis": true,
+          "mf": 0.221745,
+          "mrt": 1.617174,
+          "rzf": 1.812562,
+          "seed": 19,
+          "sha256": "06b6011019b3197d737387a9427dbaedf01556d160fd36e10c9ef7361cc44232"
+        },
+        {
+          "delta_rzf_mrt": 0.097588,
+          "hypothesis": true,
+          "mf": 0.192012,
+          "mrt": 1.515195,
+          "rzf": 1.612783,
+          "seed": 23,
+          "sha256": "c620e08410fedb0f04a15e76e5c6c88897c0fb0979a1399097ffc1d20a12c30e"
+        },
+        {
+          "delta_rzf_mrt": 0.105589,
+          "hypothesis": true,
+          "mf": 0.176518,
+          "mrt": 1.279614,
+          "rzf": 1.385203,
+          "seed": 29,
+          "sha256": "49d5d0ab15bda940efd8d2eca3e5e234dfa9471a7e2e0323d5d5b360f8a317d5"
+        },
+        {
+          "delta_rzf_mrt": 0.211024,
+          "hypothesis": true,
+          "mf": 0.241567,
+          "mrt": 1.693089,
+          "rzf": 1.904113,
+          "seed": 31,
+          "sha256": "bf8f33acc0c0858587d8cc6640a6805fe60efe4aec4f781e9ab8ee1b758cb8fb"
+        }
+      ],
+      "status": "DIGITALLY_EXECUTED",
+      "title": "Cell-free MIMO digital (seeded)"
+    },
+    "R6G-007": {
+      "IMPROVED_STATE_OF_ART": false,
+      "RIS_PURCHASE": false,
+      "ablation": {
+        "ablation": "control_family_adaptive_vs_failure_and_mobility",
+        "ablation_ok": true,
+        "checks_passed": 3,
+        "checks_required": 3,
+        "interpretation": "Checked adaptive vs passive/random; element failure and mobility mismatch hurt adaptive SNR. No RIS purchase.",
+        "packet": "R6G-007",
+        "rows": [
+          {
+            "ablation_check_ok": true,
+            "adaptive_drops_on_failure": true,
+            "controls_distinct": true,
+            "fail_adaptive": 26.318141,
+            "mobility_adaptive": 1.188077,
+            "mobility_hurts_adaptive": true,
+            "mobility_passive": 0.302327,
+            "seed": 5,
+            "static_adaptive": 29.396403,
+            "static_passive": 16.602743,
+            "static_random": 9.609053
+          },
+          {
+            "ablation_check_ok": true,
+            "adaptive_drops_on_failure": true,
+            "controls_distinct": true,
+            "fail_adaptive": 26.461512,
+            "mobility_adaptive": 9.39945,
+            "mobility_hurts_adaptive": true,
+            "mobility_passive": -4.911203,
+            "seed": 9,
+            "static_adaptive": 29.400799,
+            "static_passive": 13.259297,
+            "static_random": 8.72377
+          },
+          {
+            "ablation_check_ok": true,
+            "adaptive_drops_on_failure": true,
+            "controls_distinct": true,
+            "fail_adaptive": 25.975822,
+            "mobility_adaptive": 13.720939,
+            "mobility_hurts_adaptive": true,
+            "mobility_passive": 9.467925,
+            "seed": 11,
+            "static_adaptive": 29.394332,
+            "static_passive": -4.589416,
+            "static_random": 14.842131
+          }
+        ]
+      },
+      "ablation_evidence_ready": true,
+      "candidate": "R6G-007",
+      "claim_state": "DIGITALLY_EXECUTED",
+      "documented_negative_or_no_gain": [
+        {
+          "adaptive": 1.188077,
+          "random": 9.656111,
+          "result": "ADAPTIVE_NO_GAIN_VS_RANDOM",
+          "seed": 5,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 9.987021,
+          "delta_db": -4.430028,
+          "passive": 14.417049,
+          "result": "ADAPTIVE_NO_GAIN_VS_PASSIVE",
+          "seed": 15,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 9.987021,
+          "random": 11.473856,
+          "result": "ADAPTIVE_NO_GAIN_VS_RANDOM",
+          "seed": 15,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 0.820652,
+          "delta_db": -10.404436,
+          "passive": 11.225088,
+          "result": "ADAPTIVE_NO_GAIN_VS_PASSIVE",
+          "seed": 21,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 0.820652,
+          "random": 2.332386,
+          "result": "ADAPTIVE_NO_GAIN_VS_RANDOM",
+          "seed": 21,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 8.947029,
+          "delta_db": -0.546136,
+          "passive": 9.493165,
+          "result": "ADAPTIVE_NO_GAIN_VS_PASSIVE",
+          "seed": 25,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 8.947029,
+          "random": 12.041334,
+          "result": "ADAPTIVE_NO_GAIN_VS_RANDOM",
+          "seed": 25,
+          "stress": "mobility_mismatch"
+        },
+        {
+          "adaptive": 5.563393,
+          "delta_db": -0.678613,
+          "passive": 6.242006,
+          "result": "ADAPTIVE_NO_GAIN_VS_PASSIVE",
+          "seed": 27,
+          "stress": "mobility_mismatch"
+        }
+      ],
+      "falsification_evidence": true,
+      "ladder_cap_note": "R0\u2013R2 this cycle after MODELED_CONTRACT_ONLY \u2192 DIGITALLY_EXECUTED. R3+ deferred; R6 external-only. RIS_PURCHASE=false.",
+      "ladder_earned": [
+        "R0",
+        "R1",
+        "R2"
+      ],
+      "ladder_flags": {
+        "R0": true,
+        "R1": true,
+        "R2": true,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false,
+        "R7": false,
+        "R8": false,
+        "R9": false
+      },
+      "metrics_vary_across_seeds": true,
+      "multi_seed_evidence_ready": true,
+      "prior_status": "MODELED_CONTRACT_ONLY",
+      "robustness_runs": [
+        {
+          "delta_db": 20.458052,
+          "neg_count": 1,
+          "seed": 81,
+          "sha256": "d7a347a177933a667c2d0326a72e517dbe854fa27dee47ec65e8c341c9bf77b4"
+        },
+        {
+          "delta_db": 15.429745,
+          "neg_count": 0,
+          "seed": 82,
+          "sha256": "d8c681bec530bcf3e1824f9042061e6294443671bd8319100eaa64333e21b075"
+        },
+        {
+          "delta_db": 44.421078,
+          "neg_count": 0,
+          "seed": 83,
+          "sha256": "573cc3c5116c1d9814808adf38d68d85a7a52158e9ffc86146e8cc5fe23f3f9b"
+        }
+      ],
+      "seed_rows": [
+        {
+          "adaptive": 29.396403,
+          "delta_db": 12.79366,
+          "hypothesis": true,
+          "passive": 16.602743,
+          "random": 9.609053,
+          "seed": 5,
+          "sha256": "16cf6c91a7df3d91313e8460d93721e84a8c8787bf651c4ba6837183424e81da"
+        },
+        {
+          "adaptive": 29.400799,
+          "delta_db": 16.141502,
+          "hypothesis": false,
+          "passive": 13.259297,
+          "random": 8.72377,
+          "seed": 9,
+          "sha256": "f9f5f83e8a23d067e480cbb361b1cfd06c2e58307562ede2044eeff9ecd7c558"
+        },
+        {
+          "adaptive": 29.394332,
+          "delta_db": 33.983748,
+          "hypothesis": false,
+          "passive": -4.589416,
+          "random": 14.842131,
+          "seed": 11,
+          "sha256": "a7bf187ee231d3aecf8dfa7a6ca9beb6f5f4a1cdfe0770dd037d2bfb053d88d0"
+        },
+        {
+          "adaptive": 29.39817,
+          "delta_db": 20.786562,
+          "hypothesis": true,
+          "passive": 8.611608,
+          "random": 11.29163,
+          "seed": 15,
+          "sha256": "7ef9cc15e86e062520b32ed3a7a5b892ace5c7036be6e5e2db163c105da0e095"
+        },
+        {
+          "adaptive": 29.392165,
+          "delta_db": 15.795123,
+          "hypothesis": true,
+          "passive": 13.597042,
+          "random": 8.587626,
+          "seed": 21,
+          "sha256": "9d7dfbd1360fdcc739644d5d6caea3e29cf5731b710492e956f0c57af265d095"
+        },
+        {
+          "adaptive": 29.377991,
+          "delta_db": 23.587938,
+          "hypothesis": true,
+          "passive": 5.790053,
+          "random": 17.263414,
+          "seed": 25,
+          "sha256": "98bce1c61c0f13fed17f17dc5a5058095cd46e11a5e433b9163c39dbaff51b72"
+        },
+        {
+          "adaptive": 29.407663,
+          "delta_db": 20.709353,
+          "hypothesis": true,
+          "passive": 8.69831,
+          "random": 13.631177,
+          "seed": 27,
+          "sha256": "4013a0ceb8f1679992de9a0032d2047d9230b4ce1d91f6cdc1f10205e5648424"
+        },
+        {
+          "adaptive": 29.421296,
+          "delta_db": 18.405236,
+          "hypothesis": true,
+          "passive": 11.01606,
+          "random": -3.160436,
+          "seed": 33,
+          "sha256": "a0e003f1124d5c69d187ba4ed49c740ec1a52cb89dd63485d777c0f3274f670d"
+        }
+      ],
+      "status": "DIGITALLY_EXECUTED",
+      "title": "Adaptive RIS digital (seeded; no purchase)"
+    }
+  },
   "illustrative_negative_count": 0,
-  "negative_result_count": 42,
+  "negative_result_count": 58,
   "schema": "gunnchos.r6g.replication_suite.v1",
   "seed_registry": {
-    "amendments": [],
+    "amendments": [
+      {
+        "as_of": "2026-08-16",
+        "change": "Preregister R6G-006/007 multi-seed + ablation/robustness sets; extend 003/005/009 ablation+robustness seeds; reserve 011 harness seeds. No post-hoc cherry-pick of outcomes.",
+        "id": "AMD-STREAM-C-PKT-001"
+      }
+    ],
     "candidates": {
       "R6G-002": {
         "note": "Deterministic orchestrator; seed reserved for future stochastic channel",
@@ -1125,7 +1773,8 @@
         "ablation_seeds": [
           7,
           11,
-          19
+          19,
+          23
         ],
         "negative_seeds": [
           101,
@@ -1146,14 +1795,17 @@
         "robustness_seeds": [
           51,
           52,
-          53
+          53,
+          54,
+          55
         ]
       },
       "R6G-005": {
         "ablation_seeds": [
           3,
           5,
-          7
+          7,
+          11
         ],
         "negative_stresses": [
           "in_distribution",
@@ -1173,14 +1825,71 @@
         "robustness_seeds": [
           41,
           42,
-          43
+          43,
+          44,
+          45
+        ]
+      },
+      "R6G-006": {
+        "ablation_seeds": [
+          7,
+          11,
+          13
+        ],
+        "negative_stresses": [
+          "fronthaul_quantize",
+          "ap_dropout",
+          "pilot_contamination"
+        ],
+        "primary_seeds": [
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31
+        ],
+        "robustness_seeds": [
+          61,
+          62,
+          63
+        ]
+      },
+      "R6G-007": {
+        "ablation_seeds": [
+          5,
+          9,
+          11
+        ],
+        "negative_stresses": [
+          "phase_quant_2bit",
+          "element_failure",
+          "mobility_mismatch"
+        ],
+        "primary_seeds": [
+          5,
+          9,
+          11,
+          15,
+          21,
+          25,
+          27,
+          33
+        ],
+        "robustness_seeds": [
+          81,
+          82,
+          83
         ]
       },
       "R6G-009": {
         "ablation_seeds": [
           2,
           4,
-          6
+          6,
+          8
         ],
         "negative_seeds": [
           90,
@@ -1199,8 +1908,18 @@
         "robustness_seeds": [
           70,
           71,
-          72
+          72,
+          73,
+          74
         ]
+      },
+      "R6G-011": {
+        "harness_seeds": [
+          1,
+          2,
+          3
+        ],
+        "note": "Harness is deterministic over TPR JSON; seeds reserved for future stochastic observables"
       }
     },
     "note": "Seeds fixed for replication; adding seeds requires amendment log.",
@@ -1227,6 +1946,31 @@
         "R2"
       ],
       "ok": true
+    },
+    "R6G-006": {
+      "IMPROVED_STATE_OF_ART": false,
+      "claim_state": "DIGITALLY_EXECUTED",
+      "ladder_earned": [
+        "R0",
+        "R1",
+        "R2"
+      ],
+      "ok": true,
+      "prior_status": "MODELED_CONTRACT_ONLY",
+      "status": "DIGITALLY_EXECUTED"
+    },
+    "R6G-007": {
+      "IMPROVED_STATE_OF_ART": false,
+      "RIS_PURCHASE": false,
+      "claim_state": "DIGITALLY_EXECUTED",
+      "ladder_earned": [
+        "R0",
+        "R1",
+        "R2"
+      ],
+      "ok": true,
+      "prior_status": "MODELED_CONTRACT_ONLY",
+      "status": "DIGITALLY_EXECUTED"
     },
     "R6G-008": {
       "IMPROVED_STATE_OF_ART": false,
@@ -1268,6 +2012,7 @@
     "PEER_REVIEWED": false,
     "PHYSICAL_REPRODUCTION_PENDING": true,
     "PROMISING_DIGITAL_ANY": false,
+    "R6G_006_007_DIGITALLY_EXECUTED": true,
     "R6G_ABLATIONS_DOCUMENTED": false,
     "R6G_ABLATIONS_PARTIAL": true,
     "R6G_DIGITAL_REPLICATION_PASS": false,

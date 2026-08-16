@@ -54,8 +54,13 @@ def test_portfolio_adoption_002_preserves_79_claims(tmp_path: Path):
     for pid in ("R6G-002", "R6G-004", "R6G-008", "R6G-010", "R6G-011"):
         assert "R2" in by[pid]["ladder_earned"]
         assert "R3" not in by[pid]["ladder_earned"]  # no silent R3/R4 from #80
-    assert by["R6G-006"]["status"] == "MODELED_CONTRACT_ONLY"
-    assert by["R6G-007"]["status"] == "MODELED_CONTRACT_ONLY"
+    assert by["R6G-006"]["status"] == "DIGITALLY_EXECUTED"
+    assert by["R6G-007"]["status"] == "DIGITALLY_EXECUTED"
+    assert by["R6G-006"]["claim_state"] == "DIGITALLY_EXECUTED"
+    assert by["R6G-007"]["claim_state"] == "DIGITALLY_EXECUTED"
+    for pid in ("R6G-006", "R6G-007"):
+        assert by[pid]["ladder_earned"] == ["R0", "R1", "R2"]
+        assert "R3" not in by[pid]["ladder_earned"]
     neg = json.loads((tmp_path / "replication" / "R6G_NEGATIVE_RESULTS.json").read_text())
     assert neg["count"] == len(neg["results"])
     assert all(not r.get("ILLUSTRATIVE") for r in neg["results"])
@@ -129,10 +134,16 @@ def test_r6g008_executed_no_learning_outcomes():
 def test_r6g006_007_contracts_safe():
     r6 = run_r6g006()
     r7 = run_r6g007()
-    assert r6["status"] == "MODELED_CONTRACT_ONLY"
-    assert r7["status"] == "MODELED_CONTRACT_ONLY"
+    assert r6["status"] == "DIGITALLY_EXECUTED"
+    assert r7["status"] == "DIGITALLY_EXECUTED"
+    assert r6["claim_state"] == "DIGITALLY_EXECUTED"
+    assert r7["claim_state"] == "DIGITALLY_EXECUTED"
+    assert r6["ladder_earned"] == ["R0", "R1", "R2"]
+    assert r7["ladder_earned"] == ["R0", "R1", "R2"]
     assert r7["RIS_PURCHASE"] is False
     assert r6["HARDWARE_PENDING"] is True
+    assert r6["IMPROVED_STATE_OF_ART"] is False
+    assert r7["IMPROVED_STATE_OF_ART"] is False
 
 
 def test_r6g010_011_executed_never_compliant():

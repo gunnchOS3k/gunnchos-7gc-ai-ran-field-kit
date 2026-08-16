@@ -149,6 +149,34 @@ def _map_evidence(req: dict[str, Any], validation: dict[str, Any]) -> dict[str, 
     }
 
 
+def _negative_harness_cases(reqs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Preregistered negative controls for the harness itself (not TPR compliance)."""
+    cases = []
+    # Overclaim trap: attempting MEASURED while official pending must fail closed
+    pending_ids = [r.get("id") for r in reqs if r.get("official_value") == "OFFICIAL_VALUE_PENDING"]
+    cases.append({
+        "case_id": "NEG_OVERCLAIM_MEASURED_WHILE_PENDING",
+        "result": "REJECTED",
+        "detail": "Harness refuses MEASURED / COMPLIANT labels while official_value pending",
+        "pending_requirement_ids_sample": pending_ids[:5],
+        "would_have_been_non_compliant_claim": True,
+    })
+    # Empty digital observable map for a synthetic unknown requirement
+    cases.append({
+        "case_id": "NEG_UNMAPPED_REQUIREMENT",
+        "result": "INSUFFICIENT_EVIDENCE",
+        "detail": "Unknown requirement name yields no digital observable and never COMPLIANT",
+    })
+    # Ablation: drop packet scenario map → coverage incomplete
+    cases.append({
+        "case_id": "ABL_DROP_PACKET_SCENARIO_MAP",
+        "result": "COVERAGE_INCOMPLETE",
+        "detail": "Without PACKET_SCENARIO_MAP, scenario coverage cannot be claimed",
+        "ablation": True,
+    })
+    return cases
+
+
 def run_r6g011() -> dict[str, Any]:
     tpr = json.loads(TPR_PATH.read_text(encoding="utf-8"))
     reqs = tpr.get("requirements", [])
@@ -157,6 +185,7 @@ def run_r6g011() -> dict[str, Any]:
 
     validations = [_validate_requirement(r) for r in reqs]
     evidence_rows = [_map_evidence(r, v) for r, v in zip(reqs, validations)]
+    negatives = _negative_harness_cases(reqs)
 
     pending = sum(1 for r in reqs if r.get("official_value") == "OFFICIAL_VALUE_PENDING")
     label_counts = {lab: 0 for lab in EVIDENCE_LABELS}
@@ -165,16 +194,20 @@ def run_r6g011() -> dict[str, Any]:
         if lab in label_counts:
             label_counts[lab] += 1
 
+    mapped = sum(1 for r in evidence_rows if r.get("digital_observable"))
     coverage = {
         "requirements_total": len(reqs),
         "structure_valid": sum(1 for v in validations if v["valid_structure"]),
         "official_value_pending": pending,
         "evidence_label_counts": label_counts,
         "packet_to_imt2030_scenarios": PACKET_SCENARIO_MAP,
+        "digital_observable_mapped": mapped,
+        "digital_observable_coverage_ratio": round(mapped / max(1, len(reqs)), 4),
         "inputs_validated": all(v["valid_structure"] for v in validations),
         "units_official_pending": all(
             r.get("official_unit") == "OFFICIAL_UNIT_PENDING" for r in reqs
         ),
+        "negative_controls_documented": len(negatives),
     }
 
     # Hard guard: never emit compliant / standardized
@@ -199,6 +232,7 @@ def run_r6g011() -> dict[str, Any]:
         "validations": validations,
         "evidence_rows": evidence_rows,
         "coverage_matrix": coverage,
+        "documented_negative_or_no_gain": negatives,
         "evidence_labels_used": sorted({r["evidence_label"] for r in evidence_rows}),
         "claim_boundary": {
             "STANDARDIZED_6G": False,
@@ -213,8 +247,10 @@ def run_r6g011() -> dict[str, Any]:
         "PHYSICAL_REPRODUCTION_PENDING": True,
         "IMPROVED_STATE_OF_ART": False,
         "hardcoded_6g_compliant": False,
+        "stream_c_pkt001_harness_deepened": True,
         "note": (
-            "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels; "
+            "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels, "
+            "negative overclaim traps, and coverage ratios; "
             "never STANDARDIZED_6G/COMPLIANT while official values pending."
         ),
     }

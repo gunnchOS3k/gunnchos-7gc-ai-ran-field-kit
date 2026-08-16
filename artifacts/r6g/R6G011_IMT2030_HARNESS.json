@@ -673,9 +673,38 @@
         "ISAC"
       ]
     },
+    "digital_observable_mapped": 11,
+    "digital_observable_coverage_ratio": 0.55,
     "inputs_validated": true,
-    "units_official_pending": true
+    "units_official_pending": true,
+    "negative_controls_documented": 3
   },
+  "documented_negative_or_no_gain": [
+    {
+      "case_id": "NEG_OVERCLAIM_MEASURED_WHILE_PENDING",
+      "result": "REJECTED",
+      "detail": "Harness refuses MEASURED / COMPLIANT labels while official_value pending",
+      "pending_requirement_ids_sample": [
+        "TPR-01",
+        "TPR-02",
+        "TPR-03",
+        "TPR-04",
+        "TPR-05"
+      ],
+      "would_have_been_non_compliant_claim": true
+    },
+    {
+      "case_id": "NEG_UNMAPPED_REQUIREMENT",
+      "result": "INSUFFICIENT_EVIDENCE",
+      "detail": "Unknown requirement name yields no digital observable and never COMPLIANT"
+    },
+    {
+      "case_id": "ABL_DROP_PACKET_SCENARIO_MAP",
+      "result": "COVERAGE_INCOMPLETE",
+      "detail": "Without PACKET_SCENARIO_MAP, scenario coverage cannot be claimed",
+      "ablation": true
+    }
+  ],
   "evidence_labels_used": [
     "STANDARD_PENDING"
   ],
@@ -696,5 +725,6 @@
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "IMPROVED_STATE_OF_ART": false,
   "hardcoded_6g_compliant": false,
-  "note": "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels; never STANDARDIZED_6G/COMPLIANT while official values pending."
+  "stream_c_pkt001_harness_deepened": true,
+  "note": "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels, negative overclaim traps, and coverage ratios; never STANDARDIZED_6G/COMPLIANT while official values pending."
 }

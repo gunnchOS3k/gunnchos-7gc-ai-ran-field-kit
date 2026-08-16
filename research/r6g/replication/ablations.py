@@ -5,6 +5,8 @@ from typing import Any
 
 from research.r6g.experiments.r6g003_fr3_isac import run_config
 from research.r6g.experiments.r6g005_ai_phy import run_r6g005
+from research.r6g.experiments.r6g006_cellfree_mimo_contract import run_r6g006
+from research.r6g.experiments.r6g007_adaptive_ris_contract import run_r6g007
 from research.r6g.experiments.r6g009_predictive_twin import run_r6g009
 
 
@@ -146,5 +148,93 @@ def ablate_r6g009(seeds: list[int]) -> dict[str, Any]:
         "checks_required": len(seeds),
         "interpretation": (
             "Checked policy removal: predictive vs current/belief; long-horizon can negate gains."
+        ),
+    }
+
+
+def ablate_r6g006(seeds: list[int]) -> dict[str, Any]:
+    """Precoder ablation: remove RZF vs MRT vs matched-filter baseline."""
+    rows = []
+    checks_pass = 0
+    for seed in seeds:
+        r = run_r6g006(seed=seed)
+        ideal = r["results_se_bps_hz"]["ideal_iid"]
+        drop = r["results_se_bps_hz"]["ap_dropout"]
+        rzf_i, mrt_i, mf_i = ideal["RZF_DIGITAL"], ideal["MRT"], ideal["MATCHED_FILTER_BASELINE"]
+        rzf_d, mrt_d = drop["RZF_DIGITAL"], drop["MRT"]
+        distinct = len({round(rzf_i, 4), round(mrt_i, 4), round(mf_i, 4)}) >= 2
+        # Checked removal: under AP dropout, RZF advantage vs MRT shrinks or flips
+        dropout_hurts_rzf_edge = (rzf_i - mrt_i) > (rzf_d - mrt_d) - 1e-9
+        ok = distinct and dropout_hurts_rzf_edge
+        if ok:
+            checks_pass += 1
+        rows.append({
+            "seed": seed,
+            "ideal_rzf": rzf_i,
+            "ideal_mrt": mrt_i,
+            "ideal_mf": mf_i,
+            "dropout_rzf": rzf_d,
+            "dropout_mrt": mrt_d,
+            "precoders_distinct": distinct,
+            "dropout_shrinks_rzf_edge": dropout_hurts_rzf_edge,
+            "ablation_check_ok": ok,
+        })
+    ablation_ok = checks_pass == len(seeds) and len(seeds) >= 1
+    return {
+        "packet": "R6G-006",
+        "ablation": "precoder_family_mrt_rzf_vs_dropout",
+        "rows": rows,
+        "ablation_ok": ablation_ok,
+        "checks_passed": checks_pass,
+        "checks_required": len(seeds),
+        "interpretation": (
+            "Checked precoder family under ideal vs AP dropout; not a physical cell-free claim."
+        ),
+    }
+
+
+def ablate_r6g007(seeds: list[int]) -> dict[str, Any]:
+    """Control ablation: adaptive absolute SNR drops under element failure; families distinct."""
+    rows = []
+    checks_pass = 0
+    for seed in seeds:
+        r = run_r6g007(seed=seed)
+        static = r["results_snr_db"]["static_los"]
+        fail = r["results_snr_db"]["element_failure"]
+        mob = r["results_snr_db"]["mobility_mismatch"]
+        a_s, p_s, rnd_s = static["ADAPTIVE_PHASE"], static["PASSIVE_FIXED"], static["RANDOM_PHASE"]
+        a_f = fail["ADAPTIVE_PHASE"]
+        a_m, p_m = mob["ADAPTIVE_PHASE"], mob["PASSIVE_FIXED"]
+        distinct = len({round(a_s, 4), round(p_s, 4), round(rnd_s, 4)}) >= 2
+        adaptive_drops_on_failure = a_f < a_s - 0.25
+        # Mobility stress is a checked removal of accurate CSI/phases
+        mobility_hurts = a_m < a_s - 0.25
+        ok = distinct and adaptive_drops_on_failure and mobility_hurts
+        if ok:
+            checks_pass += 1
+        rows.append({
+            "seed": seed,
+            "static_adaptive": a_s,
+            "static_passive": p_s,
+            "static_random": rnd_s,
+            "fail_adaptive": a_f,
+            "mobility_adaptive": a_m,
+            "mobility_passive": p_m,
+            "controls_distinct": distinct,
+            "adaptive_drops_on_failure": adaptive_drops_on_failure,
+            "mobility_hurts_adaptive": mobility_hurts,
+            "ablation_check_ok": ok,
+        })
+    ablation_ok = checks_pass == len(seeds) and len(seeds) >= 1
+    return {
+        "packet": "R6G-007",
+        "ablation": "control_family_adaptive_vs_failure_and_mobility",
+        "rows": rows,
+        "ablation_ok": ablation_ok,
+        "checks_passed": checks_pass,
+        "checks_required": len(seeds),
+        "interpretation": (
+            "Checked adaptive vs passive/random; element failure and mobility mismatch hurt adaptive SNR. "
+            "No RIS purchase."
         ),
     }

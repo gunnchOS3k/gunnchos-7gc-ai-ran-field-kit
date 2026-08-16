@@ -1,0 +1,84 @@
+{
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "RIS_PURCHASE": false,
+  "claim_state": "DIGITALLY_EXECUTED",
+  "contract": {
+    "channel": "SINGLE_BOUNCE_SYNTHETIC",
+    "control": "PHASE_ONLY_DIGITAL",
+    "elements_modeled": 64,
+    "forbidden_claims": [
+      "PHYSICAL_RIS_VALIDATED",
+      "PURCHASED_HARDWARE",
+      "IMPROVED_STATE_OF_ART"
+    ],
+    "purchase_authorized": false
+  },
+  "controls": [
+    "PASSIVE_FIXED",
+    "RANDOM_PHASE",
+    "ADAPTIVE_PHASE"
+  ],
+  "delta_adaptive_minus_passive_db": 20.709353,
+  "documented_negative_or_no_gain": [
+    {
+      "adaptive": 5.563393,
+      "delta_db": -0.678613,
+      "passive": 6.242006,
+      "result": "ADAPTIVE_NO_GAIN_VS_PASSIVE",
+      "stress": "mobility_mismatch"
+    }
+  ],
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "note": "Seeded RIS phase-control digital experiment only; no physical purchase or panel validation this cycle.",
+  "ok": true,
+  "packet": "R6G-007",
+  "results_snr_db": {
+    "blocked_direct": {
+      "ADAPTIVE_PHASE": 29.071287,
+      "PASSIVE_FIXED": -4.879282,
+      "RANDOM_PHASE": 4.966732
+    },
+    "element_failure": {
+      "ADAPTIVE_PHASE": 26.365943,
+      "PASSIVE_FIXED": 8.15147,
+      "RANDOM_PHASE": 12.925846
+    },
+    "mobility_mismatch": {
+      "ADAPTIVE_PHASE": 5.563393,
+      "PASSIVE_FIXED": 6.242006,
+      "RANDOM_PHASE": 4.547399
+    },
+    "phase_quant_2bit": {
+      "ADAPTIVE_PHASE": 26.845354,
+      "PASSIVE_FIXED": 0.888135,
+      "RANDOM_PHASE": 13.929091
+    },
+    "static_los": {
+      "ADAPTIVE_PHASE": 29.407663,
+      "PASSIVE_FIXED": 8.69831,
+      "RANDOM_PHASE": 13.631177
+    }
+  },
+  "schema": "gunnchos.r6g.r6g007.v1",
+  "seed": 27,
+  "static_los": {
+    "ADAPTIVE_PHASE": 29.407663,
+    "PASSIVE_FIXED": 8.69831,
+    "RANDOM_PHASE": 13.631177
+  },
+  "status": "DIGITALLY_EXECUTED",
+  "stresses": [
+    "static_los",
+    "blocked_direct",
+    "phase_quant_2bit",
+    "element_failure",
+    "mobility_mismatch"
+  ]
+}

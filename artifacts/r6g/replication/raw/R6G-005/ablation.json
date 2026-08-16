@@ -1,8 +1,8 @@
 {
   "ablation": "method_family_conventional_vs_naive_vs_aware",
   "ablation_ok": true,
-  "checks_passed": 3,
-  "checks_required": 3,
+  "checks_passed": 4,
+  "checks_required": 4,
   "interpretation": "Checked removal of uncertainty-aware fallback increases adversarial failure. No physical distance claim.",
   "packet": "R6G-005",
   "rows": [
@@ -128,6 +128,47 @@
       "naive_worse_than_conventional": true,
       "removing_aware_increases_failure": true,
       "seed": 7
+    },
+    {
+      "ablation_check_ok": true,
+      "aware_adversarial_failure": 0.0046,
+      "conventional_adversarial_failure": 0.0081,
+      "in_distribution": {
+        "AI_CSF": {
+          "BLER": 0.077,
+          "confidence": 0.3973,
+          "coverage_norm": 0.4185,
+          "csi_mse": 0.558,
+          "energy_norm": 1.05,
+          "failure_rate": 0.1054,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.3683
+        },
+        "AI_CSF_UNCERTAINTY_AWARE": {
+          "BLER": 0.0136,
+          "confidence": 0.3973,
+          "coverage_norm": 0.9033,
+          "csi_mse": 0.0546,
+          "energy_norm": 1.05,
+          "failure_rate": 0.0117,
+          "fallback_rate": 0.7917,
+          "throughput_norm": 0.7962
+        },
+        "CONVENTIONAL_CSI": {
+          "BLER": 0.0122,
+          "confidence": 0.8,
+          "coverage_norm": 0.9823,
+          "csi_mse": 0.0185,
+          "energy_norm": 1.0,
+          "failure_rate": 0.0083,
+          "fallback_rate": 0.0,
+          "throughput_norm": 0.8663
+        }
+      },
+      "naive_adversarial_failure": 0.5325,
+      "naive_worse_than_conventional": true,
+      "removing_aware_increases_failure": true,
+      "seed": 11
     }
   ]
 }

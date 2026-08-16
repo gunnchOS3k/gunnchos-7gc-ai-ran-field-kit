@@ -12,12 +12,20 @@ from research.r6g.experiments.r6g002_spectrum_fabric import run_r6g002
 from research.r6g.experiments.r6g003_fr3_isac import NEGATIVE_CONFIGS, run_config
 from research.r6g.experiments.r6g004_multimodal_isac_personal import run_r6g004
 from research.r6g.experiments.r6g005_ai_phy import run_r6g005
+from research.r6g.experiments.r6g006_cellfree_mimo_contract import run_r6g006
+from research.r6g.experiments.r6g007_adaptive_ris_contract import run_r6g007
 from research.r6g.experiments.r6g008_semantic_ntn import run_r6g008
 from research.r6g.experiments.r6g009_predictive_twin import run_r6g009
 from research.r6g.experiments.r6g010_security_pqc_privacy import run_r6g010
 from research.r6g.experiments.r6g011_imt2030_harness import run_r6g011
 from research.r6g.experiments.semantic_continuity_ntn_education import run_semantic_continuity
-from research.r6g.replication.ablations import ablate_r6g003, ablate_r6g005, ablate_r6g009
+from research.r6g.replication.ablations import (
+    ablate_r6g003,
+    ablate_r6g005,
+    ablate_r6g006,
+    ablate_r6g007,
+    ablate_r6g009,
+)
 from research.r6g.replication.ladder import CLAIM_STATES_ALLOWED, LADDER, contiguous_earned
 from research.r6g.replication.seed_registry import SEED_REGISTRY
 from research.r6g.replication.stats import summarize, win_rate
@@ -334,6 +342,146 @@ def _replicate_r6g009(raw_dir: Path) -> dict[str, Any]:
     }
 
 
+def _replicate_r6g006(raw_dir: Path) -> dict[str, Any]:
+    seeds = SEED_REGISTRY["candidates"]["R6G-006"]
+    seed_rows = []
+    neg_notes_all: list[dict[str, Any]] = []
+    support_flags = []
+    for seed in seeds["primary_seeds"]:
+        report = run_r6g006(seed=seed)
+        digest = _write_json(raw_dir / "R6G-006" / f"seed_{seed}.json", report)
+        ideal = report["ideal_iid"]
+        seed_rows.append({
+            "seed": seed,
+            "sha256": digest,
+            "rzf": ideal["RZF_DIGITAL"],
+            "mrt": ideal["MRT"],
+            "mf": ideal["MATCHED_FILTER_BASELINE"],
+            "delta_rzf_mrt": report["delta_rzf_minus_mrt_ideal"],
+            "hypothesis": report["HYPOTHESIS_SUPPORTED_DIGITALLY"],
+        })
+        support_flags.append(bool(report["HYPOTHESIS_SUPPORTED_DIGITALLY"]))
+        for n in report.get("documented_negative_or_no_gain", []):
+            neg_notes_all.append({"seed": seed, **n})
+
+    full = run_r6g006(seed=seeds["primary_seeds"][0])
+    _write_json(raw_dir / "R6G-006" / "full_report.json", full)
+
+    robustness_rows = []
+    for seed in seeds["robustness_seeds"]:
+        report = run_r6g006(seed=seed)
+        digest = _write_json(raw_dir / "R6G-006" / f"rob_s{seed}.json", report)
+        robustness_rows.append({
+            "seed": seed,
+            "sha256": digest,
+            "delta_rzf_mrt": report["delta_rzf_minus_mrt_ideal"],
+            "neg_count": len(report.get("documented_negative_or_no_gain") or []),
+        })
+
+    deltas = [r["delta_rzf_mrt"] for r in seed_rows]
+    metrics_vary = _values_vary(deltas)
+    multi_ok_evidence = metrics_vary and sum(support_flags) / max(1, len(support_flags)) >= 0.5
+    neg_ok = len(neg_notes_all) >= 1
+    ablations = ablate_r6g006(seeds["ablation_seeds"])
+    _write_json(raw_dir / "R6G-006" / "ablation.json", ablations)
+    abl_ok_evidence = bool(ablations.get("ablation_ok"))
+
+    # New digital packet: earn R0–R2 only this cycle (no R3+ auto-promotion).
+    ladder_flags = _empty_ladder(R0=True, R1=True, R2=True, R3=False, R4=False, R5=False)
+    return {
+        "candidate": "R6G-006",
+        "title": "Cell-free MIMO digital (seeded)",
+        "seed_rows": seed_rows,
+        "robustness_runs": robustness_rows,
+        "metrics_vary_across_seeds": metrics_vary,
+        "multi_seed_evidence_ready": multi_ok_evidence,
+        "ablation_evidence_ready": abl_ok_evidence,
+        "falsification_evidence": neg_ok,
+        "documented_negative_or_no_gain": neg_notes_all[:8],
+        "ablation": ablations,
+        "ladder_flags": ladder_flags,
+        "ladder_earned": contiguous_earned(ladder_flags),
+        "ladder_cap_note": (
+            "R0–R2 this cycle after MODELED_CONTRACT_ONLY → DIGITALLY_EXECUTED. "
+            "R3+ deferred; R6 external-only. No physical cell-free claim."
+        ),
+        "claim_state": "DIGITALLY_EXECUTED",
+        "status": "DIGITALLY_EXECUTED",
+        "IMPROVED_STATE_OF_ART": False,
+        "prior_status": "MODELED_CONTRACT_ONLY",
+    }
+
+
+def _replicate_r6g007(raw_dir: Path) -> dict[str, Any]:
+    seeds = SEED_REGISTRY["candidates"]["R6G-007"]
+    seed_rows = []
+    neg_notes_all: list[dict[str, Any]] = []
+    support_flags = []
+    for seed in seeds["primary_seeds"]:
+        report = run_r6g007(seed=seed)
+        digest = _write_json(raw_dir / "R6G-007" / f"seed_{seed}.json", report)
+        static = report["static_los"]
+        seed_rows.append({
+            "seed": seed,
+            "sha256": digest,
+            "adaptive": static["ADAPTIVE_PHASE"],
+            "passive": static["PASSIVE_FIXED"],
+            "random": static["RANDOM_PHASE"],
+            "delta_db": report["delta_adaptive_minus_passive_db"],
+            "hypothesis": report["HYPOTHESIS_SUPPORTED_DIGITALLY"],
+        })
+        support_flags.append(bool(report["HYPOTHESIS_SUPPORTED_DIGITALLY"]))
+        for n in report.get("documented_negative_or_no_gain", []):
+            neg_notes_all.append({"seed": seed, **n})
+
+    full = run_r6g007(seed=seeds["primary_seeds"][0])
+    _write_json(raw_dir / "R6G-007" / "full_report.json", full)
+
+    robustness_rows = []
+    for seed in seeds["robustness_seeds"]:
+        report = run_r6g007(seed=seed)
+        digest = _write_json(raw_dir / "R6G-007" / f"rob_s{seed}.json", report)
+        robustness_rows.append({
+            "seed": seed,
+            "sha256": digest,
+            "delta_db": report["delta_adaptive_minus_passive_db"],
+            "neg_count": len(report.get("documented_negative_or_no_gain") or []),
+        })
+
+    deltas = [r["delta_db"] for r in seed_rows]
+    metrics_vary = _values_vary(deltas)
+    multi_ok_evidence = metrics_vary and sum(support_flags) / max(1, len(support_flags)) >= 0.5
+    neg_ok = len(neg_notes_all) >= 1
+    ablations = ablate_r6g007(seeds["ablation_seeds"])
+    _write_json(raw_dir / "R6G-007" / "ablation.json", ablations)
+    abl_ok_evidence = bool(ablations.get("ablation_ok"))
+
+    ladder_flags = _empty_ladder(R0=True, R1=True, R2=True, R3=False, R4=False, R5=False)
+    return {
+        "candidate": "R6G-007",
+        "title": "Adaptive RIS digital (seeded; no purchase)",
+        "seed_rows": seed_rows,
+        "robustness_runs": robustness_rows,
+        "metrics_vary_across_seeds": metrics_vary,
+        "multi_seed_evidence_ready": multi_ok_evidence,
+        "ablation_evidence_ready": abl_ok_evidence,
+        "falsification_evidence": neg_ok,
+        "documented_negative_or_no_gain": neg_notes_all[:8],
+        "ablation": ablations,
+        "ladder_flags": ladder_flags,
+        "ladder_earned": contiguous_earned(ladder_flags),
+        "ladder_cap_note": (
+            "R0–R2 this cycle after MODELED_CONTRACT_ONLY → DIGITALLY_EXECUTED. "
+            "R3+ deferred; R6 external-only. RIS_PURCHASE=false."
+        ),
+        "claim_state": "DIGITALLY_EXECUTED",
+        "status": "DIGITALLY_EXECUTED",
+        "IMPROVED_STATE_OF_ART": False,
+        "RIS_PURCHASE": False,
+        "prior_status": "MODELED_CONTRACT_ONLY",
+    }
+
+
 def _collect_negatives(
     c003: dict,
     c005: dict,
@@ -341,7 +489,7 @@ def _collect_negatives(
     *,
     extra: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    """Real negatives (003/005/009 + executed 002/004/008/010). Illus. stubs separate."""
+    """Real negatives (003/005/009 + executed 002/004/006/007/008/010). Illus. stubs separate."""
     out: list[dict[str, Any]] = []
     for r in c003.get("negative_runs", []):
         if r.get("multimodal_worse"):
@@ -459,6 +607,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
     c003 = _replicate_r6g003(raw_dir)
     c005 = _replicate_r6g005(raw_dir)
     c009 = _replicate_r6g009(raw_dir)
+    c006 = _replicate_r6g006(raw_dir)
+    c007 = _replicate_r6g007(raw_dir)
     r002 = run_r6g002()
     r004 = run_r6g004()
     r008 = run_r6g008()
@@ -474,6 +624,9 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
 
     extra_negs: list[dict[str, Any]] = []
     for packet, rep in (("R6G-002", r002), ("R6G-004", r004), ("R6G-008", r008), ("R6G-010", r010)):
+        for n in rep.get("documented_negative_or_no_gain") or []:
+            extra_negs.append({"packet": packet, **n})
+    for packet, rep in (("R6G-006", c006), ("R6G-007", c007)):
         for n in rep.get("documented_negative_or_no_gain") or []:
             extra_negs.append({"packet": packet, **n})
     negatives = _collect_negatives(c003, c005, c009, extra=extra_negs)
@@ -501,8 +654,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
         ),
         "R6G-004": "A0_INTERNAL_EXPERIMENT",
         "R6G-005": "A0_INTERNAL_EXPERIMENT",  # incomplete until claim upgrades
-        "R6G-006": "A0_STAGED_MODELED_CONTRACT",
-        "R6G-007": "A0_STAGED_MODELED_CONTRACT",
+        "R6G-006": "A0_INTERNAL_EXPERIMENT",
+        "R6G-007": "A0_INTERNAL_EXPERIMENT",
         "R6G-008": "A0_INTERNAL_EXPERIMENT",
         "R6G-009": "A0_INTERNAL_EXPERIMENT",
         "R6G-010": "A0_INTERNAL_EXPERIMENT",
@@ -516,6 +669,7 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
         adoption["R6G-009"] = "A1_STABLE_REFERENCE_IMPLEMENTATION"
 
     candidates = [c003, c005, c009]
+    executed_support = [c006, c007]
     dashboard = {
         "schema": "gunnchos.r6g.portfolio_dashboard.v1",
         "IMPROVED_STATE_OF_ART": False,
@@ -530,6 +684,8 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
             _supporting_dashboard_row("R6G-002", r002, adoption=adoption["R6G-002"]),
             _dashboard_row(c005, adoption=adoption["R6G-005"]),
             _dashboard_row(c009, adoption=adoption["R6G-009"]),
+            _dashboard_row(c006, adoption=adoption["R6G-006"]),
+            _dashboard_row(c007, adoption=adoption["R6G-007"]),
             _supporting_dashboard_row("R6G-008", r008, adoption=adoption["R6G-008"]),
             _supporting_dashboard_row("R6G-004", r004, adoption=adoption["R6G-004"]),
             _supporting_dashboard_row("R6G-010", r010, adoption=adoption["R6G-010"]),
@@ -590,6 +746,23 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
                 "ladder_earned": r011["ladder_earned"],
                 "IMPROVED_STATE_OF_ART": False,
             },
+            "R6G-006": {
+                "ok": True,
+                "claim_state": c006["claim_state"],
+                "ladder_earned": c006["ladder_earned"],
+                "status": c006["status"],
+                "prior_status": c006.get("prior_status"),
+                "IMPROVED_STATE_OF_ART": False,
+            },
+            "R6G-007": {
+                "ok": True,
+                "claim_state": c007["claim_state"],
+                "ladder_earned": c007["ladder_earned"],
+                "status": c007["status"],
+                "prior_status": c007.get("prior_status"),
+                "RIS_PURCHASE": False,
+                "IMPROVED_STATE_OF_ART": False,
+            },
         },
         "negative_result_count": len(negatives),
         "illustrative_negative_count": len(illustrative),
@@ -610,6 +783,7 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
             "6G_BREAKTHROUGH_PASS": None,
             "BREAKTHROUGH_PROVEN": False,
             "PROMISING_DIGITAL_ANY": False,
+            "R6G_006_007_DIGITALLY_EXECUTED": True,
         },
         "IMPROVED_STATE_OF_ART": False,
         "OPEN": [
@@ -618,13 +792,14 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
             "Clean-checkout CI soak (R7) EXTERNAL_PENDING",
             "External reproduction packet EXTERNAL_REPRODUCTION_PENDING",
             "Physical/SDR/OTA R8/R9 not claimed",
-            "R6G-006/007 MODELED_CONTRACT_ONLY — no physical exaggeration",
-            "R6G-002/008/010 DIGITALLY_EXECUTED; 011 harness executed; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
+            "R6G-006/007 DIGITALLY_EXECUTED (R0–R2) — still no physical / purchase / SoA claim",
+            "R6G-002/008/010 DIGITALLY_EXECUTED; 011 DIGITALLY_EXECUTED_HARNESS; 004 DIGITAL_SYNTHETIC_EXPERIMENT",
             "Dual-tree: artifacts/r6g is authoritative; stable_seed replaces process-salted hash()",
             "Large robustness / Sionna / ns-3 sweeps deferred (Product-Use may own QEMU)",
             "IMPROVED_STATE_OF_ART remains false",
             "PROMISING_DIGITAL not awarded this cycle",
             "R6G-003 DIGITAL_IMPROVEMENT_CANDIDATE; 005/009 REPLICATION_INCOMPLETE preserved",
+            "STREAM-C-PKT-001 deepened 003/005/009 seed sets; 011 harness seeds reserved",
         ],
         "deferred_heavy_work": [
             "ns-3 / Sionna / DeepMIMO campaign sweeps",
@@ -632,6 +807,7 @@ def run_replication_suite(out_dir: Path | None = None) -> dict[str, Any]:
             "extra QEMU",
             "physical RIS / THz purchase",
         ],
+        "executed_support_candidates": {c["candidate"]: c for c in executed_support},
     }
     assert_no_soa(suite)
     _write_json(out / "R6G_REPLICATION_SUITE.json", suite)

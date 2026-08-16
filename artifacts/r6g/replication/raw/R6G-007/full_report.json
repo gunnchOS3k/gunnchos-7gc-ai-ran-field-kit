@@ -1,0 +1,83 @@
+{
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "RIS_PURCHASE": false,
+  "claim_state": "DIGITALLY_EXECUTED",
+  "contract": {
+    "channel": "SINGLE_BOUNCE_SYNTHETIC",
+    "control": "PHASE_ONLY_DIGITAL",
+    "elements_modeled": 64,
+    "forbidden_claims": [
+      "PHYSICAL_RIS_VALIDATED",
+      "PURCHASED_HARDWARE",
+      "IMPROVED_STATE_OF_ART"
+    ],
+    "purchase_authorized": false
+  },
+  "controls": [
+    "PASSIVE_FIXED",
+    "RANDOM_PHASE",
+    "ADAPTIVE_PHASE"
+  ],
+  "delta_adaptive_minus_passive_db": 12.79366,
+  "documented_negative_or_no_gain": [
+    {
+      "adaptive": 1.188077,
+      "random": 9.656111,
+      "result": "ADAPTIVE_NO_GAIN_VS_RANDOM",
+      "stress": "mobility_mismatch"
+    }
+  ],
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "note": "Seeded RIS phase-control digital experiment only; no physical purchase or panel validation this cycle.",
+  "ok": true,
+  "packet": "R6G-007",
+  "results_snr_db": {
+    "blocked_direct": {
+      "ADAPTIVE_PHASE": 29.066327,
+      "PASSIVE_FIXED": 2.233943,
+      "RANDOM_PHASE": 8.306369
+    },
+    "element_failure": {
+      "ADAPTIVE_PHASE": 26.318141,
+      "PASSIVE_FIXED": 9.872651,
+      "RANDOM_PHASE": 2.369728
+    },
+    "mobility_mismatch": {
+      "ADAPTIVE_PHASE": 1.188077,
+      "PASSIVE_FIXED": 0.302327,
+      "RANDOM_PHASE": 9.656111
+    },
+    "phase_quant_2bit": {
+      "ADAPTIVE_PHASE": 26.500421,
+      "PASSIVE_FIXED": 2.487982,
+      "RANDOM_PHASE": 13.140871
+    },
+    "static_los": {
+      "ADAPTIVE_PHASE": 29.396403,
+      "PASSIVE_FIXED": 16.602743,
+      "RANDOM_PHASE": 9.609053
+    }
+  },
+  "schema": "gunnchos.r6g.r6g007.v1",
+  "seed": 5,
+  "static_los": {
+    "ADAPTIVE_PHASE": 29.396403,
+    "PASSIVE_FIXED": 16.602743,
+    "RANDOM_PHASE": 9.609053
+  },
+  "status": "DIGITALLY_EXECUTED",
+  "stresses": [
+    "static_los",
+    "blocked_direct",
+    "phase_quant_2bit",
+    "element_failure",
+    "mobility_mismatch"
+  ]
+}

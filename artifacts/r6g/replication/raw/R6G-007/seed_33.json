@@ -1,0 +1,90 @@
+{
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "RIS_PURCHASE": false,
+  "claim_state": "DIGITALLY_EXECUTED",
+  "contract": {
+    "channel": "SINGLE_BOUNCE_SYNTHETIC",
+    "control": "PHASE_ONLY_DIGITAL",
+    "elements_modeled": 64,
+    "forbidden_claims": [
+      "PHYSICAL_RIS_VALIDATED",
+      "PURCHASED_HARDWARE",
+      "IMPROVED_STATE_OF_ART"
+    ],
+    "purchase_authorized": false
+  },
+  "controls": [
+    "PASSIVE_FIXED",
+    "RANDOM_PHASE",
+    "ADAPTIVE_PHASE"
+  ],
+  "delta_adaptive_minus_passive_db": 18.405236,
+  "documented_negative_or_no_gain": [
+    {
+      "adaptive": -13.320622,
+      "delta_db": -20.417549,
+      "passive": 7.096927,
+      "result": "ADAPTIVE_NO_GAIN_VS_PASSIVE",
+      "stress": "mobility_mismatch"
+    },
+    {
+      "adaptive": -13.320622,
+      "random": 13.148777,
+      "result": "ADAPTIVE_NO_GAIN_VS_RANDOM",
+      "stress": "mobility_mismatch"
+    }
+  ],
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "note": "Seeded RIS phase-control digital experiment only; no physical purchase or panel validation this cycle.",
+  "ok": true,
+  "packet": "R6G-007",
+  "results_snr_db": {
+    "blocked_direct": {
+      "ADAPTIVE_PHASE": 29.070122,
+      "PASSIVE_FIXED": 6.330552,
+      "RANDOM_PHASE": 10.98504
+    },
+    "element_failure": {
+      "ADAPTIVE_PHASE": 25.975744,
+      "PASSIVE_FIXED": 7.848693,
+      "RANDOM_PHASE": 5.112933
+    },
+    "mobility_mismatch": {
+      "ADAPTIVE_PHASE": -13.320622,
+      "PASSIVE_FIXED": 7.096927,
+      "RANDOM_PHASE": 13.148777
+    },
+    "phase_quant_2bit": {
+      "ADAPTIVE_PHASE": 26.668562,
+      "PASSIVE_FIXED": -1.398925,
+      "RANDOM_PHASE": 10.915566
+    },
+    "static_los": {
+      "ADAPTIVE_PHASE": 29.421296,
+      "PASSIVE_FIXED": 11.01606,
+      "RANDOM_PHASE": -3.160436
+    }
+  },
+  "schema": "gunnchos.r6g.r6g007.v1",
+  "seed": 33,
+  "static_los": {
+    "ADAPTIVE_PHASE": 29.421296,
+    "PASSIVE_FIXED": 11.01606,
+    "RANDOM_PHASE": -3.160436
+  },
+  "status": "DIGITALLY_EXECUTED",
+  "stresses": [
+    "static_los",
+    "blocked_direct",
+    "phase_quant_2bit",
+    "element_failure",
+    "mobility_mismatch"
+  ]
+}

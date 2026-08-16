@@ -1,0 +1,76 @@
+{
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": false,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "RIS_PURCHASE": false,
+  "claim_state": "DIGITALLY_EXECUTED",
+  "contract": {
+    "channel": "SINGLE_BOUNCE_SYNTHETIC",
+    "control": "PHASE_ONLY_DIGITAL",
+    "elements_modeled": 64,
+    "forbidden_claims": [
+      "PHYSICAL_RIS_VALIDATED",
+      "PURCHASED_HARDWARE",
+      "IMPROVED_STATE_OF_ART"
+    ],
+    "purchase_authorized": false
+  },
+  "controls": [
+    "PASSIVE_FIXED",
+    "RANDOM_PHASE",
+    "ADAPTIVE_PHASE"
+  ],
+  "delta_adaptive_minus_passive_db": 15.429745,
+  "documented_negative_or_no_gain": [],
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "note": "Seeded RIS phase-control digital experiment only; no physical purchase or panel validation this cycle.",
+  "ok": true,
+  "packet": "R6G-007",
+  "results_snr_db": {
+    "blocked_direct": {
+      "ADAPTIVE_PHASE": 29.066954,
+      "PASSIVE_FIXED": -7.853078,
+      "RANDOM_PHASE": 13.178641
+    },
+    "element_failure": {
+      "ADAPTIVE_PHASE": 26.82561,
+      "PASSIVE_FIXED": 16.592793,
+      "RANDOM_PHASE": 11.176879
+    },
+    "mobility_mismatch": {
+      "ADAPTIVE_PHASE": 7.808261,
+      "PASSIVE_FIXED": 2.055666,
+      "RANDOM_PHASE": 3.248914
+    },
+    "phase_quant_2bit": {
+      "ADAPTIVE_PHASE": 26.920552,
+      "PASSIVE_FIXED": -4.452319,
+      "RANDOM_PHASE": 7.022643
+    },
+    "static_los": {
+      "ADAPTIVE_PHASE": 29.426995,
+      "PASSIVE_FIXED": 13.99725,
+      "RANDOM_PHASE": 13.989842
+    }
+  },
+  "schema": "gunnchos.r6g.r6g007.v1",
+  "seed": 82,
+  "static_los": {
+    "ADAPTIVE_PHASE": 29.426995,
+    "PASSIVE_FIXED": 13.99725,
+    "RANDOM_PHASE": 13.989842
+  },
+  "status": "DIGITALLY_EXECUTED",
+  "stresses": [
+    "static_los",
+    "blocked_direct",
+    "phase_quant_2bit",
+    "element_failure",
+    "mobility_mismatch"
+  ]
+}

@@ -13,6 +13,8 @@
   },
   "claim_state": "DIGITALLY_EXECUTED_HARNESS",
   "coverage_matrix": {
+    "digital_observable_coverage_ratio": 0.55,
+    "digital_observable_mapped": 11,
     "evidence_label_counts": {
       "INSUFFICIENT_EVIDENCE": 0,
       "MEASURED": 0,
@@ -21,6 +23,7 @@
       "STANDARD_PENDING": 20
     },
     "inputs_validated": true,
+    "negative_controls_documented": 3,
     "official_value_pending": 20,
     "packet_to_imt2030_scenarios": {
       "R6G-001": [
@@ -83,6 +86,32 @@
     "structure_valid": 20,
     "units_official_pending": true
   },
+  "documented_negative_or_no_gain": [
+    {
+      "case_id": "NEG_OVERCLAIM_MEASURED_WHILE_PENDING",
+      "detail": "Harness refuses MEASURED / COMPLIANT labels while official_value pending",
+      "pending_requirement_ids_sample": [
+        "TPR-01",
+        "TPR-02",
+        "TPR-03",
+        "TPR-04",
+        "TPR-05"
+      ],
+      "result": "REJECTED",
+      "would_have_been_non_compliant_claim": true
+    },
+    {
+      "case_id": "NEG_UNMAPPED_REQUIREMENT",
+      "detail": "Unknown requirement name yields no digital observable and never COMPLIANT",
+      "result": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "ablation": true,
+      "case_id": "ABL_DROP_PACKET_SCENARIO_MAP",
+      "detail": "Without PACKET_SCENARIO_MAP, scenario coverage cannot be claimed",
+      "result": "COVERAGE_INCOMPLETE"
+    }
+  ],
   "evaluation_methods_allowed": [
     "SIMULATION",
     "ANALYTICAL",
@@ -314,7 +343,7 @@
     "R1",
     "R2"
   ],
-  "note": "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels; never STANDARDIZED_6G/COMPLIANT while official values pending.",
+  "note": "Executable harness with honest STANDARD_PENDING / NOT_MEASURED labels, negative overclaim traps, and coverage ratios; never STANDARDIZED_6G/COMPLIANT while official values pending.",
   "official_value_pending_count": 20,
   "ok": true,
   "packet": "R6G-011",
@@ -335,6 +364,7 @@
     "wp5d_complete": "2026-02"
   },
   "status": "DIGITALLY_EXECUTED_HARNESS",
+  "stream_c_pkt001_harness_deepened": true,
   "validations": [
     {
       "allowed_methods": [

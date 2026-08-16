@@ -1,0 +1,97 @@
+{
+  "HARDWARE_PENDING": true,
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+  "IMPROVED_STATE_OF_ART": false,
+  "PHYSICAL_REPRODUCTION_PENDING": true,
+  "claim_state": "DIGITALLY_EXECUTED",
+  "contract": {
+    "ap_count_modeled": 8,
+    "channel": "IID_RAYLEIGH_SYNTHETIC",
+    "forbidden_claims": [
+      "PHYSICAL_CELL_FREE_DEPLOYMENT",
+      "BEATS_VENDOR_MASSIVE_MIMO_OTA",
+      "IMPROVED_STATE_OF_ART"
+    ],
+    "fronthaul": "IDEALIZED_DIGITAL",
+    "precoding": [
+      "MRT",
+      "RZF_DIGITAL",
+      "MATCHED_FILTER_BASELINE"
+    ],
+    "topology": "cell_free_ap_cluster",
+    "ue_count_modeled": 4
+  },
+  "delta_rzf_minus_mrt_ideal": 0.105589,
+  "documented_negative_or_no_gain": [
+    {
+      "delta": -0.106025,
+      "mrt": 1.26491,
+      "result": "RZF_NO_GAIN_VS_MRT",
+      "rzf": 1.158885,
+      "stress": "ap_dropout"
+    },
+    {
+      "delta": -0.115999,
+      "mrt": 1.350829,
+      "result": "RZF_NO_GAIN_VS_MRT",
+      "rzf": 1.23483,
+      "stress": "ue_mobility_fast"
+    }
+  ],
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "ideal_iid": {
+    "MATCHED_FILTER_BASELINE": 0.176518,
+    "MRT": 1.279614,
+    "RZF_DIGITAL": 1.385203
+  },
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "note": "Seeded cell-free MIMO digital experiment (synthetic Rayleigh). Not a physical deployment; not a vendor OTA beat.",
+  "ok": true,
+  "packet": "R6G-006",
+  "precoders": [
+    "MATCHED_FILTER_BASELINE",
+    "MRT",
+    "RZF_DIGITAL"
+  ],
+  "results_se_bps_hz": {
+    "ap_dropout": {
+      "MATCHED_FILTER_BASELINE": 0.138525,
+      "MRT": 1.26491,
+      "RZF_DIGITAL": 1.158885
+    },
+    "fronthaul_quantize": {
+      "MATCHED_FILTER_BASELINE": 0.230938,
+      "MRT": 1.583734,
+      "RZF_DIGITAL": 1.781824
+    },
+    "ideal_iid": {
+      "MATCHED_FILTER_BASELINE": 0.176518,
+      "MRT": 1.279614,
+      "RZF_DIGITAL": 1.385203
+    },
+    "pilot_contamination": {
+      "MATCHED_FILTER_BASELINE": 0.297931,
+      "MRT": 1.691092,
+      "RZF_DIGITAL": 2.209413
+    },
+    "ue_mobility_fast": {
+      "MATCHED_FILTER_BASELINE": 0.166829,
+      "MRT": 1.350829,
+      "RZF_DIGITAL": 1.23483
+    }
+  },
+  "schema": "gunnchos.r6g.r6g006.v1",
+  "seed": 29,
+  "status": "DIGITALLY_EXECUTED",
+  "stresses": [
+    "ideal_iid",
+    "pilot_contamination",
+    "fronthaul_quantize",
+    "ap_dropout",
+    "ue_mobility_fast"
+  ]
+}

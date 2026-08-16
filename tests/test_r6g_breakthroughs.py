@@ -42,7 +42,7 @@ def test_r6g_backlog_eleven_packets_ownership():
     ):
         assert by_id[pid]["status"] == st
     for pid in ("R6G-006", "R6G-007"):
-        assert by_id[pid]["status"] == "MODELED_CONTRACT_ONLY"
+        assert by_id[pid]["status"] == "DIGITALLY_EXECUTED"
 
 
 def test_r6g_aggregate_and_firewall(tmp_path: Path):

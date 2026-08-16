@@ -2,15 +2,18 @@
   "schema": "gunnchos.r6g.r6g006.v1",
   "packet": "R6G-006",
   "ok": true,
-  "status": "MODELED_CONTRACT_ONLY",
-  "claim_state": "MODELED",
+  "status": "DIGITALLY_EXECUTED",
+  "claim_state": "DIGITALLY_EXECUTED",
+  "execution_class": "SEEDED_DIGITAL_SIMULATOR",
+  "seed": 7,
   "contract": {
     "topology": "cell_free_ap_cluster",
     "ap_count_modeled": 8,
     "ue_count_modeled": 4,
     "precoding": [
       "MRT",
-      "RZF_DIGITAL"
+      "RZF_DIGITAL",
+      "MATCHED_FILTER_BASELINE"
     ],
     "fronthaul": "IDEALIZED_DIGITAL",
     "channel": "IID_RAYLEIGH_SYNTHETIC",
@@ -20,13 +23,75 @@
       "IMPROVED_STATE_OF_ART"
     ]
   },
-  "toy_spectral_efficiency_bps_hz": {
-    "MRT": 1.8,
-    "RZF_DIGITAL": 2.4
+  "precoders": [
+    "MATCHED_FILTER_BASELINE",
+    "MRT",
+    "RZF_DIGITAL"
+  ],
+  "stresses": [
+    "ideal_iid",
+    "pilot_contamination",
+    "fronthaul_quantize",
+    "ap_dropout",
+    "ue_mobility_fast"
+  ],
+  "results_se_bps_hz": {
+    "ideal_iid": {
+      "MATCHED_FILTER_BASELINE": 0.182387,
+      "MRT": 1.335759,
+      "RZF_DIGITAL": 1.44517
+    },
+    "pilot_contamination": {
+      "MATCHED_FILTER_BASELINE": 0.336107,
+      "MRT": 1.922596,
+      "RZF_DIGITAL": 2.510929
+    },
+    "fronthaul_quantize": {
+      "MATCHED_FILTER_BASELINE": 0.165789,
+      "MRT": 1.442359,
+      "RZF_DIGITAL": 1.412273
+    },
+    "ap_dropout": {
+      "MATCHED_FILTER_BASELINE": 0.159915,
+      "MRT": 1.47418,
+      "RZF_DIGITAL": 1.285311
+    },
+    "ue_mobility_fast": {
+      "MATCHED_FILTER_BASELINE": 0.229025,
+      "MRT": 1.790065,
+      "RZF_DIGITAL": 1.862621
+    }
   },
-  "delta_rzf_minus_mrt": 0.6,
+  "ideal_iid": {
+    "MATCHED_FILTER_BASELINE": 0.182387,
+    "MRT": 1.335759,
+    "RZF_DIGITAL": 1.44517
+  },
+  "delta_rzf_minus_mrt_ideal": 0.109411,
+  "documented_negative_or_no_gain": [
+    {
+      "stress": "fronthaul_quantize",
+      "result": "RZF_NO_GAIN_VS_MRT",
+      "rzf": 1.412273,
+      "mrt": 1.442359,
+      "delta": -0.030086
+    },
+    {
+      "stress": "ap_dropout",
+      "result": "RZF_NO_GAIN_VS_MRT",
+      "rzf": 1.285311,
+      "mrt": 1.47418,
+      "delta": -0.188869
+    }
+  ],
+  "HYPOTHESIS_SUPPORTED_DIGITALLY": true,
+  "ladder_earned": [
+    "R0",
+    "R1",
+    "R2"
+  ],
   "PHYSICAL_REPRODUCTION_PENDING": true,
   "HARDWARE_PENDING": true,
   "IMPROVED_STATE_OF_ART": false,
-  "note": "Contract + toy digital proxy only; no cell-free hardware campaign."
+  "note": "Seeded cell-free MIMO digital experiment (synthetic Rayleigh). Not a physical deployment; not a vendor OTA beat."
 }
