@@ -1,0 +1,32 @@
+{
+  "schema": "gunnchos.oulu002.equation_traceability.v1",
+  "paper": "arXiv:2411.06747 / DOI 10.1109/IEEECONF60004.2024.10942860",
+  "entries": [
+    {
+      "symbol": "\u03b2_k\u2113",
+      "paper": "\u03b2 = z / (r/r_h)^\u03bd",
+      "code": "large_scale_beta"
+    },
+    {
+      "symbol": "\u03be_k\u2113",
+      "paper": "MMSE orthogonal-pilot (no contamination path)",
+      "code": "mmse_xi"
+    },
+    {
+      "symbol": "R_k",
+      "paper": "eq.(7) / Theorem 1 achievable rate",
+      "code": "rate_closed_form",
+      "oracle": "oulu002_oracle.oracle_rate"
+    },
+    {
+      "symbol": "(\u03b7,\u03b3) equal split",
+      "paper": "\u03b7=P_t/(2 N_t L K), \u03b3=P_t/(2 N_t \u03a3 \u03be)",
+      "code": "equal_power_allocation(rho_sense=0.5)"
+    },
+    {
+      "symbol": "SNR",
+      "paper": "SNR=P_t/\u03c3\u00b2 = 30 dB; \u03c3\u00b2=-30 dBm",
+      "code": "run_scenario snr_db=30 + DEFAULTS.sigma2_dbm"
+    }
+  ]
+}

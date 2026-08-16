@@ -1,7 +1,12 @@
 """OULU-001 — Taghavi/Saarnisaari/Juntti monostatic ISAC FR1/FR3/FR2/sub-THz.
 
-Source: DOI 10.1109/6GNet63182.2024.10765635 (Oulu CWC).
+Sources:
+- DOI 10.1109/6GNet63182.2024.10765635 (Oulu CWC)
+- EuCNC/6G Summit IEEE record DOI 10.1109/EuCNC/6GSummit68295.2026.11577293
+- Adjacent FR3 context only: arXiv 2604.07482 (Aghaei et al.) — NOT Table III source
+
 Maps to R6G-003. CPU analytical model from paper Table I + eqs (15)–(17).
+Do NOT mutate eq.(15) to force-fit FR2 Table III — see OULU001_SPEC_DISCREPANCY_RESOLUTION.md.
 """
 from __future__ import annotations
 
@@ -146,9 +151,17 @@ def classify(rows: list[dict[str, Any]]) -> dict[str, Any]:
         rationale = [
             "FR1/FR3 range via δR=c/(2B) matches Table III within 5%" if range_ok_fr13 else "FR1/FR3 range mismatch",
             "FR2/sub-THz Table III range (e.g. 0.49 m @28 GHz) disagrees with c/(2·0.4 GHz)=0.375 m — full-band PASS blocked",
+            "C-PKT-003: discrepancy DOCUMENTED in OULU001_SPEC_DISCREPANCY_RESOLUTION.md; source Table III wins; no aperture fudge",
             "Pure eq.(16) co-array asin under-predicts Table III angles; fit metric is documented but not a closed-form identity",
             "Qualitative FR3 vs FR1 narrative reproduced digitally; SoA remains false",
         ]
+    classification_extra = {
+        "spec_discrepancy_resolution": "DOCUMENTED_C_PKT_003",
+        "resolution_doc": "artifacts/external_reproduction/C_PKT_003/OULU-001/OULU001_SPEC_DISCREPANCY_RESOLUTION.md",
+        "forbid_aperture_fudge_to_force_pass": True,
+        "eucnc_doi": "10.1109/EuCNC/6GSummit68295.2026.11577293",
+        "adjacent_fr3_arxiv_not_table_iii": "2604.07482",
+    }
 
     return enforce_firewall(
         {
@@ -159,6 +172,7 @@ def classify(rows: list[dict[str, Any]]) -> dict[str, Any]:
                 "SOURCE_VERIFIED",
                 "MODEL_IMPLEMENTED",
                 "DIGITAL_MODEL_EXECUTED",
+                "SPEC_DISCREPANCY_DOCUMENTED",
                 token,
             ],
             "rationale": rationale,
@@ -166,6 +180,7 @@ def classify(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "tolerance_rel_predeclared": TOLERANCE_REL,
             "scoped_fr13_range_match": range_ok_fr13,
             "full_table_range_match": range_ok_all,
+            **classification_extra,
             "IMPROVED_STATE_OF_ART": False,
             "PHYSICAL": False,
             "OTA": False,
@@ -261,6 +276,9 @@ def write_artifact_pack(out_dir: Path, suite: dict[str, Any] | None = None) -> d
         "authors": ["Ehsan Moeen Taghavi", "Harri Saarnisaari", "Markku Juntti"],
         "org": "University of Oulu / CWC",
         "doi": "10.1109/6GNet63182.2024.10765635",
+        "eucnc_doi": "10.1109/EuCNC/6GSummit68295.2026.11577293",
+        "adjacent_fr3_arxiv": "2604.07482",
+        "adjacent_fr3_note": "Aghaei et al. FR3 comparative study — context only; not Table III source",
         "canonical_url": "https://doi.org/10.1109/6GNet63182.2024.10765635",
         "oulurepo": "https://oulurepo.oulu.fi/handle/10024/54707",
         "venue": "2024 3rd International Conference on 6G Networking (6GNet)",
@@ -272,6 +290,7 @@ def write_artifact_pack(out_dir: Path, suite: dict[str, Any] | None = None) -> d
             "angular_resolution_deg",
             "close_target_resolvability_20_21m",
         ],
+        "spec_discrepancy_resolution": "artifacts/external_reproduction/C_PKT_003/OULU-001/OULU001_SPEC_DISCREPANCY_RESOLUTION.md",
     }
     reference_scenario = {
         "table_i": TABLE_I,
