@@ -1,0 +1,156 @@
+{
+  "schema": "gunnchos.nvidia_6g_environment.v2",
+  "packet": "C-PKT-002",
+  "generated_at_utc": "2026-08-16T17:10:28Z",
+  "host": {
+    "os": "macOS-26.6.1-arm64-arm-64bit",
+    "arch": "arm64",
+    "cpu": "Apple M2",
+    "python": "3.11.2",
+    "total_mem_bytes": 8589934592,
+    "available_mem_bytes_approx": 62980096
+  },
+  "status": "UNAVAILABLE_ON_THIS_HOST",
+  "status_rationale": [
+    "nvidia-smi not found",
+    "No CUDA toolkit path",
+    "Sionna / AODT / pyAerial / Aerial SDK not importable",
+    "torch.cuda.is_available()==False",
+    "CPU+NumPy+SciPy path AVAILABLE for digital math/numerical reproduction"
+  ],
+  "components": {
+    "nvidia_smi": {
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED"
+    },
+    "cuda_toolkit": {
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED"
+    },
+    "pytorch": {
+      "present": true,
+      "version": "2.13.0",
+      "status": "CPU_ONLY",
+      "cuda_available": false
+    },
+    "numpy": {
+      "present": true,
+      "version": "2.3.5",
+      "status": "AVAILABLE",
+      "error": null
+    },
+    "scipy": {
+      "present": true,
+      "version": "1.16.3",
+      "status": "AVAILABLE",
+      "error": null
+    },
+    "sionna": {
+      "present": false,
+      "version": null
+    },
+    "nvidia_aerial_sdk": {
+      "present": false,
+      "validated": false
+    },
+    "gpu_nr_baseband_repo": {
+      "present_local": true,
+      "path": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/gunnchos-gpu-nr-baseband-platform",
+      "note": "CPU reference + conditional CUDA path in-repo; Aerial depth NOT validated on this host"
+    },
+    "digital_twin_repo": {
+      "present_local": true,
+      "path": "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos/7gc-digital-twin"
+    }
+  },
+  "backend_adapters": {
+    "SIONNA_PHY": {
+      "backend_id": "SIONNA_PHY",
+      "import_module": "sionna",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'sionna'",
+      "silent_fake_forbidden": true
+    },
+    "SIONNA_SYS": {
+      "backend_id": "SIONNA_SYS",
+      "import_module": "sionna",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'sionna'",
+      "silent_fake_forbidden": true
+    },
+    "SIONNA_RT": {
+      "backend_id": "SIONNA_RT",
+      "import_module": "sionna",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'sionna'",
+      "silent_fake_forbidden": true
+    },
+    "AODT": {
+      "backend_id": "AODT",
+      "import_module": "aodt",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'aodt'",
+      "silent_fake_forbidden": true
+    },
+    "PYAERIAL": {
+      "backend_id": "PYAERIAL",
+      "import_module": "pyaerial",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'pyaerial'",
+      "silent_fake_forbidden": true
+    },
+    "AERIAL_SDK": {
+      "backend_id": "AERIAL_SDK",
+      "import_module": "aerial",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'aerial'",
+      "silent_fake_forbidden": true
+    },
+    "AERIAL_CUDA_RAN": {
+      "backend_id": "AERIAL_CUDA_RAN",
+      "import_module": "aerial",
+      "present": false,
+      "version": null,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "error": "ModuleNotFoundError: No module named 'aerial'",
+      "silent_fake_forbidden": true
+    }
+  },
+  "access": {
+    "local_gpu": "NONE",
+    "remote_gpu_cluster": "NOT_DISCOVERED",
+    "nvidia_aerial_license": "UNKNOWN",
+    "ngc_access": "NOT_CHECKED"
+  },
+  "resource_schedule": {
+    "rule": "Do not run large model + large Sionna + QEMU simultaneously if unsafe",
+    "freemem_bytes": 62980096,
+    "large_sionna_allowed": false,
+    "reason": "Sionna unavailable; freemem gate still recorded for future GPU host"
+  },
+  "recommended_pkt002_path": "CPU_NUMERICAL_AND_ANALYTICAL \u2014 do not claim NVIDIA Aerial / AODT / pyAerial / GPU measurement on this Mac host",
+  "claim_boundary": {
+    "NVIDIA_AERIAL_VALIDATED": false,
+    "AODT_VALIDATED": false,
+    "PYAERIAL_VALIDATED": false,
+    "SIONNA_EXECUTED": false,
+    "GPU_MEASUREMENT": false,
+    "PHYSICAL": false,
+    "OTA": false,
+    "6G_CERTIFIED": false,
+    "CARRIER_ACCEPTED": false,
+    "IMPROVED_STATE_OF_ART": false
+  }
+}

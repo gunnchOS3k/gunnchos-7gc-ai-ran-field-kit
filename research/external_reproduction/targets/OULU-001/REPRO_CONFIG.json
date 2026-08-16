@@ -1,0 +1,17 @@
+{
+  "backend": "CPU_NUMPY_ANALYTICAL",
+  "sionna": "UNAVAILABLE_FAIL_CLOSED",
+  "seeds": [
+    7,
+    11,
+    13,
+    17,
+    19
+  ],
+  "predeclared_tolerance_rel": 0.05,
+  "primary_metrics": {
+    "range_resolution": "eq15_c_over_2B",
+    "angular_resolution": "predeclared_table_fit_66p5_over_N"
+  },
+  "pass_rule": "DIGITAL_REPRODUCTION_PASS iff all bands within tolerance on both primary metrics AND FR1/FR3 qualitative resolvability matches paper"
+}
