@@ -1,0 +1,97 @@
+{
+  "schema": "gunnchos.external_reproduction.adapter_probe.v1",
+  "any_nvidia_or_sionna_backend_available": false,
+  "adapters": {
+    "SIONNA_PHY": {
+      "backend_id": "SIONNA_PHY",
+      "import_module": "sionna",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'sionna'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    },
+    "SIONNA_SYS": {
+      "backend_id": "SIONNA_SYS",
+      "import_module": "sionna",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'sionna'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    },
+    "SIONNA_RT": {
+      "backend_id": "SIONNA_RT",
+      "import_module": "sionna",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'sionna'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    },
+    "AODT": {
+      "backend_id": "AODT",
+      "import_module": "aodt",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'aodt'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    },
+    "PYAERIAL": {
+      "backend_id": "PYAERIAL",
+      "import_module": "pyaerial",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'pyaerial'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    },
+    "AERIAL_SDK": {
+      "backend_id": "AERIAL_SDK",
+      "import_module": "aerial",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'aerial'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    },
+    "AERIAL_CUDA_RAN": {
+      "backend_id": "AERIAL_CUDA_RAN",
+      "import_module": "aerial",
+      "present": false,
+      "status": "UNAVAILABLE_FAIL_CLOSED",
+      "silent_fake_forbidden": true,
+      "error": "ModuleNotFoundError: No module named 'aerial'",
+      "notes": [
+        "FAIL CLOSED: do not fabricate AODT/pyAerial/Sionna results.",
+        "CPU/NumPy analytical path remains allowed when declared explicitly."
+      ]
+    }
+  },
+  "policy": {
+    "silent_fake_aodt": false,
+    "silent_fake_pyaerial": false,
+    "silent_fake_sionna": false,
+    "silent_fake_aerial": false,
+    "cpu_numerical_allowed": true
+  }
+}

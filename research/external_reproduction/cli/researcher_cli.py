@@ -1,4 +1,4 @@
-"""Researcher CLI — runs real adapter probes + OULU/NVIDIA reproduction targets."""
+"""Researcher CLI — real paths for C-PKT-003 OULU/NVIDIA reproduction."""
 from __future__ import annotations
 
 import argparse
@@ -10,23 +10,32 @@ ROOT = Path(__file__).resolve().parents[3]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from research.external_reproduction.adapters.aodt_soft_twin import write_status as write_aodt_soft
+from research.external_reproduction.adapters.nvidia_6g_probe import write_probe as write_nvidia_probe
 from research.external_reproduction.adapters.probe import probe_all, write_probe
+from research.external_reproduction.bridge.twin_bridge import write_bridge
 from research.external_reproduction.claim_firewall import enforce_firewall
 from research.external_reproduction.oulu001_fr3_mmwave import write_artifact_pack as write_oulu001
 from research.external_reproduction.oulu002_cfmimo_isac import write_artifact_pack as write_oulu002
 
-
 TARGETS_DIR = ROOT / "research" / "external_reproduction" / "targets"
-ART_DIR = ROOT / "artifacts" / "external_reproduction" / "C_PKT_002"
+ART_DIR = ROOT / "artifacts" / "external_reproduction" / "C_PKT_003"
 
 
 def cmd_probe(_: argparse.Namespace) -> int:
     out = ART_DIR / "ADAPTER_PROBE.json"
     payload = write_probe(out)
-    # also mirror under research
     write_probe(ROOT / "research/external_reproduction/ADAPTER_PROBE.json")
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0
+
+
+def cmd_nvidia_probe(_: argparse.Namespace) -> int:
+    payload = write_nvidia_probe(ART_DIR / "NVIDIA" / "NVIDIA_6G_PROBE.json")
+    write_aodt_soft(ART_DIR / "NVIDIA" / "AODT_SOFT_TWIN.json")
+    write_bridge(ART_DIR / "NVIDIA" / "BRIDGE_STATUS.json")
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 2 if str(payload.get("status", "")).startswith("FAIL_CLOSED") else 0
 
 
 def cmd_env(_: argparse.Namespace) -> int:
@@ -44,6 +53,12 @@ def cmd_run(args: argparse.Namespace) -> int:
     if target == "OULU-001":
         suite = write_oulu001(TARGETS_DIR / "OULU-001")
         write_oulu001(ART_DIR / "OULU-001", suite)
+        # Keep discrepancy resolution beside pack
+        res = ART_DIR / "OULU-001" / "OULU001_SPEC_DISCREPANCY_RESOLUTION.md"
+        if not res.is_file():
+            src = ROOT / "artifacts/external_reproduction/C_PKT_003/OULU-001/OULU001_SPEC_DISCREPANCY_RESOLUTION.md"
+            if src.is_file():
+                res.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     elif target == "OULU-002":
         suite = write_oulu002(TARGETS_DIR / "OULU-002")
         write_oulu002(ART_DIR / "OULU-002", suite)
@@ -66,14 +81,13 @@ def cmd_run(args: argparse.Namespace) -> int:
             {
                 "target_id": target,
                 "classification": "PREPARATION_ONLY",
-                "note": "C5 preparation only — full execute deferred",
+                "note": "preparation only — full execute deferred",
                 "IMPROVED_STATE_OF_ART": False,
             }
         )
         print(json.dumps(suite, indent=2))
         return 0
 
-    # WAIKE handoff only if DIGITAL_REPRODUCTION_PASS
     if target == "ALL":
         classifications = [
             suite["OULU-001"]["classification"],
@@ -93,8 +107,10 @@ def cmd_run(args: argparse.Namespace) -> int:
     summary = enforce_firewall(
         {
             "ok": True,
+            "packet": "C-PKT-003",
             "target": target,
             "classification": classification_payload,
+            "artifact_dir": str(ART_DIR),
             "adapter_any_available": probe["any_nvidia_or_sionna_backend_available"],
             "IMPROVED_STATE_OF_ART": False,
             "PHYSICAL": False,
@@ -107,7 +123,6 @@ def cmd_run(args: argparse.Namespace) -> int:
 
     if any(c == "DIGITAL_REPRODUCTION_PASS" for c in classifications):
         handoff = ART_DIR / "WAIKE_HANDOFF_PACKET.json"
-        # Still: only emit if PASS; do not edit WAIKE repo
         handoff.write_text(
             json.dumps(
                 {
@@ -146,6 +161,7 @@ def main(argv: list[str] | None = None) -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe").set_defaults(func=cmd_probe)
     sub.add_parser("env").set_defaults(func=cmd_env)
+    sub.add_parser("nvidia-6g-probe").set_defaults(func=cmd_nvidia_probe)
     run_p = sub.add_parser("run")
     run_p.add_argument("--target", required=True, help="OULU-001|OULU-002|ALL|NVIDIA-001|...")
     run_p.set_defaults(func=cmd_run)
