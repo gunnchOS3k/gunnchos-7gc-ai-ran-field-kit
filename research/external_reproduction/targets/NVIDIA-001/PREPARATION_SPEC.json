@@ -1,0 +1,16 @@
+{
+  "target_id": "NVIDIA-001",
+  "execution": "PREPARATION_ONLY",
+  "title": "NVIDIA Sionna PHY/SYS/RT backend readiness",
+  "canonical_url": "https://nvlabs.github.io/sionna/",
+  "code_canonical": "https://github.com/NVlabs/sionna",
+  "adapters": ["SIONNA_PHY", "SIONNA_SYS", "SIONNA_RT"],
+  "planned_metrics": ["import_smoke", "ofdm_ber_smoke", "rt_scene_smoke"],
+  "host_status": "UNAVAILABLE_FAIL_CLOSED",
+  "blockers": [
+    "sionna not installed on discovery host",
+    "CUDA/GPU unavailable — large RT sweeps forbidden under RESOURCE_SCHEDULE"
+  ],
+  "IMPROVED_STATE_OF_ART": false,
+  "silent_fake_forbidden": true
+}

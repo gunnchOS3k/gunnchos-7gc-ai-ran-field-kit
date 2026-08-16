@@ -1,0 +1,50 @@
+{
+  "no_bandwidth_scaling": {
+    "description": "Force all bands to FR1 bandwidth 0.1 GHz",
+    "result": [
+      {
+        "fc_ghz": 3.5,
+        "range_m": 1.49896229,
+        "close_pair_resolved": false
+      },
+      {
+        "fc_ghz": 7.0,
+        "range_m": 1.49896229,
+        "close_pair_resolved": false
+      },
+      {
+        "fc_ghz": 15.0,
+        "range_m": 1.49896229,
+        "close_pair_resolved": false
+      },
+      {
+        "fc_ghz": 28.0,
+        "range_m": 1.49896229,
+        "close_pair_resolved": false
+      },
+      {
+        "fc_ghz": 72.0,
+        "range_m": 1.49896229,
+        "close_pair_resolved": false
+      },
+      {
+        "fc_ghz": 100.0,
+        "range_m": 1.49896229,
+        "close_pair_resolved": false
+      }
+    ],
+    "note": "Without bandwidth scaling, FR3 loses close-target advantage \u2014 negative for naive carrier-only claim"
+  },
+  "fixed_n_ant_8": {
+    "description": "Hold N=8 across bands (disable aperture growth)",
+    "angles_deg": [
+      8.3125,
+      8.3125,
+      8.3125,
+      8.3125,
+      8.3125,
+      8.3125
+    ],
+    "note": "Angular improvement disappears \u2014 aperture growth is the FR3/mmWave angle driver"
+  }
+}

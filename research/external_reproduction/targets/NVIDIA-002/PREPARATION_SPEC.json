@@ -1,0 +1,16 @@
+{
+  "target_id": "NVIDIA-002",
+  "execution": "PREPARATION_ONLY",
+  "title": "Sionna × AODT multi-digital-twin bridge (arXiv:2508.15816)",
+  "doi": "10.48550/arxiv.2508.15816",
+  "canonical_url": "https://doi.org/10.48550/arxiv.2508.15816",
+  "adapters": ["SIONNA_RT", "AODT", "PYAERIAL", "AERIAL_CUDA_RAN"],
+  "planned_metrics": ["coverage_agreement", "abs_placement_objective", "twin_divergence"],
+  "host_status": "UNAVAILABLE_FAIL_CLOSED",
+  "blockers": [
+    "AODT/pyAerial/Aerial not present — FAIL CLOSED, no silent fake",
+    "Requires GPU/Omniverse host not available on discovery Mac"
+  ],
+  "IMPROVED_STATE_OF_ART": false,
+  "silent_fake_forbidden": true
+}
