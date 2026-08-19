@@ -1,29 +1,273 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.result",
-  "generated_at_utc": "2026-08-19T18:04:31Z",
-  "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B",
+  "generated_at_utc": "2026-08-19T18:27:32Z",
+  "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.1",
   "BASELINE_V2_STATE": "DRAFT_PR",
   "STOP_FOR_OWNER_MERGE": true,
+  "BASELINE_V2_READY_FOR_OWNER_MERGE": true,
   "totals": {
-    "ATOMIC_TOTAL": 395,
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 4,
-    "DIGITAL_IMPLEMENTATION_OPEN": 333,
-    "PHYSICAL_PENDING": 6,
-    "HUMAN_PENDING": 27,
-    "EXTERNAL_PENDING": 13,
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 3,
+    "DIGITAL_IMPLEMENTATION_OPEN": 416,
+    "EVIDENCE_UNRESOLVED": 0,
+    "PHYSICAL_PENDING": 0,
+    "HUMAN_PENDING": 0,
+    "EXTERNAL_PENDING": 0,
     "STANDARD_PENDING": 0,
-    "CERTIFICATION_PENDING": 4,
-    "CARRIER_PENDING": 4,
+    "CERTIFICATION_PENDING": 0,
+    "CARRIER_PENDING": 0,
     "VENDOR_PENDING": 0,
-    "OWNER_DECISION_PENDING": 4
+    "OWNER_DECISION_PENDING": 0
   },
+  "PROGRAM_GATE_7_8_REQUIREMENTS_RETAINED": 28,
+  "PROGRAM_GATE_SEPARATE_FROM_COMPLETION_LEVEL": true,
+  "END_GOAL_FAMILIES_COVERED": 13,
+  "DEVICE_OS_103_UNIQUE_CAPABILITIES_REMAINING": 0,
+  "DEVICE_OS_103_DISPOSITION": "SUPERSEDED_DO_NOT_MERGE",
+  "DSXL_CURRENT_MAIN_STATUS": true,
+  "RING_CURRENT_MAIN_STATUS": true,
+  "FOUR_GAME_CURRENT_MAIN_STATUS": true,
+  "STALE_PREVIEW_REFERENCES": 29,
+  "STALE_PREVIEW_REFERENCES_TRACEABLE": true,
+  "STALE_PREVIEW_DETAIL": [
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 83,
+      "key": "PR #53",
+      "stale_statement": "- `waike-research-ops` PR #53: batch007 EMBEDDED_PROTOTYPING + GUNNCHOS_PRODUCT_LAB",
+      "live_truth": "gunnchOS3k/waike-research-ops PR #53 state=MERGED",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 84,
+      "key": "PR #88",
+      "stale_statement": "- `gunnchos-7gc-ai-ran-field-kit` PR #88: residual digital closure Phase 0 follow-up",
+      "live_truth": "gunnchOS3k/gunnchos-7gc-ai-ran-field-kit PR #88 state=MERGED",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 85,
+      "key": "PR #103",
+      "stale_statement": "- `gunnchos-device-os` PR #103: OPEN draft CONFLICTING \u2014 do not merge; superseded",
+      "live_truth": "gunnchOS3k/gunnchos-device-os PR #103 state=OPEN",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 91,
+      "key": "gunnchos-device-os.origin_main_sha12",
+      "stale_statement": "| `gunnchos-device-os` | ACCEPTED_MAIN | `d5c2d179ae21` | 121 | PASS | make reproduce |",
+      "live_truth": "origin/main=b0b087681085",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 95,
+      "key": "waike-research-ops.origin_main_sha12",
+      "stale_statement": "| `waike-research-ops` | ACCEPTED_MAIN | `491744328596` | 52 | PASS | see REPRODUCIBILITY.md |",
+      "live_truth": "origin/main=5d416c09164c",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 101,
+      "key": "gunnchos-research-portal.origin_main_sha12",
+      "stale_statement": "| `gunnchos-research-portal` | ACCEPTED_MAIN | `7842ff2e0d1d` | 8 | PASS | make reproduce |",
+      "live_truth": "origin/main=e60705b8b3cd",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 105,
+      "key": "gunnchos-gpu-nr-baseband-platform.ci",
+      "stale_statement": "| `gunnchos-gpu-nr-baseband-platform` | ACCEPTED_MAIN | `3931f51d43b7` | 3 | FAIL | make reproduce |",
+      "live_truth": "required-workflow CI=PASS",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 106,
+      "key": "readygary-6g-beam-selection.origin_main_sha12",
+      "stale_statement": "| `readygary-6g-beam-selection` | ACCEPTED_MAIN | `0e2a79177222` | 26 | FAIL | make reproduce |",
+      "live_truth": "origin/main=569875224db7",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 106,
+      "key": "readygary-6g-beam-selection.ci",
+      "stale_statement": "| `readygary-6g-beam-selection` | ACCEPTED_MAIN | `0e2a79177222` | 26 | FAIL | make reproduce |",
+      "live_truth": "required-workflow CI=PASS",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-device-os].origin_main_sha12",
+      "stale_statement": "d5c2d179ae21",
+      "live_truth": "b0b087681085",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-device-os].pr.number",
+      "stale_statement": "PR #121 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-hardware-industrial-design].pr.number",
+      "stale_statement": "PR #67 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[archive-of-life-artifact-world].pr.number",
+      "stale_statement": "PR #33 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchAI3k].pr.number",
+      "stale_statement": "PR #43 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[waike-research-ops].origin_main_sha12",
+      "stale_statement": "491744328596",
+      "live_truth": "5d416c09164c",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[waike-research-ops].pr.number",
+      "stale_statement": "PR #52 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[anime-aggressors].pr.number",
+      "stale_statement": "PR #79 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-emergent-service-intent-protocols].pr.number",
+      "stale_statement": "PR #3 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[pedestrian-pursuit].pr.number",
+      "stale_statement": "PR #20 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[beatlink-party].pr.number",
+      "stale_statement": "PR #23 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[edge-io-measurement-node].pr.number",
+      "stale_statement": "PR #38 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-research-portal].origin_main_sha12",
+      "stale_statement": "7842ff2e0d1d",
+      "live_truth": "e60705b8b3cd",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-research-portal].pr.number",
+      "stale_statement": "PR #8 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[ntn-resilience-sim].pr.number",
+      "stale_statement": "PR #27 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[7gc-digital-twin].pr.number",
+      "stale_statement": "PR #30 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[spectrumx-ai-ran-gary].pr.number",
+      "stale_statement": "PR #101 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-gpu-nr-baseband-platform].pr.number",
+      "stale_statement": "PR #3 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[readygary-6g-beam-selection].origin_main_sha12",
+      "stale_statement": "0e2a79177222",
+      "live_truth": "569875224db7",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[readygary-6g-beam-selection].pr.number",
+      "stale_statement": "PR #26 as active preview",
+      "live_truth": "MERGED \u2014 not accepted-main preview",
+      "phase_c_repair_needed": true
+    }
+  ],
+  "KNOWN_ACCEPTED_MAIN_CI_CONTRADICTIONS": 0,
   "READYGARY_ACCEPTED_MAIN_CI": "PASS",
   "WAIKE_ACCEPTED_MAIN_CI": "PASS",
   "FIELD_KIT_BASELINE_V2": "DRAFT_NOT_ACCEPTED_MAIN",
   "PORTAL_FINAL_ACCEPTED_MAIN_SNAPSHOT": "STALE_DRIFT",
-  "DEVICE_OS_103_DISPOSITION": "OPEN_AWAITING_OWNER_SUPERSESSION",
-  "STALE_PREVIEW_REFERENCES": 2,
-  "KNOWN_ACCEPTED_MAIN_CI_CONTRADICTIONS": 0,
   "PRE_ENGINEERING_HYGIENE_PASS": false,
   "ENGINEERING_NEXT_WAVE_ALLOWED": false
 }

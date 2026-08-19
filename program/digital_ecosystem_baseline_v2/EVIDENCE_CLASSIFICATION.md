@@ -8,4 +8,4 @@
 | E3 | Cross-repo reproduction harness |
 | E4 | Independent VP artifact with explicit negative space |
 
-Baseline V2 does **not** upgrade E1/E2 to product-shipping claims. `DIGITAL_IMPLEMENTATION_COMPLETE` rows require explicit evidence pointers on accepted main or verified L0 control-plane VPs only.
+`ACCEPTED_MAIN_*` resolutions require non-empty accepted-main SHA, evidence path, and resolution_reason.

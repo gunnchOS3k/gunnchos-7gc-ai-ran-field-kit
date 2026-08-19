@@ -1,9 +1,15 @@
 {
-  "schema": "gunnchos.digital_ecosystem_baseline_v2.master_completion_register",
+  "schema": "gunnchos.digital_ecosystem_baseline_v2.evidence_resolution",
   "generated_at_utc": "2026-08-19T18:27:32Z",
-  "layer_policy": "program_gate (0-8) separate from current_level (L0-L6)",
-  "gates_7_8_included": 28,
-  "CURSOR_NEVER_MERGES": true,
+  "policy": {
+    "program_gate": "Original requirement gate 0-8 from requirements.yaml",
+    "current_level": "L0_DEFINED .. L6_PRODUCTION_OR_FIELD \u2014 never equal to program_gate",
+    "complete_requires": [
+      "accepted_main_sha",
+      "implementation_evidence or validation_evidence",
+      "resolution_reason"
+    ]
+  },
   "totals": {
     "ATOMIC_TOTAL": 419,
     "DIGITAL_IMPLEMENTATION_COMPLETE": 3,
@@ -18,7 +24,7 @@
     "VENDOR_PENDING": 0,
     "OWNER_DECISION_PENDING": 0
   },
-  "requirements": [
+  "resolutions": [
     {
       "requirement_id": "SYS-MISSION-001",
       "owner_repo": "gunnchos-7gc-ai-ran-field-kit",

@@ -5,11 +5,11 @@
 | gunnchos-7gc-ai-ran-field-kit | PASS | make verify |
 | gunnchos-research-portal | PASS | make reproduce |
 | gunnchos-device-os | PASS | make reproduce |
-| gunnchos-hardware-industrial-design | PASS | see REPRODUCIBILITY.md |
-| gunnchAI3k | PASS | see REPRODUCIBILITY.md |
+| gunnchos-hardware-industrial-design | NOT_APPLICABLE | see REPRODUCIBILITY.md |
+| gunnchAI3k | NOT_APPLICABLE | see REPRODUCIBILITY.md |
 | edge-io-measurement-node | PASS | make reproduce |
 | anime-aggressors | PASS | see REPRODUCIBILITY.md |
-| pedestrian-pursuit | PASS | see REPRODUCIBILITY.md |
+| pedestrian-pursuit | NOT_APPLICABLE | see REPRODUCIBILITY.md |
 | archive-of-life-artifact-world | PASS | see REPRODUCIBILITY.md |
 | beatlink-party | PASS | see REPRODUCIBILITY.md |
 | 7gc-digital-twin | PASS | make reproduce |
