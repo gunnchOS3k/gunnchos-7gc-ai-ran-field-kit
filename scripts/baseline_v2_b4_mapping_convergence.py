@@ -21,9 +21,10 @@ from baseline_v2_evidence_census import (  # noqa: E402
     END_GOAL_FAMILIES,
     WORK_STATES_OPEN,
     WORK_STATES_PENDING,
+    WORK_STATES_PREP,
 )
 
-PENDING_WORK_STATES = WORK_STATES_PENDING | {
+PENDING_WORK_STATES = WORK_STATES_PENDING | WORK_STATES_PREP | {
     "PHYSICAL_PENDING",
     "HUMAN_PENDING",
     "EXTERNAL_PENDING",
@@ -50,7 +51,7 @@ def build_sha_freeze(repo_shas: dict[str, str], ts: str) -> dict[str, Any]:
     return {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.b4_accepted_main_sha_freeze",
         "generated_at_utc": ts,
-        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.4",
+        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.4.1",
         "policy": "Every B.4 mapping decision cites these SHAs only.",
         "canonical_repo_count": len(CANONICAL_REPOS),
         "repos": [
@@ -68,14 +69,21 @@ def b4_decision_record(b3_row: dict[str, Any], b4_row: dict[str, Any]) -> dict[s
     return {
         "requirement_id": b3_row["requirement_id"],
         "title": b3_row.get("title"),
+        "owner_repo": b4_row.get("owner_repo"),
         "primary_end_goal_family": b4_row.get("primary_end_goal_family"),
         "b3_work_state": b3_row.get("work_state"),
         "b4_work_state": b4_row.get("work_state"),
         "b4_decision": b4_row.get("work_state"),
         "b4_decision_reason": b4_row.get("resolution_reason"),
+        "b41_reclassified_from": b4_row.get("b41_reclassified_from"),
+        "implementation_state": b4_row.get("implementation_state"),
+        "verification_state": b4_row.get("verification_state"),
         "accepted_main_sha": b4_row.get("accepted_main_sha"),
         "implementation_evidence": b4_row.get("implementation_evidence"),
         "validation_evidence": b4_row.get("validation_evidence"),
+        "specific_missing_implementation": b4_row.get("specific_missing_implementation"),
+        "searched_repositories": b4_row.get("searched_repositories"),
+        "why_paths_insufficient": b4_row.get("why_paths_insufficient"),
         "evidence_confidence": b4_row.get("evidence_confidence"),
         "pending_dimensions": b4_row.get("pending_dimensions"),
         "admissible_repositories": b4_row.get("admissible_repositories"),
@@ -87,36 +95,46 @@ def b4_decision_record(b3_row: dict[str, Any], b4_row: dict[str, Any]) -> dict[s
     }
 
 
-def build_next_digital_impl(rows: list[dict[str, Any]], limit: int = 25) -> list[dict[str, Any]]:
+def _impl_item(r: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "requirement_id": r["requirement_id"],
+        "title": r.get("title"),
+        "owner_repo": r.get("owner_repo"),
+        "primary_end_goal_family": r.get("primary_end_goal_family"),
+        "resolution_reason": r.get("resolution_reason"),
+        "specific_missing_implementation": r.get("specific_missing_implementation"),
+        "searched_repositories": r.get("searched_repositories"),
+        "why_paths_insufficient": r.get("why_paths_insufficient"),
+        "next_action": r.get("next_action"),
+    }
+
+
+def _validation_item(r: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "requirement_id": r["requirement_id"],
+        "title": r.get("title"),
+        "owner_repo": r.get("owner_repo"),
+        "primary_end_goal_family": r.get("primary_end_goal_family"),
+        "implementation_state": r.get("implementation_state"),
+        "implementation_evidence": r.get("implementation_evidence"),
+        "validation_evidence": r.get("validation_evidence"),
+        "accepted_main_sha": r.get("accepted_main_sha"),
+        "resolution_reason": r.get("resolution_reason"),
+    }
+
+
+def build_next_digital_impl(rows: list[dict[str, Any]], limit: int = 25) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     pool = [r for r in rows if r.get("work_state") == "DIGITAL_IMPLEMENTATION_OPEN"]
     pool.sort(key=lambda r: (r.get("primary_end_goal_family") or 0, r.get("requirement_id") or ""))
-    return [
-        {
-            "requirement_id": r["requirement_id"],
-            "title": r.get("title"),
-            "owner_repo": r.get("owner_repo"),
-            "primary_end_goal_family": r.get("primary_end_goal_family"),
-            "resolution_reason": r.get("resolution_reason"),
-            "next_action": r.get("next_action"),
-        }
-        for r in pool[:limit]
-    ]
+    all_items = [_impl_item(r) for r in pool]
+    return all_items, all_items[:limit]
 
 
-def build_next_digital_validation(rows: list[dict[str, Any]], limit: int = 25) -> list[dict[str, Any]]:
+def build_next_digital_validation(rows: list[dict[str, Any]], limit: int = 25) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     pool = [r for r in rows if r.get("work_state") == "DIGITAL_VALIDATION_OPEN"]
     pool.sort(key=lambda r: (r.get("primary_end_goal_family") or 0, r.get("requirement_id") or ""))
-    return [
-        {
-            "requirement_id": r["requirement_id"],
-            "title": r.get("title"),
-            "owner_repo": r.get("owner_repo"),
-            "primary_end_goal_family": r.get("primary_end_goal_family"),
-            "implementation_evidence": r.get("implementation_evidence"),
-            "resolution_reason": r.get("resolution_reason"),
-        }
-        for r in pool[:limit]
-    ]
+    all_items = [_validation_item(r) for r in pool]
+    return all_items, all_items[:limit]
 
 
 def build_non_digital_pending(rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -133,15 +151,17 @@ def build_non_digital_pending(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "work_state_counts": dict(by_state),
         "pending_dimension_counts": dict(by_dim),
         "by_primary_family": {str(k): v for k, v in sorted(by_family.items()) if k},
-        "sample_rows": [
+        "all_items": [
             {
                 "requirement_id": r["requirement_id"],
                 "title": r.get("title"),
                 "work_state": r.get("work_state"),
                 "pending_dimensions": r.get("pending_dimensions"),
                 "primary_end_goal_family": r.get("primary_end_goal_family"),
+                "owner_repo": r.get("owner_repo"),
+                "resolution_reason": r.get("resolution_reason"),
             }
-            for r in pending_rows[:50]
+            for r in pending_rows
         ],
     }
 
@@ -168,7 +188,7 @@ def write_b4_artifacts(
     decisions_doc = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.b4_mapping_decisions",
         "generated_at_utc": ts,
-        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.4",
+        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.4.1",
         "b3_mapping_open_count": len(mapping_open_b3),
         "b4_mapping_open_count": totals.get("EVIDENCE_MAPPING_OPEN", 0),
         "rows_processed": len(decisions),
@@ -177,27 +197,28 @@ def write_b4_artifacts(
     }
     (OUT / "B4_MAPPING_DECISIONS.json").write_text(json.dumps(decisions_doc, indent=2) + "\n", encoding="utf-8")
 
-    next_impl = build_next_digital_impl(b4_rows)
-    next_val = build_next_digital_validation(b4_rows)
+    impl_all, impl_top = build_next_digital_impl(b4_rows)
+    val_all, val_top = build_next_digital_validation(b4_rows)
     non_digital = build_non_digital_pending(b4_rows)
 
     impl_doc = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.next_digital_implementation_work",
         "generated_at_utc": ts,
         "total_open": totals.get("DIGITAL_IMPLEMENTATION_OPEN", 0),
-        "top_items": next_impl,
+        "all_items": impl_all,
+        "top_priority_items": impl_top,
     }
     val_doc = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.next_digital_validation_work",
         "generated_at_utc": ts,
         "total_open": totals.get("DIGITAL_VALIDATION_OPEN", 0),
-        "top_items": next_val,
+        "all_items": val_all,
+        "top_priority_items": val_top,
     }
     (OUT / "NEXT_DIGITAL_IMPLEMENTATION_WORK.json").write_text(json.dumps(impl_doc, indent=2) + "\n", encoding="utf-8")
     (OUT / "NEXT_DIGITAL_VALIDATION_WORK.json").write_text(json.dumps(val_doc, indent=2) + "\n", encoding="utf-8")
     (OUT / "NON_DIGITAL_PENDING_REGISTER.json").write_text(json.dumps(non_digital, indent=2) + "\n", encoding="utf-8")
 
-    fam_names = {f["id"]: f["name"] for f in END_GOAL_FAMILIES}
     moved_rows = [[k, str(v)] for k, v in sorted(moved.items(), key=lambda x: -x[1])]
     write_markdown(
         OUT / "B4_MAPPING_DECISIONS.md",
@@ -227,12 +248,14 @@ See `B4_MAPPING_DECISIONS.json` for full per-row audit.
     write_markdown(
         OUT / "NEXT_DIGITAL_IMPLEMENTATION_WORK.md",
         "# Next Digital Implementation Work\n\n"
-        + f"Total DIGITAL_IMPLEMENTATION_OPEN: **{totals.get('DIGITAL_IMPLEMENTATION_OPEN', 0)}**\n\n"
+        + f"Total DIGITAL_IMPLEMENTATION_OPEN: **{totals.get('DIGITAL_IMPLEMENTATION_OPEN', 0)}** "
+        + f"(complete list: `NEXT_DIGITAL_IMPLEMENTATION_WORK.json` → `all_items`)\n\n"
+        + "## Top 25 priority\n\n"
         + md_table(
             ["ID", "Title", "Owner", "Family"],
             [
                 [i["requirement_id"], (i.get("title") or "")[:50], i.get("owner_repo"), str(i.get("primary_end_goal_family"))]
-                for i in next_impl
+                for i in impl_top
             ],
         )
         + "\n",
@@ -240,7 +263,9 @@ See `B4_MAPPING_DECISIONS.json` for full per-row audit.
     write_markdown(
         OUT / "NEXT_DIGITAL_VALIDATION_WORK.md",
         "# Next Digital Validation Work\n\n"
-        + f"Total DIGITAL_VALIDATION_OPEN: **{totals.get('DIGITAL_VALIDATION_OPEN', 0)}**\n\n"
+        + f"Total DIGITAL_VALIDATION_OPEN: **{totals.get('DIGITAL_VALIDATION_OPEN', 0)}** "
+        + f"(complete list: `NEXT_DIGITAL_VALIDATION_WORK.json` → `all_items`)\n\n"
+        + "## Top 25 priority\n\n"
         + md_table(
             ["ID", "Title", "Owner", "Impl evidence"],
             [
@@ -250,7 +275,7 @@ See `B4_MAPPING_DECISIONS.json` for full per-row audit.
                     i.get("owner_repo"),
                     (i.get("implementation_evidence") or "")[:40],
                 ]
-                for i in next_val
+                for i in val_top
             ],
         )
         + "\n",
@@ -258,7 +283,8 @@ See `B4_MAPPING_DECISIONS.json` for full per-row audit.
     write_markdown(
         OUT / "NON_DIGITAL_PENDING_REGISTER.md",
         "# Non-Digital Pending Register\n\n"
-        + f"Total pending rows: **{non_digital['total_pending_rows']}**\n\n"
+        + f"Total pending rows: **{non_digital['total_pending_rows']}** "
+        + f"(complete list: `NON_DIGITAL_PENDING_REGISTER.json` → `all_items`)\n\n"
         + md_table(["Work state", "Count"], [[k, str(v)] for k, v in sorted(non_digital["work_state_counts"].items())])
         + "\n\n"
         + md_table(["Dimension", "Count"], [[k, str(v)] for k, v in sorted(non_digital["pending_dimension_counts"].items())])

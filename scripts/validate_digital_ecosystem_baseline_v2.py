@@ -110,7 +110,7 @@ def main() -> int:
     phase = result.get("phase") or ""
     is_b4 = "B.4" in phase
     if not is_b4 and result.get("phase") != "PRE_ENGINEERING_HYGIENE_PHASE_B.3":
-        errors.append(f"expected phase B.3 or B.4, got {result.get('phase')}")
+        errors.append(f"expected phase B.3 or B.4.x, got {result.get('phase')}")
     if is_b4:
         for name in REQUIRED_B4:
             if not (OUT / name).is_file():
@@ -121,6 +121,15 @@ def main() -> int:
         if not b4_val.get("BASELINE_V2_B4_MAPPING_VALIDATION_PASS"):
             for e in b4_val.get("errors") or []:
                 errors.append(f"B.4 validation: {e}")
+        b41 = result.get("BASELINE_V2_B4_REGISTER_INTEGRITY_VALIDATION") or {}
+        if not b41.get("BASELINE_V2_B4_REGISTER_INTEGRITY_PASS"):
+            errors.append("B.4.1 register integrity validation failed")
+        impl_reg = json.loads((OUT / "NEXT_DIGITAL_IMPLEMENTATION_WORK.json").read_text(encoding="utf-8"))
+        if "all_items" not in impl_reg or "top_priority_items" not in impl_reg:
+            errors.append("NEXT_DIGITAL_IMPLEMENTATION_WORK missing all_items/top_priority_items")
+        pending_reg = json.loads((OUT / "NON_DIGITAL_PENDING_REGISTER.json").read_text(encoding="utf-8"))
+        if "all_items" not in pending_reg:
+            errors.append("NON_DIGITAL_PENDING_REGISTER missing all_items")
         if result.get("BASELINE_MAPPING_COMPLETE") is not True:
             errors.append("BASELINE_MAPPING_COMPLETE must be true for B.4")
         if result.get("CANONICAL_REPOS_RECONCILED") is not True:
@@ -250,6 +259,7 @@ def main() -> int:
     print("BASELINE_V2_PRECISION_VALIDATION_PASS")
     if is_b4:
         print("BASELINE_V2_B4_MAPPING_VALIDATION_PASS")
+        print("BASELINE_V2_B4_REGISTER_INTEGRITY_PASS")
     return 0
 
 

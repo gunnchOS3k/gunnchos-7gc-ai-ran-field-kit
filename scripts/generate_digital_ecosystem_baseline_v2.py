@@ -20,6 +20,7 @@ from baseline_v2_b4_mapping_convergence import (
     validate_b4_mapping,
     write_b4_artifacts,
 )
+from validate_baseline_v2_b4_register_integrity import main as validate_b41_integrity
 from baseline_v2_evidence_census import (
     CANONICAL_REPOS,
     END_GOAL_FAMILIES,
@@ -343,7 +344,11 @@ def main() -> int:
     phase = os.environ.get("BASELINE_V2_PHASE", "B.3").upper()
     if phase not in ("B.3", "B.4"):
         phase = "B.3"
-    phase_label = "PRE_ENGINEERING_HYGIENE_PHASE_B.4" if phase == "B.4" else "PRE_ENGINEERING_HYGIENE_PHASE_B.3"
+    phase_label = (
+        "PRE_ENGINEERING_HYGIENE_PHASE_B.4.1"
+        if phase == "B.4"
+        else "PRE_ENGINEERING_HYGIENE_PHASE_B.3"
+    )
 
     print(f"Building accepted-main evidence index (17 repos) phase={phase}...", file=sys.stderr)
     evidence_index = build_evidence_index(REPOS_ROOT, TEMP_ROOT)
@@ -571,8 +576,20 @@ def main() -> int:
         sha_freeze = build_sha_freeze(evidence_index.repo_shas, ts)
         b4_summary = write_b4_artifacts(b3_rows or rows, rows, evidence_index.repo_shas, totals, ts)
         b4_validation = validate_b4_mapping(rows, totals, sha_freeze)
+        b41_integrity_rc = validate_b41_integrity()
+        b41_integrity_pass = b41_integrity_rc == 0
         result["BASELINE_V2_B4_MAPPING"] = "PASS" if b4_validation["BASELINE_V2_B4_MAPPING_VALIDATION_PASS"] else "FAIL"
         result["BASELINE_V2_B4_MAPPING_VALIDATION"] = b4_validation
+        result["BASELINE_V2_B4_1_REGISTER_INTEGRITY"] = "PASS" if b41_integrity_pass else "FAIL"
+        result["BASELINE_V2_B4_REGISTER_INTEGRITY_VALIDATION"] = {
+            "BASELINE_V2_B4_REGISTER_INTEGRITY_PASS": b41_integrity_pass,
+        }
+        result["B4_READY_FOR_OWNER_MERGE"] = (
+            b4_validation["BASELINE_V2_B4_MAPPING_VALIDATION_PASS"]
+            and b41_integrity_pass
+            and mapping_complete
+            and ready_for_merge
+        )
         result["B4_ROWS_PROCESSED"] = b4_summary.get("decisions_count", 0)
         result["B4_MOVED_TO_STATE_COUNTS"] = b4_summary.get("moved_to_state_counts", {})
         result["CANONICAL_REPOS_RECONCILED"] = len([s for s in evidence_index.repo_shas.values() if s]) == 17

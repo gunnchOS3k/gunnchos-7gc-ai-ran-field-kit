@@ -1017,8 +1017,8 @@ def choose_work_state(
                     f"B.4: traceability located ({trace_note}); implementation blocked by {primary}."
                 )
             if has_proof_verif:
-                return "DIGITAL_VALIDATION_OPEN", (
-                    f"B.4: verification evidence without implementation proof ({trace_note})."
+                return "DIGITAL_IMPLEMENTATION_OPEN", (
+                    f"B.4: verification/traceability without implementation proof ({trace_note}); digital implementation open."
                 )
             return "DIGITAL_IMPLEMENTATION_OPEN", (
                 f"B.4: traceability/status only ({trace_note}); digital implementation open."
@@ -1065,6 +1065,67 @@ def choose_work_state(
         return "DIGITAL_IMPLEMENTATION_OPEN", "B.4: search inconclusive; digital implementation open."
 
     return "EVIDENCE_MAPPING_OPEN", "Search inconclusive; evidence mapping still open on accepted main."
+
+
+def validation_open_impl_admissible(row: dict[str, Any]) -> bool:
+    """DIGITAL_VALIDATION_OPEN requires IMPLEMENTED state + pass4 implementation proof on frozen SHA."""
+    if row.get("implementation_state") != "IMPLEMENTED":
+        return False
+    impl = (row.get("implementation_evidence") or "").strip()
+    if not impl or ":" not in impl:
+        return False
+    passes = row.get("search_passes") or {}
+    pass4 = passes.get("pass4_implementation") or []
+    if not pass4:
+        return False
+    impl_path = impl.split(":", 1)[-1]
+    for entry in pass4:
+        if impl_path in entry and "role=" in entry:
+            role = entry.split("role=", 1)[-1].strip()
+            if is_implementation_proof(role):
+                return True
+    return False
+
+
+def enrich_impl_open_metadata(req: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
+    if row.get("work_state") != "DIGITAL_IMPLEMENTATION_OPEN":
+        return row
+    out = dict(row)
+    passes = row.get("search_passes") or {}
+    searched = list(row.get("admissible_repositories") or [])
+    insuff: list[str] = []
+    for key in (
+        "pass1_exact_id", "pass2_proof_identifiers", "pass3_traceability",
+        "pass5_verification", "pass6_discovery_only",
+    ):
+        for p in (passes.get(key) or [])[:4]:
+            insuff.append(f"{key}: {p}")
+    title = req.get("title") or row.get("title") or row["requirement_id"]
+    out["specific_missing_implementation"] = (
+        f"Accepted-main IMPLEMENTATION_* artifact for «{title}» ({row['requirement_id']}) on frozen SHA."
+    )
+    out["searched_repositories"] = searched
+    out["why_paths_insufficient"] = (
+        "; ".join(insuff[:10]) if insuff else (row.get("resolution_reason") or "No admissible IMPLEMENTATION_* path.")
+    )
+    return out
+
+
+def enforce_b41_row_integrity(req: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
+    out = dict(row)
+    if out.get("work_state") == "DIGITAL_VALIDATION_OPEN" and not validation_open_impl_admissible(out):
+        prior = out.get("work_state")
+        out["work_state"] = "DIGITAL_IMPLEMENTATION_OPEN"
+        out["resolution"] = out["work_state"]
+        out["engineering_state"] = out["work_state"]
+        out["b41_reclassified_from"] = prior
+        out["resolution_reason"] = (
+            "B.4.1: reclassified from DIGITAL_VALIDATION_OPEN — "
+            "implementation_state≠IMPLEMENTED or no pass4 IMPLEMENTATION_* evidence on frozen SHA."
+        )
+    if out.get("work_state") == "DIGITAL_IMPLEMENTATION_OPEN":
+        out = enrich_impl_open_metadata(req, out)
+    return out
 
 
 def reconcile_requirement(
@@ -1125,7 +1186,7 @@ def reconcile_requirement(
     elif impl_ev and impl_ev.tokens_or_results:
         token = impl_ev.tokens_or_results[0]
 
-    return _row(
+    row = _row(
         req, owner, program_gate,
         (verif_ev or impl_ev).accepted_main_sha if (verif_ev or impl_ev) else sha,
         impl_path, verif_path or impl_path, token,
@@ -1138,6 +1199,9 @@ def reconcile_requirement(
         search["proof_identifiers"], search["discovery_terms"],
         confidence, evidence_repo, why_admissible,
     )
+    if phase == "B.4":
+        row = enforce_b41_row_integrity(req, row)
+    return row
 
 
 def _row(

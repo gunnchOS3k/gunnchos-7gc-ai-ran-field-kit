@@ -1,13 +1,11 @@
 # Next Digital Validation Work
 
-Total DIGITAL_VALIDATION_OPEN: **24**
+Total DIGITAL_VALIDATION_OPEN: **19** (complete list: `NEXT_DIGITAL_VALIDATION_WORK.json` → `all_items`)
+
+## Top 25 priority
 
 | ID | Title | Owner | Impl evidence |
 | --- | --- | --- | --- |
-| GATE-0-002 | Gate 0: Device roles frozen | gunnchos-7gc-ai-ran-field-kit |  |
-| GATE-0-003 | Gate 0: Requirement identifiers assigned | gunnchos-7gc-ai-ran-field-kit |  |
-| GATE-0-005 | Gate 0: Repository ownership established | gunnchos-7gc-ai-ran-field-kit |  |
-| OS-PLATFORM-001 | gunnchOS service: Unified user identity | gunnchos-device-os |  |
 | AI-GOV-001 | AI governance: Declared purpose | gunnchAI3k | gunnchAI3k:src/system-layer/os_integrati |
 | AI-GOV-003 | AI governance: Data minimization | gunnchAI3k | gunnchAI3k:src/system-layer/os_integrati |
 | AI-GOV-004 | AI governance: Local/cloud processing di | gunnchAI3k | gunnchAI3k:src/system-layer/os_integrati |
@@ -27,4 +25,3 @@ Total DIGITAL_VALIDATION_OPEN: **24**
 | AI-LOCAL-008 | Local-first AI: Game AI | gunnchAI3k | gunnchAI3k:src/system-layer/os_integrati |
 | AI-LOCAL-009 | Local-first AI: Connectivity diagnosis | gunnchAI3k | gunnchAI3k:src/system-layer/os_integrati |
 | AI-LOCAL-011 | Cloud models not sole path to basic oper | gunnchAI3k | gunnchAI3k:src/system-layer/os_integrati |
-| RING-RELIAB-016 | No silent destructive uncertain gestures | gunnchos-device-os |  |

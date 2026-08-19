@@ -21,58 +21,26 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "GATE-0-002",
-      "title": "Gate 0: Device roles frozen",
-      "bucket": "validation_open",
-      "primary_family": "Release/control plane",
-      "owner": "gunnchos-7gc-ai-ran-field-kit",
-      "implementation_path": "",
-      "verification_path": "gunnchos-7gc-ai-ran-field-kit:control_plane/catalog/evidence_catalog.py",
-      "current_level": "L2_DIGITALLY_VERIFIED",
-      "required_target_level": "L2_DIGITALLY_VERIFIED",
-      "pending_dimensions": [],
-      "evidence_confidence": "LOW",
-      "work_state": "DIGITAL_VALIDATION_OPEN",
-      "why_correct": "Correct: DIGITAL_VALIDATION_OPEN at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: verification evidence without implementation proof (gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/full_product/continuation_v/schema_only_work_queue.yaml; gunnchos-7gc-ai-ran-field-kit:program/full_product/continuation_vi/DIGITALLY_EXECUTABLE_BACKLOG_COUNTS.json).",
-      "audit_pass": true
-    },
-    {
-      "requirement_id": "GATE-2-006",
-      "title": "Gate 2: Device-specific game UX",
+      "requirement_id": "GATE-0-001",
+      "title": "Gate 0: Product charter approved",
       "bucket": "pending",
       "primary_family": "Release/control plane",
       "owner": "gunnchos-7gc-ai-ran-field-kit",
-      "implementation_path": "",
-      "verification_path": "",
-      "current_level": "L0_DEFINED",
-      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
-      "pending_dimensions": [
-        "PHYSICAL"
-      ],
-      "evidence_confidence": "LOW",
-      "work_state": "PHYSICAL_PENDING",
-      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
-      "audit_pass": true
-    },
-    {
-      "requirement_id": "OS-PLATFORM-001",
-      "title": "gunnchOS service: Unified user identity",
-      "bucket": "validation_open",
-      "primary_family": "gunnchOS",
-      "owner": "gunnchos-device-os",
-      "implementation_path": "",
-      "verification_path": "gunnchos-device-os:artifacts/platform001/V2_FIELDKIT_CONTRIBUTION_NOTE.md",
+      "implementation_path": "gunnchos-7gc-ai-ran-field-kit:scripts/prove_full_product_continuation_iv.py",
+      "verification_path": "gunnchos-7gc-ai-ran-field-kit:tests/control_plane/test_gate0_control_plane.py",
       "current_level": "L2_DIGITALLY_VERIFIED",
       "required_target_level": "L2_DIGITALLY_VERIFIED",
-      "pending_dimensions": [],
-      "evidence_confidence": "LOW",
-      "work_state": "DIGITAL_VALIDATION_OPEN",
-      "why_correct": "Correct: DIGITAL_VALIDATION_OPEN at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: verification evidence without implementation proof (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/full_product/_source_inventory_draft.md).",
+      "pending_dimensions": [
+        "OWNER_DECISION"
+      ],
+      "evidence_confidence": "HIGH",
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_COMPLETE at L2_DIGITALLY_VERIFIED with HIGH confidence \u2014 Accepted-main implementation and verification evidence with proof identifiers.",
       "audit_pass": true
     },
     {
-      "requirement_id": "CG-SECURITY-001",
-      "title": "Carrier-grade security: Hardware root of trust",
+      "requirement_id": "CG-SECURITY-008",
+      "title": "Carrier-grade security: Least privilege",
       "bucket": "pending",
       "primary_family": "gunnchOS",
       "owner": "gunnchos-device-os",
@@ -81,12 +49,11 @@
       "current_level": "L2_DIGITALLY_VERIFIED",
       "required_target_level": "L6_PRODUCTION_OR_FIELD",
       "pending_dimensions": [
-        "PHYSICAL",
         "CARRIER"
       ],
       "evidence_confidence": "LOW",
-      "work_state": "PHYSICAL_PENDING",
-      "why_correct": "Correct: PHYSICAL_PENDING at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
+      "work_state": "CARRIER_PENDING",
+      "why_correct": "Correct: CARRIER_PENDING at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json); implementation blocked by CARRIER.",
       "audit_pass": true
     },
     {
@@ -127,15 +94,15 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "AI-GOV-011",
-      "title": "AI governance: Monitoring",
+      "requirement_id": "AI-LOCAL-006",
+      "title": "Local-first AI: Accessibility services",
       "bucket": "validation_open",
       "primary_family": "gunnchAI",
       "owner": "gunnchAI3k",
       "implementation_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
       "verification_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
       "current_level": "L1_IMPLEMENTED",
-      "required_target_level": "L3_USER_READY_DIGITAL_RC",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
       "pending_dimensions": [],
       "evidence_confidence": "MEDIUM",
       "work_state": "DIGITAL_VALIDATION_OPEN",
@@ -161,21 +128,22 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "7GC-DEPLOY-018",
-      "title": "Equal excellence via locally appropriate infrastructure",
+      "requirement_id": "GATE-4-003",
+      "title": "Gate 4: Long-duration operation",
       "bucket": "pending",
       "primary_family": "WAIKE",
-      "owner": "7gc-digital-twin",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
       "implementation_path": "",
       "verification_path": "",
       "current_level": "L0_DEFINED",
       "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
       "pending_dimensions": [
+        "PHYSICAL",
         "EXTERNAL"
       ],
       "evidence_confidence": "LOW",
-      "work_state": "EXTERNAL_PENDING",
-      "why_correct": "Correct: EXTERNAL_PENDING at L0_DEFINED with LOW confidence \u2014 Non-digital blocker EXTERNAL; no accepted-main implementation evidence located.",
+      "work_state": "PHYSICAL_PENDING",
+      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/external_dependency_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml); implementation blocked by PHYSICAL.",
       "audit_pass": true
     },
     {
@@ -199,8 +167,8 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "DEV-STUDENT-007",
-      "title": "Hardware-backed security",
+      "requirement_id": "GATE-7-003",
+      "title": "Gate 7: Production manufacturing",
       "bucket": "pending",
       "primary_family": "Device Quartet hardware",
       "owner": "gunnchos-hardware-industrial-design",
@@ -213,28 +181,12 @@
       ],
       "evidence_confidence": "LOW",
       "work_state": "PHYSICAL_PENDING",
-      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
+      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/external_dependency_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
       "audit_pass": true
     },
     {
-      "requirement_id": "RING-RELIAB-016",
-      "title": "No silent destructive uncertain gestures",
-      "bucket": "validation_open",
-      "primary_family": "Edge I/O Rings",
-      "owner": "gunnchos-device-os",
-      "implementation_path": "",
-      "verification_path": "gunnchos-7gc-ai-ran-field-kit:scripts/prove_full_product_continuation_viii.py",
-      "current_level": "L2_DIGITALLY_VERIFIED",
-      "required_target_level": "L2_DIGITALLY_VERIFIED",
-      "pending_dimensions": [],
-      "evidence_confidence": "LOW",
-      "work_state": "DIGITAL_VALIDATION_OPEN",
-      "why_correct": "Correct: DIGITAL_VALIDATION_OPEN at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: verification evidence without implementation proof (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/full_product/continuation_v/schema_only_work_queue.yaml).",
-      "audit_pass": true
-    },
-    {
-      "requirement_id": "RING-AWARE-006",
-      "title": "Determine hand position relative to surface",
+      "requirement_id": "RING-INPUT-018",
+      "title": "Ring productivity input: Handwriting or drawing mode",
       "bucket": "pending",
       "primary_family": "Edge I/O Rings",
       "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
@@ -271,11 +223,31 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "NET-ORCH-007",
-      "title": "Connectivity path: Device-to-device communication",
+      "requirement_id": "SYS-MISSION-003",
+      "title": "Resilient multi-bearer connectivity",
       "bucket": "pending",
       "primary_family": "SpectrumX/AI-RAN",
       "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "STANDARD",
+        "VENDOR"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "PHYSICAL_PENDING",
+      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/external_dependency_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml); implementation blocked by PHYSICAL.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "FULL-OPS-009",
+      "title": "Fully operational layer: Games",
+      "bucket": "pending",
+      "primary_family": "R6G/field kit",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
       "implementation_path": "",
       "verification_path": "",
       "current_level": "L0_DEFINED",
@@ -285,25 +257,7 @@
       ],
       "evidence_confidence": "LOW",
       "work_state": "PHYSICAL_PENDING",
-      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
-      "audit_pass": true
-    },
-    {
-      "requirement_id": "GATE-6-005",
-      "title": "Gate 6: Complete applications and game paths",
-      "bucket": "pending",
-      "primary_family": "R6G/field kit",
-      "owner": "gunnchos-7gc-ai-ran-field-kit",
-      "implementation_path": "",
-      "verification_path": "",
-      "current_level": "L0_DEFINED",
-      "required_target_level": "L5_EXTERNAL_OR_CERTIFIED",
-      "pending_dimensions": [
-        "OWNER_DECISION"
-      ],
-      "evidence_confidence": "LOW",
-      "work_state": "OWNER_DECISION_PENDING",
-      "why_correct": "Correct: OWNER_DECISION_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/human_action_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by OWNER_DECISION.",
+      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json); implementation blocked by PHYSICAL.",
       "audit_pass": true
     },
     {
@@ -326,8 +280,8 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "CG-OPS-008",
-      "title": "Carrier-grade operations: Service monitoring",
+      "requirement_id": "CG-OPS-003",
+      "title": "Carrier-grade operations: Remote diagnostics",
       "bucket": "pending",
       "primary_family": "Publishing/platform release",
       "owner": "gunnchos-device-os",
@@ -340,7 +294,7 @@
       ],
       "evidence_confidence": "LOW",
       "work_state": "CARRIER_PENDING",
-      "why_correct": "Correct: CARRIER_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/full_product/continuation_v/schema_only_work_queue.yaml); implementation blocked by CARRIER.",
+      "why_correct": "Correct: CARRIER_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json); implementation blocked by CARRIER.",
       "audit_pass": true
     },
     {
@@ -362,39 +316,40 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "GATE-7-001",
-      "title": "Gate 7: Required regional certifications",
+      "requirement_id": "GATE-0-004",
+      "title": "Gate 0: Claims classified as target, implemented, validated, or certified",
       "bucket": "pending",
       "primary_family": "Regulatory/certification",
       "owner": "gunnchos-7gc-ai-ran-field-kit",
       "implementation_path": "",
-      "verification_path": "",
-      "current_level": "L0_DEFINED",
+      "verification_path": "gunnchos-7gc-ai-ran-field-kit:control_plane/catalog/evidence_catalog.py",
+      "current_level": "L2_DIGITALLY_VERIFIED",
       "required_target_level": "L5_EXTERNAL_OR_CERTIFIED",
       "pending_dimensions": [
         "CERTIFICATION"
       ],
       "evidence_confidence": "LOW",
       "work_state": "CERTIFICATION_PENDING",
-      "why_correct": "Correct: CERTIFICATION_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/external_dependency_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by CERTIFICATION.",
+      "why_correct": "Correct: CERTIFICATION_PENDING at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.md); implementation blocked by CERTIFICATION.",
       "audit_pass": true
     },
     {
-      "requirement_id": "AI-CORE-004",
-      "title": "gunnchAI3k function: Accessibility assistance",
+      "requirement_id": "GATE-6-007",
+      "title": "Gate 6: Pilot evidence accepted",
       "bucket": "pending",
       "primary_family": "Human validation",
-      "owner": "gunnchAI3k",
-      "implementation_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
-      "verification_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
-      "current_level": "L1_IMPLEMENTED",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
       "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
       "pending_dimensions": [
-        "HUMAN"
+        "HUMAN",
+        "EXTERNAL"
       ],
-      "evidence_confidence": "MEDIUM",
-      "work_state": "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
-      "why_correct": "Correct: DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING at L1_IMPLEMENTED with MEDIUM confidence \u2014 Implementation evidence on accepted main; verification blocked by HUMAN.",
+      "evidence_confidence": "LOW",
+      "work_state": "HUMAN_PENDING",
+      "why_correct": "Correct: HUMAN_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/external_dependency_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by HUMAN.",
       "audit_pass": true
     },
     {
@@ -416,21 +371,37 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "CG-SECURITY-008",
-      "title": "Carrier-grade security: Least privilege",
+      "requirement_id": "OS-PLATFORM-014",
+      "title": "gunnchOS service: Secure boot",
       "bucket": "fill",
       "primary_family": "gunnchOS",
       "owner": "gunnchos-device-os",
       "implementation_path": "",
-      "verification_path": "gunnchos-7gc-ai-ran-field-kit:artifacts/wp012/VP-012-RESULT.json",
-      "current_level": "L2_DIGITALLY_VERIFIED",
-      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
       "pending_dimensions": [
-        "CARRIER"
+        "PHYSICAL"
       ],
       "evidence_confidence": "LOW",
-      "work_state": "CARRIER_PENDING",
-      "why_correct": "Correct: CARRIER_PENDING at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json); implementation blocked by CARRIER.",
+      "work_state": "PHYSICAL_PENDING",
+      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GAME-CROSS-009",
+      "title": "Cross-device game: Device-specific presentation",
+      "bucket": "fill",
+      "primary_family": "Release/control plane",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_OPEN at L0_DEFINED with LOW confidence \u2014 B.4: traceability/status only (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json); digital implementation open.",
       "audit_pass": true
     },
     {
@@ -577,6 +548,24 @@
       "evidence_confidence": "LOW",
       "work_state": "HUMAN_PENDING",
       "why_correct": "Correct: HUMAN_PENDING at L0_DEFINED with LOW confidence \u2014 Non-digital blocker HUMAN; no accepted-main implementation evidence located.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-007",
+      "title": "Connectivity path: Device-to-device communication",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "PHYSICAL_PENDING",
+      "why_correct": "Correct: PHYSICAL_PENDING at L0_DEFINED with LOW confidence \u2014 B.4: traceability located (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/backlog/physical_work_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml); implementation blocked by PHYSICAL.",
       "audit_pass": true
     },
     {
@@ -875,8 +864,24 @@
       "audit_pass": true
     },
     {
-      "requirement_id": "RING-INPUT-018",
-      "title": "Ring productivity input: Handwriting or drawing mode",
+      "requirement_id": "NET-ORCH-026",
+      "title": "Orchestrator evaluates: Satellite visibility",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L3_USER_READY_DIGITAL_RC",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_OPEN at L0_DEFINED with LOW confidence \u2014 B.4: traceability/status only (gunnchos-7gc-ai-ran-field-kit:program/backlog/master_gap_backlog.yaml; gunnchos-7gc-ai-ran-field-kit:program/claims/claims.yaml; gunnchos-7gc-ai-ran-field-kit:program/digital_ecosystem_baseline_v2/PRECISION_SAMPLE_AUDIT.json); digital implementation open.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-AWARE-006",
+      "title": "Determine hand position relative to surface",
       "bucket": "fill",
       "primary_family": "Edge I/O Rings",
       "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",

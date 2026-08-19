@@ -1,6 +1,8 @@
 # Next Digital Implementation Work
 
-Total DIGITAL_IMPLEMENTATION_OPEN: **131**
+Total DIGITAL_IMPLEMENTATION_OPEN: **136** (complete list: `NEXT_DIGITAL_IMPLEMENTATION_WORK.json` → `all_items`)
+
+## Top 25 priority
 
 | ID | Title | Owner | Family |
 | --- | --- | --- | --- |
@@ -16,6 +18,9 @@ Total DIGITAL_IMPLEMENTATION_OPEN: **131**
 | GAME-CROSS-009 | Cross-device game: Device-specific presentation | gunnchos-7gc-ai-ran-field-kit | 1 |
 | GAME-CROSS-010 | Cross-device game: Device-specific control layouts | gunnchos-7gc-ai-ran-field-kit | 1 |
 | GAME-CROSS-011 | Cross-device game: Scalable visual quality | gunnchos-7gc-ai-ran-field-kit | 1 |
+| GATE-0-002 | Gate 0: Device roles frozen | gunnchos-7gc-ai-ran-field-kit | 1 |
+| GATE-0-003 | Gate 0: Requirement identifiers assigned | gunnchos-7gc-ai-ran-field-kit | 1 |
+| GATE-0-005 | Gate 0: Repository ownership established | gunnchos-7gc-ai-ran-field-kit | 1 |
 | GATE-1-005 | Gate 1: Each game completes one core loop | gunnchos-7gc-ai-ran-field-kit | 1 |
 | SYS-MISSION-006 | Cross-form-factor application parity | gunnchos-7gc-ai-ran-field-kit | 1 |
 | GATE-3-001 | Gate 3: Cross-device identity and continuity | gunnchos-device-os | 2 |
@@ -26,6 +31,3 @@ Total DIGITAL_IMPLEMENTATION_OPEN: **131**
 | GATE-5-005 | Gate 5: Privacy and security review | gunnchos-device-os | 2 |
 | GATE-7-006 | Gate 7: Vulnerability-response process | gunnchos-device-os | 2 |
 | OS-CONTINUITY-002 | Continuity transparency: What is synchronized | gunnchos-device-os | 2 |
-| OS-CONTINUITY-003 | Continuity transparency: Where it is stored | gunnchos-device-os | 2 |
-| OS-CONTINUITY-004 | Continuity transparency: Which devices can access  | gunnchos-device-os | 2 |
-| OS-CONTINUITY-005 | Continuity transparency: What remains local | gunnchos-device-os | 2 |
