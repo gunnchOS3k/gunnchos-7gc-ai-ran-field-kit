@@ -1,11 +1,11 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-19T19:47:11Z",
+  "generated_at_utc": "2026-08-19T20:36:58Z",
   "top_blockers": [
-    "device-os #103 owner supersession close (Cursor must not close)",
-    "field-kit Baseline V2 owner merge (PR #89)",
+    "field-kit Baseline V2 B.4 owner merge (draft PR)",
     "portal Phase-C snapshot refresh from LATEST stale references",
-    "EVIDENCE_MAPPING_OPEN=358 rows need accepted-main evidence paths",
+    "DIGITAL_IMPLEMENTATION_OPEN=136 rows need digital engineering",
+    "DIGITAL_VALIDATION_OPEN=19 rows need verification/reproduction",
     "gunnchAI Product Completion 002 blocked on 8GB host",
     "GPU-NR CUDA validation requires self-hosted nvidia-gpu runner"
   ],
@@ -13,10 +13,10 @@
   "device_os_103": {
     "pr": 103,
     "repository": "gunnchos-device-os",
-    "state": "OPEN",
+    "state": "CLOSED",
     "is_draft": true,
-    "cursor_action": "DO_NOT_CLOSE",
-    "owner_action": "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 merge + portal refresh",
+    "cursor_action": "CLOSED_BY_OWNER_SUPERSEDED",
+    "owner_action": "CLOSED_SUPERSEDED_BY_OWNER",
     "historical_false_tokens": [
       "DSXL_DUAL_COMPOSITOR_UX_PASS",
       "RING_TO_REAL_APP_STATE_MUTATION_PASS",
@@ -121,8 +121,8 @@
       "line": 85,
       "key": "PR #103",
       "stale_statement": "- `gunnchos-device-os` PR #103: OPEN draft CONFLICTING \u2014 do not merge; superseded",
-      "live_truth": "gunnchOS3k/gunnchos-device-os PR #103 state=OPEN",
-      "phase_c_repair_needed": true
+      "live_truth": "gunnchOS3k/gunnchos-device-os PR #103 state=CLOSED",
+      "phase_c_repair_needed": false
     },
     {
       "file": "docs/phd/contact_snapshots/LATEST.md",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate program/digital_ecosystem_baseline_v2/ from live accepted mains (Phase B.3)."""
+"""Generate program/digital_ecosystem_baseline_v2/ from live accepted mains (Phase B.3/B.4)."""
 
 from __future__ import annotations
 
@@ -15,6 +15,12 @@ from typing import Any
 
 import yaml
 
+from baseline_v2_b4_mapping_convergence import (
+    build_sha_freeze,
+    validate_b4_mapping,
+    write_b4_artifacts,
+)
+from validate_baseline_v2_b4_register_integrity import main as validate_b41_integrity
 from baseline_v2_evidence_census import (
     CANONICAL_REPOS,
     END_GOAL_FAMILIES,
@@ -234,8 +240,8 @@ def audit_device_os_103(repos: dict[str, dict], index) -> dict[str, Any]:
         "repository": "gunnchos-device-os",
         "state": (pr103 or {}).get("state", "OPEN"),
         "is_draft": (pr103 or {}).get("isDraft", True),
-        "cursor_action": "DO_NOT_CLOSE",
-        "owner_action": "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 merge + portal refresh",
+        "cursor_action": "DO_NOT_CLOSE" if (pr103 or {}).get("state") != "CLOSED" else "CLOSED_BY_OWNER_SUPERSEDED",
+        "owner_action": "CLOSED_SUPERSEDED_BY_OWNER" if (pr103 or {}).get("state") == "CLOSED" else "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 merge + portal refresh",
         "historical_false_tokens": tokens_103_false,
         "current_main_replacements": replacements,
         "current_remaining_ecosystem_gaps": [
@@ -335,8 +341,16 @@ def write_markdown(path: Path, body: str) -> None:
 def main() -> int:
     now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
     ts = now.isoformat().replace("+00:00", "Z")
+    phase = os.environ.get("BASELINE_V2_PHASE", "B.3").upper()
+    if phase not in ("B.3", "B.4"):
+        phase = "B.3"
+    phase_label = (
+        "PRE_ENGINEERING_HYGIENE_PHASE_B.4.1"
+        if phase == "B.4"
+        else "PRE_ENGINEERING_HYGIENE_PHASE_B.3"
+    )
 
-    print("Building accepted-main evidence index (17 repos)...", file=sys.stderr)
+    print(f"Building accepted-main evidence index (17 repos) phase={phase}...", file=sys.stderr)
     evidence_index = build_evidence_index(REPOS_ROOT, TEMP_ROOT)
     trace_maps, trace_repo_links = load_traceability_maps(ROOT)
 
@@ -347,9 +361,16 @@ def main() -> int:
     requirements = req_doc["requirements"]
     req_by_id = {req["id"]: req for req in requirements}
 
-    print(f"Reconciling {len(requirements)} atomic requirements (B.3 precision search)...", file=sys.stderr)
+    b3_rows: list[dict[str, Any]] = []
+    b3_register_path = OUT / "MASTER_COMPLETION_REGISTER.json"
+    if phase == "B.4" and b3_register_path.is_file():
+        b3_rows = json.loads(b3_register_path.read_text(encoding="utf-8")).get("requirements") or []
+
+    print(f"Reconciling {len(requirements)} atomic requirements ({phase} precision search)...", file=sys.stderr)
     rows = [
-        reconcile_requirement(req, evidence_index, trace_maps, trace_repo_links, req_by_id, field_kit_sha, wp012_path)
+        reconcile_requirement(
+            req, evidence_index, trace_maps, trace_repo_links, req_by_id, field_kit_sha, wp012_path, phase=phase,
+        )
         for req in requirements
     ]
     totals = compute_totals(rows)
@@ -379,15 +400,29 @@ def main() -> int:
             ci_contradictions.append(name)
 
     work_state_counts = Counter(r["work_state"] for r in rows)
+    mapping_complete = totals["EVIDENCE_MAPPING_OPEN"] == 0
+    impl_open = totals.get("DIGITAL_IMPLEMENTATION_OPEN", 0)
+    val_open = totals.get("DIGITAL_VALIDATION_OPEN", 0)
     ready_for_merge = (
-        totals["EVIDENCE_MAPPING_OPEN"] == 0
-        and totals.get("LOW_CONFIDENCE_COMPLETE_ROWS", 0) == 0
+        (phase == "B.4" and mapping_complete)
+        or (
+            phase == "B.3"
+            and totals["EVIDENCE_MAPPING_OPEN"] == 0
+        )
+    ) and (
+        totals.get("LOW_CONFIDENCE_COMPLETE_ROWS", 0) == 0
         and false_open["status"] == "PASS"
         and precision_validation["BASELINE_V2_PRECISION_VALIDATION_PASS"]
         and precision_audit["status"] == "PASS"
         and gate_78_count > 0
         and end_goal["family_count"] == 28
         and all(f["requirement_count"] > 0 for f in end_goal["families"])
+    )
+    pre_engineering_control_plane_ready = (
+        mapping_complete
+        and len(evidence_index.repo_shas) >= 17
+        and precision_validation["BASELINE_V2_PRECISION_VALIDATION_PASS"]
+        and false_open["status"] == "PASS"
     )
 
     OUT.mkdir(parents=True, exist_ok=True)
@@ -424,7 +459,7 @@ def main() -> int:
     audit_doc = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.requirement_reconciliation_audit",
         "generated_at_utc": ts,
-        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.3",
+        "phase": phase_label,
         "totals": totals,
         "requirements": rows,
     }
@@ -472,6 +507,13 @@ def main() -> int:
         "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
         "generated_at_utc": ts,
         "top_blockers": [
+            "field-kit Baseline V2 B.4 owner merge (draft PR)",
+            "portal Phase-C snapshot refresh from LATEST stale references",
+            f"DIGITAL_IMPLEMENTATION_OPEN={totals['DIGITAL_IMPLEMENTATION_OPEN']} rows need digital engineering",
+            f"DIGITAL_VALIDATION_OPEN={totals['DIGITAL_VALIDATION_OPEN']} rows need verification/reproduction",
+            "gunnchAI Product Completion 002 blocked on 8GB host",
+            "GPU-NR CUDA validation requires self-hosted nvidia-gpu runner",
+        ] if phase == "B.4" else [
             "device-os #103 owner supersession close (Cursor must not close)",
             "field-kit Baseline V2 owner merge (PR #89)",
             "portal Phase-C snapshot refresh from LATEST stale references",
@@ -496,7 +538,7 @@ def main() -> int:
     result = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.result",
         "generated_at_utc": ts,
-        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.3",
+        "phase": phase_label,
         "BASELINE_V2_STATE": "DRAFT_PR",
         "STOP_FOR_OWNER_MERGE": True,
         "BASELINE_V2_READY_FOR_OWNER_MERGE": ready_for_merge,
@@ -519,7 +561,38 @@ def main() -> int:
         "PRE_ENGINEERING_HYGIENE_PASS": False,
         "ENGINEERING_NEXT_WAVE_ALLOWED": False,
         "work_state_counts": dict(work_state_counts),
+        "BASELINE_MAPPING_COMPLETE": mapping_complete,
+        "PRE_ENGINEERING_CONTROL_PLANE_READY": pre_engineering_control_plane_ready,
+        "ECOSYSTEM_DIGITAL_IMPLEMENTATION_COMPLETE": impl_open == 0,
+        "ECOSYSTEM_DIGITAL_VALIDATION_COMPLETE": impl_open == 0 and val_open == 0,
+        "USER_READY_DIGITAL_RELEASE_CANDIDATE": totals.get("L3_USER_READY_DIGITAL_RC", 0) > 0,
+        "HUMAN_E6_COMPLETE": False,
+        "PHYSICAL_VALIDATION_COMPLETE": False,
+        "EXTERNAL_CERTIFICATION_COMPLETE": False,
+        "SHIPPING_PRODUCT": False,
+        "STANDARDIZED_6G": False,
     }
+    if phase == "B.4":
+        sha_freeze = build_sha_freeze(evidence_index.repo_shas, ts)
+        b4_summary = write_b4_artifacts(b3_rows or rows, rows, evidence_index.repo_shas, totals, ts)
+        b4_validation = validate_b4_mapping(rows, totals, sha_freeze)
+        b41_integrity_rc = validate_b41_integrity()
+        b41_integrity_pass = b41_integrity_rc == 0
+        result["BASELINE_V2_B4_MAPPING"] = "PASS" if b4_validation["BASELINE_V2_B4_MAPPING_VALIDATION_PASS"] else "FAIL"
+        result["BASELINE_V2_B4_MAPPING_VALIDATION"] = b4_validation
+        result["BASELINE_V2_B4_1_REGISTER_INTEGRITY"] = "PASS" if b41_integrity_pass else "FAIL"
+        result["BASELINE_V2_B4_REGISTER_INTEGRITY_VALIDATION"] = {
+            "BASELINE_V2_B4_REGISTER_INTEGRITY_PASS": b41_integrity_pass,
+        }
+        result["B4_READY_FOR_OWNER_MERGE"] = (
+            b4_validation["BASELINE_V2_B4_MAPPING_VALIDATION_PASS"]
+            and b41_integrity_pass
+            and mapping_complete
+            and ready_for_merge
+        )
+        result["B4_ROWS_PROCESSED"] = b4_summary.get("decisions_count", 0)
+        result["B4_MOVED_TO_STATE_COUNTS"] = b4_summary.get("moved_to_state_counts", {})
+        result["CANONICAL_REPOS_RECONCILED"] = len([s for s in evidence_index.repo_shas.values() if s]) == 17
     (OUT / "BASELINE_V2_RESULT.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
 
     repo_rows = [[r, (repos[r].get("origin_main_sha") or "")[:12], repos[r].get("ci", "?")] for r in CANONICAL_REPOS]
@@ -528,7 +601,7 @@ def main() -> int:
         f"""# GUNNCHOS Digital Ecosystem Baseline V2 (Pre-Engineering Hygiene)
 
 Generated: `{ts}`  
-Phase: **PRE_ENGINEERING_HYGIENE Phase B.3** (precision/provenance correction)  
+Phase: **{phase_label.replace('_', ' ')}** ({'evidence-mapping convergence' if phase == 'B.4' else 'precision/provenance correction'})  
 Policy: **Cursor never merges**. Edmund sole merge authority. **main only**.
 
 ## Summary
@@ -536,14 +609,14 @@ Policy: **Cursor never merges**. Edmund sole merge authority. **main only**.
 {md_table(["Metric", "Count"], [[k, str(v)] for k, v in totals.items() if not k.startswith("L") and "DIMENSION" not in k])}
 
 Evidence index records (local full index): **{len(evidence_index.records)}** — committed summary only  
-B.3 precision validation: **{precision_validation['BASELINE_V2_PRECISION_VALIDATION_PASS']}**  
+{'B.4 mapping complete: **' + str(mapping_complete) + '**' if phase == 'B.4' else 'B.3 precision validation: **' + str(precision_validation['BASELINE_V2_PRECISION_VALIDATION_PASS']) + '**'}  
 Precision sample audit: **{precision_audit['status']}** ({precision_audit['sample_count']} samples)  
 End-goal families: **{end_goal['family_count']}/28**  
 False-open sanity: **{false_open['status']}**  
 Gate 7/8 requirements retained: **{gate_78_count}**  
 Device-os #103 disposition: **{audit_103['disposition']}**
 
-Regenerate: `python3 scripts/generate_digital_ecosystem_baseline_v2.py`  
+Regenerate: `BASELINE_V2_PHASE={phase} python3 scripts/generate_digital_ecosystem_baseline_v2.py`  
 Validate: `python3 scripts/validate_digital_ecosystem_baseline_v2.py`
 """,
     )
