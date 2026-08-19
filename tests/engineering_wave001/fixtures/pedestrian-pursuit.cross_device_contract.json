@@ -1,0 +1,177 @@
+{
+	"accessibility_profile": {
+		"active": {
+			"auto_accelerate": false,
+			"colorblind_safe_hud": false,
+			"larger_ui": false,
+			"reduce_motion": false
+		},
+		"settings_persisted": true,
+		"vocabulary": [
+			"reduce_motion",
+			"larger_ui",
+			"auto_accelerate",
+			"colorblind_safe_hud"
+		]
+	},
+	"capability_model": {
+		"adapted_features": [
+			"touch_assist_steer",
+			"device_role_maps",
+			"colorblind_hud_markers"
+		],
+		"blocked_features": [
+			"real_gps:SIMULATED_ONLY",
+			"console_sdk:EXTERNAL_PENDING"
+		],
+		"required_features": [
+			"race_core_loop",
+			"cup_progression",
+			"save_progression",
+			"time_trial"
+		]
+	},
+	"contract_version": "1.0.0",
+	"device_profile": {
+		"presentation_tier": "desktop",
+		"role_id": "handheld_hybrid"
+	},
+	"game_id": "pedestrian-pursuit",
+	"generated_at_utc": "2026-08-19T21:26:52Z",
+	"input_profile": {
+		"layout_id": "keyboard_default",
+		"normalized_actions": [
+			"steer_left",
+			"steer_right",
+			"accelerate",
+			"brake",
+			"drift",
+			"item",
+			"pause",
+			"ui_accept"
+		],
+		"remapping_persisted": true,
+		"schema": "gunnchos.normalized_actions.v1"
+	},
+	"presentation_profile": {
+		"hud_scale": 1.0,
+		"orientation": "landscape",
+		"profiles_supported": [
+			"phone",
+			"desktop",
+			"web"
+		]
+	},
+	"probes": {
+		"accessibility": {
+			"detail": {
+				"vocabulary": [
+					"reduce_motion",
+					"larger_ui",
+					"auto_accelerate",
+					"colorblind_safe_hud"
+				]
+			},
+			"status": "pass"
+		},
+		"core_loop": {
+			"detail": {
+				"autoloads_live": true,
+				"runtime_ready": true
+			},
+			"status": "pass"
+		},
+		"deterministic_replay": {
+			"detail": {
+				"accept_test_mode": false,
+				"boundary": "accept_test_mode autopilot only; human steer nondeterministic"
+			},
+			"status": "pass"
+		},
+		"input": {
+			"detail": {
+				"profile_ids": [
+					"keyboard_default",
+					"gamepad_default",
+					"touch_assist",
+					"local_mp_split"
+				],
+				"tested_actions": [
+					"steer_left",
+					"steer_right",
+					"accelerate",
+					"brake",
+					"drift",
+					"item",
+					"pause",
+					"ui_accept"
+				]
+			},
+			"status": "pass"
+		},
+		"multiplayer": {
+			"detail": {
+				"local_mp": true,
+				"online": "not_applicable"
+			},
+			"status": "pass"
+		},
+		"presentation": {
+			"detail": {
+				"hud_scale": 1.0
+			},
+			"status": "pass"
+		},
+		"quality": {
+			"detail": {
+				"gameplay_timing_locked": true,
+				"total_laps": 3
+			},
+			"status": "pass"
+		},
+		"save_roundtrip": {
+			"detail": {
+				"checksum_after": "0000001596214429",
+				"checksum_before": "0000001596213340",
+				"save_version": 2
+			},
+			"status": "pass"
+		},
+		"score": {
+			"detail": {
+				"cup_id": "sole_surge_cup",
+				"golden_checksum": "0000001303540554"
+			},
+			"status": "pass"
+		}
+	},
+	"quality_profile": {
+		"gameplay_timing_locked": true,
+		"tier": "medium",
+		"tiers_supported": [
+			"low",
+			"medium",
+			"high"
+		]
+	},
+	"rules_surface": {
+		"canonical_hash": "0000003376304589",
+		"rules_version": "pp-race-v1",
+		"ruleset_id": "Quick Race"
+	},
+	"runtime": {
+		"build_id": "pp-godot-headless",
+		"commit": "8f513c2b3cc3",
+		"engine": "godot-4.7.1-stable (official)",
+		"platform": "macos"
+	},
+	"schema_versions": {
+		"accessibility": "1.0.0",
+		"input": "1.0.0",
+		"presentation": "1.0.0",
+		"quality": "1.0.0",
+		"rules": "1.0.0",
+		"save": "2",
+		"scoring": "1.0.0"
+	}
+}

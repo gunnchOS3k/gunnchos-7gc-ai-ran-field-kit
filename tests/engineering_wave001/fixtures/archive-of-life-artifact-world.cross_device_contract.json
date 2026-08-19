@@ -1,0 +1,185 @@
+{
+  "contract_version": "1.0.0",
+  "game_id": "archive-of-life-artifact-world",
+  "schema_versions": {
+    "rules": "1.0.0",
+    "save": "5",
+    "scoring": "1.0.0",
+    "input": "1.0.0",
+    "accessibility": "1.0.0",
+    "presentation": "1.0.0",
+    "quality": "1.0.0"
+  },
+  "generated_at_utc": "2026-08-19T22:17:09Z",
+  "runtime": {
+    "platform": "node",
+    "engine": "vite-capacitor-web",
+    "commit": "unknown000",
+    "build_id": "aol-vitest"
+  },
+  "device_profile": {
+    "role_id": "handheld_hybrid",
+    "presentation_tier": "desktop"
+  },
+  "input_profile": {
+    "schema": "gunnchos.normalized_actions.v1",
+    "layout_id": "pointer_touch_primary",
+    "remapping_persisted": true,
+    "normalized_actions": [
+      "move_up",
+      "move_down",
+      "move_left",
+      "move_right",
+      "interact",
+      "journal",
+      "map",
+      "pause"
+    ]
+  },
+  "accessibility_profile": {
+    "vocabulary": [
+      "reducedMotion",
+      "highContrast",
+      "largeText",
+      "screenReaderHints"
+    ],
+    "settings_persisted": true,
+    "active": {
+      "reducedMotion": false,
+      "highContrast": false,
+      "largeText": false,
+      "screenReaderHints": true
+    }
+  },
+  "presentation_profile": {
+    "orientation": "any",
+    "hud_scale": 1,
+    "profiles_supported": [
+      "phone",
+      "tablet",
+      "web",
+      "desktop"
+    ]
+  },
+  "quality_profile": {
+    "tier": "medium",
+    "gameplay_timing_locked": true,
+    "tiers_supported": [
+      "low",
+      "medium",
+      "high"
+    ]
+  },
+  "capability_model": {
+    "required_features": [
+      "exploration_core_loop",
+      "save_progression",
+      "archivedex",
+      "expedition_system"
+    ],
+    "adapted_features": [
+      "capacitor_android",
+      "responsive_web_layout",
+      "offline_snapshot"
+    ],
+    "blocked_features": [
+      "cloud_sync:NOT_CLAIMED",
+      "store_certification:EXTERNAL_PENDING"
+    ]
+  },
+  "rules_surface": {
+    "rules_version": "aol-core-v1",
+    "ruleset_id": "expedition_companion",
+    "canonical_hash": "6123f2bca2be80fe"
+  },
+  "probes": {
+    "core_loop": {
+      "status": "pass",
+      "detail": {
+        "runtime_modules": [
+          "Game",
+          "saveSystem",
+          "questSystem"
+        ]
+      }
+    },
+    "save_roundtrip": {
+      "status": "pass",
+      "detail": {
+        "save_version": 5,
+        "checksum_before": "dcfe92d473bbd607",
+        "checksum_after": "dcfe92d473bbd607"
+      }
+    },
+    "score": {
+      "status": "pass",
+      "detail": {
+        "golden_checksum": "e608914f4d6ad3e6"
+      }
+    },
+    "input": {
+      "status": "pass",
+      "detail": {
+        "normalized_actions": [
+          "move_up",
+          "move_down",
+          "move_left",
+          "move_right",
+          "interact",
+          "journal",
+          "map",
+          "pause"
+        ],
+        "remapping_persistence": {
+          "defaults_exist": true,
+          "changed": true,
+          "file_written": true,
+          "reload_matches": true,
+          "invalid_rejected": true,
+          "conflict_rejected": true,
+          "reset_restores_defaults": true
+        }
+      }
+    },
+    "accessibility": {
+      "status": "pass",
+      "detail": {
+        "vocabulary": [
+          "reducedMotion",
+          "highContrast",
+          "largeText",
+          "screenReaderHints"
+        ],
+        "settings_persisted": true
+      }
+    },
+    "presentation": {
+      "status": "pass",
+      "detail": {
+        "profiles": [
+          "phone",
+          "web",
+          "desktop"
+        ]
+      }
+    },
+    "quality": {
+      "status": "pass",
+      "detail": {
+        "gameplay_timing_locked": true
+      }
+    },
+    "multiplayer": {
+      "status": "not_applicable",
+      "detail": {
+        "reason": "single_player_exploration"
+      }
+    },
+    "deterministic_replay": {
+      "status": "not_applicable",
+      "detail": {
+        "boundary": "exploration RNG seeded per session; no combat replay requirement"
+      }
+    }
+  }
+}

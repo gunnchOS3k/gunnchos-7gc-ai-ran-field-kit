@@ -1,0 +1,175 @@
+{
+  "contract_version": "1.0.0",
+  "game_id": "beatlink-party",
+  "schema_versions": {
+    "rules": "1.0.0",
+    "save": "1.0.0",
+    "scoring": "1.0.0",
+    "input": "1.0.0",
+    "accessibility": "1.0.0",
+    "presentation": "1.0.0",
+    "quality": "1.0.0"
+  },
+  "generated_at_utc": "2026-08-19T21:27:44Z",
+  "runtime": {
+    "platform": "node",
+    "engine": "node-vitest",
+    "commit": "6e8d1a0461e9",
+    "build_id": "beatlink-vitest"
+  },
+  "device_profile": {
+    "role_id": "handheld_hybrid",
+    "presentation_tier": "desktop"
+  },
+  "input_profile": {
+    "schema": "gunnchos.normalized_actions.v1",
+    "layout_id": "phone_controller",
+    "remapping_persisted": true,
+    "normalized_actions": [
+      "tap",
+      "hold",
+      "swipe",
+      "hype_cheer",
+      "hype_lights",
+      "pause",
+      "join",
+      "ready"
+    ]
+  },
+  "accessibility_profile": {
+    "vocabulary": [
+      "reduceMotion",
+      "highContrast",
+      "largerHitTargets",
+      "captions",
+      "colorBlindSafe",
+      "screenReaderHints"
+    ],
+    "settings_persisted": true,
+    "active": {
+      "reduceMotion": false,
+      "highContrast": false,
+      "largerHitTargets": false,
+      "captions": true,
+      "colorBlindSafe": false,
+      "screenReaderHints": true
+    }
+  },
+  "presentation_profile": {
+    "orientation": "portrait",
+    "hud_scale": 1,
+    "profiles_supported": [
+      "phone",
+      "web",
+      "desktop"
+    ]
+  },
+  "quality_profile": {
+    "tier": "medium",
+    "gameplay_timing_locked": true,
+    "tiers_supported": [
+      "low",
+      "medium",
+      "high"
+    ]
+  },
+  "capability_model": {
+    "required_features": [
+      "party_room",
+      "beat_tap_scoring",
+      "local_fixture_songs",
+      "audience_hype"
+    ],
+    "adapted_features": [
+      "host_web_embed",
+      "phone_controller",
+      "device_role_profiles"
+    ],
+    "blocked_features": [
+      "copyrighted_stream_rip:BLOCKED",
+      "public_internet_join_without_auth:EXTERNAL_PENDING"
+    ]
+  },
+  "rules_surface": {
+    "rules_version": "beatlink-party-v1",
+    "ruleset_id": "party_room_metronome",
+    "canonical_hash": "2f8ba307dac808c2"
+  },
+  "probes": {
+    "core_loop": {
+      "status": "pass",
+      "detail": {
+        "evidence": "gate1 RoomManager core loop + wp014 production gate path"
+      }
+    },
+    "save_roundtrip": {
+      "status": "pass",
+      "detail": {
+        "save_version": "beatlink-settings-v1",
+        "checksum_before": "a033434ee49201c5",
+        "checksum_after": "f7bff38bcb8e5c34"
+      }
+    },
+    "score": {
+      "status": "pass",
+      "detail": {
+        "golden_checksum": "a4f7e68585769dc1",
+        "sample": {
+          "grade": "perfect",
+          "points": 350,
+          "streak": 5
+        }
+      }
+    },
+    "input": {
+      "status": "pass",
+      "detail": {
+        "normalized_actions": [
+          "tap",
+          "hold",
+          "swipe",
+          "hype_cheer",
+          "hype_lights",
+          "pause",
+          "join",
+          "ready"
+        ]
+      }
+    },
+    "accessibility": {
+      "status": "pass",
+      "detail": {
+        "settings_persisted": true,
+        "vocabulary_count": 6
+      }
+    },
+    "presentation": {
+      "status": "pass",
+      "detail": {
+        "host_screen": "web",
+        "controller": "phone"
+      }
+    },
+    "quality": {
+      "status": "pass",
+      "detail": {
+        "gameplay_timing_locked": true
+      }
+    },
+    "multiplayer": {
+      "status": "pass",
+      "detail": {
+        "room_code": "Y9WMN",
+        "party_rooms": true,
+        "cross_device_state": "RoomManager in-process"
+      }
+    },
+    "deterministic_replay": {
+      "status": "pass",
+      "detail": {
+        "boundary": "RoomManager + scoreBeatTap deterministic in Node; live Socket.IO timing nondeterministic",
+        "session_id": "153bab46-9711-4891-ad4d-04fd1c57c9cd"
+      }
+    }
+  }
+}
