@@ -1,0 +1,192 @@
+{
+  "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
+  "generated_at_utc": "2026-08-19T19:47:11Z",
+  "top_blockers": [
+    "device-os #103 owner supersession close (Cursor must not close)",
+    "field-kit Baseline V2 owner merge (PR #89)",
+    "portal Phase-C snapshot refresh from LATEST stale references",
+    "EVIDENCE_MAPPING_OPEN=358 rows need accepted-main evidence paths",
+    "gunnchAI Product Completion 002 blocked on 8GB host",
+    "GPU-NR CUDA validation requires self-hosted nvidia-gpu runner"
+  ],
+  "gates_7_8_requirement_count": 28,
+  "device_os_103": {
+    "pr": 103,
+    "repository": "gunnchos-device-os",
+    "state": "OPEN",
+    "is_draft": true,
+    "cursor_action": "DO_NOT_CLOSE",
+    "owner_action": "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 merge + portal refresh",
+    "historical_false_tokens": [
+      "DSXL_DUAL_COMPOSITOR_UX_PASS",
+      "RING_TO_REAL_APP_STATE_MUTATION_PASS",
+      "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE"
+    ],
+    "current_main_replacements": [
+      {
+        "token": "DSXL_DUAL_COMPOSITOR_UX_PASS",
+        "main_status": "PASS",
+        "replacement": "Accepted main artifact artifacts/product_use/PRODUCT_USE_RC_002_STATUS.json (#108/#116 lineage)",
+        "evidence": "artifacts/product_use/PRODUCT_USE_RC_002_STATUS.json"
+      },
+      {
+        "token": "RING_TO_REAL_APP_STATE_MUTATION_PASS",
+        "main_status": "PASS",
+        "replacement": "Accepted main artifact artifacts/product_use/PRODUCT_USE_RC_002_STATUS.json (#108/#116 lineage)",
+        "evidence": "artifacts/product_use/PRODUCT_USE_RC_002_STATUS.json"
+      },
+      {
+        "token": "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE",
+        "main_status": "SUPERSEDED",
+        "replacement": "PRODUCT_USE_RC_002 #116 merged \u2014 DSXL/RING/FOUR_GAME digital PASS on accepted main",
+        "evidence": "artifacts/product_use/PRODUCT_USE_RC_002_STATUS.json"
+      }
+    ],
+    "current_remaining_ecosystem_gaps": [
+      "S2 residuals: shipping WAIKE UI, dock silicon, REAL_TEACHER_E6, Ring browser headless purity (documented on #116)",
+      "PHYSICAL_RING_E6=false",
+      "SILICON_EXACT_EMULATION=false"
+    ],
+    "unique_103_delta": [],
+    "unique_capabilities_remaining": 0,
+    "merged_successors": [
+      {
+        "pr": 108,
+        "title": "feat(device-lab): WP-011R.2 Device Lab reconciliation (successor to #103)",
+        "mergedAt": "2026-08-13T17:05:30Z"
+      },
+      {
+        "pr": 116,
+        "title": "PRODUCT-USE-RC-002: independent PASS (merge-ready YES digital; Cursor never merges)",
+        "mergedAt": "2026-08-15T20:36:27Z"
+      },
+      {
+        "pr": 117,
+        "title": "DRAFT: STREAM-A-PKT-001 middleware / emulation / creation enablement",
+        "mergedAt": "2026-08-16T16:56:52Z"
+      },
+      {
+        "pr": 118,
+        "title": "STREAM-A-PKT-002: creator guest E2E + middleware resilience",
+        "mergedAt": "2026-08-16T17:37:55Z"
+      },
+      {
+        "pr": 119,
+        "title": "A-PKT-003: reliability + continuity + creation depth",
+        "mergedAt": "2026-08-16T20:12:19Z"
+      },
+      {
+        "pr": 120,
+        "title": "A-PKT-003R: Ring anti-replay honesty + evidence path scrub",
+        "mergedAt": "2026-08-16T21:44:10Z"
+      },
+      {
+        "pr": 121,
+        "title": "Supervisor-ready digital path: RQ1 service-continuity profiles + UML",
+        "mergedAt": "2026-08-18T20:10:32Z"
+      },
+      {
+        "pr": 122,
+        "title": "device-os \u00d7 gunnchAI accepted-main compatibility contract (Phase 4)",
+        "mergedAt": "2026-08-19T03:56:43Z"
+      }
+    ],
+    "disposition": "SUPERSEDED_DO_NOT_MERGE",
+    "accepted_main_sha": "b0b0876810857cbcc64eeef77e766d28418f9b72",
+    "main_token_status": {
+      "DSXL_DUAL_COMPOSITOR_UX_PASS": true,
+      "RING_TO_REAL_APP_STATE_MUTATION_PASS": true,
+      "FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS": true
+    }
+  },
+  "stale_preview_references": [
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 83,
+      "key": "PR #53",
+      "stale_statement": "- `waike-research-ops` PR #53: batch007 EMBEDDED_PROTOTYPING + GUNNCHOS_PRODUCT_LAB",
+      "live_truth": "gunnchOS3k/waike-research-ops PR #53 state=MERGED",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 84,
+      "key": "PR #88",
+      "stale_statement": "- `gunnchos-7gc-ai-ran-field-kit` PR #88: residual digital closure Phase 0 follow-up",
+      "live_truth": "gunnchOS3k/gunnchos-7gc-ai-ran-field-kit PR #88 state=MERGED",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 85,
+      "key": "PR #103",
+      "stale_statement": "- `gunnchos-device-os` PR #103: OPEN draft CONFLICTING \u2014 do not merge; superseded",
+      "live_truth": "gunnchOS3k/gunnchos-device-os PR #103 state=OPEN",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 91,
+      "key": "gunnchos-device-os.origin_main_sha12",
+      "stale_statement": "| `gunnchos-device-os` | ACCEPTED_MAIN | `d5c2d179ae21` | 121 | PASS | make reproduce |",
+      "live_truth": "origin/main=b0b087681085",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 95,
+      "key": "waike-research-ops.origin_main_sha12",
+      "stale_statement": "| `waike-research-ops` | ACCEPTED_MAIN | `491744328596` | 52 | PASS | see REPRODUCIBILITY.md |",
+      "live_truth": "origin/main=5d416c09164c",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 101,
+      "key": "gunnchos-research-portal.origin_main_sha12",
+      "stale_statement": "| `gunnchos-research-portal` | ACCEPTED_MAIN | `7842ff2e0d1d` | 8 | PASS | make reproduce |",
+      "live_truth": "origin/main=e60705b8b3cd",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.md",
+      "line": 106,
+      "key": "readygary-6g-beam-selection.origin_main_sha12",
+      "stale_statement": "| `readygary-6g-beam-selection` | ACCEPTED_MAIN | `0e2a79177222` | 26 | FAIL | make reproduce |",
+      "live_truth": "origin/main=569875224db7",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-device-os].origin_main_sha12",
+      "stale_statement": "d5c2d179ae21",
+      "live_truth": "b0b087681085",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[waike-research-ops].origin_main_sha12",
+      "stale_statement": "491744328596",
+      "live_truth": "5d416c09164c",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[gunnchos-research-portal].origin_main_sha12",
+      "stale_statement": "7842ff2e0d1d",
+      "live_truth": "e60705b8b3cd",
+      "phase_c_repair_needed": true
+    },
+    {
+      "file": "docs/phd/contact_snapshots/LATEST.json",
+      "line": null,
+      "key": "repositories[readygary-6g-beam-selection].origin_main_sha12",
+      "stale_statement": "0e2a79177222",
+      "live_truth": "569875224db7",
+      "phase_c_repair_needed": true
+    }
+  ]
+}

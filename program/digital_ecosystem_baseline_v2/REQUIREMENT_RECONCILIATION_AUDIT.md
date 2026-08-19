@@ -1,0 +1,12 @@
+# Requirement Reconciliation Audit
+
+| Work state | Count |
+| --- | --- |
+| DIGITAL_IMPLEMENTATION_COMPLETE | 7 |
+| DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING | 17 |
+| DIGITAL_VALIDATION_OPEN | 19 |
+| EVIDENCE_MAPPING_OPEN | 358 |
+| EXTERNAL_PENDING | 1 |
+| HUMAN_PENDING | 17 |
+
+See `REQUIREMENT_RECONCILIATION_AUDIT.json` for full per-row audit.
