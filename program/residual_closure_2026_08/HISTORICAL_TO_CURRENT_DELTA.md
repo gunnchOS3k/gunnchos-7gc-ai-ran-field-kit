@@ -143,12 +143,39 @@ Classification enum: `CLOSED_BY_ACCEPTED_MAIN | PARTIALLY_CLOSED | STILL_DIGITAL
 |---|---|---|
 | Supervisor-ready portal #7 | CLOSED_BY_ACCEPTED_MAIN | |
 | Portal #8 snapshot refresh after Pixel/GPU-NR/emergent | CLOSED_BY_ACCEPTED_MAIN | Landed `7842ff2` |
-| Snapshot still mixing PR SHAs and omitting later accepted-main (#43, #26, current tips) | STILL_DIGITAL_OPEN | Refresh **last**, after other residual digital work. Distinguish ACCEPTED_MAIN \| PREVIEW_DRAFT \| PHYSICAL_PENDING \| HUMAN_PENDING \| EXTERNAL_PENDING |
+| Snapshot still mixing PR SHAs and omitting later accepted-main (#43, #26, current tips) | CLOSED_BY_FOLLOWUP_DRAFT | Draft PR #9 regenerates with ACCEPTED_MAIN disposition; not merged |
 
 ## Honesty limits
 
 - Phase 0 did **not** re-verify all 569 ledger atoms.
 - Phase 0 did **not** port device-os #103 unique commits.
-- Phase 0 did **not** author remaining WAIKE DIGITAL_RC packages.
+- Phase 0 did **not** author remaining WAIKE DIGITAL_RC packages. **Follow-up 2026-08-19:** batch007 on draft PR #53 authors EMBEDDED_PROTOTYPING + GUNNCHOS_PRODUCT_LAB (not merged).
 - Local clones for device-os / archive / pedestrian may be dirty; SHAs above are `origin/main` only.
 - Field-kit working copy is on already-merged branch `stream/nvidia-6g-phase0-mac-setup`; this residual packet is branched from `origin/main` `8464f17`.
+
+## 8. Immutable accepted-main snapshot (follow-up append — baseline V1 untouched)
+
+**Pin file:** `CURRENT_ACCEPTED_MAIN.json` (generated `2026-08-19T03:15:52Z`)  
+**Policy:** MERGED `origin/main` SHA only. Preview/draft heads live in `new_draft_prs_this_phase` and portal `PREVIEW_DRAFT` list.
+
+| Repo | Accepted-main SHA | Tip merge |
+|---|---|---|
+| gunnchAI3k | `d357846` | #43 |
+| readygary-6g-beam-selection | `0e2a791` | #26 |
+| gunnchos-research-portal | `7842ff2` | #8 |
+| waike-research-ops | `4917443` | #52 |
+| gunnchos-7gc-ai-ran-field-kit | `8464f17` | #87 |
+| *(full 17-repo table)* | *see JSON* | *see JSON* |
+
+**Preview / draft (NOT in accepted-main pin):**
+
+| Repo | PR | Note |
+|---|---|---|
+| waike-research-ops | #53 | batch007 EMBEDDED_PROTOTYPING + GUNNCHOS_PRODUCT_LAB |
+| gunnchos-research-portal | #9 | supervisor snapshot disposition refresh |
+| gunnchos-7gc-ai-ran-field-kit | #88 | this residual closure packet |
+| gunnchos-device-os | #103 | do not merge |
+
+**WAIKE follow-up:** `WAIKE_DIGITAL_TRACKS_REMAINING` count **1** (`SEVEN_GC_APPRENTICESHIP` HUMAN_PENDING overlay only).  
+**Portal follow-up:** snapshot regenerated; `PORTAL_REFRESH_REQUIRED=false` (draft PR #9).  
+**R6G follow-up:** multi-seed / independent verifier tokens **deferred** — not closable locally without NVIDIA-member SDK harness in reasonable time.
