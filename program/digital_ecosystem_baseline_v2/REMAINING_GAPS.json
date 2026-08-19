@@ -1,13 +1,12 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-19T22:48:10Z",
+  "generated_at_utc": "2026-08-19T23:40:18Z",
   "top_blockers": [
-    "Wave 001 closeout draft PR pending owner merge",
-    "portal Phase-C snapshot refresh from LATEST stale references",
-    "DIGITAL_IMPLEMENTATION_OPEN=123 rows need digital engineering",
+    "Wave 002 closeout draft PR pending owner merge",
+    "DIGITAL_IMPLEMENTATION_OPEN=110 rows need digital engineering",
     "DIGITAL_VALIDATION_OPEN=19 rows need verification/reproduction",
-    "SYS-MISSION-006 residual non-game application parity beyond four-game slice",
-    "gunnchAI Product Completion 002 blocked on 8GB host"
+    "SYS-MISSION-006 residual non-game application parity beyond Wave 001+002 slices",
+    "OS-PLATFORM-004/006 physical ring and dual-panel validation pending (digital impl complete)"
   ],
   "gates_7_8_requirement_count": 28,
   "device_os_103": {
@@ -215,6 +214,35 @@
       "HUMAN_PLAYTEST": false,
       "FUN_VALIDATED": false,
       "BALANCE_VALIDATED": false
+    }
+  },
+  "wave002_closeout": {
+    "targets_closed": [
+      "OS-PLATFORM-001",
+      "OS-PLATFORM-002",
+      "OS-PLATFORM-003",
+      "OS-PLATFORM-004",
+      "OS-PLATFORM-005",
+      "OS-PLATFORM-006",
+      "OS-PLATFORM-007",
+      "OS-CONTINUITY-002",
+      "OS-CONTINUITY-003",
+      "OS-CONTINUITY-004",
+      "OS-CONTINUITY-005",
+      "OS-CONTINUITY-006",
+      "OS-CONTINUITY-007"
+    ],
+    "targets_still_open": [
+      "SYS-MISSION-006"
+    ],
+    "pixel_boundaries": {
+      "PIXEL_CLIENT_PROBE_OK": true,
+      "HUMAN_E6": false,
+      "PHYSICAL_VALIDATION": false,
+      "PHYSICAL_RING_E6": false,
+      "PHYSICAL_DUAL_PANEL": "PENDING",
+      "scope": "client_paths_only",
+      "full_os_image": false
     }
   }
 }

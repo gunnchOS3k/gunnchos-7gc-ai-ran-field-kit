@@ -1,23 +1,23 @@
-# Master completion register (Wave 001 targeted closeout)
+# Master completion register (Wave 002 targeted closeout)
 
-Generated: 2026-08-19T22:48:10Z
+Generated: 2026-08-19T23:40:18Z
 
 - ATOMIC_TOTAL: 419
-- DIGITAL_IMPLEMENTATION_COMPLETE: 20
-- DIGITAL_IMPLEMENTATION_OPEN: 123
+- DIGITAL_IMPLEMENTATION_COMPLETE: 33
+- DIGITAL_IMPLEMENTATION_OPEN: 110
 - DIGITAL_VALIDATION_OPEN: 19
 
-- **SYS-MISSION-006** — DIGITAL_IMPLEMENTATION_OPEN — Wave 001 proves four-game cross-form-factor application parity only. Residual scope includes gunnchAI, gunnchOS shell, W
-- **GAME-CROSS-001** — DIGITAL_IMPLEMENTATION_COMPLETE — Four-game capability_model parity/adaptation in accepted-main cross-device contracts.
-- **GAME-CROSS-002** — DIGITAL_IMPLEMENTATION_COMPLETE — Canonical rules_version/hash surface stable per game in accepted-main contracts.
-- **GAME-CROSS-003** — DIGITAL_IMPLEMENTATION_COMPLETE — save_roundtrip probe PASS on accepted-main contracts (all four games).
-- **GAME-CROSS-004** — DIGITAL_IMPLEMENTATION_COMPLETE — score probe PASS on accepted-main contracts (all four games).
-- **GAME-CROSS-005** — DIGITAL_IMPLEMENTATION_COMPLETE — deterministic_replay probe PASS or not_applicable with honest boundaries (archive single-player).
-- **GAME-CROSS-006** — DIGITAL_IMPLEMENTATION_COMPLETE — multiplayer probe PASS or not_applicable; archive honestly N/A for solo exploration.
-- **GAME-CROSS-007** — DIGITAL_IMPLEMENTATION_COMPLETE — accessibility probe PASS with setting mechanisms in accepted-main contracts.
-- **GAME-CROSS-008** — DIGITAL_IMPLEMENTATION_COMPLETE — input/action probe PASS with normalized bindings in accepted-main contracts.
-- **GAME-CROSS-009** — DIGITAL_IMPLEMENTATION_COMPLETE — presentation probe PASS with device-role presentation profiles on accepted main.
-- **GAME-CROSS-010** — DIGITAL_IMPLEMENTATION_COMPLETE — Remapping persistence in anime+archive; profile/layout behavior validated in pedestrian+beatlink accepted-main contracts
-- **GAME-CROSS-011** — DIGITAL_IMPLEMENTATION_COMPLETE — quality/presentation tier probe PASS without gameplay semantic downgrade.
-- **FULL-OPS-017** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 001 accepted-main aggregate verifier PASS: four-game cross-device contracts with operational probes on field-kit ma
-- **GATE-1-005** — DIGITAL_IMPLEMENTATION_COMPLETE — core_loop probe PASS on accepted main for all four games. PIXEL_6A_DEVICE_CORE_LOOP=NOT_PROVEN (install/launch smoke onl
+- **SYS-MISSION-006** — DIGITAL_IMPLEMENTATION_OPEN — Wave 001 closed four-game parity; Wave 002 adds shell/gunnchAI/WAIKE runtime probes on accepted-main device-os but not f
+- **OS-PLATFORM-001** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: local-first identity store with persistence and tests on device-os main (PR #123).
+- **OS-PLATFORM-002** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: HAL registry with provenance enum and tests on device-os main.
+- **OS-PLATFORM-003** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: six form-factor shell profiles wired to stage2 shell and display manager with vertical-slice tes
+- **OS-PLATFORM-004** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: ring service integrates authenticated adapter with digital tests. PHYSICAL_RING_E6=false — physi
+- **OS-PLATFORM-005** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: normalized touch/controller/kbm/ring routing with remap persistence and tests.
+- **OS-PLATFORM-006** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: display/dock manager implemented with DS-XL/G14 compositor evidence linked. DSXL_DUAL_COMPOSITOR
+- **OS-PLATFORM-007** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: continuity checkpoint/restore/revoke/conflict on device-os main.
+- **OS-CONTINUITY-002** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: disclosure API — what is synchronized.
+- **OS-CONTINUITY-003** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: disclosure API — storage location.
+- **OS-CONTINUITY-004** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: disclosure API — authorized devices.
+- **OS-CONTINUITY-005** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: disclosure API — local-only fields.
+- **OS-CONTINUITY-006** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: disclosure + revoke API.
+- **OS-CONTINUITY-007** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 002 accepted-main: export/delete API.

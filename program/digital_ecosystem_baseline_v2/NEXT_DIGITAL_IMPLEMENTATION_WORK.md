@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 123
+Count: 110
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,13 +16,6 @@ Count: 123
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- OS-PLATFORM-001: gunnchOS service: Unified user identity
-- OS-PLATFORM-002: gunnchOS service: Hardware abstraction
-- OS-PLATFORM-003: gunnchOS service: Device-aware user interfaces
-- OS-PLATFORM-004: gunnchOS service: Ring input service
-- OS-PLATFORM-005: gunnchOS service: Touch and controller service
-- OS-PLATFORM-006: gunnchOS service: Display and dock manager
-- OS-PLATFORM-007: gunnchOS service: Cross-device session continuity
 - OS-PLATFORM-008: gunnchOS service: Secure application packaging
 - OS-PLATFORM-009: gunnchOS service: Permission management
 - OS-PLATFORM-010: gunnchOS service: Local AI runtime
@@ -35,12 +28,6 @@ Count: 123
 - OS-PLATFORM-021: gunnchOS service: Logging and diagnostics
 - OS-PLATFORM-022: gunnchOS service: Accessibility services
 - OS-PLATFORM-023: gunnchOS service: Parental, student, educator, and administrator profiles
-- OS-CONTINUITY-002: Continuity transparency: What is synchronized
-- OS-CONTINUITY-003: Continuity transparency: Where it is stored
-- OS-CONTINUITY-004: Continuity transparency: Which devices can access it
-- OS-CONTINUITY-005: Continuity transparency: What remains local
-- OS-CONTINUITY-006: Continuity transparency: How to revoke a device
-- OS-CONTINUITY-007: Continuity transparency: How to export or delete their information
 - NET-ORCH-001: Anywhere engineering objective definition
 - NET-ORCH-014: Orchestrator evaluates: Availability
 - NET-ORCH-015: Orchestrator evaluates: Signal quality
@@ -52,4 +39,17 @@ Count: 123
 - NET-ORCH-021: Orchestrator evaluates: Security
 - NET-ORCH-022: Orchestrator evaluates: Data limits
 - NET-ORCH-023: Orchestrator evaluates: Application priority
-- … and 73 more
+- NET-ORCH-024: Orchestrator evaluates: User preference
+- NET-ORCH-026: Orchestrator evaluates: Satellite visibility
+- NET-ORCH-027: Orchestrator evaluates: Local infrastructure status
+- NET-ORCH-028: Orchestrator capability: Seamless bearer transition where technically possible
+- NET-ORCH-029: Orchestrator capability: Session resumption where seamless transition is impossible
+- NET-ORCH-030: Orchestrator capability: Multipath communication
+- NET-ORCH-031: Orchestrator capability: Low-bandwidth adaptation
+- NET-ORCH-032: Orchestrator capability: Prioritization of emergency, learning, and communication traffic
+- NET-ORCH-033: Orchestrator capability: Local caching
+- NET-ORCH-034: Orchestrator capability: Opportunistic synchronization
+- NET-ORCH-035: Orchestrator capability: Transparent degraded-mode reporting
+- GAME-BEATLINK-001: Beat Link: Host starts a room
+- GAME-BEATLINK-002: Beat Link: Players join through devices or browsers
+- … and 60 more
