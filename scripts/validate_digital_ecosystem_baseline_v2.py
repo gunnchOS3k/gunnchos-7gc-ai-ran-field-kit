@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Baseline V2 artifact pack integrity and B.3 semantic rules."""
+"""Validate Baseline V2 artifact pack integrity and B.3/B.4 semantic rules."""
 
 from __future__ import annotations
 
@@ -39,6 +39,19 @@ REQUIRED = [
     "FALSE_OPEN_PREVENTION_REPORT.md",
     "PRECISION_SAMPLE_AUDIT.md",
     "PRECISION_SAMPLE_AUDIT.json",
+]
+
+REQUIRED_B4 = [
+    "B4_MAPPING_DECISIONS.json",
+    "B4_MAPPING_DECISIONS.md",
+    "B4_ACCEPTED_MAIN_SHA_FREEZE.json",
+    "B4_ACCEPTED_MAIN_SHA_FREEZE.md",
+    "NEXT_DIGITAL_IMPLEMENTATION_WORK.json",
+    "NEXT_DIGITAL_IMPLEMENTATION_WORK.md",
+    "NEXT_DIGITAL_VALIDATION_WORK.json",
+    "NEXT_DIGITAL_VALIDATION_WORK.md",
+    "NON_DIGITAL_PENDING_REGISTER.json",
+    "NON_DIGITAL_PENDING_REGISTER.md",
 ]
 
 BLOATED = OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX.json"
@@ -94,8 +107,24 @@ def main() -> int:
         errors.append("expected 17 canonical repos")
     if result.get("PRE_ENGINEERING_HYGIENE_PASS") is True:
         errors.append("must not manufacture PRE_ENGINEERING_HYGIENE_PASS=true in Phase B draft")
-    if result.get("phase") != "PRE_ENGINEERING_HYGIENE_PHASE_B.3":
-        errors.append(f"expected phase B.3, got {result.get('phase')}")
+    phase = result.get("phase") or ""
+    is_b4 = "B.4" in phase
+    if not is_b4 and result.get("phase") != "PRE_ENGINEERING_HYGIENE_PHASE_B.3":
+        errors.append(f"expected phase B.3 or B.4, got {result.get('phase')}")
+    if is_b4:
+        for name in REQUIRED_B4:
+            if not (OUT / name).is_file():
+                errors.append(f"missing B.4 artifact {name}")
+        if totals.get("EVIDENCE_MAPPING_OPEN", 0) != 0:
+            errors.append(f"B.4 requires EVIDENCE_MAPPING_OPEN=0, got {totals.get('EVIDENCE_MAPPING_OPEN')}")
+        b4_val = result.get("BASELINE_V2_B4_MAPPING_VALIDATION") or {}
+        if not b4_val.get("BASELINE_V2_B4_MAPPING_VALIDATION_PASS"):
+            for e in b4_val.get("errors") or []:
+                errors.append(f"B.4 validation: {e}")
+        if result.get("BASELINE_MAPPING_COMPLETE") is not True:
+            errors.append("BASELINE_MAPPING_COMPLETE must be true for B.4")
+        if result.get("CANONICAL_REPOS_RECONCILED") is not True:
+            errors.append("CANONICAL_REPOS_RECONCILED must be true for B.4")
 
     gate_78 = register.get("gates_7_8_included") or result.get("PROGRAM_GATE_7_8_REQUIREMENTS_RETAINED") or 0
     if gate_78 <= 0:
@@ -167,7 +196,8 @@ def main() -> int:
         if ws == "DIGITAL_IMPLEMENTATION_OPEN" and not any(
             passes.get(k) for k in ("pass1_exact_id", "pass2_proof_identifiers", "pass4_implementation")
         ):
-            errors.append(f"{rid}: search miss should be EVIDENCE_MAPPING_OPEN not DIGITAL_IMPLEMENTATION_OPEN")
+            if not is_b4:
+                errors.append(f"{rid}: search miss should be EVIDENCE_MAPPING_OPEN not DIGITAL_IMPLEMENTATION_OPEN")
         if ws in WORK_STATES_COMPLETE and not passes.get("pass1_exact_id") and not passes.get("pass2_proof_identifiers"):
             if passes.get("pass6_discovery_only"):
                 errors.append(f"{rid}: complete based on discovery terms only")
@@ -218,6 +248,8 @@ def main() -> int:
     print("BASELINE_V2_VALIDATION_PASS")
     print("BASELINE_V2_SEMANTIC_VALIDATION_PASS")
     print("BASELINE_V2_PRECISION_VALIDATION_PASS")
+    if is_b4:
+        print("BASELINE_V2_B4_MAPPING_VALIDATION_PASS")
     return 0
 
 

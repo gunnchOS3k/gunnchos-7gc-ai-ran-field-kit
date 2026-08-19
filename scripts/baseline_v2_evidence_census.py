@@ -878,6 +878,7 @@ def choose_work_state(
     confidence: str,
     yaml_impl: str,
     yaml_val: str,
+    phase: str = "B.3",
 ) -> tuple[str, str]:
     impl_ev = search.get("best_implementation")
     verif_ev = search.get("best_verification")
@@ -891,11 +892,45 @@ def choose_work_state(
     yaml_val_u = (yaml_val or "").upper()
 
     if yaml_impl_u == "IMPLEMENTED" and not has_proof_impl:
+        if phase == "B.4":
+            if dims:
+                mapping = {
+                    "PHYSICAL": "PHYSICAL_PENDING",
+                    "HUMAN": "HUMAN_PENDING",
+                    "EXTERNAL": "EXTERNAL_PENDING",
+                    "STANDARD": "STANDARD_PENDING",
+                    "CERTIFICATION": "CERTIFICATION_PENDING",
+                    "CARRIER": "CARRIER_PENDING",
+                    "VENDOR": "VENDOR_PENDING",
+                    "OWNER_DECISION": "OWNER_DECISION_PENDING",
+                }
+                primary = primary_next_blocker(dims) or dims[0]
+                return mapping.get(primary, "OWNER_DECISION_PENDING"), (
+                    f"B.4: YAML IMPLEMENTED hint without accepted-main path; blocked by {primary}."
+                )
+            return "DIGITAL_IMPLEMENTATION_OPEN", "B.4: YAML IMPLEMENTED hint without accepted-main implementation path."
         return "EVIDENCE_MAPPING_OPEN", "YAML IMPLEMENTED hint without current accepted-main implementation path."
 
     if yaml_val_u in ("VALIDATED", "INDEPENDENTLY_VALIDATED", "PASS") and not has_proof_verif:
         if has_proof_impl:
             return "DIGITAL_VALIDATION_OPEN", "YAML VALIDATED hint without current verification evidence."
+        if phase == "B.4":
+            if dims:
+                mapping = {
+                    "PHYSICAL": "PHYSICAL_PENDING",
+                    "HUMAN": "HUMAN_PENDING",
+                    "EXTERNAL": "EXTERNAL_PENDING",
+                    "STANDARD": "STANDARD_PENDING",
+                    "CERTIFICATION": "CERTIFICATION_PENDING",
+                    "CARRIER": "CARRIER_PENDING",
+                    "VENDOR": "VENDOR_PENDING",
+                    "OWNER_DECISION": "OWNER_DECISION_PENDING",
+                }
+                primary = primary_next_blocker(dims) or dims[0]
+                return mapping.get(primary, "OWNER_DECISION_PENDING"), (
+                    f"B.4: YAML VALIDATED hint without verification; blocked by {primary}."
+                )
+            return "DIGITAL_IMPLEMENTATION_OPEN", "B.4: YAML VALIDATED hint without verification or implementation path."
         return "EVIDENCE_MAPPING_OPEN", "YAML VALIDATED hint without current verification or implementation path."
 
     if dims and not has_proof_impl and not any_proof_pass:
@@ -916,6 +951,17 @@ def choose_work_state(
 
     if has_proof_impl and has_proof_verif:
         if confidence == "LOW":
+            if phase == "B.4":
+                if dims:
+                    prep_map = {
+                        "HUMAN": "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
+                        "PHYSICAL": "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING",
+                        "EXTERNAL": "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING",
+                    }
+                    primary = primary_next_blocker(dims)
+                    if primary and primary in prep_map:
+                        return prep_map[primary], f"B.4: proof paths LOW confidence; blocked by {primary}."
+                return "DIGITAL_VALIDATION_OPEN", "B.4: proof paths located but confidence LOW — validation open."
             return "EVIDENCE_MAPPING_OPEN", "Proof paths located but confidence LOW — discovery/title-only or non-proof roles."
         return "DIGITAL_IMPLEMENTATION_COMPLETE", "Accepted-main implementation and verification evidence with proof identifiers."
 
@@ -932,16 +978,91 @@ def choose_work_state(
         return "DIGITAL_VALIDATION_OPEN", "Implementation evidence located; digital verification/reproduction proof missing."
 
     if any_discovery and not any_proof_pass:
+        if phase == "B.4":
+            if dims:
+                mapping = {
+                    "PHYSICAL": "PHYSICAL_PENDING",
+                    "HUMAN": "HUMAN_PENDING",
+                    "EXTERNAL": "EXTERNAL_PENDING",
+                    "STANDARD": "STANDARD_PENDING",
+                    "CERTIFICATION": "CERTIFICATION_PENDING",
+                    "CARRIER": "CARRIER_PENDING",
+                    "VENDOR": "VENDOR_PENDING",
+                    "OWNER_DECISION": "OWNER_DECISION_PENDING",
+                }
+                primary = primary_next_blocker(dims) or dims[0]
+                return mapping.get(primary, "OWNER_DECISION_PENDING"), (
+                    f"B.4: discovery-term matches only; non-digital blocker {primary}."
+                )
+            return "DIGITAL_IMPLEMENTATION_OPEN", "B.4: discovery-term matches only — digital implementation open."
         return "EVIDENCE_MAPPING_OPEN", "Discovery-term matches only — cannot satisfy implementation alone."
 
     if any_proof_pass and not has_proof_impl:
+        if phase == "B.4":
+            trace_paths = (pass_log.get("pass1_exact_id") or [])[:3] + (pass_log.get("pass3_traceability") or [])[:2]
+            trace_note = "; ".join(trace_paths[:3]) if trace_paths else "traceability/status"
+            if dims:
+                mapping = {
+                    "PHYSICAL": "PHYSICAL_PENDING",
+                    "HUMAN": "HUMAN_PENDING",
+                    "EXTERNAL": "EXTERNAL_PENDING",
+                    "STANDARD": "STANDARD_PENDING",
+                    "CERTIFICATION": "CERTIFICATION_PENDING",
+                    "CARRIER": "CARRIER_PENDING",
+                    "VENDOR": "VENDOR_PENDING",
+                    "OWNER_DECISION": "OWNER_DECISION_PENDING",
+                }
+                primary = primary_next_blocker(dims) or dims[0]
+                return mapping.get(primary, "OWNER_DECISION_PENDING"), (
+                    f"B.4: traceability located ({trace_note}); implementation blocked by {primary}."
+                )
+            if has_proof_verif:
+                return "DIGITAL_VALIDATION_OPEN", (
+                    f"B.4: verification evidence without implementation proof ({trace_note})."
+                )
+            return "DIGITAL_IMPLEMENTATION_OPEN", (
+                f"B.4: traceability/status only ({trace_note}); digital implementation open."
+            )
         return "EVIDENCE_MAPPING_OPEN", "Proof identifiers matched traceability/status artifacts only — not implementation proof."
 
     if not any_proof_pass and not any_discovery:
+        if phase == "B.4":
+            if dims:
+                mapping = {
+                    "PHYSICAL": "PHYSICAL_PENDING",
+                    "HUMAN": "HUMAN_PENDING",
+                    "EXTERNAL": "EXTERNAL_PENDING",
+                    "STANDARD": "STANDARD_PENDING",
+                    "CERTIFICATION": "CERTIFICATION_PENDING",
+                    "CARRIER": "CARRIER_PENDING",
+                    "VENDOR": "VENDOR_PENDING",
+                    "OWNER_DECISION": "OWNER_DECISION_PENDING",
+                }
+                primary = primary_next_blocker(dims) or dims[0]
+                return mapping.get(primary, "OWNER_DECISION_PENDING"), (
+                    f"B.4: no admissible evidence; non-digital blocker {primary}."
+                )
+            return "DIGITAL_IMPLEMENTATION_OPEN", "B.4: five-pass search found no admissible evidence mapping."
         return "EVIDENCE_MAPPING_OPEN", "Five-pass accepted-main search found no admissible evidence mapping."
 
     if yaml_impl_u in ("NOT_STARTED", "DOCUMENTED_DESIGN", ""):
         return "DIGITAL_IMPLEMENTATION_OPEN", "No accepted-main implementation artifact; requirement remains digitally unimplemented."
+
+    if phase == "B.4":
+        if dims:
+            mapping = {
+                "PHYSICAL": "PHYSICAL_PENDING",
+                "HUMAN": "HUMAN_PENDING",
+                "EXTERNAL": "EXTERNAL_PENDING",
+                "STANDARD": "STANDARD_PENDING",
+                "CERTIFICATION": "CERTIFICATION_PENDING",
+                "CARRIER": "CARRIER_PENDING",
+                "VENDOR": "VENDOR_PENDING",
+                "OWNER_DECISION": "OWNER_DECISION_PENDING",
+            }
+            primary = primary_next_blocker(dims) or dims[0]
+            return mapping.get(primary, "OWNER_DECISION_PENDING"), f"B.4: search inconclusive; blocker {primary}."
+        return "DIGITAL_IMPLEMENTATION_OPEN", "B.4: search inconclusive; digital implementation open."
 
     return "EVIDENCE_MAPPING_OPEN", "Search inconclusive; evidence mapping still open on accepted main."
 
@@ -954,6 +1075,7 @@ def reconcile_requirement(
     req_by_id: dict[str, dict[str, Any]],
     field_kit_sha: str,
     wp012_path: str | None,
+    phase: str = "B.3",
 ) -> dict[str, Any]:
     rid = req["id"]
     owner = req.get("owner_repository") or "gunnchos-7gc-ai-ran-field-kit"
@@ -988,7 +1110,7 @@ def reconcile_requirement(
     implementation_state = map_implementation_state(yaml_impl, impl_ev, search)
     verification_state = map_verification_state(yaml_val, verif_ev)
     work_state, reason = choose_work_state(
-        req, implementation_state, verification_state, search, dims, confidence, yaml_impl, yaml_val,
+        req, implementation_state, verification_state, search, dims, confidence, yaml_impl, yaml_val, phase=phase,
     )
     current_level = infer_current_level(implementation_state, verification_state, impl_ev, verif_ev)
 

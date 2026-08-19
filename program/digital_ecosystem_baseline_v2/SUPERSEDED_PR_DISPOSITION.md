@@ -1,6 +1,6 @@
 # Superseded PR Disposition
 
-## device-os #103 — OPEN (do not close by Cursor)
+## device-os #103 — CLOSED (do not close by Cursor)
 
 | Field | Value |
 | --- | --- |

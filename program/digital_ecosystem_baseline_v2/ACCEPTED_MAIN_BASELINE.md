@@ -2,7 +2,7 @@
 
 | Repository | SHA | CI |
 | --- | --- | --- |
-| gunnchos-7gc-ai-ran-field-kit | 94940e507f51 | PASS |
+| gunnchos-7gc-ai-ran-field-kit | 1e08fbcce6a8 | PASS |
 | gunnchos-research-portal | e60705b8b3cd | PASS |
 | gunnchos-device-os | b0b087681085 | PASS |
 | gunnchos-hardware-industrial-design | 9ee0ef2f688b | NOT_APPLICABLE |
