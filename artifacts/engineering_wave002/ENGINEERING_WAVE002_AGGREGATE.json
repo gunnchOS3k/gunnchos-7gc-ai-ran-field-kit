@@ -1,0 +1,61 @@
+{
+  "schema": "gunnchos.engineering_wave002.aggregate.v1",
+  "wave": "002",
+  "DO_NOT_MERGE_UNTIL_DEPENDENCY_PRS_ACCEPTED": true,
+  "DO_NOT_UPDATE_BASELINE_COUNTS": true,
+  "field_kit_prerequisite": {
+    "pr": 92,
+    "state": "MERGED",
+    "merged_at": "2026-08-19T23:03:11Z"
+  },
+  "impl_open_count_post_pr92": 123,
+  "impl_open_source": "program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_IMPLEMENTATION_WORK.json total_open",
+  "dependency_prs": [
+    {
+      "repo": "gunnchos-device-os",
+      "branch": "eng/wave002-shell-continuity",
+      "commit": "21efc37",
+      "role": "primary_runtime",
+      "url": "https://github.com/gunnchOS3k/gunnchos-device-os/compare/main...eng/wave002-shell-continuity"
+    }
+  ],
+  "secondary_integration_prs": [],
+  "ENGINEERING_WAVE_002": "PARTIAL",
+  "pass_count": 11,
+  "partial_count": 3,
+  "fail_count": 0,
+  "target_requirements": 14,
+  "requirement_classification": {
+    "SYS-MISSION-006": "PARTIAL",
+    "OS-PLATFORM-001": "PASS",
+    "OS-PLATFORM-002": "PASS",
+    "OS-PLATFORM-003": "PASS",
+    "OS-PLATFORM-004": "PARTIAL",
+    "OS-PLATFORM-005": "PASS",
+    "OS-PLATFORM-006": "PARTIAL",
+    "OS-PLATFORM-007": "PASS",
+    "OS-CONTINUITY-002": "PASS",
+    "OS-CONTINUITY-003": "PASS",
+    "OS-CONTINUITY-004": "PASS",
+    "OS-CONTINUITY-005": "PASS",
+    "OS-CONTINUITY-006": "PASS",
+    "OS-CONTINUITY-007": "PASS"
+  },
+  "claim_flags": {
+    "HUMAN_E6": false,
+    "PHYSICAL_VALIDATION": false,
+    "PHYSICAL_RING_E6": false,
+    "PHYSICAL_DUAL_PANEL": false,
+    "SILICON_EXACT_EMULATION": false
+  },
+  "evidence_pointers": {
+    "device_os_wave002_result": "gunnchos-device-os@21efc37:artifacts/engineering_wave002/WAVE002_RESULT.json",
+    "pixel_client_probe": "gunnchos-device-os@21efc37:artifacts/engineering_wave002/PIXEL_CLIENT_PROBE.json"
+  },
+  "merge_order": [
+    "1. gunnchos-device-os eng/wave002-shell-continuity (runtime PR first)",
+    "2. gunnchAI3k / waike-research-ops — not required (in-repo probes sufficient)",
+    "3. field-kit eng/wave002-aggregate after device-os PR accepted"
+  ],
+  "CURSOR_MERGED_NOTHING": true
+}
