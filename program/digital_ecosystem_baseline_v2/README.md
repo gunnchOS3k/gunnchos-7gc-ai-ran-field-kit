@@ -1,6 +1,6 @@
 # GUNNCHOS Digital Ecosystem Baseline V2 (Pre-Engineering Hygiene)
 
-Generated: `2026-08-19T20:26:05Z`  
+Generated: `2026-08-19T20:36:58Z`  
 Phase: **PRE ENGINEERING HYGIENE PHASE B.4.1** (evidence-mapping convergence)  
 Policy: **Cursor never merges**. Edmund sole merge authority. **main only**.
 

@@ -66,12 +66,13 @@ def build_sha_freeze(repo_shas: dict[str, str], ts: str) -> dict[str, Any]:
 
 
 def b4_decision_record(b3_row: dict[str, Any], b4_row: dict[str, Any]) -> dict[str, Any]:
+    b3_ws = b3_row.get("b3_work_state") or b3_row.get("work_state")
     return {
         "requirement_id": b3_row["requirement_id"],
-        "title": b3_row.get("title"),
+        "title": b4_row.get("title") or b3_row.get("title"),
         "owner_repo": b4_row.get("owner_repo"),
         "primary_end_goal_family": b4_row.get("primary_end_goal_family"),
-        "b3_work_state": b3_row.get("work_state"),
+        "b3_work_state": b3_ws,
         "b4_work_state": b4_row.get("work_state"),
         "b4_decision": b4_row.get("work_state"),
         "b4_decision_reason": b4_row.get("resolution_reason"),
@@ -175,12 +176,35 @@ def write_b4_artifacts(
 ) -> dict[str, Any]:
     mapping_open_b3 = [r for r in b3_rows if r.get("work_state") == "EVIDENCE_MAPPING_OPEN"]
     b3_by_id = {r["requirement_id"]: r for r in b3_rows}
-    decisions = [
-        b4_decision_record(b3_by_id[r["requirement_id"]], r)
-        for r in b4_rows
-        if r["requirement_id"] in b3_by_id and b3_by_id[r["requirement_id"]].get("work_state") == "EVIDENCE_MAPPING_OPEN"
-    ]
-    moved = Counter(d["b4_work_state"] for d in decisions)
+    decisions_path = OUT / "B4_MAPPING_DECISIONS.json"
+    existing_decisions: dict[str, Any] | None = None
+    if decisions_path.is_file():
+        try:
+            existing_decisions = json.loads(decisions_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            existing_decisions = None
+
+    if mapping_open_b3:
+        decisions = [
+            b4_decision_record(b3_by_id[r["requirement_id"]], r)
+            for r in b4_rows
+            if r["requirement_id"] in b3_by_id
+            and b3_by_id[r["requirement_id"]].get("work_state") == "EVIDENCE_MAPPING_OPEN"
+        ]
+        moved = Counter(d["b4_work_state"] for d in decisions)
+    elif existing_decisions and (existing_decisions.get("rows_processed") or 0) > 0:
+        b4_by_id = {r["requirement_id"]: r for r in b4_rows}
+        decisions = []
+        for d in existing_decisions.get("decisions") or []:
+            rid = d.get("requirement_id")
+            if rid and rid in b4_by_id:
+                decisions.append(b4_decision_record(d, b4_by_id[rid]))
+            else:
+                decisions.append(d)
+        moved = Counter(existing_decisions.get("moved_to_state_counts") or {})
+    else:
+        decisions = []
+        moved = Counter()
 
     sha_freeze = build_sha_freeze(repo_shas, ts)
     (OUT / "B4_ACCEPTED_MAIN_SHA_FREEZE.json").write_text(json.dumps(sha_freeze, indent=2) + "\n", encoding="utf-8")
@@ -189,7 +213,9 @@ def write_b4_artifacts(
         "schema": "gunnchos.digital_ecosystem_baseline_v2.b4_mapping_decisions",
         "generated_at_utc": ts,
         "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.4.1",
-        "b3_mapping_open_count": len(mapping_open_b3),
+        "b3_mapping_open_count": existing_decisions.get("b3_mapping_open_count", len(mapping_open_b3))
+        if existing_decisions and not mapping_open_b3
+        else len(mapping_open_b3),
         "b4_mapping_open_count": totals.get("EVIDENCE_MAPPING_OPEN", 0),
         "rows_processed": len(decisions),
         "moved_to_state_counts": dict(moved),
