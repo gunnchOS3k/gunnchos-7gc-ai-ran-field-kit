@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate program/digital_ecosystem_baseline_v2/ from live accepted mains (Phase B.2)."""
+"""Generate program/digital_ecosystem_baseline_v2/ from live accepted mains (Phase B.3)."""
 
 from __future__ import annotations
 
@@ -20,9 +20,11 @@ from baseline_v2_evidence_census import (
     END_GOAL_FAMILIES,
     build_end_goal_matrix,
     build_evidence_index,
+    compute_precision_validation,
     compute_totals,
     false_open_report,
-    index_to_json,
+    generate_precision_sample_audit,
+    index_to_summary,
     load_traceability_maps,
     reconcile_requirement,
 )
@@ -336,22 +338,25 @@ def main() -> int:
 
     print("Building accepted-main evidence index (17 repos)...", file=sys.stderr)
     evidence_index = build_evidence_index(REPOS_ROOT, TEMP_ROOT)
-    trace_maps = load_traceability_maps(ROOT)
+    trace_maps, trace_repo_links = load_traceability_maps(ROOT)
 
     wp012_path = "artifacts/wp012/VP-012-RESULT.json"
     field_kit_sha = evidence_index.repo_shas.get("gunnchos-7gc-ai-ran-field-kit", "")
 
     req_doc = yaml.safe_load((ROOT / "program/requirements/requirements.yaml").read_text(encoding="utf-8"))
     requirements = req_doc["requirements"]
+    req_by_id = {req["id"]: req for req in requirements}
 
-    print(f"Reconciling {len(requirements)} atomic requirements (5-pass search)...", file=sys.stderr)
+    print(f"Reconciling {len(requirements)} atomic requirements (B.3 precision search)...", file=sys.stderr)
     rows = [
-        reconcile_requirement(req, evidence_index, trace_maps, field_kit_sha, wp012_path)
+        reconcile_requirement(req, evidence_index, trace_maps, trace_repo_links, req_by_id, field_kit_sha, wp012_path)
         for req in requirements
     ]
     totals = compute_totals(rows)
     end_goal = build_end_goal_matrix(rows)
     false_open = false_open_report(rows, evidence_index)
+    precision_validation = compute_precision_validation(rows, evidence_index, end_goal)
+    precision_audit = generate_precision_sample_audit(rows)
 
     repos = {name: live_repo(name, evidence_index.repo_shas) for name in CANONICAL_REPOS}
     gate_78_count = sum(1 for req in requirements if (req.get("gate") or 0) > 6)
@@ -376,7 +381,10 @@ def main() -> int:
     work_state_counts = Counter(r["work_state"] for r in rows)
     ready_for_merge = (
         totals["EVIDENCE_MAPPING_OPEN"] == 0
+        and totals.get("LOW_CONFIDENCE_COMPLETE_ROWS", 0) == 0
         and false_open["status"] == "PASS"
+        and precision_validation["BASELINE_V2_PRECISION_VALIDATION_PASS"]
+        and precision_audit["status"] == "PASS"
         and gate_78_count > 0
         and end_goal["family_count"] == 28
         and all(f["requirement_count"] > 0 for f in end_goal["families"])
@@ -384,14 +392,39 @@ def main() -> int:
 
     OUT.mkdir(parents=True, exist_ok=True)
 
-    index_doc = index_to_json(evidence_index)
-    index_doc["generated_at_utc"] = ts
-    (OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX.json").write_text(json.dumps(index_doc, indent=2) + "\n", encoding="utf-8")
+    index_summary = index_to_summary(evidence_index)
+    index_summary["generated_at_utc"] = ts
+    (OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX_SUMMARY.json").write_text(
+        json.dumps(index_summary, indent=2) + "\n", encoding="utf-8"
+    )
+    full_index_path = TEMP_ROOT / "ACCEPTED_MAIN_EVIDENCE_INDEX.full.json"
+    full_index_path.parent.mkdir(parents=True, exist_ok=True)
+    full_index_path.write_text(
+        json.dumps(
+            {
+                "schema": "gunnchos.digital_ecosystem_baseline_v2.accepted_main_evidence_index.full",
+                "generated_at_utc": ts,
+                "record_count": len(evidence_index.records),
+                "records": [
+                    {
+                        "repo": r.repo,
+                        "path": r.path,
+                        "evidence_role": r.evidence_role,
+                        "requirement_ids": r.requirement_ids[:10],
+                    }
+                    for r in evidence_index.records
+                ],
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
 
     audit_doc = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.requirement_reconciliation_audit",
         "generated_at_utc": ts,
-        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.2",
+        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.3",
         "totals": totals,
         "requirements": rows,
     }
@@ -463,11 +496,15 @@ def main() -> int:
     result = {
         "schema": "gunnchos.digital_ecosystem_baseline_v2.result",
         "generated_at_utc": ts,
-        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.2",
+        "phase": "PRE_ENGINEERING_HYGIENE_PHASE_B.3",
         "BASELINE_V2_STATE": "DRAFT_PR",
         "STOP_FOR_OWNER_MERGE": True,
         "BASELINE_V2_READY_FOR_OWNER_MERGE": ready_for_merge,
+        "BASELINE_V2_B3_PRECISION": "PASS" if precision_validation["BASELINE_V2_PRECISION_VALIDATION_PASS"] else "FAIL",
         "BASELINE_V2_EVIDENCE_CENSUS": "PASS" if false_open["status"] == "PASS" else "FAIL",
+        "BASELINE_V2_PRECISION_VALIDATION": precision_validation,
+        "PRECISION_SAMPLE_AUDIT": precision_audit["status"],
+        "ARTIFACT_BLOAT_STATUS": "SUMMARY_ONLY",
         "totals": totals,
         "PROGRAM_GATE_7_8_REQUIREMENTS_RETAINED": gate_78_count,
         "PROGRAM_GATE_SEPARATE_FROM_COMPLETION_LEVEL": True,
@@ -491,14 +528,16 @@ def main() -> int:
         f"""# GUNNCHOS Digital Ecosystem Baseline V2 (Pre-Engineering Hygiene)
 
 Generated: `{ts}`  
-Phase: **PRE_ENGINEERING_HYGIENE Phase B.2**  
+Phase: **PRE_ENGINEERING_HYGIENE Phase B.3** (precision/provenance correction)  
 Policy: **Cursor never merges**. Edmund sole merge authority. **main only**.
 
 ## Summary
 
-{md_table(["Metric", "Count"], [[k, str(v)] for k, v in totals.items() if not k.startswith("L")])}
+{md_table(["Metric", "Count"], [[k, str(v)] for k, v in totals.items() if not k.startswith("L") and "DIMENSION" not in k])}
 
-Evidence index records: **{len(evidence_index.records)}**  
+Evidence index records (local full index): **{len(evidence_index.records)}** — committed summary only  
+B.3 precision validation: **{precision_validation['BASELINE_V2_PRECISION_VALIDATION_PASS']}**  
+Precision sample audit: **{precision_audit['status']}** ({precision_audit['sample_count']} samples)  
 End-goal families: **{end_goal['family_count']}/28**  
 False-open sanity: **{false_open['status']}**  
 Gate 7/8 requirements retained: **{gate_78_count}**  
@@ -509,15 +548,30 @@ Validate: `python3 scripts/validate_digital_ecosystem_baseline_v2.py`
 """,
     )
     write_markdown(
-        OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX.md",
-        "# Accepted Main Evidence Index\n\n"
-        + f"Records: **{len(evidence_index.records)}** across **{len(CANONICAL_REPOS)}** repos.\n\n"
+        OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX_SUMMARY.md",
+        "# Accepted Main Evidence Index Summary\n\n"
+        + f"Full index: **{len(evidence_index.records)}** records (generated locally at `{full_index_path}`; not committed).\n\n"
         + md_table(["Repository", "SHA (short)", "Indexed files"], [
             [r, (evidence_index.repo_shas.get(r) or "")[:12], str(len(evidence_index.by_repo.get(r, [])))]
             for r in CANONICAL_REPOS
         ])
+        + "\n\n"
+        + md_table(["Evidence role", "Count"], [
+            [k, str(v)] for k, v in sorted((index_summary.get("evidence_role_counts") or {}).items())
+        ])
         + "\n",
     )
+    precision_md = ["# Precision Sample Audit (B.3)\n", f"Status: **{precision_audit['status']}**", f"Samples: **{precision_audit['sample_count']}**", ""]
+    for s in precision_audit["samples"][:55]:
+        precision_md.append(f"## {s['requirement_id']} — {s['bucket']}")
+        precision_md.append(f"- **Family:** {s['primary_family']} | **Owner:** {s['owner']}")
+        precision_md.append(f"- **Impl:** `{s['implementation_path'] or 'none'}`")
+        precision_md.append(f"- **Verif:** `{s['verification_path'] or 'none'}`")
+        precision_md.append(f"- **Level:** {s['current_level']} → target {s['required_target_level']}")
+        precision_md.append(f"- **Pending:** {s['pending_dimensions']} | **Confidence:** {s['evidence_confidence']}")
+        precision_md.append(f"- **Why correct:** {s['why_correct']}\n")
+    write_markdown(OUT / "PRECISION_SAMPLE_AUDIT.md", "\n".join(precision_md))
+    (OUT / "PRECISION_SAMPLE_AUDIT.json").write_text(json.dumps(precision_audit, indent=2) + "\n", encoding="utf-8")
     write_markdown(
         OUT / "REQUIREMENT_RECONCILIATION_AUDIT.md",
         "# Requirement Reconciliation Audit\n\n"
@@ -548,13 +602,20 @@ Validate: `python3 scripts/validate_digital_ecosystem_baseline_v2.py`
         + "\n",
     )
     fam_rows = [
-        [str(f["id"]), f["name"], str(f["requirement_count"]), f["highest_level"]]
+        [
+            str(f["id"]), f["name"], str(f["requirement_count"]),
+            f["max_evidence_level_observed"], f["family_release_level"],
+            str(f.get("digital_impl_open", 0)), str(f.get("validation_open", 0)),
+        ]
         for f in end_goal["families"]
     ]
     write_markdown(
         OUT / "END_GOAL_COVERAGE_MATRIX.md",
         "# End Goal Coverage Matrix (28 families)\n\n"
-        + md_table(["ID", "Family", "Requirements", "Highest level"], fam_rows)
+        + md_table(
+            ["ID", "Family", "Reqs", "Max observed", "Release level", "Impl open", "Val open"],
+            fam_rows,
+        )
         + "\n",
     )
     write_markdown(

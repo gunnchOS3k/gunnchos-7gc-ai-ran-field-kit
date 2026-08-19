@@ -1,0 +1,901 @@
+{
+  "schema": "gunnchos.digital_ecosystem_baseline_v2.precision_sample_audit",
+  "sample_count": 50,
+  "pass_count": 50,
+  "status": "PASS",
+  "samples": [
+    {
+      "requirement_id": "SYS-MISSION-002",
+      "title": "Coherent product family",
+      "bucket": "complete",
+      "primary_family": "Release/control plane",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "artifacts/wp012/VP-012-RESULT.json",
+      "verification_path": "artifacts/wp012/VP-012-RESULT.json",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "HIGH",
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_COMPLETE at L2_DIGITALLY_VERIFIED with HIGH confidence \u2014 WP-012 VP artifact on accepted field-kit main proves L0 charter digital discoverability.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-0-001",
+      "title": "Gate 0: Product charter approved",
+      "bucket": "pending",
+      "primary_family": "Release/control plane",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "gunnchos-7gc-ai-ran-field-kit:scripts/prove_full_product_continuation_iv.py",
+      "verification_path": "gunnchos-7gc-ai-ran-field-kit:tests/control_plane/test_gate0_control_plane.py",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [
+        "OWNER_DECISION"
+      ],
+      "evidence_confidence": "HIGH",
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_COMPLETE at L2_DIGITALLY_VERIFIED with HIGH confidence \u2014 Accepted-main implementation and verification evidence with proof identifiers.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "CG-SECURITY-008",
+      "title": "Carrier-grade security: Least privilege",
+      "bucket": "pending",
+      "primary_family": "gunnchOS",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "gunnchos-7gc-ai-ran-field-kit:artifacts/wp012/VP-012-RESULT.json",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "CARRIER"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "CG-QUALITY-011",
+      "title": "Carrier-grade product quality: Regulatory labeling",
+      "bucket": "pending",
+      "primary_family": "gunnchDevice Lab",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L5_EXTERNAL_OR_CERTIFIED",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "EXTERNAL",
+        "CERTIFICATION",
+        "CARRIER"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "AI-LOCAL-004",
+      "title": "Local-first AI: Input interpretation support",
+      "bucket": "complete",
+      "primary_family": "gunnchAI",
+      "owner": "gunnchAI3k",
+      "implementation_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "verification_path": "gunnchAI3k:tests/system-layer/product_service.test.ts",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "HIGH",
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_COMPLETE at L2_DIGITALLY_VERIFIED with HIGH confidence \u2014 Accepted-main implementation and verification evidence with proof identifiers.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "AI-LOCAL-006",
+      "title": "Local-first AI: Accessibility services",
+      "bucket": "validation_open",
+      "primary_family": "gunnchAI",
+      "owner": "gunnchAI3k",
+      "implementation_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "verification_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "current_level": "L1_IMPLEMENTED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "MEDIUM",
+      "work_state": "DIGITAL_VALIDATION_OPEN",
+      "why_correct": "Correct: DIGITAL_VALIDATION_OPEN at L1_IMPLEMENTED with MEDIUM confidence \u2014 Implementation evidence located; digital verification/reproduction proof missing.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "SYS-MISSION-005",
+      "title": "Embed gunnchAI3k local-first assistance",
+      "bucket": "pending",
+      "primary_family": "gunnchAI",
+      "owner": "gunnchAI3k",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-4-003",
+      "title": "Gate 4: Long-duration operation",
+      "bucket": "pending",
+      "primary_family": "WAIKE",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "EXTERNAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GAME-AA-011",
+      "title": "Ring gestures not mandatory competitive control without fairness proof",
+      "bucket": "pending",
+      "primary_family": "Anime Aggressors",
+      "owner": "anime-aggressors",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "HUMAN",
+        "VENDOR"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-7-003",
+      "title": "Gate 7: Production manufacturing",
+      "bucket": "pending",
+      "primary_family": "Device Quartet hardware",
+      "owner": "gunnchos-hardware-industrial-design",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-INPUT-018",
+      "title": "Ring productivity input: Handwriting or drawing mode",
+      "bucket": "pending",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "SYS-STANDARDS-001",
+      "title": "Defensible IMT-2030-aligned product language",
+      "bucket": "complete",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "gunnchos-7gc-ai-ran-field-kit:scripts/prove_full_product_continuation_iv.py",
+      "verification_path": "gunnchos-7gc-ai-ran-field-kit:scripts/prove_full_product_continuation_vi.py",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L5_EXTERNAL_OR_CERTIFIED",
+      "pending_dimensions": [
+        "STANDARD",
+        "CERTIFICATION",
+        "VENDOR"
+      ],
+      "evidence_confidence": "HIGH",
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_COMPLETE at L2_DIGITALLY_VERIFIED with HIGH confidence \u2014 Accepted-main implementation and verification evidence with proof identifiers.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "SYS-MISSION-003",
+      "title": "Resilient multi-bearer connectivity",
+      "bucket": "pending",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "STANDARD",
+        "VENDOR"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "FULL-OPS-009",
+      "title": "Fully operational layer: Games",
+      "bucket": "pending",
+      "primary_family": "R6G/field kit",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "SYS-MISSION-001",
+      "title": "Affordable carrier-grade device family mission",
+      "bucket": "complete",
+      "primary_family": "Publishing/platform release",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "artifacts/wp012/VP-012-RESULT.json",
+      "verification_path": "artifacts/wp012/VP-012-RESULT.json",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "CARRIER",
+        "OWNER_DECISION"
+      ],
+      "evidence_confidence": "HIGH",
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "why_correct": "Correct: DIGITAL_IMPLEMENTATION_COMPLETE at L2_DIGITALLY_VERIFIED with HIGH confidence \u2014 WP-012 VP artifact on accepted field-kit main proves L0 charter digital discoverability.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "CG-OPS-003",
+      "title": "Carrier-grade operations: Remote diagnostics",
+      "bucket": "pending",
+      "primary_family": "Publishing/platform release",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "CARRIER"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-5-004",
+      "title": "Gate 5: Carrier engagement",
+      "bucket": "pending",
+      "primary_family": "Carrier/cellular/NTN",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "CARRIER"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-0-004",
+      "title": "Gate 0: Claims classified as target, implemented, validated, or certified",
+      "bucket": "pending",
+      "primary_family": "Regulatory/certification",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "gunnchos-7gc-ai-ran-field-kit:control_plane/catalog/evidence_catalog.py",
+      "current_level": "L2_DIGITALLY_VERIFIED",
+      "required_target_level": "L5_EXTERNAL_OR_CERTIFIED",
+      "pending_dimensions": [
+        "CERTIFICATION"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L2_DIGITALLY_VERIFIED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-6-007",
+      "title": "Gate 6: Pilot evidence accepted",
+      "bucket": "pending",
+      "primary_family": "Human validation",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "HUMAN",
+        "EXTERNAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "FULL-OPS-007",
+      "title": "Fully operational layer: Input ecosystem",
+      "bucket": "pending",
+      "primary_family": "Field deployment/7GC",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "OS-PLATFORM-014",
+      "title": "gunnchOS service: Secure boot",
+      "bucket": "fill",
+      "primary_family": "gunnchOS",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GAME-CROSS-009",
+      "title": "Cross-device game: Device-specific presentation",
+      "bucket": "fill",
+      "primary_family": "Release/control plane",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "AI-CORE-013",
+      "title": "gunnchAI3k function: Workflow automation",
+      "bucket": "fill",
+      "primary_family": "Human validation",
+      "owner": "gunnchAI3k",
+      "implementation_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "verification_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "current_level": "L1_IMPLEMENTED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "HUMAN"
+      ],
+      "evidence_confidence": "MEDIUM",
+      "work_state": "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
+      "why_correct": "Correct: DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING at L1_IMPLEMENTED with MEDIUM confidence \u2014 Implementation evidence on accepted main; verification blocked by HUMAN.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-8-001",
+      "title": "Gate 8: Map finalized 3GPP and ITU requirements to hardware and software",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "STANDARD",
+        "VENDOR"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "SYS-MISSION-004",
+      "title": "gunnchOS on every first-party device",
+      "bucket": "fill",
+      "primary_family": "gunnchOS",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-4-004",
+      "title": "Gate 4: Terrestrial and NTN experiments where available",
+      "bucket": "fill",
+      "primary_family": "WAIKE",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "EXTERNAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-7-006",
+      "title": "Gate 7: Vulnerability-response process",
+      "bucket": "fill",
+      "primary_family": "gunnchOS",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-INPUT-036",
+      "title": "Ring gaming input: Accessibility remapping",
+      "bucket": "fill",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "FULL-OPS-014",
+      "title": "Fully operational layer: Deployment",
+      "bucket": "fill",
+      "primary_family": "R6G/field kit",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "EXTERNAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "7GC-DEPLOY-014",
+      "title": "Campus evaluates: Community ownership",
+      "bucket": "fill",
+      "primary_family": "WAIKE",
+      "owner": "7gc-digital-twin",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "HUMAN",
+        "EXTERNAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "HUMAN_PENDING",
+      "why_correct": "Correct: HUMAN_PENDING at L0_DEFINED with LOW confidence \u2014 Non-digital blocker HUMAN; no accepted-main implementation evidence located.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-007",
+      "title": "Connectivity path: Device-to-device communication",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-INPUT-034",
+      "title": "Ring gaming input: Local multiplayer identity",
+      "bucket": "fill",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "OS-PLATFORM-012",
+      "title": "gunnchOS service: Offline synchronization",
+      "bucket": "fill",
+      "primary_family": "gunnchOS",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-4-006",
+      "title": "Gate 4: Local-language evaluation",
+      "bucket": "fill",
+      "primary_family": "WAIKE",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "HUMAN"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-005",
+      "title": "Connectivity path: Private cellular",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "PHYSICAL",
+        "CARRIER"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-INPUT-007",
+      "title": "Ring productivity input: Backspace and delete",
+      "bucket": "fill",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-INPUT-002",
+      "title": "Multi-sensor fusion without single-sensor reliance",
+      "bucket": "fill",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-027",
+      "title": "Orchestrator evaluates: Local infrastructure status",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L3_USER_READY_DIGITAL_RC",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-INPUT-004",
+      "title": "Ring productivity input: Key release",
+      "bucket": "fill",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-016",
+      "title": "Orchestrator evaluates: Latency",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L3_USER_READY_DIGITAL_RC",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-009",
+      "title": "Connectivity path: Community edge networks",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "CG-OPS-001",
+      "title": "Carrier-grade operations: Fleet inventory",
+      "bucket": "fill",
+      "primary_family": "Publishing/platform release",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "CARRIER"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "AI-CORE-006",
+      "title": "gunnchAI3k function: Network optimization",
+      "bucket": "fill",
+      "primary_family": "Human validation",
+      "owner": "gunnchAI3k",
+      "implementation_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "verification_path": "gunnchAI3k:src/system-layer/os_integration/requirement_proof.ts",
+      "current_level": "L1_IMPLEMENTED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "HUMAN"
+      ],
+      "evidence_confidence": "MEDIUM",
+      "work_state": "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
+      "why_correct": "Correct: DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING at L1_IMPLEMENTED with MEDIUM confidence \u2014 Implementation evidence on accepted main; verification blocked by HUMAN.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-7-007",
+      "title": "Gate 7: Repair and replacement inventory",
+      "bucket": "fill",
+      "primary_family": "R6G/field kit",
+      "owner": "gunnchos-7gc-ai-ran-field-kit",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L6_PRODUCTION_OR_FIELD",
+      "pending_dimensions": [
+        "EXTERNAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "DEV-DSXL-001",
+      "title": "DS-XL Coder dual-screen creation device",
+      "bucket": "fill",
+      "primary_family": "Device Quartet hardware",
+      "owner": "gunnchos-hardware-industrial-design",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GATE-2-003",
+      "title": "Gate 2: Real battery and thermal measurements",
+      "bucket": "fill",
+      "primary_family": "Device Quartet hardware",
+      "owner": "gunnchos-hardware-industrial-design",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GAME-BEATLINK-004",
+      "title": "Beat Link: Players choose active or audience roles",
+      "bucket": "fill",
+      "primary_family": "BeatLink",
+      "owner": "beatlink-party",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "GAME-AA-003",
+      "title": "Anime Aggressors: Charge-scaled projectiles",
+      "bucket": "fill",
+      "primary_family": "Anime Aggressors",
+      "owner": "anime-aggressors",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L2_DIGITALLY_VERIFIED",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "NET-ORCH-026",
+      "title": "Orchestrator evaluates: Satellite visibility",
+      "bucket": "fill",
+      "primary_family": "SpectrumX/AI-RAN",
+      "owner": "gunnchos-device-os",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L3_USER_READY_DIGITAL_RC",
+      "pending_dimensions": [],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    },
+    {
+      "requirement_id": "RING-AWARE-006",
+      "title": "Determine hand position relative to surface",
+      "bucket": "fill",
+      "primary_family": "Edge I/O Rings",
+      "owner": "EdgeGesture-Fall-2025-Edge-AI-Qualcomm-Hackathon",
+      "implementation_path": "",
+      "verification_path": "",
+      "current_level": "L0_DEFINED",
+      "required_target_level": "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED",
+      "pending_dimensions": [
+        "PHYSICAL"
+      ],
+      "evidence_confidence": "LOW",
+      "work_state": "EVIDENCE_MAPPING_OPEN",
+      "why_correct": "Correct: EVIDENCE_MAPPING_OPEN at L0_DEFINED with LOW confidence \u2014 Proof identifiers matched traceability/status artifacts only \u2014 not implementation proof.",
+      "audit_pass": true
+    }
+  ]
+}

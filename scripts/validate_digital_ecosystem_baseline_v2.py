@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Baseline V2 artifact pack integrity and semantic rules (Phase B.2)."""
+"""Validate Baseline V2 artifact pack integrity and B.3 semantic rules."""
 
 from __future__ import annotations
 
@@ -31,25 +31,23 @@ REQUIRED = [
     "END_GOAL_COVERAGE_MATRIX.md",
     "SUPERSEDED_PR_DISPOSITION.md",
     "BASELINE_V2_RESULT.json",
-    "ACCEPTED_MAIN_EVIDENCE_INDEX.json",
-    "ACCEPTED_MAIN_EVIDENCE_INDEX.md",
+    "ACCEPTED_MAIN_EVIDENCE_INDEX_SUMMARY.json",
+    "ACCEPTED_MAIN_EVIDENCE_INDEX_SUMMARY.md",
     "REQUIREMENT_RECONCILIATION_AUDIT.json",
     "REQUIREMENT_RECONCILIATION_AUDIT.md",
     "FALSE_OPEN_PREVENTION_REPORT.json",
     "FALSE_OPEN_PREVENTION_REPORT.md",
+    "PRECISION_SAMPLE_AUDIT.md",
+    "PRECISION_SAMPLE_AUDIT.json",
 ]
+
+BLOATED = OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX.json"
 
 WORK_STATES_COMPLETE = {"DIGITAL_IMPLEMENTATION_COMPLETE", "COMPLETE_AT_REQUIRED_LEVEL"}
 WORK_STATES_OPEN = {"DIGITAL_IMPLEMENTATION_OPEN", "DIGITAL_VALIDATION_OPEN", "EVIDENCE_MAPPING_OPEN"}
 PENDING = {
-    "PHYSICAL_PENDING",
-    "HUMAN_PENDING",
-    "EXTERNAL_PENDING",
-    "STANDARD_PENDING",
-    "CERTIFICATION_PENDING",
-    "CARRIER_PENDING",
-    "VENDOR_PENDING",
-    "OWNER_DECISION_PENDING",
+    "PHYSICAL_PENDING", "HUMAN_PENDING", "EXTERNAL_PENDING", "STANDARD_PENDING",
+    "CERTIFICATION_PENDING", "CARRIER_PENDING", "VENDOR_PENDING", "OWNER_DECISION_PENDING",
     "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
     "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING",
     "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING",
@@ -63,6 +61,9 @@ def main() -> int:
     for name in REQUIRED:
         if not (OUT / name).is_file():
             errors.append(f"missing {name}")
+
+    if BLOATED.is_file() and BLOATED.stat().st_size > 500_000:
+        errors.append("bloated ACCEPTED_MAIN_EVIDENCE_INDEX.json still tracked (>500KB)")
 
     if errors:
         for e in errors:
@@ -78,7 +79,8 @@ def main() -> int:
     ci = json.loads((OUT / "CI_AND_REPRODUCTION_MATRIX.json").read_text(encoding="utf-8"))
     audit = json.loads((OUT / "REQUIREMENT_RECONCILIATION_AUDIT.json").read_text(encoding="utf-8"))
     false_open = json.loads((OUT / "FALSE_OPEN_PREVENTION_REPORT.json").read_text(encoding="utf-8"))
-    index = json.loads((OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX.json").read_text(encoding="utf-8"))
+    index_summary = json.loads((OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX_SUMMARY.json").read_text(encoding="utf-8"))
+    precision = json.loads((OUT / "PRECISION_SAMPLE_AUDIT.json").read_text(encoding="utf-8"))
 
     totals = register.get("totals") or {}
     reqs = register.get("requirements") or []
@@ -92,6 +94,8 @@ def main() -> int:
         errors.append("expected 17 canonical repos")
     if result.get("PRE_ENGINEERING_HYGIENE_PASS") is True:
         errors.append("must not manufacture PRE_ENGINEERING_HYGIENE_PASS=true in Phase B draft")
+    if result.get("phase") != "PRE_ENGINEERING_HYGIENE_PHASE_B.3":
+        errors.append(f"expected phase B.3, got {result.get('phase')}")
 
     gate_78 = register.get("gates_7_8_included") or result.get("PROGRAM_GATE_7_8_REQUIREMENTS_RETAINED") or 0
     if gate_78 <= 0:
@@ -104,21 +108,34 @@ def main() -> int:
         rec = next((f for f in end_goal.get("families") or [] if f.get("id") == fam["id"]), None)
         if not rec or rec.get("requirement_count", 0) <= 0:
             errors.append(f"missing end-goal family coverage: {fam['name']}")
+        if rec and "family_release_level" not in rec:
+            errors.append(f"family {fam['name']} missing family_release_level")
 
-    if index.get("record_count", 0) < 100:
-        errors.append("ACCEPTED_MAIN_EVIDENCE_INDEX too small (<100 records)")
+    if index_summary.get("record_count", 0) < 100:
+        errors.append("evidence index summary too small (<100 records)")
 
-    pending_total = sum(totals.get(k, 0) for k in (
-        "HUMAN_PENDING", "PHYSICAL_PENDING", "EXTERNAL_PENDING", "STANDARD_PENDING",
-        "CERTIFICATION_PENDING", "CARRIER_PENDING", "VENDOR_PENDING", "OWNER_DECISION_PENDING",
-    ))
+    pending_total = sum(
+        totals.get(k, 0)
+        for k in (
+            "HUMAN_PENDING_DIMENSION", "PHYSICAL_PENDING_DIMENSION", "EXTERNAL_PENDING_DIMENSION",
+            "STANDARD_PENDING_DIMENSION", "CERTIFICATION_PENDING_DIMENSION", "CARRIER_PENDING_DIMENSION",
+            "VENDOR_PENDING_DIMENSION", "OWNER_DECISION_PENDING_DIMENSION",
+        )
+    )
     if pending_total == 0:
-        errors.append("all pending classes zero — under-classification alarm")
+        errors.append("all pending dimension counts zero — under-classification alarm")
 
     impl_open = totals.get("DIGITAL_IMPLEMENTATION_OPEN", 0)
     atomic = totals.get("ATOMIC_TOTAL", 1) or 1
     if impl_open / atomic > 0.9:
         errors.append(f">{90}% DIGITAL_IMPLEMENTATION_OPEN ({impl_open}/{atomic}) sanity alarm")
+
+    low_complete = totals.get("LOW_CONFIDENCE_COMPLETE_ROWS", 0)
+    if low_complete > 0:
+        errors.append(f"{low_complete} LOW confidence rows counted complete")
+
+    if precision.get("sample_count", 0) < 50:
+        errors.append(f"PRECISION_SAMPLE_AUDIT has {precision.get('sample_count')} samples (<50)")
 
     for row in resolutions:
         rid = row.get("requirement_id")
@@ -128,7 +145,13 @@ def main() -> int:
         cl = row.get("current_level") or ""
         if cl and cl not in CANONICAL_CURRENT_LEVELS:
             errors.append(f"{rid}: non-canonical current_level {cl}")
+        if not row.get("primary_end_goal_family"):
+            errors.append(f"{rid}: missing primary_end_goal_family")
+        if not row.get("admissible_repositories"):
+            errors.append(f"{rid}: missing admissible_repositories")
         if ws in WORK_STATES_COMPLETE:
+            if row.get("evidence_confidence") == "LOW":
+                errors.append(f"{rid}: LOW confidence complete row")
             if not row.get("accepted_main_sha"):
                 errors.append(f"{rid}: complete row lacks accepted_main_sha")
             ev = row.get("implementation_evidence") or row.get("validation_evidence") or ""
@@ -136,14 +159,28 @@ def main() -> int:
                 errors.append(f"{rid}: complete row lacks specific evidence path")
             if not row.get("resolution_reason"):
                 errors.append(f"{rid}: complete row lacks resolution_reason")
+            if row.get("evidence_repo") and row["evidence_repo"] not in (row.get("admissible_repositories") or []):
+                errors.append(f"{rid}: evidence from non-admissible repo {row.get('evidence_repo')}")
         if ws == "DIGITAL_IMPLEMENTATION_OPEN" and row.get("implementation_state") == "IMPLEMENTED":
             errors.append(f"{rid}: IMPLEMENTED classified as DIGITAL_IMPLEMENTATION_OPEN")
         passes = row.get("search_passes") or {}
-        if ws == "DIGITAL_IMPLEMENTATION_OPEN" and not any(passes.values()):
-            errors.append(f"{rid}: search miss classified DIGITAL_IMPLEMENTATION_OPEN not EVIDENCE_MAPPING_OPEN")
-        if ws in PENDING and row.get("implementation_state") == "NOT_IMPLEMENTED" and not row.get("blocker_classes"):
-            if ws not in ("OWNER_DECISION_PENDING",):
-                pass  # allow owner-decision without impl
+        if ws == "DIGITAL_IMPLEMENTATION_OPEN" and not any(
+            passes.get(k) for k in ("pass1_exact_id", "pass2_proof_identifiers", "pass4_implementation")
+        ):
+            errors.append(f"{rid}: search miss should be EVIDENCE_MAPPING_OPEN not DIGITAL_IMPLEMENTATION_OPEN")
+        if ws in WORK_STATES_COMPLETE and not passes.get("pass1_exact_id") and not passes.get("pass2_proof_identifiers"):
+            if passes.get("pass6_discovery_only"):
+                errors.append(f"{rid}: complete based on discovery terms only")
+        if cl == "L3_USER_READY_DIGITAL_RC" and row.get("verification_state") == "INDEPENDENTLY_VERIFIED_DIGITAL":
+            verif = (row.get("validation_evidence") or "").lower()
+            if not any(m in verif for m in ("product_use", "digital_rc", "user_ready", "rc_")):
+                errors.append(f"{rid}: L3 inferred without user-ready evidence path")
+
+    pv = result.get("BASELINE_V2_PRECISION_VALIDATION") or {}
+    if not pv.get("BASELINE_V2_PRECISION_VALIDATION_PASS"):
+        for k, v in (pv.get("checks") or {}).items():
+            if not v:
+                errors.append(f"precision validation failed: {k}")
 
     audit_103 = gaps.get("device_os_103") or {}
     if audit_103.get("unique_capabilities_remaining", -1) > 0 and not audit_103.get("current_main_replacements"):
@@ -175,10 +212,12 @@ def main() -> int:
         for e in errors:
             print(f"ERROR: {e}", file=sys.stderr)
         print("BASELINE_V2_SEMANTIC_VALIDATION_FAIL", file=sys.stderr)
+        print("BASELINE_V2_PRECISION_VALIDATION_FAIL", file=sys.stderr)
         return 1
 
     print("BASELINE_V2_VALIDATION_PASS")
     print("BASELINE_V2_SEMANTIC_VALIDATION_PASS")
+    print("BASELINE_V2_PRECISION_VALIDATION_PASS")
     return 0
 
 
