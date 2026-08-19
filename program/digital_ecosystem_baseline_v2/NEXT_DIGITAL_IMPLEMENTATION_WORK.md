@@ -1,33 +1,55 @@
-# Next Digital Implementation Work
+# Next digital implementation work
 
-Total DIGITAL_IMPLEMENTATION_OPEN: **136** (complete list: `NEXT_DIGITAL_IMPLEMENTATION_WORK.json` → `all_items`)
+Count: 123
 
-## Top 25 priority
-
-| ID | Title | Owner | Family |
-| --- | --- | --- | --- |
-| FULL-OPS-017 | Partial artifacts do not prove full operation | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-001 | Interface may adapt; game must not become lesser | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-002 | Cross-device game: Identical core rules | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-003 | Cross-device game: Compatible save data | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-004 | Cross-device game: Consistent scoring | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-005 | Cross-device game: Deterministic gameplay outcomes | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-006 | Cross-device game: Consistent multiplayer state | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-007 | Cross-device game: Equivalent accessibility | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-008 | Cross-device game: Fair competitive input handling | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-009 | Cross-device game: Device-specific presentation | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-010 | Cross-device game: Device-specific control layouts | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GAME-CROSS-011 | Cross-device game: Scalable visual quality | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GATE-0-002 | Gate 0: Device roles frozen | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GATE-0-003 | Gate 0: Requirement identifiers assigned | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GATE-0-005 | Gate 0: Repository ownership established | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GATE-1-005 | Gate 1: Each game completes one core loop | gunnchos-7gc-ai-ran-field-kit | 1 |
-| SYS-MISSION-006 | Cross-form-factor application parity | gunnchos-7gc-ai-ran-field-kit | 1 |
-| GATE-3-001 | Gate 3: Cross-device identity and continuity | gunnchos-device-os | 2 |
-| GATE-3-002 | Gate 3: Multi-device saves | gunnchos-device-os | 2 |
-| GATE-3-003 | Gate 3: Connectivity manager | gunnchos-device-os | 2 |
-| GATE-3-004 | Gate 3: Fleet observability | gunnchos-device-os | 2 |
-| GATE-3-005 | Gate 3: Security threat models | gunnchos-device-os | 2 |
-| GATE-5-005 | Gate 5: Privacy and security review | gunnchos-device-os | 2 |
-| GATE-7-006 | Gate 7: Vulnerability-response process | gunnchos-device-os | 2 |
-| OS-CONTINUITY-002 | Continuity transparency: What is synchronized | gunnchos-device-os | 2 |
+- SYS-MISSION-006: Cross-form-factor application parity
+- DEV-STUDENT-001: Student 14.5 primary full-session platform
+- DEV-STUDENT-003: Serviceable high-wear components
+- DEV-STUDENT-004: Full-size application layouts
+- DEV-STUDENT-005: Multi-modal input support
+- DEV-STUDENT-006: Local AI acceleration
+- DEV-STUDENT-009: Offline learning and development
+- DEV-STUDENT-010: Dock support
+- DEV-STUDENT-012: Full gunnchOS development environment
+- DEV-DSXL-001: DS-XL Coder dual-screen creation device
+- DEV-HANDHELD-001: Handheld Hybrid mobile and dockable compute
+- RING-INPUT-001: Spatial input processing chain
+- RING-INPUT-037: Optional game gestures only where beneficial
+- RING-RELIAB-016: No silent destructive uncertain gestures
+- OS-PLATFORM-001: gunnchOS service: Unified user identity
+- OS-PLATFORM-002: gunnchOS service: Hardware abstraction
+- OS-PLATFORM-003: gunnchOS service: Device-aware user interfaces
+- OS-PLATFORM-004: gunnchOS service: Ring input service
+- OS-PLATFORM-005: gunnchOS service: Touch and controller service
+- OS-PLATFORM-006: gunnchOS service: Display and dock manager
+- OS-PLATFORM-007: gunnchOS service: Cross-device session continuity
+- OS-PLATFORM-008: gunnchOS service: Secure application packaging
+- OS-PLATFORM-009: gunnchOS service: Permission management
+- OS-PLATFORM-010: gunnchOS service: Local AI runtime
+- OS-PLATFORM-011: gunnchOS service: Connectivity orchestration
+- OS-PLATFORM-012: gunnchOS service: Offline synchronization
+- OS-PLATFORM-013: gunnchOS service: Encrypted storage
+- OS-PLATFORM-016: gunnchOS service: Over-the-air updates
+- OS-PLATFORM-018: gunnchOS service: Recovery environment
+- OS-PLATFORM-020: gunnchOS service: Application sandboxing
+- OS-PLATFORM-021: gunnchOS service: Logging and diagnostics
+- OS-PLATFORM-022: gunnchOS service: Accessibility services
+- OS-PLATFORM-023: gunnchOS service: Parental, student, educator, and administrator profiles
+- OS-CONTINUITY-002: Continuity transparency: What is synchronized
+- OS-CONTINUITY-003: Continuity transparency: Where it is stored
+- OS-CONTINUITY-004: Continuity transparency: Which devices can access it
+- OS-CONTINUITY-005: Continuity transparency: What remains local
+- OS-CONTINUITY-006: Continuity transparency: How to revoke a device
+- OS-CONTINUITY-007: Continuity transparency: How to export or delete their information
+- NET-ORCH-001: Anywhere engineering objective definition
+- NET-ORCH-014: Orchestrator evaluates: Availability
+- NET-ORCH-015: Orchestrator evaluates: Signal quality
+- NET-ORCH-016: Orchestrator evaluates: Latency
+- NET-ORCH-017: Orchestrator evaluates: Jitter
+- NET-ORCH-018: Orchestrator evaluates: Packet loss
+- NET-ORCH-019: Orchestrator evaluates: Cost
+- NET-ORCH-020: Orchestrator evaluates: Energy consumption
+- NET-ORCH-021: Orchestrator evaluates: Security
+- NET-ORCH-022: Orchestrator evaluates: Data limits
+- NET-ORCH-023: Orchestrator evaluates: Application priority
+- … and 73 more

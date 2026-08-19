@@ -1,13 +1,13 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-19T20:36:58Z",
+  "generated_at_utc": "2026-08-19T22:48:10Z",
   "top_blockers": [
-    "field-kit Baseline V2 B.4 owner merge (draft PR)",
+    "Wave 001 closeout draft PR pending owner merge",
     "portal Phase-C snapshot refresh from LATEST stale references",
-    "DIGITAL_IMPLEMENTATION_OPEN=136 rows need digital engineering",
+    "DIGITAL_IMPLEMENTATION_OPEN=123 rows need digital engineering",
     "DIGITAL_VALIDATION_OPEN=19 rows need verification/reproduction",
-    "gunnchAI Product Completion 002 blocked on 8GB host",
-    "GPU-NR CUDA validation requires self-hosted nvidia-gpu runner"
+    "SYS-MISSION-006 residual non-game application parity beyond four-game slice",
+    "gunnchAI Product Completion 002 blocked on 8GB host"
   ],
   "gates_7_8_requirement_count": 28,
   "device_os_103": {
@@ -188,5 +188,33 @@
       "live_truth": "569875224db7",
       "phase_c_repair_needed": true
     }
-  ]
+  ],
+  "wave001_closeout": {
+    "targets_closed": [
+      "FULL-OPS-017",
+      "GAME-CROSS-001",
+      "GAME-CROSS-002",
+      "GAME-CROSS-003",
+      "GAME-CROSS-004",
+      "GAME-CROSS-005",
+      "GAME-CROSS-006",
+      "GAME-CROSS-007",
+      "GAME-CROSS-008",
+      "GAME-CROSS-009",
+      "GAME-CROSS-010",
+      "GAME-CROSS-011",
+      "GATE-1-005"
+    ],
+    "targets_still_open": [
+      "SYS-MISSION-006"
+    ],
+    "pixel_boundaries": {
+      "PIXEL_6A_INSTALL_LAUNCH_SMOKE": "4/4",
+      "PIXEL_6A_DEVICE_CORE_LOOP": "NOT_PROVEN",
+      "PIXEL_REMAPPING_RESTART_VERIFY": "BLOCKED_AUTOMATION",
+      "HUMAN_PLAYTEST": false,
+      "FUN_VALIDATED": false,
+      "BALANCE_VALIDATED": false
+    }
+  }
 }
