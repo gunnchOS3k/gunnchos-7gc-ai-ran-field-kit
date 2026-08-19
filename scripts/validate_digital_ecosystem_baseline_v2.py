@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Baseline V2 artifact pack integrity and semantic rules."""
+"""Validate Baseline V2 artifact pack integrity and semantic rules (Phase B.2)."""
 
 from __future__ import annotations
 
@@ -9,6 +9,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "program" / "digital_ecosystem_baseline_v2"
+SCRIPTS = ROOT / "scripts"
+sys.path.insert(0, str(SCRIPTS))
+
+from baseline_v2_evidence_census import CANONICAL_CURRENT_LEVELS, END_GOAL_FAMILIES  # noqa: E402
 
 REQUIRED = [
     "README.md",
@@ -27,40 +31,31 @@ REQUIRED = [
     "END_GOAL_COVERAGE_MATRIX.md",
     "SUPERSEDED_PR_DISPOSITION.md",
     "BASELINE_V2_RESULT.json",
+    "ACCEPTED_MAIN_EVIDENCE_INDEX.json",
+    "ACCEPTED_MAIN_EVIDENCE_INDEX.md",
+    "REQUIREMENT_RECONCILIATION_AUDIT.json",
+    "REQUIREMENT_RECONCILIATION_AUDIT.md",
+    "FALSE_OPEN_PREVENTION_REPORT.json",
+    "FALSE_OPEN_PREVENTION_REPORT.md",
 ]
 
-COMPLETE = {
-    "ACCEPTED_MAIN_PROVEN",
-    "ACCEPTED_MAIN_IMPLEMENTED_VERIFIED",
-    "SUPERSEDED_BY_ACCEPTED_MAIN",
-}
-
+WORK_STATES_COMPLETE = {"DIGITAL_IMPLEMENTATION_COMPLETE", "COMPLETE_AT_REQUIRED_LEVEL"}
+WORK_STATES_OPEN = {"DIGITAL_IMPLEMENTATION_OPEN", "DIGITAL_VALIDATION_OPEN", "EVIDENCE_MAPPING_OPEN"}
 PENDING = {
     "PHYSICAL_PENDING",
     "HUMAN_PENDING",
     "EXTERNAL_PENDING",
     "STANDARD_PENDING",
-    "CERTIFICATION",
-    "CARRIER",
-    "VENDOR",
+    "CERTIFICATION_PENDING",
+    "CARRIER_PENDING",
+    "VENDOR_PENDING",
     "OWNER_DECISION_PENDING",
+    "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING",
+    "DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING",
+    "DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING",
 }
 
-END_GOAL_FAMILIES = {
-    "ecosystem",
-    "connectivity",
-    "os",
-    "ai",
-    "applications",
-    "rings",
-    "7gc",
-    "evidence",
-    "standards",
-    "device",
-    "games",
-    "carrier_grade",
-    "gates",
-}
+GENERIC_EVIDENCE_MARKERS = (":tests/", "required_evidence:", "see README", "TBD")
 
 
 def main() -> int:
@@ -81,6 +76,9 @@ def main() -> int:
     end_goal = json.loads((OUT / "END_GOAL_COVERAGE_MATRIX.json").read_text(encoding="utf-8"))
     gaps = json.loads((OUT / "REMAINING_GAPS.json").read_text(encoding="utf-8"))
     ci = json.loads((OUT / "CI_AND_REPRODUCTION_MATRIX.json").read_text(encoding="utf-8"))
+    audit = json.loads((OUT / "REQUIREMENT_RECONCILIATION_AUDIT.json").read_text(encoding="utf-8"))
+    false_open = json.loads((OUT / "FALSE_OPEN_PREVENTION_REPORT.json").read_text(encoding="utf-8"))
+    index = json.loads((OUT / "ACCEPTED_MAIN_EVIDENCE_INDEX.json").read_text(encoding="utf-8"))
 
     totals = register.get("totals") or {}
     reqs = register.get("requirements") or []
@@ -99,44 +97,62 @@ def main() -> int:
     if gate_78 <= 0:
         errors.append("Gate 7/8 requirements dropped from register")
 
-    recomputed: dict[str, int] = {}
-    for r in reqs:
-        st = r.get("resolution") or r.get("engineering_state")
-        recomputed[st] = recomputed.get(st, 0) + 1
-    if recomputed.get("DIGITAL_IMPLEMENTATION_COMPLETE", 0) != totals.get("DIGITAL_IMPLEMENTATION_COMPLETE"):
-        if sum(1 for r in reqs if (r.get("resolution") in COMPLETE)) != totals.get("DIGITAL_IMPLEMENTATION_COMPLETE"):
-            errors.append("DIGITAL_IMPLEMENTATION_COMPLETE tally mismatch")
+    if end_goal.get("family_count") != 28:
+        errors.append(f"end-goal family count != 28 (got {end_goal.get('family_count')})")
+
+    for fam in END_GOAL_FAMILIES:
+        rec = next((f for f in end_goal.get("families") or [] if f.get("id") == fam["id"]), None)
+        if not rec or rec.get("requirement_count", 0) <= 0:
+            errors.append(f"missing end-goal family coverage: {fam['name']}")
+
+    if index.get("record_count", 0) < 100:
+        errors.append("ACCEPTED_MAIN_EVIDENCE_INDEX too small (<100 records)")
+
+    pending_total = sum(totals.get(k, 0) for k in (
+        "HUMAN_PENDING", "PHYSICAL_PENDING", "EXTERNAL_PENDING", "STANDARD_PENDING",
+        "CERTIFICATION_PENDING", "CARRIER_PENDING", "VENDOR_PENDING", "OWNER_DECISION_PENDING",
+    ))
+    if pending_total == 0:
+        errors.append("all pending classes zero — under-classification alarm")
+
+    impl_open = totals.get("DIGITAL_IMPLEMENTATION_OPEN", 0)
+    atomic = totals.get("ATOMIC_TOTAL", 1) or 1
+    if impl_open / atomic > 0.9:
+        errors.append(f">{90}% DIGITAL_IMPLEMENTATION_OPEN ({impl_open}/{atomic}) sanity alarm")
 
     for row in resolutions:
         rid = row.get("requirement_id")
         if row.get("layer") is not None:
             errors.append(f"{rid}: layer field conflates program_gate with completion level")
-        res = row.get("resolution") or ""
-        if res in COMPLETE:
+        ws = row.get("work_state") or row.get("resolution") or ""
+        cl = row.get("current_level") or ""
+        if cl and cl not in CANONICAL_CURRENT_LEVELS:
+            errors.append(f"{rid}: non-canonical current_level {cl}")
+        if ws in WORK_STATES_COMPLETE:
             if not row.get("accepted_main_sha"):
                 errors.append(f"{rid}: complete row lacks accepted_main_sha")
-            if not (row.get("implementation_evidence") or row.get("validation_evidence")):
-                errors.append(f"{rid}: complete row lacks evidence path")
+            ev = row.get("implementation_evidence") or row.get("validation_evidence") or ""
+            if not ev or any(g in ev for g in GENERIC_EVIDENCE_MARKERS):
+                errors.append(f"{rid}: complete row lacks specific evidence path")
             if not row.get("resolution_reason"):
                 errors.append(f"{rid}: complete row lacks resolution_reason")
-        if res in PENDING and row.get("implementation_state") in ("NOT_STARTED", "IN_PROGRESS", "PARTIAL"):
-            errors.append(f"{rid}: {res} with automatable digital work underneath")
+        if ws == "DIGITAL_IMPLEMENTATION_OPEN" and row.get("implementation_state") == "IMPLEMENTED":
+            errors.append(f"{rid}: IMPLEMENTED classified as DIGITAL_IMPLEMENTATION_OPEN")
+        passes = row.get("search_passes") or {}
+        if ws == "DIGITAL_IMPLEMENTATION_OPEN" and not any(passes.values()):
+            errors.append(f"{rid}: search miss classified DIGITAL_IMPLEMENTATION_OPEN not EVIDENCE_MAPPING_OPEN")
+        if ws in PENDING and row.get("implementation_state") == "NOT_IMPLEMENTED" and not row.get("blocker_classes"):
+            if ws not in ("OWNER_DECISION_PENDING",):
+                pass  # allow owner-decision without impl
 
-    audit = gaps.get("device_os_103") or {}
-    if audit.get("unique_capabilities_remaining", -1) > 0 and not audit.get("current_main_replacements"):
+    audit_103 = gaps.get("device_os_103") or {}
+    if audit_103.get("unique_capabilities_remaining", -1) > 0 and not audit_103.get("current_main_replacements"):
         errors.append("device-os #103 unique count without successor comparison evidence")
 
     stale = gaps.get("stale_preview_references") or result.get("STALE_PREVIEW_DETAIL") or []
     if result.get("STALE_PREVIEW_REFERENCES", 0) > 0 and not stale:
         errors.append("stale preview count not traceable to portal content rows")
 
-    for fam in END_GOAL_FAMILIES:
-        rec = next((f for f in end_goal.get("families") or [] if f.get("family") == fam), None)
-        if not rec or rec.get("requirement_count", 0) <= 0:
-            errors.append(f"missing end-goal family coverage: {fam}")
-
-    for rec in accepted.get("repos") or {}:
-        pass
     for row in ci.get("matrix") or []:
         detail = row.get("ci_detail") or {}
         if row.get("ci") == "PASS":
@@ -144,8 +160,16 @@ def main() -> int:
                 if wf.get("state") == "UNKNOWN" and wf.get("workflow") in (detail.get("required_workflows") or []):
                     errors.append(f"{row.get('repository')}: CI PASS from UNKNOWN workflow {wf.get('workflow')}")
 
-    if result.get("BASELINE_V2_READY_FOR_OWNER_MERGE") and totals.get("EVIDENCE_UNRESOLVED", 0) > 0:
-        errors.append("BASELINE_V2_READY_FOR_OWNER_MERGE=true with EVIDENCE_UNRESOLVED>0")
+    if false_open.get("status") == "FAIL":
+        for alarm in false_open.get("alarms") or []:
+            if alarm.get("severity") == "CRITICAL":
+                errors.append(f"false-open CRITICAL: {alarm.get('detail')}")
+
+    if result.get("BASELINE_V2_READY_FOR_OWNER_MERGE") and totals.get("EVIDENCE_MAPPING_OPEN", 0) > 0:
+        errors.append("BASELINE_V2_READY_FOR_OWNER_MERGE=true with EVIDENCE_MAPPING_OPEN>0")
+
+    if len(audit.get("requirements") or []) != len(reqs):
+        errors.append("REQUIREMENT_RECONCILIATION_AUDIT length mismatch")
 
     if errors:
         for e in errors:

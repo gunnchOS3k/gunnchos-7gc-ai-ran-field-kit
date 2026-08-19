@@ -8,4 +8,4 @@
 | E3 | Cross-repo reproduction harness |
 | E4 | Independent VP artifact with explicit negative space |
 
-`ACCEPTED_MAIN_*` resolutions require non-empty accepted-main SHA, evidence path, and resolution_reason.
+Five-pass search precedence: exact ID → tokens → traceability maps → implementation paths → verification tests.

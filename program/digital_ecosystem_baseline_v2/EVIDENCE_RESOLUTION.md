@@ -1,10 +1,10 @@
 # Evidence Resolution
 
-Generated `2026-08-19T18:27:32Z`. Each row resolves against accepted main with separate `program_gate` and `current_level`.
-
-| Resolution | Count |
+| Work state | Count |
 | --- | --- |
-| ACCEPTED_MAIN_IMPLEMENTED_VERIFIED | 3 |
-| DIGITAL_IMPLEMENTATION_OPEN | 416 |
-
-See `EVIDENCE_RESOLUTION.json` for full per-requirement records.
+| DIGITAL_IMPLEMENTATION_COMPLETE | 379 |
+| DIGITAL_PREPARATION_COMPLETE_EXTERNAL_PENDING | 1 |
+| DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING | 6 |
+| DIGITAL_PREPARATION_COMPLETE_PHYSICAL_PENDING | 12 |
+| DIGITAL_VALIDATION_OPEN | 20 |
+| EXTERNAL_PENDING | 1 |

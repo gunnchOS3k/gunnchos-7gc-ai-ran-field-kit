@@ -1,11 +1,11 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-19T18:27:32Z",
+  "generated_at_utc": "2026-08-19T18:56:49Z",
   "top_blockers": [
     "device-os #103 owner supersession close (Cursor must not close)",
     "field-kit Baseline V2 owner merge (PR #89)",
     "portal Phase-C snapshot refresh from LATEST stale references",
-    "EVIDENCE_UNRESOLVED rows require artifact paths on accepted main",
+    "EVIDENCE_MAPPING_OPEN=0 rows need accepted-main evidence paths",
     "gunnchAI Product Completion 002 blocked on 8GB host",
     "GPU-NR CUDA validation requires self-hosted nvidia-gpu runner"
   ],
@@ -16,7 +16,7 @@
     "state": "OPEN",
     "is_draft": true,
     "cursor_action": "DO_NOT_CLOSE",
-    "owner_action": "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 + portal refresh",
+    "owner_action": "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 merge + portal refresh",
     "historical_false_tokens": [
       "DSXL_DUAL_COMPOSITOR_UX_PASS",
       "RING_TO_REAL_APP_STATE_MUTATION_PASS",
@@ -150,26 +150,10 @@
     },
     {
       "file": "docs/phd/contact_snapshots/LATEST.md",
-      "line": 105,
-      "key": "gunnchos-gpu-nr-baseband-platform.ci",
-      "stale_statement": "| `gunnchos-gpu-nr-baseband-platform` | ACCEPTED_MAIN | `3931f51d43b7` | 3 | FAIL | make reproduce |",
-      "live_truth": "required-workflow CI=PASS",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.md",
       "line": 106,
       "key": "readygary-6g-beam-selection.origin_main_sha12",
       "stale_statement": "| `readygary-6g-beam-selection` | ACCEPTED_MAIN | `0e2a79177222` | 26 | FAIL | make reproduce |",
       "live_truth": "origin/main=569875224db7",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.md",
-      "line": 106,
-      "key": "readygary-6g-beam-selection.ci",
-      "stale_statement": "| `readygary-6g-beam-selection` | ACCEPTED_MAIN | `0e2a79177222` | 26 | FAIL | make reproduce |",
-      "live_truth": "required-workflow CI=PASS",
       "phase_c_repair_needed": true
     },
     {
@@ -183,89 +167,9 @@
     {
       "file": "docs/phd/contact_snapshots/LATEST.json",
       "line": null,
-      "key": "repositories[gunnchos-device-os].pr.number",
-      "stale_statement": "PR #121 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[gunnchos-hardware-industrial-design].pr.number",
-      "stale_statement": "PR #67 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[archive-of-life-artifact-world].pr.number",
-      "stale_statement": "PR #33 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[gunnchAI3k].pr.number",
-      "stale_statement": "PR #43 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
       "key": "repositories[waike-research-ops].origin_main_sha12",
       "stale_statement": "491744328596",
       "live_truth": "5d416c09164c",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[waike-research-ops].pr.number",
-      "stale_statement": "PR #52 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[anime-aggressors].pr.number",
-      "stale_statement": "PR #79 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[gunnchos-emergent-service-intent-protocols].pr.number",
-      "stale_statement": "PR #3 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[pedestrian-pursuit].pr.number",
-      "stale_statement": "PR #20 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[beatlink-party].pr.number",
-      "stale_statement": "PR #23 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[edge-io-measurement-node].pr.number",
-      "stale_statement": "PR #38 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
       "phase_c_repair_needed": true
     },
     {
@@ -279,57 +183,9 @@
     {
       "file": "docs/phd/contact_snapshots/LATEST.json",
       "line": null,
-      "key": "repositories[gunnchos-research-portal].pr.number",
-      "stale_statement": "PR #8 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[ntn-resilience-sim].pr.number",
-      "stale_statement": "PR #27 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[7gc-digital-twin].pr.number",
-      "stale_statement": "PR #30 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[spectrumx-ai-ran-gary].pr.number",
-      "stale_statement": "PR #101 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[gunnchos-gpu-nr-baseband-platform].pr.number",
-      "stale_statement": "PR #3 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
       "key": "repositories[readygary-6g-beam-selection].origin_main_sha12",
       "stale_statement": "0e2a79177222",
       "live_truth": "569875224db7",
-      "phase_c_repair_needed": true
-    },
-    {
-      "file": "docs/phd/contact_snapshots/LATEST.json",
-      "line": null,
-      "key": "repositories[readygary-6g-beam-selection].pr.number",
-      "stale_statement": "PR #26 as active preview",
-      "live_truth": "MERGED \u2014 not accepted-main preview",
       "phase_c_repair_needed": true
     }
   ]
