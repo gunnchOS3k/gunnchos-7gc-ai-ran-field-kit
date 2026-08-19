@@ -1,0 +1,29 @@
+{
+  "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
+  "generated_at_utc": "2026-08-19T18:04:31Z",
+  "top_blockers": [
+    "device-os #103 owner supersession/close (Cursor must not close)",
+    "field-kit Baseline V2 owner merge (this PR)",
+    "portal final accepted-main snapshot after Baseline V2",
+    "gunnchAI Product Completion 002 blocked on 8GB host",
+    "ReadyGary Sionna/Aerial/TensorRT on Linux NVIDIA host",
+    "GPU-NR CUDA validation requires self-hosted nvidia-gpu runner",
+    "WP-011R DSXL + RING tokens still false on accepted main",
+    "NVIDIA credential wrapper MISSING on build host"
+  ],
+  "gates_7_8_excluded_from_L0_L6": 28,
+  "device_os_103": {
+    "pr": 103,
+    "repository": "gunnchos-device-os",
+    "state": "OPEN",
+    "cursor_action": "DO_NOT_CLOSE",
+    "owner_action": "CLOSE_SUPERSEDED_BY_OWNER after Baseline V2 + portal snapshot",
+    "unique_capabilities_remaining": [
+      "DSXL_DUAL_COMPOSITOR_UX_PASS (false \u2014 virtio-gpu no hotplug)",
+      "RING_TO_REAL_APP_STATE_MUTATION_PASS (false)",
+      "GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE (false)"
+    ],
+    "supersession_rationale": "WP-011R draft remediations overlap Cycle 3B mainline; owner closes when superseded packet accepted.",
+    "evidence_pointer": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/103"
+  }
+}

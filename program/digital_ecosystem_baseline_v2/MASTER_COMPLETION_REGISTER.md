@@ -1,0 +1,17 @@
+# Master Completion Register (L0–L6)
+
+| Metric | Count |
+| --- | --- |
+| ATOMIC_TOTAL | 395 |
+| DIGITAL_IMPLEMENTATION_COMPLETE | 4 |
+| DIGITAL_IMPLEMENTATION_OPEN | 333 |
+| PHYSICAL_PENDING | 6 |
+| HUMAN_PENDING | 27 |
+| EXTERNAL_PENDING | 13 |
+| STANDARD_PENDING | 0 |
+| CERTIFICATION_PENDING | 4 |
+| CARRIER_PENDING | 4 |
+| VENDOR_PENDING | 0 |
+| OWNER_DECISION_PENDING | 4 |
+
+Total requirement rows (gates 0–6 + verified L0): **395**
