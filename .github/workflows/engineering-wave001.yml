@@ -1,0 +1,36 @@
+name: Engineering Wave 001
+
+on:
+  push:
+    branches: [main, 'eng/wave001-*']
+  pull_request:
+    paths:
+      - 'program/contracts/cross_device_game_contract.v1.schema.json'
+      - 'scripts/engineering_wave001/**'
+      - 'tests/engineering_wave001/**'
+      - 'artifacts/engineering_wave001/**'
+      - '.github/workflows/engineering-wave001.yml'
+
+jobs:
+  wave001-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install 'jsonschema>=4.20' pytest
+
+      - name: Wave001 contract tests
+        run: pytest tests/engineering_wave001 -q
+
+      - name: Aggregate verifier (fixture contracts)
+        run: |
+          python3 scripts/engineering_wave001/run_full_ops_wave001.py \
+            --contracts-dir tests/engineering_wave001/fixtures \
+            --write-artifacts
+          test -f artifacts/engineering_wave001/FULL_OPS_017_RESULT.json

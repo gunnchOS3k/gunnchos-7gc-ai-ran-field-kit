@@ -1,0 +1,238 @@
+{
+  "games": {
+    "anime-aggressors": {
+      "contract_version": "1.0.0",
+      "runtime_platform": "macos",
+      "probes": {
+        "core_loop": "pass",
+        "save_roundtrip": "pass",
+        "score": "pass",
+        "input": "pass",
+        "accessibility": "pass",
+        "presentation": "pass",
+        "quality": "pass",
+        "multiplayer": "pass",
+        "deterministic_replay": "pass"
+      },
+      "operationally_valid": true,
+      "capability_model": {
+        "adapted_features": [
+          "touch_overlay",
+          "gamepad_layout",
+          "hud_scale_by_device_role"
+        ],
+        "blocked_features": [
+          "console_sdk_entitlements:EXTERNAL_PENDING",
+          "ranked_online:FOUNDATION_ONLY"
+        ],
+        "required_features": [
+          "core_combat_loop",
+          "save_progression",
+          "local_versus",
+          "training_mode"
+        ]
+      }
+    },
+    "pedestrian-pursuit": {
+      "contract_version": "1.0.0",
+      "runtime_platform": "macos",
+      "probes": {
+        "core_loop": "pass",
+        "save_roundtrip": "pass",
+        "score": "pass",
+        "input": "pass",
+        "accessibility": "pass",
+        "presentation": "pass",
+        "quality": "pass",
+        "multiplayer": "pass",
+        "deterministic_replay": "pass"
+      },
+      "operationally_valid": true,
+      "capability_model": {
+        "adapted_features": [
+          "touch_assist_steer",
+          "device_role_maps",
+          "colorblind_hud_markers"
+        ],
+        "blocked_features": [
+          "real_gps:SIMULATED_ONLY",
+          "console_sdk:EXTERNAL_PENDING"
+        ],
+        "required_features": [
+          "race_core_loop",
+          "cup_progression",
+          "save_progression",
+          "time_trial"
+        ]
+      }
+    },
+    "archive-of-life-artifact-world": {
+      "contract_version": "1.0.0",
+      "runtime_platform": "node",
+      "probes": {
+        "core_loop": "pass",
+        "save_roundtrip": "pass",
+        "score": "pass",
+        "input": "pass",
+        "accessibility": "pass",
+        "presentation": "pass",
+        "quality": "pass",
+        "multiplayer": "not_applicable",
+        "deterministic_replay": "not_applicable"
+      },
+      "operationally_valid": true,
+      "capability_model": {
+        "required_features": [
+          "exploration_core_loop",
+          "save_progression",
+          "archivedex",
+          "expedition_system"
+        ],
+        "adapted_features": [
+          "capacitor_android",
+          "responsive_web_layout",
+          "offline_snapshot"
+        ],
+        "blocked_features": [
+          "cloud_sync:NOT_CLAIMED",
+          "store_certification:EXTERNAL_PENDING"
+        ]
+      }
+    },
+    "beatlink-party": {
+      "contract_version": "1.0.0",
+      "runtime_platform": "node",
+      "probes": {
+        "core_loop": "pass",
+        "save_roundtrip": "pass",
+        "score": "pass",
+        "input": "pass",
+        "accessibility": "pass",
+        "presentation": "pass",
+        "quality": "pass",
+        "multiplayer": "pass",
+        "deterministic_replay": "pass"
+      },
+      "operationally_valid": true,
+      "capability_model": {
+        "required_features": [
+          "party_room",
+          "beat_tap_scoring",
+          "local_fixture_songs",
+          "audience_hype"
+        ],
+        "adapted_features": [
+          "host_web_embed",
+          "phone_controller",
+          "device_role_profiles"
+        ],
+        "blocked_features": [
+          "copyrighted_stream_rip:BLOCKED",
+          "public_internet_join_without_auth:EXTERNAL_PENDING"
+        ]
+      }
+    }
+  },
+  "requirements": {
+    "GAME-CROSS-001": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-002": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-003": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-004": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-005": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-006": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-007": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-008": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-009": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-010": {
+      "anime-aggressors": false,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": false,
+      "beatlink-party": true
+    },
+    "GAME-CROSS-011": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "GATE-1-005": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "SYS-MISSION-006": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    },
+    "FULL-OPS-017": {
+      "anime-aggressors": true,
+      "pedestrian-pursuit": true,
+      "archive-of-life-artifact-world": true,
+      "beatlink-party": true
+    }
+  },
+  "rules_parity": {
+    "rules_versions_observed": {
+      "anime-aggressors": "stock-3",
+      "pedestrian-pursuit": "pp-race-v1",
+      "archive-of-life-artifact-world": "aol-core-v1",
+      "beatlink-party": "beatlink-party-v1"
+    },
+    "ruleset_ids_observed": {
+      "anime-aggressors": "stock-3",
+      "pedestrian-pursuit": "Quick Race",
+      "archive-of-life-artifact-world": "expedition_companion",
+      "beatlink-party": "party_room_metronome"
+    },
+    "cross_game_rules_version_collisions": 4,
+    "note": "Per-game rules_version must be stable across device profiles within each game repo"
+  }
+}
