@@ -1,0 +1,27 @@
+name: Engineering Wave 003 aggregate
+
+on:
+  push:
+    branches: [main, 'eng/wave003-aggregate']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave003/**'
+      - 'tests/engineering_wave003/**'
+      - '.github/workflows/engineering-wave003.yml'
+
+jobs:
+  wave003-aggregate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Wave003 aggregate integrity test
+        run: pytest tests/engineering_wave003 -q
