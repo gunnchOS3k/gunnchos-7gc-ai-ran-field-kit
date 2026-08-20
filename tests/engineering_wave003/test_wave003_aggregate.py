@@ -18,7 +18,7 @@ def test_wave003_aggregate_integrity_repair_metadata():
     assert agg["DO_NOT_MERGE_UNTIL_GUNNCHAI_WAVE003_INTEGRITY_REPAIR_ACCEPTED"] is True
     assert agg["BASELINE_COUNTS_UPDATED"] is False
     assert agg["historical_gunnchai_pr"]["number"] == 44
-    assert agg["authoritative_repair_pr"]["head_sha"] == "5b924a30e240495a9f3325fbd14cc3d3fd1abc4c"
+    assert agg["authoritative_repair_pr"]["head_sha"] == "2ed4c430bb88809cc49248d677f543d5ae012918"
     assert agg["INDEPENDENT_DIGITAL_REPRODUCTION"] == "PASS"
     assert agg["VALIDATED"] == 19
     assert len(agg["requirement_classification"]) == 19
