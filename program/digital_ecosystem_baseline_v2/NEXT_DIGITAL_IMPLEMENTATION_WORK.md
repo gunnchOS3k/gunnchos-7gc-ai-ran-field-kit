@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 98
+Count: 86
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,18 +16,6 @@ Count: 98
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- NET-ORCH-001: Anywhere engineering objective definition
-- NET-ORCH-014: Orchestrator evaluates: Availability
-- NET-ORCH-015: Orchestrator evaluates: Signal quality
-- NET-ORCH-016: Orchestrator evaluates: Latency
-- NET-ORCH-017: Orchestrator evaluates: Jitter
-- NET-ORCH-018: Orchestrator evaluates: Packet loss
-- NET-ORCH-019: Orchestrator evaluates: Cost
-- NET-ORCH-020: Orchestrator evaluates: Energy consumption
-- NET-ORCH-021: Orchestrator evaluates: Security
-- NET-ORCH-022: Orchestrator evaluates: Data limits
-- NET-ORCH-023: Orchestrator evaluates: Application priority
-- NET-ORCH-024: Orchestrator evaluates: User preference
 - NET-ORCH-026: Orchestrator evaluates: Satellite visibility
 - NET-ORCH-027: Orchestrator evaluates: Local infrastructure status
 - NET-ORCH-028: Orchestrator capability: Seamless bearer transition where technically possible
@@ -52,4 +40,16 @@ Count: 98
 - GAME-AOL-002: Scientific record field: Canonical identifier
 - GAME-AOL-003: Scientific record field: Scientific name
 - GAME-AOL-004: Scientific record field: Taxonomic authority
-- … and 48 more
+- GAME-AOL-005: Scientific record field: Source organization
+- GAME-AOL-006: Scientific record field: Source record identifier
+- GAME-AOL-007: Scientific record field: License
+- GAME-AOL-008: Scientific record field: Retrieval date
+- GAME-AOL-009: Scientific record field: Version
+- GAME-AOL-010: Scientific record field: Geographic provenance
+- GAME-AOL-011: Scientific record field: Time range
+- GAME-AOL-012: Scientific record field: Confidence or uncertainty
+- GAME-AOL-013: Scientific record field: Editorial status
+- GAME-AOL-014: Scientific record field: Citation shown to the user where appropriate
+- GAME-AOL-015: No fake source integration claims
+- GAME-PP-001: Pedestrian Pursuit: Sprinting
+- … and 36 more

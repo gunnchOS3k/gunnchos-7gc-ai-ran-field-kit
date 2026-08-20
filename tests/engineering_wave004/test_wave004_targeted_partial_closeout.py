@@ -69,8 +69,8 @@ def test_closeout_result_and_queues():
     assert result["OS_PLATFORM_020"]["plain_subprocess_counts_as_sandbox"] is False
     assert result["OS_PLATFORM_020"]["kernel_sandbox"] is False
     assert result["OS_PLATFORM_020"]["NOT_MARKED_COMPLETE"] is True
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 63
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 98
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 75
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 86
     assert totals["DIGITAL_VALIDATION_OPEN"] == 1
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
     assert len(impl["all_items"]) == totals["DIGITAL_IMPLEMENTATION_OPEN"]
