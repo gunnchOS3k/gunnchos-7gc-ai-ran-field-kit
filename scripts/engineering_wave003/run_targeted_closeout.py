@@ -490,7 +490,7 @@ def main() -> int:
                 "gunnchai_test_wave003": "gunnchAI3k:npm run test:wave003",
                 "gunnchai_eval_wave003": "gunnchAI3k:npm run eval:wave003",
                 "field_kit_aggregate": "tests/engineering_wave003/test_wave003_aggregate.py",
-                "field_kit_closeout": "tests/engineering_wave003/test_targeted_closeout.py",
+                "field_kit_closeout": "tests/engineering_wave003/test_wave003_targeted_closeout.py",
             },
         },
         "claim_boundaries": claim_boundaries,
