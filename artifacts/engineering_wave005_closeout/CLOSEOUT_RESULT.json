@@ -1,0 +1,147 @@
+{
+  "schema": "gunnchos.engineering_wave005.targeted_closeout_result.v1",
+  "generated_at_utc": "2026-08-20T21:19:28Z",
+  "phase": "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT",
+  "ENGINEERING_WAVE_005_CLOSEOUT": "COMPLETE",
+  "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+  "CURSOR_MERGED_NOTHING": true,
+  "READY_FOR_OWNER_MERGE": false,
+  "STOP_FOR_OWNER_MERGE": true,
+  "prerequisites": {
+    "gunnchos-device-os_pr_128": {
+      "pr": 128,
+      "merge_commit": "9d61569eb1affad2dfd7d9e9cbd231d60220c56f",
+      "merged_at": "2026-08-20T19:59:54Z",
+      "title": "Wave005 integrity repair: strict evaluator gate, priority authority, hard user policy"
+    },
+    "gunnchos-7gc-ai-ran-field-kit_pr_102": {
+      "pr": 102,
+      "merge_commit": "39087c294a57a6c42aa8d815a92fbeba1991c688",
+      "merged_at": "2026-08-20T20:00:10Z",
+      "title": "Wave005 integrity correction aggregate: strict decision-engine evidence"
+    },
+    "accepted_main_shas": {
+      "gunnchos-device-os": "9d61569eb1affad2dfd7d9e9cbd231d60220c56f",
+      "gunnchos-7gc-ai-ran-field-kit": "39087c294a57a6c42aa8d815a92fbeba1991c688"
+    },
+    "required_ci_state": "SUCCESS"
+  },
+  "wave005_accepted_main_truth": {
+    "TARGET_REQUIREMENTS": 12,
+    "IMPLEMENTED_AND_VALIDATED": 12,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS": 0,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS_COMPUTED": true,
+    "WAVE005_COMPLETE_GATE_REQUIRES_12_OF_12": true,
+    "WAVE005_POSTMERGE_INTEGRITY_REPAIR": "PASS",
+    "BROKEN_EVALUATOR_GATE_RESULT": "REJECTED",
+    "NEVER_BEST_CASE_MISSING_INVALID": true,
+    "OS_PLATFORM_020_UNTOUCHED": true,
+    "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false,
+    "portable_provenance": true,
+    "priority_authority_ok": true,
+    "preference_soft_hard_ok": true
+  },
+  "pre_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 63,
+    "DIGITAL_IMPLEMENTATION_OPEN": 98,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "EVIDENCE_MAPPING_OPEN": 0
+  },
+  "post_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 75,
+    "DIGITAL_IMPLEMENTATION_OPEN": 86,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "EVIDENCE_MAPPING_OPEN": 0,
+    "DIGITAL_CONTROLLABLE_POOL": 162
+  },
+  "targets_digital_implementation_complete": [
+    "NET-ORCH-001",
+    "NET-ORCH-014",
+    "NET-ORCH-015",
+    "NET-ORCH-016",
+    "NET-ORCH-017",
+    "NET-ORCH-018",
+    "NET-ORCH-019",
+    "NET-ORCH-020",
+    "NET-ORCH-021",
+    "NET-ORCH-022",
+    "NET-ORCH-023",
+    "NET-ORCH-024"
+  ],
+  "targets_digital_validation_open": [],
+  "OS_PLATFORM_020": {
+    "implementation_present": true,
+    "validation_state": "DIGITAL_VALIDATION_OPEN",
+    "blocker_class": "BLOCKED_ENVIRONMENT",
+    "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+    "plain_subprocess_counts_as_sandbox": false,
+    "kernel_sandbox": false,
+    "OS_PLATFORM_020_CHANGED": false,
+    "NOT_MARKED_COMPLETE": true
+  },
+  "UNTARGETED_ROWS_CHANGED": 0,
+  "UNEXPECTED_CHANGED_IDS": [],
+  "UNRELATED_IMPLEMENTATION_QUEUE_ROWS_CHANGED": 0,
+  "claim_boundaries": {
+    "CARRIER_ACCEPTED": false,
+    "FIELD_MEASURED_PERFORMANCE": false,
+    "HUMAN_E6": false,
+    "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+    "PHYSICAL_VALIDATION": false,
+    "PRODUCTION_APP_PRIORITY_SIGNING": false,
+    "PRODUCTION_NETWORK_OPTIMALITY": false,
+    "REAL_NTN_MODEM_VALIDATED": false,
+    "STANDARDIZED_6G": false,
+    "TPM_KEYSTORE": false
+  },
+  "closeout_validation": {
+    "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+    "errors": [],
+    "accepted_main_shas": {
+      "gunnchos-device-os": "9d61569eb1affad2dfd7d9e9cbd231d60220c56f",
+      "gunnchos-7gc-ai-ran-field-kit": "39087c294a57a6c42aa8d815a92fbeba1991c688"
+    },
+    "claim_boundaries": {
+      "CARRIER_ACCEPTED": false,
+      "FIELD_MEASURED_PERFORMANCE": false,
+      "HUMAN_E6": false,
+      "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+      "PHYSICAL_VALIDATION": false,
+      "PRODUCTION_APP_PRIORITY_SIGNING": false,
+      "PRODUCTION_NETWORK_OPTIMALITY": false,
+      "REAL_NTN_MODEM_VALIDATED": false,
+      "STANDARDIZED_6G": false,
+      "TPM_KEYSTORE": false
+    },
+    "EXPECTED_AFTER": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 75,
+      "DIGITAL_IMPLEMENTATION_OPEN": 86,
+      "DIGITAL_VALIDATION_OPEN": 1,
+      "EVIDENCE_MAPPING_OPEN": 0
+    },
+    "DIGITAL_CONTROLLABLE_POOL": 162,
+    "OS_PLATFORM_020_CHANGED": false,
+    "cross_checks": {
+      "complete_delta": 12,
+      "impl_open_delta": 12,
+      "validation_open_unchanged": true,
+      "len_next_impl_matches_open": true,
+      "len_next_val_matches_open": true,
+      "next_val_only_020": true
+    }
+  },
+  "queue_integrity": {
+    "len_NEXT_IMPL": 86,
+    "DIGITAL_IMPLEMENTATION_OPEN": 86,
+    "len_NEXT_VALIDATION": 1,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "NEXT_VALIDATION_only": [
+      "OS-PLATFORM-020"
+    ]
+  },
+  "non_digital_pending_preserved": true,
+  "non_digital_pending_rows": 257
+}

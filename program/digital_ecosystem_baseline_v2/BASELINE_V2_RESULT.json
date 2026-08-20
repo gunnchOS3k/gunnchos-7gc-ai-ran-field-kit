@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.result",
-  "generated_at_utc": "2026-08-20T18:58:21Z",
-  "phase": "ENGINEERING_WAVE_004_TARGETED_PARTIAL_CLOSEOUT",
+  "generated_at_utc": "2026-08-20T21:19:28Z",
+  "phase": "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT",
   "BASELINE_V2_STATE": "DRAFT_PR",
   "STOP_FOR_OWNER_MERGE": true,
   "BASELINE_V2_READY_FOR_OWNER_MERGE": true,
@@ -30,14 +30,14 @@
   "ARTIFACT_BLOAT_STATUS": "SUMMARY_ONLY",
   "totals": {
     "ATOMIC_TOTAL": 419,
-    "IMPLEMENTED": 81,
-    "DIGITALLY_VERIFIED": 61,
+    "IMPLEMENTED": 93,
+    "DIGITALLY_VERIFIED": 73,
     "USER_READY_DIGITAL_RC": 0,
     "HUMAN_OR_TARGET_HARDWARE_VALIDATED": 0,
     "EXTERNAL_OR_CERTIFIED": 0,
     "PRODUCTION_OR_FIELD": 0,
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 63,
-    "DIGITAL_IMPLEMENTATION_OPEN": 98,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 75,
+    "DIGITAL_IMPLEMENTATION_OPEN": 86,
     "DIGITAL_VALIDATION_OPEN": 1,
     "EVIDENCE_MAPPING_OPEN": 0,
     "HUMAN_PENDING_DIMENSION": 88,
@@ -48,9 +48,9 @@
     "CARRIER_PENDING_DIMENSION": 102,
     "VENDOR_PENDING_DIMENSION": 18,
     "OWNER_DECISION_PENDING_DIMENSION": 4,
-    "L0_DEFINED": 314,
+    "L0_DEFINED": 302,
     "L1_IMPLEMENTED": 44,
-    "L2_DIGITALLY_VERIFIED": 61,
+    "L2_DIGITALLY_VERIFIED": 73,
     "L3_USER_READY_DIGITAL_RC": 0,
     "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED": 0,
     "L5_EXTERNAL_OR_CERTIFIED": 0,
@@ -159,9 +159,9 @@
   "PRE_ENGINEERING_HYGIENE_PASS": false,
   "ENGINEERING_NEXT_WAVE_ALLOWED": false,
   "work_state_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 63,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 75,
     "PHYSICAL_PENDING": 154,
-    "DIGITAL_IMPLEMENTATION_OPEN": 98,
+    "DIGITAL_IMPLEMENTATION_OPEN": 86,
     "HUMAN_PENDING": 24,
     "EXTERNAL_PENDING": 11,
     "DIGITAL_VALIDATION_OPEN": 1,
@@ -329,5 +329,54 @@
     "KERNEL_SANDBOX": false,
     "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false
   },
-  "READY_FOR_OWNER_MERGE": true
+  "READY_FOR_OWNER_MERGE": false,
+  "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT": {
+    "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+    "errors": [],
+    "accepted_main_shas": {
+      "gunnchos-device-os": "9d61569eb1affad2dfd7d9e9cbd231d60220c56f",
+      "gunnchos-7gc-ai-ran-field-kit": "39087c294a57a6c42aa8d815a92fbeba1991c688"
+    },
+    "claim_boundaries": {
+      "CARRIER_ACCEPTED": false,
+      "FIELD_MEASURED_PERFORMANCE": false,
+      "HUMAN_E6": false,
+      "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+      "PHYSICAL_VALIDATION": false,
+      "PRODUCTION_APP_PRIORITY_SIGNING": false,
+      "PRODUCTION_NETWORK_OPTIMALITY": false,
+      "REAL_NTN_MODEM_VALIDATED": false,
+      "STANDARDIZED_6G": false,
+      "TPM_KEYSTORE": false
+    },
+    "EXPECTED_AFTER": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 75,
+      "DIGITAL_IMPLEMENTATION_OPEN": 86,
+      "DIGITAL_VALIDATION_OPEN": 1,
+      "EVIDENCE_MAPPING_OPEN": 0
+    },
+    "DIGITAL_CONTROLLABLE_POOL": 162,
+    "OS_PLATFORM_020_CHANGED": false,
+    "cross_checks": {
+      "complete_delta": 12,
+      "impl_open_delta": 12,
+      "validation_open_unchanged": true,
+      "len_next_impl_matches_open": true,
+      "len_next_val_matches_open": true,
+      "next_val_only_020": true
+    }
+  },
+  "wave005_claim_boundaries": {
+    "CARRIER_ACCEPTED": false,
+    "FIELD_MEASURED_PERFORMANCE": false,
+    "HUMAN_E6": false,
+    "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+    "PHYSICAL_VALIDATION": false,
+    "PRODUCTION_APP_PRIORITY_SIGNING": false,
+    "PRODUCTION_NETWORK_OPTIMALITY": false,
+    "REAL_NTN_MODEM_VALIDATED": false,
+    "STANDARDIZED_6G": false,
+    "TPM_KEYSTORE": false
+  }
 }

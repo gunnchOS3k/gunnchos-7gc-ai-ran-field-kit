@@ -1,21 +1,22 @@
-# Master completion register (Wave 004 targeted partial closeout)
+# Master completion register (Wave 005 targeted closeout)
 
-Generated: 2026-08-20T18:58:21Z
+Generated: 2026-08-20T21:19:28Z
 
 - ATOMIC_TOTAL: 419
-- DIGITAL_IMPLEMENTATION_COMPLETE: 63
-- DIGITAL_IMPLEMENTATION_OPEN: 98
+- DIGITAL_IMPLEMENTATION_COMPLETE: 75
+- DIGITAL_IMPLEMENTATION_OPEN: 86
 - DIGITAL_VALIDATION_OPEN: 1
 
-- **OS-PLATFORM-008** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): secure persistent package lifecycle with DEV Ed25519 signing; PRODUCTION_SIGNING remains false. IMPLEMENTED_A
-- **OS-PLATFORM-009** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): PermissionsManager least-privilege with role allowlists. IMPLEMENTED_AND_VALIDATED.
-- **OS-PLATFORM-010** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): local AI runtime micro-deterministic; GENERAL_VLM/GENERAL_ASR false. IMPLEMENTED_AND_VALIDATED.
-- **OS-PLATFORM-011** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): ConnectivityOrchestrator software bearer selection; CARRIER_ACCEPTED/STANDARDIZED_6G remain false. IMPLEMENTE
-- **OS-PLATFORM-012** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): Persistent OfflineSyncEngine A→B→C restart apply-once; corruption safe-fails. IMPLEMENTED_AND_VALIDATED.
-- **OS-PLATFORM-013** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): software Fernet keystore; TPM_KEYSTORE remains false. IMPLEMENTED_AND_VALIDATED.
-- **OS-PLATFORM-016** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): ABUpdateManager DEV-signed OTA slots; not production signing. IMPLEMENTED_AND_VALIDATED.
-- **OS-PLATFORM-018** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): userspace recovery env; not hardware recovery partition. IMPLEMENTED_AND_VALIDATED.
 - **OS-PLATFORM-020** — DIGITAL_VALIDATION_OPEN — Wave 004 accepted-main (#126): sandbox implementation present; SANDBOX_EXECUTION_VALIDATED=false / LOCAL_SANDBOX_VALIDATION=BLOCKED_ENVIRONM
-- **OS-PLATFORM-021** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): DiagnosticsLog persistent redacted JSONL. IMPLEMENTED_AND_VALIDATED.
-- **OS-PLATFORM-022** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): persisted accessibility per profile; WCAG_VALIDATED/HUMAN_ACCESSIBILITY_VALIDATED remain false. IMPLEMENTED_A
-- **OS-PLATFORM-023** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 004 accepted-main (#126): persisted role policy with admin-authorized role change. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-001** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): AnywhereServiceObjective typed runtime with service classes and floors; DIGITAL_SYNTHETIC_EVIDENCE. IMPLEMENT
+- **NET-ORCH-014** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): availability + freshness/failure/recovery handling. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-015** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): signal quality normalization with provenance; unknown!=perfect. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-016** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): latency ms with service-aware thresholds; negatives rejected. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-017** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): jitter separate from latency; interactive more sensitive. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-018** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): packet loss ratio 0..1; higher loss never improves score. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-019** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): cost policy abstractions; cannot bypass hard security. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-020** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): modeled energy with battery-saving influence; not measured battery draw. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-021** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): security hard policy; fast/free hostile rejected. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-022** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): data limits with hard exhaustion reject; background prefers unmetered. IMPLEMENTED_AND_VALIDATED.
+- **NET-ORCH-023** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): application priority with PriorityAuthority; soft influence; self-asserted CRITICAL blocked; PRODUCTION_APP_P
+- **NET-ORCH-024** — DIGITAL_IMPLEMENTATION_COMPLETE — Wave 005 accepted-main (#128): user preference SOFT|HARD policy persisted; hard avoid enforced; security remains mandatory; TPM_KEYSTORE=fal

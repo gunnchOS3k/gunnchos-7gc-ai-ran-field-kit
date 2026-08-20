@@ -1,9 +1,9 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-20T18:58:21Z",
+  "generated_at_utc": "2026-08-20T21:19:28Z",
   "top_blockers": [
-    "Wave 004 targeted partial closeout draft PR pending owner merge",
-    "DIGITAL_IMPLEMENTATION_OPEN=98 rows need digital engineering",
+    "Wave 005 targeted closeout draft PR pending owner merge",
+    "DIGITAL_IMPLEMENTATION_OPEN=86 rows need digital engineering",
     "DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)",
     "OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false"
   ],
@@ -316,6 +316,44 @@
       "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
       "plain_subprocess_counts_as_sandbox": false,
       "kernel_sandbox": false
+    }
+  },
+  "wave005_closeout": {
+    "targets_closed": [
+      "NET-ORCH-001",
+      "NET-ORCH-014",
+      "NET-ORCH-015",
+      "NET-ORCH-016",
+      "NET-ORCH-017",
+      "NET-ORCH-018",
+      "NET-ORCH-019",
+      "NET-ORCH-020",
+      "NET-ORCH-021",
+      "NET-ORCH-022",
+      "NET-ORCH-023",
+      "NET-ORCH-024"
+    ],
+    "targets_validation_open": [],
+    "claim_boundaries": {
+      "CARRIER_ACCEPTED": false,
+      "FIELD_MEASURED_PERFORMANCE": false,
+      "HUMAN_E6": false,
+      "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+      "PHYSICAL_VALIDATION": false,
+      "PRODUCTION_APP_PRIORITY_SIGNING": false,
+      "PRODUCTION_NETWORK_OPTIMALITY": false,
+      "REAL_NTN_MODEM_VALIDATED": false,
+      "STANDARDIZED_6G": false,
+      "TPM_KEYSTORE": false
+    },
+    "OS_PLATFORM_020": {
+      "implementation_present": true,
+      "validation_state": "DIGITAL_VALIDATION_OPEN",
+      "blocker_class": "BLOCKED_ENVIRONMENT",
+      "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+      "plain_subprocess_counts_as_sandbox": false,
+      "kernel_sandbox": false,
+      "changed": false
     }
   }
 }
