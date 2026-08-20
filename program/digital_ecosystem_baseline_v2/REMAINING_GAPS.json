@@ -1,11 +1,11 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-20T01:34:15Z",
+  "generated_at_utc": "2026-08-20T18:58:21Z",
   "top_blockers": [
-    "Wave 003 closeout draft PR pending owner merge",
-    "DIGITAL_IMPLEMENTATION_OPEN=110 rows need digital engineering",
-    "DIGITAL_VALIDATION_OPEN=0 rows need verification/reproduction",
-    "gunnchAI local-intelligence Wave 003 independently validated on accepted main; claim boundaries preserved"
+    "Wave 004 targeted partial closeout draft PR pending owner merge",
+    "DIGITAL_IMPLEMENTATION_OPEN=98 rows need digital engineering",
+    "DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)",
+    "OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false"
   ],
   "gates_7_8_requirement_count": 28,
   "device_os_103": {
@@ -276,6 +276,46 @@
       "HUMAN_ACCESSIBILITY_VALIDATED": false,
       "NOT_TRAINED_GAME_PLAYING_AGENT": true,
       "VALIDATION_IMPORTS_REQUIREMENT_PROOF": false
+    }
+  },
+  "wave004_closeout": {
+    "targets_closed": [
+      "OS-PLATFORM-008",
+      "OS-PLATFORM-009",
+      "OS-PLATFORM-010",
+      "OS-PLATFORM-011",
+      "OS-PLATFORM-012",
+      "OS-PLATFORM-013",
+      "OS-PLATFORM-016",
+      "OS-PLATFORM-018",
+      "OS-PLATFORM-021",
+      "OS-PLATFORM-022",
+      "OS-PLATFORM-023"
+    ],
+    "targets_validation_open": [
+      "OS-PLATFORM-020"
+    ],
+    "claim_boundaries": {
+      "HUMAN_E6": false,
+      "WCAG_VALIDATED": false,
+      "HUMAN_ACCESSIBILITY_VALIDATED": false,
+      "GENERAL_VLM": false,
+      "GENERAL_ASR": false,
+      "GENERAL_MT": false,
+      "CARRIER_ACCEPTED": false,
+      "STANDARDIZED_6G": false,
+      "PRODUCTION_SIGNING": false,
+      "TPM_KEYSTORE": false,
+      "KERNEL_SANDBOX": false,
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false
+    },
+    "OS_PLATFORM_020": {
+      "implementation_present": true,
+      "validation_state": "DIGITAL_VALIDATION_OPEN",
+      "blocker_class": "BLOCKED_ENVIRONMENT",
+      "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+      "plain_subprocess_counts_as_sandbox": false,
+      "kernel_sandbox": false
     }
   }
 }

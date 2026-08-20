@@ -1,0 +1,144 @@
+{
+  "schema": "gunnchos.engineering_wave004.targeted_partial_closeout_result.v1",
+  "generated_at_utc": "2026-08-20T18:58:21Z",
+  "phase": "ENGINEERING_WAVE_004_TARGETED_PARTIAL_CLOSEOUT",
+  "ENGINEERING_WAVE_004_CLOSEOUT": "PARTIAL",
+  "ENGINEERING_WAVE_004_TARGETED_PARTIAL_CLOSEOUT_VALIDATION_PASS": true,
+  "CURSOR_MERGED_NOTHING": true,
+  "READY_FOR_OWNER_MERGE": true,
+  "STOP_FOR_OWNER_MERGE": true,
+  "prerequisites": {
+    "gunnchos-device-os_pr_126": {
+      "pr": 126,
+      "merge_commit": "5084006d20d6ab0cf00ece92ca76095d98fb55d3",
+      "merged_at": "2026-08-20T17:14:25Z",
+      "title": "Wave004 final integrity: secure package lifecycle, restart-safe sync, enforced sandbox"
+    },
+    "gunnchos-7gc-ai-ran-field-kit_pr_99": {
+      "pr": 99,
+      "merge_commit": "c995c97707541dca57dde4990c4115dfa0d666d5",
+      "merged_at": "2026-08-20T17:21:32Z",
+      "title": "Wave004 final integrity aggregate: package, sync, sandbox closure"
+    },
+    "accepted_main_shas": {
+      "gunnchos-device-os": "5084006d20d6ab0cf00ece92ca76095d98fb55d3",
+      "gunnchos-7gc-ai-ran-field-kit": "c995c97707541dca57dde4990c4115dfa0d666d5"
+    },
+    "required_ci_state": "SUCCESS"
+  },
+  "wave004_accepted_main_truth": {
+    "TARGET_REQUIREMENTS": 12,
+    "IMPLEMENTED_AND_VALIDATED": 11,
+    "OS-PLATFORM-020": "BLOCKED_ENVIRONMENT",
+    "UNCONDITIONAL_TRUE_CLASSIFIERS": 0,
+    "COMPLETE_GATE_REQUIRES_12_OF_12": true,
+    "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+    "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false,
+    "SANDBOX_EXECUTION_VALIDATED": false,
+    "KERNEL_SANDBOX": false
+  },
+  "pre_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 52,
+    "DIGITAL_IMPLEMENTATION_OPEN": 110,
+    "DIGITAL_VALIDATION_OPEN": 0,
+    "EVIDENCE_MAPPING_OPEN": 0
+  },
+  "post_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 63,
+    "DIGITAL_IMPLEMENTATION_OPEN": 98,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "EVIDENCE_MAPPING_OPEN": 0
+  },
+  "targets_digital_implementation_complete": [
+    "OS-PLATFORM-008",
+    "OS-PLATFORM-009",
+    "OS-PLATFORM-010",
+    "OS-PLATFORM-011",
+    "OS-PLATFORM-012",
+    "OS-PLATFORM-013",
+    "OS-PLATFORM-016",
+    "OS-PLATFORM-018",
+    "OS-PLATFORM-021",
+    "OS-PLATFORM-022",
+    "OS-PLATFORM-023"
+  ],
+  "targets_digital_validation_open": [
+    "OS-PLATFORM-020"
+  ],
+  "OS_PLATFORM_020": {
+    "implementation_present": true,
+    "validation_state": "DIGITAL_VALIDATION_OPEN",
+    "blocker_class": "BLOCKED_ENVIRONMENT",
+    "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+    "plain_subprocess_counts_as_sandbox": false,
+    "kernel_sandbox": false,
+    "next_action": "Re-run mandatory sandbox suite on working isolation backend environment (bubblewrap namespaces or proven sandbox-exec).",
+    "NOT_MARKED_COMPLETE": true
+  },
+  "UNTARGETED_ROWS_CHANGED": 0,
+  "UNEXPECTED_CHANGED_IDS": [],
+  "UNRELATED_IMPLEMENTATION_QUEUE_ROWS_CHANGED": 0,
+  "claim_boundaries": {
+    "HUMAN_E6": false,
+    "WCAG_VALIDATED": false,
+    "HUMAN_ACCESSIBILITY_VALIDATED": false,
+    "GENERAL_VLM": false,
+    "GENERAL_ASR": false,
+    "GENERAL_MT": false,
+    "CARRIER_ACCEPTED": false,
+    "STANDARDIZED_6G": false,
+    "PRODUCTION_SIGNING": false,
+    "TPM_KEYSTORE": false,
+    "KERNEL_SANDBOX": false,
+    "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false
+  },
+  "closeout_validation": {
+    "ENGINEERING_WAVE_004_TARGETED_PARTIAL_CLOSEOUT_VALIDATION_PASS": true,
+    "errors": [],
+    "accepted_main_shas": {
+      "gunnchos-device-os": "5084006d20d6ab0cf00ece92ca76095d98fb55d3",
+      "gunnchos-7gc-ai-ran-field-kit": "c995c97707541dca57dde4990c4115dfa0d666d5"
+    },
+    "claim_boundaries": {
+      "HUMAN_E6": false,
+      "WCAG_VALIDATED": false,
+      "HUMAN_ACCESSIBILITY_VALIDATED": false,
+      "GENERAL_VLM": false,
+      "GENERAL_ASR": false,
+      "GENERAL_MT": false,
+      "CARRIER_ACCEPTED": false,
+      "STANDARDIZED_6G": false,
+      "PRODUCTION_SIGNING": false,
+      "TPM_KEYSTORE": false,
+      "KERNEL_SANDBOX": false,
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false
+    },
+    "EXPECTED_AFTER": {
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 63,
+      "DIGITAL_IMPLEMENTATION_OPEN": 98,
+      "DIGITAL_VALIDATION_OPEN": 1,
+      "EVIDENCE_MAPPING_OPEN": 0,
+      "ATOMIC_TOTAL": 419
+    }
+  },
+  "queue_integrity": {
+    "len_NEXT_IMPL": 98,
+    "DIGITAL_IMPLEMENTATION_OPEN": 98,
+    "len_NEXT_VALIDATION": 1,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "NEXT_VALIDATION_only": [
+      "OS-PLATFORM-020"
+    ]
+  },
+  "non_digital_pending_preserved": true,
+  "non_digital_pending_rows": 257,
+  "remote_ci": {
+    "pr": 100,
+    "state": "SUCCESS",
+    "checked_at_utc": "2026-08-20T19:02:05Z",
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/100"
+  },
+  "generated_at_utc_ready_flag": "2026-08-20T19:02:05Z"
+}
