@@ -1,0 +1,73 @@
+{
+  "schema": "gunnchos.engineering_wave003.aggregate.v1",
+  "wave": "003",
+  "DO_NOT_MERGE_UNTIL_GUNNCHAI_WAVE003_INTEGRITY_REPAIR_ACCEPTED": true,
+  "BASELINE_COUNTS_UPDATED": false,
+  "historical_gunnchai_pr": {
+    "number": 44,
+    "state": "MERGED",
+    "merge_sha": "a28ff83b6efe95cdb8be9d959f908516b2666367",
+    "head_sha": "8e6112004f1a1088fcbfda584691411cfcaf2aa9",
+    "branch": "eng/wave003-validation",
+    "role": "historical_wave003_evidence"
+  },
+  "authoritative_repair_pr": {
+    "repo": "gunnchAI3k",
+    "branch": "eng/wave003-integrity-repair",
+    "head_sha": "2ed4c430bb88809cc49248d677f543d5ae012918",
+    "role": "integrity_repair_correction"
+  },
+  "field_kit_pr": {
+    "number": 95,
+    "branch": "eng/wave003-aggregate"
+  },
+  "TARGET_REQUIREMENTS": 19,
+  "VALIDATED": 19,
+  "VALIDATION_STILL_OPEN": 0,
+  "RECLASSIFY_TO_IMPLEMENTATION_OPEN": 0,
+  "BLOCKED_ENVIRONMENT": 0,
+  "BLOCKED_EXTERNAL": 0,
+  "INDEPENDENT_DIGITAL_REPRODUCTION": "PASS",
+  "releaseComplete": true,
+  "requirement_classification": {
+    "AI-LOCAL-001": "VALIDATED",
+    "AI-LOCAL-002": "VALIDATED",
+    "AI-LOCAL-003": "VALIDATED",
+    "AI-LOCAL-005": "VALIDATED",
+    "AI-LOCAL-006": "VALIDATED",
+    "AI-LOCAL-007": "VALIDATED",
+    "AI-LOCAL-008": "VALIDATED",
+    "AI-LOCAL-009": "VALIDATED",
+    "AI-LOCAL-011": "VALIDATED",
+    "AI-GOV-001": "VALIDATED",
+    "AI-GOV-003": "VALIDATED",
+    "AI-GOV-004": "VALIDATED",
+    "AI-GOV-005": "VALIDATED",
+    "AI-GOV-006": "VALIDATED",
+    "AI-GOV-007": "VALIDATED",
+    "AI-GOV-008": "VALIDATED",
+    "AI-GOV-010": "VALIDATED",
+    "AI-GOV-011": "VALIDATED",
+    "AI-GOV-012": "VALIDATED"
+  },
+  "claim_flags": {
+    "GENERAL_BIAS_AUDIT": false,
+    "GENERAL_VLM": false,
+    "GENERAL_ASR": false,
+    "HUMAN_E6": false,
+    "HUMAN_ACCESSIBILITY_VALIDATED": false,
+    "NOT_TRAINED_GAME_PLAYING_AGENT": true
+  },
+  "evidence_pointers": {
+    "gunnchai_repair_head": "gunnchAI3k@2ed4c430:evidence/engineering_wave003/",
+    "independent_reproduction": "artifacts/engineering_wave003/INDEPENDENT_REPRODUCTION.json",
+    "evaluation_baseline": "artifacts/engineering_wave003/EVALUATION_BASELINE.json",
+    "bias_accessibility_evaluation": "artifacts/engineering_wave003/BIAS_ACCESSIBILITY_EVALUATION.json",
+    "monitoring_privacy": "artifacts/engineering_wave003/MONITORING_PRIVACY_RESULT.json"
+  },
+  "merge_order": [
+    "1. gunnchAI3k eng/wave003-integrity-repair (integrity repair PR)",
+    "2. gunnchos-7gc-ai-ran-field-kit eng/wave003-aggregate (#95)"
+  ],
+  "CURSOR_MERGED_NOTHING": true
+}
