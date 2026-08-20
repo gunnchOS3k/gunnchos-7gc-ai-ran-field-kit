@@ -1,0 +1,74 @@
+{
+  "schema": "gunnchos.field_kit.engineering_wave004_aggregate.v1",
+  "wave": "004",
+  "generated_at_utc": "2026-08-20T02:10:00Z",
+  "DO_NOT_MERGE_UNTIL_WAVE004_DEPENDENCY_PRS_ACCEPTED": true,
+  "DO_NOT_UPDATE_BASELINE_COUNTS": true,
+  "dependency_prs": [
+    {
+      "repo": "gunnchos-device-os",
+      "pr": 124,
+      "branch": "eng/wave004-platform-security",
+      "head_sha": "082e1a26b844d637d6b96970e1aca993afed361f",
+      "required": true
+    }
+  ],
+  "accepted_main_at_aggregate_branch": {
+    "gunnchos-device-os": "ed3c3c93c7d3b100172eb6cab2de61989ccd7ff5",
+    "gunnchAI3k": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
+    "waike-research-ops": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+    "gunnchos-7gc-ai-ran-field-kit": "2272f9fd6b487939fb1601b64621e909eeac6781"
+  },
+  "gate_field_kit_pr_96": {
+    "state": "MERGED",
+    "merged_at": "2026-08-20T02:04:23Z",
+    "head_sha": "cf8c3b53e25b69d094d32356f5072994b918803f"
+  },
+  "post_pr96_baseline_counts": {
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 52,
+    "DIGITAL_IMPLEMENTATION_OPEN": 110,
+    "DIGITAL_VALIDATION_OPEN": 0,
+    "evidence_mapping_open": 0,
+    "source": "program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json"
+  },
+  "target_requirements": [
+    "OS-PLATFORM-008",
+    "OS-PLATFORM-009",
+    "OS-PLATFORM-010",
+    "OS-PLATFORM-011",
+    "OS-PLATFORM-012",
+    "OS-PLATFORM-013",
+    "OS-PLATFORM-016",
+    "OS-PLATFORM-018",
+    "OS-PLATFORM-020",
+    "OS-PLATFORM-021",
+    "OS-PLATFORM-022",
+    "OS-PLATFORM-023"
+  ],
+  "pr_head_evidence_mirror": {
+    "primary_repo": "gunnchos-device-os",
+    "device_os_head_sha": "082e1a26b844d637d6b96970e1aca993afed361f",
+    "validated_count": 12,
+    "wave004_ok": true,
+    "artifacts": [
+      "artifacts/engineering_wave004/WAVE004_RESULT.json",
+      "artifacts/engineering_wave004/REQUIREMENT_RESULTS.json",
+      "artifacts/engineering_wave004/E2E_SCENARIOS_RESULT.json",
+      "artifacts/engineering_wave004/SECURITY_INJECTION_RESULT.json",
+      "artifacts/engineering_wave004/CLAIM_BOUNDARIES.json",
+      "artifacts/engineering_wave004/PIXEL_CLIENT_PROBE.json"
+    ]
+  },
+  "secondary_repos_required": false,
+  "claim_flags": {
+    "HUMAN_E6": false,
+    "WCAG_VALIDATED": false,
+    "GENERAL_VLM": false,
+    "GENERAL_ASR": false,
+    "GENERAL_MT": false,
+    "CARRIER_ACCEPTED": false,
+    "STANDARDIZED_6G": false,
+    "PRODUCTION_SIGNING": false,
+    "TPM_KEYSTORE": false
+  }
+}
