@@ -1,35 +1,37 @@
 {
-  "schema": "gunnchos.field_kit.engineering_wave004_aggregate.v1",
+  "schema": "gunnchos.field_kit.engineering_wave004_integrity_aggregate.v1",
   "wave": "004",
-  "generated_at_utc": "2026-08-20T02:10:00Z",
-  "DO_NOT_MERGE_UNTIL_WAVE004_DEPENDENCY_PRS_ACCEPTED": true,
+  "generated_at_utc": "2026-08-20T02:55:00Z",
+  "DO_NOT_MERGE_UNTIL_WAVE004_INTEGRITY_REPAIR_ACCEPTED": true,
   "DO_NOT_UPDATE_BASELINE_COUNTS": true,
-  "dependency_prs": [
-    {
-      "repo": "gunnchos-device-os",
-      "pr": 124,
-      "branch": "eng/wave004-platform-security",
-      "head_sha": "082e1a26b844d637d6b96970e1aca993afed361f",
-      "required": true
-    }
-  ],
+  "BASELINE_COUNTS_UPDATED": false,
+  "historical_device_os_pr": 124,
+  "historical_field_kit_pr": 97,
+  "authoritative_repair_device_os_pr": 125,
   "accepted_main_at_aggregate_branch": {
-    "gunnchos-device-os": "ed3c3c93c7d3b100172eb6cab2de61989ccd7ff5",
-    "gunnchAI3k": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
-    "waike-research-ops": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
-    "gunnchos-7gc-ai-ran-field-kit": "2272f9fd6b487939fb1601b64621e909eeac6781"
+    "gunnchos-device-os": "049914ea6389b55ee37b707241335bb8209ae7e2",
+    "gunnchos-7gc-ai-ran-field-kit": "4b84352a319377d04217cf5f9b104e0bb4cb02f7"
   },
-  "gate_field_kit_pr_96": {
-    "state": "MERGED",
-    "merged_at": "2026-08-20T02:04:23Z",
-    "head_sha": "cf8c3b53e25b69d094d32356f5072994b918803f"
-  },
-  "post_pr96_baseline_counts": {
+  "post_pr97_baseline_counts": {
     "DIGITAL_IMPLEMENTATION_COMPLETE": 52,
     "DIGITAL_IMPLEMENTATION_OPEN": 110,
     "DIGITAL_VALIDATION_OPEN": 0,
-    "evidence_mapping_open": 0,
+    "EVIDENCE_MAPPING_OPEN": 0,
     "source": "program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json"
+  },
+  "integrity_repair_dependency": {
+    "repo": "gunnchos-device-os",
+    "pr": 125,
+    "branch": "eng/wave004-integrity-repair",
+    "head_sha": "84c878863daa4e2d3c8803481632c1bf8a70868c",
+    "required": true,
+    "PRIMARY_REPAIR_TARGETS": [
+      "OS-PLATFORM-008",
+      "OS-PLATFORM-012",
+      "OS-PLATFORM-020",
+      "OS-PLATFORM-022",
+      "OS-PLATFORM-023"
+    ]
   },
   "target_requirements": [
     "OS-PLATFORM-008",
@@ -47,15 +49,20 @@
   ],
   "pr_head_evidence_mirror": {
     "primary_repo": "gunnchos-device-os",
-    "device_os_head_sha": "082e1a26b844d637d6b96970e1aca993afed361f",
+    "device_os_head_sha": "84c878863daa4e2d3c8803481632c1bf8a70868c",
     "validated_count": 12,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS": 0,
+    "WAVE004_POSTMERGE_INTEGRITY_REPAIR": "COMPLETE",
     "wave004_ok": true,
     "artifacts": [
       "artifacts/engineering_wave004/WAVE004_RESULT.json",
+      "artifacts/engineering_wave004/INTEGRITY_REPAIR_RESULT.json",
+      "artifacts/engineering_wave004/REQUIREMENT_EVALUATOR_MATRIX.json",
       "artifacts/engineering_wave004/REQUIREMENT_RESULTS.json",
       "artifacts/engineering_wave004/E2E_SCENARIOS_RESULT.json",
       "artifacts/engineering_wave004/SECURITY_INJECTION_RESULT.json",
       "artifacts/engineering_wave004/CLAIM_BOUNDARIES.json",
+      "artifacts/engineering_wave004/RUNTIME_STATUS.json",
       "artifacts/engineering_wave004/PIXEL_CLIENT_PROBE.json"
     ]
   },
@@ -69,6 +76,7 @@
     "CARRIER_ACCEPTED": false,
     "STANDARDIZED_6G": false,
     "PRODUCTION_SIGNING": false,
-    "TPM_KEYSTORE": false
+    "TPM_KEYSTORE": false,
+    "KERNEL_SANDBOX": false
   }
 }
