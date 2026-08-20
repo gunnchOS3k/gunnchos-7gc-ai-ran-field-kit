@@ -1,0 +1,328 @@
+{
+  "schema": "gunnchos.engineering_wave004.security_injection.v1",
+  "total": 27,
+  "blocked": 27,
+  "leaked": 0,
+  "ok": true,
+  "cases": [
+    {
+      "case": "tampered_package_signature",
+      "blocked": true,
+      "verify": {
+        "ok": false,
+        "error": "tampered_signature"
+      }
+    },
+    {
+      "case": "revoked_signing_key",
+      "blocked": true,
+      "error": "signing_key_revoked"
+    },
+    {
+      "case": "permission_escalation",
+      "blocked": true,
+      "result": {
+        "app_id": "malware",
+        "permission": "screen_capture",
+        "decision": "deny",
+        "role": "guest",
+        "reason": "outside_role_allowlist",
+        "granted_at_ms": 1787240903053,
+        "expires_at_ms": null,
+        "mock": false
+      }
+    },
+    {
+      "case": "sandbox_escape_attempt",
+      "blocked": true,
+      "attempt": {
+        "app_id": "evil",
+        "capability": "system_service",
+        "decision": "deny",
+        "reason": "capability_dropped",
+        "isolation": "strict",
+        "mock": false,
+        "claim_boundary": "Software sandbox policy only. Does not claim kernel namespaces, seccomp, AppArmor/SELinux, or hardware isolation."
+      }
+    },
+    {
+      "case": "keystore_ciphertext_tamper",
+      "blocked": true,
+      "error": "decrypt_failed_tampered"
+    },
+    {
+      "case": "offline_sync_conflict_storm",
+      "blocked": true,
+      "merge": {
+        "status": "conflict",
+        "key": "k1",
+        "conflict": {
+          "key": "k1",
+          "local": {
+            "key": "k1",
+            "value": {
+              "v": 1
+            },
+            "replica_id": "replica-5a34c1a3",
+            "wall_time_ms": 1787240903054,
+            "vector": {
+              "replica-5a34c1a3": 1
+            },
+            "version": 1,
+            "tombstone": false
+          },
+          "remote": {
+            "key": "k1",
+            "value": {
+              "v": 2
+            },
+            "replica_id": "remote-replica",
+            "wall_time_ms": 1787240903054,
+            "vector": {
+              "remote-replica": 1
+            },
+            "version": 1,
+            "tombstone": false
+          },
+          "policy": "vector_clock",
+          "winner": "merged_lww_fallback",
+          "reason": "concurrent_then_tie_break_replica_id"
+        },
+        "resolved_value": {
+          "v": 1
+        },
+        "mock": false
+      }
+    },
+    {
+      "case": "ota_anti_rollback_attack",
+      "blocked": true,
+      "error": "signing_key_revoked"
+    },
+    {
+      "case": "ota_interrupted_update",
+      "blocked": true,
+      "stage": {
+        "ok": false,
+        "error": "signing_key_revoked"
+      },
+      "recover": {
+        "ok": true,
+        "recovered_slots": [],
+        "active_slot": "B"
+      }
+    },
+    {
+      "case": "recovery_unverified_slot_select",
+      "blocked": true,
+      "result": {
+        "ok": false,
+        "error": "no_verified_slot",
+        "selected_verified": false
+      }
+    },
+    {
+      "case": "diagnostics_log_injection",
+      "blocked": true,
+      "event": {
+        "id": "evt-13ec0216f2ce",
+        "redacted": true,
+        "ts_ms": 1787240903056,
+        "level": "info",
+        "event_type": "injection_test",
+        "details": {
+          "message": "<script>alert(1)</script>",
+          "password": "[REDACTED]"
+        },
+        "trace_id": "1b45597e10e641618a20a60b22a0c965",
+        "mock": false,
+        "persistent": true
+      }
+    },
+    {
+      "case": "role_policy_guest_sensitive_grant",
+      "blocked": true,
+      "result": {
+        "ok": true,
+        "profile_type": "guest",
+        "app_id": "spy",
+        "permission": "screen_capture",
+        "decision": "deny",
+        "role": "guest",
+        "reason": "outside_role_allowlist",
+        "granted_at_ms": 1787240903056,
+        "expires_at_ms": null,
+        "mock": false
+      }
+    },
+    {
+      "case": "connectivity_bearer_spoof",
+      "blocked": true,
+      "decision": {
+        "active_bearer": "offline",
+        "state": "offline",
+        "degraded": false,
+        "evaluation": {
+          "state": "offline",
+          "ranked": [
+            {
+              "bearer": "offline",
+              "score": -998.5
+            },
+            {
+              "bearer": "ethernet",
+              "score": -Infinity
+            },
+            {
+              "bearer": "wifi",
+              "score": -Infinity
+            },
+            {
+              "bearer": "bluetooth",
+              "score": -Infinity
+            },
+            {
+              "bearer": "cellular",
+              "score": -Infinity
+            },
+            {
+              "bearer": "ntn_simulated",
+              "score": -Infinity
+            }
+          ],
+          "active": "offline",
+          "candidate": "offline",
+          "should_switch": true,
+          "reason": "active_unavailable",
+          "claim_boundary": "Software orchestrator only. No carrier attach, no SIM/eSIM control, no radio certification claim. Cellular/NTN are generic or simulated bearer classes from device radio capability profiles \u2014 not named modems. RM520N-GL is 5G NR Sub-6 + LTE only (not NTN, not 6G). Dock is TB4 not TB5. STANDARDIZED_6G=false. CARRIER_ACCEPTED=false. Bluetooth is PAN/local.",
+          "STANDARDIZED_6G": false,
+          "CARRIER_ACCEPTED": false,
+          "RM520N_GL_NTN": false,
+          "DOCK_TB5": false,
+          "mock": false
+        }
+      }
+    },
+    {
+      "case": "package_tamper_after_install",
+      "blocked": true,
+      "install_ok": true
+    },
+    {
+      "case": "sync_queue_replay_idempotency",
+      "blocked": true,
+      "versions": [
+        1,
+        1
+      ]
+    },
+    {
+      "case": "sandbox_host_escape_script",
+      "blocked": true,
+      "execution": {
+        "ok": false,
+        "backend": "sandbox_exec_unavailable",
+        "LOCAL_SANDBOX_VALIDATION": "BLOCKED_ENVIRONMENT"
+      }
+    },
+    {
+      "case": "accessibility_profile_corruption",
+      "blocked": true,
+      "status": {
+        "ok": false,
+        "profile_id": "corrupt-me",
+        "error": "store_corrupt",
+        "wcag_validated": false,
+        "human_accessibility_review": false,
+        "claim_boundary": "Persisted accessibility preferences per profile. HUMAN_ACCESSIBILITY_VALIDATED=false, WCAG_VALIDATED=false."
+      }
+    },
+    {
+      "case": "role_self_escalation_attempt",
+      "blocked": true,
+      "error": "self_escalation_denied"
+    },
+    {
+      "case": "role_unauthorized_admin_grant",
+      "blocked": true,
+      "error": "authorization_requires_admin_or_guardian"
+    },
+    {
+      "case": "package_downgrade_attempt",
+      "blocked": true,
+      "attempt": {
+        "ok": false,
+        "error": "downgrade_rejected",
+        "package_id": "down-app",
+        "installed_version": "2.0.0",
+        "attempted_version": "1.0.0"
+      }
+    },
+    {
+      "case": "package_entrypoint_traversal",
+      "blocked": true,
+      "attempt": {
+        "ok": false,
+        "error": "unsafe_entrypoint",
+        "package_id": "ep-trav"
+      }
+    },
+    {
+      "case": "package_payload_hash_tamper",
+      "blocked": true,
+      "verify": {
+        "ok": false,
+        "error": "tampered_content_hash"
+      }
+    },
+    {
+      "case": "sync_replay_after_restart",
+      "blocked": true,
+      "replay": {
+        "ok": true,
+        "replayed": 1,
+        "remote_apply_count": 1,
+        "duplicate_suppressed": true
+      }
+    },
+    {
+      "case": "sync_corrupt_persisted_state",
+      "blocked": true,
+      "proof": {
+        "ok": true,
+        "cases": {
+          "malformed_json": {
+            "ok": false,
+            "error": "malformed_json"
+          },
+          "unsupported_schema": {
+            "ok": false,
+            "error": "unsupported_sync_schema_version"
+          },
+          "corrupt_queue_record": {
+            "ok": false,
+            "error": "corrupt_queue_record"
+          }
+        }
+      }
+    },
+    {
+      "case": "sandbox_host_private_read",
+      "blocked": true,
+      "suite_backend": "sandbox_exec_unavailable"
+    },
+    {
+      "case": "sandbox_network_escape",
+      "blocked": true,
+      "NETWORK_CONTROL_REACHABLE": true
+    },
+    {
+      "case": "sandbox_child_spawn",
+      "blocked": true
+    },
+    {
+      "case": "sandbox_cross_app_read",
+      "blocked": true
+    }
+  ]
+}
