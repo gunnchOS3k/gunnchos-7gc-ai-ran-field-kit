@@ -1,0 +1,23 @@
+name: Wave005 Aggregate
+
+on:
+  push:
+    branches: [main, 'eng/wave005-*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wave005-aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate Wave005 aggregate
+        run: python3 scripts/engineering_wave005/validate_aggregate.py
