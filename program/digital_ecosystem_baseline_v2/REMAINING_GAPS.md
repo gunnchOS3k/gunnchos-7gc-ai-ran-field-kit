@@ -1,6 +1,6 @@
-# Remaining gaps (Wave 003 closeout)
+# Remaining gaps (Wave 004 targeted partial closeout)
 
-- Wave 003 closeout draft PR pending owner merge
-- DIGITAL_IMPLEMENTATION_OPEN=110 rows need digital engineering
-- DIGITAL_VALIDATION_OPEN=0 rows need verification/reproduction
-- gunnchAI local-intelligence Wave 003 independently validated on accepted main; claim boundaries preserved
+- Wave 004 targeted partial closeout draft PR pending owner merge
+- DIGITAL_IMPLEMENTATION_OPEN=98 rows need digital engineering
+- DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)
+- OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false

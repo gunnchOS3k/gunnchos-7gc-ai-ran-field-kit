@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 110
+Count: 98
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,18 +16,6 @@ Count: 110
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- OS-PLATFORM-008: gunnchOS service: Secure application packaging
-- OS-PLATFORM-009: gunnchOS service: Permission management
-- OS-PLATFORM-010: gunnchOS service: Local AI runtime
-- OS-PLATFORM-011: gunnchOS service: Connectivity orchestration
-- OS-PLATFORM-012: gunnchOS service: Offline synchronization
-- OS-PLATFORM-013: gunnchOS service: Encrypted storage
-- OS-PLATFORM-016: gunnchOS service: Over-the-air updates
-- OS-PLATFORM-018: gunnchOS service: Recovery environment
-- OS-PLATFORM-020: gunnchOS service: Application sandboxing
-- OS-PLATFORM-021: gunnchOS service: Logging and diagnostics
-- OS-PLATFORM-022: gunnchOS service: Accessibility services
-- OS-PLATFORM-023: gunnchOS service: Parental, student, educator, and administrator profiles
 - NET-ORCH-001: Anywhere engineering objective definition
 - NET-ORCH-014: Orchestrator evaluates: Availability
 - NET-ORCH-015: Orchestrator evaluates: Signal quality
@@ -52,4 +40,16 @@ Count: 110
 - NET-ORCH-035: Orchestrator capability: Transparent degraded-mode reporting
 - GAME-BEATLINK-001: Beat Link: Host starts a room
 - GAME-BEATLINK-002: Beat Link: Players join through devices or browsers
-- … and 60 more
+- GAME-BEATLINK-003: Beat Link: Legal and supported song source selected
+- GAME-BEATLINK-004: Beat Link: Players choose active or audience roles
+- GAME-BEATLINK-005: Beat Link: Timing calibrated per device
+- GAME-BEATLINK-006: Beat Link: Performers sing/tap/swipe/play roles/complete prompts
+- GAME-BEATLINK-007: Beat Link: Audience influence on energy/awards/multipliers/conditions/result
+- GAME-BEATLINK-008: Beat Link: Individual and team outcomes produced
+- GAME-BEATLINK-009: Beat Link: Reconnect and rematch work
+- GAME-BEATLINK-010: Music links are not rip permission
+- GAME-AOL-001: Archive of Life covers known record without completeness claim
+- GAME-AOL-002: Scientific record field: Canonical identifier
+- GAME-AOL-003: Scientific record field: Scientific name
+- GAME-AOL-004: Scientific record field: Taxonomic authority
+- … and 48 more
