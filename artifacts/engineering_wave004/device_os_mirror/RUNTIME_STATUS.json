@@ -1,0 +1,148 @@
+{
+  "keystore": {
+    "schema": "gunnchos.platform.encrypted_storage.v1",
+    "claim_boundary": "Software keystore with Fernet-at-rest. Not TPM, Secure Enclave, hardware-backed keys, or FIPS-validated module.",
+    "software_keystore": true,
+    "tpm_backed": false,
+    "blob_count": 3,
+    "seed_present": true
+  },
+  "permissions_role": "student",
+  "sandbox_profiles": 10,
+  "sandbox_executor": {
+    "backend_available": "sandbox_exec",
+    "genuine_backend_available": true,
+    "kernel_sandbox": false,
+    "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+    "audit_len": 8,
+    "claim_boundary": "KERNEL_SANDBOX=true only when bubblewrap namespaces prove mandatory probes. sandbox-exec counts only when the same probes pass. PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false always."
+  },
+  "offline_sync_size": 4,
+  "package_lifecycle": {
+    "ok": true,
+    "schema_version": 1,
+    "installed_count": 7,
+    "registry_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/registry.json",
+    "claim_boundary": "DEV Ed25519 trust root (WP-013 dev_keys). Persistent install registry only; not production signing or app-store notarization.",
+    "production_signing": false
+  },
+  "connectivity_active": "wifi",
+  "diagnostics_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/diagnostics.jsonl",
+  "role_policy": {
+    "schema": "gunnchos.platform.role_policy.v1",
+    "profile_types": [
+      "student",
+      "educator",
+      "guardian",
+      "admin",
+      "child",
+      "minor",
+      "guest"
+    ],
+    "assigned_users": 11,
+    "profiles": {
+      "student-1": "student",
+      "stu-1": "student",
+      "edu-1": "educator",
+      "admin-k": "admin",
+      "user-k": "educator",
+      "guest-1": "guest",
+      "escalator": "student",
+      "student-x": "student",
+      "student-y": "student",
+      "admin-1": "admin",
+      "stu-eval": "educator"
+    },
+    "pending_requests": 3
+  },
+  "recovery": {
+    "ok": true,
+    "active_slot": "A",
+    "slots": {
+      "A": {
+        "version": "1.0.0",
+        "verified": false,
+        "corrupt": true
+      },
+      "B": {
+        "version": null,
+        "verified": false,
+        "corrupt": false
+      }
+    },
+    "userspace_only": true,
+    "claim_boundary": "Userspace recovery orchestration only. Not physical recovery partition, not verified boot chain, not factory RMA hardware path."
+  },
+  "ota_active_slot": "B",
+  "local_ai": {
+    "schema": "gunnchos.local_ai.intelligence_inventory.v1",
+    "nano": {
+      "present": false,
+      "model_id": null,
+      "tier": null,
+      "role": null,
+      "display_label": "Nano/fallback",
+      "is_nano_fallback_only": true,
+      "context_tokens": 512,
+      "quant": "Q4_K_M",
+      "parameters": "135M",
+      "filename": "SmolLM2-135M-Instruct-Q4_K_M.gguf"
+    },
+    "fast": {
+      "present": false,
+      "model_id": null,
+      "open": true,
+      "reason": "Local Fast GGUF (360M-class) not on disk \u2014 registry slot only"
+    },
+    "pro": {
+      "present": false,
+      "model_id": null,
+      "open": true,
+      "reason": "Local Pro GGUF (1.5B-class) not on disk \u2014 registry slot only"
+    },
+    "preferred": "micro-deterministic-v1",
+    "preferred_daily_tier": "micro",
+    "smollm2_is_full_intelligence_layer": false,
+    "GUNNCHAI_APP_PRODUCT_COMPLETE": false,
+    "HUMAN_E6": false,
+    "claim_boundary": "SmolLM2-135M Instruct Q4_K_M 512-ctx is Nano/fallback only. Not Local Fast, not Local Pro, not app-product-complete intelligence."
+  },
+  "accessibility": {
+    "ok": true,
+    "profile_id": "default",
+    "settings": {
+      "keyboard_navigation": true,
+      "controller_navigation": true,
+      "touch_navigation": true,
+      "screen_reader_labels": true,
+      "captions_preference": "auto",
+      "reduced_motion": false,
+      "high_contrast": false,
+      "large_text": false,
+      "simplified_language": false,
+      "focus_mode": false,
+      "color_safe_mode": false,
+      "audio_cues": true,
+      "haptic_cues": true,
+      "one_hand_mode": false,
+      "switch_access": false,
+      "voice_input": true
+    },
+    "missing_features": [],
+    "wcag_validated": false,
+    "human_accessibility_review": false,
+    "claim_boundary": "Persisted accessibility preferences per profile. HUMAN_ACCESSIBILITY_VALIDATED=false, WCAG_VALIDATED=false."
+  },
+  "claim_flags": {
+    "HUMAN_E6": false,
+    "WCAG_VALIDATED": false,
+    "GENERAL_VLM": false,
+    "GENERAL_ASR": false,
+    "GENERAL_MT": false,
+    "CARRIER_ACCEPTED": false,
+    "STANDARDIZED_6G": false,
+    "PRODUCTION_SIGNING": false,
+    "TPM_KEYSTORE": false,
+    "KERNEL_SANDBOX": false
+  }
+}

@@ -1,0 +1,954 @@
+{
+  "schema": "gunnchos.engineering_wave004.v1",
+  "wave": "004",
+  "generated_at_utc": "2026-08-20T16:34:28Z",
+  "primary_repo": "gunnchos-device-os",
+  "branch": "eng/wave004-final-integrity",
+  "head_sha": "705496cf5e63fe03fedcfac757e11f8b64385d16",
+  "target_requirements": 12,
+  "summary": {
+    "validated": 11,
+    "implemented_validation_open": 0,
+    "implementation_open": 0,
+    "blocked_environment": 1,
+    "blocked_external": 0,
+    "total": 12
+  },
+  "requirement_classification": {
+    "OS-PLATFORM-008": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Secure persistent package lifecycle with DEV signing; not production signing",
+      "evaluator": "evaluate_os_platform_008",
+      "ok": true
+    },
+    "OS-PLATFORM-009": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "PermissionsManager least-privilege with role allowlists",
+      "evaluator": "evaluate_os_platform_009",
+      "ok": true
+    },
+    "OS-PLATFORM-010": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Local AI runtime micro-deterministic; no GENERAL_VLM/ASR",
+      "evaluator": "evaluate_os_platform_010",
+      "ok": true
+    },
+    "OS-PLATFORM-011": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "ConnectivityOrchestrator software bearer selection",
+      "evaluator": "evaluate_os_platform_011",
+      "ok": true
+    },
+    "OS-PLATFORM-012": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Persistent OfflineSyncEngine A\u2192B\u2192C restart apply-once; corruption safe-fails",
+      "evaluator": "evaluate_os_platform_012",
+      "ok": true
+    },
+    "OS-PLATFORM-013": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Software Fernet keystore; not TPM",
+      "evaluator": "evaluate_os_platform_013",
+      "ok": true
+    },
+    "OS-PLATFORM-016": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "ABUpdateManager DEV-signed OTA slots",
+      "evaluator": "evaluate_os_platform_016",
+      "ok": true
+    },
+    "OS-PLATFORM-018": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Userspace recovery env; not hardware recovery partition",
+      "evaluator": "evaluate_os_platform_018",
+      "ok": true
+    },
+    "OS-PLATFORM-020": {
+      "classification": "BLOCKED_ENVIRONMENT",
+      "note": "LOCAL_SANDBOX_VALIDATION=BLOCKED_ENVIRONMENT; backend=sandbox_exec_unavailable; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false",
+      "evaluator": "evaluate_os_platform_020",
+      "ok": false
+    },
+    "OS-PLATFORM-021": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "DiagnosticsLog persistent redacted JSONL",
+      "evaluator": "evaluate_os_platform_021",
+      "ok": true
+    },
+    "OS-PLATFORM-022": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Persisted accessibility per profile; WCAG_VALIDATED=false",
+      "evaluator": "evaluate_os_platform_022",
+      "ok": true
+    },
+    "OS-PLATFORM-023": {
+      "classification": "IMPLEMENTED_AND_VALIDATED",
+      "note": "Persisted role policy with admin-authorized role change",
+      "evaluator": "evaluate_os_platform_023",
+      "ok": true
+    }
+  },
+  "e2e_scenarios": {
+    "schema": "gunnchos.engineering_wave004.e2e_scenarios.v1",
+    "total": 14,
+    "passed": 12,
+    "failed": 2,
+    "ok": false,
+    "sandbox_environment_blocked": true,
+    "scenarios": [
+      {
+        "scenario": "A",
+        "name": "signed_install_flow",
+        "ok": true,
+        "package": {
+          "ok": true,
+          "app_id": "demo-app",
+          "signature_valid": true,
+          "trust_root": "local_dev",
+          "profile": {
+            "app_id": "demo-app",
+            "app_class": "first_party",
+            "isolation": "app",
+            "granted": [
+              "device_gpu",
+              "fs_home_read",
+              "fs_home_write",
+              "fs_shared_read",
+              "ipc_bus",
+              "net_connect"
+            ],
+            "dropped": [
+              "device_camera",
+              "device_mic",
+              "exec_child",
+              "fs_shared_write",
+              "net_bind",
+              "system_service"
+            ],
+            "fs_root": "/sandbox/demo-app",
+            "net_policy": "filtered",
+            "ipc_peers": []
+          },
+          "lifecycle": {
+            "ok": true,
+            "op": "install",
+            "package_id": "demo-app",
+            "version": "1.0.0",
+            "entrypoint": "main.py",
+            "publisher": "gunnchos-dev",
+            "signer": "1a4d56b366e5039d",
+            "requested_permissions": [
+              "files_read"
+            ],
+            "manifest_digest": "390fb48dc3ab2b0640fd7006dd9b082f941aee1d48a632257f6eb0058a1e632d",
+            "installed_at_ms": 1787243668328,
+            "signature_valid": true,
+            "trust_root": "local_dev",
+            "production_signing": false,
+            "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/demo-app/signed_manifest.json",
+            "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/demo-app"
+          }
+        },
+        "sandbox_isolation": "app",
+        "permission": {
+          "app_id": "demo-app",
+          "permission": "files_read",
+          "decision": "allow",
+          "role": "student",
+          "reason": "least_privilege_allow",
+          "granted_at_ms": 1787243668329,
+          "expires_at_ms": null,
+          "mock": false
+        }
+      },
+      {
+        "scenario": "B",
+        "name": "offline_encrypted_work",
+        "ok": true,
+        "keystore": {
+          "ok": true,
+          "key": "notes",
+          "namespace": "user",
+          "bytes": 13
+        },
+        "connectivity": "wifi",
+        "sync": {
+          "flushed": 1,
+          "ok": true,
+          "result": {
+            "replica_id": "replica-cdb0676c",
+            "policy": "vector_clock",
+            "results": [
+              {
+                "status": "synced",
+                "key": "notes",
+                "applied": "causal",
+                "mock": false
+              }
+            ],
+            "store_size": 1,
+            "conflicts": [],
+            "mock": false
+          }
+        }
+      },
+      {
+        "scenario": "C",
+        "name": "local_ai_guarded",
+        "ok": true,
+        "permission": {
+          "app_id": "gunnchai-tutor",
+          "permission": "files_read",
+          "decision": "allow",
+          "role": "student",
+          "reason": "least_privilege_allow",
+          "granted_at_ms": 1787243668330,
+          "expires_at_ms": null,
+          "mock": false
+        },
+        "sandbox_gpu": {
+          "app_id": "gunnchai-tutor",
+          "capability": "device_gpu",
+          "decision": "deny",
+          "reason": "no_sandbox_profile",
+          "mock": false,
+          "claim_boundary": "Software sandbox policy only. Does not claim kernel namespaces, seccomp, AppArmor/SELinux, or hardware isolation."
+        },
+        "ai": {
+          "tier": "micro",
+          "role": "MICRO",
+          "general_vlm": false,
+          "general_asr": false
+        }
+      },
+      {
+        "scenario": "D",
+        "name": "ota_recovery",
+        "ok": true,
+        "ota": {
+          "applied": true,
+          "stage": {
+            "ok": true,
+            "target_slot": "B",
+            "status": "staged_complete"
+          },
+          "boot": {
+            "ok": true,
+            "active_slot": "B",
+            "boot_attempts": 1
+          }
+        },
+        "recovery": {
+          "ok": true,
+          "active_slot": "A",
+          "slots": {
+            "A": {
+              "version": "1.0.0",
+              "verified": false,
+              "corrupt": true
+            },
+            "B": {
+              "version": null,
+              "verified": false,
+              "corrupt": false
+            }
+          },
+          "userspace_only": true,
+          "claim_boundary": "Userspace recovery orchestration only. Not physical recovery partition, not verified boot chain, not factory RMA hardware path."
+        }
+      },
+      {
+        "scenario": "E",
+        "name": "diagnostics_redaction",
+        "ok": true,
+        "event_id": "evt-6bed59177406",
+        "export_count": 1
+      },
+      {
+        "scenario": "F",
+        "name": "role_policy_educator",
+        "ok": true,
+        "student_camera": "deny",
+        "educator_camera": "allow",
+        "guardian_override": "allow"
+      },
+      {
+        "scenario": "G",
+        "name": "package_restart_persistence",
+        "ok": true,
+        "install": {
+          "ok": true,
+          "op": "install",
+          "package_id": "restart-app",
+          "version": "2.0.0",
+          "entrypoint": "main.py",
+          "publisher": "gunnchos-dev",
+          "signer": "1a4d56b366e5039d",
+          "requested_permissions": [
+            "files_read"
+          ],
+          "manifest_digest": "b4fc19b64f3c7ef2068085a99902e220d6657289087893b0f05ffd8d59e7173d",
+          "installed_at_ms": 1787243668333,
+          "signature_valid": true,
+          "trust_root": "local_dev",
+          "production_signing": false,
+          "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/restart-app/signed_manifest.json",
+          "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/restart-app"
+        },
+        "reload": {
+          "ok": true,
+          "package_id": "restart-app",
+          "record": {
+            "package_id": "restart-app",
+            "version": "2.0.0",
+            "entrypoint": "main.py",
+            "publisher": "gunnchos-dev",
+            "signer": "1a4d56b366e5039d",
+            "requested_permissions": [
+              "files_read"
+            ],
+            "manifest_digest": "b4fc19b64f3c7ef2068085a99902e220d6657289087893b0f05ffd8d59e7173d",
+            "installed_at_ms": 1787243668333,
+            "signature_valid": true,
+            "trust_root": "local_dev",
+            "production_signing": false,
+            "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/restart-app/signed_manifest.json",
+            "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/restart-app"
+          },
+          "signature_valid": true,
+          "verify": {
+            "ok": true,
+            "package_id": "restart-app",
+            "version": "2.0.0"
+          }
+        }
+      },
+      {
+        "scenario": "H",
+        "name": "sync_restart_persistence",
+        "ok": true,
+        "value": {
+          "state": "saved"
+        }
+      },
+      {
+        "scenario": "I",
+        "name": "sandbox_execution",
+        "ok": false,
+        "execution": {
+          "ok": false,
+          "app_id": "untrusted-fixture",
+          "SANDBOX_BACKEND": "sandbox_exec_unavailable",
+          "KERNEL_SANDBOX": false,
+          "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+          "HOST_PRIVATE_READ_BLOCKED": true,
+          "OUTSIDE_WRITE_BLOCKED": true,
+          "NETWORK_DENIED": true,
+          "NETWORK_CONTROL_REACHABLE": true,
+          "CHILD_SPAWN_DENIED": true,
+          "CROSS_APP_READ_BLOCKED": true,
+          "PRIVILEGED_CAPABILITY_DENIED": true,
+          "SANDBOX_EXECUTION_VALIDATED": false,
+          "LOCAL_SANDBOX_VALIDATION": "BLOCKED_ENVIRONMENT",
+          "classification_hint": "BLOCKED_ENVIRONMENT",
+          "execution_enforced": false,
+          "fixture_result": {},
+          "parent_escape_detected": false,
+          "stderr_tail": "sandbox-exec: sandbox_apply: Operation not permitted\n",
+          "stdout_tail": "",
+          "exit_code": 71,
+          "fixture_ran": false,
+          "claim_boundary": "KERNEL_SANDBOX=true only when bubblewrap namespaces prove mandatory probes. sandbox-exec counts only when the same probes pass. PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false always.",
+          "backend": "sandbox_exec_unavailable",
+          "kernel_sandbox": false
+        },
+        "note": "BLOCKED_ENVIRONMENT"
+      },
+      {
+        "scenario": "J",
+        "name": "accessibility_persist",
+        "ok": true,
+        "settings": {
+          "keyboard_navigation": true,
+          "controller_navigation": true,
+          "touch_navigation": true,
+          "screen_reader_labels": true,
+          "captions_preference": "auto",
+          "reduced_motion": false,
+          "high_contrast": true,
+          "large_text": true,
+          "simplified_language": false,
+          "focus_mode": false,
+          "color_safe_mode": false,
+          "audio_cues": true,
+          "haptic_cues": true,
+          "one_hand_mode": false,
+          "switch_access": false,
+          "voice_input": true
+        }
+      },
+      {
+        "scenario": "K",
+        "name": "role_auth_persist",
+        "ok": true,
+        "profile": "educator"
+      },
+      {
+        "scenario": "L",
+        "name": "package_full_lifecycle",
+        "ok": true,
+        "proof": {
+          "ok": true,
+          "package_id": "e2e-lifecycle-l",
+          "steps": {
+            "inspect": {
+              "ok": true,
+              "schema_version": 1,
+              "installed_count": 2,
+              "registry_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/registry.json",
+              "claim_boundary": "DEV Ed25519 trust root (WP-013 dev_keys). Persistent install registry only; not production signing or app-store notarization.",
+              "production_signing": false
+            },
+            "verify_v1": {
+              "ok": true,
+              "package_id": "e2e-lifecycle-l",
+              "version": "1.0.0"
+            },
+            "install_v1": {
+              "ok": true,
+              "op": "install",
+              "package_id": "e2e-lifecycle-l",
+              "version": "1.0.0",
+              "entrypoint": "main.py",
+              "publisher": "gunnchos-dev",
+              "signer": "1a4d56b366e5039d",
+              "requested_permissions": [
+                "files_read"
+              ],
+              "manifest_digest": "893e4d18eccbf84cdfde25351c7937a90a5db20dde9bbdd3973d462a7139f30b",
+              "installed_at_ms": 1787243668360,
+              "signature_valid": true,
+              "trust_root": "local_dev",
+              "production_signing": false,
+              "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l/signed_manifest.json",
+              "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l"
+            },
+            "restart_after_install": {
+              "ok": true,
+              "package_id": "e2e-lifecycle-l",
+              "record": {
+                "package_id": "e2e-lifecycle-l",
+                "version": "1.0.0",
+                "entrypoint": "main.py",
+                "publisher": "gunnchos-dev",
+                "signer": "1a4d56b366e5039d",
+                "requested_permissions": [
+                  "files_read"
+                ],
+                "manifest_digest": "893e4d18eccbf84cdfde25351c7937a90a5db20dde9bbdd3973d462a7139f30b",
+                "installed_at_ms": 1787243668360,
+                "signature_valid": true,
+                "trust_root": "local_dev",
+                "production_signing": false,
+                "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l/signed_manifest.json",
+                "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l"
+              },
+              "signature_valid": true,
+              "verify": {
+                "ok": true,
+                "package_id": "e2e-lifecycle-l",
+                "version": "1.0.0"
+              }
+            },
+            "upgrade_v2": {
+              "ok": true,
+              "op": "upgrade",
+              "package_id": "e2e-lifecycle-l",
+              "version": "2.0.0",
+              "entrypoint": "main.py",
+              "publisher": "gunnchos-dev",
+              "signer": "1a4d56b366e5039d",
+              "requested_permissions": [
+                "files_read"
+              ],
+              "manifest_digest": "f67f4d98d9b7582fc4908cfcd273ea5a0c7e98f0f080b22be352a8d12db82b1a",
+              "installed_at_ms": 1787243668362,
+              "signature_valid": true,
+              "trust_root": "local_dev",
+              "production_signing": false,
+              "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l/signed_manifest.json",
+              "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l",
+              "previous_version": "1.0.0"
+            },
+            "restart_after_upgrade": {
+              "ok": true,
+              "package_id": "e2e-lifecycle-l",
+              "record": {
+                "package_id": "e2e-lifecycle-l",
+                "version": "2.0.0",
+                "entrypoint": "main.py",
+                "publisher": "gunnchos-dev",
+                "signer": "1a4d56b366e5039d",
+                "requested_permissions": [
+                  "files_read"
+                ],
+                "manifest_digest": "f67f4d98d9b7582fc4908cfcd273ea5a0c7e98f0f080b22be352a8d12db82b1a",
+                "installed_at_ms": 1787243668362,
+                "signature_valid": true,
+                "trust_root": "local_dev",
+                "production_signing": false,
+                "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l/signed_manifest.json",
+                "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l"
+              },
+              "signature_valid": true,
+              "verify": {
+                "ok": true,
+                "package_id": "e2e-lifecycle-l",
+                "version": "2.0.0"
+              }
+            },
+            "downgrade_attempt": {
+              "ok": false,
+              "error": "downgrade_rejected",
+              "package_id": "e2e-lifecycle-l",
+              "installed_version": "2.0.0",
+              "attempted_version": "1.5.0"
+            },
+            "uninstall": {
+              "ok": true,
+              "package_id": "e2e-lifecycle-l",
+              "removed": {
+                "package_id": "e2e-lifecycle-l",
+                "version": "2.0.0",
+                "entrypoint": "main.py",
+                "publisher": "gunnchos-dev",
+                "signer": "1a4d56b366e5039d",
+                "requested_permissions": [
+                  "files_read"
+                ],
+                "manifest_digest": "f67f4d98d9b7582fc4908cfcd273ea5a0c7e98f0f080b22be352a8d12db82b1a",
+                "installed_at_ms": 1787243668362,
+                "signature_valid": true,
+                "trust_root": "local_dev",
+                "production_signing": false,
+                "manifest_path": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l/signed_manifest.json",
+                "install_dir": "/var/folders/dp/z5frf3m511jcdpdf8v878v8h0000gn/T/wave004-evidence-k32cd3et/runtime_work/packages/installed/e2e-lifecycle-l"
+              },
+              "registry_absent": true,
+              "content_absent": true,
+              "removed_content": true,
+              "cleanup_hook": "cleanup:e2e-lifecycle-l:1787243668365"
+            },
+            "restart_after_uninstall": {
+              "ok": false,
+              "error": "not_installed",
+              "package_id": "e2e-lifecycle-l"
+            },
+            "content_absent": true
+          },
+          "claim_boundary": "DEV Ed25519 trust root (WP-013 dev_keys). Persistent install registry only; not production signing or app-store notarization."
+        }
+      },
+      {
+        "scenario": "M",
+        "name": "sync_a_b_c_restart",
+        "ok": true,
+        "proof": {
+          "schema": "gunnchos.engineering_wave004.offline_sync_a_b_c_restart.v1",
+          "process_a_pending": 1,
+          "process_b_loaded_pending": 1,
+          "process_b_remote_apply_count": 1,
+          "process_b_pending_after_flush": 0,
+          "process_c_pending": 0,
+          "process_c_replay_remote_apply_count": 1,
+          "duplicate_suppressed": true,
+          "replica_restored": true,
+          "state_hashes": {
+            "after_a": "c9d87cb33c2cc274d31b4d2507bfe27470f2e43624cf78187309dff8fc0400a2",
+            "after_b": "0e30863f22ded8024d6b0ef23e1968616159d938425c29929beed92e0ef7b6c2",
+            "after_c": "0e30863f22ded8024d6b0ef23e1968616159d938425c29929beed92e0ef7b6c2"
+          },
+          "result": "PASS",
+          "ok": true
+        }
+      },
+      {
+        "scenario": "N",
+        "name": "sandbox_enforcement_suite",
+        "ok": false,
+        "suite": {
+          "ok": false,
+          "app_id": "e2e-sandbox-n",
+          "SANDBOX_BACKEND": "sandbox_exec_unavailable",
+          "KERNEL_SANDBOX": false,
+          "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+          "HOST_PRIVATE_READ_BLOCKED": true,
+          "OUTSIDE_WRITE_BLOCKED": true,
+          "NETWORK_DENIED": true,
+          "NETWORK_CONTROL_REACHABLE": true,
+          "CHILD_SPAWN_DENIED": true,
+          "CROSS_APP_READ_BLOCKED": true,
+          "PRIVILEGED_CAPABILITY_DENIED": true,
+          "SANDBOX_EXECUTION_VALIDATED": false,
+          "LOCAL_SANDBOX_VALIDATION": "BLOCKED_ENVIRONMENT",
+          "classification_hint": "BLOCKED_ENVIRONMENT",
+          "execution_enforced": false,
+          "fixture_result": {},
+          "parent_escape_detected": false,
+          "stderr_tail": "sandbox-exec: sandbox_apply: Operation not permitted\n",
+          "stdout_tail": "",
+          "exit_code": 71,
+          "fixture_ran": false,
+          "claim_boundary": "KERNEL_SANDBOX=true only when bubblewrap namespaces prove mandatory probes. sandbox-exec counts only when the same probes pass. PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false always.",
+          "backend": "sandbox_exec_unavailable",
+          "kernel_sandbox": false
+        }
+      }
+    ]
+  },
+  "security_injection": {
+    "schema": "gunnchos.engineering_wave004.security_injection.v1",
+    "total": 27,
+    "blocked": 27,
+    "leaked": 0,
+    "ok": true,
+    "cases": [
+      {
+        "case": "tampered_package_signature",
+        "blocked": true,
+        "verify": {
+          "ok": false,
+          "error": "tampered_signature"
+        }
+      },
+      {
+        "case": "revoked_signing_key",
+        "blocked": true,
+        "error": "signing_key_revoked"
+      },
+      {
+        "case": "permission_escalation",
+        "blocked": true,
+        "result": {
+          "app_id": "malware",
+          "permission": "screen_capture",
+          "decision": "deny",
+          "role": "guest",
+          "reason": "outside_role_allowlist",
+          "granted_at_ms": 1787243668379,
+          "expires_at_ms": null,
+          "mock": false
+        }
+      },
+      {
+        "case": "sandbox_escape_attempt",
+        "blocked": true,
+        "attempt": {
+          "app_id": "evil",
+          "capability": "system_service",
+          "decision": "deny",
+          "reason": "capability_dropped",
+          "isolation": "strict",
+          "mock": false,
+          "claim_boundary": "Software sandbox policy only. Does not claim kernel namespaces, seccomp, AppArmor/SELinux, or hardware isolation."
+        }
+      },
+      {
+        "case": "keystore_ciphertext_tamper",
+        "blocked": true,
+        "error": "decrypt_failed_tampered"
+      },
+      {
+        "case": "offline_sync_conflict_storm",
+        "blocked": true,
+        "merge": {
+          "status": "conflict",
+          "key": "k1",
+          "conflict": {
+            "key": "k1",
+            "local": {
+              "key": "k1",
+              "value": {
+                "v": 1
+              },
+              "replica_id": "replica-cdb0676c",
+              "wall_time_ms": 1787243668379,
+              "vector": {
+                "replica-cdb0676c": 1
+              },
+              "version": 1,
+              "tombstone": false
+            },
+            "remote": {
+              "key": "k1",
+              "value": {
+                "v": 2
+              },
+              "replica_id": "remote-replica",
+              "wall_time_ms": 1787243668380,
+              "vector": {
+                "remote-replica": 1
+              },
+              "version": 1,
+              "tombstone": false
+            },
+            "policy": "vector_clock",
+            "winner": "merged_lww_fallback",
+            "reason": "concurrent_then_remote_newer_wall_time"
+          },
+          "resolved_value": {
+            "v": 2
+          },
+          "mock": false
+        }
+      },
+      {
+        "case": "ota_anti_rollback_attack",
+        "blocked": true,
+        "error": "signing_key_revoked"
+      },
+      {
+        "case": "ota_interrupted_update",
+        "blocked": true,
+        "stage": {
+          "ok": false,
+          "error": "signing_key_revoked"
+        },
+        "recover": {
+          "ok": true,
+          "recovered_slots": [],
+          "active_slot": "B"
+        }
+      },
+      {
+        "case": "recovery_unverified_slot_select",
+        "blocked": true,
+        "result": {
+          "ok": false,
+          "error": "no_verified_slot",
+          "selected_verified": false
+        }
+      },
+      {
+        "case": "diagnostics_log_injection",
+        "blocked": true,
+        "event": {
+          "id": "evt-18fb0344da9d",
+          "redacted": true,
+          "ts_ms": 1787243668381,
+          "level": "info",
+          "event_type": "injection_test",
+          "details": {
+            "message": "<script>alert(1)</script>",
+            "password": "[REDACTED]"
+          },
+          "trace_id": "f7cf3d56c9314ff0b3668b32dd98c28c",
+          "mock": false,
+          "persistent": true
+        }
+      },
+      {
+        "case": "role_policy_guest_sensitive_grant",
+        "blocked": true,
+        "result": {
+          "ok": true,
+          "profile_type": "guest",
+          "app_id": "spy",
+          "permission": "screen_capture",
+          "decision": "deny",
+          "role": "guest",
+          "reason": "outside_role_allowlist",
+          "granted_at_ms": 1787243668382,
+          "expires_at_ms": null,
+          "mock": false
+        }
+      },
+      {
+        "case": "connectivity_bearer_spoof",
+        "blocked": true,
+        "decision": {
+          "active_bearer": "offline",
+          "state": "offline",
+          "degraded": false,
+          "evaluation": {
+            "state": "offline",
+            "ranked": [
+              {
+                "bearer": "offline",
+                "score": -998.5
+              },
+              {
+                "bearer": "ethernet",
+                "score": -Infinity
+              },
+              {
+                "bearer": "wifi",
+                "score": -Infinity
+              },
+              {
+                "bearer": "bluetooth",
+                "score": -Infinity
+              },
+              {
+                "bearer": "cellular",
+                "score": -Infinity
+              },
+              {
+                "bearer": "ntn_simulated",
+                "score": -Infinity
+              }
+            ],
+            "active": "offline",
+            "candidate": "offline",
+            "should_switch": true,
+            "reason": "active_unavailable",
+            "claim_boundary": "Software orchestrator only. No carrier attach, no SIM/eSIM control, no radio certification claim. Cellular/NTN are generic or simulated bearer classes from device radio capability profiles \u2014 not named modems. RM520N-GL is 5G NR Sub-6 + LTE only (not NTN, not 6G). Dock is TB4 not TB5. STANDARDIZED_6G=false. CARRIER_ACCEPTED=false. Bluetooth is PAN/local.",
+            "STANDARDIZED_6G": false,
+            "CARRIER_ACCEPTED": false,
+            "RM520N_GL_NTN": false,
+            "DOCK_TB5": false,
+            "mock": false
+          }
+        }
+      },
+      {
+        "case": "package_tamper_after_install",
+        "blocked": true,
+        "install_ok": true
+      },
+      {
+        "case": "sync_queue_replay_idempotency",
+        "blocked": true,
+        "versions": [
+          1,
+          1
+        ]
+      },
+      {
+        "case": "sandbox_host_escape_script",
+        "blocked": true,
+        "execution": {
+          "ok": false,
+          "backend": "sandbox_exec_unavailable",
+          "LOCAL_SANDBOX_VALIDATION": "BLOCKED_ENVIRONMENT"
+        }
+      },
+      {
+        "case": "accessibility_profile_corruption",
+        "blocked": true,
+        "status": {
+          "ok": false,
+          "profile_id": "corrupt-me",
+          "error": "store_corrupt",
+          "wcag_validated": false,
+          "human_accessibility_review": false,
+          "claim_boundary": "Persisted accessibility preferences per profile. HUMAN_ACCESSIBILITY_VALIDATED=false, WCAG_VALIDATED=false."
+        }
+      },
+      {
+        "case": "role_self_escalation_attempt",
+        "blocked": true,
+        "error": "self_escalation_denied"
+      },
+      {
+        "case": "role_unauthorized_admin_grant",
+        "blocked": true,
+        "error": "authorization_requires_admin_or_guardian"
+      },
+      {
+        "case": "package_downgrade_attempt",
+        "blocked": true,
+        "attempt": {
+          "ok": false,
+          "error": "downgrade_rejected",
+          "package_id": "down-app",
+          "installed_version": "2.0.0",
+          "attempted_version": "1.0.0"
+        }
+      },
+      {
+        "case": "package_entrypoint_traversal",
+        "blocked": true,
+        "attempt": {
+          "ok": false,
+          "error": "unsafe_entrypoint",
+          "package_id": "ep-trav"
+        }
+      },
+      {
+        "case": "package_payload_hash_tamper",
+        "blocked": true,
+        "verify": {
+          "ok": false,
+          "error": "tampered_content_hash"
+        }
+      },
+      {
+        "case": "sync_replay_after_restart",
+        "blocked": true,
+        "replay": {
+          "ok": true,
+          "replayed": 1,
+          "remote_apply_count": 1,
+          "duplicate_suppressed": true
+        }
+      },
+      {
+        "case": "sync_corrupt_persisted_state",
+        "blocked": true,
+        "proof": {
+          "ok": true,
+          "cases": {
+            "malformed_json": {
+              "ok": false,
+              "error": "malformed_json"
+            },
+            "unsupported_schema": {
+              "ok": false,
+              "error": "unsupported_sync_schema_version"
+            },
+            "corrupt_queue_record": {
+              "ok": false,
+              "error": "corrupt_queue_record"
+            }
+          }
+        }
+      },
+      {
+        "case": "sandbox_host_private_read",
+        "blocked": true,
+        "suite_backend": "sandbox_exec_unavailable"
+      },
+      {
+        "case": "sandbox_network_escape",
+        "blocked": true,
+        "NETWORK_CONTROL_REACHABLE": true
+      },
+      {
+        "case": "sandbox_child_spawn",
+        "blocked": true
+      },
+      {
+        "case": "sandbox_cross_app_read",
+        "blocked": true
+      }
+    ]
+  },
+  "claim_flags": {
+    "HUMAN_E6": false,
+    "WCAG_VALIDATED": false,
+    "GENERAL_VLM": false,
+    "GENERAL_ASR": false,
+    "GENERAL_MT": false,
+    "CARRIER_ACCEPTED": false,
+    "STANDARDIZED_6G": false,
+    "PRODUCTION_SIGNING": false,
+    "TPM_KEYSTORE": false,
+    "KERNEL_SANDBOX": false
+  },
+  "UNCONDITIONAL_TRUE_CLASSIFIERS": 0,
+  "DO_NOT_UPDATE_BASELINE_COUNTS": true,
+  "BASELINE_COUNTS_UPDATED": false,
+  "wave004_ok": false,
+  "WAVE004_FINAL_INTEGRITY_CLOSURE": "PARTIAL"
+}
