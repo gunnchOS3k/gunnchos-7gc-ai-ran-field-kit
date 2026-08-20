@@ -1,7 +1,6 @@
-# Remaining gaps (Wave 002 closeout)
+# Remaining gaps (Wave 003 closeout)
 
-- Wave 002 closeout draft PR pending owner merge
+- Wave 003 closeout draft PR pending owner merge
 - DIGITAL_IMPLEMENTATION_OPEN=110 rows need digital engineering
-- DIGITAL_VALIDATION_OPEN=19 rows need verification/reproduction
-- SYS-MISSION-006 residual non-game application parity beyond Wave 001+002 slices
-- OS-PLATFORM-004/006 physical ring and dual-panel validation pending (digital impl complete)
+- DIGITAL_VALIDATION_OPEN=0 rows need verification/reproduction
+- gunnchAI local-intelligence Wave 003 independently validated on accepted main; claim boundaries preserved
