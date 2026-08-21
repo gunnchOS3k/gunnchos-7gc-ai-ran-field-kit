@@ -21,8 +21,12 @@ jobs:
           python-version: '3.11'
       - name: Install test deps
         run: python3 -m pip install --upgrade pip pytest
-      - name: Validate Wave009 aggregate
-        run: python3 scripts/engineering_wave009/validate_aggregate.py
+      - name: Validate Wave009 accepted-main provenance remediation
+        run: |
+          set -euo pipefail
+          OUT=$(python3 scripts/engineering_wave009/validate_aggregate.py)
+          echo "$OUT"
+          echo "$OUT" | grep -F 'WAVE009_ACCEPTED_MAIN_PROVENANCE_REMEDIATION_PASS'
       - name: Assert no Baseline v2 file changes in this PR branch tip vs main
         run: |
           set -euo pipefail

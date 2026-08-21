@@ -2,7 +2,7 @@
   "BWRAP_INVOKED_WITH_SUDO": false,
   "SANDBOX_EXECUTED_AS_ROOT": false,
   "apparmor_userns_after": "0",
-  "apparmor_userns_before": "0",
+  "apparmor_userns_before": "1",
   "branch": "HEAD",
   "bwrap_version": {
     "cmd": [
@@ -29,8 +29,8 @@
     "available": true,
     "module_file": "/usr/lib/python3/dist-packages/seccomp.cpython-312-x86_64-linux-gnu.so"
   },
-  "source_sha": "bb72edc98ca30ba7199c9bf32af7de73d4867f35",
-  "source_tree": "f65bf10f74112cc1c30b008c7e0759edd9ca2aa8",
+  "source_sha": "ba3153684aef716ef5ce76c40e1b33fb92bd8e38",
+  "source_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
   "userns_sysctl_after": {
     "apparmor_restrict_unprivileged_userns": {
       "name": "kernel.apparmor_restrict_unprivileged_userns",
@@ -56,9 +56,9 @@
         ],
         "returncode": 0,
         "stderr": "",
-        "stdout": "63791\n"
+        "stdout": "63838\n"
       },
-      "value": "63791"
+      "value": "63838"
     },
     "userns_clone": {
       "name": "kernel.unprivileged_userns_clone",
@@ -86,9 +86,9 @@
         ],
         "returncode": 0,
         "stderr": "",
-        "stdout": "0\n"
+        "stdout": "1\n"
       },
-      "value": "0"
+      "value": "1"
     },
     "max_user_namespaces": {
       "name": "user.max_user_namespaces",
@@ -100,9 +100,9 @@
         ],
         "returncode": 0,
         "stderr": "",
-        "stdout": "63791\n"
+        "stdout": "63838\n"
       },
-      "value": "63791"
+      "value": "63838"
     },
     "userns_clone": {
       "name": "kernel.unprivileged_userns_clone",
