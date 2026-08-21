@@ -1,0 +1,23 @@
+{
+  "negative_control_detects_theater": true,
+  "negative_control_detects_coupling_pattern": true,
+  "positive_control_clean": true,
+  "negative_hits": [
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/test_theater.py",
+      "line": 2,
+      "snippet": "assert True  def test_empty():     pass "
+    },
+    {
+      "severity": "S0",
+      "kind": "pass_only_test",
+      "path": "tests/test_theater.py",
+      "line": 4,
+      "snippet": "def test_empty():     pass "
+    }
+  ],
+  "positive_hits": [],
+  "AUDIT_INTEGRITY_CONTROLS": "PASS"
+}

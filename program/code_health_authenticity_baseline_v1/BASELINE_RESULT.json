@@ -1,0 +1,53 @@
+{
+  "schema": "gunnchos.code_health_authenticity_baseline_v1.result",
+  "generated_at_utc": "2026-08-21T17:10:45Z",
+  "CODE_HEALTH_AUTHENTICITY_BASELINE_V1": "BASELINE_COMPLETE_WITH_FINDINGS",
+  "CURSOR_NEVER_MERGES": true,
+  "prerequisite": {
+    "field_kit_pr_113": "MERGED",
+    "field_kit_pr_113_merge": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+    "baseline_frozen": {
+      "ATOMIC_TOTAL": 419,
+      "COMPLETE": 111,
+      "IMPL_OPEN": 51,
+      "VALIDATION_OPEN": 0,
+      "EVIDENCE_MAPPING": 0,
+      "POOL": 162,
+      "NEXT_VALIDATION_total_open": 0,
+      "NEXT_IMPL_total_open": 51
+    }
+  },
+  "controls": {
+    "negative_control_detects_theater": true,
+    "negative_control_detects_coupling_pattern": true,
+    "positive_control_clean": true,
+    "negative_hits": [
+      {
+        "severity": "S0",
+        "kind": "assert_true_literal",
+        "path": "tests/test_theater.py",
+        "line": 2,
+        "snippet": "assert True  def test_empty():     pass "
+      },
+      {
+        "severity": "S0",
+        "kind": "pass_only_test",
+        "path": "tests/test_theater.py",
+        "line": 4,
+        "snippet": "def test_empty():     pass "
+      }
+    ],
+    "positive_hits": [],
+    "AUDIT_INTEGRITY_CONTROLS": "PASS"
+  },
+  "totals": {
+    "repos_scanned": 17,
+    "findings": 291,
+    "s0": 105,
+    "s1": 155,
+    "critical_dimension_cells": 27
+  },
+  "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded.",
+  "baseline_requirement_counts_unchanged": true,
+  "product_behavior_unchanged": true
+}

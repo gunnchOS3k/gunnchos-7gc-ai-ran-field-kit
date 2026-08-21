@@ -1,0 +1,99 @@
+name: Code Health & Authenticity Baseline
+
+on:
+  push:
+    branches: [main, 'eng/code-health-authenticity-baseline-v1']
+  pull_request:
+    paths:
+      - 'program/code_health_authenticity_baseline_v1/**'
+      - 'tools/code_integrity/**'
+      - 'scripts/run_code_health_authenticity_baseline.py'
+      - '.github/workflows/code-health-authenticity-baseline.yml'
+  workflow_dispatch:
+
+jobs:
+  code-health-authenticity-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify required standards and gate design exist
+        run: |
+          set -e
+          required=(
+            program/code_health_authenticity_baseline_v1/CODE_INTEGRITY_STANDARD.md
+            program/code_health_authenticity_baseline_v1/DEFINITION_OF_MAINTAINABLE.md
+            program/code_health_authenticity_baseline_v1/ANTI_TEST_THEATER_RULES.md
+            program/code_health_authenticity_baseline_v1/REUSABLE_INTEGRITY_GATE_DESIGN.md
+            program/code_health_authenticity_baseline_v1/ACCEPTED_MAIN_MANIFEST.json
+            tools/code_integrity/run_baseline_audit.py
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "MISSING $f"; exit 1; }
+          done
+
+      - name: Audit integrity controls (synthetic fixtures only)
+        run: |
+          python3 - <<'PY'
+          import json, re, sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          from code_integrity.run_baseline_audit import run_controls, OUT
+          OUT.mkdir(parents=True, exist_ok=True)
+          r = run_controls(OUT)
+          print(json.dumps(r, indent=2))
+          assert r["AUDIT_INTEGRITY_CONTROLS"] == "PASS", r
+          print("AUDIT_INTEGRITY_CONTROLS_PASS")
+          PY
+
+      - name: Verify baseline result artifact shape (if present)
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("program/code_health_authenticity_baseline_v1/BASELINE_RESULT.json")
+          if not p.exists():
+              print("BASELINE_RESULT.json not in tree yet — controls-only CI OK")
+              raise SystemExit(0)
+          d = json.loads(p.read_text())
+          token = d.get("CODE_HEALTH_AUTHENTICITY_BASELINE_V1")
+          allowed = {
+              "BASELINE_COMPLETE_WITH_FINDINGS",
+              "BASELINE_COMPLETE_NO_CRITICAL_FINDINGS",
+              "BLOCKED_INCOMPLETE_AUDIT",
+              "FAIL_AUDIT_INTEGRITY",
+              "BLOCKED_OWNER_MERGE",
+          }
+          assert token in allowed, token
+          # Genuine findings must not fail this job:
+          if token == "FAIL_AUDIT_INTEGRITY":
+              raise SystemExit("Audit integrity controls failed")
+          if token == "BLOCKED_INCOMPLETE_AUDIT":
+              raise SystemExit("Incomplete audit")
+          print("CI_ACCEPTS_TOKEN", token)
+          print("NOTE: S0/S1 findings do not fail this workflow")
+          PY
+
+      - name: Confirm Baseline requirement counts untouched
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path("program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json").read_text())
+          t = d["totals"]
+          assert t["ATOMIC_TOTAL"] == 419
+          assert t["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+          assert t["DIGITAL_IMPLEMENTATION_OPEN"] == 51
+          assert t["DIGITAL_VALIDATION_OPEN"] == 0
+          assert t["EVIDENCE_MAPPING_OPEN"] == 0
+          nv = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_VALIDATION_WORK.json").read_text())
+          ni = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_IMPLEMENTATION_WORK.json").read_text())
+          assert nv["total_open"] == 0
+          assert ni["total_open"] == 51
+          print("BASELINE_COUNTS_UNCHANGED_OK")
+          PY

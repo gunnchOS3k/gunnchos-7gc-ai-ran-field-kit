@@ -1,0 +1,2258 @@
+{
+  "repository": "gunnchos-hardware-industrial-design",
+  "accepted_main_sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
+  "scanned_at_utc": "2026-08-21T17:09:59Z",
+  "counts": {
+    "files_classified": 1642,
+    "code_files": 152,
+    "production_code_files": 1,
+    "proof_files": 34,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 967,
+      "OTHER": 263,
+      "AMBIGUOUS_CODE": 116,
+      "PRODUCTION": 9,
+      "PROOF": 280,
+      "CI_OR_DEPLOY": 7
+    },
+    "theater_s0": 22,
+    "theater_s1": 70,
+    "theater_total": 94,
+    "hotspots": 59,
+    "wave_dup_paths": 0,
+    "fixture_paths": 25,
+    "orphan_candidates": 0,
+    "dep_edges": 515
+  },
+  "proof_independence": {
+    "production_files": 1,
+    "proof_files": 34,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "CRITICAL",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "ADEQUATE"
+  },
+  "theater_findings": [
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 46,
+      "snippet": "force_passive(C.usbc_pins()), body_w=17.78),         K.make_lib_symbol(\"PD_CTRL\", C.force_passive(C.pd_controller_pins()"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 47,
+      "snippet": "force_passive(C.pd_controller_pins()), body_w=17.78),         K.make_lib_symbol(\"CHARGER\", C.force_passive(C.charger_pin"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 48,
+      "snippet": "force_passive(C.charger_pins()), body_w=17.78),         K.make_lib_symbol(\"BUCK\", C.force_passive(C.buck_pins()), body_w"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 49,
+      "snippet": "force_passive(C.buck_pins()), body_w=15.24),         K.make_lib_symbol(\"ESD\", C.force_passive(C.esd_pins()), body_w=7.62"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 50,
+      "snippet": "force_passive(C.esd_pins()), body_w=7.62, body_h=7.62),     ]     if product == \"handheld_hybrid\":         symbols.appen"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 53,
+      "snippet": "force_passive(C.sodimm_public_pins()), body_w=30.48))         symbols.append(             K.make_lib_symbol(            "
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 70,
+      "snippet": "force_passive(C.nrf52840_pins()), body_w=25.4),             K.make_lib_symbol(\"NPM1300\", C.force_passive(C.npm1300_pins("
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 71,
+      "snippet": "force_passive(C.npm1300_pins()), body_w=15.24),             K.make_lib_symbol(\"IQS7222A\", C.force_passive(C.iqs7222_pins"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 72,
+      "snippet": "force_passive(C.iqs7222_pins()), body_w=15.24),             K.make_lib_symbol(\"BMI270\", C.force_passive(C.bmi270_pins())"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 73,
+      "snippet": "force_passive(C.bmi270_pins()), body_w=12.7),         ]     elif product == \"dock\":         symbols += [             K.m"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 77,
+      "snippet": "force_passive(C.jhl8440_role_pins()), body_w=22.86),             K.make_lib_symbol(\"RTL8156\", C.force_passive(C.rtl8156_"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 78,
+      "snippet": "force_passive(C.rtl8156_pins()), body_w=15.24),             K.make_lib_symbol(                 \"VL817\",                 "
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 94,
+      "snippet": "force_passive(C.comhpc_public_feature_pins()), body_w=25.4),             K.make_lib_symbol(                 \"TPM\",      "
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 228,
+      "snippet": "force_passive(C.sodimm_public_pins()),             \"wires\": {\"251\": \"SOM_VIN\", \"1\": \"GND\", \"109\": \"USB_DM\", \"111\": \"USB_"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 242,
+      "snippet": "force_passive(C.nrf52840_pins()),             \"wires\": {\"13\": \"VDD_3V3\", \"15\": \"GND\", \"42\": \"SWDIO\", \"43\": \"SWDCLK\", \"32"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 248,
+      "snippet": "force_passive(C.npm1300_pins()),             \"wires\": {\"1\": \"VBUS\", \"2\": \"VBAT\", \"3\": \"GND\", \"4\": \"VDD_3V3\", \"5\": \"I2C_S"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 254,
+      "snippet": "force_passive(C.iqs7222_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"GND\", \"3\": \"I2C_SCL\", \"4\": \"I2C_SDA\", \"5\": "
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 260,
+      "snippet": "force_passive(C.bmi270_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"VDD_3V3\", \"3\": \"GND\", \"4\": \"I2C_SCL\", \"5\": \""
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 268,
+      "snippet": "force_passive(C.jhl8440_role_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"GND\", \"3\": \"USB4_UP\", \"4\": \"USB4_UP\", "
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 274,
+      "snippet": "force_passive(C.rtl8156_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"GND\", \"3\": \"USB_DP\", \"4\": \"USB_DM\", \"5\": \"E"
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "line": 294,
+      "snippet": "force_passive(C.comhpc_public_feature_pins()),             \"wires\": {\"VIN\": \"COM_VIN\", \"GND\": \"GND\", \"PWRBTN\": \"PWRBTN\","
+    },
+    {
+      "severity": "S0",
+      "kind": "always_pass_gate",
+      "path": "scripts/cont_viii_lib/circuits.py",
+      "line": 229,
+      "snippet": "force_passive(pins):     return redistribute_lr(pins)   def redistribute_lr(pins):     \"\"\"Place pins on L/R only for rel"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "firmware/capsule_update/verify_capsule_manifest.py",
+      "line": 39,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "firmware/capsule_update/simulate_capsule_update.py",
+      "line": 55,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "firmware/qemu/run_device_profile_vm.py",
+      "line": 50,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
+      "line": 52,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
+      "line": 351,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "component_selection/simulations/simulate_power_thermal_budget.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "component_selection/simulations/simulate_workload_fit.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "component_selection/simulations/simulate_dock_display_bandwidth.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "component_selection/simulations/simulate_component_fit.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "component_selection/simulations/simulate_storage_memory_pressure.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "component_selection/simulations/simulate_user_persona_fit.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_supervisor_eda_checks.sh",
+      "line": 51,
+      "snippet": "xit(0) try:     data = json.loads(p.read_text()) except Exception as e:     print(f\"parse_error:{e}\")     raise SystemEx"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_supervisor_eda_checks.sh",
+      "line": 56,
+      "snippet": "xit(0) n = 0 for sheet in data.get(\"sheets\") or []:     for v in sheet.get(\"violations\") or []:         if str(v.get(\"se"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_hardware_os_validation.py",
+      "line": 77,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_component_selection.py",
+      "line": 34,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_certification_readiness.py",
+      "line": 56,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_mechanical_correctness.py",
+      "line": 125,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_continuation_ix.py",
+      "line": 107,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/compile_supply_chain_fields.py",
+      "line": 136,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_firmware_implementation.py",
+      "line": 61,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_firmware_descriptors.py",
+      "line": 27,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_bom_schema.py",
+      "line": 19,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_hlk_readiness.py",
+      "line": 60,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_dvt_pvt_readiness.py",
+      "line": 59,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_production_track.py",
+      "line": 122,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/generate_device_spec_tables.py",
+      "line": 16,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/update_cont_vi_kicad_status.py",
+      "line": 63,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_firmware_manifests.py",
+      "line": 10,
+      "snippet": "xit(1)  ROOT = Path(__file__).resolve().parents[1] FW = ROOT / \"firmware\" / \"manifests\" DEVICES = [\"student_14_5\", \"hand"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_firmware_manifests.py",
+      "line": 41,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_printability.py",
+      "line": 104,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vi_eda_closure.py",
+      "line": 98,
+      "snippet": "xit(f\"Expected 260 NX5 pins, got {len(pins)}\")     return pins   def classify_signal(sig: str) -> str:     s = sig.upper"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vi_eda_closure.py",
+      "line": 1362,
+      "snippet": "xit(\"missing scripts/run_family_kicad_cli.sh \u2014 write it before running generator\")     sh.chmod(0o755)      # Makefile a"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vi_eda_closure.py",
+      "line": 1455,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/e2e_check_required_artifacts.py",
+      "line": 37,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_production_release_gate.py",
+      "line": 52,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_bom.py",
+      "line": 32,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_digital_manufacturing.py",
+      "line": 151,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_full_hardware_simulation.py",
+      "line": 33,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_continuation_vi.py",
+      "line": 96,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_power_budget.py",
+      "line": 40,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/gate6_dry_run.py",
+      "line": 128,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_stl_exports.py",
+      "line": 116,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_supply_chain_fields.py",
+      "line": 94,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_continuation_viii.py",
+      "line": 79,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_cad_tree.py",
+      "line": 21,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_schematics.py",
+      "line": 26,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/make_e2e_report.py",
+      "line": 17,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_os_compatibility_handoff.py",
+      "line": 165,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_secure_boot_simulation.py",
+      "line": 33,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_capsule_update_simulation.py",
+      "line": 24,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_no_stale_not_implemented_language.py",
+      "line": 68,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/check_required_files.py",
+      "line": 220,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "line": 247,
+      "snippet": "xit(f\"Cannot load base schematic for {product}\")     old = git_show.stdout     comps = parse_sch_components(old)     lab"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "line": 252,
+      "snippet": "xit(f\"No components parsed for {product}\")      lines = [         '(kicad_sch (version 20230121) (generator \"continuatio"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "line": 1309,
+      "snippet": "xit(f\"Missing kicad-cli at {KICAD_CLI}\")      ART.mkdir(parents=True, exist_ok=True)      # \u00a710 ledger from Cont VI evid"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "line": 1400,
+      "snippet": "xit(                         f\"Unfixed {kind.upper()} error on {r['product']}: {typ} x{count}\"                     )    "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_firmware_os_interface.py",
+      "line": 70,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/hardware_validate.py",
+      "line": 25,
+      "snippet": "xit(main()) "
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": "gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py",
+      "name": "run_erc",
+      "lineno": 79,
+      "complexity": 43
+    },
+    {
+      "path": "scripts/build_hw_fw_rc_001_packages.py",
+      "name": "self_challenge",
+      "lineno": 821,
+      "complexity": 41
+    },
+    {
+      "path": "scripts/continuation_viii_manufacturer_release.py",
+      "name": "emit_schematic",
+      "lineno": 141,
+      "complexity": 35
+    },
+    {
+      "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
+      "name": "run_e2e",
+      "lineno": 177,
+      "complexity": 34
+    },
+    {
+      "path": "gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py",
+      "name": "run_drc",
+      "lineno": 172,
+      "complexity": 34
+    },
+    {
+      "path": "scripts/validate_digital_manufacturing.py",
+      "name": "main",
+      "lineno": 83,
+      "complexity": 28
+    },
+    {
+      "path": "ring_input/python/authenticated_ring_input/receiver.py",
+      "name": "receive",
+      "lineno": 71,
+      "complexity": 26
+    },
+    {
+      "path": "scripts/validate_continuation_ix.py",
+      "name": "main",
+      "lineno": 21,
+      "complexity": 25
+    },
+    {
+      "path": "scripts/cont_ix_lib/emit_sch.py",
+      "name": "emit_sodimm_child",
+      "lineno": 155,
+      "complexity": 25
+    },
+    {
+      "path": "scripts/validate_continuation_vi.py",
+      "name": "main",
+      "lineno": 19,
+      "complexity": 24
+    },
+    {
+      "path": "scripts/validate_production_track.py",
+      "name": "main",
+      "lineno": 59,
+      "complexity": 23
+    },
+    {
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "name": "extract_vi_violations",
+      "lineno": 55,
+      "complexity": 21
+    },
+    {
+      "path": "scripts/cont_ix_lib/emit_sch.py",
+      "name": "emit_handheld",
+      "lineno": 234,
+      "complexity": 20
+    },
+    {
+      "path": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "name": "write_gerbers",
+      "lineno": 656,
+      "complexity": 20
+    },
+    {
+      "path": "scripts/build_hw_fw_rc_001_packages.py",
+      "name": "evaluate_token",
+      "lineno": 458,
+      "complexity": 19
+    },
+    {
+      "path": "scripts/bootstrap_evt1_package.py",
+      "name": "main",
+      "lineno": 117,
+      "complexity": 19
+    },
+    {
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "name": "emit_connected_schematic",
+      "lineno": 238,
+      "complexity": 19
+    },
+    {
+      "path": "scripts/validate_continuation_vii.py",
+      "name": "main",
+      "lineno": 26,
+      "complexity": 19
+    },
+    {
+      "path": "scripts/build_hw_fw_rc_001_packages.py",
+      "name": "drivers",
+      "lineno": 303,
+      "complexity": 18
+    },
+    {
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "name": "main",
+      "lineno": 1307,
+      "complexity": 18
+    },
+    {
+      "path": "scripts/cont_ix_lib/emit_pcb.py",
+      "name": "emit_pcb",
+      "lineno": 33,
+      "complexity": 18
+    },
+    {
+      "path": "scripts/close_digital_hardware_pass.py",
+      "name": "write_packages",
+      "lineno": 645,
+      "complexity": 17
+    },
+    {
+      "path": "scripts/validate_os_compatibility_handoff.py",
+      "name": "main",
+      "lineno": 116,
+      "complexity": 16
+    },
+    {
+      "path": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "name": "emit_scorecards",
+      "lineno": 604,
+      "complexity": 16
+    },
+    {
+      "path": "scripts/close_digital_hardware_pass.py",
+      "name": "iter_wrapped_items",
+      "lineno": 368,
+      "complexity": 16
+    },
+    {
+      "path": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "name": "write_pcb_and_gerbers",
+      "lineno": 510,
+      "complexity": 16
+    },
+    {
+      "path": "scripts/validate_mechanical_correctness.py",
+      "name": "main",
+      "lineno": 53,
+      "complexity": 15
+    },
+    {
+      "path": "scripts/validate_continuation_viii.py",
+      "name": "main",
+      "lineno": 21,
+      "complexity": 15
+    },
+    {
+      "path": "scripts/continuation_vii_eda_release_clean.py",
+      "name": "deepen_bom_csv",
+      "lineno": 1179,
+      "complexity": 15
+    },
+    {
+      "path": "scripts/close_digital_hardware_pass.py",
+      "name": "collect_rows",
+      "lineno": 177,
+      "complexity": 15
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [
+    {
+      "path": "npi/evt0_measurement_readiness/EVT0_FIXTURE_REGISTER.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/THERMAL_SENSOR_MAP.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/POWER_CURRENT_FIXTURE.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/DOCK_BREAKOUT_LOOPBACK.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/RF_CONDUCTED_BREAKOUT.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/PROG_DEBUG_HARNESS.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/SERIAL_CONSOLE_BREAKOUT.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/RING_POSITIONING.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/DSXL_HINGE_CYCLE.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/RING_CAL_FIXTURE.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/BATTERY_HARNESS.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/evt0_measurement_readiness/fixtures/TESTPOINT_HARNESS.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "manufacturing/PRODUCTION_TEST_FIXTURE_PLAN.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/test_vectors/valid_accept.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/wrong_target.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/unknown_device.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/replay.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/stale.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/bad_signature.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/low_confidence_destructive.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/calibration_mismatch.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "ring_input/fixtures/negative/revoked.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "device_designs/edge_io_rings/docs/CALIBRATION_FIXTURE.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "physical_evidence/fixtures/synthetic_prototype_dry_run.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "physical_evidence/fixtures/synthetic_power_thermal_dry_run.json",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [],
+  "dependency_edges_sample": [
+    {
+      "from": "tests/test_supply_chain_fields.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/update_cont_vi_kicad_status.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/continuation_vi_eda_closure.py",
+      "to": "collections"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/close_digital_hardware_pass.py",
+      "to": "math"
+    },
+    {
+      "from": "scripts/validate_cad_tree.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_supply_chain_fields.py",
+      "to": "importlib"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/audit.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_dvt_pvt_readiness.py",
+      "to": "re"
+    },
+    {
+      "from": "secure_boot/scripts/generate_test_keys.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/continuation_viii_manufacturer_release.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_issue_closure_matrix.py",
+      "to": "re"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "enum"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/__init__.py",
+      "to": "pairing"
+    },
+    {
+      "from": "scripts/cont_ix_lib/packages.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_hlk_readiness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/e2e_check_required_artifacts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "firmware/_device_util.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/validate_production_track.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/continuation_vii_eda_release_clean.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/validate_continuation_viii.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/continuation_vi_eda_closure.py",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/generate_device_spec_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_certification_readiness.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_continuation_vii.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_stl_exports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_printability.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_power_budget.py",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/continuation_vii_eda_release_clean.py",
+      "to": "shutil"
+    },
+    {
+      "from": "scripts/cont_ix_lib/common.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/continuation_vii_eda_release_clean.py",
+      "to": "re"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "typing"
+    },
+    {
+      "from": "firmware/capsule_update/simulate_capsule_update.py",
+      "to": "yaml"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/sender.py",
+      "to": "secrets"
+    },
+    {
+      "from": "scripts/cont_ix_lib/common.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/continuation_viii_manufacturer_release.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_firmware_compat_smoke.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_wp010_evt0_readiness.py",
+      "to": "__future__"
+    },
+    {
+      "from": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/test_component_selection.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_wp002_handheld_storage.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_continuation_viii.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_issue_closure_matrix.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_hbom.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "firmware/_device_util.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/cont_ix_lib/emit_sch.py",
+      "to": "common"
+    },
+    {
+      "from": "scripts/validate_continuation_vi.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/sender.py",
+      "to": "latency"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/__init__.py",
+      "to": "simulated_stream"
+    },
+    {
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/update_kicad_status.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/bootstrap_firmware_implementation.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_os_compatibility_handoff.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "secure_boot/scripts/generate_test_keys.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/run_firmware_compat_smoke.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/continuation_viii_manufacturer_release.py",
+      "to": "cont_viii_lib"
+    },
+    {
+      "from": "scripts/build_hw_fw_rc_001_packages.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/validate_hardware_os_validation.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/cont_ix_lib/emit_sch.py",
+      "to": "__future__"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/codec.py",
+      "to": "hmac"
+    },
+    {
+      "from": "scripts/run_full_hardware_simulation.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_certification_readiness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "component_selection/simulations/simulate_power_thermal_budget.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_mechanical_correctness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/fallback.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/cont_viii_lib/kicad_emit.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_certification_readiness.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_os_compatibility_handoff.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_hw_fw_rc_001.py",
+      "to": "json"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/audit.py",
+      "to": "time"
+    },
+    {
+      "from": "tests/test_stl_exports.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/update_cont_vi_kicad_status.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_printability.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/validate_stl_exports.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_continuation_vi.py",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_secure_boot_simulation.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/validate_production_track.py",
+      "to": "re"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "DIGITAL_TO_PHYSICAL_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "MISSION_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PULL_REQUEST_BODY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "DIGITAL_MANUFACTURING_READINESS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ACCESSIBILITY_AND_LOW_COST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/DEVICE_WALKTHROUGH_SCRIPT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/SCREENSHOT_RENDER_CAPTURE_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/PROFESSOR_STUDENT_DEMO_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/CM_SHORTLIST_TRACKER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/ENGINEERING_REVIEW_REQUEST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/VENDOR_QUESTIONNAIRE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/FILES_TO_SEND_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/NDA_AND_IP_NOTES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/PROTOTYPE_BUILD_REQUEST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/QUOTE_COMPARISON_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "prototype_rfq/RFQ_COVER_LETTER_TEMPLATE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/EVIDENCE_INTAKE_PROCESS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/WAIKE_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/DEVICE_ENUMERATION_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/HLK_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/RECOVERY_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/OS_BOOT_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/NETWORK_STORAGE_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/POWER_THERMAL_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/BATTERY_STATUS_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/INPUT_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/EDGE_IO_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/EXTERNAL_REVIEW_SIGNOFF_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "os_compatibility_evidence/DISPLAY_TEST_LOG_PLACEHOLDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "power/BATTERY_LIFE_ESTIMATION_METHOD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "power/POWER_BUDGET_MASTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "power/POWER_TREE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "electrical/ds_xl_coder/drc/ds_xl_coder_drc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/ds_xl_coder/schematic_pdf/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "electrical/ds_xl_coder/erc/ds_xl_coder_erc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/student_14_5/power_tree.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "electrical/student_14_5/drc/student_14_5_drc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/student_14_5/schematic_pdf/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "electrical/student_14_5/erc/student_14_5_erc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/handheld_hybrid/drc/handheld_hybrid_drc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/handheld_hybrid/schematic_pdf/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "electrical/handheld_hybrid/erc/handheld_hybrid_erc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/wearables_arena_set/drc/wearables_arena_set_drc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "electrical/wearables_arena_set/schematic_pdf/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "electrical/wearables_arena_set/erc/wearables_arena_set_erc_report.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "firmware/IMPLEMENTATION_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/CLAIM_BOUNDARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/_device_util.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware/edge_io_rings/zephyr_west/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/edge_io_rings/zephyr_west/west.yml",
+      "class": "OTHER",
+      "ext": ".yml"
+    },
+    {
+      "path": "firmware/edge_io_rings/zephyr_west/scripts/require_west_build.sh",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".sh"
+    },
+    {
+      "path": "firmware/edge_io_rings/zephyr_west/zephyr_app/CMakeLists.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "firmware/edge_io_rings/zephyr_west/zephyr_app/src/main.c",
+      "class": "PRODUCTION",
+      "ext": ".c"
+    },
+    {
+      "path": "firmware/boot/standard_boot_plan.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/boot/safe_mode_boot_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/boot/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/boot/boot_menu_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/boot/recovery_boot_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/capsule_update/sample_capsule_manifest.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware/capsule_update/sample_update_history.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware/capsule_update/sample_capsule_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/capsule_update/capsule_manifest.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware/capsule_update/verify_capsule_manifest.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware/capsule_update/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/capsule_update/simulate_capsule_update.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware/tests/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/qemu/expected_boot_log_patterns.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/qemu/qemu_device_profiles.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/qemu/run_ovmf_smoke.sh",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".sh"
+    },
+    {
+      "path": "firmware/qemu/qemu_device_profiles.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware/qemu/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/qemu/run_device_profile_vm.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware/descriptors/acpi/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/descriptors/uefi_vars/expected_uefi_variables.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/descriptors/uefi_vars/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/descriptors/uefi_vars/boot_order_template.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/descriptors/uefi_vars/firmware_version_template.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/descriptors/uefi_vars/capsule_update_template.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/descriptors/devicetree/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/manifests/edge_io_rings_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/manifests/student_14_5_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/manifests/firmware_manifest.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware/manifests/dock_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/manifests/ds_xl_coder_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/manifests/wearables_arena_set_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/manifests/handheld_hybrid_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/thermal_sensor_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/display_enumeration_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/interfaces/docking_external_display_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/network_enumeration_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/battery_status_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/storage_enumeration_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/power_state_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/input_device_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/interfaces/edge_io_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "implementation_backlog/REAL_HARDWARE_VALIDATION_ISSUES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/OPEN.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/EVT_EXECUTION_RUNBOOK.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/FIRMWARE_GAP_MATRIX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/OWNER_MERGE_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/VENDOR_TOOLCHAIN_EXTERNAL.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/EVT_READINESS_MATRIX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/PACKET_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/HIL_INTERFACE_CONTRACT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/results/student_14_5_hil_mock.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/results/edge_io_rings_hil_mock.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/results/dock_hil_mock.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/results/ds_xl_coder_hil_mock.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/factory_hil/results/handheld_hybrid_hil_mock.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/edge_io_rings/EVT_DIGITAL_PACKET.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/edge_io_rings/EVT_DIGITAL_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/ds_xl_coder/EVT_DIGITAL_PACKET.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/ds_xl_coder/EVT_DIGITAL_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/student_14_5/EVT_DIGITAL_PACKET.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/student_14_5/EVT_DIGITAL_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/handheld_hybrid/EVT_DIGITAL_PACKET.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/handheld_hybrid/EVT_DIGITAL_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/dock/EVT_DIGITAL_PACKET.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/evt/dock/EVT_DIGITAL_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/edge_io_rings/FIRMWARE_DIGITAL_CLOSURE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/edge_io_rings/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/ds_xl_coder/FIRMWARE_DIGITAL_CLOSURE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/ds_xl_coder/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/student_14_5/FIRMWARE_DIGITAL_CLOSURE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/student_14_5/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/handheld_hybrid/FIRMWARE_DIGITAL_CLOSURE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/handheld_hybrid/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/dock/FIRMWARE_DIGITAL_CLOSURE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/c_pkt_003/firmware_closure/dock/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/hw_pkt001/VP_IMAGE_FIT_REMEASURE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/OWNER_MERGE_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/hw_pkt001/DIGITAL_VALIDATORS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/PACKET_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/evt/EVT_DIGITAL_PACKET.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/hw_pkt001/image_fit/NPI_DEFECT-HANDHELD-IMAGE-SLOT-FIT-001.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/image_fit/IMAGE_FIT_MANIFEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/image_fit/SHARED_BOOT_PIN.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/CLI_RESULTS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/edge_io_rings/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/edge_io_rings/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/ds_xl_coder/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/ds_xl_coder/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/student_14_5/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/student_14_5/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/handheld_hybrid/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/handheld_hybrid/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/dock/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/hw_pkt001/kicad_cli/dock/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/phase_xv_npi/HANDHELD_STORAGE_HEADROOM_PACKAGE_INDEX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/wp010_evt0_readiness/MANIFEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/wp010_evt0_readiness/independent_verifier/MANIFEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/VALIDATION_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/edge_io_rings/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/edge_io_rings/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/edge_io_rings/summary.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/ds_xl_coder/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/ds_xl_coder/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/ds_xl_coder/summary.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/student_14_5/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/student_14_5/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/student_14_5/summary.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/handheld_hybrid/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/handheld_hybrid/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/handheld_hybrid/summary.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/dock/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/dock/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_vi_kicad_validation/dock/summary.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/factory_rma/VP_SUPPLY_CHAIN_FIELDS_INDEPENDENT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad_cli_meta.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/openscad_meta.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/edge_io_rings/summary.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/edge_io_rings/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/edge_io_rings/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/ds_xl_coder/summary.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/ds_xl_coder/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/ds_xl_coder/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/student_14_5/summary.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/student_14_5/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/student_14_5/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/handheld_hybrid/summary.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/handheld_hybrid/erc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready_eda/kicad/handheld_hybrid/drc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    }
+  ],
+  "path_classification_full_count": 1642,
+  "mutation_sampling": {
+    "repository": "gunnchos-hardware-industrial-design",
+    "sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      },
+      {
+        "index": 2,
+        "path": "scripts/compile_supply_chain_fields.py",
+        "kind": "flip_return_false",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      },
+      {
+        "index": 3,
+        "path": "scripts/validate_dvt_pvt_readiness.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "ADEQUATE",
+    "detected_count": 3
+  }
+}

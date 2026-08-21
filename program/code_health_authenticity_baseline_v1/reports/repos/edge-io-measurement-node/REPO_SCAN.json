@@ -1,0 +1,2264 @@
+{
+  "repository": "edge-io-measurement-node",
+  "accepted_main_sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
+  "scanned_at_utc": "2026-08-21T17:10:17Z",
+  "counts": {
+    "files_classified": 6024,
+    "code_files": 2068,
+    "production_code_files": 1982,
+    "proof_files": 38,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 193,
+      "OTHER": 35,
+      "PROOF": 58,
+      "PRODUCTION": 5681,
+      "AMBIGUOUS_CODE": 47,
+      "CI_OR_DEPLOY": 10
+    },
+    "theater_s0": 0,
+    "theater_s1": 196,
+    "theater_total": 196,
+    "hotspots": 1393,
+    "wave_dup_paths": 0,
+    "fixture_paths": 10,
+    "orphan_candidates": 40,
+    "dep_edges": 11648
+  },
+  "proof_independence": {
+    "production_files": 1982,
+    "proof_files": 38,
+    "production_imports_proof_count": 4,
+    "production_imports_proof": [
+      {
+        "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/index/package_finder.py",
+        "imports": [
+          "tests_or_proof_namespace"
+        ]
+      },
+      {
+        "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/log.py",
+        "imports": [
+          "tests_or_proof_namespace"
+        ]
+      },
+      {
+        "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_internal/index/package_finder.py",
+        "imports": [
+          "tests_or_proof_namespace"
+        ]
+      },
+      {
+        "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/log.py",
+        "imports": [
+          "tests_or_proof_namespace"
+        ]
+      }
+    ],
+    "status": "FAIL_COUPLED"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "NEEDS_WORK"
+  },
+  "dimensions": {
+    "production_proof_separation": "CRITICAL",
+    "anti_test_theater": "NEEDS_WORK",
+    "dependency_boundaries": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "NEEDS_WORK",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "NEEDS_WORK",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "ADEQUATE"
+  },
+  "theater_findings": [
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hexmerge.py",
+      "line": 178,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/bin2hex.py",
+      "line": 71,
+      "snippet": "xit(0)             elif o in (\"-v\", \"--version\"):                 print(VERSION)                 sys.exit(0)            "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/bin2hex.py",
+      "line": 74,
+      "snippet": "xit(0)             elif o in (\"--offset\"):                 base = 10                 if a[:2].lower() == '0x':          "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/bin2hex.py",
+      "line": 95,
+      "snippet": "xit(2)      from intelhex import compat      fin = args[0]     if fin == '-':         # read from stdin         fin = co"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/bin2hex.py",
+      "line": 106,
+      "snippet": "xit(1)      if len(args) == 2:         fout = args[1]     else:         # write to stdout         fout = sys.stdout   # "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/bin2hex.py",
+      "line": 115,
+      "snippet": "xit(bin2hex(fin, fout, offset)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/readelf.py",
+      "line": 1942,
+      "snippet": "xit(0)      if args.show_all_headers:         do_file_header = do_section_header = do_program_header = True     else:   "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/readelf.py",
+      "line": 1990,
+      "snippet": "xit(1)         except BrokenPipeError:             # Python flushes standard streams on exit; redirect remaining output "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/readelf.py",
+      "line": 1996,
+      "snippet": "xit(1)   def profile_main() -> None:     # Run 'main' redirecting its output to readelfout.txt     # Saves profiling inf"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hex2bin.py",
+      "line": 78,
+      "snippet": "xit(0)             elif o in (\"-v\", \"--version\"):                 print(VERSION)                 sys.exit(0)            "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hex2bin.py",
+      "line": 81,
+      "snippet": "xit(0)             elif o in (\"-p\", \"--pad\"):                 try:                     pad = int(a, 16) & 0x0FF         "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hex2bin.py",
+      "line": 116,
+      "snippet": "xit(2)      fin = args[0]     if not os.path.isfile(fin):         txt = \"ERROR: File not found: %s\" % fin  # that's requ"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hex2bin.py",
+      "line": 122,
+      "snippet": "xit(1)      if len(args) == 2:         fout = args[1]     else:         # write to stdout         from intelhex import c"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hex2bin.py",
+      "line": 132,
+      "snippet": "xit(hex2bin(fin, fout, start, end, size, pad)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hexinfo.py",
+      "line": 108,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hex2dump.py",
+      "line": 135,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/bin/hexdiff.py",
+      "line": 90,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
+      "line": 22,
+      "snippet": "xit(SystemExit):      \"\"\"Exit in case user invoked program with incorrect arguments.\"\"\"      usage = ''      def __init_"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
+      "line": 482,
+      "snippet": "xit()     if version and any(o.name == '--version' and o.value for o in options):         print(version)         sys.exi"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
+      "line": 485,
+      "snippet": "xit()   class Dict(dict):     def __repr__(self):         return '{%s}' % ',\\n '.join('%r: %r' % i for i in sorted(self."
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
+      "line": 579,
+      "snippet": "xit() "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/dependency_groups.py",
+      "line": 142,
+      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._p"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/dependency_groups.py",
+      "line": 155,
+      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._r"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/metadata.py",
+      "line": 896,
+      "snippet": "xit(\"invalid or unparsed metadata\") as collector:                 for unparsed_key in unparsed:                     if u"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/errors.py",
+      "line": 65,
+      "snippet": "xit(self, msg: str) -> typing.Generator[_ErrorCollector, None, None]:         \"\"\"         Calls finalize if no uncollect"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/can/viewer.py",
+      "line": 483,
+      "snippet": "xit(errno.EINVAL)      parsed_args, unknown_args = parser.parse_known_args(args)     if unknown_args:         print(\"Unk"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/can/bridge.py",
+      "line": 39,
+      "snippet": "xit(errno.EINVAL)      results, _unknown_args = parser.parse_known_args(args)     return results   def main() -> None:  "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/can/logger.py",
+      "line": 93,
+      "snippet": "xit(errno.EINVAL)      results, unknown_args = parser.parse_known_args(args)     additional_config = _parse_additional_c"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/can/player.py",
+      "line": 95,
+      "snippet": "xit(errno.EINVAL)      results, unknown_args = parser.parse_known_args()     additional_config = _parse_additional_confi"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/can/logconvert.py",
+      "line": 19,
+      "snippet": "xit(errno.EINVAL, f\"{self.prog}: error: {message}\\n\")   def main() -> None:     parser = ArgumentParser(         descrip"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/can/logconvert.py",
+      "line": 65,
+      "snippet": "xit(1)   if __name__ == \"__main__\":     main() "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/intelhex/bench.py",
+      "line": 280,
+      "snippet": "xit(main(sys.argv[1:]))   \"\"\"  Some Results ************   21/04/2007 revno.40 Python 2.5 @ Windows XP, Intel Celeron M "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/idna/cli.py",
+      "line": 128,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/idna/__main__.py",
+      "line": 6,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/__pip-runner__.py",
+      "line": 20,
+      "snippet": "xit(         \"This version of pip does not support python {} (requires >={}).\".format(             version_str(sys.versi"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/__main__.py",
+      "line": 24,
+      "snippet": "xit(_main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
+      "line": 224,
+      "snippet": "xit(3)      def _get_ordered_configuration_items(         self,     ) -> Generator[tuple[str, Any], None, None]:        "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
+      "line": 332,
+      "snippet": "xit(UNKNOWN_ERROR, str(err))          defaults = self._update_defaults(self.defaults.copy())  # ours         for option "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
+      "line": 345,
+      "snippet": "xit(UNKNOWN_ERROR, f\"{msg}\\n\")      def _create_console_for_help(self, file: Any = None) -> PipConsole:         # This i"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
+      "line": 46,
+      "snippet": "xit(1)         # special case: list locally installed dists for show and uninstall         should_list_installed = not c"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
+      "line": 69,
+      "snippet": "xit(1)          should_list_installables = (             not current.startswith(\"-\") and subcommand_name == \"install\"   "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
+      "line": 77,
+      "snippet": "xit(1)          subcommand = create_command(subcommand_name)          for opt in subcommand.parser.option_list_all:     "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
+      "line": 132,
+      "snippet": "xit(1)   def get_path_completion_type(     cwords: list[str], cword: int, opts: Iterable[Any] ) -> str | None:     \"\"\"Ge"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/base_command.py",
+      "line": 224,
+      "snippet": "xit(ERROR)          # TODO: Try to get these passing down from the command?         #       without resorting to os.envi"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/base_command.py",
+      "line": 240,
+      "snippet": "xit(VIRTUALENV_NOT_FOUND)          if options.cache_dir:             options.cache_dir = normalize_path(options.cache_di"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main_parser.py",
+      "line": 106,
+      "snippet": "xit(returncode)      # --version     if general_options.version:         sys.stdout.write(parser.version)         sys.st"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main_parser.py",
+      "line": 112,
+      "snippet": "xit()      # pip || pip help -> print_help()     if not args_else or (args_else[0] == \"help\" and len(args_else) == 1):  "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main_parser.py",
+      "line": 117,
+      "snippet": "xit()      # the subcommand name     cmd_name = args_else[0]      if cmd_name not in commands_dict:         guess = get_"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main.py",
+      "line": 74,
+      "snippet": "xit(1)      # Needed for locale encoding detection to work     # in pip._internal.utils.encoding.auto_decode     # TODO:"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/operations/install/wheel.py",
+      "line": 425,
+      "snippet": "xit(%(func)s()) \"\"\")      def make(         self, specification: str, options: dict[str, Any] | None = None     ) -> lis"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/req/req_install.py",
+      "line": 730,
+      "snippet": "xit(-1)          if not create_archive:             return          zip_output = zipfile.ZipFile(             archive_pa"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/req/req_file.py",
+      "line": 486,
+      "snippet": "xit(self: Any, msg: str) -> NoReturn:         raise OptionParsingError(msg)      # NOTE: mypy disallows assigning to a m"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/vcs/versioncontrol.py",
+      "line": 559,
+      "snippet": "xit(-1)          if response == \"w\":             logger.warning(\"Deleting %s\", display_path(dest))             rmtree(de"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/locations/base.py",
+      "line": 65,
+      "snippet": "xit(\"The folder you are executing pip from can no longer be found.\")      # under macOS + virtualenv sys.prefix is not p"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/dependency_groups.py",
+      "line": 124,
+      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._p"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/dependency_groups.py",
+      "line": 137,
+      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._r"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/metadata.py",
+      "line": 832,
+      "snippet": "xit(\"unparsed\") as collector:                 for unparsed_key in unparsed:                     if unparsed_key in _EMAI"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/errors.py",
+      "line": 65,
+      "snippet": "xit(self, msg: str) -> typing.Generator[_ErrorCollector, None, None]:         \"\"\"         Calls finalize if no uncollect"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pygments/__main__.py",
+      "line": 15,
+      "snippet": "xit(main(sys.argv)) except KeyboardInterrupt:     sys.exit(1) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pygments/__main__.py",
+      "line": 17,
+      "snippet": "xit(1) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/distlib/scripts.py",
+      "line": 50,
+      "snippet": "xit(%(func)s()) '''  # Pre-fetch the contents of all executable wrapper stubs. # This is to address https://github.com/p"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/idna/cli.py",
+      "line": 128,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/idna/__main__.py",
+      "line": 6,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py",
+      "line": 355,
+      "snippet": "xit(\"Needs args: hook_name, control_dir\")     hook_name = sys.argv[1]     control_dir = sys.argv[2]     if hook_name not"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py",
+      "line": 359,
+      "snippet": "xit(\"Unknown hook: %s\" % hook_name)      # Remove the parent directory from sys.path to avoid polluting the backend     "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/console.py",
+      "line": 2025,
+      "snippet": "xit(1)      def _check_buffer(self) -> None:         \"\"\"Check if the buffer may be rendered. Render it if it can (e.g. C"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/json.py",
+      "line": 137,
+      "snippet": "xit(-1)      console.print(JSON(json_data, indent=args.indent), soft_wrap=True) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pylink/__main__.py",
+      "line": 618,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/command/easy_install.py",
+      "line": 217,
+      "snippet": "xit()      def finalize_options(self):  # noqa: C901  # is too complex (25)  # FIXME         self.version and self._rend"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/command/easy_install.py",
+      "line": 2089,
+      "snippet": "xit(load_entry_point(%(spec)r, %(group)r, %(name)r)())         \"\"\").lstrip()      command_spec_class = CommandSpec      "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
+      "line": 150,
+      "snippet": "xit(\"error in setup command: %s\" % msg)         else:             raise SystemExit(\"error in {} setup command: {}\".forma"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
+      "line": 152,
+      "snippet": "xit(\"error in {} setup command: {}\".format(attrs['name'], msg))      if _setup_stop_after == \"init\":         return dist"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
+      "line": 174,
+      "snippet": "xit(gen_usage(dist.script_name) + \"\\nerror: %s\" % msg)      if DEBUG:         print(\"options (after parsing command line"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
+      "line": 203,
+      "snippet": "xit(\"interrupted\")     except OSError as exc:         if DEBUG:             sys.stderr.write(\"error: {}\\n\".format(exc)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
+      "line": 209,
+      "snippet": "xit(\"error: {}\".format(exc))      except (DistutilsError, CCompilerError) as msg:         if DEBUG:             raise   "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
+      "line": 215,
+      "snippet": "xit(\"error: \" + str(msg))      return dist   def run_setup(script_name, script_args=None, stop_after=\"run\"):     \"\"\"Run "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/dist.py",
+      "line": 526,
+      "snippet": "xit(\"invalid command name '%s'\" % command)         self.commands.append(command)          # Dig up the command class tha"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/west/log.py",
+      "line": 175,
+      "snippet": "xit(exit_code)  def msg(*args, color=None, stream=sys.stdout):     '''Print a message using a color.      :param args: s"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/west/commands.py",
+      "line": 524,
+      "snippet": "xit(exit_code)      @property     def color_ui(self) -> bool:         '''Should we colorize output?'''         return se"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": ".venv-zephyr/lib/python3.11/site-packages/west/app/main.py",
+      "line": 455,
+      "snippet": "xit(ece.returncode)      def setup_parsers(self):         # Set up and install command-line argument parsers.          w"
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
+      "name": "validate_https___setuptools_pypa_io_en_latest_references_keywords_html",
+      "lineno": 104,
+      "complexity": 351
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
+      "name": "validate_https___setuptools_pypa_io_en_latest_references_keywords_html",
+      "lineno": 104,
+      "complexity": 351
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
+      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_project_metadata",
+      "lineno": 652,
+      "complexity": 269
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
+      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_project_metadata",
+      "lineno": 652,
+      "complexity": 269
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/charset_normalizer/api.py",
+      "name": "from_bytes",
+      "lineno": 50,
+      "complexity": 147
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/dateutil/rrule.py",
+      "name": "_iter",
+      "lineno": 776,
+      "complexity": 83
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/rrule.py",
+      "name": "_iter",
+      "lineno": 776,
+      "complexity": 83
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/serial/rfc2217.py",
+      "name": "_telnet_process_subnegotiation",
+      "lineno": 1148,
+      "complexity": 80
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/dateutil/rrule.py",
+      "name": "__init__",
+      "lineno": 428,
+      "complexity": 73
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/rrule.py",
+      "name": "__init__",
+      "lineno": 428,
+      "complexity": 73
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
+      "name": "traverse",
+      "lineno": 580,
+      "complexity": 62
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
+      "name": "traverse",
+      "lineno": 580,
+      "complexity": 62
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
+      "name": "_traverse",
+      "lineno": 621,
+      "complexity": 58
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
+      "name": "_traverse",
+      "lineno": 621,
+      "complexity": 58
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
+      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_build_dependencies",
+      "lineno": 31,
+      "complexity": 57
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
+      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_build_dependencies",
+      "lineno": 31,
+      "complexity": 57
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__init__.py",
+      "name": "_to_diagram_element",
+      "lineno": 442,
+      "complexity": 51
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/diagram/__init__.py",
+      "name": "_to_diagram_element",
+      "lineno": 442,
+      "complexity": 51
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/serial/serialposix.py",
+      "name": "_reconfigure_port",
+      "lineno": 376,
+      "complexity": 51
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/dateutil/parser/_parser.py",
+      "name": "parse",
+      "lineno": 1390,
+      "complexity": 51
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__init__.py",
+      "name": "_to_diagram_element",
+      "lineno": 442,
+      "complexity": 51
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/diagram/__init__.py",
+      "name": "_to_diagram_element",
+      "lineno": 442,
+      "complexity": 51
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/parser/_parser.py",
+      "name": "parse",
+      "lineno": 1390,
+      "complexity": 51
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/table.py",
+      "name": "_render",
+      "lineno": 747,
+      "complexity": 50
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/table.py",
+      "name": "_render",
+      "lineno": 747,
+      "complexity": 50
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/_ranges.py",
+      "name": "filter_by_ranges",
+      "lineno": 529,
+      "complexity": 48
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/ruamel/yaml/emitter.py",
+      "name": "analyze_scalar",
+      "lineno": 1040,
+      "complexity": 48
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/packaging/_ranges.py",
+      "name": "filter_by_ranges",
+      "lineno": 529,
+      "complexity": 48
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/ruamel/yaml/emitter.py",
+      "name": "analyze_scalar",
+      "lineno": 1040,
+      "complexity": 48
+    },
+    {
+      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/style.py",
+      "name": "__init__",
+      "lineno": 127,
+      "complexity": 47
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_fixtures.py",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/cmake/data/share/cmake-3.31/Help/prop_test/FIXTURES_REQUIRED.rst",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/cmake/data/share/cmake-3.31/Help/prop_test/FIXTURES_SETUP.rst",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/cmake/data/share/cmake-3.31/Help/prop_test/FIXTURES_CLEANUP.rst",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/mcuboot/fixtures/NEGATIVE_FIXTURES.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/mcuboot/fixtures/pipeline/swap_state.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/mcuboot/fixtures/pipeline/PIPELINE_FIXTURES.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/ring_input/README.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "physical_evidence/fixtures/synthetic_session_dry_run.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "src/edge_io_node/synthetic_device_emulator.py",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [
+    ".venv-zephyr/lib/python3.11/site-packages/packaging/_musllinux.py",
+    ".venv-zephyr/lib/python3.11/site-packages/packaging/dependency_groups.py",
+    ".venv-zephyr/lib/python3.11/site-packages/packaging/metadata.py",
+    ".venv-zephyr/lib/python3.11/site-packages/packaging/direct_url.py",
+    ".venv-zephyr/lib/python3.11/site-packages/packaging/pylock.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/viewer.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/ctypesutil.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/bridge.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/logconvert.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/iscan.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/slcan.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/virtual.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/robotell.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/nican.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/neousys/neousys.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ixxat/canlib_vcinpl.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ixxat/canlib_vcinpl2.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/systec/ucanbus.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/seeedstudio/seeedstudio.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/pcan/pcan.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/vector/xlclass.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/vector/xldefine.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/vector/xldriver.py",
+    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/serial/serial_can.py",
+    ".venv-zephyr/lib/python3.11/site-packages/progress/bar.py",
+    ".venv-zephyr/lib/python3.11/site-packages/progress/counter.py",
+    ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/datatype_cpp.py",
+    ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/descriptions.py",
+    ".venv-zephyr/lib/python3.11/site-packages/elftools/ehabi/ehabiinfo.py",
+    ".venv-zephyr/lib/python3.11/site-packages/elftools/elf/descriptions.py",
+    ".venv-zephyr/lib/python3.11/site-packages/intelhex/test.py",
+    ".venv-zephyr/lib/python3.11/site-packages/intelhex/bench.py",
+    ".venv-zephyr/lib/python3.11/site-packages/intelhex/getsizeof.py",
+    ".venv-zephyr/lib/python3.11/site-packages/idna/idnadata.py",
+    ".venv-zephyr/lib/python3.11/site-packages/idna/codec.py",
+    ".venv-zephyr/lib/python3.11/site-packages/requests/certs.py",
+    ".venv-zephyr/lib/python3.11/site-packages/requests/packages.py",
+    ".venv-zephyr/lib/python3.11/site-packages/requests/help.py",
+    ".venv-zephyr/lib/python3.11/site-packages/pip/__pip-runner__.py",
+    ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/configuration.py"
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/layout.py",
+      "to": "region"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/packaging/specifiers.py",
+      "to": "utils"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/__init__.py",
+      "to": "functools"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/file_util.py",
+      "to": "errno"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/gs_usb.py",
+      "to": "typing"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/dwarf_expr.py",
+      "to": "construct"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/dateutil/tz/tz.py",
+      "to": "win"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_internal/utils/egg_link.py",
+      "to": "os"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/platformdirs/unix.py",
+      "to": "pathlib"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/version.py",
+      "to": "typing"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/_musllinux.py",
+      "to": "sysconfig"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/packaging/_manylinux.py",
+      "to": "warnings"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/nixnet.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/msvc9compiler.py",
+      "to": "distutils"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/msvccompiler.py",
+      "to": "os"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "to": "ssltransport"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
+      "to": "pip"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/construct/core.py",
+      "to": "io"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/yaml/representer.py",
+      "to": "nodes"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata/__init__.py",
+      "to": "warnings"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/intelhex/__init__.py",
+      "to": "binascii"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/index/package_finder.py",
+      "to": "re"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/io/blf.py",
+      "to": "generic"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/typeunit.py",
+      "to": "abbrevtable"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/requests/auth.py",
+      "to": "time"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/requests/auth.py",
+      "to": "time"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ics_neovi/neovi_bus.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/pkg_resources/__init__.py",
+      "to": "typing_extensions"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
+      "to": "sys"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/urllib3/util/ssl_.py",
+      "to": "exceptions"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/platformdirs/unix.py",
+      "to": "collections"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/markup.py",
+      "to": "style"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/distlib/scripts.py",
+      "to": "java"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/anytree/render.py",
+      "to": "collections"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/ruamel/yaml/parser.py",
+      "to": "ruamel"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/packaging/_musllinux.py",
+      "to": "struct"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/requests/models.py",
+      "to": "_internal_utils"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ics_neovi/__init__.py",
+      "to": "neovi_bus"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/requests/help.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_io_node/research_export.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/_win32_console.py",
+      "to": "sys"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/packaging/specifiers.py",
+      "to": "functools"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/dwarfinfo.py",
+      "to": "callframe"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/_null_file.py",
+      "to": "typing"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/util.py",
+      "to": "functools"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/wrapt/decorators.py",
+      "to": "sys"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/elftools/elf/elffile.py",
+      "to": "io"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/tomli/_re.py",
+      "to": "re"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/urllib3/contrib/emscripten/request.py",
+      "to": "__future__"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/platformdirs/macos.py",
+      "to": "os"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/util.py",
+      "to": "py_compile"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/west/manifest.py",
+      "to": "pykwalify"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/charset_normalizer/utils.py",
+      "to": "unicodedata"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/_inspect.py",
+      "to": "table"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/util.py",
+      "to": "collections"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/relativedelta.py",
+      "to": "math"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/elf/relocation.py",
+      "to": "common"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/command/install_egg_info.py",
+      "to": "_path"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/requests/utils.py",
+      "to": "socket"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/requests/cookies.py",
+      "to": "collections"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/sandbox.py",
+      "to": "org"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/dist.py",
+      "to": "contextlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_internal/build_env/virtual.py",
+      "to": "typing"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__init__.py",
+      "to": "jinja2"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/packaging/specifiers.py",
+      "to": "abc"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/direct_url.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/core.py",
+      "to": "collections"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/launch.py",
+      "to": "tokenize"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/socketcan/utils.py",
+      "to": "errno"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/rule.py",
+      "to": "align"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/panel.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_vendor/packaging/utils.py",
+      "to": "typing"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/ranges.py",
+      "to": "version"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/command/_framework_compat.py",
+      "to": "os"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/anytree/iterators/levelordergroupiter.py",
+      "to": "abstractiter"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/requests/_types.py",
+      "to": "cookies"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/colorama/initialise.py",
+      "to": "atexit"
+    },
+    {
+      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/errors.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/urllib3/connection.py",
+      "to": "_collections"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/command/sdist.py",
+      "to": "glob"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTINUATION_PR_PREFLIGHT_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/implementation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/evaluation_plan.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/claims_needing_evidence.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/experiments_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/system_model.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/limitations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/draft.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/video_paper_explanation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/related_work_seed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/methodology.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/introduction.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ethics_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/abstract.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/reproducibility_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_toy_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/figures_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "clients/android/app/src/test/resources/pilot_assignment/valid_rehearsal.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "clients/android/app/src/test/resources/pilot_assignment/valid_rehearsal.canonical.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "clients/android/app/src/test/resources/pilot_assignment/valid_rehearsal.meta.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "clients/android/app/src/test/resources/pilot_assignment/gate3_rehearsal_assignment_v2.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "class": "PROOF",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/AssignmentCanonicalGoldenTest.kt",
+      "class": "PROOF",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/MeasurementSessionController.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/SessionMode.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/EdgeIoFileProvider.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/MainActivity.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/PilotAssignment.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/SessionExporter.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/PhysicalMetricsSampler.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/Models.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/ConsentManager.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/NetworkTransportDetector.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "clients/android/app/src/main/java/org/gunnchos/edgeio/AssignmentCanonicalJson.kt",
+      "class": "PRODUCTION",
+      "ext": ".kt"
+    },
+    {
+      "path": "firmware/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/ring_calibration/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware/ring_calibration/fallback_policy.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware/pseudocode/measurement_loop.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/pixel6a/dumpsys_package.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/ACCEPTANCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/pixel6a/install.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/reconnect_state.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/launch_monkey.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/uninstall.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/reinstall.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/ACCEPTANCE.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "hardware/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": ".zephyr-workspace/west.yml",
+      "class": "OTHER",
+      "ext": ".yml"
+    },
+    {
+      "path": "quality/READINESS_GATE_TABLE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/README_CLARITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TOY_DEMO_LANGUAGE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REPO_SCORECARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/EVIDENCE_BACKLOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_RELEASE_DECISION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REALITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_DOWNGRADED.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/BLOCKER_TODO_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/GAP_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RISK_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ISSUE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TRACEABILITY_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FMEA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/V1_RELEASE_BLOCKERS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_REQUIRING_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_TO_EVIDENCE_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_READINESS_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FINAL_READINESS_CONFIRMATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RELEASE_GATE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/VOC_CTQ_TREE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ROOT_CAUSE_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/SIPOC.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/EVIDENCE_UPGRADE_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ORAN_KPI_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TEST_AND_MEASUREMENT_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/SCHOOL_PRIVACY_MEASUREMENT_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NVIDIA_AERIAL_KPI_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/OPTIONAL_BACKENDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TOOLING_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ACCESS_LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/INSTALL_NOTES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NON_AFFILIATION_NOTICE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "tests/test_ring_input_harness.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_campus_profiles.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_ring_fallback_policy.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_ring_e2e_digital.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_rq3_digital_measurement.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_telemetry_schema.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_privacy.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_tool_adapters.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/contracts/test_gate2_edge_contracts.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "reproducibility/environment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/data_policy.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/runbook.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/artifact_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/expected_outputs.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/citation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/extension_guide.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/EXTERNAL_REPRODUCTION_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/E2E_RUN_RECORD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "adoption/ADOPTION_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_10_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/05_UML_MODELING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_RESEARCH_PRODUCT_FLOW.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PHYSICAL_CALIBRATION_PROCEDURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/04_privacy_and_child_safety.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/06_METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/09_LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_WOULD_MAKE_THIS_FINAL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CONTROLLED_DEVICE_MEASUREMENT_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/05_device_to_digital_twin_contract.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_REAL_TODAY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/00_SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/START_HERE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NO_MORE_TOY_DEMOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_RESEARCH_PLAN_MAPPING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RESEARCH_QUESTIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NEXT_90_DAYS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/07_REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/03_USE_CASES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/03_edge_ai_inference_benchmark.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/12_CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PLAIN_ENGLISH_EXPLANATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CROSS_REPO_DEPENDENCY_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AUDIENCE_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_chapter_outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_walkthrough_script.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GUNNCHOS_RESEARCH_SPINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REAL_EVIDENCE_PIPELINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/00_measurement_node_thesis.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/01_sensor_payloads.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EVIDENCE_STANDARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/16_OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HUMAN_REVIEW_BEFORE_MERGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/08_ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_READINESS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_demo_commands.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/10_PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_6G_PHD_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CLAIMS_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/11_RELEASE_CRITERIA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EXTERNAL_RESEARCHER_QUICKSTART.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_3_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_GUNNCHOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_latency_packetloss_rssi_jitter.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PIXEL_6A_ACCEPTANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_diagram_talking_points.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_code_tour.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/01_PRODUCT_RESEARCH_CHARTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/14_WAIKE_INTEGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_STILL_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PROBLEM_SOLUTION_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/13_PRODUCT_RESEARCH_BRIDGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/INDUSTRY_RESEARCH_TOOLING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/04_SYSTEM_ARCHITECTURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/15_GUNNCHAI3K_TUTOR_CARDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/traceability_matrix.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/render_plantuml.sh",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".sh"
+    },
+    {
+      "path": "docs/uml/legacy/placeholder_readme.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_sensing.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/timing.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/state_consent_calibration.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/deployment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/class_telemetry.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/physical_campaign.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/diagrams/research_spine.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/diagrams/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/EXTERNAL_REPRODUCTION_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    }
+  ],
+  "path_classification_full_count": 5000,
+  "mutation_sampling": {
+    "repository": "edge-io-measurement-node",
+    "sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
+        "kind": "flip_return_false",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      },
+      {
+        "index": 2,
+        "path": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      },
+      {
+        "index": 3,
+        "path": "src/edge_io_node/anti_replay.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "ADEQUATE",
+    "detected_count": 3
+  }
+}

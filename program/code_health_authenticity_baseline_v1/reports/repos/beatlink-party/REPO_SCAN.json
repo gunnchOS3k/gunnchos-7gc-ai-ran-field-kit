@@ -1,0 +1,2152 @@
+{
+  "repository": "beatlink-party",
+  "accepted_main_sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
+  "scanned_at_utc": "2026-08-21T17:10:28Z",
+  "counts": {
+    "files_classified": 318,
+    "code_files": 134,
+    "production_code_files": 90,
+    "proof_files": 34,
+    "class_histogram": {
+      "OTHER": 26,
+      "DOCS_OR_PROGRAM": 62,
+      "AMBIGUOUS_CODE": 10,
+      "PROOF": 119,
+      "PRODUCTION": 98,
+      "CI_OR_DEPLOY": 3
+    },
+    "theater_s0": 157,
+    "theater_s1": 8,
+    "theater_total": 165,
+    "hotspots": 1,
+    "wave_dup_paths": 43,
+    "fixture_paths": 1,
+    "orphan_candidates": 0,
+    "dep_edges": 407
+  },
+  "proof_independence": {
+    "production_files": 90,
+    "proof_files": 34,
+    "production_imports_proof_count": 2,
+    "production_imports_proof": [
+      {
+        "path": "apps/web/src/lib/hostAudio.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/web/src/lib/wp014UiProductionGate.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      }
+    ],
+    "status": "FAIL_COUPLED"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "package.json",
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "NEEDS_WORK"
+  },
+  "dimensions": {
+    "production_proof_separation": "CRITICAL",
+    "anti_test_theater": "CRITICAL",
+    "dependency_boundaries": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "runtime_authenticity": "NEEDS_WORK",
+    "complexity_hotspots": "ADEQUATE",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NOT_APPLICABLE"
+  },
+  "theater_findings": [
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 132,
+      "snippet": ".toBe(true);      manager.leaveRoom('p-a');     manager.reconnectPlayer(code, alice.player.id, alice.playerToken, 'p-a-2"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 203,
+      "snippet": ".toBe(true);     const aliceId = joined.player!.id;     const aliceToken = joined.playerToken!;      const player2 = awa"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 212,
+      "snippet": ".toBe(true);     const bobId = joined2.player!.id;      const audience = await connect(baseUrl);     const audJoined = a"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 221,
+      "snippet": ".toBe(true);      player.emit('room.set_role', { code, playerId: aliceId, role: 'beat_tapper' });     player2.emit('room"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 248,
+      "snippet": ".toBe(true);       const resumed = await emitAck<{ ok: boolean }>(host, 'room.session_resume', {         code,         h"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 253,
+      "snippet": ".toBe(true);       player.emit('game.input', {         code,         input: { playerId: aliceId, type: 'tap', clientTime"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 273,
+      "snippet": ".toBe(true);      player.emit('room.leave');     await new Promise((r) => setTimeout(r, 40));     const rejoin = await e"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 283,
+      "snippet": ".toBe(true);      const migratedEv = waitEvent<{ newHostPlayerId?: string }>(player2, 'room.host_migrated', 4000);     h"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 312,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.five_mode')).toBe(true);     expect(rt.isUnlocked('bl.pause_and_breathe')).toB"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 313,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.pause_and_breathe')).toBe(true);     expect(rt.isUnlocked('bl.audience')).toBe"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 314,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.audience')).toBe(true);     expect(rt.isUnlocked('bl.host_recovery')).toBe(tru"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 315,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.host_recovery')).toBe(true);      player.close();     player2.close();     aud"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "line": 316,
+      "snippet": ".toBe(true);      player.close();     player2.close();     audience.close();     nextHost.close();   }, 30_000); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/rooms.reconnect.test.ts",
+      "line": 61,
+      "snippet": ".toBe(true);   });    it('rejects a forged reconnect token', () => {     const created = manager.createRoom('host-c');  "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/scoring.test.ts",
+      "line": 92,
+      "snippet": ".toBe(true);   });    it('throws on invalid transition', () => {     expect(() => assertTransition('lobby', 'playing'))."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/beatmap.test.ts",
+      "line": 10,
+      "snippet": ".toBe(true);     expect(result.data?.notes.length).toBeGreaterThan(0);   });    it('validates all three demo beatmaps', "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/beatmap.test.ts",
+      "line": 18,
+      "snippet": ".toBe(true);     }   });    it('rejects invalid beatmap', () => {     const result = validateBeatmap({ id: 'bad' });    "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 68,
+      "snippet": ".toBe(true);     expect(afterTeams.players.some((p) => p.teamId === 'B')).toBe(true);      manager.setGameMode(created.c"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 69,
+      "snippet": ".toBe(true);      manager.setGameMode(created.code, 'BandRoles');     manager.selectSong(created.code, 'demo-neon-groove"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 88,
+      "snippet": ".toBe(true);     players[0]!.sock = 'p-sock-0-re';      manager.startCountdown(created.code);     manager.tickCountdown("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 111,
+      "snippet": ".toBe(true);      const results = manager.endGame(created.code);     expect(results?.teamScores).toBeTruthy();     expec"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 124,
+      "snippet": ".toBe(true);     expect(buffer.events.some((e) => e.name === 'room_shutdown')).toBe(true);   });    it('switches modes a"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 125,
+      "snippet": ".toBe(true);   });    it('switches modes and respects privacy redaction', () => {     const created = manager.createRoom"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 134,
+      "snippet": ".toBe(true);      for (const mode of [       'BeatTap',       'CallAndResponse',       'KaraokePerformance',       'Band"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 145,
+      "snippet": ".toBe(true);   });    it('redacts PII from telemetry meta helpers', () => {     const cleaned = redactPiiMeta({       gr"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 168,
+      "snippet": ".toBe(true);     expect(canPublishChart(editor).ok || canPublishChart(editor, { forceReviewAck: true }).ok).toBe(       "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 181,
+      "snippet": ".toBe(true);     expect(result.offsetMs).toBe(40);     expect(result.confidence).toBeGreaterThan(0.5);   });    it('scor"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 198,
+      "snippet": ".toBe(true);     expect(score.features.pitchHz).toBeGreaterThan(180);     expect(score.gradeHint).not.toBe('miss');   })"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 210,
+      "snippet": ".toBe(true);     expect(accessibilityClassList({ ...a11y, highContrast: true })).toContain(       'a11y-high-contrast', "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/alpha_exit.test.ts",
+      "line": 239,
+      "snippet": ".toBe(true);     expect(report.steps.length).toBe(3 * 5); // 3 tiers \u00d7 5 faults     expect(winningTeam({ A: 100, B: 50, "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 79,
+      "snippet": ".toBe(true);     expect(pipeline.session.recordingEnabled).toBe(false);     expect(await pipeline.start()).toBe('no_reco"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 121,
+      "snippet": ".toBe(true);      pipeline.stop();     stream.getTracks().forEach((t) => t.stop());     expect(stream.getAudioTracks()[0"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 145,
+      "snippet": ".toBe(true);     expect(bundle.music.commercialExternal.externalCommercial).toBe(true);     expect(await new CommercialE"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 146,
+      "snippet": ".toBe(true);     expect(await new CommercialExternalLyricsProvider().fetchLyrics('any')).toBeNull();     expect(await ne"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 213,
+      "snippet": ".toBe(true);     expect(roundTrip.tokens.BEATLINK_LIVE_MIC_PIPELINE_PASS).toBe(true);     expect(roundTrip.tokens.BEATLI"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 214,
+      "snippet": ".toBe(true);     expect(roundTrip.tokens.BEATLINK_PROVIDER_INTERFACE_PASS).toBe(true);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/continuation_v.test.ts",
+      "line": 215,
+      "snippet": ".toBe(true);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 30,
+      "snippet": ".toBe(true);   });    it('joins a real audience seat (not a player)', () => {     const room = manager.createRoom('host-"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 40,
+      "snippet": ".toBe(true);   });    it('rate-limits audience influence and honors mute/sandbox', () => {     const created = manager.c"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 52,
+      "snippet": ".toBe(true);     expect(first!.room.crowdMeter).toBeGreaterThan(50);      const second = manager.processAudienceInfluenc"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 77,
+      "snippet": ".toBe(true);     expect(manager.getHostToken(created.code, 'host-sock')).toBe(token);      const { player, playerToken }"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 81,
+      "snippet": ".toBe(true);      const migrated = manager.migrateHostOnDisconnect('host-sock');     expect(migrated).not.toBeNull();   "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 99,
+      "snippet": ".toBe(true);     expect(manager.ownsPlayer(created.code, 'sock-b', player.id)).toBe(true);      manager.setRole(created."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 100,
+      "snippet": ".toBe(true);      manager.setRole(created.code, player.id, 'beat_tapper');     manager.setReady(created.code, player.id,"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/audience_host.test.ts",
+      "line": 118,
+      "snippet": ".toBe(true);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/gate1_core_loop.test.ts",
+      "line": 15,
+      "snippet": ".toBe(true);     const steps = [       'launch','create_room','join_participant','select_local_fixture_song',       'cal"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/gate1_core_loop.test.ts",
+      "line": 22,
+      "snippet": ".toBe(true);     }     for (const e of events) {       for (const k of REQUIRED) expect(e[k as keyof typeof e]).toBeTrut"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/linkResolver.test.ts",
+      "line": 90,
+      "snippet": ".toBe(true);   });    it('matches catalog titles to PLAYABLE_APPROVED', async () => {     stubOEmbed({       title: 'Neo"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/linkResolver.test.ts",
+      "line": 102,
+      "snippet": ".toBe(true);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/modes.test.ts",
+      "line": 15,
+      "snippet": ".toBe(true);     expect(missing).toEqual([]);     expect(listGameModes()).toHaveLength(5);     expect(GAME_MODE_IDS).toE"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/modes.test.ts",
+      "line": 32,
+      "snippet": ".toBe(true);       expect(mode.a11y.captionsRequired).toBe(true);       expect(mode.teams.supportsTeams).toBe(true);    "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/modes.test.ts",
+      "line": 33,
+      "snippet": ".toBe(true);       expect(mode.teams.supportsTeams).toBe(true);       expect(mode.replay.supported).toBe(true);       ex"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/modes.test.ts",
+      "line": 34,
+      "snippet": ".toBe(true);       expect(mode.replay.supported).toBe(true);       expect(mode.replay.includesMicAudio).toBe(false);    "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/modes.test.ts",
+      "line": 35,
+      "snippet": ".toBe(true);       expect(mode.replay.includesMicAudio).toBe(false);       for (const difficulty of ['beginner', 'casual"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_successor_modes.test.ts",
+      "line": 85,
+      "snippet": ".toBe(true);      const result = manager.processInput(created.code, {       playerId: player.id,       type: 'prediction"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_successor_modes.test.ts",
+      "line": 140,
+      "snippet": ".toBe(true);     expect(await lyrics.fetchLyrics('any')).toBeNull();   });    it('provider media never exposes a ripped "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_successor_modes.test.ts",
+      "line": 211,
+      "snippet": ".toBe(true);     expect(register.FULL_GAME_CONTENT_COMPLETE).toBe(false);     expect(GAME_MODE_IDS).toHaveLength(5);   }"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/socket_party_roundtrip.test.ts",
+      "line": 79,
+      "snippet": ".toBe(true);      const p2 = await connect(url);     sockets.push(p2);     const joined2 = await emitAck<{ ok: boolean; "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/socket_party_roundtrip.test.ts",
+      "line": 87,
+      "snippet": ".toBe(true);     expect(roomManager.getRoom(created.code)?.players).toHaveLength(2);      p1.emit('room.set_role', {    "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/socket_party_roundtrip.test.ts",
+      "line": 106,
+      "snippet": ".toBe(true);      host.emit('room.select_song', {       code: created.code,       hostToken: created.hostToken,       so"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/socket_party_roundtrip.test.ts",
+      "line": 130,
+      "snippet": ".toBe(true);     expect(re.player?.id).toBe(joined1.player!.id);     expect(roomManager.getRoom(created.code)?.players.f"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/network_load.test.ts",
+      "line": 30,
+      "snippet": ".toBe(true);       expect(report.token).toBe('BEATLINK_NETWORK_LOAD_PASS');       for (const m of report.metrics) {     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/network_load.test.ts",
+      "line": 33,
+      "snippet": ".toBe(true);         expect(m.joinRttMs.samples).toBeGreaterThan(0);         expect(m.joinRttMs.p50).toBeGreaterThanOrEq"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/network_load.test.ts",
+      "line": 68,
+      "snippet": ".toBe(true);         expect(m.joinRttMs.samples).toBeGreaterThan(0);       }     },     300_000,   ); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/redis_ci.test.ts",
+      "line": 73,
+      "snippet": ".toBe(true);     expect(restored?.audience.some((m) => m.name === 'Crowd')).toBe(true);     expect(restored?.hostToken)."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/redis_ci.test.ts",
+      "line": 74,
+      "snippet": ".toBe(true);     expect(restored?.hostToken).toBe(room.hostToken);      b.shutdownRoom(room.code, { hostToken: room.host"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/karaoke_digital.test.ts",
+      "line": 15,
+      "snippet": ".toBe(true);     expect(session.recordingEnabled).toBe(false);     expect(session.permission).toBe('no_recording');     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/karaoke_digital.test.ts",
+      "line": 30,
+      "snippet": ".toBe(true);     expect(hit.gradeHint).not.toBe('miss');     expect(miss.inWindow).toBe(false);     expect(miss.gradeHin"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/karaoke_digital.test.ts",
+      "line": 46,
+      "snippet": ".toBe(true);   });    it('browser adapter stays no-recording and never enables capture', async () => {     const adapter"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 133,
+      "snippet": ".toBe(true);      manager.leaveRoom('p-a');     manager.reconnectPlayer(code, alice.player.id, alice.playerToken, 'p-a-2"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 204,
+      "snippet": ".toBe(true);     const aliceId = joined.player!.id;     const aliceToken = joined.playerToken!;      const player2 = awa"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 213,
+      "snippet": ".toBe(true);     const bobId = joined2.player!.id;      const audience = await connect(baseUrl);     const audJoined = a"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 222,
+      "snippet": ".toBe(true);      player.emit('room.set_role', { code, playerId: aliceId, role: 'beat_tapper' });     player2.emit('room"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 249,
+      "snippet": ".toBe(true);       const resumed = await emitAck<{ ok: boolean }>(host, 'room.session_resume', {         code,         h"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 254,
+      "snippet": ".toBe(true);       player.emit('game.input', {         code,         input: { playerId: aliceId, type: 'tap', clientTime"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 274,
+      "snippet": ".toBe(true);      player.emit('room.leave');     await new Promise((r) => setTimeout(r, 40));     const rejoin = await e"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 284,
+      "snippet": ".toBe(true);      const migratedEv = waitEvent<{ newHostPlayerId?: string }>(player2, 'room.host_migrated', 4000);     h"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 313,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.five_mode')).toBe(true);     expect(rt.isUnlocked('bl.pause_and_breathe')).toB"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 314,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.pause_and_breathe')).toBe(true);     expect(rt.isUnlocked('bl.audience')).toBe"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "line": 315,
+      "snippet": ".toBe(true);     expect(rt.isUnlocked('bl.audience')).toBe(true);     expect(rt.isUnlocked('bl.host_recovery')).toBe(tru"
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": "scripts/validate_game_rc_contracts.py",
+      "name": "main",
+      "lineno": 26,
+      "complexity": 35
+    }
+  ],
+  "wave_duplicate_paths": [
+    {
+      "path": "artifacts/engineering_wave007/RECONNECT_BROWSER_A_B_C_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/DEVICE_TIMING_PROFILE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/ROLE_SYNC_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/DEVICE_CALIBRATION_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/REQUIREMENT_RESULTS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SONG_SOURCE_RIGHTS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SESSION_RESUME_A_B_C_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/WAVE007_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/E2E_MULTI_CLIENT_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SCORING_LEDGER_REPLAY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/BROWSER_E2E_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/VIEWPORT_RESPONSIVE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SECURITY_ABUSE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/DEAD_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/UML_TRACEABILITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/AUDIENCE_INFLUENCE_SPAM_CAP_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/OUTCOME_CONSISTENCY_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/MULTICLIENT_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/GAMEPLAY_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/RUNTIME_IDENTITY.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/CREATE_ROOM_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SOURCE_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/AUDIENCE_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/EVENT_IDEMPOTENCY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/NETWORK_FAILURE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave007/REMATCH_BROWSER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/e2e/wave007_party_loop.playwright.spec.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave007/evaluators.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave007/wave007_party_loop.test.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave007/behavioralNegatives.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave007/completionGate.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave007/integrityScan.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "content/fixtures/wave007/copyright_safe_fixture.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "docs/uml/wave007/sequence_party_loop.md",
+      "class": "PROOF"
+    },
+    {
+      "path": "docs/uml/wave007/component.md",
+      "class": "PROOF"
+    },
+    {
+      "path": "docs/uml/wave007/README.md",
+      "class": "PROOF"
+    },
+    {
+      "path": "docs/uml/wave007/state_product.md",
+      "class": "PROOF"
+    },
+    {
+      "path": "scripts/engineering_wave007/run_browser_e2e_ci.sh",
+      "class": "AMBIGUOUS_CODE"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "content/fixtures/wave007/copyright_safe_fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [],
+  "dependency_edges_sample": [
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./contentPaths.js"
+    },
+    {
+      "from": "packages/game-engine/src/chartEditor.ts",
+      "to": "./audioAnalysis.js"
+    },
+    {
+      "from": "packages/game-engine/src/combo.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "packages/game-engine/src/modes/predictionTrivia.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/server/src/rooms/RoomManager.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "packages/game-engine/src/launchCatalog.ts",
+      "to": "./modes/index.js"
+    },
+    {
+      "from": "apps/server/src/load/wp014ProductionGate.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "tests/game_successor_modes.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "gate1/cross_device/contractProvider.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./chartEditor.js"
+    },
+    {
+      "from": "apps/server/src/rooms/RoomManager.ts",
+      "to": "@beatlink/game-engine"
+    },
+    {
+      "from": "apps/web/src/pages/LandingPage.tsx",
+      "to": "../lib/socket"
+    },
+    {
+      "from": "tests/game_rc_002_session.test.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "apps/web/src/lib/socket.ts",
+      "to": "socket.io-client"
+    },
+    {
+      "from": "apps/server/src/realtime/socket.ts",
+      "to": "socket.io"
+    },
+    {
+      "from": "packages/game-engine/src/modeRuntime.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/engineering_wave007/completionGate.ts",
+      "to": "./evaluators.js"
+    },
+    {
+      "from": "packages/game-engine/src/liveMicPipeline.ts",
+      "to": "./karaokeDsp.js"
+    },
+    {
+      "from": "apps/server/src/beatmaps/store.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "apps/web/src/pages/JoinPage.tsx",
+      "to": "react"
+    },
+    {
+      "from": "scripts/emit-digital-rc.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./partyOnboarding.js"
+    },
+    {
+      "from": "tests/continuation_vi.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "tests/alpha_exit.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "tests/game_rc_004_party_ux.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "apps/web/src/lib/liveMic.ts",
+      "to": "@beatlink/game-engine"
+    },
+    {
+      "from": "tests/game_rc_002_session.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./liveMicPipeline.js"
+    },
+    {
+      "from": "apps/web/src/main.tsx",
+      "to": "./App"
+    },
+    {
+      "from": "packages/game-engine/src/networkLoadSlo.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/beta_rc.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./modeRuntime.js"
+    },
+    {
+      "from": "tests/scoring.test.ts",
+      "to": "../packages/game-engine/src/awards.js"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./timeline.js"
+    },
+    {
+      "from": "packages/shared/src/index.ts",
+      "to": "./beatmapSchema.js"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./providers.js"
+    },
+    {
+      "from": "apps/web/src/lib/deviceSettings.tsx",
+      "to": "@beatlink/device-ux"
+    },
+    {
+      "from": "tests/engineering_wave007/wave007_party_loop.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "tests/beta_rc.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "tests/scoring.test.ts",
+      "to": "../packages/shared/src/types.js"
+    },
+    {
+      "from": "tests/cross_device_contract.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "tests/wave_g_lifecycle.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./calibration.js"
+    },
+    {
+      "from": "tests/network_load.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "packages/game-engine/src/modes/index.ts",
+      "to": "./karaokePerformance.js"
+    },
+    {
+      "from": "packages/game-engine/src/songSource.ts",
+      "to": "./rights.js"
+    },
+    {
+      "from": "packages/game-engine/src/scoringLedger.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/rights.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "apps/web/src/pages/PlayerPage.tsx",
+      "to": "../lib/socket"
+    },
+    {
+      "from": "packages/game-engine/src/modes/callAndResponse.ts",
+      "to": "./types.js"
+    },
+    {
+      "from": "apps/web/src/pages/HostPage.tsx",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/server/src/rooms/store/memoryStore.ts",
+      "to": "./types.js"
+    },
+    {
+      "from": "packages/game-engine/src/modes/karaokePerformance.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "packages/game-engine/src/modes/index.ts",
+      "to": "./callAndResponse.js"
+    },
+    {
+      "from": "tests/game_rc_002_independent_verifier.test.ts",
+      "to": "../apps/server/src/realtime/socket.js"
+    },
+    {
+      "from": "tests/cross_device_contract.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "tests/engineering_wave007/integrityScan.ts",
+      "to": "typescript"
+    },
+    {
+      "from": "apps/server/src/beatmaps/store.ts",
+      "to": "./generator.js"
+    },
+    {
+      "from": "apps/web/src/main.tsx",
+      "to": "react"
+    },
+    {
+      "from": "tests/karaoke_digital.test.ts",
+      "to": "../packages/game-engine/src/karaokeMic.js"
+    },
+    {
+      "from": "packages/game-engine/src/contentPaths.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "packages/game-engine/src/eventScaleSim.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "vitest.config.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./stateMachine.js"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "to": "./realtime/socket.js"
+    },
+    {
+      "from": "tests/continuation_vi.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "device_ux/src/loader.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/web/src/pages/HostPage.tsx",
+      "to": "../lib/api"
+    },
+    {
+      "from": "packages/game-engine/src/songSource.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/web/src/App.tsx",
+      "to": "./pages/AudiencePage"
+    },
+    {
+      "from": "tests/continuation_vi.test.ts",
+      "to": "node:perf_hooks"
+    },
+    {
+      "from": "tests/continuation_v.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "packages/game-engine/src/karaoke.ts",
+      "to": "./timeline.js"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "to": "./beatmaps/store.js"
+    },
+    {
+      "from": "apps/server/src/load/networkLoadRunner.ts",
+      "to": "../realtime/socket.js"
+    },
+    {
+      "from": "tests/continuation_vi.test.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/web/src/pages/HostPage.tsx",
+      "to": "../lib/hostAudio"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "pnpm-lock.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "package.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "docker-compose.yml",
+      "class": "OTHER",
+      "ext": ".yml"
+    },
+    {
+      "path": "playwright.config.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "eslint.config.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "vitest.config.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "gate1/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/tools/production_gate_runner.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "gate1/tools/export_cross_device_contract.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "gate1/tools/core_loop_runner.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "gate1/evidence/RUNTIME_SMOKE_NOTES.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/evidence/SCREEN_RECORDING_CHECKLIST.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/evidence/accessibility_checks.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "gate1/evidence/MANUAL_DEVICE_RUNBOOK.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/contracts/game_core_loop.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "gate1/contracts/cross_device_game_contract.v1.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "gate1/cross_device/contractProvider.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "artifacts/game_rc_002/VP_GAME_RC_002_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/pixel6a/ACCEPTANCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/pixel6a/install.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/ACCEPTANCE.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/wp014/BEATLINK_PARTY_CONTENT_REGISTER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/wp014/actual_production_runtime.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/wp014/BEATLINK_PARTY_PRODUCT_GATE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/experience_review/beatlink-party/SUMMARY.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/experience_review/beatlink-party/AI_HEURISTIC_REVIEW.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/experience_review/beatlink-party/GAME_CRITIC_REVIEW.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/beatlink_full/BEATLINK_FULL_PRODUCT_REGISTER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/RECONNECT_BROWSER_A_B_C_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/DEVICE_TIMING_PROFILE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/ROLE_SYNC_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/CLAIM_BOUNDARIES.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/DEVICE_CALIBRATION_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/REQUIREMENT_RESULTS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SONG_SOURCE_RIGHTS_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SESSION_RESUME_A_B_C_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/WAVE007_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/E2E_MULTI_CLIENT_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SCORING_LEDGER_REPLAY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/BROWSER_E2E_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/VIEWPORT_RESPONSIVE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SECURITY_ABUSE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/DEAD_CONTROL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/UML_TRACEABILITY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/AUDIENCE_INFLUENCE_SPAM_CAP_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/OUTCOME_CONSISTENCY_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/MULTICLIENT_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/GAMEPLAY_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/RUNTIME_IDENTITY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/CREATE_ROOM_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/SOURCE_PROVENANCE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/AUDIENCE_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/EVENT_IDEMPOTENCY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/NETWORK_FAILURE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave007/REMATCH_BROWSER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "tests/rooms.reconnect.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/game_rc_004_party_ux.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/scoring.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/beatmap.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/alpha_exit.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/continuation_v.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/audience_host.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/gate1_core_loop.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/device_ux_runtime.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/linkResolver.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/modes.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/game_successor_modes.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/socket_party_roundtrip.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/cross_device_contract.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/network_load.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/redis_ci.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/karaoke_digital.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/audio_analysis.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/game_rc_002_independent_verifier.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/rights.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/beta_rc.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/wave_g_lifecycle.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/game_rc_002_session.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/continuation_vi.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/rooms.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/e2e/party.playwright.spec.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/e2e/wave007_party_loop.playwright.spec.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave007/evaluators.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave007/wave007_party_loop.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave007/behavioralNegatives.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave007/completionGate.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave007/integrityScan.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "device_ux/roles.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "device_ux/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "device_ux/package.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "device_ux/tsconfig.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "device_ux/src/profiles.ts",
+      "class": "PRODUCTION",
+      "ext": ".ts"
+    },
+    {
+      "path": "device_ux/src/loader.ts",
+      "class": "PRODUCTION",
+      "ext": ".ts"
+    },
+    {
+      "path": "device_ux/src/index.ts",
+      "class": "PRODUCTION",
+      "ext": ".ts"
+    },
+    {
+      "path": "content/songs/approved-demo-catalog.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "content/songs/offline-launch-catalog.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "content/beatmaps/demo-track-1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "content/beatmaps/demo-track-2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "content/beatmaps/demo-track-3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "content/fixtures/wave007/copyright_safe_fixture.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "release/VISUAL_PACK_HARNESS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/GAME-RC-004.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "release/CONTENT_MANIFEST.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/ACHIEVEMENTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/PLATFORM_MATRIX.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/RC_GATE.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/PLAYTHROUGH_CONTRACT.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/GAME-RC-002.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "release/schemas/rc_gate.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/schemas/playthrough_contract.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/schemas/achievements.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/schemas/content_manifest.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/GAME_DESIGN_DOCUMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PRODUCT_REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CURSOR_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/API_SPEC.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HUMAN_PLAYTEST_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ALPHA_EXIT_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/TEST_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PRODUCT_IDENTITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ALPHA_EXIT_TOKENS.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/BEATMAP_SCHEMA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/BETA_RC_TOKENS.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/MUSIC_COMPLIANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CODEX_CONTINUATION_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PRODUCTION_READINESS_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PIXEL_6A_ACCEPTANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/BETA_RC_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/research/6G_WORKLOAD_RELEVANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/continuation-vii/CONTINUATION_VII_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/continuation-vii/GUNNCHOS_PACKAGING.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-vii/CONTINUATION_VII_TOKENS.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/uml/traceability_matrix.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/wave007/sequence_party_loop.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/wave007/component.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/wave007/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/wave007/state_product.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/readme_placeholders.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/class_room_player.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/deployment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_round.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/use_case.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/state_room.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/licensed_playback.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/continuation-vi/network-load-hardened.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-vi/CONTINUATION_VI_TOKENS.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-vi/network-load-slo.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-vi/CONTINUATION_VI_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/digital-rc/package-manifest.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/digital-rc/sbom-lite.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/digital-rc/event-scale-metrics.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/digital-rc/update-manifest.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/digital-rc/ready.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/digital-rc/rollback-manifest.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/release/beta_gap_audit.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-v/CONTINUATION_V_TOKENS.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-v/network-load-metrics.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-v/network-load-cross-process.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/continuation-v/CONTINUATION_V_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/ACCEPTANCE_TEST_DURATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/KNOWN_LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/PIXEL_6A_TEST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/RELEASE_BUILD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/PR_3_BODY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/ACCEPTANCE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/PROVIDER_CREDENTIALS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/evidence/apk-inspection-1.1.2.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/signature-mismatch-notes.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/package-inspect.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-a-logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/DIRECTION_B.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/k-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/install-cdp.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/d-mac-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/g-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/j-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/logcat-dir-b.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/room-code.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/direction-b-summary.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/mac-lobby-text.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/e-mac-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/h-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/direction-b/f-mac-lobby.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    }
+  ],
+  "path_classification_full_count": 318,
+  "mutation_sampling": {
+    "repository": "beatlink-party",
+    "sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
+    "mutations": [],
+    "status": "NO_MUTATION_TARGETS",
+    "dimension": "NOT_APPLICABLE"
+  }
+}

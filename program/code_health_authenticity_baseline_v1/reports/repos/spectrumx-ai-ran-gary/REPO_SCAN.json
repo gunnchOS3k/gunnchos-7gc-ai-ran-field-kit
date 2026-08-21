@@ -1,0 +1,1882 @@
+{
+  "repository": "spectrumx-ai-ran-gary",
+  "accepted_main_sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
+  "scanned_at_utc": "2026-08-21T17:10:31Z",
+  "counts": {
+    "files_classified": 474,
+    "code_files": 144,
+    "production_code_files": 71,
+    "proof_files": 7,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 279,
+      "OTHER": 42,
+      "AMBIGUOUS_CODE": 64,
+      "PROOF": 10,
+      "CI_OR_DEPLOY": 8,
+      "PRODUCTION": 71
+    },
+    "theater_s0": 0,
+    "theater_s1": 26,
+    "theater_total": 34,
+    "hotspots": 51,
+    "wave_dup_paths": 0,
+    "fixture_paths": 1,
+    "orphan_candidates": 40,
+    "dep_edges": 620
+  },
+  "proof_independence": {
+    "production_files": 71,
+    "proof_files": 7,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile",
+      "pyproject.toml"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "NEEDS_WORK",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "NEEDS_WORK",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "ADEQUATE"
+  },
+  "theater_findings": [
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "paper/scripts/generate_tables.py",
+      "line": 274,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/check_ngc_access.py",
+      "line": 101,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/test_leaderboard_submission.py",
+      "line": 138,
+      "snippet": "xit(main())  "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/e2e_check_required_artifacts.py",
+      "line": 26,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/bootstrap_aodt_access.py",
+      "line": 106,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/import_asana_csv_to_github_projects.py",
+      "line": 840,
+      "snippet": "xit(1)          # Step 3: Create project fields     fields_map = create_project_fields(project_id)          # Step 4: Pa"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_feature_leaderboard_submission.py",
+      "line": 108,
+      "snippet": "xit(main())  "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/demo_airan_policy.py",
+      "line": 49,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/setup_github_project_epics.py",
+      "line": 344,
+      "snippet": "xit(1)          # Create labels     create_labels()          # Create project     project_number = create_project()     "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/setup_github_project_epics.py",
+      "line": 353,
+      "snippet": "xit(1)          # Note about fields     create_project_fields(project_number)          # Create EPIC issues     print(\"\\"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/export_sionna_rt_summary.py",
+      "line": 155,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_simulation_exports.py",
+      "line": 154,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_paper_ii_digital.py",
+      "line": 45,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 162,
+      "snippet": "xit(1)     except Exception as e:         print(f\"\\n\u274c Unexpected error: {type(e).__name__}: {e}\")         import traceba"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 167,
+      "snippet": "xit(1) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/export_deepmimo_summary.py",
+      "line": 103,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_paper_ii_heldout.py",
+      "line": 20,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "submissions/leaderboard_v4/main.py",
+      "line": 133,
+      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "submissions/leaderboard_v5/main.py",
+      "line": 211,
+      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "submissions/leaderboard_baseline_v3/main.py",
+      "line": 186,
+      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "submissions/leaderboard_baseline_v2/main.py",
+      "line": 167,
+      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "submissions/leaderboard_baseline_v1/main.py",
+      "line": 292,
+      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result))  "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "submissions/leaderboard_baseline_v1/test3k/main.py",
+      "line": 224,
+      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result))  "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "src/airan_research/__main__.py",
+      "line": 5,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "src/airan_research/gate2/cli.py",
+      "line": 108,
+      "snippet": "xit(f\"unknown command {args.cmd}\")   if __name__ == \"__main__\":     raise SystemExit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "src/airan_research/gate2/cli.py",
+      "line": 112,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/import_asana_csv_to_github_projects.py",
+      "line": 822,
+      "snippet": "except Exception:             pass  # Skip if date parsing fails   def main():     \"\"\"Main execution.\"\"\"     print(\"=\" *"
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 23,
+      "snippet": "def test_basic_generation():     \"\"\"Test basic IQ window generation.\"\"\"     print(\"Test 1: Generate label=0 (noise only)"
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 43,
+      "snippet": "def test_qpsk_complex():     \"\"\"Test that QPSK symbols are truly complex.\"\"\"     print(\"Test 3: Verify QPSK symbols are "
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 56,
+      "snippet": "def test_snr_accuracy():     \"\"\"Test that AWGN achieves roughly correct SNR.\"\"\"     print(\"Test 4: Verify SNR accuracy.."
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 77,
+      "snippet": "def test_invalid_zone_id():     \"\"\"Test that invalid zone_id raises ValueError.\"\"\"     print(\"Test 5: Invalid zone_id ra"
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 91,
+      "snippet": "def test_valid_zone_id():     \"\"\"Test that valid zone_id works.\"\"\"     print(\"Test 6: Valid zone_id works...\")     # Use"
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 103,
+      "snippet": "def test_reproducibility():     \"\"\"Same seed + zone_id + label must produce identical IQ and metadata.\"\"\"     print(\"Tes"
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "scripts/smoke_test_digital_twin.py",
+      "line": 121,
+      "snippet": "def test_zone_metadata_consistency():     \"\"\"Test that zone_id in metadata matches actual zone used.\"\"\"     print(\"Test "
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": "apps/streamlit_app.py",
+      "name": "_render_judge_gary_micro_twin_3d",
+      "lineno": 1550,
+      "complexity": 395
+    },
+    {
+      "path": "src/edge_ran_gary/simulation_integration_hooks.py",
+      "name": "_load_sionna_bundle_from_dirs",
+      "lineno": 616,
+      "complexity": 40
+    },
+    {
+      "path": "src/airan_research/experiments/digital_programme.py",
+      "name": "_mini_yaml_load",
+      "lineno": 91,
+      "complexity": 38
+    },
+    {
+      "path": "scripts/sweep_baseline_thresholds.py",
+      "name": "main",
+      "lineno": 138,
+      "complexity": 34
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "name": "scan_submissions_inventory",
+      "lineno": 918,
+      "complexity": 25
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "name": "_pick_core_submission_row",
+      "lineno": 1147,
+      "complexity": 24
+    },
+    {
+      "path": "src/edge_ran_gary/simulation_integration_hooks.py",
+      "name": "_normalize_deepmimo_dict",
+      "lineno": 392,
+      "complexity": 22
+    },
+    {
+      "path": "submissions/leaderboard_baseline_v1/main.py",
+      "name": "_extract_features",
+      "lineno": 109,
+      "complexity": 18
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "name": "_pick_from_df",
+      "lineno": 1153,
+      "complexity": 18
+    },
+    {
+      "path": "src/airan_research/experiments/digital_programme.py",
+      "name": "parse_block",
+      "lineno": 128,
+      "complexity": 18
+    },
+    {
+      "path": "src/edge_ran_gary/detection/feature_baseline.py",
+      "name": "extract_features",
+      "lineno": 97,
+      "complexity": 18
+    },
+    {
+      "path": "scripts/sweep_baseline_thresholds.py",
+      "name": "collect_files",
+      "lineno": 67,
+      "complexity": 17
+    },
+    {
+      "path": "src/airan_research/experiments/digital_programme.py",
+      "name": "run_family",
+      "lineno": 610,
+      "complexity": 17
+    },
+    {
+      "path": "src/airan_research/experiments/digital_programme.py",
+      "name": "policy_information_equivalent",
+      "lineno": 451,
+      "complexity": 16
+    },
+    {
+      "path": "src/airan_research/experiments/digital_programme.py",
+      "name": "parse_scalar",
+      "lineno": 94,
+      "complexity": 16
+    },
+    {
+      "path": "src/edge_ran_gary/submission_adapter.py",
+      "name": "run_evaluate_on_iq_array",
+      "lineno": 128,
+      "complexity": 16
+    },
+    {
+      "path": "src/edge_ran_gary/simulation_provenance.py",
+      "name": "provenance_tier_from_sim_result",
+      "lineno": 88,
+      "complexity": 16
+    },
+    {
+      "path": "src/edge_ran_gary/detection/predict.py",
+      "name": "predict",
+      "lineno": 47,
+      "complexity": 16
+    },
+    {
+      "path": "scripts/import_asana_csv_to_github_projects.py",
+      "name": "create_issue",
+      "lineno": 580,
+      "complexity": 15
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "name": "_render_judge_hero_score_strip",
+      "lineno": 516,
+      "complexity": 15
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "name": "_leaderboard_progress_dataframe",
+      "lineno": 1062,
+      "complexity": 15
+    },
+    {
+      "path": "src/edge_ran_gary/gary_scenario_engine.py",
+      "name": "compute_site_state",
+      "lineno": 129,
+      "complexity": 15
+    },
+    {
+      "path": "scripts/test_leaderboard_submission.py",
+      "name": "main",
+      "lineno": 82,
+      "complexity": 14
+    },
+    {
+      "path": "scripts/import_asana_csv_to_github_projects.py",
+      "name": "get_growth_outcome",
+      "lineno": 523,
+      "complexity": 14
+    },
+    {
+      "path": "scripts/validate_simulation_exports.py",
+      "name": "main",
+      "lineno": 119,
+      "complexity": 14
+    },
+    {
+      "path": "scripts/import_asana_csv_to_github_projects.py",
+      "name": "determine_deliverable",
+      "lineno": 548,
+      "complexity": 13
+    },
+    {
+      "path": "scripts/validate_simulation_exports.py",
+      "name": "validate_sionna",
+      "lineno": 75,
+      "complexity": 13
+    },
+    {
+      "path": "src/airan_research/gate2/twin_policies.py",
+      "name": "policy_service_priority",
+      "lineno": 245,
+      "complexity": 13
+    },
+    {
+      "path": "src/airan_research/gate2/twin_policies.py",
+      "name": "evaluate_policy",
+      "lineno": 372,
+      "complexity": 13
+    },
+    {
+      "path": "src/airan_research/gate2/twin_policies.py",
+      "name": "_ablate",
+      "lineno": 599,
+      "complexity": 13
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [
+    {
+      "path": "src/airan_research/synthetic_data.py",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [
+    "apps/streamlit_app.py",
+    "src/airan_research/metrics.py",
+    "src/airan_research/baselines.py",
+    "src/airan_research/digital_twin_adapter.py",
+    "src/airan_research/synthetic_data.py",
+    "src/airan_research/campus_profiles.py",
+    "src/airan_research/__main__.py",
+    "src/airan_research/report.py",
+    "src/airan_research/gate2/twin_policies.py",
+    "src/airan_research/tool_adapters/aerial_kpi_export.py",
+    "src/airan_research/tool_adapters/ns_oran_scenario_export.py",
+    "src/airan_research/tool_adapters/oran_kpi_schema.py",
+    "src/airan_research/tool_adapters/srsran_config_export.py",
+    "src/airan_research/tool_adapters/oai_config_export.py",
+    "src/airan_research/tool_adapters/xapp_policy_stub.py",
+    "src/edge_ran_gary/judged_headline_metrics.py",
+    "src/edge_ran_gary/submission_adapter.py",
+    "src/edge_ran_gary/config.py",
+    "src/edge_ran_gary/gary_scenario_engine.py",
+    "src/edge_ran_gary/gary_occupancy_visualization.py",
+    "src/edge_ran_gary/gary_site_geometry.py",
+    "src/edge_ran_gary/simulation_provenance.py",
+    "src/edge_ran_gary/ota_data_interface.py",
+    "src/edge_ran_gary/simulation_integration_hooks.py",
+    "src/edge_ran_gary/gary_mobility_profiles.py",
+    "src/edge_ran_gary/data_pipeline/deepmimo_scenarios.py",
+    "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
+    "src/edge_ran_gary/utils/metrics.py",
+    "src/edge_ran_gary/utils/plotting.py",
+    "src/edge_ran_gary/models/baselines.py",
+    "src/edge_ran_gary/models/bandit_policies.py",
+    "src/edge_ran_gary/models/actor_critic.py",
+    "src/edge_ran_gary/digital_twin/generate.py",
+    "src/edge_ran_gary/digital_twin/cli_generate.py",
+    "src/edge_ran_gary/viz/app_streamlit.py",
+    "src/edge_ran_gary/sim/evaluation.py",
+    "src/edge_ran_gary/sim/environment.py",
+    "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
+    "src/edge_ran_gary/detection/baselines.py",
+    "src/edge_ran_gary/detection/predict.py"
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "scripts/run_psd_logreg.py",
+      "to": "sklearn"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/predict.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_psd_logreg.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/train_v12_ensemble.py",
+      "to": "sklearn"
+    },
+    {
+      "from": "scripts/export_srsran_testbed_stub.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_baselines.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/train_v12_ensemble.py",
+      "to": "json"
+    },
+    {
+      "from": "submissions/leaderboard_v5/main.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/predict.py",
+      "to": "src"
+    },
+    {
+      "from": "scripts/smoke_test_v14.py",
+      "to": "main"
+    },
+    {
+      "from": "scripts/test_leaderboard_submission.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/train_v8_model.py",
+      "to": "pandas"
+    },
+    {
+      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/calibrate.py",
+      "to": "typing"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v1/test3k/main.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/demo_airan_policy.py",
+      "to": "argparse"
+    },
+    {
+      "from": "submissions/leaderboard_v5/zip_submission.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/demo_airan_policy.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/test_leaderboard_submission.py",
+      "to": "submissions"
+    },
+    {
+      "from": "scripts/e2e_check_required_artifacts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_v11_model.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/gary_micro_twin.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_scenario_engine.py",
+      "to": "__future__"
+    },
+    {
+      "from": "submissions/leaderboard_v6/zip_submission.py",
+      "to": "zipfile"
+    },
+    {
+      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
+      "to": "dotenv"
+    },
+    {
+      "from": "src/airan_research/experiments/digital_programme.py",
+      "to": "time"
+    },
+    {
+      "from": "src/airan_research/tool_adapters/ns_oran_scenario_export.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/feature_baseline.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/generate.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/predict.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/airan_research/gate2/twin_policies.py",
+      "to": "statistics"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/check_ngc_access.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/generate_v12_submission.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_paper_ii_digital.py",
+      "to": "airan_research"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/anomaly.py",
+      "to": "src"
+    },
+    {
+      "from": "src/airan_research/experiments/digital_programme.py",
+      "to": "math"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/__init__.py",
+      "to": "generator"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/baselines.py",
+      "to": "src"
+    },
+    {
+      "from": "scripts/bootstrap_aodt_access.py",
+      "to": "datetime"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v1/main.py",
+      "to": "sys"
+    },
+    {
+      "from": "submissions/leaderboard_v11/main.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/edge_ran_gary/ota_data_interface.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/zones.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/demo_airan_policy.py",
+      "to": "json"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v3/main.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_feature_detector.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/train_feature_detector.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/airan_research/experiments/digital_programme.py",
+      "to": "scipy"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v1/zip_submission.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/cli_generate.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/export_psd_logreg_weights.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/train_v6_model.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/sweep_baseline_thresholds.py",
+      "to": "math"
+    },
+    {
+      "from": "scripts/train_v11_model.py",
+      "to": "numpy"
+    },
+    {
+      "from": "submissions/leaderboard_v10/main.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_report_plots.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_v14_submission.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_feature_detector.py",
+      "to": "submissions"
+    },
+    {
+      "from": "src/edge_ran_gary/simulation_integration_hooks.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/airan_research/report.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/submission_adapter.py",
+      "to": "os"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/feature_baseline.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/train_v7_model.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/export_ns_oran_scenario.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "apps/streamlit_app.py",
+      "to": "pydeck"
+    },
+    {
+      "from": "scripts/sweep_baseline_thresholds.py",
+      "to": "scipy"
+    },
+    {
+      "from": "src/edge_ran_gary/judged_headline_metrics.py",
+      "to": "__future__"
+    },
+    {
+      "from": "submissions/leaderboard_v7/main.py",
+      "to": "scipy"
+    },
+    {
+      "from": "scripts/train_v4_model.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/airan_research/campus_profiles.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/sweep_baseline_thresholds.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/generate_xapp_policy_stub.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_v14_model.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_deepmimo_summary.py",
+      "to": "typing"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v2/main.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/_gary_export_common.py",
+      "to": "math"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "MIGRATION_SUMMARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "STREAMLIT_CHANGES_SUMMARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "runtime.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "pyproject.toml",
+      "class": "OTHER",
+      "ext": ".toml"
+    },
+    {
+      "path": "streamlit_app.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PR_DESCRIPTION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "repo_structure.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PR_DIGITAL_TWIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PR_CHECKLIST_STREAMLIT_MICROTWIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/implementation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/evaluation_plan.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/claims_needing_evidence.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/experiments_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/system_model.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/limitations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/draft.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/video_paper_explanation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/related_work_seed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/methodology.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/introduction.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ethics_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/abstract.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/MANUSCRIPT_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/reproducibility_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CITATION_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_toy_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ARTIFACT_EVALUATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/figures_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_heldout_policies.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_ablations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_train_policies.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_domain_shift.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/artifacts/PREREGISTRATION.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/artifacts/experiment_protocol.yaml",
+      "class": "PROOF",
+      "ext": ".yaml"
+    },
+    {
+      "path": "paper/figures/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".py"
+    },
+    {
+      "path": "artifacts/independent_reproduction/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/READINESS_GATE_TABLE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/README_CLARITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TOY_DEMO_LANGUAGE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REPO_SCORECARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/EVIDENCE_BACKLOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_RELEASE_DECISION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REALITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_DOWNGRADED.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/BLOCKER_TODO_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/GAP_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RISK_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ISSUE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TRACEABILITY_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FMEA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/V1_RELEASE_BLOCKERS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_REQUIRING_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_TO_EVIDENCE_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_READINESS_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FINAL_READINESS_CONFIRMATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RELEASE_GATE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/VOC_CTQ_TREE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ROOT_CAUSE_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/SIPOC.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/EVIDENCE_UPGRADE_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NVIDIA_AERIAL_CUDA_RAN_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TEST_AND_MEASUREMENT_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/OPTIONAL_BACKENDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TOOLING_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/OPENAIRINTERFACE_TESTBED_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NS_ORAN_RESEARCH_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ACCESS_LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/SRSRAN_TESTBED_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/INSTALL_NOTES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ORAN_XAPP_RAPP_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NON_AFFILIATION_NOTICE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "tests/test_streamlit_import.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_paper_ii_digital.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_digital_twin_contract.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/__init__.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_tool_adapters.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_airan_research.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/gate2/test_twin_policies.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "reproducibility/environment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/data_policy.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/runbook.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/artifact_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/expected_outputs.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/citation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/extension_guide.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/EXTERNAL_REPRODUCTION_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/E2E_RUN_RECORD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "adoption/ADOPTION_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_10_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/STUDENT_DEMO_SCRIPT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/experiments_log.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/05_UML_MODELING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/MICROTWIN_REALISM_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SITE_MODELING_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DATA_LAKE_SCHEMA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PROJECT_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/INDUSTRY_GRADE_EXTENSION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/STATUS_SNAPSHOT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_RESEARCH_PRODUCT_FLOW.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/STREAMLIT_FIGURE_MODE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EXTERNAL_RUNTIME_GAPS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DATA_GOVERNANCE_AND_NO_PUBLIC_COMPETITION_DATA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SIMULATION_BACKBONE_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AI_RAN_POLICY_INTERFACE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/06_METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/09_LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_WOULD_MAKE_THIS_FINAL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AODT_EXPORT_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7GC_SPINE_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SCENARIO_ENGINE_ASSUMPTIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_REAL_TODAY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/00_SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/START_HERE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ananya_next_steps.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/STREAMLIT_DEPLOY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NO_MORE_TOY_DEMOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/STREAMLIT_TEXT_STYLE_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_RESEARCH_PLAN_MAPPING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RESEARCH_QUESTIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PROVENANCE_LEGEND.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NEXT_90_DAYS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GITHUB_PROJECT_MIGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DIGITAL_TWIN_EXPORT_CONTRACT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OCCUPANCY_VISUALIZATION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/07_REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/03_USE_CASES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ISSUE_AUDIT_MARCH_2026.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/12_CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AERIAL_STACK_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PLAIN_ENGLISH_EXPLANATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CROSS_REPO_DEPENDENCY_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AUDIENCE_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_chapter_outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_walkthrough_script.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RESEARCH_TO_PRODUCT_BRIDGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/APPLIED_SIMULATION_BRIDGE_RUNBOOK.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GUNNCHOS_RESEARCH_SPINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REAL_EVIDENCE_PIPELINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GATES_4_6_ADAPTER_CONTRACT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EVAL_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DIGITAL_TWIN_MICRO_TWIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PHASE_3_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/COMPETITION_SAFETY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EVIDENCE_STANDARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/16_OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HUMAN_REVIEW_BEFORE_MERGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/JUDGE_MODE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/08_ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_READINESS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DIGITAL_TWIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/LEARNING_OUTCOMES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AUDIT_MARCH_2026.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_demo_commands.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/competition_report.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/10_PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_6G_PHD_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CLAIMS_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/11_RELEASE_CRITERIA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EXTERNAL_RESEARCHER_QUICKSTART.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_3_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ISSUE_UPDATES_PROPOSAL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OFFICIAL_DATA_TRAINING_GAPS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_GUNNCHOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GITHUB_ISSUES_STREAMLIT_MICROTWIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_diagram_talking_points.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_code_tour.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/01_PRODUCT_RESEARCH_CHARTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/14_WAIKE_INTEGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/final_report_figures.example.yaml",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".yaml"
+    },
+    {
+      "path": "docs/PROFESSOR_DEMO_SCRIPT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/STREAMLIT_CLOUD_DEPLOY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_STILL_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PYAERIAL_BRIDGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    }
+  ],
+  "path_classification_full_count": 474,
+  "mutation_sampling": {
+    "repository": "spectrumx-ai-ran-gary",
+    "sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/_gary_export_common.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      },
+      {
+        "index": 2,
+        "path": "scripts/check_ngc_access.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      },
+      {
+        "index": 3,
+        "path": "scripts/import_asana_csv_to_github_projects.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "ADEQUATE",
+    "detected_count": 3
+  }
+}

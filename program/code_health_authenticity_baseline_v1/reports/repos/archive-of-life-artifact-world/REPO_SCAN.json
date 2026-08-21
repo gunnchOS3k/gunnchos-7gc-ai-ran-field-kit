@@ -1,0 +1,2398 @@
+{
+  "repository": "archive-of-life-artifact-world",
+  "accepted_main_sha": "069243c365552f00707650e9d81a8046ba3075d8",
+  "scanned_at_utc": "2026-08-21T17:10:25Z",
+  "counts": {
+    "files_classified": 574,
+    "code_files": 262,
+    "production_code_files": 159,
+    "proof_files": 11,
+    "class_histogram": {
+      "OTHER": 133,
+      "DOCS_OR_PROGRAM": 82,
+      "AMBIGUOUS_CODE": 92,
+      "PROOF": 97,
+      "PRODUCTION": 159,
+      "CI_OR_DEPLOY": 11
+    },
+    "theater_s0": 162,
+    "theater_s1": 50,
+    "theater_total": 212,
+    "hotspots": 5,
+    "wave_dup_paths": 41,
+    "fixture_paths": 9,
+    "orphan_candidates": 8,
+    "dep_edges": 866
+  },
+  "proof_independence": {
+    "production_files": 159,
+    "proof_files": 11,
+    "production_imports_proof_count": 32,
+    "production_imports_proof": [
+      {
+        "path": "src/ui/wave008ScientificDemo.ts",
+        "imports": [
+          "@/services/scientific/fixtures"
+        ]
+      },
+      {
+        "path": "src/game/companion.runtime.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/schema/index.ts",
+        "imports": [
+          "./species"
+        ]
+      },
+      {
+        "path": "src/crossDevice/contractProvider.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/db/scienceDb.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/device/deviceRoles.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/continuationVii.release.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/continuationVii.release.test.ts",
+        "imports": [
+          "@/claims/mockReleaseFirewall"
+        ]
+      },
+      {
+        "path": "src/systems/wp014ProductionGate.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/telemetry.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/companionProgression.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/gameRc004Density.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/inputBindings.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/alphaExit.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/claimIntegrity.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/saveSystem.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/betaRc.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/fullProductDepth.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/gameRc002Playthrough.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/digitalRcSuite.ts",
+        "imports": [
+          "@/claims/mockReleaseFirewall"
+        ]
+      },
+      {
+        "path": "src/systems/encounterSystem.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/waveF.alpha.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/achievementRuntime.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/accessibility.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/streamBPkt003.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/services/providers/provenanceAdapters.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/services/providers/FederationService.evidence.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/services/providers/openDataPipeline.digital.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/services/providers/boundedPromise.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "src/services/scientific/loadFixtures.ts",
+        "imports": [
+          "./fixtures"
+        ]
+      },
+      {
+        "path": "src/services/scientific/loadFixtures.ts",
+        "imports": [
+          "./fixtures"
+        ]
+      }
+    ],
+    "status": "FAIL_COUPLED"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "package.json",
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "NEEDS_WORK"
+  },
+  "dimensions": {
+    "production_proof_separation": "CRITICAL",
+    "anti_test_theater": "CRITICAL",
+    "dependency_boundaries": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "runtime_authenticity": "NEEDS_WORK",
+    "complexity_hotspots": "ADEQUATE",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NEEDS_WORK"
+  },
+  "theater_findings": [
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 172,
+      "snippet": ".toBe(true);     }      if ((g.state.companion.modules?.unlockedModules.length ?? 0) < 1) {       await g.acceptTravel('"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 189,
+      "snippet": ".toBe(true);      g.acceptViewEra('holocene');     g.acceptViewEra('carboniferous');     g.acceptViewEra('cretaceous'); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 205,
+      "snippet": ".toBe(true);     expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCredits();     g.acceptOp"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 206,
+      "snippet": ".toBe(true);      g.acceptOpenCredits();     g.acceptOpenAchievements();     g.save();      const rt = g.getAchievementR"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 244,
+      "snippet": ".toBe(true);     expect(reloaded!.campaign?.globalCoverageClaimed).toBe(false);     expect(getCollectedIds(reloaded!).si"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 251,
+      "snippet": ".toBe(true);     expect(rt2.isUnlocked('aol.hidden_credits')).toBe(true);     expect((game2 as unknown as GameHarness).s"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 252,
+      "snippet": ".toBe(true);     expect((game2 as unknown as GameHarness).state.campaign?.globalCoverageClaimed).toBe(false);   }, 180_0"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 98,
+      "snippet": ".toBe(true);     expect(roles.has('fossil_uncertain')).toBe(true);     expect(roles.has('conflicted_taxonomy')).toBe(tru"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 99,
+      "snippet": ".toBe(true);     expect(roles.has('conflicted_taxonomy')).toBe(true);     expect(roles.has('game_authored')).toBe(true);"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 100,
+      "snippet": ".toBe(true);     expect(roles.has('game_authored')).toBe(true);     expect(roles.has('mock_sample')).toBe(true);     exp"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 101,
+      "snippet": ".toBe(true);     expect(roles.has('mock_sample')).toBe(true);     expect(roles.has('blocked_incomplete')).toBe(true);   "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 102,
+      "snippet": ".toBe(true);     expect(roles.has('blocked_incomplete')).toBe(true);      const fixtureOnlySv = countFixtureOnlySourceVe"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 103,
+      "snippet": ".toBe(true);      const fixtureOnlySv = countFixtureOnlySourceVerified(bundle.records);     expect(fixtureOnlySv).toBe(0"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 142,
+      "snippet": ".toBe(true);     writeJson('SCIENTIFIC_NAME_RESULT.json', {       ok: true,       SOURCE_LINKED: extant.field_evidence.s"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 238,
+      "snippet": ".toBe(true);      const repro = independentReproductionAB(       raw,       (rawText) => {         const records = adapt"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 258,
+      "snippet": ".toBe(true);      const httpStub = new HttpSourceAdapterStub('gbif');     expect(httpStub.integration_status()).toBe('CO"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 362,
+      "snippet": ".toBe(true);     expect(metrics.scope_total).toBeGreaterThan(metrics.documented_records);     const after = coveragePerc"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 433,
+      "snippet": ".toBe(true);     writeJson('BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json', behavioral);      const browser = loadArt('ARCHIVE"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 437,
+      "snippet": ".toBe(true);     expect(browser.playwright_skipped).toBe(false);     expect(browser.ok).toBe(true);     expect(browser.r"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 439,
+      "snippet": ".toBe(true);     expect(browser.runtime).toBe('vite_preview');      if (!existsSync(join(ARTIFACT_DIR, 'CITATION_UI_RESU"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 451,
+      "snippet": ".toBe(true);     writeJson('EVALUATOR_INTEGRITY_RESULT.json', integrity);      const evalResults: EvalResult[] = WAVE008"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 467,
+      "snippet": ".toBe(true);     expect(brokenNeg.WRONG_SOURCE_HASH_REJECTED).toBe(true);     expect(brokenNeg.STALE_EVIDENCE_REJECTED)."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 468,
+      "snippet": ".toBe(true);     expect(brokenNeg.STALE_EVIDENCE_REJECTED).toBe(true);     writeJson('COMPLETION_GATE_NEGATIVE_CONTROL_R"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 469,
+      "snippet": ".toBe(true);     writeJson('COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json', brokenNeg);      const gate = runCompletionGa"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 474,
+      "snippet": ".toBe(true);     expect(gate.binding_ok).toBe(true);      const validated = evalResults.filter((r) => r.classification ="
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 475,
+      "snippet": ".toBe(true);      const validated = evalResults.filter((r) => r.classification === 'IMPLEMENTED_AND_VALIDATED').length; "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 607,
+      "snippet": ".toBe(true);     expect(fixtureOnlySv).toBe(0);     expect(behavioral.BEHAVIORAL_NEGATIVE_CONTROL_COUNT).toBeGreaterThan"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/crossDevice/contractProvider.test.ts",
+      "line": 21,
+      "snippet": ".toBe(true);     expect(doc.probes.input.status).toBe('pass');   });    it('rules surface is stable for parity', () => {"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 96,
+      "snippet": ".toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);     expect(launch.tierE.playable).toBeGreaterT"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 97,
+      "snippet": ".toBe(true);     expect(launch.tierE.playable).toBeGreaterThanOrEqual(120);     expect(launch.tierF.withGameplay).toBe(2"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 112,
+      "snippet": ".toBe(true);     expect(report.observations).toBeGreaterThanOrEqual(8);     expect(report.encounters).toBeGreaterThanOrE"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 115,
+      "snippet": ".toBe(true);   }); });  describe('Digital RC suite + claim ledger runtime gate', () => {   it('runs Cont VI RC suite che"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 122,
+      "snippet": ".toBe(true);     expect(suite.checks.snapshot_corrupt_detect.ok).toBe(true);     expect(suite.checks.update_rollback.ok)"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 123,
+      "snippet": ".toBe(true);     expect(suite.checks.update_rollback.ok).toBe(true);     expect(suite.checks.unique_icon_title.ok).toBe("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 124,
+      "snippet": ".toBe(true);     expect(suite.checks.unique_icon_title.ok).toBe(true);     expect(suite.checks.localization_ready.ok).to"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 125,
+      "snippet": ".toBe(true);     expect(suite.checks.localization_ready.ok).toBe(true);     expect(suite.allOk).toBe(true);   });    it("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 126,
+      "snippet": ".toBe(true);     expect(suite.allOk).toBe(true);   });    it('withholds ARCHIVE_DIGITAL_RC_READY without runtime integra"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 127,
+      "snippet": ".toBe(true);   });    it('withholds ARCHIVE_DIGITAL_RC_READY without runtime integration', () => {     const regions = l"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/device/deviceRoles.test.ts",
+      "line": 33,
+      "snippet": ".toBe(true);     expect(getDeviceRole('ds_xl_coder').dualPane).toBe(true);     expect(getDeviceRole('handheld_hybrid').t"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/device/deviceRoles.test.ts",
+      "line": 34,
+      "snippet": ".toBe(true);     expect(getDeviceRole('handheld_hybrid').touchPrimary).toBe(true);   });    it('resolves role from query"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/device/deviceRoles.test.ts",
+      "line": 35,
+      "snippet": ".toBe(true);   });    it('resolves role from query param and applies CSS/data attrs', () => {     expect(isDeviceRoleId("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/device/deviceRoles.test.ts",
+      "line": 39,
+      "snippet": ".toBe(true);     expect(isDeviceRoleId('not_a_role')).toBe(false);     const role = resolveDeviceRole(null, new URLSearc"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/device/deviceRoles.test.ts",
+      "line": 44,
+      "snippet": ".toBe(true);     expect(document.documentElement.dataset.deviceRole).toBe('ds_xl_coder');     expect(document.documentEl"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/continuationVii.release.test.ts",
+      "line": 10,
+      "snippet": ".toBe(true);     expect(fw.ok).toBe(true);     expect(fw.releaseEligibleEntries).toBeGreaterThan(0);   });    it('deepen"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/continuationVii.release.test.ts",
+      "line": 11,
+      "snippet": ".toBe(true);     expect(fw.releaseEligibleEntries).toBeGreaterThan(0);   });    it('deepens bulk ingest sources without "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/continuationVii.release.test.ts",
+      "line": 27,
+      "snippet": ".toBe(true);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/wp014ProductionGate.test.ts",
+      "line": 42,
+      "snippet": ".toBe(true); }  function installCanvasStub() {   // World/companion/minigame rendering exercises many CanvasRenderingCon"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/wp014ProductionGate.test.ts",
+      "line": 162,
+      "snippet": ".toBe(true);     for (let i = 0; i < 45; i++) g.update(1 / 60);     window.dispatchEvent(new KeyboardEvent('keyup', { ke"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/wp014ProductionGate.test.ts",
+      "line": 431,
+      "snippet": ".toBe(true);     expect(() => game.stop()).not.toThrow();     emit('clean_exit', !g.isRunning(), { running_after_stop: g"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/telemetry.test.ts",
+      "line": 17,
+      "snippet": ".toBe(true);     const event = track('device_role_apply', { role: 'handheld_hybrid' });     expect(event?.name).toBe('de"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/companionProgression.test.ts",
+      "line": 70,
+      "snippet": ".toBe(true);     expect(result.level).toBeGreaterThanOrEqual(2);     expect(c.level).toBe(result.level);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/gameRc004Density.test.ts",
+      "line": 48,
+      "snippet": ".toBe(true);     expect(getDiscoveryHistory().length).toBe(2);     const notes = discoveryCriticNotes();     expect(note"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/gameRc004Density.test.ts",
+      "line": 73,
+      "snippet": ".toBe(true);     expect(tracker.mark('title_to_onboarding')).toBe(false);     tracker.mark('onboarding_to_first_region')"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/gameRc004Density.test.ts",
+      "line": 78,
+      "snippet": ".toBe(true);   });    it('expands fail-soft audio cues used by density path', () => {     clearCueHistory();     playCue"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/gameRc004Density.test.ts",
+      "line": 113,
+      "snippet": ".toBe(true);   });    it('keeps honesty tokens false and critic BETA with S2 open', () => {     const gate = JSON.parse("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/inputBindings.test.ts",
+      "line": 24,
+      "snippet": ".toBe(true);     expect(loadInputBindings().bindings.map).toBe('touch:map_corner');   });    it('rejects invalid and con"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/inputBindings.test.ts",
+      "line": 48,
+      "snippet": ".toBe(true);   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 64,
+      "snippet": ".toBe(true);       expect(s.checkpoint?.liveClaim).toBe(false);     }      // Resume advances checkpoint     expect(stor"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 76,
+      "snippet": ".toBe(true);     expect(report.bySource.every((s) => s.liveClaim === false)).toBe(true);   });    it('dedup + validate r"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 77,
+      "snippet": ".toBe(true);   });    it('dedup + validate reject honesty violations', () => {     const bad = {       scientificName: '"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 175,
+      "snippet": ".toBe(true);     expect(scan.liveClaim).toBe(false);      const pack = buildOfflinePackManifest({       packId: 'test', "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 187,
+      "snippet": ".toBe(true);   });    it('expedition objectives support observe/scan/time', () => {     const state = createDefaultSave("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 219,
+      "snippet": ".toBe(true);   });    it('evaluateAlphaExit issues DIGITAL_PASS only when systems+floors met; never Beta/RC', () => {   "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 260,
+      "snippet": ".toBe(true);   }); });  describe('ADR content floors still hold', () => {   it('12 regions, \u2265120 E, 24 F, polar', () => "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 270,
+      "snippet": ".toBe(true);     expect(heroes.species.length).toBeGreaterThanOrEqual(24);     expect(enc.species.filter((s) => s.progra"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 15,
+      "snippet": ".toBe(true);     expect(canonicalizeTaxonName('Tyrannosaurus sp.')).toBe('Tyrannosaurus');     expect(isAcceptableTaxonN"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 23,
+      "snippet": ".toBe(true);     expect(isForbiddenClaimToken('ALL_SPECIES_INGESTED')).toBe(true);     expect(() => assertNoForbiddenCla"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 24,
+      "snippet": ".toBe(true);     expect(() => assertNoForbiddenClaims(['GLOBAL_DATA_COMPLETE'])).toThrow(/CLAIM_FIREWALL/);     expect(s"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 53,
+      "snippet": ".toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);      const ledger = evaluateClaimLedger({     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 54,
+      "snippet": ".toBe(true);      const ledger = evaluateClaimLedger({       snapshotId: 't',       snapshotVersion: '2.0.0',       laun"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 71,
+      "snippet": ".toBe(true);     expect(ledger.earned.some((e) => e.token === 'PIPELINE_COMPLETE')).toBe(false);     expect(ledger.revok"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 73,
+      "snippet": ".toBe(true);     expect(ledger.forbiddenRejected.map((f) => f.token)).toEqual(       expect.arrayContaining(['GLOBAL_DAT"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/saveSystem.test.ts",
+      "line": 64,
+      "snippet": ".toBe(true);     saveGame(state);     expect(hasSave()).toBe(true);     const loaded = loadSave();     expect(loaded?.pl"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/saveSystem.test.ts",
+      "line": 66,
+      "snippet": ".toBe(true);     const loaded = loadSave();     expect(loaded?.player.currentRegion).toBe('museum');     expect(loaded?."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/saveSystem.test.ts",
+      "line": 79,
+      "snippet": ".toBe(true);     if (!result.success) return;     expect(state.notebook[0].provenanceCitations?.length).toBeGreaterThan("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 43,
+      "snippet": ".toBe(true);     }     expect(mayCallLiveHttp(DEFAULT_SOURCE_REGISTRY.find((e) => e.id === 'col')!)).toBe(true);     exp"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 45,
+      "snippet": ".toBe(true);     expect(mayCallLiveHttp(DEFAULT_SOURCE_REGISTRY.find((e) => e.id === 'iucn')!)).toBe(false);   });    it"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 87,
+      "snippet": ".toBe(true);     expect(result.sourceStates.every((s) => s.mode === 'fixture' || s.mode === 'blocked')).toBe(       true"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 169,
+      "snippet": ".toBe(true);     expect(fieldGameplayReady({       hasObservation: true,       hasScanning: true,       hasCodex: true, "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 175,
+      "snippet": ".toBe(true);   }); });  describe('Beta + Digital RC tokens', () => {   it('emits ARCHIVE_BETA_CONTENT_COMPLETE_DIGITAL w"
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": "scripts/validate_game_rc_contracts.py",
+      "name": "main",
+      "lineno": 26,
+      "complexity": 39
+    },
+    {
+      "path": "data-pipeline/src/archive_life_pipeline/cli.py",
+      "name": "main",
+      "lineno": 22,
+      "complexity": 27
+    },
+    {
+      "path": "data-pipeline/src/archive_life_pipeline/source_import.py",
+      "name": "_read_import_status",
+      "lineno": 215,
+      "complexity": 22
+    },
+    {
+      "path": "data-pipeline/src/archive_life_pipeline/nasa_ingest.py",
+      "name": "ingest_nasa_metadata",
+      "lineno": 80,
+      "complexity": 13
+    },
+    {
+      "path": "data-pipeline/src/archive_life_pipeline/science_db.py",
+      "name": "build_durable_science_duckdb",
+      "lineno": 13,
+      "complexity": 13
+    }
+  ],
+  "wave_duplicate_paths": [
+    {
+      "path": "artifacts/engineering_wave008/PIPELINE_AB_REPRODUCTION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/WAVE008_INTEGRITY_REPAIR_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_ORGANIZATION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SNAPSHOT_REPRODUCTION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/WAVE008_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_INTEGRATION_TRUTH_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/LICENSE_TERMS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/REQUIREMENT_RESULTS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SNAPSHOT_MANIFEST_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/TIME_RANGE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_RECORD_ID_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/UNCERTAINTY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/ARCHIVEDEX_BROWSER_E2E_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/COVERAGE_SCOPE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/GEOGRAPHIC_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/FIELD_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/TAXONOMIC_AUTHORITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/RETRIEVAL_DATE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/EXTERNAL_TEXT_SAFETY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/RUNTIME_IDENTITY.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/CITATION_UI_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/CANONICAL_IDENTIFIER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/EDITORIAL_STATUS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_VERSION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SCIENTIFIC_NAME_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/pipeline_ab/A/release_snapshot_manifest.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008/pipeline_ab/B/release_snapshot_manifest.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave008/evaluators.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave008/behavioralNegatives.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave008/completionGate.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/engineering_wave008/integrityScan.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "scripts/engineering_wave008/prepare_harness.ts",
+      "class": "AMBIGUOUS_CODE"
+    },
+    {
+      "path": "scripts/engineering_wave008/compare_pipeline_ab.py",
+      "class": "AMBIGUOUS_CODE"
+    },
+    {
+      "path": "src/ui/wave008ScientificDemo.ts",
+      "class": "PRODUCTION"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "gate1/fixtures/scientific_fixture_dataset.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "public/data/scientific_fixtures/wave008-scientific-fixture-v1.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "public/data/fixtures/blocked-providers.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "public/data/fixtures/ingest/pbdb_batch.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "public/data/fixtures/ingest/col_batch.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "public/data/fixtures/ingest/gbif_batch.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "data/scientific_fixtures/wave008-scientific-fixture-v1.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "src/services/scientific/fixtures.ts",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "src/services/scientific/loadFixtures.ts",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [
+    "data-pipeline/src/archive_life_pipeline/audit.py",
+    "data-pipeline/src/archive_life_pipeline/duckdb_runner.py",
+    "data-pipeline/src/archive_life_pipeline/models.py",
+    "data-pipeline/src/archive_life_pipeline/paths.py",
+    "data-pipeline/src/archive_life_pipeline/nasa_ingest.py",
+    "data-pipeline/src/archive_life_pipeline/snapshot.py",
+    "data-pipeline/src/archive_life_pipeline/science_db.py",
+    "data-pipeline/src/archive_life_pipeline/source_import.py"
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "js/game.js",
+      "to": "./world.js"
+    },
+    {
+      "from": "src/services/scientific/canonicalId.ts",
+      "to": "@/schema/scientificRecord"
+    },
+    {
+      "from": "src/systems/expeditionSystem.ts",
+      "to": "@/schema"
+    },
+    {
+      "from": "scripts/generate-bundles.ts",
+      "to": "../src/schema/conservation"
+    },
+    {
+      "from": "src/systems/saveSystem.ts",
+      "to": "@/systems/telemetry"
+    },
+    {
+      "from": "src/ui/wave008ScientificDemo.ts",
+      "to": "@/services/scientific/renderScientificUI"
+    },
+    {
+      "from": "src/systems/fullProductDepth.test.ts",
+      "to": "@/systems/artifactSystem"
+    },
+    {
+      "from": "scripts/batch-ingest-snapshot.ts",
+      "to": "../src/services/ingestion/BatchSnapshotIngest"
+    },
+    {
+      "from": "src/ui/settingsUI.ts",
+      "to": "@/systems/telemetry"
+    },
+    {
+      "from": "scripts/audit-coverage.ts",
+      "to": "./audits/bias"
+    },
+    {
+      "from": "scripts/audit-archivedex.ts",
+      "to": "fs"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/source_import.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/implementation/scan-incomplete.ts",
+      "to": "fs"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "@/ui/mapUI"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "./companion"
+    },
+    {
+      "from": "src/schema/index.ts",
+      "to": "./species"
+    },
+    {
+      "from": "src/systems/wp014ProductionGate.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "src/db/scienceDb.test.ts",
+      "to": "@/claims/launchTierAudit"
+    },
+    {
+      "from": "src/game/companion.ts",
+      "to": "@/schema"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "@/services/EarthLayerService"
+    },
+    {
+      "from": "src/systems/waveF.alpha.test.ts",
+      "to": "@/schema"
+    },
+    {
+      "from": "scripts/implementation/data-quality-counts.ts",
+      "to": "../../src/schema"
+    },
+    {
+      "from": "src/systems/artifactSystem.ts",
+      "to": "@/services/DataCatalogService"
+    },
+    {
+      "from": "scripts/build-science-db.ts",
+      "to": "path"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/science_db.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "@/services/ArchiveDexService"
+    },
+    {
+      "from": "src/systems/betaRc.test.ts",
+      "to": "@/services/ingestion/ProductionIngestOrchestrator"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/science_db.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/report-coverage.ts",
+      "to": "./audits/earth"
+    },
+    {
+      "from": "scripts/qa/tier-ef-runtime-traversal.ts",
+      "to": "../../src/systems/saveSystem"
+    },
+    {
+      "from": "src/systems/alphaExit.test.ts",
+      "to": "@/services/ingestion/checkpointStore"
+    },
+    {
+      "from": "src/schema/index.ts",
+      "to": "./conservation"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "@/services/TemporalMapService"
+    },
+    {
+      "from": "src/services/providers/openDataPipeline.digital.test.ts",
+      "to": "@/services/providers/registry"
+    },
+    {
+      "from": "src/systems/saveSystem.test.ts",
+      "to": "@/systems/saveSystem"
+    },
+    {
+      "from": "data-pipeline/transform/gbif_to_distribution.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/services/providers/registry.ts",
+      "to": "./provenanceAdapters"
+    },
+    {
+      "from": "js/main.js",
+      "to": "./systems/dataLoader.js"
+    },
+    {
+      "from": "data-pipeline/transform/iucn_to_conservation.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/systems/observationSystem.ts",
+      "to": "@/systems/companionProgression"
+    },
+    {
+      "from": "src/schema/index.ts",
+      "to": "./manifest"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/audit.py",
+      "to": "json"
+    },
+    {
+      "from": "src/services/ingestion/synonyms.ts",
+      "to": "./types"
+    },
+    {
+      "from": "scripts/implementation/scan-incomplete.ts",
+      "to": "./types"
+    },
+    {
+      "from": "src/systems/gameRc002Playthrough.test.ts",
+      "to": "@/time/TimeAtlasService"
+    },
+    {
+      "from": "src/schema/species.ts",
+      "to": "./conservation"
+    },
+    {
+      "from": "src/systems/gameRc002Playthrough.test.ts",
+      "to": "@/systems/saveSystem"
+    },
+    {
+      "from": "src/systems/betaRc.test.ts",
+      "to": "@/services/ingestion/synonyms"
+    },
+    {
+      "from": "src/schema/index.ts",
+      "to": "./scientificRecord"
+    },
+    {
+      "from": "src/services/providers/provenanceAdapters.test.ts",
+      "to": "@/services/providers/provenanceAdapters"
+    },
+    {
+      "from": "src/db/runtimeBridge.ts",
+      "to": "@/systems/deepTimeSystem"
+    },
+    {
+      "from": "src/db/runtimeBridge.ts",
+      "to": "@/systems/artifactSystem"
+    },
+    {
+      "from": "scripts/source-cli.ts",
+      "to": "path"
+    },
+    {
+      "from": "scripts/qa/world-traversal-qa.ts",
+      "to": "../../src/systems/deepTimeSystem"
+    },
+    {
+      "from": "scripts/ingest-bulk-manifest.ts",
+      "to": "path"
+    },
+    {
+      "from": "scripts/validate_archive_claim_firewall.ts",
+      "to": "fs"
+    },
+    {
+      "from": "src/services/scientific/renderScientificUI.ts",
+      "to": "@/schema/scientificRecord"
+    },
+    {
+      "from": "scripts/report-claim-ledger.ts",
+      "to": "../src/claims/evaluateClaimLedger"
+    },
+    {
+      "from": "data-pipeline/transform/col_transform.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/nasa_ingest.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "src/ui/timeAtlasUI.ts",
+      "to": "@/services/DataCatalogService"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/snapshot.py",
+      "to": "archive_life_pipeline"
+    },
+    {
+      "from": "src/services/providers/FederationService.ts",
+      "to": "./boundedPromise"
+    },
+    {
+      "from": "src/claims/mockReleaseFirewall.ts",
+      "to": "path"
+    },
+    {
+      "from": "src/db/runtimeBridge.ts",
+      "to": "@/systems/codexSystem"
+    },
+    {
+      "from": "scripts/audits/temporal-maps.ts",
+      "to": "path"
+    },
+    {
+      "from": "scripts/audits/shared.ts",
+      "to": "path"
+    },
+    {
+      "from": "scripts/audits/bias.ts",
+      "to": "./shared"
+    },
+    {
+      "from": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "to": "./integrityScan"
+    },
+    {
+      "from": "scripts/status.ts",
+      "to": "./implementation/write-reports"
+    },
+    {
+      "from": "src/services/ingestion/dedup.ts",
+      "to": "./types"
+    },
+    {
+      "from": "scripts/audit-coverage.ts",
+      "to": "./audits/biomes"
+    },
+    {
+      "from": "scripts/audit-temporal-maps.ts",
+      "to": "../src/coverage/CoverageTypes"
+    },
+    {
+      "from": "scripts/ingest-production-ops.ts",
+      "to": "path"
+    },
+    {
+      "from": "src/db/ScientificDb.ts",
+      "to": "./schema"
+    },
+    {
+      "from": "src/schema/archivedex.ts",
+      "to": "./provenance"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "@/ui/notebookUI"
+    },
+    {
+      "from": "src/services/DataCatalogService.ts",
+      "to": "@/schema"
+    },
+    {
+      "from": "src/systems/streamBPkt003.ts",
+      "to": "node:crypto"
+    },
+    {
+      "from": "src/ui/coverageDashboardUI.ts",
+      "to": "@/services/DataCatalogService"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "package-lock.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "package.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "tsconfig.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "vite.config.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "vitest.config.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "capacitor.config.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "gate1/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/tools/export_cross_device_contract.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "gate1/evidence/WIP_PROTECTION_NOTES.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/evidence/SCREEN_RECORDING_CHECKLIST.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/evidence/accessibility_checks.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "gate1/evidence/MANUAL_DEVICE_RUNBOOK.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "gate1/contracts/game_core_loop.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "gate1/contracts/cross_device_game_contract.v1.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "gate1/fixtures/scientific_fixture_dataset.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "artifacts/game_rc_002/VP_GAME_RC_002_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/pixel6a/dumpsys_package.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/ACCEPTANCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/pixel6a/launch_monkey.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/pixel6a/ACCEPTANCE.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/wp014/ARCHIVE_OF_LIFE_CONTENT_REGISTER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/wp014/ARCHIVE_OF_LIFE_PRODUCT_GATE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/wp014/actual_production_runtime.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/experience_review/archive-of-life/SUMMARY.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/experience_review/archive-of-life/AI_HEURISTIC_REVIEW.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/experience_review/archive-of-life/GAME_CRITIC_REVIEW.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/VP_STREAM_B_PKT_003_ARCHIVE_OWNER.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stream_b/PLAYTEST_PACKET.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/EXPEDITION_DIVERSITY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/OFFLINE_SCIENTIFIC_PACK.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/STREAM_B_PKT_003_ARCHIVE_STATE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/LIFELING_PROGRESSION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/SCIENTIFIC_INGEST_REPORT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/archive_full/DATA_COVERAGE_HONESTY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/archive_full/ARCHIVE_FULL_PRODUCT_REGISTER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/PIPELINE_AB_REPRODUCTION_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/WAVE008_INTEGRITY_REPAIR_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_ORGANIZATION_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SNAPSHOT_REPRODUCTION_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/WAVE008_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_INTEGRATION_TRUTH_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/CLAIM_BOUNDARIES.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/LICENSE_TERMS_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/REQUIREMENT_RESULTS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SNAPSHOT_MANIFEST_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/TIME_RANGE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_RECORD_ID_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/UNCERTAINTY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/ARCHIVEDEX_BROWSER_E2E_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/COVERAGE_SCOPE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/GEOGRAPHIC_PROVENANCE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/FIELD_PROVENANCE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/TAXONOMIC_AUTHORITY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/RETRIEVAL_DATE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/EXTERNAL_TEXT_SAFETY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/RUNTIME_IDENTITY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/CITATION_UI_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_PROVENANCE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/CANONICAL_IDENTIFIER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/EDITORIAL_STATUS_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SOURCE_VERSION_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/SCIENTIFIC_NAME_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/pipeline_ab/A/release_snapshot_manifest.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/engineering_wave008/pipeline_ab/B/release_snapshot_manifest.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "js/game.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/world.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/companion.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/main.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/player.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/ui/mapUI.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/ui/companionUI.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/ui/notebookUI.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/ui/questUI.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/ui/archiveUI.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/minigames/wildlifeObservation.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/minigames/fossilExcavation.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/systems/questSystem.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/systems/dataLoader.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/systems/artifactSystem.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "js/systems/saveSystem.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "tests/engineering_wave008/evaluators.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave008/behavioralNegatives.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave008/completionGate.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/engineering_wave008/integrityScan.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "device_ux/roles.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "device_ux/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "release/VISUAL_PACK_HARNESS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/GAME-RC-004.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "release/CONTENT_MANIFEST.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/ACHIEVEMENTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/PLATFORM_MATRIX.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/RC_GATE.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/PLAYTHROUGH_CONTRACT.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/GAME-RC-002.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "release/schemas/rc_gate.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/schemas/playthrough_contract.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/schemas/achievements.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "release/schemas/content_manifest.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/DATA_VERSIONING_WORKFLOW.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CLAIM_FIREWALL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EARTH_PLACE_COVERAGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ARCHIVEDEX_DATA_SCHEMA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/FULL_IMPLEMENTATION_DEFINITION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SOURCE_INGESTION_RUNBOOK.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GLOBAL_COVERAGE_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/TIME_ATLAS_ARCHITECTURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CONTINUATION_V_ARCHIVE_CLOSURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NASA_EARTH_SYSTEMS_INTEGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/MOCK_SAMPLE_DATA_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EXTERNAL_DATA_REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HUMAN_PLAYTEST_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ALPHA_EXIT_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DATA_ARCHITECTURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PRODUCT_IDENTITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRESENTATION_AUDIT_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DATABASE_INTEGRATION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RELEASE_SNAPSHOT_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/TEMPORAL_EARTH_MAPS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ARCHIVEDEX_PROGRESSIVE_REVEAL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DATA_QUALITY_AND_UNCERTAINTY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CONTINUATION_VI_SCIENCE_DB.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SOURCE_SNAPSHOT_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CODEX_CONTINUATION_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PRODUCTION_READINESS_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PIXEL_6A_ACCEPTANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/BIOME_AND_ECOREGION_COVERAGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SOURCE_PROVENANCE_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REAL_DATA_COMPLETION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/BETA_RC_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ARCHIVEDEX_SPECIES_ENTRY_SYSTEM.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RELEASE_READINESS_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/research/6G_WORKLOAD_RELEVANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/traceability_matrix.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/mock_as_truth.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/state_editorial_lifecycle.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/component_scientific_record.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/sequence_scientific_ingest.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/activity_coverage_no_completeness.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/sequence_citation_ui.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/class_scientific_record.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/state_editorial_lifecycle.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component_scientific_record.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/class_domain.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_scientific_ingest.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_expedition.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/deployment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/activity_coverage_no_completeness.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/use_case.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/state_artifact_lifeling.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_citation_ui.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/class_scientific_record.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/verified_maps.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/data/DATA_RECONCILIATION_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/data/DATA_SOURCE_REGISTRY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/data/CURRENT_DATA_SOURCE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/CHARACTER_LIFE_REGRESSION_SESSION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/PR_11_BODY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/CHARACTER_LIFE_REGRESSION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/BEFORE_AFTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/KNOWN_LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/PIXEL_6A_TEST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/PROVIDER_FEDERATION_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/RELEASE_BUILD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/ACCEPTANCE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/logcat-final.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/logcat-touch.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/package-state.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/apk-sha-accept.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/apk-sha-touch.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/PIXEL_ACCEPT_NOTES.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/logcat-title-taps.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-final/install-touch.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/07-sources-ocr.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/PIXEL_ARCHIVE_RUN.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/sources-loading-logcat-filtered.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/sources-loading-capture-meta.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/archive-logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/RC_1.1.1_BUILD.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/sources-loading-logcat.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/pre-install-package.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/post-install-package.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/package-inventory.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "docs/product-quality/evidence/pixel-archive/accept-evidence-summary.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    }
+  ],
+  "path_classification_full_count": 574,
+  "mutation_sampling": {
+    "repository": "archive-of-life-artifact-world",
+    "sha": "069243c365552f00707650e9d81a8046ba3075d8",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "data-pipeline/src/archive_life_pipeline/source_import.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "detected_count": 1
+  }
+}

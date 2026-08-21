@@ -1,0 +1,2651 @@
+{
+  "repository": "gunnchos-device-os",
+  "accepted_main_sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+  "scanned_at_utc": "2026-08-21T17:09:55Z",
+  "counts": {
+    "files_classified": 2771,
+    "code_files": 1089,
+    "production_code_files": 180,
+    "proof_files": 207,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 703,
+      "OTHER": 383,
+      "AMBIGUOUS_CODE": 701,
+      "PROOF": 742,
+      "PRODUCTION": 221,
+      "CI_OR_DEPLOY": 21
+    },
+    "theater_s0": 12,
+    "theater_s1": 188,
+    "theater_total": 276,
+    "hotspots": 338,
+    "wave_dup_paths": 101,
+    "fixture_paths": 26,
+    "orphan_candidates": 40,
+    "dep_edges": 4712
+  },
+  "proof_independence": {
+    "production_files": 180,
+    "proof_files": 207,
+    "production_imports_proof_count": 20,
+    "production_imports_proof": [
+      {
+        "path": "apps/launcher_mock/vitest.config.ts",
+        "imports": [
+          "vitest/config"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/shell.test.tsx",
+        "imports": [
+          "@testing-library/react"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/shell.test.tsx",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
+        "imports": [
+          "@testing-library/react"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/localMedia.shell.test.tsx",
+        "imports": [
+          "@testing-library/react"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/localMedia.shell.test.tsx",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/policy.shell.test.tsx",
+        "imports": [
+          "@testing-library/react"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/policy.shell.test.tsx",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/gameLaunch.shell.test.tsx",
+        "imports": [
+          "@testing-library/react"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/gameLaunch.shell.test.tsx",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/browser.shell.test.tsx",
+        "imports": [
+          "@testing-library/react"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/shell/browser.shell.test.tsx",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/appLaunch.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/workspace.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/localMedia.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/gameLaunch.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/accessibility.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      },
+      {
+        "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+        "imports": [
+          "vitest"
+        ]
+      }
+    ],
+    "status": "FAIL_COUPLED"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "NEEDS_WORK"
+  },
+  "dimensions": {
+    "production_proof_separation": "CRITICAL",
+    "anti_test_theater": "CRITICAL",
+    "dependency_boundaries": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "runtime_authenticity": "NEEDS_WORK",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "NEEDS_WORK",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NEEDS_WORK"
+  },
+  "theater_findings": [
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
+      "line": 80,
+      "snippet": ".toBe(true)     render(<NotesApp onBack={() => {}} />)     fireEvent.click(screen.getAllByText('Persist Me')[0])     exp"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
+      "line": 81,
+      "snippet": ".toBe(true)     const stored = localStorage.getItem(ENCRYPTED_WORKSPACE_KEY)     expect(stored).toBeTruthy()     expect("
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
+      "line": 105,
+      "snippet": ".toBe(true)     expect(getChildren(null).length).toBe(0)     expect(listNotes().length).toBe(0)   })    it('unlock resto"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
+      "line": 131,
+      "snippet": ".toBe(true)   })    it('does not store passphrase in localStorage', async () => {     const payload = loadPlaintextPaylo"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/workspace.test.ts",
+      "line": 29,
+      "snippet": ".toBe(true)     expect(roots.some(n => n.name === 'Notes')).toBe(true)   })    it('creates folder and text file', () => "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/workspace.test.ts",
+      "line": 30,
+      "snippet": ".toBe(true)   })    it('creates folder and text file', () => {     const folder = createFolder(null, 'Test Folder')     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/workspace.test.ts",
+      "line": 62,
+      "snippet": ".toBe(true)   })    it('creates and saves a note', () => {     const note = createNote('Test Note', 'body')     saveNote"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/accessibility.test.ts",
+      "line": 8,
+      "snippet": ".toBe(true)     expect(r.certificationClaimed).toBe(false)   }) }) "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 26,
+      "snippet": ".toBe(true)   })    it('Campus Mode allows school/productivity native apps', () => {     expect(evaluateAppPolicy('files"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 30,
+      "snippet": ".toBe(true)     expect(evaluateAppPolicy('notes', 'School', { isNativeShellApp: true }).canLaunch).toBe(true)   })    it"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 31,
+      "snippet": ".toBe(true)   })    it('Game Mode allows first-party games', () => {     const r = evaluateAppPolicy('anime-aggressors',"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 36,
+      "snippet": ".toBe(true)   })    it('appLaunchService respects policy in School mode', () => {     const result = launchApp(       { "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "firmware_compat/probes/firmware_probe.py",
+      "line": 94,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "mdm/device_policy_agent.py",
+      "line": 130,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "artifacts/wp007/independent_verifier/run_independent_attacks.py",
+      "line": 1477,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "line": 1057,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "security/dev_ops/sast_hook.py",
+      "line": 95,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "assert_equals_self",
+      "path": "tests/test_adversarial_fuzz_starters.py",
+      "line": 48,
+      "snippet": "assert score == score  # finite after sanitization     result = orch.evaluate()     assert \"active\" in result     assert"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "tests/wp013/test_serviceability.py",
+      "line": 96,
+      "snippet": "xit(tmp_path):     device_root = _make_device_root(tmp_path)     assert svc.is_in_repair_mode(device_root) is False     "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "hardware_component_runtime/scripts/validate_component_runtime.py",
+      "line": 24,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "hardware_component_runtime/scripts/sync_component_stacks.py",
+      "line": 64,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "hardware_component_runtime/scripts/simulate_os_on_component_stack.py",
+      "line": 54,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/SOFTWARE_BUILDER/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/PM_AGILE_LSS/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/NETWORKING_INFRA/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/AI_ML_EDGE/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/IT_SUPPORT_HARDWARE/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/COMM_PD_ETHICS/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/WIRELESS_6G/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/DATA_DASHBOARDS/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/GUNNCHOS_PRODUCT_LAB/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/EMBEDDED_PROTOTYPING/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/DATA_VIZ_BI/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/CLOUD_DEVOPS/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/HARDWARE_ENGINEERING/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/SEVEN_GC_APPRENTICESHIP/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/ROBOTICS_CONTROL/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/CYBER_SOC/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "content/waike/courses/DIGITAL_CONFIDENCE/lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "os_build/device_lab_interactive_guest/scripts/provision_interactive_guest_debian_cloud.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "os_build/device_lab_interactive_guest/scripts/provision_interactive_guest_qemu_native.py",
+      "line": 474,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "os_build/device_lab_interactive_guest/debian_cloud/guest_agent/gunnchos_guest_agent.py",
+      "line": 1166,
+      "snippet": "xit(0) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/hardware_capability_detector.py",
+      "line": 42,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/waike_curriculum/writer.py",
+      "line": 40,
+      "snippet": "xit(main()) '''   def write_course(root: Path, course_id: str) -> Path:     spec = course_by_id(course_id)     seed = se"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/boot/cli.py",
+      "line": 107,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/boot/__main__.py",
+      "line": 4,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/interactive_image_builder.py",
+      "line": 458,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
+      "line": 1132,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/debian_cloud_provisioner.py",
+      "line": 834,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+      "line": 1954,
+      "snippet": "xit(0 if t.is_file() and m in t.read_text() else 3)\\n\"             \"PY\\n\"             \"  if [ $? -eq 0 ]; then echo HL_O"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+      "line": 2701,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/cli.py",
+      "line": 558,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/__main__.py",
+      "line": 4,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1620,
+      "snippet": "xit(2); }, 8000);\\n\"         \"s.on('connect', () => {\\n\"         \"  clearTimeout(t);\\n\"         \"  console.log(JSON.stri"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1624,
+      "snippet": "xit(0);\\n\"         \"});\\n\"         \"NODE\",         timeout_sec=30,         name=\"sio-probe\",     )     out[\"socketio_cli"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/creation_enablement/guest_chain.py",
+      "line": 87,
+      "snippet": "xit(main())\\n\",         encoding=\"utf-8\",     )      manifest = {         \"schema\": \"gunnchos.creation_enablement.ninep_"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/creation_enablement/guest_dogfood.py",
+      "line": 336,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/a_pkt003/guest_dogfood.py",
+      "line": 189,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/release_engineering/cli.py",
+      "line": 63,
+      "snippet": "xit(main())\\n\",         encoding=\"utf-8\",     )     return {\"ok\": True, \"app_dir\": str(app_dir), \"app_id\": ns.app_id, \"m"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/dock/cli.py",
+      "line": 106,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/dock/__main__.py",
+      "line": 4,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "gunnchos_device_os/service_continuity_execution/resume.py",
+      "line": 236,
+      "snippet": "xit(\"bad mode\") \"\"\"   def prove_session_resume_a_b_c(storage_dir: Path) -> dict[str, Any]:     storage_dir.mkdir(parents"
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/examples/creator_stub/main.py",
+      "line": 34,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/examples/gunnchai_client_stub/main.py",
+      "line": 39,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/examples/waike_stub/main.py",
+      "line": 33,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/apps/stream_a_pkt003_godot/main.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/apps/creator_studio/main.py",
+      "line": 44,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/apps/gunnchai_tutor/main.py",
+      "line": 106,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/apps/waike_learning/main.py",
+      "line": 58,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/apps/stream_a_pkt003_research/main.py",
+      "line": 20,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "sdk/apps/stream_a_sample_memo/main.py",
+      "line": 96,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_hardware_boot_readiness_demo.py",
+      "line": 30,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/prove_stage2_os.py",
+      "line": 285,
+      "snippet": "xit(\"host path leaked into prove report\")     out.write_text(text, encoding=\"utf-8\")     print(         json.dumps(     "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/prove_stage2_os.py",
+      "line": 302,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_waike_course_lab.py",
+      "line": 28,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/validate_release_readiness_firewall.py",
+      "line": 36,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/run_cycle3b_live_dsxl_ring_reearn.py",
+      "line": 416,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/product_use_rc_002.py",
+      "line": 351,
+      "snippet": "xit(main()) "
+    },
+    {
+      "severity": "S1",
+      "kind": "todo_pass",
+      "path": "scripts/device_lab_score_independent.py",
+      "line": 294,
+      "snippet": "xit(main()) "
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+      "name": "attempt_ring_app_mutation_pass",
+      "lineno": 1331,
+      "complexity": 204
+    },
+    {
+      "path": "gunnchos_device_os/cloud_dev_plane/server.py",
+      "name": "handle",
+      "lineno": 96,
+      "complexity": 124
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/virtualization/qemu_guest.py",
+      "name": "start",
+      "lineno": 220,
+      "complexity": 118
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+      "name": "attempt_dsxl_dual_compositor_pass",
+      "lineno": 885,
+      "complexity": 91
+    },
+    {
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "name": "_placement_focus_fb",
+      "lineno": 194,
+      "complexity": 90
+    },
+    {
+      "path": "scripts/run_cycle3b_live_dsxl_ring_reearn.py",
+      "name": "main",
+      "lineno": 71,
+      "complexity": 87
+    },
+    {
+      "path": "gunnchos_device_os/security/wp007/evidence_consistency.py",
+      "name": "evaluate_evidence_consistency",
+      "lineno": 46,
+      "complexity": 76
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+      "name": "attempt_live_visual_pass",
+      "lineno": 551,
+      "complexity": 71
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/scenarios/dsxl_dualscreen.py",
+      "name": "run",
+      "lineno": 98,
+      "complexity": 69
+    },
+    {
+      "path": "scripts/product_use_close_s1.py",
+      "name": "main",
+      "lineno": 951,
+      "complexity": 69
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/chaos/engine.py",
+      "name": "inject",
+      "lineno": 109,
+      "complexity": 65
+    },
+    {
+      "path": "gunnchos_device_os/platform/sandbox_executor.py",
+      "name": "run_enforcement_suite",
+      "lineno": 419,
+      "complexity": 62
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/scenarios/ring_app_mutation.py",
+      "name": "run_ring_app_mutation_proof",
+      "lineno": 47,
+      "complexity": 56
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "name": "attempt_owner_four_game_in_guest_pass",
+      "lineno": 1746,
+      "complexity": 53
+    },
+    {
+      "path": "scripts/device_lab_score_independent.py",
+      "name": "grade_categories",
+      "lineno": 43,
+      "complexity": 52
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/ui/server.py",
+      "name": "do_GET",
+      "lineno": 226,
+      "complexity": 51
+    },
+    {
+      "path": "scripts/product_use_resume_open_legs.py",
+      "name": "main",
+      "lineno": 98,
+      "complexity": 51
+    },
+    {
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "name": "attempt_dsxl_reboot_reconfig",
+      "lineno": 529,
+      "complexity": 50
+    },
+    {
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "name": "main",
+      "lineno": 710,
+      "complexity": 50
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "name": "_run_archive_chromium",
+      "lineno": 1227,
+      "complexity": 47
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/journeys/rj_acceptance.py",
+      "name": "run_rj_set",
+      "lineno": 120,
+      "complexity": 47
+    },
+    {
+      "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "name": "main",
+      "lineno": 827,
+      "complexity": 46
+    },
+    {
+      "path": "gunnchos_device_os/network_decision/engine.py",
+      "name": "_hard_reject",
+      "lineno": 75,
+      "complexity": 45
+    },
+    {
+      "path": "gunnchos_device_os/network_decision/candidate.py",
+      "name": "sanitize_candidate",
+      "lineno": 96,
+      "complexity": 45
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "name": "_run_beatlink_socketio",
+      "lineno": 1444,
+      "complexity": 44
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/scenarios/ring_real_input.py",
+      "name": "run",
+      "lineno": 16,
+      "complexity": 43
+    },
+    {
+      "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "name": "probe_golden_01",
+      "lineno": 110,
+      "complexity": 42
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/virtualization/dsxl_outputs.py",
+      "name": "disconnect_reconnect_honest",
+      "lineno": 140,
+      "complexity": 39
+    },
+    {
+      "path": "scripts/product_use_close_s1.py",
+      "name": "update_persona_table",
+      "lineno": 811,
+      "complexity": 39
+    },
+    {
+      "path": "scripts/run_cycle3b_demoted_reearn.py",
+      "name": "main",
+      "lineno": 56,
+      "complexity": 39
+    }
+  ],
+  "wave_duplicate_paths": [
+    {
+      "path": "artifacts/engineering_wave004/FINAL_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/PIXEL_CLIENT_PROBE.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/WAVE004_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/REQUIREMENT_RESULTS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/INTEGRITY_REPAIR_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/RUNTIME_STATUS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/SECURITY_INJECTION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/E2E_SCENARIOS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/PACKAGE_FULL_LIFECYCLE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/OFFLINE_SYNC_A_B_C_RESTART_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004/SANDBOX_ENFORCEMENT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave002/PIXEL_CLIENT_PROBE.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave002/WAVE002_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/ANYWHERE_OBJECTIVE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/SHELL_VIEW_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/REQUIREMENT_RESULTS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/INTEGRITY_REPAIR_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/APPLICATION_PRIORITY_AUTHORITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/SERVICE_CONTINUITY_SCENARIOS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/USER_PREFERENCE_PERSISTENCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/SENSITIVITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/CANDIDATE_EVALUATION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/WAVE005_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/HARD_CONSTRAINT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/APPLICATION_PRIORITY_BOUNDARY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/SOURCE_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/EXPLAINABILITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/RESEARCH_ADAPTERS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/USER_PREFERENCE_POLICY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/INVALID_TELEMETRY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005/PROPERTY_INVARIANTS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/EXECUTION_PROVENANCE.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/HOST_USERNS_CONFIGURATION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/OS_PLATFORM_020_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/ENVIRONMENT_PREFLIGHT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/BWRAP_SMOKE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/PRIVILEGE_ESCAPE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/CHILD_EXEC_SECCOMP_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/NETWORK_SECCOMP_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/FILESYSTEM_ESCAPE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/CONTROL_PROBES_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/WAVE009_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/SANDBOX_ENFORCEMENT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009/POSITIVE_APP_ROOT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave006/E2E_SCENARIOS_A_J_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave006/SHELL_VIEW_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave006/LOCAL_INFRA_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave006/LOW_BANDWIDTH_ADAPTATION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave006/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave006/DEGRADED_MODE_REPORTING_RESULT.json",
+      "class": "PROOF"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "firmware_compat/fixtures/sample_capsule_update_response.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_handheld_hybrid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "firmware_compat/fixtures/README.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_wearables_arena_set.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_student_14_5.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_ds_xl_coder.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "artifacts/continuation_ix/office_fixtures/notes.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G13_teacher/G13_FIXTURE_ACL_PASS.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-07.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-01.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-06.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-08.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-09.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-04.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-03.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-10.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-02.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "quality/golden_journeys/fixtures/GOLDEN-05.fixture.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "user_journeys/fixtures/README.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gunnchos_device_os/cont_viii/fixtures/recreation/anime-aggressors.digital_rc_validation.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gunnchos_device_os/cont_viii/fixtures/recreation/pedestrian-pursuit.pp_digital_rc_packaging.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gunnchos_device_os/cont_viii/fixtures/recreation/MANIFEST.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gunnchos_device_os/cont_viii/fixtures/recreation/archive.digital_rc_report.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gunnchos_device_os/cont_viii/fixtures/recreation/beatlink.BETA_RC_TOKENS.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "physical_evidence/fixtures/synthetic_os_validation_dry_run.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "factory/fixtures/README.md",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [
+    "gunnchos_device_os/platform/accessibility_store.py",
+    "gunnchos_device_os/platform/package_lifecycle.py",
+    "gunnchos_device_os/platform/sandbox_executor.py",
+    "gunnchos_device_os/platform/persistent_sync.py",
+    "gunnchos_device_os/platform/secure_packaging.py",
+    "gunnchos_device_os/platform/role_policy.py",
+    "gunnchos_device_os/platform/e2e_scenarios.py",
+    "gunnchos_device_os/platform/encrypted_storage.py",
+    "gunnchos_device_os/platform/requirement_evaluators.py",
+    "gunnchos_device_os/platform/security_injection.py",
+    "gunnchos_device_os/platform/recovery_userspace.py",
+    "gunnchos_device_os/runtime/supervisor.py",
+    "gunnchos_device_os/runtime/ipc.py",
+    "gunnchos_device_os/runtime/service_base.py",
+    "gunnchos_device_os/device_lab/apps/runner.py",
+    "gunnchos_device_os/device_lab/apps/surfaces.py",
+    "gunnchos_device_os/phase_xii/apps/office.py",
+    "gunnchos_device_os/phase_xii/apps/media.py",
+    "gunnchos_device_os/phase_xii/apps/surfaces.py",
+    "gunnchos_device_os/phase_xii/apps/ai.py",
+    "gunnchos_device_os/phase_xii/apps/games.py",
+    "gunnchos_device_os/phase_xii/apps/browser.py",
+    "gunnchos_device_os/phase_xii/apps/detect.py",
+    "gunnchos_device_os/phase_xii/apps/ring.py",
+    "gunnchos_device_os/phase_xi/services/stack.py",
+    "sdk/apps/stream_a_pkt003_godot/godot/build_godot_pack.py",
+    "src/waike/lesson_state.py",
+    "src/update_system/rollback.py",
+    "src/security/sbom.py",
+    "src/security/secure_boot_status.py",
+    "src/hardware_abstraction/thermal.py",
+    "src/hardware_abstraction/battery.py",
+    "src/gunnchos_core/config_loader.py",
+    "src/gunnchos_core/device_identity.py",
+    "src/gunnchos_core/event_bus.py",
+    "src/gunnchos_core/device_state.py",
+    "src/fleet_management/enrollment.py",
+    "src/gunnchos_launcher/gunnchai_bridge.py",
+    "src/gunnchos_launcher/campus_modes.py",
+    "src/gunnchos_launcher/research_measurement_mode.py"
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "tests/test_wp002_handheld_storage_policy.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "content/waike/courses/SOFTWARE_BUILDER/lab.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_phase_xii_execution_reality.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/protocols/webrtc.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/runtime/__init__.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_gate1_boot_probe.py",
+      "to": "pytest"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/scenarios/dsxl_dualscreen.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "scripts/product_use_rerun_four_game_only.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/storage_perf_models.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/product_use_rerun_four_game_only.py",
+      "to": "socket"
+    },
+    {
+      "from": "scripts/check_launcher_contract_fresh.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/crypto_dev.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/updater.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/hardware_display_policy.py",
+      "to": "hardware_manifest_loader"
+    },
+    {
+      "from": "scripts/run_waike_course_lab.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/build_reality_depth_ledger.py",
+      "to": "sys"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/base_image_pipeline.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/apps/games.py",
+      "to": "os"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/protocols/mail.py",
+      "to": "imaplib"
+    },
+    {
+      "from": "scripts/show_campus_mode.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/product_use_close_s1.py",
+      "to": "shutil"
+    },
+    {
+      "from": "scripts/run_waike_integration_demo.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/release_engineering/ab_update.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_phase_xii_execution_reality.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "apps/launcher_mock/src/hooks/useLocalStorage.ts",
+      "to": "react"
+    },
+    {
+      "from": "gunnchos_device_os/system_image.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/scenarios/dsxl_dualscreen.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/apps/ai.py",
+      "to": "__future__"
+    },
+    {
+      "from": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
+      "to": "../data/studentProfile"
+    },
+    {
+      "from": "scripts/validate_persona_coverage.py",
+      "to": "sys"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/apps/detect.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xv/support_lifecycle/__init__.py",
+      "to": "time"
+    },
+    {
+      "from": "gunnchos_device_os/first_party_apps/runtime.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/dual_screen_workflows.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/soak.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/prove_phase_xiv_os.py",
+      "to": "json"
+    },
+    {
+      "from": "src/gunnchos_launcher/research_measurement_mode.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_os_component_stack_simulation.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xv/files_storage/__init__.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/cloud_dev_plane/store.py",
+      "to": "fcntl"
+    },
+    {
+      "from": "gunnchos_device_os/network_decision/evaluator_integrity.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_firmware_probe_demo.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "apps/launcher_mock/src/shell/GunnchOSShell.tsx",
+      "to": "../services/accessibilityAudit"
+    },
+    {
+      "from": "gunnchos_device_os/shell/input_routing.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/hw_backends/audio.py",
+      "to": "math"
+    },
+    {
+      "from": "tests/wp013/test_image_realms_and_builder.py",
+      "to": "pytest"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/protocols/lms.py",
+      "to": "time"
+    },
+    {
+      "from": "mdm/device_policy_agent.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/cloud_dev_plane/__init__.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/a_pkt003/guest_dogfood.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_ota_state_machine.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xiv/compositor/__init__.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/support_self_service.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/shell/input_routing.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "content/waike/courses/DATA_VIZ_BI/lab.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/security/wp007/hostile_network.py",
+      "to": "ipaddress"
+    },
+    {
+      "from": "scripts/validate_wp007_evidence_consistency.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "apps/launcher_mock/src/shell/BrowserPwaHub.tsx",
+      "to": "../data/pwaTargets"
+    },
+    {
+      "from": "scripts/run_privacy_security_demo.py",
+      "to": "sys"
+    },
+    {
+      "from": "firmware_compat/compatibility/interface_contract_checker.py",
+      "to": "yaml"
+    },
+    {
+      "from": "gunnchos_device_os/boot/cli.py",
+      "to": "evidence"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
+      "to": "urllib"
+    },
+    {
+      "from": "gunnchos_device_os/middleware/contracts.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/release_engineering/factory_provisioning.py",
+      "to": "uuid"
+    },
+    {
+      "from": "scripts/engineering_wave005/run_wave005_evidence.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gunnchos_device_os/ipc_robustness.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/recommend_merge_golden.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/support_self_service.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/performance.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/protocols/mail.py",
+      "to": "smtplib"
+    },
+    {
+      "from": "gunnchos_device_os/creation_enablement/guest_dogfood.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_wp007_evidence_consistency.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_wp011r2_four_game_owner_reearn.py",
+      "to": "sys"
+    },
+    {
+      "from": "gunnchos_device_os/runtime/ipc.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/runtime/ipc.py",
+      "to": "socket"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/cli.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/apps/runner.py",
+      "to": "signal"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/security_hardening.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/product_use_dock_reboot.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/bootable_image/__init__.py",
+      "to": "__future__"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PULL_REQUEST_BODY_A_PKT_003.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PULL_REQUEST_BODY_A_PKT_002.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "pytest.ini",
+      "class": "OTHER",
+      "ext": ".ini"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "PULL_REQUEST_BODY_RC_002.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "GUNNCHOS_REQUIREMENTS_v0.1.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "MISSION_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PULL_REQUEST_BODY_A_PKT_003R.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PULL_REQUEST_BODY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY_MANIFEST.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "ACCESSIBILITY_AND_LOW_COST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/ds_xl_deploy_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/edge_io_integration_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/waike_device_os_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/persona_demo_transcripts.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/user_focused_os_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/creator_workflow_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/guardian_controls_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/accessibility_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/device_os_evt1_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/offline_first_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/scooter_to_spaceship_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/access_risk_walkthrough.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "demo/screenshots/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/IMPLEMENTATION_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/CLAIM_BOUNDARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/host_probe_schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware_compat/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/compatibility/descriptor_matcher.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/compatibility/boot_readiness_checker.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/compatibility/capsule_update_client.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/compatibility/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/compatibility/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/compatibility/firmware_compatibility_engine.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/compatibility/interface_contract_checker.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/uefi_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/firmware_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/display_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/probes/input_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/thermal_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/_host_probe_common.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/storage_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/battery_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/network_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/dock_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/devicetree_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/probes/acpi_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_capsule_update_response.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_handheld_hybrid.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware_compat/fixtures/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_wearables_arena_set.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_student_14_5.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware_compat/fixtures/sample_host_probe_ds_xl_coder.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/boot/safe_mode_boot_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/boot/boot_menu_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/boot/recovery_boot_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/capsule_update/sample_capsule_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/descriptors/acpi/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/descriptors/devicetree/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/manifests/student_14_5_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/manifests/ds_xl_coder_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/manifests/wearables_arena_set_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/manifests/handheld_hybrid_firmware_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/thermal_sensor_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/display_enumeration_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/docking_external_display_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/network_enumeration_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/battery_status_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/storage_enumeration_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/power_state_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/input_device_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "firmware_compat/imported_hardware_contracts/interfaces/edge_io_contract.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "mdm/CLAIM_BOUNDARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "mdm/device_policy_agent.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "mdm/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "mdm/policy_schema.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "mdm/enrollment_profile.example.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "mdm/sample_policies/school_default.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "mdm/sample_policies/library_session.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "mdm/sample_policies/guardian_home.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "beta_gate/beta_gate_status.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "implementation_backlog/REAL_DEVICE_VALIDATION_ISSUES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/supervisor_ready/PHYSICAL_PENDING_INVENTORY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready/MOCK_AUDIT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready/DIGITAL_CONTAINER_VM_CHECKSUMS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/supervisor_ready/SERVICE_CONTINUITY_PROFILES.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/ring_app_e2e.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/storage_perf_models.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/REMAINING_BLOCKERS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/video_meeting_e2e.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/reproducibility_digital_ready.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/adopter_digital_ready.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/student_digital_ready.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/vpn_enterprise.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/api_compat.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/email_calendar_e2e.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/recreation_digital_ready.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/a11y_hardening.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/support_self_service.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/cups_virtual.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/continuation_ix/docs_guides.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/battery_thermal_handoff.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/DIGITAL_RELEASE_LOCK.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/security_hardening.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/office_files_e2e.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/factory_line.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/browser_e2e.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/office_work_digital_ready.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/productivity_install_ledger.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/pdf_e2e.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/support/system_info.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/support/reset_recovery.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/support/self_tests.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/continuation_ix/office_fixtures/notes.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/waike/WAIKE_COURSE_REGISTER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike/PR109_MAIN_MERGE_RESOLUTION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike/VP_WAIKE_COURSE_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike/history/VP_WAIKE_COURSE_INDEPENDENT_RESULT.pre_main_merge.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/privacy_bom/VP_PRIVACY_BOM_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/RUN_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/VP_PRODUCT_USE_RC_001_G13_FS_ACL_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/PRODUCT_USE_RC_001_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/GUNNCHAI_HONESTY_CONSUMED.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/PRODUCT_USE_RC_002_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/OWNER_SHA_PINS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/RING_FIX_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/PERSONA_JOURNEY_TABLE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/VP_PRODUCT_USE_RC_001_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/OWNER_PACK_REFRESH.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/product_use/README_RC_002.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/product_use/PRODUCT_USE_REMAINING.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/VP_PRODUCT_USE_RC_001_G13_ACL_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/WAIKE_SIX_COURSE_INGEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/HOST_STORAGE_PREFLIGHT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_guest_pack/teacher_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_guest_pack/learner_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_guest_pack/MANIFEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_guest_pack/learner/learner_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_guest_pack/learner/MANIFEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_guest_pack/teacher/teacher_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/DOCK_CONTINUITY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/boot.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/RUN_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/REBOOT_UPDATE_RECOVERY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/RERUN_FAILED_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/RESUME_OPEN_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/S1_CLOSER_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/waike_guest_pack_build.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/dsxl_partial.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/waike_teacher_isolation.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/RING_G11_PACKET_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G13_teacher/result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G13_teacher/G13_FIXTURE_ACL_PASS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G13_teacher/pack/teacher/teacher_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G12_G11_live_visual/live_display_evidence_vnc.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G12_G11_live_visual/live_display_evidence_recheck.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G12_G11_live_visual/LIVE_VISUAL_EVIDENCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G15_creative/result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/FOUR_GAME/four_games_in_guest.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/FOUR_GAME/result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G14_dsxl/DSXL_COMPOSITOR_UX_EVIDENCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G14_dsxl_s1/result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G14_dsxl_s1/G14_DSXL_RUBBER_STAMP_AUDIT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G14_dsxl_s1/G14_DSXL_REBOOT_EARN_SUMMARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G14_dsxl_s1/DSXL_COMPOSITOR_UX_EVIDENCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G12_office/result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G12_office/OFFICE_PRIMARY_TASK.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/HONEST_REEARN_NOTE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/RING_LATENCY_WATERFALL.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/RING_PASS_DEMOTED.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/_ring_child_result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/RING_APP_MUTATION_EVIDENCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/RING_BOUNDARY_TRACE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/RING_APP_RECEIPT_EVIDENCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/_lab_surfaces_forbidden/game/game_state.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/_lab_surfaces_forbidden/game/game_playwright_error.txt",
+      "class": "PROOF",
+      "ext": ".txt"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_ring/_lab_surfaces_forbidden/browser/browser_state.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_waike/result.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_waike/G11_DEMOTED.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_waike/OFFLINE_NOTE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_waike/pack/teacher_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_waike/pack/learner_data.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/journeys/G11_waike/pack/MANIFEST.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_use/waike_store/INDEX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    }
+  ],
+  "path_classification_full_count": 2771,
+  "mutation_sampling": {
+    "repository": "gunnchos-device-os",
+    "sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "src/gunnchos_core/config_loader.py",
+        "kind": "append_marker",
+        "syntax_ok_after_mutation": true,
+        "test_reaction": "MARKER_LIKELY_UNDETECTED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "detected_count": 0
+  }
+}

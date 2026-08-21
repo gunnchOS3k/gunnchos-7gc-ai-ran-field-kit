@@ -1,0 +1,2268 @@
+{
+  "repository": "gunnchAI3k",
+  "accepted_main_sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
+  "scanned_at_utc": "2026-08-21T17:10:04Z",
+  "counts": {
+    "files_classified": 658,
+    "code_files": 375,
+    "production_code_files": 262,
+    "proof_files": 74,
+    "class_histogram": {
+      "AMBIGUOUS_CODE": 39,
+      "OTHER": 23,
+      "DOCS_OR_PROGRAM": 104,
+      "PROOF": 219,
+      "PRODUCTION": 262,
+      "CI_OR_DEPLOY": 11
+    },
+    "theater_s0": 276,
+    "theater_s1": 68,
+    "theater_total": 344,
+    "hotspots": 2,
+    "wave_dup_paths": 35,
+    "fixture_paths": 35,
+    "orphan_candidates": 0,
+    "dep_edges": 1289
+  },
+  "proof_independence": {
+    "production_files": 262,
+    "proof_files": 74,
+    "production_imports_proof_count": 3,
+    "production_imports_proof": [
+      {
+        "path": "src/local-runtime/runtime.ts",
+        "imports": [
+          "./providers/fixtureProvider"
+        ]
+      },
+      {
+        "path": "src/local-runtime/index.ts",
+        "imports": [
+          "./providers/fixtureProvider"
+        ]
+      },
+      {
+        "path": "src/local-runtime/providers/localModelProvider.ts",
+        "imports": [
+          "./fixtureProvider"
+        ]
+      }
+    ],
+    "status": "FAIL_COUPLED"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "package.json",
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "NEEDS_WORK"
+  },
+  "dimensions": {
+    "production_proof_separation": "CRITICAL",
+    "anti_test_theater": "CRITICAL",
+    "dependency_boundaries": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "runtime_authenticity": "NEEDS_WORK",
+    "complexity_hotspots": "ADEQUATE",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NOT_APPLICABLE"
+  },
+  "theater_findings": [
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/reactivation.test.ts",
+      "line": 74,
+      "snippet": ".toBe(true);     expect(shouldSendOnlineGreeting({ SEND_ONLINE_GREETING: 'false' })).toBe(       false     );     expect"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/reactivation.test.ts",
+      "line": 105,
+      "snippet": ".toBe(true);   });    it('detects @gunnchAI3k text alias', () => {     expect(isBotMentioned('@gunnchAI3k help', undefin"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/reactivation.test.ts",
+      "line": 109,
+      "snippet": ".toBe(true);   });    it('ignores messages from other bots', async () => {     const message = createMockMessage({      "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/reactivation.test.ts",
+      "line": 218,
+      "snippet": ".toBe(true);   });    it('extracts song query from play message', () => {     const content = '@gunnchAI3k play meet me "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/reactivation.test.ts",
+      "line": 231,
+      "snippet": ".toBe(true);     expect((bot as any).isMusicRelatedMessage('music status')).toBe(true);     expect((bot as any).isMusicR"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/reactivation.test.ts",
+      "line": 232,
+      "snippet": ".toBe(true);     expect((bot as any).isMusicRelatedMessage('flashcards for math')).toBe(       false     );   }); });  d"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/ssj-infinity.test.ts",
+      "line": 35,
+      "snippet": ".toBe(true);       });     });      it('should not detect non-flashcard requests', () => {       const nonFlashcardMessa"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/ssj-infinity.test.ts",
+      "line": 65,
+      "snippet": ".toBe(true);       });     });   });    describe('Weekly Assessment Request Detection', () => {     it('should detect we"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/ssj-infinity.test.ts",
+      "line": 81,
+      "snippet": ".toBe(true);       });     });   });    describe('Study Help Request Detection', () => {     it('should detect study hel"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/ssj-infinity.test.ts",
+      "line": 97,
+      "snippet": ".toBe(true);       });     });   });    describe('Lock-In Request Detection', () => {     it('should detect lock-in requ"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/ssj-infinity.test.ts",
+      "line": 113,
+      "snippet": ".toBe(true);       });     });   });    describe('Empathetic Response Generation', () => {     it('should generate empat"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/ssj-infinity.test.ts",
+      "line": 146,
+      "snippet": ".toBe(true);     });      it('should handle midterm-specific requests', async () => {       const mockMessage = {       "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/simple-bot.test.ts",
+      "line": 81,
+      "snippet": ".toBe(true);       });     });      it('should not detect non-music messages', () => {       const nonMusicMessages = [ "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 52,
+      "snippet": ".toBe(true);       expect(isMusicRelatedMessage('start a song')).toBe(true);       expect(isMusicRelatedMessage('youtube"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 53,
+      "snippet": ".toBe(true);       expect(isMusicRelatedMessage('youtube music')).toBe(true);       expect(isMusicRelatedMessage('put on"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 54,
+      "snippet": ".toBe(true);       expect(isMusicRelatedMessage('put on music')).toBe(true);       expect(isMusicRelatedMessage('queue s"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 55,
+      "snippet": ".toBe(true);       expect(isMusicRelatedMessage('queue song')).toBe(true);       expect(isMusicRelatedMessage('skip trac"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 56,
+      "snippet": ".toBe(true);       expect(isMusicRelatedMessage('skip track')).toBe(true);     });      it('should not detect non-music "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 57,
+      "snippet": ".toBe(true);     });      it('should not detect non-music messages', () => {       const nonMusicMessages = [         'h"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 92,
+      "snippet": ".toBe(true);       });     });      it('should not detect non-study messages', () => {       const nonStudyMessages = [ "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/basic.test.ts",
+      "line": 154,
+      "snippet": ".toBe(true);       });        invalidUrls.forEach(url => {         expect(isValidYouTubeUrl(url)).toBe(false);       });"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/integration.test.ts",
+      "line": 68,
+      "snippet": ".toBe(true);       });     });   });    describe('Environment Variables', () => {     it('should have required environme"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 22,
+      "snippet": ".toBe(true);     expect(shouldSendOnlineGreeting({ SEND_ONLINE_GREETING: 'true' })).toBe(true);     expect(shouldSendOnl"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 23,
+      "snippet": ".toBe(true);     expect(shouldSendOnlineGreeting({ SEND_ONLINE_GREETING: 'false' })).toBe(false);   });    it('disables "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 31,
+      "snippet": ".toBe(true);   });    it('reads announcement channel id when set', () => {     expect(getAnnouncementChannelId({})).toBe"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 64,
+      "snippet": ".toBe(true);     expect(isMissionRoadmapQuestion('what is SpectrumX')).toBe(true);     expect(isMissionRoadmapQuestion('"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 65,
+      "snippet": ".toBe(true);     expect(isMissionRoadmapQuestion('what are the 7 global campuses')).toBe(true);     expect(isMissionRoad"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 66,
+      "snippet": ".toBe(true);     expect(isMissionRoadmapQuestion('oulu plan')).toBe(true);     expect(isMissionRoadmapQuestion('flashcar"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 67,
+      "snippet": ".toBe(true);     expect(isMissionRoadmapQuestion('flashcards for math')).toBe(false);   });    it('includes game jam, ha"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 97,
+      "snippet": ".toBe(true);     expect(isConfirmLaunchGraduationCommand('confirm launch graduation')).toBe(       true     );   });    "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/launch-features.test.ts",
+      "line": 135,
+      "snippet": ".toBe(true);     await handleLaunchGraduationCommand(message as any);     await handleConfirmLaunchGraduationCommand(mes"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/youtube-music.test.ts",
+      "line": 27,
+      "snippet": ".toBe(true);       expect(tracks.length).toBeGreaterThan(0);              tracks.forEach(track => {         expect(track"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/youtube-music.test.ts",
+      "line": 53,
+      "snippet": ".toBe(true);     });      it('should cache search results', async () => {       await musicManager.searchTrack('cached s"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/evals/wave003.test.ts",
+      "line": 26,
+      "snippet": ".toBe(true);     expect(report.doctrine.requirementProofRole).toBe('cross-check-only');     expect(report.claimBoundarie"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 24,
+      "snippet": ".toBe(true);     vs.grant('u1', 'screen');     vs.grant('u1', 'file');      const waike = vs.inspect(       'u1',       "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 39,
+      "snippet": ".toBe(true);     expect(waike.ocrUsed).toBe(true);     expect(waike.beyondOcrOnly).toBe(true);     expect(waike.stack).t"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 40,
+      "snippet": ".toBe(true);     expect(waike.beyondOcrOnly).toBe(true);     expect(waike.stack).toBe('ocr_layout_heuristics');     expe"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 41,
+      "snippet": ".toBe(true);     expect(waike.stack).toBe('ocr_layout_heuristics');     expect(waike.completeness).toBe('PARTIAL');     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 44,
+      "snippet": ".toBe(true);     expect(waike.description).toMatch(/Start|Click/i);      const compiler = vs.inspect(       'u1',       "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 56,
+      "snippet": ".toBe(true);     expect(compiler.ocrUsed).toBe(true);     expect(compiler.completeness).toBe('PARTIAL');     expect(comp"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 57,
+      "snippet": ".toBe(true);     expect(compiler.completeness).toBe('PARTIAL');     expect(compiler.description).toMatch(/TS2345/);     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 70,
+      "snippet": ".toBe(true);     expect(office.observations?.summary).toMatch(/Document|OFDM|Lab/i);      const game = vs.inspect(      "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 82,
+      "snippet": ".toBe(true);     expect(game.description).toMatch(/Fire|Score|HP/i);      const control = vs.inspect(       'u1',       "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "line": 94,
+      "snippet": ".toBe(true);     expect(control.description).toMatch(/button/i);   });    it('fixture-only PNG without OCR path stays PA"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 16,
+      "snippet": ".toBe(true);     expect(() => assertSafeGitArgs(['push', '--force', 'origin', 'main'])).toThrow(/FORBIDDEN_GIT/);     ex"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 31,
+      "snippet": ".toBe(true);     expect(agent.mainUnchanged).toBe(true);     expect(agent.draftPr?.draft).toBe(true);     expect(agent.d"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 32,
+      "snippet": ".toBe(true);     expect(agent.draftPr?.draft).toBe(true);     expect(agent.draftPr?.merge).toBe(false);     expect(agent"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 33,
+      "snippet": ".toBe(true);     expect(agent.draftPr?.merge).toBe(false);     expect(agent.draftPr?.force_push).toBe(false);     expect"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 38,
+      "snippet": ".toBe(true);     expect(fs.existsSync(path.join(sandbox, 'DRAFT_PR.json'))).toBe(true);     const fixed = fs.readFileSyn"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 39,
+      "snippet": ".toBe(true);     const fixed = fs.readFileSync(path.join(sandbox, 'src', 'add.js'), 'utf8');     expect(fixed).toContain"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 63,
+      "snippet": ".toBe(true);     expect(recorded.pr_url).toMatch(/gunnchai-ai-ur-013-sandbox\\/pull\\/\\d+/);     const gate = evaluateCodi"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "line": 70,
+      "snippet": ".toBe(true);     expect(gate.completeness).toBe('COMPLETE');   }); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 60,
+      "snippet": ".toBe(true);       if (t.coverage_status === 'PARTIAL') expect(t.implemented).toBe(false);       if (t.coverage_status ="
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 95,
+      "snippet": ".toBe(true);     expect(tiers.nano.weightsStatus).toBe('NANO_FALLBACK_ONLY');     expect(tiers.localFast.license).toMatc"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 142,
+      "snippet": ".toBe(true);     expect(report.tokens[USER_READY_PACKET_TOKEN]).toBe(false);     expect(report.allImplementedPassed).toB"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 144,
+      "snippet": ".toBe(true);     expect(report.results.map((r) => r.task_id).sort()).toEqual(       ['AI-UR-001', 'AI-UR-002', 'AI-UR-00"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 150,
+      "snippet": ".toBe(true);   }, 60_000); });  describe('AI-USER-READY-002 market packet', () => {   it('runs COMPLETE runtimes; OCR in"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 175,
+      "snippet": ".toBe(true);     for (const id of ['AI-UR-007', 'AI-UR-013']) {       const row = report.results.find((r) => r.task_id ="
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 179,
+      "snippet": ".toBe(true);     }     const vision = report.results.find((r) => r.task_id === 'AI-UR-011');     expect(vision).toBeTrut"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 183,
+      "snippet": ".toBe(true);     expect(String(vision!.evidence.stack)).toBe('ocr_layout_heuristics');     expect(String(vision!.evidenc"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 188,
+      "snippet": ".toBe(true);       expect(report.tokens[USER_READY_PACKET_TOKEN]).toBe(true);       expect(report.coverage.runtime).toBe"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 189,
+      "snippet": ".toBe(true);       expect(report.coverage.runtime).toBeGreaterThanOrEqual(7);     } else {       expect(fast?.notes).toM"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "line": 196,
+      "snippet": ".toBe(true);   }, 360_000); }); "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 78,
+      "snippet": ".toBe(true);     expect(ws.edit('u', doc.id, 'stale', 1).ok).toBe(false);     expect(() => ws.silentOverwrite('u', doc.i"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 83,
+      "snippet": ".toBe(true);   });    it('custom agents fail-closed; unrestricted rejected', () => {     const dir = fs.mkdtempSync(path"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 111,
+      "snippet": ".toBe(true);     expect(store.invoke('tutor', 'hi', ['files.read']).ok).toBe(false);     store.consent('tutor', ['files."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 114,
+      "snippet": ".toBe(true);   });    it('synthetic voice stays PARTIAL; mic/mute/barge-in work', async () => {     const v = new Realti"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 128,
+      "snippet": ".toBe(true);     v.mute();     expect((await v.turn('nope')).muted).toBe(true);   });    it('computer use allowlist + ca"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 130,
+      "snippet": ".toBe(true);   });    it('computer use allowlist + cancel; blocks finance/medical', () => {     const cu = new SafeCompu"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 137,
+      "snippet": ".toBe(true);     expect(       cu.run([{ type: 'click', target: { role: 'button', name: 'A' } }], [         { role: 'but"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 148,
+      "snippet": ".toBe(true);     cu.cancel();     expect(       cu.run([{ type: 'click', target: { role: 'button', name: 'A' } }], [    "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 166,
+      "snippet": ".toBe(true);     expect(r.rejectedClaims.some((c) => /Dragons/i.test(c))).toBe(true);     expect(r.script.every((l) => l"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 167,
+      "snippet": ".toBe(true);     expect(r.script.every((l) => l.citations.length > 0)).toBe(true);     expect(r.audioPath && fs.existsSy"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 168,
+      "snippet": ".toBe(true);     expect(r.audioPath && fs.existsSync(r.audioPath)).toBe(true);     expect(fs.readFileSync(r.audioPath!)."
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 169,
+      "snippet": ".toBe(true);     expect(fs.readFileSync(r.audioPath!).subarray(0, 4).toString()).toBe('RIFF');   });    it('companion ch"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 176,
+      "snippet": ".toBe(true);     expect(chrome.humanPolishValidated).toBe(false);     expect(chrome.buttonBackendWired).toBe(true);     "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 178,
+      "snippet": ".toBe(true);     expect(chrome.pixels).toBe(VISUAL_UNAVAILABLE);     expect(chrome.surfaces.map((s) => s.id)).toEqual(  "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "line": 195,
+      "snippet": ".toBe(true);   });    it('Local Pro audit does not fake HOST_OBSERVED without weights', async () => {     const audit = "
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/local_fast.test.ts",
+      "line": 14,
+      "snippet": ".toBe(true);     if (tiers.localFast.weightsStatus === 'PRESENT') {       expect(tiers.localFast.sha256).toBe(FAST_SHA25"
+    },
+    {
+      "severity": "S0",
+      "kind": "assert_true_literal",
+      "path": "tests/user-ready/local_fast.test.ts",
+      "line": 41,
+      "snippet": ".toBe(true);     const core = report.cases.filter((c) =>       ['general', 'summarization', 'waike', 'source_grounded', "
+    }
+  ],
+  "complexity_hotspots": [
+    {
+      "path": "scripts/prove_phase_xiv_ai.py",
+      "name": "main",
+      "lineno": 19,
+      "complexity": 23
+    },
+    {
+      "path": "scripts/prove_stage2_ai.py",
+      "name": "main",
+      "lineno": 19,
+      "complexity": 16
+    }
+  ],
+  "wave_duplicate_paths": [
+    {
+      "path": "evals/wave003/schemas/wave003_result.v1.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/failure_cases/negative_expectations.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/results/WAVE003_EVAL.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/connectivity_telemetry.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/device_state.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/bias_a11y_scope.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/a11y_ui.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/device_states.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/game_state.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/code_fixture_repo/README.md",
+      "class": "PROOF"
+    },
+    {
+      "path": "evals/wave003/fixtures/mini_corpus/doc-a.md",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/INDEPENDENT_REPRODUCTION.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/OFFLINE_NETWORK_DENIAL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/ROLLBACK_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/REQUIREMENT_RESULTS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/MONITORING_PRIVACY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/BIAS_ACCESSIBILITY_SCOPE.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/FAILURE_ANALYSIS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/RUNTIME_IDENTITY.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/WAVE003_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/EVALUATION_BASELINE.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "evidence/engineering_wave003/BIAS_ACCESSIBILITY_EVALUATION.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "tests/evals/wave003.test.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/hashing.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/evidence.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/cli.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/context.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/types.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/reproduction.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/constants.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/baseline.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/runner.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/scorers/ai_local.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/scorers/ai_gov.ts",
+      "class": "PROOF"
+    },
+    {
+      "path": "src/evals/wave003/scorers/crosscheck_requirement_proof.ts",
+      "class": "PROOF"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "evals/wave003/fixtures/connectivity_telemetry.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/device_state.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/bias_a11y_scope.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/a11y_ui.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/device_states.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/game_state.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/code_fixture_repo/README.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evals/wave003/fixtures/mini_corpus/doc-a.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/waike/public/curriculum/digital_rc/GENERAL_IT/course.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/local-runtime/manifest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/local-runtime/documents/tutoring-basics.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/local-runtime/documents/connectivity-diagnosis.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/local-runtime/documents/accessibility.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/local-runtime/documents/code-assistance.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/local-runtime/documents/device-help.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/device_profiles.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-scientific-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-workflow-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-translation-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/integrity_manifest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-security-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-rag-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-device-help-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-network-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-code-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-a11y-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-tutoring-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/models/baseline-game-coach-v1.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/rag-corpus/tutoring_binary_search.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/rag-corpus/scientific_complexity.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/integrations/manifest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/integrations/waike/waike_curriculum_subset.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/integrations/archive/archive_scientific_subset.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/system-layer/integrations/device-docs/device_help_subset.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "src/local-runtime/providers/fixtureProvider.ts",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [],
+  "dependency_edges_sample": [
+    {
+      "from": "src/stage2/index.ts",
+      "to": "./fleet/roles"
+    },
+    {
+      "from": "src/phase_xiv/voice/realtime.ts",
+      "to": "../../stage2/os/permissions"
+    },
+    {
+      "from": "src/phase_xiv/computer_use/index.ts",
+      "to": "./runtime"
+    },
+    {
+      "from": "src/stage2/index.ts",
+      "to": "./os/capability_api"
+    },
+    {
+      "from": "scripts/run_b_pkt_003_data_dashboards.ts",
+      "to": "../src/waike-mastery/solver"
+    },
+    {
+      "from": "src/user-ready/runtime.ts",
+      "to": "./model_manager"
+    },
+    {
+      "from": "src/waike-mastery/index.ts",
+      "to": "./course_honesty"
+    },
+    {
+      "from": "tests/stage2/research.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/waike-mastery/baseline_v1.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "src/system-layer/platform_status.ts",
+      "to": "./model_registry"
+    },
+    {
+      "from": "src/phase_xiv/scheduled/tasks.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "scripts/run_mastery_002_capability_depth.ts",
+      "to": "../src/waike-mastery/remediation_engine"
+    },
+    {
+      "from": "src/product-completion/security_regression.ts",
+      "to": "../user-ready/custom_agents"
+    },
+    {
+      "from": "src/local-runtime/retrieval.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/user-ready/index.ts",
+      "to": "./vision_ocr"
+    },
+    {
+      "from": "tests/system-layer/product_surfaces.test.ts",
+      "to": "../../src/system-layer/product_service/server"
+    },
+    {
+      "from": "tests/user-ready/deep_research.test.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "scripts/run_mastery_002_capability_depth.ts",
+      "to": "../src/waike-mastery/solver"
+    },
+    {
+      "from": "src/independent-eval/runner.ts",
+      "to": "./experience"
+    },
+    {
+      "from": "src/phase_xiv/scheduled/tasks.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/user-ready/companion_ui.ts",
+      "to": "./companion_backend"
+    },
+    {
+      "from": "src/phase_xiv/agent/lab_report_e2e.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/local-runtime/retrieval.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "tests/system-layer/product_surfaces.test.ts",
+      "to": "../../src/system-layer/product_service/service"
+    },
+    {
+      "from": "scripts/write-continuation-vii-evidence.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/waike-mastery/eval_suite.ts",
+      "to": "./capability_boundary"
+    },
+    {
+      "from": "tests/waike-mastery/mastery.test.ts",
+      "to": "../../src/waike-mastery/contract"
+    },
+    {
+      "from": "src/system-layer/os_integration/requirement_proof.ts",
+      "to": "../product_service/service"
+    },
+    {
+      "from": "src/phase_xiv/agent/tools/shell.ts",
+      "to": "../limits"
+    },
+    {
+      "from": "src/product-completion/runtime.ts",
+      "to": "../user-ready/local_pro_audit"
+    },
+    {
+      "from": "src/user-ready/custom_agents.ts",
+      "to": "node:crypto"
+    },
+    {
+      "from": "scripts/write-continuation-vii-evidence.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/phase_xiv/agent/audit.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/evals/wave003/reproduction.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "src/system-layer/os_integration/product_surfaces.ts",
+      "to": "../product_service/service"
+    },
+    {
+      "from": "src/system-layer/local_inference/index.ts",
+      "to": "./backends/interface"
+    },
+    {
+      "from": "src/evals/wave003/evidence.ts",
+      "to": "./context"
+    },
+    {
+      "from": "src/phase_xiv/agent/audit.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "python-ai-bridge/ai_bridge.py",
+      "to": "aiohttp"
+    },
+    {
+      "from": "src/tutor/discordInteractionRouter.ts",
+      "to": "discord.js"
+    },
+    {
+      "from": "scripts/run_b_pkt_002_comm_pd.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "src/waike-mastery/index.ts",
+      "to": "./student_model"
+    },
+    {
+      "from": "tests/tutor/sourcePolicy.test.ts",
+      "to": "../../src/tutor/sourcePolicy"
+    },
+    {
+      "from": "src/seasonal/seasonal-manager.ts",
+      "to": "./seasonal-events"
+    },
+    {
+      "from": "src/phase_xiv/agent/runtime.ts",
+      "to": "./audit"
+    },
+    {
+      "from": "src/study/bot.ts",
+      "to": "./plan"
+    },
+    {
+      "from": "src/local-runtime/discovery.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "src/phase_xiv/collab/index.ts",
+      "to": "./workspace"
+    },
+    {
+      "from": "src/music/jockie-powers.ts",
+      "to": "discord.js"
+    },
+    {
+      "from": "tests/user-ready/ai004_surfaces.test.ts",
+      "to": "../../src/user-ready/stub_challenge"
+    },
+    {
+      "from": "src/stage2/eval/harness.ts",
+      "to": "../os/capability_api"
+    },
+    {
+      "from": "src/user-ready/companion_ui.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "scripts/run_mastery_002_plateau_closeout.ts",
+      "to": "../src/waike-mastery/vertical_closure"
+    },
+    {
+      "from": "src/index.ts",
+      "to": "./integrations/github"
+    },
+    {
+      "from": "src/system-layer/product_service/audit.ts",
+      "to": "node:crypto"
+    },
+    {
+      "from": "src/tutor/discordInteractionRouter.ts",
+      "to": "./waikeTutorCards"
+    },
+    {
+      "from": "tests/phase_xiv/artifacts_scheduled.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/system-layer/os_integration/requirement_proof.ts",
+      "to": "../product_service/types"
+    },
+    {
+      "from": "src/system-layer/product_service/continuity.ts",
+      "to": "../model_registry"
+    },
+    {
+      "from": "src/user-ready/runtime_004.ts",
+      "to": "./cowrite_workspace"
+    },
+    {
+      "from": "src/security/audit.ts",
+      "to": "../utils/logger"
+    },
+    {
+      "from": "src/user-ready/runtime.ts",
+      "to": "./artifacts"
+    },
+    {
+      "from": "src/study/enhanced-course-integration.ts",
+      "to": "./pdf-visual-analyzer"
+    },
+    {
+      "from": "tests/system-layer/privacy_policy.test.ts",
+      "to": "../../src/system-layer/privacy_policy"
+    },
+    {
+      "from": "src/local-runtime/runtime.ts",
+      "to": "node:crypto"
+    },
+    {
+      "from": "python-ai-bridge/ai_bridge.py",
+      "to": "webrtcvad"
+    },
+    {
+      "from": "tests/phase_xiv/artifacts_scheduled.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/user-ready/runtime_003.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/system-layer/os_integration/product_surfaces.ts",
+      "to": "../product_service/types"
+    },
+    {
+      "from": "tests/product-completion/digital_product.test.ts",
+      "to": "../../src/user-ready/voice_realtime"
+    },
+    {
+      "from": "3kmlv-arcade/src/screens/HomeScreen.tsx",
+      "to": "expo-linear-gradient"
+    },
+    {
+      "from": "src/user-ready/runtime_003.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/study/course-integration.ts",
+      "to": "path"
+    },
+    {
+      "from": "src/user-ready/vision_screen.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/user-ready/runtime_001.ts",
+      "to": "./tokens"
+    },
+    {
+      "from": "src/user-ready/runtime.ts",
+      "to": "./companion"
+    },
+    {
+      "from": "src/phase_xiv/computer_use/index.ts",
+      "to": "./coding_agent"
+    },
+    {
+      "from": "src/index.ts",
+      "to": "./study/emergency-bot"
+    },
+    {
+      "from": "src/phase_xiv/agent/runtime.ts",
+      "to": "./task_graph"
+    },
+    {
+      "from": "src/system-layer/product_service/continuity.ts",
+      "to": "node:crypto"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "setup-env.sh",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".sh"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "tsconfig.production.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "jest.config.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-complete-music-integration.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-enhanced-pdf-analysis.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-course-materials.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-youtube-url.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-youtube-music.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "package-lock.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "package.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "test-youtube-simple.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-bot-start.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-apple-music-integration.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-online-greeting.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "tsconfig.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "test-thor-hammer.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "test-halloween-midterm.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "test-natural-language.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SETUP_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "test-seasonal-features.js",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".js"
+    },
+    {
+      "path": "artifacts/local_pro/LOCAL_PRO_AB_STREAM_B_PKT_001.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/security/AI_DEPENDENCY_REACHABILITY_AUDIT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/user-ready/AI_USER_READY_003_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/user-ready/AI_USER_READY_001_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/user-ready/AI_UR_013_LIVE_DRAFT_PR.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/user-ready/AI_USER_READY_004_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/user-ready/AI_USER_READY_004C_RECONCILIATION_REPORT.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/user-ready/AI_USER_READY_002_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_post_parser_stratified_12x2.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/MISCONCEPTION_DIAGNOSIS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/AI_WAIKE_MASTERY_EVAL.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/EDUCATOR_COPILOT_EVIDENCE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/MODEL_CAPABILITY_BOUNDARY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_held_out_stratified_ge120.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_comm_pd_ethics_runtime_b_pkt_002.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/LARGER_SAMPLE_REAL_RUNTIME.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_vertical_GENERAL_IT_transfer_sample.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_failure_census_5x12.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/FAILURE_CENSUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/VERTICAL_CLOSURE_GENERAL_IT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/TOOL_USE_CURRICULUM_INTEGRATED.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/BASELINE_INTACT_PROOF.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/TOOL_USE_REAL_EXEC.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/REAL_SOLVER_BASELINE_V1.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_stratified_12c_x2.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/MASTERY_002_PLATEAU_EVIDENCE_PACK.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/PARSER_IMPACT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_data_dashboards_runtime_b_pkt_003.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/REMEDIATION_TRANSFER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/SCORE_FAMILIES.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_failure_census_10x12.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/GUNNCHAI_RUNTIME_SOLVER_vertical_GENERAL_IT_baseline.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/stronger_model_compare/MODEL_A_RUNTIME.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/stronger_model_compare/GUNNCHAI_RUNTIME_SOLVER_compare_MODEL_B_held_out_ge120.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/stronger_model_compare/COMPARE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/stronger_model_compare/GUNNCHAI_RUNTIME_SOLVER_compare_MODEL_A_held_out_ge120.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/waike-mastery/stronger_model_compare/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/waike-mastery/stronger_model_compare/MODEL_B_RUNTIME.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/phase_xiv/STAGE2_REPROOF.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/phase_xiv/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/phase_xiv/AI_PROVE_REPORT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/phase_xiv/competitive/corpus.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/phase_xv/MODEL_QUALITY_HONESTY_AUDIT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_35_R3_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_33_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/AUDIT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_34_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/EXPERIENCE_REVIEW.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_32_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_35_R2_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_35_R1_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/INDEPENDENT_EVAL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/independent-eval/VP_GUNNCHAI_35_INDEPENDENT_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/AGENT_TOOLS_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/JOURNEY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/MODEL_TIER_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/VLM_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/WAIKE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/COMPUTER_USE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/VOICE_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/AUDIO_OVERVIEW_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/PREEXISTING_CAPABILITY_AUDIT.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/product_completion/PREEXISTING_CAPABILITY_AUDIT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/PRODUCT_COMPLETION_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/product_completion/PRIVACY_SECURITY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/LOCAL_PRO_STREAM_B_PKT_003.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/VP_STREAM_B_PKT_003_GUNNCHAI_OWNER.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stream_b/LOCAL_PRO_STREAM_B_PKT_002.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/VP_STREAM_B_PKT_002_GUNNCHAI_OWNER.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stream_b/DATA_DASHBOARDS_MASTERY_DELTA.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/COMM_PD_ETHICS_MASTERY_DELTA.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/DATA_DASHBOARDS_CONSUMPTION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/COMM_PD_ETHICS_CONSUMPTION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stream_b/B1_POST_MERGE_RECONCILIATION.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stage2/MODEL_CANDIDATE_MATRIX.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stage2/MODEL_BENCHMARK_BASELINE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stage2/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stage2/MODEL_CANDIDATE_MATRIX.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stage2/OS_CALLER_CONTRACT.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/stage2/AI_PROVE_REPORT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stage2/research/corpus/local-rf-001.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stage2/eval/corpus.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/stage2/eval/schema.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "rust-backend/Cargo.toml",
+      "class": "OTHER",
+      "ext": ".toml"
+    },
+    {
+      "path": "rust-backend/src/lib.rs",
+      "class": "PRODUCTION",
+      "ext": ".rs"
+    },
+    {
+      "path": "evals/wave003/schemas/wave003_result.v1.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/failure_cases/negative_expectations.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/results/WAVE003_EVAL.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/connectivity_telemetry.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/device_state.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/bias_a11y_scope.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/a11y_ui.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/device_states.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/game_state.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evals/wave003/fixtures/code_fixture_repo/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "evals/wave003/fixtures/mini_corpus/doc-a.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "evidence/local-runtime/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "evidence/local-runtime/GUNNCHAI3K_LOCAL_RUNTIME_PASS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/REAL_INFERENCE_BENCH.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/REQUIREMENT_PROOF_VII.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/CONTINUATION_V_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/CONTINUATION_VI_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/CONTINUATION_IV_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "evidence/system-layer/CONTINUATION_VII_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/WAVE_C_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/REQUIREMENT_PROOF_VI.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/CONTINUATION_III_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/system-layer/PRODUCT_SERVICE_STATUS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/INDEPENDENT_REPRODUCTION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/OFFLINE_NETWORK_DENIAL_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/ROLLBACK_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/REQUIREMENT_RESULTS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/MONITORING_PRIVACY_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/BIAS_ACCESSIBILITY_SCOPE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/FAILURE_ANALYSIS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/RUNTIME_IDENTITY.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/WAVE003_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/EVALUATION_BASELINE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "evidence/engineering_wave003/BIAS_ACCESSIBILITY_EVALUATION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "python-ai-bridge/requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "python-ai-bridge/ai_bridge.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/readme_supervisor_front_door.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/reactivation.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/setup.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/ssj-infinity.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/online-awake.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/simple-bot.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/basic.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/integration.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/launch-features.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/youtube-music.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/evals/wave003.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/vision_screen.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/coding_agent_pr.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/market_runtime.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/ai004_surfaces.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/local_fast.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/deep_research.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/user-ready/model_manager.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/waike-mastery/mastery.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/waike-mastery/choice_parser.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/competitive.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/multimodal_voice.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/computer_use.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/mcp_skills.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/collab_continuity.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/long_context.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/agent_runtime.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/phase_xiv/artifacts_scheduled.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/local-runtime/local-runtime.smoke.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/os_integration.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/device_capability.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/product_surfaces.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/evaluation_harness.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/rag_engine.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/platform_status.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/privacy_policy.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/product_service.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/local_inference.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/governance_runtime.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/capability_mechanisms.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/task_router.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/system-layer/model_registry.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/independent-eval/independent_eval.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/tutor/academicIntegrityPolicy.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/tutor/skillRouter.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/tutor/waikeTutorCards.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/tutor/sourcePolicy.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/tutor/responseModes.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/product-completion/digital_product.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/stage2/os_integration.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/stage2/citation_integrity.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/stage2/router_failures.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    },
+    {
+      "path": "tests/stage2/research.test.ts",
+      "class": "PROOF",
+      "ext": ".ts"
+    }
+  ],
+  "path_classification_full_count": 658,
+  "mutation_sampling": {
+    "repository": "gunnchAI3k",
+    "sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
+    "mutations": [],
+    "status": "NO_MUTATION_TARGETS",
+    "dimension": "NOT_APPLICABLE"
+  }
+}
