@@ -1,0 +1,33 @@
+name: Engineering Wave 007 closeout
+
+on:
+  push:
+    branches: [main, 'eng/wave007-*']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave007/**'
+      - 'artifacts/engineering_wave007_closeout/**'
+      - 'scripts/engineering_wave007/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
+      - 'tests/engineering_wave007/**'
+      - '.github/workflows/engineering-wave007.yml'
+
+jobs:
+  wave007-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Wave007 closeout integrity test
+        run: pytest tests/engineering_wave007 -q
+
+      - name: Wave007 aggregate validation
+        run: python3 scripts/engineering_wave007/validate_aggregate.py
