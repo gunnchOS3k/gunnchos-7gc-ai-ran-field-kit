@@ -92,7 +92,16 @@ def main() -> int:
         (mirror / "BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json").read_text(encoding="utf-8")
     )
     assert behavioral.get("BEHAVIORAL_NEGATIVE_CONTROLS_PASS") is True
-    assert behavioral.get("BEHAVIORAL_NEGATIVE_CONTROL_COUNT", 0) >= 16
+    assert behavioral.get("BEHAVIORAL_NEGATIVE_CONTROL_COUNT", 0) >= 22
+    assert agg.get("FIXTURE_ONLY_SOURCE_VERIFIED_COUNT", 1) == 0
+    assert agg.get("AUTHENTIC_EXTERNAL_SOURCE_SNAPSHOTS_PRESENT") is False
+    assert browser.get("runtime") == "vite_preview"
+    assert (mirror / "WAVE008_INTEGRITY_REPAIR_RESULT.json").is_file()
+    repair = json.loads((mirror / "WAVE008_INTEGRITY_REPAIR_RESULT.json").read_text(encoding="utf-8"))
+    assert repair.get("WAVE008_PREMERGE_INTEGRITY_REPAIR") in ("PASS", "PARTIAL")
+    assert repair.get("STATIC_HARNESS_CLOSURE") is False
+    assert agg["archive_head_sha"]
+    assert len(agg["archive_head_sha"]) == 40
 
     truth = json.loads((mirror / "SOURCE_INTEGRATION_TRUTH_RESULT.json").read_text(encoding="utf-8"))
     assert truth.get("MISSING_DEFAULTS_TO_NEEDS_VERIFICATION") is True
