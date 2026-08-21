@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install test deps
+        run: python3 -m pip install --upgrade pip pytest
       - name: Validate Wave006 aggregate
         run: python3 scripts/engineering_wave006/validate_aggregate.py
       - name: Aggregate unit checks
