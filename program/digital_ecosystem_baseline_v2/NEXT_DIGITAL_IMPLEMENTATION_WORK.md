@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 86
+Count: 76
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,16 +16,6 @@ Count: 86
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- NET-ORCH-026: Orchestrator evaluates: Satellite visibility
-- NET-ORCH-027: Orchestrator evaluates: Local infrastructure status
-- NET-ORCH-028: Orchestrator capability: Seamless bearer transition where technically possible
-- NET-ORCH-029: Orchestrator capability: Session resumption where seamless transition is impossible
-- NET-ORCH-030: Orchestrator capability: Multipath communication
-- NET-ORCH-031: Orchestrator capability: Low-bandwidth adaptation
-- NET-ORCH-032: Orchestrator capability: Prioritization of emergency, learning, and communication traffic
-- NET-ORCH-033: Orchestrator capability: Local caching
-- NET-ORCH-034: Orchestrator capability: Opportunistic synchronization
-- NET-ORCH-035: Orchestrator capability: Transparent degraded-mode reporting
 - GAME-BEATLINK-001: Beat Link: Host starts a room
 - GAME-BEATLINK-002: Beat Link: Players join through devices or browsers
 - GAME-BEATLINK-003: Beat Link: Legal and supported song source selected
@@ -52,4 +42,14 @@ Count: 86
 - GAME-AOL-014: Scientific record field: Citation shown to the user where appropriate
 - GAME-AOL-015: No fake source integration claims
 - GAME-PP-001: Pedestrian Pursuit: Sprinting
-- … and 36 more
+- GAME-PP-002: Pedestrian Pursuit: Foot drifting
+- GAME-PP-003: Pedestrian Pursuit: Jumping
+- GAME-PP-004: Pedestrian Pursuit: Sliding
+- GAME-PP-005: Pedestrian Pursuit: Wall interaction
+- GAME-PP-006: Pedestrian Pursuit: Rail grinding
+- GAME-PP-007: Pedestrian Pursuit: Stomping
+- GAME-PP-008: Pedestrian Pursuit: Tricks
+- GAME-PP-009: Pedestrian Pursuit: Boost management
+- GAME-PP-010: Pedestrian Pursuit: Items
+- GAME-PP-011: Pedestrian Pursuit: Shortcuts
+- … and 26 more

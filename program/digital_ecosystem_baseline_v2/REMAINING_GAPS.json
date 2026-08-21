@@ -1,9 +1,9 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-20T21:19:28Z",
+  "generated_at_utc": "2026-08-21T00:11:42Z",
   "top_blockers": [
-    "Wave 005 targeted closeout draft PR pending owner merge",
-    "DIGITAL_IMPLEMENTATION_OPEN=86 rows need digital engineering",
+    "Wave 006 targeted closeout draft PR pending owner merge",
+    "DIGITAL_IMPLEMENTATION_OPEN=76 rows need digital engineering",
     "DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)",
     "OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false"
   ],
@@ -346,6 +346,47 @@
       "STANDARDIZED_6G": false,
       "TPM_KEYSTORE": false
     },
+    "OS_PLATFORM_020": {
+      "implementation_present": true,
+      "validation_state": "DIGITAL_VALIDATION_OPEN",
+      "blocker_class": "BLOCKED_ENVIRONMENT",
+      "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+      "plain_subprocess_counts_as_sandbox": false,
+      "kernel_sandbox": false,
+      "changed": false
+    }
+  },
+  "wave006_closeout": {
+    "targets_closed": [
+      "NET-ORCH-026",
+      "NET-ORCH-027",
+      "NET-ORCH-028",
+      "NET-ORCH-029",
+      "NET-ORCH-030",
+      "NET-ORCH-031",
+      "NET-ORCH-032",
+      "NET-ORCH-033",
+      "NET-ORCH-034",
+      "NET-ORCH-035"
+    ],
+    "targets_validation_open": [],
+    "claim_boundaries": {
+      "CARRIER_ACCEPTED": false,
+      "FIELD_MEASURED_PERFORMANCE": false,
+      "FIELD_MEASURED_SATELLITE_VISIBILITY": false,
+      "HUMAN_E6": false,
+      "KERNEL_MPTCP_VALIDATED": false,
+      "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+      "PHYSICAL_VALIDATION": false,
+      "PRODUCTION_APP_PRIORITY_SIGNING": false,
+      "PRODUCTION_MPTCP_VALIDATED": false,
+      "PRODUCTION_NETWORK_OPTIMALITY": false,
+      "REAL_MPTCP": false,
+      "REAL_NTN_MODEM_VALIDATED": false,
+      "STANDARDIZED_6G": false,
+      "UNIVERSAL_OPTIMALITY": false
+    },
+    "MULTIPATH_KIND": "APPLICATION_LEVEL_MULTIPATH",
     "OS_PLATFORM_020": {
       "implementation_present": true,
       "validation_state": "DIGITAL_VALIDATION_OPEN",

@@ -23,5 +23,5 @@ jobs:
         run: python3 -m pip install --upgrade pip pytest
       - name: Validate Wave006 aggregate
         run: python3 scripts/engineering_wave006/validate_aggregate.py
-      - name: Aggregate unit checks
-        run: python3 -m pytest -q tests/engineering_wave006/test_wave006_aggregate.py
+      - name: Aggregate and closeout unit checks
+        run: python3 -m pytest -q tests/engineering_wave006
