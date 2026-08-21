@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 51
+total_open: 51
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -52,4 +52,3 @@ Count: 51
 - GATE-3-006: Gate 3: 7GC test plans
 - GATE-3-007: Gate 3: Repair procedure
 - GATE-5-005: Gate 5: Privacy and security review
-- … and 1 more

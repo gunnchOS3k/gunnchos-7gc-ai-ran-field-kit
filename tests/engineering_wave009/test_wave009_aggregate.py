@@ -81,13 +81,24 @@ def test_baseline_frozen_counts() -> None:
         (ROOT / "program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_VALIDATION_WORK.json").read_text()
     )
     totals = baseline["totals"]
+    closeout_applied = baseline.get("phase") == "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT" or bool(
+        (baseline.get("ENGINEERING_WAVE_009_TARGETED_CLOSEOUT") or {}).get(
+            "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT_VALIDATION_PASS"
+        )
+    )
     assert totals["ATOMIC_TOTAL"] == 419
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
     assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 51
-    assert totals["DIGITAL_VALIDATION_OPEN"] == 1
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
-    assert queue["total_open"] == 1
-    assert [i["requirement_id"] for i in queue["all_items"]] == ["OS-PLATFORM-020"]
+    if closeout_applied:
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+        assert totals["DIGITAL_VALIDATION_OPEN"] == 0
+        assert queue["total_open"] == 0
+        assert queue["all_items"] == []
+    else:
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
+        assert totals["DIGITAL_VALIDATION_OPEN"] == 1
+        assert queue["total_open"] == 1
+        assert [i["requirement_id"] for i in queue["all_items"]] == ["OS-PLATFORM-020"]
 
 
 def test_validate_script_emits_provenance_remediation_pass() -> None:

@@ -1,0 +1,33 @@
+name: Engineering Wave 009 closeout
+
+on:
+  push:
+    branches: [main, 'eng/wave009-*']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave009/**'
+      - 'artifacts/engineering_wave009_closeout/**'
+      - 'scripts/engineering_wave009/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
+      - 'tests/engineering_wave009/**'
+      - '.github/workflows/engineering-wave009-closeout.yml'
+
+jobs:
+  wave009-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Wave009 closeout integrity test
+        run: pytest tests/engineering_wave009/test_wave009_targeted_closeout.py -q
+
+      - name: Wave009 closeout register integrity
+        run: python3 scripts/validate_baseline_v2_b4_register_integrity.py

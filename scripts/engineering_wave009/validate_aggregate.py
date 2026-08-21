@@ -169,25 +169,42 @@ def main() -> int:
     if claims.get("PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX") is not False:
         errors.append("claim_plain_subprocess_not_false")
 
-    # Baseline frozen — verify only, never mutate.
+    # Aggregate evidence itself must remain frozen (no baseline mutation in wave evidence).
+    # After targeted closeout lands, live Baseline may already be 111/51/0 — accept either.
+    closeout_meta = baseline.get("ENGINEERING_WAVE_009_TARGETED_CLOSEOUT") or {}
+    closeout_applied = bool(
+        closeout_meta.get("ENGINEERING_WAVE_009_TARGETED_CLOSEOUT_VALIDATION_PASS")
+    ) or (baseline.get("phase") == "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT")
+
     if totals.get("ATOMIC_TOTAL") != 419:
         errors.append("baseline_atomic_total")
-    if totals.get("DIGITAL_IMPLEMENTATION_COMPLETE") != 110:
-        errors.append("baseline_impl_complete")
     if totals.get("DIGITAL_IMPLEMENTATION_OPEN") != 51:
         errors.append("baseline_impl_open")
-    if totals.get("DIGITAL_VALIDATION_OPEN") != 1:
-        errors.append("baseline_validation_open")
     if totals.get("EVIDENCE_MAPPING_OPEN") != 0:
         errors.append("baseline_evidence_mapping_open")
     frozen = agg.get("baseline_frozen_verify") or {}
     if frozen.get("DIGITAL_CONTROLLABLE_POOL") != 162:
         errors.append("baseline_controllable_pool")
-    if queue.get("total_open") != 1:
-        errors.append("validation_queue_count")
-    qids = [i.get("requirement_id") for i in queue.get("all_items", [])]
-    if qids != ["OS-PLATFORM-020"]:
-        errors.append("validation_queue_not_only_os020")
+
+    if closeout_applied:
+        if totals.get("DIGITAL_IMPLEMENTATION_COMPLETE") != 111:
+            errors.append("baseline_impl_complete_post_closeout")
+        if totals.get("DIGITAL_VALIDATION_OPEN") != 0:
+            errors.append("baseline_validation_open_post_closeout")
+        if queue.get("total_open") != 0:
+            errors.append("validation_queue_not_empty_post_closeout")
+        if queue.get("all_items"):
+            errors.append("validation_queue_items_not_empty_post_closeout")
+    else:
+        if totals.get("DIGITAL_IMPLEMENTATION_COMPLETE") != 110:
+            errors.append("baseline_impl_complete")
+        if totals.get("DIGITAL_VALIDATION_OPEN") != 1:
+            errors.append("baseline_validation_open")
+        if queue.get("total_open") != 1:
+            errors.append("validation_queue_count")
+        qids = [i.get("requirement_id") for i in queue.get("all_items", [])]
+        if qids != ["OS-PLATFORM-020"]:
+            errors.append("validation_queue_not_only_os020")
 
     if agg.get("BASELINE_COUNTS_UPDATED") is not False:
         errors.append("baseline_counts_updated")
@@ -203,7 +220,6 @@ def main() -> int:
         errors.append("ready_for_owner_merge_false")
     if agg.get("CURSOR_MERGED_NOTHING") is not True:
         errors.append("cursor_merged_claim")
-
     # Ensure Baseline v2 path exists (mutation checked by git diff in CI).
     if not BASELINE.is_dir():
         errors.append("baseline_dir_missing")

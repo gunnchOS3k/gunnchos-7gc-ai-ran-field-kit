@@ -1,7 +1,7 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.result",
-  "generated_at_utc": "2026-08-21T05:45:31Z",
-  "phase": "ENGINEERING_WAVE_008_TARGETED_CLOSEOUT",
+  "generated_at_utc": "2026-08-21T16:32:18Z",
+  "phase": "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT",
   "BASELINE_V2_STATE": "DRAFT_PR",
   "STOP_FOR_OWNER_MERGE": true,
   "BASELINE_V2_READY_FOR_OWNER_MERGE": true,
@@ -31,14 +31,14 @@
   "totals": {
     "ATOMIC_TOTAL": 419,
     "IMPLEMENTED": 128,
-    "DIGITALLY_VERIFIED": 108,
+    "DIGITALLY_VERIFIED": 109,
     "USER_READY_DIGITAL_RC": 0,
     "HUMAN_OR_TARGET_HARDWARE_VALIDATED": 0,
     "EXTERNAL_OR_CERTIFIED": 0,
     "PRODUCTION_OR_FIELD": 0,
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 110,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
     "DIGITAL_IMPLEMENTATION_OPEN": 51,
-    "DIGITAL_VALIDATION_OPEN": 1,
+    "DIGITAL_VALIDATION_OPEN": 0,
     "EVIDENCE_MAPPING_OPEN": 0,
     "HUMAN_PENDING_DIMENSION": 88,
     "PHYSICAL_PENDING_DIMENSION": 308,
@@ -49,8 +49,8 @@
     "VENDOR_PENDING_DIMENSION": 18,
     "OWNER_DECISION_PENDING_DIMENSION": 4,
     "L0_DEFINED": 267,
-    "L1_IMPLEMENTED": 44,
-    "L2_DIGITALLY_VERIFIED": 108,
+    "L1_IMPLEMENTED": 43,
+    "L2_DIGITALLY_VERIFIED": 109,
     "L3_USER_READY_DIGITAL_RC": 0,
     "L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED": 0,
     "L5_EXTERNAL_OR_CERTIFIED": 0,
@@ -159,12 +159,11 @@
   "PRE_ENGINEERING_HYGIENE_PASS": false,
   "ENGINEERING_NEXT_WAVE_ALLOWED": false,
   "work_state_counts": {
-    "DIGITAL_IMPLEMENTATION_COMPLETE": 110,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
     "PHYSICAL_PENDING": 154,
     "DIGITAL_IMPLEMENTATION_OPEN": 51,
     "HUMAN_PENDING": 24,
     "EXTERNAL_PENDING": 11,
-    "DIGITAL_VALIDATION_OPEN": 1,
     "VENDOR_PENDING": 6,
     "DIGITAL_PREPARATION_COMPLETE_HUMAN_PENDING": 17,
     "CERTIFICATION_PENDING": 5,
@@ -174,7 +173,7 @@
   "BASELINE_MAPPING_COMPLETE": true,
   "PRE_ENGINEERING_CONTROL_PLANE_READY": true,
   "ECOSYSTEM_DIGITAL_IMPLEMENTATION_COMPLETE": false,
-  "ECOSYSTEM_DIGITAL_VALIDATION_COMPLETE": false,
+  "ECOSYSTEM_DIGITAL_VALIDATION_COMPLETE": true,
   "USER_READY_DIGITAL_RELEASE_CANDIDATE": false,
   "HUMAN_E6_COMPLETE": false,
   "PHYSICAL_VALIDATION_COMPLETE": false,
@@ -329,7 +328,7 @@
     "KERNEL_SANDBOX": false,
     "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false
   },
-  "READY_FOR_OWNER_MERGE": false,
+  "READY_FOR_OWNER_MERGE": true,
   "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT": {
     "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
     "errors": [],
@@ -680,5 +679,106 @@
     "CURSOR_MERGED": false
   },
   "AUTHENTIC_EXTERNAL_SOURCE_SNAPSHOTS_PRESENT": false,
-  "SOURCE_VERIFIED_EXTERNAL_RECORD_COUNT": 0
+  "SOURCE_VERIFIED_EXTERNAL_RECORD_COUNT": 0,
+  "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT": {
+    "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+    "errors": [],
+    "accepted_main_shas": {
+      "gunnchos-device-os": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "gunnchos-7gc-ai-ran-field-kit": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2"
+    },
+    "claim_boundaries": {
+      "APPARMOR_POLICY_CERTIFIED": false,
+      "FORMALLY_VERIFIED_SANDBOX": false,
+      "HARDWARE_TEE_ISOLATION_VALIDATED": false,
+      "HUMAN_E6": false,
+      "KERNEL_SANDBOX": true,
+      "PHYSICAL_VALIDATION": false,
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+      "PRODUCTION_SECURITY_CERTIFIED": false,
+      "SANDBOX_EXECUTION_VALIDATED": true,
+      "SELINUX_POLICY_CERTIFIED": false,
+      "THIRD_PARTY_PEN_TESTED": false,
+      "CURSOR_MERGED": false,
+      "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+    },
+    "EXPECTED_AFTER": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
+      "DIGITAL_IMPLEMENTATION_OPEN": 51,
+      "DIGITAL_VALIDATION_OPEN": 0,
+      "EVIDENCE_MAPPING_OPEN": 0
+    },
+    "DIGITAL_CONTROLLABLE_POOL": 162,
+    "independent_fields": {
+      "IMPLEMENTED_AND_VALIDATED_1": true,
+      "PARTIAL_false": true,
+      "KERNEL_SANDBOX_true": true,
+      "SANDBOX_EXECUTION_VALIDATED_true": true,
+      "PLAIN_SUBPROCESS_false": true,
+      "UNCONDITIONAL_TRUE_0": true,
+      "COMPLETE_GATE_1_OF_1": true,
+      "BEHAVIORAL_NEGATIVES_PASS": true,
+      "BEHAVIORAL_COUNT_GE_12": true,
+      "GENUINE_SANDBOX_NOT_AGGREGATE_ALONE": true,
+      "EVAL_INTEGRITY_OK": true,
+      "provenance_trees_identical": true,
+      "post_totals_match": true,
+      "validation_queue_empty": true,
+      "impl_queue_identity": true,
+      "FORMALLY_VERIFIED_false": true
+    },
+    "cross_checks": {
+      "complete_delta": 1,
+      "impl_open_unchanged": true,
+      "validation_open_delta": 1,
+      "len_next_impl_matches_open": true,
+      "len_next_val_matches_open": true,
+      "validation_queue_empty": true,
+      "impl_queue_identity": true
+    },
+    "status": "PASS",
+    "target_ids": [
+      "OS-PLATFORM-020"
+    ],
+    "device_os_131_head": "49455df192b071afd97d25a84d4490862dc07952",
+    "device_os_131_merge": "28562a8456207540c205a1c8a6434a491b0a4771",
+    "device_os_131_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "field_kit_111_merge": "89a390be796f418e1b0e21be93bd6b560caef832",
+    "field_kit_112_head": "641fb90c8105a1335711736cd59b21c0b8e8bc5e",
+    "field_kit_112_merge": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2",
+    "authoritative_ci_run": 32494141254,
+    "authoritative_artifact_id": 9450933232,
+    "authoritative_digest": "sha256:cc97ed02a18b1ccef786d0ad9b6c6dd21be9738cd69605dcdf4e444fa4229a52",
+    "before_arithmetic": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 110,
+      "DIGITAL_IMPLEMENTATION_OPEN": 51,
+      "DIGITAL_VALIDATION_OPEN": 1,
+      "EVIDENCE_MAPPING_OPEN": 0
+    },
+    "after_arithmetic": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
+      "DIGITAL_IMPLEMENTATION_OPEN": 51,
+      "DIGITAL_VALIDATION_OPEN": 0,
+      "EVIDENCE_MAPPING_OPEN": 0,
+      "DIGITAL_CONTROLLABLE_POOL": 162
+    }
+  },
+  "wave009_claim_boundaries": {
+    "APPARMOR_POLICY_CERTIFIED": false,
+    "FORMALLY_VERIFIED_SANDBOX": false,
+    "HARDWARE_TEE_ISOLATION_VALIDATED": false,
+    "HUMAN_E6": false,
+    "KERNEL_SANDBOX": true,
+    "PHYSICAL_VALIDATION": false,
+    "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+    "PRODUCTION_SECURITY_CERTIFIED": false,
+    "SANDBOX_EXECUTION_VALIDATED": true,
+    "SELINUX_POLICY_CERTIFIED": false,
+    "THIRD_PARTY_PEN_TESTED": false,
+    "CURSOR_MERGED": false,
+    "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+  }
 }

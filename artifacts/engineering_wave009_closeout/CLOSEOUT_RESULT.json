@@ -1,0 +1,372 @@
+{
+  "schema": "gunnchos.engineering_wave009.targeted_closeout_result.v1",
+  "generated_at_utc": "2026-08-21T16:21:58Z",
+  "phase": "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT",
+  "ENGINEERING_WAVE_009_CLOSEOUT": "PASS",
+  "ENGINEERING_WAVE_009_CLOSEOUT_STATUS": "PASS",
+  "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+  "CURSOR_MERGED_NOTHING": true,
+  "READY_FOR_OWNER_MERGE": true,
+  "STOP_FOR_OWNER_MERGE": true,
+  "prerequisites": {
+    "gunnchos-device-os_pr_131": {
+      "pr": 131,
+      "head_sha": "49455df192b071afd97d25a84d4490862dc07952",
+      "merge_commit": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "merged_at": "2026-08-21T15:46:17Z",
+      "title": "Wave009: validate OS-PLATFORM-020 kernel application sandbox",
+      "tree_sha": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583"
+    },
+    "gunnchos-7gc-ai-ran-field-kit_pr_111": {
+      "pr": 111,
+      "head_sha": "92ceecb4b2eda4af20a1b05485e2310dab5a78f3",
+      "merge_commit": "89a390be796f418e1b0e21be93bd6b560caef832",
+      "merged_at": "2026-08-21T15:46:32Z",
+      "title": "Wave009 aggregate: OS-PLATFORM-020 sandbox validation evidence"
+    },
+    "gunnchos-7gc-ai-ran-field-kit_pr_112": {
+      "pr": 112,
+      "head_sha": "641fb90c8105a1335711736cd59b21c0b8e8bc5e",
+      "merge_commit": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2",
+      "merged_at": "2026-08-21T16:07:18Z",
+      "title": "Wave009 remediation: bind sandbox aggregate to accepted device-os evidence"
+    },
+    "accepted_main_shas": {
+      "gunnchos-device-os": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "gunnchos-7gc-ai-ran-field-kit": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2"
+    },
+    "required_ci_state": "SUCCESS",
+    "authoritative_gha_run": 32494141254,
+    "authoritative_artifact": 9450933232,
+    "authoritative_digest": "sha256:cc97ed02a18b1ccef786d0ad9b6c6dd21be9738cd69605dcdf4e444fa4229a52"
+  },
+  "wave009_accepted_main_truth": {
+    "TARGET_REQUIREMENTS": 1,
+    "IMPLEMENTED_AND_VALIDATED": 1,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS": 0,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS_COMPUTED": true,
+    "COMPLETE_GATE_REQUIRES_1_OF_1": true,
+    "PARTIAL": false,
+    "KERNEL_SANDBOX": true,
+    "SANDBOX_EXECUTION_VALIDATED": true,
+    "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+    "SANDBOX_BACKEND": "bubblewrap",
+    "BEHAVIORAL_NEGATIVE_CONTROLS_PASS": true,
+    "BEHAVIORAL_NEGATIVE_CONTROL_COUNT": 12,
+    "wave009_ok": true,
+    "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false,
+    "genuine_sandbox_independent_checks": {
+      "KERNEL_SANDBOX": true,
+      "SANDBOX_EXECUTION_VALIDATED": true,
+      "LOCAL_SANDBOX_VALIDATION": true,
+      "SANDBOX_BACKEND_bubblewrap": true,
+      "PLAIN_SUBPROCESS_false": true,
+      "NOT_ROOT": true,
+      "NO_SUDO_BWRAP": true,
+      "SECCOMP_LOADED": true,
+      "PRIVATE_ROOT_RW_PASS": true,
+      "HOST_PRIVATE_READ_BLOCKED": true,
+      "NETWORK_DENIED": true,
+      "CHILD_SPAWN_DENIED": true,
+      "fixture_ran": true,
+      "ok": true,
+      "OS020_IMPLEMENTED_AND_VALIDATED": true,
+      "WAVE_PASS": true,
+      "BEHAVIORAL_PASS": true,
+      "EVAL_INTEGRITY": true,
+      "COMPLETION_NEGATIVES": true,
+      "CLAIM_FORMALLY_VERIFIED_false": true,
+      "CLAIM_KERNEL_true": true,
+      "CLAIM_PLAIN_false": true,
+      "CLAIM_SANDBOX_VALIDATED_true": true,
+      "NOT_AGGREGATE_PASS_ALONE": true
+    }
+  },
+  "pre_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 110,
+    "DIGITAL_IMPLEMENTATION_OPEN": 51,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "EVIDENCE_MAPPING_OPEN": 0
+  },
+  "post_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
+    "DIGITAL_IMPLEMENTATION_OPEN": 51,
+    "DIGITAL_VALIDATION_OPEN": 0,
+    "EVIDENCE_MAPPING_OPEN": 0,
+    "DIGITAL_CONTROLLABLE_POOL": 162
+  },
+  "targets_digital_implementation_complete": [
+    "OS-PLATFORM-020"
+  ],
+  "targets_digital_validation_open": [],
+  "OS_PLATFORM_020": {
+    "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+    "implementation_present": true,
+    "validation_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+    "kernel_sandbox": true,
+    "sandbox_execution_validated": true,
+    "plain_subprocess_counts_as_sandbox": false,
+    "formally_verified_sandbox": false
+  },
+  "UNTARGETED_ROWS_CHANGED": 0,
+  "UNEXPECTED_CHANGED_IDS": [],
+  "UNRELATED_IMPLEMENTATION_QUEUE_ROWS_CHANGED": 0,
+  "claim_boundaries": {
+    "APPARMOR_POLICY_CERTIFIED": false,
+    "FORMALLY_VERIFIED_SANDBOX": false,
+    "HARDWARE_TEE_ISOLATION_VALIDATED": false,
+    "HUMAN_E6": false,
+    "KERNEL_SANDBOX": true,
+    "PHYSICAL_VALIDATION": false,
+    "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+    "PRODUCTION_SECURITY_CERTIFIED": false,
+    "SANDBOX_EXECUTION_VALIDATED": true,
+    "SELINUX_POLICY_CERTIFIED": false,
+    "THIRD_PARTY_PEN_TESTED": false,
+    "CURSOR_MERGED": false,
+    "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+  },
+  "claim_boundary_result": {
+    "schema": "gunnchos.engineering_wave009.claim_boundary_result.v1",
+    "generated_at_utc": "2026-08-21T16:21:58Z",
+    "ENGINEERING_WAVE_009_CLAIM_BOUNDARIES": "PASS",
+    "claim_boundaries": {
+      "APPARMOR_POLICY_CERTIFIED": false,
+      "FORMALLY_VERIFIED_SANDBOX": false,
+      "HARDWARE_TEE_ISOLATION_VALIDATED": false,
+      "HUMAN_E6": false,
+      "KERNEL_SANDBOX": true,
+      "PHYSICAL_VALIDATION": false,
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+      "PRODUCTION_SECURITY_CERTIFIED": false,
+      "SANDBOX_EXECUTION_VALIDATED": true,
+      "SELINUX_POLICY_CERTIFIED": false,
+      "THIRD_PARTY_PEN_TESTED": false,
+      "CURSOR_MERGED": false,
+      "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+    },
+    "preserved_false_claims": [
+      "APPARMOR_POLICY_CERTIFIED",
+      "FORMALLY_VERIFIED_SANDBOX",
+      "HARDWARE_TEE_ISOLATION_VALIDATED",
+      "HUMAN_E6",
+      "PHYSICAL_VALIDATION",
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX",
+      "PRODUCTION_SECURITY_CERTIFIED",
+      "SELINUX_POLICY_CERTIFIED",
+      "THIRD_PARTY_PEN_TESTED"
+    ],
+    "asserted_true_claims": [
+      "KERNEL_SANDBOX",
+      "SANDBOX_EXECUTION_VALIDATED"
+    ],
+    "plain_subprocess_rejected": true
+  },
+  "closeout_validation": {
+    "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+    "errors": [],
+    "accepted_main_shas": {
+      "gunnchos-device-os": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "gunnchos-7gc-ai-ran-field-kit": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2"
+    },
+    "claim_boundaries": {
+      "APPARMOR_POLICY_CERTIFIED": false,
+      "FORMALLY_VERIFIED_SANDBOX": false,
+      "HARDWARE_TEE_ISOLATION_VALIDATED": false,
+      "HUMAN_E6": false,
+      "KERNEL_SANDBOX": true,
+      "PHYSICAL_VALIDATION": false,
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+      "PRODUCTION_SECURITY_CERTIFIED": false,
+      "SANDBOX_EXECUTION_VALIDATED": true,
+      "SELINUX_POLICY_CERTIFIED": false,
+      "THIRD_PARTY_PEN_TESTED": false,
+      "CURSOR_MERGED": false,
+      "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+    },
+    "EXPECTED_AFTER": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
+      "DIGITAL_IMPLEMENTATION_OPEN": 51,
+      "DIGITAL_VALIDATION_OPEN": 0,
+      "EVIDENCE_MAPPING_OPEN": 0
+    },
+    "DIGITAL_CONTROLLABLE_POOL": 162,
+    "independent_fields": {
+      "IMPLEMENTED_AND_VALIDATED_1": true,
+      "PARTIAL_false": true,
+      "KERNEL_SANDBOX_true": true,
+      "SANDBOX_EXECUTION_VALIDATED_true": true,
+      "PLAIN_SUBPROCESS_false": true,
+      "UNCONDITIONAL_TRUE_0": true,
+      "COMPLETE_GATE_1_OF_1": true,
+      "BEHAVIORAL_NEGATIVES_PASS": true,
+      "BEHAVIORAL_COUNT_GE_12": true,
+      "GENUINE_SANDBOX_NOT_AGGREGATE_ALONE": true,
+      "EVAL_INTEGRITY_OK": true,
+      "provenance_trees_identical": true,
+      "post_totals_match": true,
+      "validation_queue_empty": true,
+      "impl_queue_identity": true,
+      "FORMALLY_VERIFIED_false": true
+    },
+    "cross_checks": {
+      "complete_delta": 1,
+      "impl_open_unchanged": true,
+      "validation_open_delta": 1,
+      "len_next_impl_matches_open": true,
+      "len_next_val_matches_open": true,
+      "validation_queue_empty": true,
+      "impl_queue_identity": true
+    }
+  },
+  "provenance_binding": {
+    "schema": "gunnchos.engineering_wave009.provenance_binding_result.v1",
+    "generated_at_utc": "2026-08-21T16:21:58Z",
+    "ENGINEERING_WAVE_009_PROVENANCE_BINDING": "PASS",
+    "prerequisites": {
+      "device_os_pr_131": "MERGED",
+      "field_kit_pr_111": "MERGED",
+      "field_kit_pr_112": "MERGED"
+    },
+    "device_os_pr": 131,
+    "device_os_final_head": "49455df192b071afd97d25a84d4490862dc07952",
+    "device_os_merge_sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+    "device_os_tested_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "device_os_accepted_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "device_os_tree_equivalence": true,
+    "field_kit_111_head": "92ceecb4b2eda4af20a1b05485e2310dab5a78f3",
+    "field_kit_111_merge_sha": "89a390be796f418e1b0e21be93bd6b560caef832",
+    "field_kit_112_head": "641fb90c8105a1335711736cd59b21c0b8e8bc5e",
+    "field_kit_112_merge_sha": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2",
+    "accepted_device_os_evidence_checked": true,
+    "accepted_aggregate_checked": true,
+    "binding": {
+      "PR_HEAD": "49455df192b071afd97d25a84d4490862dc07952",
+      "PR_HEAD_TREE": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+      "ACCEPTED_MERGE": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "ACCEPTED_MERGE_TREE": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+      "PR_HEAD_TREE_EQ_ACCEPTED_MERGE_TREE": true,
+      "trees_identical": true,
+      "GHA_RESULT_SOURCE_TREE": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+      "GHA_RESULT_SOURCE_TREE_EQ_ACCEPTED": true
+    },
+    "authoritative_ci": {
+      "run_id": 32494141254,
+      "conclusion": "SUCCESS",
+      "head_sha": "49455df192b071afd97d25a84d4490862dc07952",
+      "wave009_gate": true,
+      "evidence_upload": true,
+      "artifact_id": 9450933232,
+      "artifact_name": "wave009-os020-sandbox-evidence",
+      "digest": "sha256:cc97ed02a18b1ccef786d0ad9b6c6dd21be9738cd69605dcdf4e444fa4229a52",
+      "expired": false,
+      "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/32494141254"
+    },
+    "generation_sha_notes": {
+      "gha_WAVE009_RESULT_source_sha": "ba3153684aef716ef5ce76c40e1b33fb92bd8e38",
+      "gha_WAVE009_RESULT_source_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+      "earlier_generation_sha_allowed": true,
+      "reason": "Committed device-os WAVE009_RESULT may pin an earlier generation SHA; accepted when PR_HEAD/ACCEPTED_MERGE trees are identical to authoritative GHA artifact source_tree and genuine sandbox gates byte-match the accepted mirror.",
+      "BLOCKED_STALE_EVIDENCE": false
+    },
+    "production_evaluator_source_matches_tested_tree": true,
+    "accepted_mains": {
+      "gunnchos-device-os": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "gunnchos-7gc-ai-ran-field-kit": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2"
+    },
+    "genuine_sandbox_independent_of_aggregate_pass": {
+      "KERNEL_SANDBOX": true,
+      "SANDBOX_EXECUTION_VALIDATED": true,
+      "LOCAL_SANDBOX_VALIDATION": true,
+      "SANDBOX_BACKEND_bubblewrap": true,
+      "PLAIN_SUBPROCESS_false": true,
+      "NOT_ROOT": true,
+      "NO_SUDO_BWRAP": true,
+      "SECCOMP_LOADED": true,
+      "PRIVATE_ROOT_RW_PASS": true,
+      "HOST_PRIVATE_READ_BLOCKED": true,
+      "NETWORK_DENIED": true,
+      "CHILD_SPAWN_DENIED": true,
+      "fixture_ran": true,
+      "ok": true,
+      "OS020_IMPLEMENTED_AND_VALIDATED": true,
+      "WAVE_PASS": true,
+      "BEHAVIORAL_PASS": true,
+      "EVAL_INTEGRITY": true,
+      "COMPLETION_NEGATIVES": true,
+      "CLAIM_FORMALLY_VERIFIED_false": true,
+      "CLAIM_KERNEL_true": true,
+      "CLAIM_PLAIN_false": true,
+      "CLAIM_SANDBOX_VALIDATED_true": true,
+      "NOT_AGGREGATE_PASS_ALONE": true
+    }
+  },
+  "validation_queue_diff": {
+    "schema": "gunnchos.engineering_wave009.validation_queue_diff.v1",
+    "generated_at_utc": "2026-08-21T16:21:58Z",
+    "before": {
+      "total_open": 1,
+      "all_items": [
+        {
+          "requirement_id": "OS-PLATFORM-020",
+          "title": "gunnchOS service: Application sandboxing",
+          "owner_repo": "gunnchos-device-os",
+          "primary_end_goal_family": 2,
+          "implementation_evidence": "gunnchos-device-os:gunnchos_device_os/platform/sandbox_executor.py",
+          "validation_evidence": "gunnchos-device-os:artifacts/engineering_wave004/SANDBOX_ENFORCEMENT_RESULT.json;gunnchos-7gc-ai-ran-field-kit:artifacts/engineering_wave004/device_os_mirror/SANDBOX_ENFORCEMENT_RESULT.json;gunnchos-device-os:artifacts/engineering_wave004/WAVE004_RESULT.json",
+          "next_action": "Re-run mandatory sandbox suite on working isolation backend environment (bubblewrap namespaces or proven sandbox-exec).",
+          "implementation_present": true,
+          "validation_state": "DIGITAL_VALIDATION_OPEN",
+          "blocker_class": "BLOCKED_ENVIRONMENT",
+          "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+          "plain_subprocess_counts_as_sandbox": false,
+          "kernel_sandbox": false
+        }
+      ],
+      "top_priority_items": [
+        {
+          "requirement_id": "OS-PLATFORM-020",
+          "title": "gunnchOS service: Application sandboxing",
+          "owner_repo": "gunnchos-device-os",
+          "primary_end_goal_family": 2,
+          "implementation_evidence": "gunnchos-device-os:gunnchos_device_os/platform/sandbox_executor.py",
+          "validation_evidence": "gunnchos-device-os:artifacts/engineering_wave004/SANDBOX_ENFORCEMENT_RESULT.json;gunnchos-7gc-ai-ran-field-kit:artifacts/engineering_wave004/device_os_mirror/SANDBOX_ENFORCEMENT_RESULT.json;gunnchos-device-os:artifacts/engineering_wave004/WAVE004_RESULT.json",
+          "next_action": "Re-run mandatory sandbox suite on working isolation backend environment (bubblewrap namespaces or proven sandbox-exec).",
+          "implementation_present": true,
+          "validation_state": "DIGITAL_VALIDATION_OPEN",
+          "blocker_class": "BLOCKED_ENVIRONMENT",
+          "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+          "plain_subprocess_counts_as_sandbox": false,
+          "kernel_sandbox": false
+        }
+      ]
+    },
+    "after": {
+      "total_open": 0,
+      "all_items": [],
+      "top_priority_items": []
+    },
+    "removed_ids": [
+      "OS-PLATFORM-020"
+    ],
+    "added_ids": [],
+    "validation_queue_emptied": true
+  },
+  "queue_integrity": {
+    "len_NEXT_IMPL": 51,
+    "DIGITAL_IMPLEMENTATION_OPEN": 51,
+    "len_NEXT_VALIDATION": 0,
+    "DIGITAL_VALIDATION_OPEN": 0,
+    "NEXT_VALIDATION_empty": true,
+    "impl_queue_identity_preserved": true
+  },
+  "non_digital_pending_preserved": true,
+  "non_digital_pending_rows": 257,
+  "READY_FOR_OWNER_MERGE_AFTER_CI": true,
+  "remote_ci_green": true,
+  "ready_flipped_at_utc": "2026-08-21T16:32:18Z",
+  "closeout_pr": 113
+}

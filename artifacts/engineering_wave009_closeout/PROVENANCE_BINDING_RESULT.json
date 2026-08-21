@@ -1,0 +1,82 @@
+{
+  "schema": "gunnchos.engineering_wave009.provenance_binding_result.v1",
+  "generated_at_utc": "2026-08-21T16:21:58Z",
+  "ENGINEERING_WAVE_009_PROVENANCE_BINDING": "PASS",
+  "prerequisites": {
+    "device_os_pr_131": "MERGED",
+    "field_kit_pr_111": "MERGED",
+    "field_kit_pr_112": "MERGED"
+  },
+  "device_os_pr": 131,
+  "device_os_final_head": "49455df192b071afd97d25a84d4490862dc07952",
+  "device_os_merge_sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+  "device_os_tested_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+  "device_os_accepted_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+  "device_os_tree_equivalence": true,
+  "field_kit_111_head": "92ceecb4b2eda4af20a1b05485e2310dab5a78f3",
+  "field_kit_111_merge_sha": "89a390be796f418e1b0e21be93bd6b560caef832",
+  "field_kit_112_head": "641fb90c8105a1335711736cd59b21c0b8e8bc5e",
+  "field_kit_112_merge_sha": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2",
+  "accepted_device_os_evidence_checked": true,
+  "accepted_aggregate_checked": true,
+  "binding": {
+    "PR_HEAD": "49455df192b071afd97d25a84d4490862dc07952",
+    "PR_HEAD_TREE": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "ACCEPTED_MERGE": "28562a8456207540c205a1c8a6434a491b0a4771",
+    "ACCEPTED_MERGE_TREE": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "PR_HEAD_TREE_EQ_ACCEPTED_MERGE_TREE": true,
+    "trees_identical": true,
+    "GHA_RESULT_SOURCE_TREE": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "GHA_RESULT_SOURCE_TREE_EQ_ACCEPTED": true
+  },
+  "authoritative_ci": {
+    "run_id": 32494141254,
+    "conclusion": "SUCCESS",
+    "head_sha": "49455df192b071afd97d25a84d4490862dc07952",
+    "wave009_gate": true,
+    "evidence_upload": true,
+    "artifact_id": 9450933232,
+    "artifact_name": "wave009-os020-sandbox-evidence",
+    "digest": "sha256:cc97ed02a18b1ccef786d0ad9b6c6dd21be9738cd69605dcdf4e444fa4229a52",
+    "expired": false,
+    "url": "https://github.com/gunnchOS3k/gunnchos-device-os/actions/runs/32494141254"
+  },
+  "generation_sha_notes": {
+    "gha_WAVE009_RESULT_source_sha": "ba3153684aef716ef5ce76c40e1b33fb92bd8e38",
+    "gha_WAVE009_RESULT_source_tree": "385441f7ff8c6e8f32f7310a11fc09ddd9d49583",
+    "earlier_generation_sha_allowed": true,
+    "reason": "Committed device-os WAVE009_RESULT may pin an earlier generation SHA; accepted when PR_HEAD/ACCEPTED_MERGE trees are identical to authoritative GHA artifact source_tree and genuine sandbox gates byte-match the accepted mirror.",
+    "BLOCKED_STALE_EVIDENCE": false
+  },
+  "production_evaluator_source_matches_tested_tree": true,
+  "accepted_mains": {
+    "gunnchos-device-os": "28562a8456207540c205a1c8a6434a491b0a4771",
+    "gunnchos-7gc-ai-ran-field-kit": "75e2fd101825b46fe6abcf6150c49b2c8abee9c2"
+  },
+  "genuine_sandbox_independent_of_aggregate_pass": {
+    "KERNEL_SANDBOX": true,
+    "SANDBOX_EXECUTION_VALIDATED": true,
+    "LOCAL_SANDBOX_VALIDATION": true,
+    "SANDBOX_BACKEND_bubblewrap": true,
+    "PLAIN_SUBPROCESS_false": true,
+    "NOT_ROOT": true,
+    "NO_SUDO_BWRAP": true,
+    "SECCOMP_LOADED": true,
+    "PRIVATE_ROOT_RW_PASS": true,
+    "HOST_PRIVATE_READ_BLOCKED": true,
+    "NETWORK_DENIED": true,
+    "CHILD_SPAWN_DENIED": true,
+    "fixture_ran": true,
+    "ok": true,
+    "OS020_IMPLEMENTED_AND_VALIDATED": true,
+    "WAVE_PASS": true,
+    "BEHAVIORAL_PASS": true,
+    "EVAL_INTEGRITY": true,
+    "COMPLETION_NEGATIVES": true,
+    "CLAIM_FORMALLY_VERIFIED_false": true,
+    "CLAIM_KERNEL_true": true,
+    "CLAIM_PLAIN_false": true,
+    "CLAIM_SANDBOX_VALIDATED_true": true,
+    "NOT_AGGREGATE_PASS_ALONE": true
+  }
+}
