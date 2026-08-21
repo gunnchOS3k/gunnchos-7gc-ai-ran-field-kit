@@ -1,0 +1,81 @@
+{
+  "schema": "gunnchos.code_health_authenticity_baseline_v1.r5_s1_accepted_main_reconciliation",
+  "generated_at_utc": "2026-08-21T19:52:30Z",
+  "CODE_HEALTH_R5_S1_RECONCILIATION": "PASS",
+  "token": "CODE_HEALTH_R5_S1_ACCEPTED_MAIN_RECONCILIATION_PASS",
+  "CURSOR_MERGED_NOTHING": true,
+  "prerequisites": {
+    "FIELD_KIT_114_MERGED": true,
+    "FIELD_KIT_114_MERGE_SHA": "70ca6940351e96adbbaa27eb7fffd4b55fcfa767",
+    "FIELD_KIT_MAIN_SHA": "70ca6940351e96adbbaa27eb7fffd4b55fcfa767",
+    "PORTAL_11_MERGED": true,
+    "PORTAL_11_HEAD": "2a3303d56a71c1f78bfbbf165ed75f1d368fa98f",
+    "PORTAL_11_MERGE_SHA": "2a3303d56a71c1f78bfbbf165ed75f1d368fa98f",
+    "PORTAL_MAIN_SHA": "2a3303d56a71c1f78bfbbf165ed75f1d368fa98f",
+    "WAIKE_55_MERGED": true,
+    "WAIKE_55_HEAD": "8eb2827dc58ffa391842da1bfb1ee665c25a31a7",
+    "WAIKE_55_MERGE_SHA": "8eb2827dc58ffa391842da1bfb1ee665c25a31a7",
+    "WAIKE_MAIN_SHA": "8eb2827dc58ffa391842da1bfb1ee665c25a31a7"
+  },
+  "portal_verification": {
+    "PORTAL_ACCEPTED_MAIN_TESTS_PASS": true,
+    "PORTAL_CLEAN_SUITE_PASS": true,
+    "PORTAL_AUDIT_MUTATION_KILLED": true,
+    "PORTAL_CANONICAL_CLI_TEST": true,
+    "PORTAL_MUTATED_FILES_COMMITTED": false,
+    "PORTAL_ACCEPTED_MAIN_MUTATION_KILLED": true,
+    "PORTAL_MUTATION_FAILURE_CAUSED_BY_CANONICAL_TESTS": true,
+    "PORTAL_PRODUCTION_PROOF_COUPLING_ADDED": false,
+    "mutation_target": "scripts/audit_portfolio.py",
+    "mutation_kind": "flip_return_zero",
+    "canonical_tests": "tests/test_audit_portfolio.py",
+    "independent_disposable_copy_kill": true
+  },
+  "waike_verification": {
+    "WAIKE_ACCEPTED_MAIN_TESTS_PASS": true,
+    "WAIKE_CLEAN_SUITE_PASS": true,
+    "WAIKE_METRICS_MUTATION_KILLED": true,
+    "WAIKE_EXAM_MUTATION_KILLED": true,
+    "WAIKE_LABS_MUTATION_STILL_KILLED": true,
+    "WAIKE_MUTATED_FILES_COMMITTED": false,
+    "WAIKE_METRICS_FAILURE_CAUSED_BY_CANONICAL_TESTS": true,
+    "WAIKE_EXAM_FAILURE_CAUSED_BY_CANONICAL_TESTS": true,
+    "WAIKE_PRODUCTION_PROOF_COUPLING_ADDED": false,
+    "independent_disposable_copy_kill": true
+  },
+  "severity_arithmetic": {
+    "historical_s0": 0,
+    "historical_s1": 2,
+    "current_open_s0": 0,
+    "current_open_s1": 0,
+    "closed_s1_since_baseline": 2
+  },
+  "closed_finding_ids": [
+    "S1-R5-PORTAL-MUTATION-BLINDNESS",
+    "S1-R5-WAIKE-MUTATION-BLINDNESS"
+  ],
+  "s2_preserved": {
+    "S2_FINDINGS_PRESERVED": true,
+    "S2_MUTATION_VALIDATION_INCOMPLETE_REPOS": [
+      "7gc-digital-twin",
+      "gunnchos-emergent-service-intent-protocols",
+      "readygary-6g-beam-selection"
+    ],
+    "historical_FINDINGS_json_not_rewritten": true
+  },
+  "digital_baseline": {
+    "DIGITAL_BASELINE_FILES_CHANGED": 0,
+    "DIGITAL_REQUIREMENT_STATES_CHANGED": 0,
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
+    "DIGITAL_IMPLEMENTATION_OPEN": 51,
+    "DIGITAL_VALIDATION_OPEN": 0,
+    "EVIDENCE_MAPPING_OPEN": 0,
+    "DIGITAL_CONTROLLABLE_POOL": 162
+  },
+  "claim_boundaries": {
+    "FULL_MUTATION_TESTING_COMPLETE": false,
+    "ALL_PORTAL_DEFECTS_ELIMINATED": false,
+    "ALL_WAIKE_DEFECTS_ELIMINATED": false
+  }
+}
