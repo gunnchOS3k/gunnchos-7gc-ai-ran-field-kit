@@ -1,0 +1,38 @@
+name: Wave009 Aggregate
+
+on:
+  push:
+    branches: [main, 'eng/wave009-*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wave009-aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install test deps
+        run: python3 -m pip install --upgrade pip pytest
+      - name: Validate Wave009 aggregate
+        run: python3 scripts/engineering_wave009/validate_aggregate.py
+      - name: Assert no Baseline v2 file changes in this PR branch tip vs main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          CHANGED=$(git diff --name-only origin/main...HEAD -- program/digital_ecosystem_baseline_v2 || true)
+          if [ -n "$CHANGED" ]; then
+            echo "Baseline files changed unexpectedly:"
+            echo "$CHANGED"
+            exit 1
+          fi
+          echo "BASELINE_FILES_CHANGED=0"
+      - name: Aggregate unit checks
+        run: python3 -m pytest -q tests/engineering_wave009
