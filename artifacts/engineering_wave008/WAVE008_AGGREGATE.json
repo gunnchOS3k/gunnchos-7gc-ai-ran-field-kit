@@ -10,7 +10,16 @@
   "archive_branch": "eng/wave008-archive-scientific-records",
   "archive_pr": 35,
   "archive_head_sha": "0a8089ad50df36a738743e358dcc039f97a004cb",
+  "archive_merge_sha": "069243c365552f00707650e9d81a8046ba3075d8",
+  "archive_accepted_main": true,
+  "archive_accepted_main_verified": true,
+  "archive_tree_equivalence": true,
+  "archive_tested_sha": "0a8089ad50df36a738743e358dcc039f97a004cb",
+  "archive_tested_tree": "3b68a460365bb7e1773da1423e8c89d9986a6a36",
+  "archive_accepted_tree": "3b68a460365bb7e1773da1423e8c89d9986a6a36",
+  "ARCHIVE_ACCEPTANCE_CONDITION_SATISFIED": true,
   "field_kit_accepted_main_sha": "db0dc8592c6a27fc0c4d2fdcbfbb893aa6d41dba",
+  "field_kit_pr": 109,
   "prerequisite_field_kit_pr_108": "MERGED",
   "TARGET_REQUIREMENTS": 15,
   "requirement_ids": [
@@ -50,18 +59,44 @@
   "FIXTURE_ONLY_SOURCE_VERIFIED_COUNT": 0,
   "AUTHENTIC_EXTERNAL_SOURCE_SNAPSHOTS_PRESENT": false,
   "SOURCE_VERIFIED_EXTERNAL_RECORD_COUNT": 0,
+  "SOURCE_VERIFIED_REQUIRES_VERIFIED_INTEGRATION": true,
   "WAVE008_PREMERGE_INTEGRITY_REPAIR": "PASS",
+  "ACTUAL_PRODUCT_BROWSER_E2E": true,
+  "PYTHON_PIPELINE_EXECUTED": true,
+  "PYTHON_TS_INTERCHANGE": true,
+  "PERCENT_CHANGES_WHEN_ADDING_UNDOCUMENTED": true,
+  "INDEPENDENT_REPRODUCTION_RUNS": 2,
   "pr_head_evidence_mirror": "artifacts/engineering_wave008/archive_mirror",
-  "DO_NOT_MERGE_UNTIL_WAVE008_ARCHIVE_ACCEPTED": true,
+  "DO_NOT_MERGE_UNTIL_WAVE008_ARCHIVE_ACCEPTED": false,
   "BASELINE_COUNTS_UPDATED": false,
   "DO_NOT_UPDATE_BASELINE_COUNTS": true,
+  "BASELINE_FILES_CHANGED": 0,
   "OS_PLATFORM_020_UNTOUCHED": true,
   "CURSOR_MERGED_NOTHING": true,
-  "READY_FOR_OWNER_MERGE": false,
-  "READY_FOR_OWNER_MERGE_SEQUENCE": false,
+  "READY_FOR_OWNER_MERGE": true,
+  "READY_FOR_OWNER_MERGE_SEQUENCE": true,
   "mandatory_playwright": true,
   "playwright_skipped": false,
   "browser_runtime": "vite_preview",
+  "sequencing_guard_history": {
+    "before_archive_35_accepted": {
+      "DO_NOT_MERGE_UNTIL_WAVE008_ARCHIVE_ACCEPTED": true,
+      "READY_FOR_OWNER_MERGE": false,
+      "READY_FOR_OWNER_MERGE_SEQUENCE": false,
+      "archive_accepted_main": false,
+      "ARCHIVE_ACCEPTANCE_CONDITION_SATISFIED": false,
+      "note": "Field-kit #109 held sequencing false until Archive #35 merged to main."
+    },
+    "after_archive_35_accepted": {
+      "archive_pr": 35,
+      "archive_head_sha": "0a8089ad50df36a738743e358dcc039f97a004cb",
+      "archive_merge_sha": "069243c365552f00707650e9d81a8046ba3075d8",
+      "DO_NOT_MERGE_UNTIL_WAVE008_ARCHIVE_ACCEPTED": false,
+      "ARCHIVE_ACCEPTANCE_CONDITION_SATISFIED": true,
+      "READY_FOR_OWNER_MERGE": true,
+      "READY_FOR_OWNER_MERGE_SEQUENCE": true
+    }
+  },
   "claim_flags": {
     "ALL_KNOWN_LIFE_COMPLETE": false,
     "ALL_SPECIES_EVER_COMPLETE": false,
@@ -92,5 +127,6 @@
       "OS-PLATFORM-020"
     ]
   },
-  "generated_at_utc": "2026-08-21T04:43:15.364063Z"
+  "generated_at_utc": "2026-08-21T05:05:00.000000Z",
+  "WAVE008_AGGREGATE_POST_ACCEPTANCE_REFRESH": "PASS"
 }
