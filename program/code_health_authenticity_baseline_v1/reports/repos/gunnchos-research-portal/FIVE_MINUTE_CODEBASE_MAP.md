@@ -14,7 +14,7 @@ Accepted main: `afb2bab2b415`
 - `tests/`, `evals/`, `evidence/`, `artifacts/`, fixtures, wave harnesses.
 
 ## Authenticity snapshot
-- Proof independence: `NOT_APPLICABLE_NO_PRODUCTION_CODE`
+- Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `NOT_APPLICABLE`
 - Theater: S0=0 S1=0 total=3
 - Hotspots: 11; wave-dup paths: 0; orphans≈0

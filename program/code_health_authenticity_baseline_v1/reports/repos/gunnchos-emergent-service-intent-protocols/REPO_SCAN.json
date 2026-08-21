@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-emergent-service-intent-protocols",
   "accepted_main_sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
-  "scanned_at_utc": "2026-08-21T17:47:57Z",
+  "scanned_at_utc": "2026-08-21T18:12:35Z",
   "counts": {
     "files_classified": 536,
     "code_files": 75,
@@ -23,7 +23,7 @@
     "hotspots": 31,
     "wave_dup_paths": 0,
     "fixture_paths": 0,
-    "orphan_candidates": 31,
+    "orphan_candidates": 20,
     "dep_edges": 309
   },
   "proof_independence": {
@@ -31,7 +31,9 @@
     "proof_files": 22,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -52,7 +54,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -61,10 +64,10 @@
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "NEEDS_WORK",
-    "orphan_dead_code": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "STRONG",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "CRITICAL"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [],
   "theater_calibrated_all": [
@@ -316,295 +319,185 @@
     "src/emergent_intent/stats.py",
     "src/emergent_intent/abstraction/policy.py",
     "src/emergent_intent/abstraction/encoders.py",
-    "src/emergent_intent/algorithms/dial_tarmac.py",
     "src/emergent_intent/algorithms/networks.py",
     "src/emergent_intent/algorithms/value_decomp.py",
-    "src/emergent_intent/algorithms/ippo.py",
-    "src/emergent_intent/algorithms/tarmac.py",
     "src/emergent_intent/algorithms/trainers.py",
-    "src/emergent_intent/algorithms/mappo.py",
     "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
-    "src/emergent_intent/algorithms/dial.py",
     "src/emergent_intent/comm/attention.py",
     "src/emergent_intent/comm/semantic_protocol.py",
     "src/emergent_intent/comm/channel.py",
     "src/emergent_intent/comm/gumbel.py",
-    "src/emergent_intent/comm/interventions.py",
-    "src/emergent_intent/objectives/runner.py",
     "src/emergent_intent/objectives/multiobj.py",
     "src/emergent_intent/objectives/rewards.py",
     "src/emergent_intent/utils/seeding.py",
-    "src/emergent_intent/utils/device.py",
     "src/emergent_intent/env/wireless_env.py",
-    "src/emergent_intent/env/config.py",
     "src/emergent_intent/env/adapters.py",
     "src/emergent_intent/intent/parser.py",
     "src/emergent_intent/intent/constraints.py",
-    "src/emergent_intent/intent/schema.py",
     "src/emergent_intent/interpretability/efficiency.py",
-    "src/emergent_intent/interpretability/metrics.py",
     "src/emergent_intent/interpretability/claims.py"
+  ],
+  "orphan_records": [
+    {
+      "path": "src/emergent_intent/stats.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/abstraction/policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/abstraction/encoders.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/dial_tarmac.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/networks.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/value_decomp.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/ippo.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/tarmac.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/trainers.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/mappo.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/dial.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/comm/attention.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/semantic_protocol.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/channel.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/gumbel.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/interventions.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/objectives/runner.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/objectives/multiobj.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/objectives/rewards.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/utils/seeding.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/utils/device.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/env/wireless_env.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/env/config.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/env/adapters.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/intent/parser.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/intent/constraints.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/intent/schema.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/interpretability/efficiency.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/interpretability/metrics.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/interpretability/claims.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
   ],
   "dependency_edges_sample": [
     {
-      "from": "scripts/emit_blocked_gpu.py",
-      "to": "datetime"
-    },
-    {
       "from": "src/emergent_intent/algorithms/networks.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/emergent_intent/interpretability/__init__.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "tests/scientific/test_message_semantic_causality.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "tests/property/test_properties.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "scripts/run_final_experiments.py",
-      "to": "json"
-    },
-    {
-      "from": "src/emergent_intent/utils/device.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/build_artifact.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "tests/unit/test_comm.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/mappo.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/comm/attention.py",
-      "to": "torch"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/tarmac.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/env/wireless_env.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/value_decomp.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/emergent_intent/abstraction/policy.py",
-      "to": "time"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/networks.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/mappo.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/comm/channel.py",
       "to": "dataclasses"
-    },
-    {
-      "from": "src/emergent_intent/comm/semantic_protocol.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/emergent_intent/objectives/rewards.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "src/emergent_intent/abstraction/policy.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/comm/channel.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/trainers.py",
-      "to": "torch"
-    },
-    {
-      "from": "src/emergent_intent/utils/device.py",
-      "to": "json"
-    },
-    {
-      "from": "src/emergent_intent/objectives/rewards.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_paper.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/unit/test_comm_necessary_scenarios.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/objectives/runner.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/validate_paper.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/unit/test_causal_actions.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/run_smoke_experiments.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/interpretability/efficiency.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/test_env_comm.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/utils/device.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/cli.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/emit_blocked_gpu.py",
-      "to": "json"
-    },
-    {
-      "from": "src/emergent_intent/comm/semantic_protocol.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_smoke_experiments.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/__init__.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "tests/integration/test_scenarios.py",
-      "to": "jsonschema"
-    },
-    {
-      "from": "src/emergent_intent/intent/schema.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/emergent_intent/comm/interventions.py",
-      "to": "enum"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/unit/test_status_integrity.py",
-      "to": "torch"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/value_decomp.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/generate_figures.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/objectives/runner.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_pilot_experiments.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/dial_tarmac.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/cli.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/intent/constraints.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/emergent_intent/comm/semantic_protocol.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/scientific/test_communication_efficiency.py",
-      "to": "pytest"
-    },
-    {
-      "from": "src/emergent_intent/env/wireless_env.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/value_decomp.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/dial.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/generate_figures.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/env/adapters.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/emergent_intent/intent/schema.py",
-      "to": "pydantic"
-    },
-    {
-      "from": "tests/scientific/test_tarmac_end_to_end.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/emergent_intent/comm/channel.py",
-      "to": "copy"
-    },
-    {
-      "from": "src/emergent_intent/interpretability/claims.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/run_statistics.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/generate_figures.py",
-      "to": "matplotlib"
     },
     {
       "from": "src/emergent_intent/algorithms/dial.py",
@@ -612,59 +505,315 @@
     },
     {
       "from": "tests/unit/test_qmix_vdn.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/ippo.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/intent/schema.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/tarmac.py",
-      "to": "torch"
-    },
-    {
-      "from": "scripts/run_statistics.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/intent/schema.py",
-      "to": "json"
-    },
-    {
-      "from": "src/emergent_intent/objectives/runner.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/emergent_intent/algorithms/trainers.py",
-      "to": "emergent_intent"
-    },
-    {
-      "from": "src/emergent_intent/abstraction/policy.py",
-      "to": "torch"
-    },
-    {
-      "from": "tests/integration/test_scenarios.py",
       "to": "__future__"
     },
     {
-      "from": "src/emergent_intent/algorithms/mappo.py",
+      "from": "scripts/supervisor_cpu_gate.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_final_experiments.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/intent/constraints.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/integration/test_scenarios.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_paper.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/objectives/multiobj.py",
       "to": "numpy"
     },
     {
-      "from": "src/emergent_intent/intent/parser.py",
+      "from": "src/emergent_intent/comm/__init__.py",
       "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/intent/parser.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/generate_paper_tables.py",
+      "to": "json"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "scripts/generate_figures.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/dial.py",
+      "to": "torch"
     },
     {
       "from": "src/emergent_intent/algorithms/value_decomp.py",
       "to": "copy"
     },
     {
-      "from": "src/emergent_intent/env/wireless_env.py",
-      "to": "gymnasium"
+      "from": "src/emergent_intent/algorithms/networks.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/objectives/rewards.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/cli.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/emergent_intent/utils/__init__.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "scripts/run_pilot_experiments.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/objectives/runner.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/scientific/test_dial_end_to_end.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/intent/parser.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_statistics.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/utils/seeding.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/comm/channel.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/objectives/runner.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "scripts/run_statistics.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/policy.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/policy.py",
+      "to": "torch"
+    },
+    {
+      "from": "tests/unit/test_causal_actions.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/unit/test_dial_tarmac_fidelity.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/test_env_comm.py",
+      "to": "hypothesis"
+    },
+    {
+      "from": "scripts/build_artifact.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/scientific/test_communication_efficiency.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/env/adapters.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/unit/test_qmix_vdn.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/__init__.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/unit/test_qmix_vdn.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/scientific/test_repeated_runs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_smoke_experiments.py",
+      "to": "json"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/trainers.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/cli.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/objectives/rewards.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/unit/test_env.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/property/test_properties.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/emit_blocked_gpu.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/unit/test_env.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/encoders.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/property/test_properties.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/env/config.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/comm/channel.py",
+      "to": "copy"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/trainers.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/comm/attention.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/interpretability/__init__.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/comm/attention.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/intent/parser.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/supervisor_cpu_gate.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/encoders.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/intent/constraints.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/objectives/rewards.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/comm/semantic_protocol.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/intent/schema.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "torch"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/mappo.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/env/config.py",
+      "to": "enum"
+    },
+    {
+      "from": "tests/unit/test_interpretability_metrics.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_statistics.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/scientific/test_repeated_runs.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/scientific/test_repeated_runs.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/scientific/test_tarmac_end_to_end.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/build_artifact.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/networks.py",
+      "to": "torch"
     }
   ],
   "path_classification_sample": [
@@ -1686,27 +1835,103 @@
       {
         "index": 1,
         "path": "src/emergent_intent/algorithms/trainers.py",
-        "kind": "append_marker",
+        "kind": "invert_condition",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "MARKER_LIKELY_UNDETECTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
       },
       {
         "index": 2,
-        "path": "src/emergent_intent/utils/device.py",
-        "kind": "append_marker",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "MARKER_LIKELY_UNDETECTED"
-      },
-      {
-        "index": 3,
         "path": "src/emergent_intent/env/wireless_env.py",
         "kind": "flip_return_zero",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 3,
+        "path": "src/emergent_intent/abstraction/encoders.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "CRITICAL",
-    "detected_count": 0
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-emergent-service-intent-protocols",
+      "sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/emergent_intent/algorithms/trainers.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/env/wireless_env.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/abstraction/encoders.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

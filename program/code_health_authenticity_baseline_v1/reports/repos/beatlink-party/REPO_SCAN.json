@@ -1,7 +1,7 @@
 {
   "repository": "beatlink-party",
   "accepted_main_sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
-  "scanned_at_utc": "2026-08-21T17:47:45Z",
+  "scanned_at_utc": "2026-08-21T18:12:13Z",
   "counts": {
     "files_classified": 318,
     "code_files": 134,
@@ -29,22 +29,11 @@
   "proof_independence": {
     "production_files": 90,
     "proof_files": 34,
-    "production_imports_proof_count": 2,
-    "production_imports_proof": [
-      {
-        "path": "apps/web/src/lib/hostAudio.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/web/src/lib/wp014UiProductionGate.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      }
-    ],
-    "status": "FAIL_COUPLED"
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -54,7 +43,7 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "NEEDS_WORK",
+    "authenticity": "ADEQUATE",
     "details": {
       "has_entrypoint": true,
       "entrypoint_list": [
@@ -63,23 +52,22 @@
       ],
       "has_tests": true,
       "tests_reference_production": true,
-      "proof_independence_status": "FAIL_COUPLED",
-      "gaps": [
-        "PRODUCTION_PROOF_COUPLING"
-      ]
-    }
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
-    "production_proof_separation": "CRITICAL",
+    "production_proof_separation": "STRONG",
     "anti_test_theater": "ADEQUATE",
-    "dependency_boundaries": "NEEDS_WORK",
+    "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "ADEQUATE",
-    "runtime_authenticity": "NEEDS_WORK",
+    "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "ADEQUATE",
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "NOT_APPLICABLE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [],
   "theater_calibrated_all": [
@@ -4947,326 +4935,327 @@
     }
   ],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
     {
-      "from": "tests/karaoke_digital.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "tests/game_rc_004_party_ux.test.ts",
-      "to": "../apps/server/src/music/linkResolver.js"
-    },
-    {
-      "from": "tests/wave_g_lifecycle.test.ts",
-      "to": "../packages/shared/src/index.js"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./contentPaths.js"
-    },
-    {
-      "from": "apps/server/src/beatmaps/store.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "packages/game-engine/src/modes/karaokePerformance.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "packages/shared/src/index.ts",
-      "to": "./i18n.js"
-    },
-    {
-      "from": "apps/web/src/pages/HostPage.tsx",
-      "to": "react"
-    },
-    {
-      "from": "tests/continuation_v.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./digitalRc.js"
-    },
-    {
-      "from": "apps/web/src/pages/HostPage.tsx",
-      "to": "@beatlink/game-engine"
-    },
-    {
-      "from": "tests/game_successor_modes.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "tests/engineering_wave007/wave007_party_loop.test.ts",
-      "to": "../../apps/server/src/music/linkResolver.js"
-    },
-    {
-      "from": "tests/rights.test.ts",
-      "to": "../packages/shared/src/types.js"
-    },
-    {
-      "from": "apps/server/src/beatmaps/store.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/server/src/realtime/socket.ts",
-      "to": "socket.io"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./calibration.js"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./rights.js"
-    },
-    {
-      "from": "apps/web/src/App.tsx",
-      "to": "./pages/JoinPage"
-    },
-    {
-      "from": "apps/server/src/music/linkResolver.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "tests/socket_party_roundtrip.test.ts",
-      "to": "node:http"
-    },
-    {
-      "from": "tests/beatmap.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "tests/e2e/wave007_party_loop.playwright.spec.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "tests/game_successor_modes.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "tests/game_rc_004_party_ux.test.ts",
-      "to": "../packages/game-engine/src/index.js"
-    },
-    {
-      "from": "tests/game_rc_002_session.test.ts",
-      "to": "../apps/server/src/realtime/socket.js"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./modeRuntime.js"
-    },
-    {
-      "from": "tests/audience_host.test.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "scripts/emit-digital-rc.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "tests/engineering_wave007/integrityScan.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./chartEditor.js"
-    },
-    {
-      "from": "artifacts/game_rc_002/independent_verifier_session.test.ts",
-      "to": "../../apps/server/src/realtime/socket.js"
-    },
-    {
-      "from": "apps/server/src/rooms/store/serialize.ts",
-      "to": "./types.js"
-    },
-    {
-      "from": "artifacts/game_rc_002/independent_verifier_session.test.ts",
-      "to": "../../apps/server/src/rooms/RoomManager.js"
+      "from": "tests/scoring.test.ts",
+      "to": "../packages/game-engine/src/awards.js"
     },
     {
       "from": "packages/game-engine/src/index.ts",
       "to": "./launchCatalog.js"
     },
     {
-      "from": "tests/beta_rc.test.ts",
-      "to": "@beatlink/game-engine"
-    },
-    {
-      "from": "packages/game-engine/src/loadHarness.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./karaokeMic.js"
-    },
-    {
-      "from": "tests/modes.test.ts",
-      "to": "../packages/shared/src/types.js"
-    },
-    {
-      "from": "packages/game-engine/src/modes/predictionTrivia.ts",
-      "to": "./types.js"
-    },
-    {
-      "from": "apps/web/src/lib/hostAudio.test.ts",
+      "from": "tests/game_rc_002_session.test.ts",
       "to": "vitest"
-    },
-    {
-      "from": "apps/server/src/rooms/RoomManager.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "tests/game_successor_modes.test.ts",
-      "to": "node:fs"
     },
     {
       "from": "apps/server/src/index.ts",
-      "to": "./rooms/RoomManager.js"
+      "to": "cors"
     },
     {
-      "from": "tests/alpha_exit.test.ts",
-      "to": "../apps/server/src/rooms/RoomManager.js"
-    },
-    {
-      "from": "device_ux/src/index.ts",
-      "to": "./loader.js"
-    },
-    {
-      "from": "artifacts/game_rc_002/independent_verifier_session.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "apps/server/src/rooms/RoomManager.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "eslint.config.js",
-      "to": "typescript-eslint"
-    },
-    {
-      "from": "packages/game-engine/src/chartEditor.ts",
-      "to": "./audioAnalysis.js"
-    },
-    {
-      "from": "tests/scoring.test.ts",
-      "to": "../packages/game-engine/src/timing.js"
-    },
-    {
-      "from": "packages/game-engine/src/index.ts",
-      "to": "./visualPackHarness.js"
-    },
-    {
-      "from": "tests/continuation_vi.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "packages/game-engine/src/modes/predictionTrivia.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "apps/server/src/rooms/RoomManager.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "tests/continuation_vi.test.ts",
-      "to": "@beatlink/game-engine"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "tests/rooms.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "packages/game-engine/src/modes/index.ts",
-      "to": "./beatTap.js"
-    },
-    {
-      "from": "tests/wave_g_lifecycle.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "apps/web/src/lib/wp014UiProductionGate.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "tests/engineering_wave007/integrityScan.ts",
-      "to": "node:crypto"
-    },
-    {
-      "from": "packages/game-engine/src/modes/index.ts",
-      "to": "./callAndResponse.js"
-    },
-    {
-      "from": "packages/game-engine/src/songSource.ts",
-      "to": "./rights.js"
-    },
-    {
-      "from": "packages/game-engine/src/modes/index.ts",
-      "to": "./predictionTrivia.js"
-    },
-    {
-      "from": "apps/server/src/realtime/socket.ts",
-      "to": "../music/linkResolver.js"
-    },
-    {
-      "from": "packages/game-engine/src/networkLoad.ts",
-      "to": "@beatlink/shared"
-    },
-    {
-      "from": "tests/cross_device_contract.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "tests/cross_device_contract.test.ts",
-      "to": "../gate1/cross_device/contractProvider.ts"
-    },
-    {
-      "from": "apps/web/src/pages/JoinPage.tsx",
-      "to": "react"
-    },
-    {
-      "from": "tests/game_rc_002_independent_verifier.test.ts",
-      "to": "../apps/server/src/realtime/socket.js"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "packages/game-engine/src/modes/bandRoles.ts",
-      "to": "./types.js"
-    },
-    {
-      "from": "tests/beatmap.test.ts",
-      "to": "../packages/shared/src/beatmapSchema.js"
-    },
-    {
-      "from": "tests/scoring.test.ts",
-      "to": "../packages/game-engine/src/stateMachine.js"
-    },
-    {
-      "from": "tests/engineering_wave007/completionGate.ts",
-      "to": "./evaluators.js"
+      "from": "tests/device_ux_runtime.test.ts",
+      "to": "@beatlink/device-ux"
     },
     {
       "from": "packages/game-engine/src/contentPaths.ts",
       "to": "@beatlink/shared"
     },
     {
-      "from": "tests/scoring.test.ts",
+      "from": "apps/server/src/index.ts",
+      "to": "./realtime/socket.js"
+    },
+    {
+      "from": "apps/server/src/rooms/RoomManager.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "tests/engineering_wave007/wave007_party_loop.test.ts",
+      "to": "../../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./loadHarness.js"
+    },
+    {
+      "from": "packages/shared/src/index.ts",
+      "to": "./telemetry.js"
+    },
+    {
+      "from": "apps/web/vite.config.ts",
+      "to": "vite"
+    },
+    {
+      "from": "tests/engineering_wave007/wave007_party_loop.test.ts",
+      "to": "./behavioralNegatives.js"
+    },
+    {
+      "from": "tests/game_successor_modes.test.ts",
+      "to": "../packages/game-engine/src/providers.js"
+    },
+    {
+      "from": "tests/gate1_core_loop.test.ts",
+      "to": "../gate1/tools/core_loop_runner.ts"
+    },
+    {
+      "from": "packages/game-engine/src/teams.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/engineering_wave007/integrityScan.ts",
+      "to": "typescript"
+    },
+    {
+      "from": "apps/web/src/lib/socket.ts",
+      "to": "./api"
+    },
+    {
+      "from": "packages/shared/src/telemetry.ts",
+      "to": "./types.js"
+    },
+    {
+      "from": "apps/web/src/pages/JoinPage.tsx",
+      "to": "react-router-dom"
+    },
+    {
+      "from": "tests/rooms.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "tests/socket_party_roundtrip.test.ts",
+      "to": "socket.io-client"
+    },
+    {
+      "from": "apps/web/src/lib/socket.ts",
+      "to": "socket.io-client"
+    },
+    {
+      "from": "tests/alpha_exit.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "scripts/validate_game_rc_contracts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "packages/game-engine/src/networkLoadSlo.ts",
+      "to": "./networkLoad.js"
+    },
+    {
+      "from": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "to": "node:module"
+    },
+    {
+      "from": "apps/server/src/load/networkLoadRunner.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "tests/modes.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "apps/web/src/pages/LandingPage.tsx",
+      "to": "react-router-dom"
+    },
+    {
+      "from": "tests/game_rc_002_independent_verifier.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "apps/server/src/index.ts",
+      "to": "./music/linkResolver.js"
+    },
+    {
+      "from": "tests/socket_party_roundtrip.test.ts",
+      "to": "node:http"
+    },
+    {
+      "from": "apps/web/src/main.tsx",
+      "to": "./App"
+    },
+    {
+      "from": "tests/game_successor_modes.test.ts",
       "to": "../packages/shared/src/types.js"
     },
     {
-      "from": "apps/server/src/load/wp014ProductionGate.ts",
-      "to": "../realtime/socket.js"
+      "from": "tests/network_load.test.ts",
+      "to": "../apps/server/src/load/networkLoadRunner.js"
+    },
+    {
+      "from": "tests/beta_rc.test.ts",
+      "to": "@beatlink/game-engine"
+    },
+    {
+      "from": "tests/game_rc_002_session.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "scripts/validate_game_rc_contracts.py",
+      "to": "__future__"
+    },
+    {
+      "from": "apps/server/src/rooms/store/types.ts",
+      "to": "@beatlink/game-engine"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./audienceInfluenceEngine.js"
+    },
+    {
+      "from": "tests/game_rc_004_party_ux.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "tests/game_rc_002_session.test.ts",
+      "to": "../apps/server/src/realtime/socket.js"
+    },
+    {
+      "from": "apps/web/src/pages/PlayerPage.tsx",
+      "to": "../lib/deviceSettings"
+    },
+    {
+      "from": "tests/engineering_wave007/wave007_party_loop.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "apps/web/src/lib/socket.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "packages/game-engine/src/joinQr.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/web/src/pages/HostPage.tsx",
+      "to": "../lib/api"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./awards.js"
+    },
+    {
+      "from": "apps/web/src/App.tsx",
+      "to": "./pages/PlayerPage"
+    },
+    {
+      "from": "device_ux/src/loader.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/continuation_v.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "tests/continuation_vi.test.ts",
+      "to": "../apps/server/src/rooms/store/index.js"
+    },
+    {
+      "from": "apps/server/src/realtime/socket.ts",
+      "to": "../rooms/RoomManager.js"
+    },
+    {
+      "from": "gate1/cross_device/contractProvider.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "packages/game-engine/src/modes/index.ts",
+      "to": "./karaokePerformance.js"
+    },
+    {
+      "from": "tests/modes.test.ts",
+      "to": "../packages/shared/src/types.js"
+    },
+    {
+      "from": "packages/game-engine/src/deviceTimingProfile.ts",
+      "to": "./calibration.js"
     },
     {
       "from": "packages/game-engine/src/modes/beatTap.ts",
-      "to": "./types.js"
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./deviceTimingProfile.js"
+    },
+    {
+      "from": "tests/game_rc_002_independent_verifier.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "artifacts/game_rc_002/independent_verifier_session.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "apps/server/src/rooms/RoomManager.ts",
+      "to": "./store/index.js"
+    },
+    {
+      "from": "packages/game-engine/src/scoringLedger.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/game_rc_002_independent_verifier.test.ts",
+      "to": "../apps/server/src/realtime/socket.js"
+    },
+    {
+      "from": "tests/game_rc_002_independent_verifier.test.ts",
+      "to": "../packages/game-engine/src/contentPaths.js"
+    },
+    {
+      "from": "apps/web/src/pages/PlayerPage.tsx",
+      "to": "react"
+    },
+    {
+      "from": "tests/socket_party_roundtrip.test.ts",
+      "to": "../apps/server/src/rooms/RoomManager.js"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./contentPaths.js"
+    },
+    {
+      "from": "packages/game-engine/src/networkLoadSlo.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/server/src/beatmaps/store.ts",
+      "to": "./generator.js"
+    },
+    {
+      "from": "packages/game-engine/src/modes/karaokePerformance.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "apps/web/src/pages/AudiencePage.tsx",
+      "to": "react-router-dom"
+    },
+    {
+      "from": "vitest.config.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "packages/game-engine/src/index.ts",
+      "to": "./partyPacing.js"
+    },
+    {
+      "from": "packages/game-engine/src/modes/predictionTrivia.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "tests/audience_host.test.ts",
+      "to": "@beatlink/shared"
+    },
+    {
+      "from": "packages/shared/src/index.ts",
+      "to": "./privacy.js"
+    },
+    {
+      "from": "tests/rights.test.ts",
+      "to": "../packages/game-engine/src/rights.js"
+    },
+    {
+      "from": "scripts/emit-digital-rc.test.ts",
+      "to": "vitest"
     }
   ],
   "path_classification_sample": [
@@ -6284,8 +6273,57 @@
   "mutation_sampling": {
     "repository": "beatlink-party",
     "sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
-    "mutations": [],
-    "status": "NO_MUTATION_TARGETS",
-    "dimension": "NOT_APPLICABLE"
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/validate_game_rc_contracts.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "beatlink-party",
+      "sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

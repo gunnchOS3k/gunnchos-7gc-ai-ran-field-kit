@@ -1,7 +1,7 @@
 {
   "repository": "waike-research-ops",
   "accepted_main_sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
-  "scanned_at_utc": "2026-08-21T17:47:53Z",
+  "scanned_at_utc": "2026-08-21T18:12:27Z",
   "counts": {
     "files_classified": 7145,
     "code_files": 151,
@@ -31,7 +31,9 @@
     "proof_files": 18,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -301,326 +304,327 @@
     }
   ],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
     {
-      "from": "src/waike_course_ready/batch003/labs.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "src/waike_course_ready/batch005/labs.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/labs.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_course_depth.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/batch003/labs.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/generate_campus_tracks.py",
-      "to": "argparse"
-    },
-    {
-      "from": "scripts/generate_7gc_upnow_bundle.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_industry_alignment_depth.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_curriculum/depth_generators.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_student_ready.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "scripts/export_instructor_packet.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "src/waike_curriculum/catalog.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_course_ready/batch007/exams.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/remediate_batch004_lesson_depth.py",
-      "to": "re"
-    },
-    {
-      "from": "src/waike_course_ready/batch003/labs.py",
-      "to": "math"
-    },
-    {
-      "from": "src/waike_mastery/benchmark.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/validate_7gc_alignment.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "scripts/prove_product_consumption.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_industry_alignment_depth.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/benchmark.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_assignment_depth.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "src/waike_curriculum/catalog.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/registry.py",
-      "to": "datetime"
-    },
-    {
-      "from": "src/waike_ops/prereqs.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_pathway_schema.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/generate_all_campus_tracks.py",
-      "to": "waike_ops"
-    },
-    {
-      "from": "scripts/_gen_batch006_data_dashboards.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_course_ready/batch005/labs.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_course_ready/batch003/packaging.py",
+      "from": "src/waike_mastery/tool_use.py",
       "to": "waike_course_ready"
     },
     {
-      "from": "src/waike_course_ready/batch002/labs.py",
-      "to": "json"
+      "from": "src/waike_course_ready/exams.py",
+      "to": "re"
     },
     {
-      "from": "src/waike_course_ready/batch004/content.py",
-      "to": "json"
+      "from": "scripts/emit_digital_rc.py",
+      "to": "waike_course_ready"
     },
     {
-      "from": "src/waike_campus/__init__.py",
-      "to": "waike_campus"
+      "from": "scripts/validate_student_ready.py",
+      "to": "sys"
     },
     {
-      "from": "tests/journeys/test_learner_journey.py",
-      "to": "waike_ops"
+      "from": "scripts/remediate_batch004_lesson_depth.py",
+      "to": "waike_course_ready"
     },
     {
-      "from": "scripts/validate_lesson_depth.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "src/waike_course_ready/batch004/labs.py",
+      "from": "src/waike_course_ready/batch007/content.py",
       "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_mastery/grading.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/discover.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_course_ready/ingest.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "scripts/validate_instructor_ready.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/exams.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/curriculum/test_batch006_data_dashboards.py",
+      "to": "pathlib"
     },
     {
       "from": "scripts/validate_placeholder_files.py",
       "to": "re"
     },
     {
-      "from": "scripts/classify_issue_completion.py",
+      "from": "src/waike_mastery/skill_graph.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/validate_instructor_ready.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/gen_course_ready_004.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/canary.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/emit_waike_mastery.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_curriculum/depth_generators.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/waike_mastery/diagnosis.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/exams.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/export_course_catalog.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/packaging.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/waike_mastery/course_honesty.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "registry"
+    },
+    {
+      "from": "scripts/generate_readiness_audit.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/validate_lesson_depth.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_mastery/grading.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/exams.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/labs.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch003/labs.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/content.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "skill_graph"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/content.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_waike_artifacts.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_curriculum/generators.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/waike_course_ready/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/packaging.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/emit_digital_rc.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/journeys/test_learner_journey.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_group_project_pack.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/waike_course_ready/packaging.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/remediate_batch004_lesson_depth.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_eucnc_watchlist.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch006/packaging.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_mastery/tool_use.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/curriculum/test_digital_rc_batch.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_mastery/canary.py",
+      "to": "tempfile"
+    },
+    {
+      "from": "scripts/validate_no_exam_heavy_courses.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/map_issues_to_artifacts.py",
+      "to": "csv"
+    },
+    {
+      "from": "src/waike_course_ready/labs.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "scripts/map_issues_to_artifacts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_curriculum/issue_completion.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch005/packaging.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/waike_course_ready/ingest.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_student_packet.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_evaluation_dashboard.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_7gc_upnow_bundle.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_evaluation_dashboard.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/run_course_labs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/audit.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_course_ready/provenance.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_course_ready/labs.py",
+      "to": "tarfile"
+    },
+    {
+      "from": "tests/mastery/test_waike_mastery.py",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
       "to": "sys"
     },
     {
       "from": "scripts/detect_templated_courses.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_mastery/corpus_inventory.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/check_required_files.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_mastery/registry.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/test_7gc_upnow_campus.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/validate_curriculum.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_course_ready/batch007/content.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/classify_issue_completion.py",
+      "from": "src/waike_course_ready/batch004/exams.py",
       "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_batch007_residual_closure.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/check_required_files.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/classify_issue_completion.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/gen_course_ready_004.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_mastery/policy.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_mastery/tool_use.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_course_labs.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_curriculum.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_batch007_residual_closure.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/labs.py",
-      "to": "re"
-    },
-    {
-      "from": "src/waike_ops/pathways.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_case_study_depth.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "scripts/export_instructor_packet.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_student_ready.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/generate_evaluation_dashboard.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_course_ready/batch006/labs.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_mastery/discover.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/classify_issue_completion.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/validate_rubrics.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_7gc_alignment.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/exams.py",
-      "to": "waike_course_ready"
-    },
-    {
-      "from": "src/waike_curriculum/issue_completion.py",
-      "to": "yaml"
-    },
-    {
-      "from": "tests/journeys/test_instructor_journey.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_student_ready.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/export_instructor_packet.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/registry.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/labs.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "tests/test_course_depth.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "scripts/validate_assignment_depth.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_all_curriculum.py",
-      "to": "datetime"
     },
     {
       "from": "scripts/validate_all_waike_readiness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/waike_mastery/benchmark.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/audit.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/implement_issue_completion.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_rubric_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/educator.py",
       "to": "datetime"
     },
     {
-      "from": "src/waike_course_ready/batch002/exams.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_mastery/corpus_inventory.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_course_ready/labs.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/validate_rubrics.py",
+      "from": "scripts/generate_7gc_case_study_pack.py",
       "to": "pathlib"
+    },
+    {
+      "from": "scripts/prove_product_consumption.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/mastery/test_waike_mastery.py",
+      "to": "waike_mastery"
+    },
+    {
+      "from": "scripts/deepen_all_courses.py",
+      "to": "sys"
     }
   ],
   "path_classification_sample": [
@@ -1644,25 +1648,101 @@
         "path": "src/waike_curriculum/evaluation/metrics.py",
         "kind": "flip_return_zero",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": true,
+        "test_reaction": "MUTATION_SURVIVED",
+        "mutation_outcome": "MUTATION_SURVIVED"
       },
       {
         "index": 2,
-        "path": "src/waike_curriculum/evaluation/mock_data.py",
-        "kind": "append_marker",
+        "path": "src/waike_course_ready/batch002/exams.py",
+        "kind": "remove_validation",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "MARKER_LIKELY_UNDETECTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": true,
+        "test_reaction": "MUTATION_SURVIVED",
+        "mutation_outcome": "MUTATION_SURVIVED"
       },
       {
         "index": 3,
-        "path": "src/waike_curriculum/evaluation/report.py",
-        "kind": "append_marker",
+        "path": "src/waike_course_ready/batch002/labs.py",
+        "kind": "invert_condition",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "MARKER_LIKELY_UNDETECTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_KILLED",
+        "mutation_outcome": "MUTATION_KILLED"
       }
     ],
     "status": "SAMPLED",
     "dimension": "CRITICAL",
-    "detected_count": 0
+    "mutation_outcome": "MUTATION_SURVIVED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "waike-research-ops",
+      "sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 0,
+        "passed": true,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/waike_curriculum/evaluation/metrics.py",
+          "kind": "flip_return_zero",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/exams.py",
+          "kind": "remove_validation",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/labs.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_KILLED"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 1,
+    "survived_count": 2
   }
 }

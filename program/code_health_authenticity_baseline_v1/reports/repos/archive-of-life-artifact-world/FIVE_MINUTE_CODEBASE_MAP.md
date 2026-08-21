@@ -14,17 +14,17 @@ Accepted main: `069243c36555`
 - `tests/`, `evals/`, `evidence/`, `artifacts/`, fixtures, wave harnesses.
 
 ## Authenticity snapshot
-- Proof independence: `FAIL_COUPLED`
-- Runtime authenticity: `NEEDS_WORK`
+- Proof independence: `PASS_INDEPENDENT`
+- Runtime authenticity: `ADEQUATE`
 - Theater: S0=0 S1=0 total=63
-- Hotspots: 5; wave-dup paths: 41; orphans≈8
+- Hotspots: 5; wave-dup paths: 41; orphans≈0
 
 ## Dimension ratings
-- `production_proof_separation`: **CRITICAL**
+- `production_proof_separation`: **STRONG**
 - `anti_test_theater`: **ADEQUATE**
-- `dependency_boundaries`: **NEEDS_WORK**
+- `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **ADEQUATE**
-- `runtime_authenticity`: **NEEDS_WORK**
+- `runtime_authenticity`: **ADEQUATE**
 - `complexity_hotspots`: **ADEQUATE**
 - `orphan_dead_code`: **ADEQUATE**
 - `fixture_honesty`: **ADEQUATE**

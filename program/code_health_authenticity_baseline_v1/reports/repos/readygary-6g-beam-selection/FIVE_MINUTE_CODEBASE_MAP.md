@@ -17,7 +17,7 @@ Accepted main: `569875224db7`
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
 - Theater: S0=0 S1=0 total=2
-- Hotspots: 19; wave-dup paths: 0; orphans≈7
+- Hotspots: 19; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
@@ -29,7 +29,7 @@ Accepted main: `569875224db7`
 - `orphan_dead_code`: **ADEQUATE**
 - `fixture_honesty`: **ADEQUATE**
 - `documentation_readability`: **ADEQUATE**
-- `mutation_resistance`: **CRITICAL**
+- `mutation_resistance`: **NEEDS_WORK**
 
 ## First files to read
 1. README.md (if present)

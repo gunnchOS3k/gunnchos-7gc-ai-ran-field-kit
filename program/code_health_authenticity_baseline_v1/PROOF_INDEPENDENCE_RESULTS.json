@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-21T17:48:03Z",
+  "generated_at_utc": "2026-08-21T18:12:36Z",
   "results": [
     {
       "repository": "gunnchos-7gc-ai-ran-field-kit",
@@ -9,14 +9,6 @@
       "proof_dirs_removed_in_temp": [
         "tests",
         "generalization/tests",
-        "industry_research_stack/otel/tests",
-        "industry_research_stack/adapters/tests",
-        "gate2/nonphysical/G2_C7_ring_calibration/tests",
-        "gate2/nonphysical/G2_C2_display_controls/tests",
-        "gate2/nonphysical/G2_C3_battery_thermal/tests",
-        "gate2/nonphysical/G2_C4_secure_boot/tests",
-        "gate2/nonphysical/G2_C5_signed_update/tests",
-        "gate2/nonphysical/G2_C6_device_game_ux/tests",
         "gate3/nonphysical/G3_C1_identity_continuity/tests",
         "gate3/nonphysical/G3_C3_connectivity_manager/tests",
         "gate3/nonphysical/G3_C5_threat_models/tests",
@@ -24,13 +16,21 @@
         "gate3/nonphysical/G3_C7_repair_procedures/tests",
         "gate3/nonphysical/G3_C4_fleet_observability/tests",
         "gate3/nonphysical/G3_C6_7gc_test_plans/tests",
+        "gate2/nonphysical/G2_C7_ring_calibration/tests",
+        "gate2/nonphysical/G2_C2_display_controls/tests",
+        "gate2/nonphysical/G2_C3_battery_thermal/tests",
+        "gate2/nonphysical/G2_C4_secure_boot/tests",
+        "gate2/nonphysical/G2_C5_signed_update/tests",
+        "gate2/nonphysical/G2_C6_device_game_ux/tests",
+        "industry_research_stack/otel/tests",
+        "industry_research_stack/adapters/tests",
         "gate1/evidence",
         "program/evidence",
         "program/user_journeys/evidence",
         "fixtures",
         "gate1/fixtures",
-        "industry_research_stack/adapters/fixtures",
-        "physical_evidence/fixtures"
+        "physical_evidence/fixtures",
+        "industry_research_stack/adapters/fixtures"
       ],
       "still_coupled_production_files": []
     },
@@ -53,11 +53,11 @@
         "apps/launcher_mock/src/test",
         "user_journeys/evidence",
         "firmware_compat/fixtures",
-        "quality/golden_journeys/fixtures",
         "user_journeys/fixtures",
-        "gunnchos_device_os/cont_viii/fixtures",
         "physical_evidence/fixtures",
-        "factory/fixtures"
+        "factory/fixtures",
+        "gunnchos_device_os/cont_viii/fixtures",
+        "quality/golden_journeys/fixtures"
       ],
       "still_coupled_production_files": []
     },
@@ -71,9 +71,9 @@
         "firmware/tests",
         "ring_input/tests",
         "docs/full_product_family/evidence",
-        "npi/evt0_measurement_readiness/fixtures",
         "ring_input/fixtures",
-        "physical_evidence/fixtures"
+        "physical_evidence/fixtures",
+        "npi/evt0_measurement_readiness/fixtures"
       ],
       "still_coupled_production_files": []
     },
@@ -102,8 +102,8 @@
         "clients/android/app/src/test",
         "gate1_digital_fabrication/ring_firmware/docs/evidence",
         "fixtures",
-        "gate1_digital_fabrication/ring_firmware/mcuboot/fixtures",
-        "physical_evidence/fixtures"
+        "physical_evidence/fixtures",
+        "gate1_digital_fabrication/ring_firmware/mcuboot/fixtures"
       ],
       "still_coupled_production_files": []
     },
@@ -113,20 +113,20 @@
       "method": "temp_worktree_proof_strip_import_scan",
       "status": "PASS_INDEPENDENT",
       "proof_dirs_removed_in_temp": [
-        "unity/AnimeAggressorsUnity/Assets/AnimeAggressors/tests",
-        "native/engine/tests",
-        "game/godot/tests",
         "game-godot/tests",
-        "hardware/wristband/test",
-        "hardware/ring/test",
+        "game/godot/tests",
+        "native/engine/tests",
+        "unity/AnimeAggressorsUnity/Assets/AnimeAggressors/tests",
+        "apps/web/test",
         "packages/netplay/test",
         "packages/edgeio/test",
         "packages/rollback/test",
         "packages/game-core/test",
-        "apps/web/test",
+        "hardware/wristband/test",
+        "hardware/ring/test",
         "gate1/evidence",
-        "docs/product-quality/evidence",
         "game-godot/gate1/evidence",
+        "docs/product-quality/evidence",
         "legacy/game-prototype/src/__tests__"
       ],
       "still_coupled_production_files": []
@@ -153,8 +153,8 @@
         "data-pipeline/tests",
         "android/app/src/test",
         "gate1/evidence",
-        "docs/product-quality/evidence",
         "src/ui/evidence",
+        "docs/product-quality/evidence",
         "gate1/fixtures",
         "public/data/fixtures"
       ],

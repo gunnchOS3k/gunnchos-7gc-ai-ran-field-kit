@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-hardware-industrial-design",
   "accepted_main_sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
-  "scanned_at_utc": "2026-08-21T17:47:27Z",
+  "scanned_at_utc": "2026-08-21T18:11:58Z",
   "counts": {
     "files_classified": 1642,
     "code_files": 152,
@@ -31,7 +31,9 @@
     "proof_files": 34,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -62,7 +65,7 @@
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "ADEQUATE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [
     {
@@ -429,209 +432,302 @@
     }
   ],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
     {
-      "from": "firmware/_device_util.py",
-      "to": "__future__"
+      "from": "scripts/validate_firmware_os_interface.py",
+      "to": "re"
     },
     {
-      "from": "scripts/validate_schematics.py",
-      "to": "sys"
-    },
-    {
-      "from": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/continuation_vi_eda_closure.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gate1_digital_fabrication/edge_io_ring/scripts/validate_digital_fab_package.py",
+      "from": "scripts/build_hw_fw_rc_001_packages.py",
       "to": "pathlib"
     },
     {
-      "from": "tests/test_power_budget_schema.py",
+      "from": "tests/test_certification_readiness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_continuation_viii.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_os_compatibility_handoff.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_mechanical_correctness.py",
       "to": "sys"
     },
     {
-      "from": "scripts/cont_viii_lib/common.py",
-      "to": "__future__"
+      "from": "scripts/validate_power_budget.py",
+      "to": "sys"
     },
     {
-      "from": "tests/test_supply_chain_fields.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_wp002_handheld_storage.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/continuation_viii_manufacturer_release.py",
-      "to": "pathlib"
+      "from": "tests/test_stl_exports.py",
+      "to": "subprocess"
     },
     {
       "from": "scripts/close_digital_hardware_pass.py",
-      "to": "__future__"
+      "to": "math"
     },
     {
-      "from": "tests/test_digital_manufacturing.py",
-      "to": "sys"
-    },
-    {
-      "from": "component_selection/simulations/simulate_dock_display_bandwidth.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/continuation_viii_manufacturer_release.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_schematics.py",
+      "from": "component_selection/simulations/simulate_workload_fit.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/validate_bom_schema.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_supply_chain_fields.py",
+      "from": "ring_input/python/authenticated_ring_input/pairing.py",
       "to": "__future__"
     },
     {
-      "from": "tests/test_power_budget_schema.py",
+      "from": "firmware/capsule_update/simulate_capsule_update.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "fallback"
+    },
+    {
+      "from": "tests/test_required_files.py",
       "to": "pathlib"
+    },
+    {
+      "from": "scripts/hardware_validate.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/simulated_stream.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_production_track.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/cont_ix_lib/emit_sch.py",
+      "to": "collections"
+    },
+    {
+      "from": "scripts/validate_component_selection.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_capsule_update_simulation.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_os_compatibility_handoff.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/check_cad_exports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/__init__.py",
+      "to": "receiver"
+    },
+    {
+      "from": "scripts/bootstrap_firmware_implementation.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_hlk_readiness.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_no_stale_not_implemented_language.py",
+      "to": "re"
+    },
+    {
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "to": "__future__"
     },
     {
       "from": "ring_input/python/authenticated_ring_input/calibration.py",
       "to": "dataclasses"
     },
     {
-      "from": "scripts/close_digital_hardware_pass.py",
+      "from": "scripts/bootstrap_os_compatibility_handoff.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_digital_manufacturing.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_placeholder_renders.py",
       "to": "pathlib"
     },
     {
-      "from": "tests/test_no_stale_not_implemented_language.py",
+      "from": "scripts/generate_device_spec_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_dvt_pvt_readiness.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_supply_chain_fields.py",
       "to": "subprocess"
     },
     {
-      "from": "scripts/cont_ix_lib/common.py",
+      "from": "tests/test_hw_pkt001.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_firmware_implementation.py",
+      "to": "_device_util"
+    },
+    {
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "to": "textwrap"
+    },
+    {
+      "from": "scripts/compile_supply_chain_fields.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/generate_validation_toolchain_matrix.py",
+      "from": "tests/test_power_budget_schema.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/update_cont_vi_kicad_status.py",
       "to": "pathlib"
+    },
+    {
+      "from": "firmware/qemu/run_device_profile_vm.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_stl_exports.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_hlk_readiness.py",
+      "to": "sys"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/latency.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_firmware_implementation.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_hardware_os_validation.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_dvt_pvt_readiness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_continuation_vii.py",
+      "to": "subprocess"
     },
     {
       "from": "scripts/gate6_dry_run.py",
       "to": "datetime"
     },
     {
-      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "from": "ring_input/python/authenticated_ring_input/revocation.py",
       "to": "dataclasses"
     },
     {
-      "from": "scripts/bootstrap_production_track.py",
-      "to": "pathlib"
+      "from": "scripts/run_firmware_compat_smoke.py",
+      "to": "datetime"
     },
     {
-      "from": "scripts/validate_bom_schema.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/cont_viii_lib/kicad_emit.py",
-      "to": "common"
-    },
-    {
-      "from": "scripts/cont_ix_lib/common.py",
+      "from": "tests/test_supply_chain_fields.py",
       "to": "json"
     },
     {
-      "from": "scripts/validate_hlk_readiness.py",
+      "from": "scripts/bootstrap_complete_implementation_pass.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_continuation_ix.py",
       "to": "sys"
     },
     {
-      "from": "ring_input/python/authenticated_ring_input/calibration.py",
-      "to": "time"
+      "from": "scripts/close_digital_hardware_pass.py",
+      "to": "json"
     },
     {
-      "from": "scripts/continuation_viii_manufacturer_release.py",
-      "to": "subprocess"
+      "from": "tests/test_bom_schema.py",
+      "to": "pathlib"
     },
     {
-      "from": "ring_input/python/authenticated_ring_input/latency.py",
-      "to": "time"
-    },
-    {
-      "from": "scripts/validate_production_release_gate.py",
+      "from": "scripts/cont_ix_lib/emit_pcb.py",
       "to": "re"
     },
     {
-      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "from": "scripts/validate_secure_boot_simulation.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/close_digital_hardware_pass.py",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/update_cont_vi_kicad_status.py",
       "to": "__future__"
     },
     {
-      "from": "tests/test_power_budget_schema.py",
+      "from": "tests/test_tool_adapters.py",
+      "to": "sys"
+    },
+    {
+      "from": "component_selection/simulations/simulate_user_persona_fit.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_c_pkt003_evt_firmware.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_wp002_handheld_storage.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_digital_manufacturing.py",
       "to": "subprocess"
     },
     {
-      "from": "tests/test_issue_closure_matrix.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_hlk_readiness.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_hbom.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_certification_readiness.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/generate_campus_device_kits.py",
-      "to": "csv"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/simulated_stream.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "scripts/validate_continuation_vi.py",
-      "to": "csv"
-    },
-    {
       "from": "scripts/continuation_vii_eda_release_clean.py",
-      "to": "uuid"
-    },
-    {
-      "from": "tests/test_issue_closure_matrix.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/cont_ix_lib/emit_sch.py",
-      "to": "common"
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py",
+      "to": "re"
     },
     {
-      "from": "firmware/capsule_update/simulate_capsule_update.py",
-      "to": "yaml"
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/update_kicad_status.py",
+      "to": "pathlib"
     },
     {
-      "from": "tests/test_continuation_ix.py",
-      "to": "json"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/simulated_stream.py",
+      "from": "ring_input/python/authenticated_ring_input/latency.py",
       "to": "__future__"
     },
     {
-      "from": "firmware/capsule_update/verify_capsule_manifest.py",
-      "to": "_device_util"
+      "from": "ring_input/python/authenticated_ring_input/__init__.py",
+      "to": "fallback"
     },
     {
-      "from": "scripts/validate_secure_boot_simulation.py",
+      "from": "scripts/validate_bom_schema.py",
       "to": "sys"
     },
     {
@@ -639,116 +735,24 @@
       "to": "json"
     },
     {
-      "from": "scripts/check_required_files.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_printability.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/run_firmware_compat_smoke.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/run_firmware_compat_smoke.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_component_selection.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/build_hw_fw_rc_001_packages.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tests/test_issue_closure_matrix.py",
+      "from": "tests/test_no_stale_not_implemented_language.py",
       "to": "subprocess"
     },
     {
-      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/bootstrap_os_compatibility_handoff.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/check_required_files.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_printability.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "from": "scripts/validate_printability.py",
       "to": "sys"
     },
     {
-      "from": "scripts/run_firmware_compat_smoke.py",
-      "to": "pathlib"
+      "from": "scripts/continuation_vii_eda_release_clean.py",
+      "to": "shutil"
     },
     {
-      "from": "tests/test_hw_fw_rc_001.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_component_selection.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/continuation_vi_eda_closure.py",
-      "to": "json"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/sender.py",
+      "from": "scripts/cont_viii_lib/common.py",
       "to": "uuid"
     },
     {
       "from": "scripts/validate_mechanical_correctness.py",
-      "to": "math"
-    },
-    {
-      "from": "scripts/bootstrap_complete_implementation_pass.py",
       "to": "json"
-    },
-    {
-      "from": "scripts/validate_hlk_readiness.py",
-      "to": "re"
-    },
-    {
-      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/codec.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "secure_boot/scripts/generate_test_keys.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/continuation_vii_eda_release_clean.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "tests/test_c_pkt003_evt_firmware.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
-      "to": "math"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/receiver.py",
-      "to": "revocation"
     }
   ],
   "path_classification_sample": [
@@ -1769,28 +1773,54 @@
     "mutations": [
       {
         "index": 1,
-        "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
-        "kind": "flip_return_true",
+        "path": "scripts/check_required_files.py",
+        "kind": "flip_return_zero",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 2,
-        "path": "scripts/compile_supply_chain_fields.py",
-        "kind": "flip_return_false",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 3,
-        "path": "scripts/validate_dvt_pvt_readiness.py",
-        "kind": "flip_return_true",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "ADEQUATE",
-    "detected_count": 3
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-hardware-industrial-design",
+      "sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

@@ -892,8 +892,15 @@ def s1_calibration_review(
             is_fp = True
             reason = "ENVIRONMENT_PATH"
         if f.get("family") == "R5":
-            reason = "MUTATION_SURVIVAL_MATERIAL"
-            is_fp = False
+            if f.get("kind") == "MUTATION_BLINDNESS" and f.get("mutation_outcome") == "MUTATION_SURVIVED":
+                reason = "MUTATION_SURVIVAL_MATERIAL"
+                is_fp = False
+            elif f.get("kind") in {"mutation_survival"} and f.get("mutation_outcome") not in {None, "MUTATION_SURVIVED"}:
+                is_fp = True
+                reason = "NON_SURVIVAL_MISLABELED_AS_S1"
+            else:
+                reason = "MUTATION_RELATED_S1"
+                is_fp = False
         if is_fp:
             fp += 1
         reviews.append(
@@ -924,8 +931,15 @@ def s1_calibration_review(
                 is_fp = True
                 reason = "ENVIRONMENT_PATH"
             if f.get("family") == "R5":
-                reason = "MUTATION_SURVIVAL_MATERIAL"
-                is_fp = False
+                if f.get("kind") == "MUTATION_BLINDNESS" and f.get("mutation_outcome") == "MUTATION_SURVIVED":
+                    reason = "MUTATION_SURVIVAL_MATERIAL"
+                    is_fp = False
+                elif f.get("kind") in {"mutation_survival"} and f.get("mutation_outcome") not in {None, "MUTATION_SURVIVED"}:
+                    is_fp = True
+                    reason = "NON_SURVIVAL_MISLABELED_AS_S1"
+                else:
+                    reason = "MUTATION_RELATED_S1"
+                    is_fp = False
             if is_fp:
                 fp += 1
             reviews.append(

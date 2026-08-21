@@ -29,7 +29,7 @@ Accepted main: `0afe3079db47`
 - `orphan_dead_code`: **ADEQUATE**
 - `fixture_honesty`: **STRONG**
 - `documentation_readability`: **ADEQUATE**
-- `mutation_resistance`: **NOT_APPLICABLE**
+- `mutation_resistance`: **NEEDS_WORK**
 
 ## First files to read
 1. README.md (if present)

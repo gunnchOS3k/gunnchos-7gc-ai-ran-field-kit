@@ -18,19 +18,15 @@ Items: 5
 - [S2] `beatlink-party`: WAVE_CODE_CONCENTRATION (43 paths) — not LIKELY_DUPLICATE
 
 ## R4 — Runtime-path inauthenticity
-Items: 4
-- [S2] `gunnchos-device-os`: Runtime authenticity NEEDS_WORK
-- [S2] `gunnchAI3k`: Runtime authenticity NEEDS_WORK
-- [S2] `archive-of-life-artifact-world`: Runtime authenticity NEEDS_WORK
-- [S2] `beatlink-party`: Runtime authenticity NEEDS_WORK
+Items: 0
 
 ## R5 — Mutation blindness
 Items: 5
-- [S1] `gunnchos-research-portal`: Mutation sample not detected by available tests
-- [S1] `7gc-digital-twin`: Mutation sample not detected by available tests
-- [S1] `readygary-6g-beam-selection`: Mutation sample not detected by available tests
-- [S1] `waike-research-ops`: Mutation sample not detected by available tests
-- [S1] `gunnchos-emergent-service-intent-protocols`: Mutation sample not detected by available tests
+- [S1] `gunnchos-research-portal`: Proven mutation survival: behavioral mutation not detected by full relevant suite
+- [S1] `waike-research-ops`: Proven mutation survival: behavioral mutation not detected by full relevant suite
+- [S2] `7gc-digital-twin`: Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE
+- [S2] `readygary-6g-beam-selection`: Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE
+- [S2] `gunnchos-emergent-service-intent-protocols`: Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE
 
 ## R6 — Complexity / hotspot debt
 Items: 12
@@ -48,15 +44,13 @@ Items: 12
 - [S2] `gunnchos-emergent-service-intent-protocols`: Complexity hotspots present
 
 ## R7 — Orphan/dead code & fixture honesty
-Items: 9
+Items: 7
 - [S2] `gunnchos-7gc-ai-ran-field-kit`: Orphan candidates and/or fixture honesty issues
 - [S2] `gunnchos-device-os`: Orphan candidates and/or fixture honesty issues
 - [S2] `edge-io-measurement-node`: Orphan candidates and/or fixture honesty issues
-- [S2] `archive-of-life-artifact-world`: Orphan candidates and/or fixture honesty issues
 - [S2] `7gc-digital-twin`: Orphan candidates and/or fixture honesty issues
 - [S2] `spectrumx-ai-ran-gary`: Orphan candidates and/or fixture honesty issues
 - [S2] `ntn-resilience-sim`: Orphan candidates and/or fixture honesty issues
-- [S2] `readygary-6g-beam-selection`: Orphan candidates and/or fixture honesty issues
 - [S2] `gunnchos-emergent-service-intent-protocols`: Orphan candidates and/or fixture honesty issues
 
 ## R8 — Docs/architecture truth drift

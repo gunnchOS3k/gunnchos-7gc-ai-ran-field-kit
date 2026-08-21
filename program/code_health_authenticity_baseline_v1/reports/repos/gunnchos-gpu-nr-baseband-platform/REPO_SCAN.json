@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-gpu-nr-baseband-platform",
   "accepted_main_sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
-  "scanned_at_utc": "2026-08-21T17:48:03Z",
+  "scanned_at_utc": "2026-08-21T18:12:36Z",
   "counts": {
     "files_classified": 239,
     "code_files": 110,
@@ -31,7 +31,9 @@
     "proof_files": 25,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -62,7 +65,7 @@
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "STRONG",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "NOT_APPLICABLE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [
     {
@@ -113,98 +116,91 @@
   "wave_duplicate_paths": [],
   "fixtures": [],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
     {
-      "from": "tools/reference_adapters/oai/adapter.py",
-      "to": "__future__"
+      "from": "scripts/validate_phy_independent.py",
+      "to": "sys"
     },
     {
       "from": "scripts/gate6_dry_run.py",
       "to": "__future__"
     },
     {
+      "from": "tools/reference_adapters/oai/adapter.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/reference_adapters/srsran/adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_phy_independent.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/reference_adapters/matlab/adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/reference_adapters/srsran/adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_ldpc_bg_tables.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_phy_independent.py",
+      "to": "pathlib"
+    },
+    {
       "from": "tools/reference_adapters/matlab/adapter.py",
       "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_claim_boundaries.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/reference_adapters/srsran/adapter.py",
+      "to": "shutil"
+    },
+    {
+      "from": "tools/reference_adapters/oai/adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/reference_adapters/matlab/adapter.py",
+      "to": "shutil"
     },
     {
       "from": "scripts/validate_phy_independent.py",
       "to": "importlib"
     },
     {
-      "from": "scripts/validate_phy_independent.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/reference_adapters/srsran/adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/reference_adapters/sionna/adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/generate_ldpc_bg_tables.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/reference_adapters/matlab/adapter.py",
-      "to": "json"
-    },
-    {
       "from": "tools/reference_adapters/oai/adapter.py",
       "to": "pathlib"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/reference_adapters/matlab/adapter.py",
-      "to": "shutil"
-    },
-    {
-      "from": "scripts/validate_claim_boundaries.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/generate_ldpc_bg_tables.py",
-      "to": "csv"
-    },
-    {
-      "from": "tools/reference_adapters/srsran/adapter.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/reference_adapters/oai/adapter.py",
-      "to": "json"
     },
     {
       "from": "scripts/gate6_dry_run.py",
       "to": "datetime"
-    },
-    {
-      "from": "scripts/validate_phy_independent.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/generate_ldpc_bg_tables.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_phy_independent.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/reference_adapters/sionna/adapter.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/reference_adapters/oai/adapter.py",
-      "to": "shutil"
     },
     {
       "from": "tools/reference_adapters/sionna/adapter.py",
@@ -216,27 +212,35 @@
     },
     {
       "from": "tools/reference_adapters/srsran/adapter.py",
-      "to": "json"
+      "to": "__future__"
     },
     {
       "from": "tools/reference_adapters/matlab/adapter.py",
       "to": "__future__"
     },
     {
-      "from": "tools/reference_adapters/sionna/adapter.py",
-      "to": "json"
+      "from": "scripts/generate_ldpc_bg_tables.py",
+      "to": "pathlib"
     },
     {
       "from": "scripts/validate_claim_boundaries.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/reference_adapters/srsran/adapter.py",
-      "to": "shutil"
+      "to": "__future__"
     },
     {
       "from": "scripts/validate_phy_independent.py",
-      "to": "pathlib"
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_ldpc_bg_tables.py",
+      "to": "csv"
+    },
+    {
+      "from": "tools/reference_adapters/oai/adapter.py",
+      "to": "shutil"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
+      "to": "__future__"
     }
   ],
   "path_classification_sample": [
@@ -1254,8 +1258,57 @@
   "mutation_sampling": {
     "repository": "gunnchos-gpu-nr-baseband-platform",
     "sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
-    "mutations": [],
-    "status": "NO_MUTATION_TARGETS",
-    "dimension": "NOT_APPLICABLE"
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/gate6_dry_run.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-gpu-nr-baseband-platform",
+      "sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

@@ -14,22 +14,22 @@ Accepted main: `4b4f411710e8`
 - `tests/`, `evals/`, `evidence/`, `artifacts/`, fixtures, wave harnesses.
 
 ## Authenticity snapshot
-- Proof independence: `FAIL_COUPLED`
-- Runtime authenticity: `NEEDS_WORK`
+- Proof independence: `PASS_INDEPENDENT`
+- Runtime authenticity: `ADEQUATE`
 - Theater: S0=0 S1=0 total=171
 - Hotspots: 2; wave-dup paths: 35; orphans≈0
 
 ## Dimension ratings
-- `production_proof_separation`: **CRITICAL**
+- `production_proof_separation`: **STRONG**
 - `anti_test_theater`: **ADEQUATE**
-- `dependency_boundaries`: **NEEDS_WORK**
+- `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **ADEQUATE**
-- `runtime_authenticity`: **NEEDS_WORK**
+- `runtime_authenticity`: **ADEQUATE**
 - `complexity_hotspots`: **ADEQUATE**
 - `orphan_dead_code`: **ADEQUATE**
 - `fixture_honesty`: **ADEQUATE**
 - `documentation_readability`: **ADEQUATE**
-- `mutation_resistance`: **NOT_APPLICABLE**
+- `mutation_resistance`: **NEEDS_WORK**
 
 ## First files to read
 1. README.md (if present)

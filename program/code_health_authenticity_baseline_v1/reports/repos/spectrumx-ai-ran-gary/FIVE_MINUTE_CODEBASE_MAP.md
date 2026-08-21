@@ -17,7 +17,7 @@ Accepted main: `cef3900af100`
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
 - Theater: S0=0 S1=0 total=8
-- Hotspots: 51; wave-dup paths: 0; orphans≈40
+- Hotspots: 52; wave-dup paths: 0; orphans≈40
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
@@ -26,10 +26,10 @@ Accepted main: `cef3900af100`
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
 - `complexity_hotspots`: **CRITICAL**
-- `orphan_dead_code`: **NEEDS_WORK**
+- `orphan_dead_code`: **ADEQUATE**
 - `fixture_honesty`: **ADEQUATE**
 - `documentation_readability`: **ADEQUATE**
-- `mutation_resistance`: **ADEQUATE**
+- `mutation_resistance`: **NEEDS_WORK**
 
 ## First files to read
 1. README.md (if present)

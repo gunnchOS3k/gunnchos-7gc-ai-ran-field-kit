@@ -1,7 +1,7 @@
 {
   "repository": "edge-io-measurement-node",
   "accepted_main_sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
-  "scanned_at_utc": "2026-08-21T17:47:34Z",
+  "scanned_at_utc": "2026-08-21T18:12:03Z",
   "counts": {
     "files_classified": 386,
     "code_files": 129,
@@ -23,7 +23,7 @@
     "hotspots": 40,
     "wave_dup_paths": 0,
     "fixture_paths": 7,
-    "orphan_candidates": 11,
+    "orphan_candidates": 8,
     "dep_edges": 312
   },
   "proof_independence": {
@@ -31,7 +31,9 @@
     "proof_files": 22,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -59,10 +62,10 @@
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "CRITICAL",
-    "orphan_dead_code": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "ADEQUATE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [],
   "theater_calibrated_all": [
@@ -1241,223 +1244,105 @@
   "orphan_candidates": [
     "src/edge_io_node/latency_probe.py",
     "src/edge_io_node/packet_loss_probe.py",
-    "src/edge_io_node/demo.py",
     "src/edge_io_node/__main__.py",
-    "src/edge_io_node/collectors/base.py",
     "src/edge_io_node/exporters/seven_gc_export.py",
-    "src/edge_io_node/contracts/validate.py",
     "src/edge_io_node/tool_adapters/measurement_validation.py",
     "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
     "src/edge_io_node/tool_adapters/oran_kpi_export.py",
     "src/edge_io_node/consent/lifecycle.py"
   ],
+  "orphan_records": [
+    {
+      "path": "src/edge_io_node/latency_probe.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/packet_loss_probe.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/demo.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/edge_io_node/__main__.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/collectors/base.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/edge_io_node/exporters/seven_gc_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/contracts/validate.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/edge_io_node/tool_adapters/measurement_validation.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/tool_adapters/oran_kpi_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_io_node/consent/lifecycle.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
+  ],
   "dependency_edges_sample": [
     {
-      "from": "tests/test_campus_profiles.py",
-      "to": "edge_io_node"
-    },
-    {
-      "from": ".venv-zephyr/bin/readelf.py",
-      "to": "functools"
-    },
-    {
-      "from": "src/edge_io_node/measurement_plan.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/edge_io_node/campus_profiles.py",
-      "to": "yaml"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
-      "to": "argparse"
-    },
-    {
-      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "src/edge_io_node/research_export.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "csv"
-    },
-    {
-      "from": "src/edge_io_node/ring_e2e/siblings.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_pinout_board.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_io_node/cli.py",
-      "to": "argparse"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/host_sim/backends/fake_bus.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/test_ring_input_harness.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_pinout_board.py",
-      "to": "json"
-    },
-    {
-      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/reproduce.py",
-      "to": "subprocess"
-    },
-    {
-      "from": ".venv-zephyr/bin/hexmerge.py",
-      "to": "getopt"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_full_firmware_digital.py",
-      "to": "sys"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
-      "to": "argparse"
-    },
-    {
-      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
-      "to": "latency_hooks"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_full_firmware_digital.py",
-      "to": "pathlib"
-    },
-    {
-      "from": ".venv-zephyr/bin/bin2hex.py",
-      "to": "sys"
-    },
-    {
       "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
-      "to": "sys"
-    },
-    {
-      "from": ".venv-zephyr/bin/readelf.py",
-      "to": "os"
-    },
-    {
-      "from": "src/edge_io_node/collectors/base.py",
-      "to": "datetime"
-    },
-    {
-      "from": "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_io_node/research_export.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_pinout_board.py",
-      "to": "re"
-    },
-    {
-      "from": "src/edge_io_node/consent/lifecycle.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_fixtures.py",
-      "to": "json"
-    },
-    {
-      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
-      "to": "validator"
-    },
-    {
-      "from": ".venv-zephyr/bin/bin2hex.py",
-      "to": "getopt"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/write_firmware_status.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_io_node/ring_e2e/siblings.py",
-      "to": "importlib"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/write_firmware_status.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/zephyr_west_probe.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
-      "to": "typing"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
-      "to": "itertools"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_pipeline.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_io_node/collectors/base.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/edge_io_node/ring_e2e/pipeline.py",
-      "to": "dataclasses"
+      "to": "backends"
     },
     {
       "from": "src/edge_io_node/campus_reports.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_io_node/demo.py",
-      "to": "synthetic_device_emulator"
-    },
-    {
-      "from": "src/edge_io_node/demo.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/edge_io_node/consent/lifecycle.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/contracts/test_gate2_edge_contracts.py",
       "to": "json"
     },
     {
-      "from": "tests/test_telemetry_schema.py",
-      "to": "edge_io_node"
+      "from": "src/edge_io_node/research_export.py",
+      "to": "hashlib"
     },
     {
-      "from": "scripts/gate6_dry_run.py",
+      "from": "tests/test_telemetry_schema.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/research_export.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/contracts/test_gate2_edge_contracts.py",
+      "to": "pytest"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "campus_profiles"
+    },
+    {
+      "from": ".venv-zephyr/bin/hex2dump.py",
+      "to": "getopt"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_pipeline.py",
       "to": "json"
     },
     {
@@ -1465,112 +1350,284 @@
       "to": "edge_io_node"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/edge_io_node/ring_e2e/classifier.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
-      "to": "backends"
-    },
-    {
-      "from": ".venv-zephyr/bin/hex2dump.py",
-      "to": "intelhex"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_protocol_host.py",
-      "to": "hmac"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_io_node/ring_input_harness/__init__.py",
-      "to": "latency_hooks"
-    },
-    {
-      "from": "src/edge_io_node/cli.py",
-      "to": "campus_reports"
-    },
-    {
-      "from": "src/edge_io_node/campus_export.py",
-      "to": "json"
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "edge_io_node"
     },
     {
       "from": "src/edge_io_node/demo.py",
-      "to": "export_to_7gc"
-    },
-    {
-      "from": "src/edge_io_node/ring_e2e/ble_sim.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/edge_io_node/exporters/seven_gc_export.py",
-      "to": "shutil"
-    },
-    {
-      "from": "src/edge_io_node/collectors/base.py",
       "to": "pathlib"
     },
     {
-      "from": "src/edge_io_node/ring_e2e/app_feedback.py",
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_sign.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/ring_e2e/pipeline.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_rq3_digital_measurement.py",
+      "to": "pytest"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/host_sim/backends/fake_bus.py",
       "to": "__future__"
     },
     {
-      "from": "src/edge_io_node/campus_reports.py",
-      "to": "campus_export"
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_sign.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/edge_io_node/campus_export.py",
+      "to": "privacy_transform"
     },
     {
       "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_pipeline.py",
       "to": "importlib"
     },
     {
-      "from": "src/edge_io_node/ring_input_harness/validator.py",
+      "from": "src/edge_io_node/collectors/base.py",
       "to": "dataclasses"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_sign.py",
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/zephyr_west_probe.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_io_node/consent/lifecycle.py",
+      "to": "secrets"
+    },
+    {
+      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
+      "to": "validator"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "time"
+    },
+    {
+      "from": "tests/test_ring_fallback_policy.py",
       "to": "pathlib"
     },
     {
-      "from": "src/edge_io_node/collectors/base.py",
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_fixtures.py",
       "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/campus_profiles.py",
+      "to": "yaml"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_dev_sign.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
+      "to": "backends"
+    },
+    {
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "time"
+    },
+    {
+      "from": "src/edge_io_node/research_export.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_fixtures.py",
+      "to": "importlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_ble_stub.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "to": "os"
+    },
+    {
+      "from": "src/edge_io_node/consent/lifecycle.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
+      "to": "json"
+    },
+    {
+      "from": ".venv-zephyr/bin/hex2dump.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_io_node/contracts/validate.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
+      "to": "sys"
+    },
+    {
+      "from": ".venv-zephyr/bin/hex2dump.py",
+      "to": "errno"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_dev_sign.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "to": "traceback"
+    },
+    {
+      "from": "tests/test_ring_input_harness.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/edge_io_node/research_export.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/measurement_plan.py",
+      "to": "campus_profiles"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "sys"
+    },
+    {
+      "from": ".venv-zephyr/bin/hex2bin.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_io_node/campus_reports.py",
+      "to": "campus_profiles"
+    },
+    {
+      "from": "src/edge_io_node/contracts/schema_loader.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/contracts/test_gate2_edge_contracts.py",
+      "to": "edge_io_node"
+    },
+    {
+      "from": ".venv-zephyr/bin/hexinfo.py",
+      "to": "intelhex"
+    },
+    {
+      "from": ".venv-zephyr/bin/bin2hex.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "campus_reports"
+    },
+    {
+      "from": "tests/test_rq3_digital_measurement.py",
+      "to": "edge_io_node"
+    },
+    {
+      "from": "src/edge_io_node/research_export.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/edge_io_node/exporters/seven_gc_export.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "exporters"
+    },
+    {
+      "from": "src/edge_io_node/consent/lifecycle.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
+      "to": "sys"
+    },
+    {
+      "from": ".venv-zephyr/bin/readelf.py",
+      "to": "cProfile"
     },
     {
       "from": "src/edge_io_node/cli.py",
       "to": "json"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_sign.py",
-      "to": "json"
+      "from": "src/edge_io_node/ring_e2e/classifier.py",
+      "to": "typing"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/pack_arm_elf.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
-      "to": "argparse"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/pack_arm_elf.py",
+      "from": ".venv-zephyr/bin/hexmerge.py",
       "to": "sys"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/zephyr_west_probe.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/zephyr_west_probe.py",
+      "to": "shutil"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/tool_adapters/oran_kpi_export.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/edge_io_node/anti_replay.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_all_campus_measurements.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "contracts"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_full_firmware_digital.py",
       "to": "subprocess"
     },
     {
-      "from": "tests/test_rq3_digital_measurement.py",
-      "to": "pytest"
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
+      "to": "pathlib"
+    },
+    {
+      "from": ".venv-zephyr/bin/hexdiff.py",
+      "to": "intelhex"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
+      "to": "json"
     }
   ],
   "path_classification_sample": [
@@ -2591,28 +2648,54 @@
     "mutations": [
       {
         "index": 1,
-        "path": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
-        "kind": "flip_return_false",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 2,
-        "path": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
-        "kind": "flip_return_true",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 3,
         "path": "src/edge_io_node/anti_replay.py",
         "kind": "flip_return_true",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "ADEQUATE",
-    "detected_count": 3
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "edge-io-measurement-node",
+      "sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

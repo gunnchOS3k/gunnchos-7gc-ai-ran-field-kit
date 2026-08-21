@@ -1,7 +1,7 @@
 {
   "repository": "readygary-6g-beam-selection",
   "accepted_main_sha": "569875224db7812890ec6abc48dfe43a608094f3",
-  "scanned_at_utc": "2026-08-21T17:47:51Z",
+  "scanned_at_utc": "2026-08-21T18:12:26Z",
   "counts": {
     "files_classified": 310,
     "code_files": 71,
@@ -23,7 +23,7 @@
     "hotspots": 19,
     "wave_dup_paths": 0,
     "fixture_paths": 1,
-    "orphan_candidates": 7,
+    "orphan_candidates": 0,
     "dep_edges": 300
   },
   "proof_independence": {
@@ -31,7 +31,9 @@
     "proof_files": 7,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -62,7 +65,7 @@
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "CRITICAL"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [
     {
@@ -266,258 +269,295 @@
       "honesty": "DECLARED_FIXTURE"
     }
   ],
-  "orphan_candidates": [
-    "src/readygary_tool_adapters/deepmimo_adapter.py",
-    "src/readygary_tool_adapters/tensorrt_adapter.py",
-    "src/readygary_tool_adapters/nvidia_probe.py",
-    "src/readygary_tool_adapters/aerial_adapter.py",
-    "src/readygary_tool_adapters/aodt_adapter.py",
-    "src/readygary_tool_adapters/sionna_channel_adapter.py",
-    "src/readygary_tool_adapters/benchmark_dataset_registry.py"
+  "orphan_candidates": [],
+  "orphan_records": [
+    {
+      "path": "src/readygary_tool_adapters/deepmimo_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/tensorrt_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/nvidia_probe.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/readygary_tool_adapters/aerial_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/aodt_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/benchmark_dataset_registry.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    }
   ],
   "dependency_edges_sample": [
     {
-      "from": "scripts/run_paper_ii_beam_experiment.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_additive_fr2.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/generate_dataset.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/readygary_tool_adapters/aerial_adapter.py",
-      "to": "pyaerial"
-    },
-    {
-      "from": "deploy/tensorrt_compile.py",
-      "to": "time"
-    },
-    {
-      "from": "sim/baselines/exhaustive_search.py",
-      "to": "matplotlib"
-    },
-    {
-      "from": "sim/dualband/controller.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/readygary_tool_adapters/nvidia_probe.py",
-      "to": "shutil"
-    },
-    {
-      "from": "scripts/run_dualband_programme.py",
-      "to": "argparse"
+      "from": "tests/test_onnx_ort.py",
+      "to": "__future__"
     },
     {
       "from": "tests/test_paper_ii_digital.py",
       "to": "numpy"
     },
     {
-      "from": "scripts/run_paper_ii_heldout.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "sim/experiments/sub6_programme.py",
-      "to": "__future__"
-    },
-    {
-      "from": "deploy/server.py",
-      "to": "deploy"
-    },
-    {
-      "from": "sim/channels/tdl_cdl.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/run_timing_harness.py",
-      "to": "numpy"
+      "from": "deploy/onnx_export.py",
+      "to": "onnx"
     },
     {
       "from": "paper/scripts/generate_tables.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_benchmark_table.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/run_benchmark_table.py",
-      "to": "sys"
-    },
-    {
-      "from": "sim/baselines/hierarchical_search.py",
-      "to": "typing"
-    },
-    {
-      "from": "deploy/server.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_dataset.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "scripts/run_paper_ii_beam_experiment.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/readygary_tool_adapters/tensorrt_adapter.py",
-      "to": "json"
-    },
-    {
-      "from": "sim/models/lstm_beam_tracker.py",
       "to": "matplotlib"
     },
     {
-      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
-      "to": "json"
+      "from": "sim/channels/aodt.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/experiments/dualband_programme.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/models/gnn_multi_bs.py",
+      "to": "numpy"
+    },
+    {
+      "from": "sim/channels/synthetic.py",
+      "to": "typing"
+    },
+    {
+      "from": "sim/models/gnn_trainable.py",
+      "to": "sim"
+    },
+    {
+      "from": "deploy/client.py",
+      "to": "urllib"
     },
     {
       "from": "scripts/prepare_deepmimo_config.py",
-      "to": "sys"
+      "to": "readygary_tool_adapters"
     },
     {
-      "from": "src/readygary_tool_adapters/aodt_adapter.py",
-      "to": "json"
+      "from": "sim/metrics.py",
+      "to": "random"
     },
     {
-      "from": "sim/experiments/sub6_programme.py",
-      "to": "math"
-    },
-    {
-      "from": "src/readygary_tool_adapters/deepmimo_adapter.py",
-      "to": "yaml"
-    },
-    {
-      "from": "sim/experiments/sub6_programme.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "sys"
-    },
-    {
-      "from": "sim/channels/tdl_cdl.py",
-      "to": "typing"
-    },
-    {
-      "from": "sim/channels/sub6.py",
-      "to": "numpy"
-    },
-    {
-      "from": "sim/experiments/dualband_programme.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_sub6_dualband.py",
-      "to": "numpy"
+      "from": "scripts/run_deepmimo_benchmark.py",
+      "to": "readygary_tool_adapters"
     },
     {
       "from": "sim/bands/__init__.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_benchmark_table.py",
       "to": "pathlib"
-    },
-    {
-      "from": "sim/policies/sequential_band.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "deploy/tensorrt_compile.py",
-      "to": "numpy"
-    },
-    {
-      "from": "tests/test_additive_fr2.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/run_all_tool_exports.py",
-      "to": "sim"
-    },
-    {
-      "from": "tests/test_metrics.py",
-      "to": "sim"
-    },
-    {
-      "from": "sim/dualband/controller.py",
-      "to": "__future__"
-    },
-    {
-      "from": "sim/experiments/dualband_programme.py",
-      "to": "json"
     },
     {
       "from": "scripts/run_paper_ii_heldout.py",
       "to": "run_paper_ii_beam_experiment"
     },
     {
-      "from": "scripts/prepare_deepmimo_config.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "deploy/server.py",
-      "to": "sim"
-    },
-    {
-      "from": "sim/models/lstm_beam_tracker.py",
-      "to": "torch"
-    },
-    {
-      "from": "scripts/prepare_sionna_channel_config.py",
-      "to": "sys"
+      "from": "sim/access/radio_decision.py",
+      "to": "dataclasses"
     },
     {
       "from": "deploy/onnx_validate.py",
       "to": "numpy"
     },
     {
-      "from": "scripts/run_benchmark_table.py",
-      "to": "json"
+      "from": "scripts/onnx_export_stub.py",
+      "to": "sys"
     },
     {
-      "from": "scripts/check_band_firewall.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_timing_harness.py",
-      "to": "time"
-    },
-    {
-      "from": "sim/metrics.py",
-      "to": "time"
-    },
-    {
-      "from": "scripts/run_sub6_programme.py",
-      "to": "json"
-    },
-    {
-      "from": "deploy/tensorrt_compile.py",
-      "to": "tensorrt"
-    },
-    {
-      "from": "sim/experiments/digital_programme.py",
-      "to": "time"
+      "from": "sim/models/lstm_beam_tracker.py",
+      "to": "sklearn"
     },
     {
       "from": "paper/scripts/generate_tables.py",
-      "to": "csv"
+      "to": "__future__"
     },
     {
-      "from": "scripts/e2e_check_required_artifacts.py",
+      "from": "sim/baselines/exhaustive_search.py",
+      "to": "time"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_metrics.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/metrics.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/channels/__init__.py",
+      "to": "sim"
+    },
+    {
+      "from": "deploy/tensorrt_compile.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/check_readme_claims.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/readygary_tool_adapters/aerial_adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/baselines/hierarchical_search.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_sub6_dualband.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/run_timing_harness.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "deploy/grpc_servicer.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/access/radio_decision.py",
+      "to": "__future__"
+    },
+    {
+      "from": "deploy/grpc_servicer.py",
+      "to": "grpc"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
       "to": "pathlib"
     },
     {
       "from": "sim/experiments/dualband_programme.py",
-      "to": "yaml"
+      "to": "json"
+    },
+    {
+      "from": "sim/bands/__init__.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/readygary_tool_adapters/tensorrt_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_sub6_programme.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_onnx_ort.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_timing_harness.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/run_paper_ii_beam_experiment.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "sionna"
+    },
+    {
+      "from": "scripts/run_dualband_programme.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/channels/tdl_cdl.py",
+      "to": "numpy"
     },
     {
       "from": "sim/channels/sionna_rt.py",
+      "to": "sionna"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "deploy"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/generate_dataset.py",
+      "to": "typing"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "urllib"
+    },
+    {
+      "from": "sim/channels/sionna_rt.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
+      "to": "importlib"
+    },
+    {
+      "from": "scripts/run_all_campus_radio.py",
+      "to": "yaml"
+    },
+    {
+      "from": "sim/baselines/exhaustive_search.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "sim/experiments/digital_programme.py",
+      "to": "json"
+    },
+    {
+      "from": "sim/experiments/sub6_programme.py",
+      "to": "typing"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/models/lstm_beam_tracker.py",
+      "to": "torch"
+    },
+    {
+      "from": "sim/policies/adaptive_tracking.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/experiments/dualband_programme.py",
       "to": "numpy"
     },
     {
@@ -525,76 +565,68 @@
       "to": "numpy"
     },
     {
-      "from": "tests/test_additive_fr2.py",
-      "to": "deploy"
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "pathlib"
     },
     {
-      "from": "tests/test_onnx_ort.py",
-      "to": "__future__"
-    },
-    {
-      "from": "sim/channels/synthetic.py",
-      "to": "numpy"
-    },
-    {
-      "from": "deploy/onnx_validate.py",
-      "to": "onnxruntime"
-    },
-    {
-      "from": "sim/experiments/sub6_programme.py",
+      "from": "tests/test_paper_ii_digital.py",
       "to": "sim"
     },
     {
-      "from": "scripts/run_all_tool_exports.py",
-      "to": "sys"
+      "from": "sim/channels/synthetic.py",
+      "to": "__future__"
     },
     {
       "from": "deploy/server.py",
-      "to": "pydantic"
+      "to": "http"
+    },
+    {
+      "from": "sim/policies/sequential_band.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/readygary_tool_adapters/aerial_adapter.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/experiments/__init__.py",
+      "to": "digital_programme"
+    },
+    {
+      "from": "sim/models/gnn_multi_bs.py",
+      "to": "sim"
     },
     {
       "from": "deploy/tiny_beam_scorer.py",
       "to": "numpy"
     },
     {
-      "from": "tests/test_additive_fr2.py",
-      "to": "pathlib"
+      "from": "scripts/onnx_export_stub.py",
+      "to": "onnx"
     },
     {
-      "from": "scripts/prepare_deepmimo_config.py",
-      "to": "readygary_tool_adapters"
+      "from": "scripts/run_sub6_programme.py",
+      "to": "argparse"
     },
     {
-      "from": "sim/dualband/controller.py",
-      "to": "typing"
-    },
-    {
-      "from": "deploy/client.py",
-      "to": "sys"
-    },
-    {
-      "from": "sim/bands/__init__.py",
-      "to": "sim"
-    },
-    {
-      "from": "scripts/prepare_sionna_channel_config.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_timing_harness.py",
-      "to": "math"
-    },
-    {
-      "from": "sim/access/radio_decision.py",
+      "from": "deploy/tensorrt_compile.py",
       "to": "__future__"
     },
     {
-      "from": "tests/test_onnx_ort.py",
-      "to": "deploy"
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "pathlib"
     },
     {
-      "from": "sim/channels/sub6.py",
-      "to": "__future__"
+      "from": "deploy/server.py",
+      "to": "fastapi"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/run_paper_ii_beam_experiment.py",
+      "to": "argparse"
     }
   ],
   "path_classification_sample": [
@@ -1618,25 +1650,101 @@
         "path": "sim/experiments/digital_programme.py",
         "kind": "flip_return_true",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
       },
       {
         "index": 2,
-        "path": "sim/channels/synthetic.py",
-        "kind": "flip_return_true",
+        "path": "scripts/run_benchmark_table.py",
+        "kind": "flip_return_zero",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
       },
       {
         "index": 3,
-        "path": "sim/channels/sionna_rt.py",
-        "kind": "flip_return_true",
+        "path": "scripts/run_timing_harness.py",
+        "kind": "flip_return_zero",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "CRITICAL",
-    "detected_count": 0
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "readygary-6g-beam-selection",
+      "sha": "569875224db7812890ec6abc48dfe43a608094f3",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "sim/experiments/digital_programme.py",
+          "kind": "flip_return_true",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_benchmark_table.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_timing_harness.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

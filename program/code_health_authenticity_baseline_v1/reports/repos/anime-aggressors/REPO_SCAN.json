@@ -1,7 +1,7 @@
 {
   "repository": "anime-aggressors",
   "accepted_main_sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
-  "scanned_at_utc": "2026-08-21T17:47:37Z",
+  "scanned_at_utc": "2026-08-21T18:12:05Z",
   "counts": {
     "files_classified": 1312,
     "code_files": 769,
@@ -31,7 +31,9 @@
     "proof_files": 215,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -62,7 +65,7 @@
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "STRONG",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "NOT_APPLICABLE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [
     {
@@ -789,326 +792,327 @@
   "wave_duplicate_paths": [],
   "fixtures": [],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
     {
-      "from": "apps/web/src/screens/ControlsScreen.ts",
-      "to": "../input/gamepad.js"
+      "from": "apps/web/test/mainMenuSceneRenderer.test.ts",
+      "to": "../src/renderer-three/menu/MenuFighterShowcase.ts"
     },
     {
-      "from": "apps/web/test/rulesetStorage.test.ts",
-      "to": "node:test"
-    },
-    {
-      "from": "apps/web/src/input/deviceAssignment.ts",
-      "to": "./keyboard.ts"
-    },
-    {
-      "from": "apps/web/test/godotPagesPath.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/web/test/combatEventAdapter.test.ts",
+      "from": "apps/web/test/matchSetupSession.test.ts",
       "to": "node:assert/strict"
     },
     {
-      "from": "apps/web/src/screens/MatchSetupRulesScreen.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/src/combat/projectiles.ts",
-      "to": "./beamTypes.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/vfx/ElementalAuraChargeSystem.ts",
-      "to": "three"
-    },
-    {
-      "from": "apps/web/src/match/matchSetupSession.ts",
-      "to": "./matchSession.ts"
-    },
-    {
-      "from": "packages/game-core/src/simulate.ts",
-      "to": "./combat.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/menu/MenuFighterShowcase.ts",
-      "to": "../fighters/FighterAppearance.ts"
-    },
-    {
-      "from": "apps/web/test/energyClashVfx.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/web/src/modes/flaglineClashView.ts",
-      "to": "../screens/FlaglineClashHUD.js"
-    },
-    {
-      "from": "packages/game-core/src/moves/fighterMoveTuning.ts",
-      "to": "../defaultFighters.js"
-    },
-    {
-      "from": "apps/web/test/readyFightSequence.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "packages/game-core/test/hitResolution.test.ts",
-      "to": "../src/index.js"
-    },
-    {
-      "from": "apps/web/test/mainMenuRoutes.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/web/src/ui/MainMenuCarousel.ts",
-      "to": "./mainMenuConfig.ts"
-    },
-    {
-      "from": "apps/web/src/screens/homeScreenMarkup.ts",
-      "to": "../ui/MainMenuCarousel.ts"
-    },
-    {
-      "from": "apps/web/src/screens/StageSelectScreen.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/test/stageSelectTheme.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "packages/game-core/src/movement/recovery.ts",
-      "to": "./movementTypes.js"
-    },
-    {
-      "from": "packages/game-core/src/index.ts",
-      "to": "./training/trainingMode.js"
-    },
-    {
-      "from": "apps/web/test/createdFightersStorage.test.ts",
-      "to": "../src/storage/createdFightersStorage.ts"
-    },
-    {
-      "from": "apps/web/src/renderer-three/fighters/FighterModelFactory.ts",
-      "to": "./LowPolyHumanoid.ts"
-    },
-    {
-      "from": "packages/game-core/test/gate1CoreLoop.test.ts",
-      "to": "node:child_process"
-    },
-    {
-      "from": "packages/rollback/src/rollbackSession.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/src/combat/fighterProjectiles.ts",
-      "to": "../moves/universalMoveSchema.js"
-    },
-    {
-      "from": "apps/web/test/fighterModelDepth.test.ts",
-      "to": "node:test"
-    },
-    {
-      "from": "apps/web/src/renderer-three/preview/CharacterPreviewRenderer.ts",
-      "to": "../fighters/FighterModelFactory.ts"
-    },
-    {
-      "from": "apps/web/src/screens/ImpactDummyDerbyResultsScreen.ts",
-      "to": "../router.ts"
-    },
-    {
-      "from": "packages/netplay/src/index.ts",
-      "to": "./webSocketTransport.js"
-    },
-    {
-      "from": "apps/web/src/ui/setup/SetupFlowShell.ts",
-      "to": "../theme/arenaClasses.ts"
-    },
-    {
-      "from": "apps/web/test/battleSceneBoot.test.ts",
-      "to": "../src/renderer-three/fighters/FighterModelFactory.ts"
-    },
-    {
-      "from": "apps/web/src/game/App.ts",
-      "to": "../input/deviceAssignment.js"
-    },
-    {
-      "from": "packages/game-core/src/combat/fighterProjectiles.ts",
-      "to": "../moves/combatMoveData.js"
-    },
-    {
-      "from": "apps/web/test/godotBootManifest.test.ts",
-      "to": "../src/godot/godotExportStatus.ts"
-    },
-    {
-      "from": "packages/game-core/test/energyClash.test.ts",
-      "to": "node:test"
-    },
-    {
-      "from": "apps/web/src/combat/CombatEventAdapter.ts",
-      "to": "../audio/AudioEventBus.ts"
-    },
-    {
-      "from": "apps/web/src/ui/StageGrid.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/test/mainMenuRoutes.test.ts",
-      "to": "../src/ui/mainMenuConfig.ts"
+      "from": "apps/web/src/main.ts",
+      "to": "./modes/impactDummyDerbyView.js"
     },
     {
       "from": "apps/web/src/renderer-three/fighters/victoryAnimations.ts",
-      "to": "@anime-aggressors/game-core"
+      "to": "./FighterAnimator.ts"
     },
     {
-      "from": "apps/web/src/ui/setup/SetupProgressRail.ts",
-      "to": "../theme/arenaTheme.ts"
+      "from": "apps/web/src/ui/stage/StagePreviewCanvas.ts",
+      "to": "../../renderer-three/stages/stageVisualConfigs.ts"
     },
     {
-      "from": "apps/web/test/mapSelectActualPreview.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "apps/web/test/combatEventAdapter.test.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/test/impactDummyDerbyRoutes.test.ts",
+      "from": "packages/game-core/test/impactDummyDerby.test.ts",
       "to": "node:assert/strict"
-    },
-    {
-      "from": "apps/web/test/homeScreenMenu.test.ts",
-      "to": "../src/routes.ts"
-    },
-    {
-      "from": "apps/web/src/modes/flaglineClashView.ts",
-      "to": "../router.js"
     },
     {
       "from": "apps/web/src/renderer-three/fighters/ProceduralPoseSystem.ts",
       "to": "./FighterAnimator.ts"
     },
     {
-      "from": "tools/blender/export_all_fighters.py",
-      "to": "shutil"
+      "from": "packages/game-core/src/modes/flaglineTypes.ts",
+      "to": "../createdFighter.js"
+    },
+    {
+      "from": "apps/web/src/renderer-three/FlaglineStageView.ts",
+      "to": "./stages/StageModelFactory.ts"
+    },
+    {
+      "from": "apps/web/src/ui/stage/StageSelectGrid.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "packages/game-core/test/stageCollision.test.ts",
+      "to": "../src/index.js"
+    },
+    {
+      "from": "packages/game-core/test/jumpBufferCoyote.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "packages/game-core/test/milestone2FighterControllerFeel.test.ts",
+      "to": "../src/index.js"
+    },
+    {
+      "from": "apps/web/src/ui/AuraMeter.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/test/saveGameStorage.test.ts",
+      "to": "../src/storage/saveGameStorage.ts"
+    },
+    {
+      "from": "apps/web/src/screens/MatchSetupRulesScreen.ts",
+      "to": "../ui/rules/RulesPresetCard.ts"
+    },
+    {
+      "from": "apps/web/test/elementalAuraVfx.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "packages/game-core/src/combat.ts",
+      "to": "./stages.js"
     },
     {
       "from": "packages/game-core/src/index.ts",
-      "to": "./career/stats.js"
+      "to": "./state.js"
     },
     {
-      "from": "packages/game-core/src/combat.ts",
+      "from": "apps/web/test/auraMeter.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "packages/game-core/src/combat/blastZones.ts",
+      "to": "../types.js"
+    },
+    {
+      "from": "packages/game-core/test/matchRecord.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "packages/game-core/src/modes/flaglineProgression.ts",
+      "to": "./flaglineTypes.js"
+    },
+    {
+      "from": "packages/game-core/test/projectiles.test.ts",
+      "to": "../src/index.js"
+    },
+    {
+      "from": "apps/web/test/battlePresentation.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "packages/game-core/src/bots/versusCpu.ts",
+      "to": "../types.js"
+    },
+    {
+      "from": "apps/web/test/flaglineRoutes.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "apps/web/test/stagePreviewRenderer.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "packages/game-core/test/gate1CoreLoop.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "packages/game-core/src/movement/ledgeSystem.ts",
+      "to": "./movementTypes.js"
+    },
+    {
+      "from": "tools/blender/generate_fighter_blockouts.py",
+      "to": "__future__"
+    },
+    {
+      "from": "packages/game-core/src/rulesets.ts",
+      "to": "./createdFighter.js"
+    },
+    {
+      "from": "apps/web/test/matchSetupSession.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "packages/game-core/src/career/replay.ts",
       "to": "./types.js"
     },
     {
+      "from": "legacy/web/sw.ts",
+      "to": "workbox-strategies"
+    },
+    {
+      "from": "packages/game-core/test/flaglineObjective.test.ts",
+      "to": "../src/modes/flaglineTypes.js"
+    },
+    {
+      "from": "packages/game-core/test/sizeClasses.test.ts",
+      "to": "../src/aura/auraTypes.js"
+    },
+    {
+      "from": "packages/game-core/test/impactDummyDerby.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/src/renderer-three/vfx/CombatVfxSystems.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "packages/game-core/test/comboRoutes.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "packages/game-core/test/jumpBufferCoyote.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/test/auraChargeInputMapping.test.ts",
+      "to": "../src/input/inputProfiles.ts"
+    },
+    {
+      "from": "apps/web/src/renderer-three/stages/StageModelFactory.ts",
+      "to": "../materials/AnimeMaterialLibrary.ts"
+    },
+    {
+      "from": "apps/web/test/battlePresentation.test.ts",
+      "to": "../src/renderer-three/camera/BattleCamera.ts"
+    },
+    {
+      "from": "apps/web/src/storage/rulesetStorage.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/test/elementalAuraVfx.test.ts",
+      "to": "node:test"
+    },
+    {
       "from": "apps/web/test/impactDummyDerbyVisibleObjects.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/web/src/navigation/modeEntryGuards.ts",
-      "to": "../match/matchSetupSession.ts"
-    },
-    {
-      "from": "apps/web/test/godotCacheBusting.test.ts",
       "to": "node:path"
     },
     {
-      "from": "apps/web/src/renderer-three/StageView.ts",
-      "to": "three"
-    },
-    {
-      "from": "packages/game-core/test/combat.test.ts",
-      "to": "node:test"
-    },
-    {
-      "from": "apps/web/test/stageSelectTheme.test.ts",
+      "from": "apps/web/src/screens/MatchSetupRulesScreen.ts",
       "to": "@anime-aggressors/game-core"
     },
     {
-      "from": "packages/game-core/src/combat/hitResolution.ts",
-      "to": "../stages.js"
+      "from": "apps/web/src/screens/MatchHistoryScreen.ts",
+      "to": "../router.ts"
     },
     {
-      "from": "apps/web/test/readmeControlsAuraCharge.test.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "apps/web/src/modes/impactDummyDerbyBoot.ts",
-      "to": "../renderer-three/ImpactDummyView.ts"
-    },
-    {
-      "from": "apps/web/src/screens/MatchResultsScreen.ts",
-      "to": "../ui/theme/arenaClasses.ts"
-    },
-    {
-      "from": "apps/web/src/input/inputBindings.ts",
-      "to": "./actions.ts"
-    },
-    {
-      "from": "packages/game-core/src/combat.ts",
-      "to": "./moves.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/ThreeGameRenderer.ts",
-      "to": "./HurtboxDebugView.ts"
-    },
-    {
-      "from": "apps/web/test/jumpAnimationHooks.test.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/src/input/keyboard.ts",
-      "to": "./inputFrame.js"
-    },
-    {
-      "from": "apps/web/test/controlsCheckVersus.test.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "packages/game-core/test/saveGameRecord.test.ts",
+      "from": "packages/game-core/test/gate1CoreLoop.test.ts",
       "to": "node:test"
     },
     {
-      "from": "packages/game-core/test/auraChargeDoesNotBlockJump.test.ts",
-      "to": "../src/types.js"
+      "from": "apps/web/test/moveListScreen.test.ts",
+      "to": "../src/routes.ts"
     },
     {
-      "from": "apps/web/test/gameGodotPrimaryValidation.test.ts",
+      "from": "packages/game-core/test/sizeClasses.test.ts",
       "to": "node:assert/strict"
     },
     {
-      "from": "apps/web/src/renderer-three/fighters/LowPolyFighterRig.ts",
-      "to": "three"
+      "from": "apps/web/src/game/App.ts",
+      "to": "../replay/ReplayRecorder.js"
     },
     {
-      "from": "apps/web/test/impactDummyDerbyNoFakeResults.test.ts",
-      "to": "node:assert/strict"
+      "from": "packages/game-core/src/index.ts",
+      "to": "./fighterCreation.js"
     },
     {
       "from": "apps/web/test/godotBuildManifestCacheBusting.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "apps/web/test/comboGuide.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "apps/web/src/renderer-three/stages/StageModelFactory.ts",
+      "to": "../RenderTypes.ts"
+    },
+    {
+      "from": "apps/web/test/fullScopeProductionValidation.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "apps/web/src/ui/setup/VersusConfirmPanel.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/test/controlsCheckVersus.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "apps/web/test/lowPolyModelFactory.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "apps/web/src/renderer-three/ThreeGameRenderer.ts",
+      "to": "./RenderTypes.ts"
+    },
+    {
+      "from": "packages/game-core/src/career/saveGame.ts",
+      "to": "./types.js"
+    },
+    {
+      "from": "packages/game-core/test/comboRoutes.test.ts",
       "to": "node:test"
     },
     {
-      "from": "apps/web/test/fighterRigParts.test.ts",
-      "to": "../src/renderer-three/fighters/FighterRigParts.ts"
+      "from": "packages/game-core/test/gate1CoreLoop.test.ts",
+      "to": "node:child_process"
     },
     {
-      "from": "packages/game-core/test/rulesetMatchIntegration.test.ts",
+      "from": "apps/web/src/renderer-three/camera/PlatformFighterCamera.ts",
+      "to": "./CinematicEffects.ts"
+    },
+    {
+      "from": "apps/web/src/screens/careerScreenShared.ts",
+      "to": "../routes.ts"
+    },
+    {
+      "from": "apps/web/src/screens/MatchSetupRulesScreen.ts",
+      "to": "../routes.js"
+    },
+    {
+      "from": "apps/web/test/cameraDirector.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "packages/netplay/src/localLoopbackTransport.ts",
+      "to": "./transport.js"
+    },
+    {
+      "from": "apps/web/src/renderer-three/preview/CharacterSelectStage.ts",
+      "to": "three"
+    },
+    {
+      "from": "packages/game-core/test/sizeClasses.test.ts",
       "to": "node:test"
     },
     {
-      "from": "packages/netplay/src/index.ts",
-      "to": "./netplaySession.js"
+      "from": "apps/web/src/renderer-three/stages/StageModelFactory.ts",
+      "to": "@anime-aggressors/game-core"
     },
     {
-      "from": "apps/web/src/renderer-three/vfx/AuraParticleSystem.ts",
-      "to": "./AuraChargeMaterials.ts"
+      "from": "packages/game-core/src/combat.ts",
+      "to": "./combat/playerLifecycle.js"
     },
     {
-      "from": "packages/game-core/src/combat/fighterProjectiles.ts",
-      "to": "../moves/fighterMoveTuning.js"
+      "from": "apps/web/test/godotPagesPath.test.ts",
+      "to": "node:assert/strict"
     },
     {
-      "from": "apps/web/test/impactDummyDerbyVisibleObjects.test.ts",
-      "to": "../src/modes/impactDummyDerbyBoot.ts"
+      "from": "apps/web/src/router.ts",
+      "to": "./match/quickMatch.ts"
+    },
+    {
+      "from": "apps/web/test/lowPolyModelFactory.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/test/runtimeLabel.test.ts",
+      "to": "../src/ui/runtimeLabel.ts"
+    },
+    {
+      "from": "apps/web/src/renderer-three/createBattleScene.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/src/screens/MatchSetupControlsScreen.ts",
+      "to": "../ui/setup/SetupFlowShell.ts"
     }
   ],
   "path_classification_sample": [
@@ -2126,8 +2130,58 @@
   "mutation_sampling": {
     "repository": "anime-aggressors",
     "sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
-    "mutations": [],
-    "status": "NO_MUTATION_TARGETS",
-    "dimension": "NOT_APPLICABLE"
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/test_g2_c6_product_depth.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "anime-aggressors",
+      "sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
+      "test_command": {
+        "argv": [
+          "npm",
+          "test",
+          "--if-present"
+        ],
+        "source": "package.json:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

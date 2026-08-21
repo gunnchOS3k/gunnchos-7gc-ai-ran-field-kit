@@ -1,0 +1,816 @@
+{
+  "generated_at_utc": "2026-08-21T18:12:36Z",
+  "MUTATION_CLASSIFIER_CONTROLS_PASS": true,
+  "flags": {
+    "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+    "COLLECTION_ONLY_NOT_SURVIVAL": true,
+    "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+    "NO_TESTS_DIR_NOT_SURVIVAL": true,
+    "BEHAVIORAL_MUTATION_REQUIRED": true,
+    "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+    "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+    "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+  },
+  "classifier_controls": {
+    "MUTATION_CLASSIFIER_CONTROLS_PASS": true,
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "cases": [
+      {
+        "name": "collection_only_not_survived",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "name": "marker_not_survived",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "name": "no_tests_not_survived",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "name": "baseline_fail_inconclusive",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "name": "behavioral_pass_survived",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "name": "behavioral_fail_killed",
+        "pass": true,
+        "detail": ""
+      }
+    ]
+  },
+  "repos": [
+    {
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/assignment_canonical.py",
+          "kind": "remove_validation",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "gunnchos-research-portal",
+      "sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
+      "mutation_outcome": "MUTATION_SURVIVED",
+      "dimension": "CRITICAL",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 0,
+        "passed": true,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "scripts/validate_supervisor_ready.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_KILLED"
+        },
+        {
+          "path": "scripts/audit_portfolio.py",
+          "kind": "flip_return_zero",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        }
+      ],
+      "mutations": [
+        {
+          "path": "scripts/validate_supervisor_ready.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": true,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_KILLED"
+        },
+        {
+          "path": "scripts/audit_portfolio.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": true,
+          "mutated_passed": true,
+          "mutation_outcome": "MUTATION_SURVIVED"
+        }
+      ]
+    },
+    {
+      "repository": "gunnchos-device-os",
+      "sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/collect_reference_hardware_info.py",
+          "kind": "flip_return_true",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "gunnchos-hardware-industrial-design",
+      "sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/check_required_files.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "gunnchAI3k",
+      "sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/prove_phase_xiv_ai.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "edge-io-measurement-node",
+      "sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "src/edge_io_node/anti_replay.py",
+          "kind": "flip_return_true",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "anime-aggressors",
+      "sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "npm",
+          "test",
+          "--if-present"
+        ],
+        "source": "package.json:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/test_g2_c6_product_depth.py",
+          "kind": "invert_condition",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "pedestrian-pursuit",
+      "sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
+      "mutation_outcome": "INVALID_MUTATION_SAMPLE",
+      "dimension": "NOT_APPLICABLE",
+      "status": "NO_MUTATION_TARGETS",
+      "test_command": {
+        "argv": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "-m",
+          "pytest",
+          "-q"
+        ],
+        "source": "pytest",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": []
+    },
+    {
+      "repository": "archive-of-life-artifact-world",
+      "sha": "069243c365552f00707650e9d81a8046ba3075d8",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/engineering_wave008/compare_pipeline_ab.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "beatlink-party",
+      "sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/validate_game_rc_contracts.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "7gc-digital-twin",
+      "sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
+      "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/seven_gc_twin/scene/osm_overpass.py",
+          "kind": "flip_return_true",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/cli.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/continuity_benchmark.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "mutations": [
+        {
+          "path": "src/seven_gc_twin/scene/osm_overpass.py",
+          "kind": "flip_return_true",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/cli.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/continuity_benchmark.py",
+          "kind": "invert_condition",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ]
+    },
+    {
+      "repository": "spectrumx-ai-ran-gary",
+      "sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "src/airan_research/experiments/digital_programme.py",
+          "kind": "flip_return_true",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "ntn-resilience-sim",
+      "sha": "916520919bea4d9957970d824045c32929bb80e5",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "src/ntn_resilience/campus_scenarios.py",
+          "kind": "remove_validation",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "repository": "readygary-6g-beam-selection",
+      "sha": "569875224db7812890ec6abc48dfe43a608094f3",
+      "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "sim/experiments/digital_programme.py",
+          "kind": "flip_return_true",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_benchmark_table.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_timing_harness.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "mutations": [
+        {
+          "path": "sim/experiments/digital_programme.py",
+          "kind": "flip_return_true",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_benchmark_table.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_timing_harness.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ]
+    },
+    {
+      "repository": "waike-research-ops",
+      "sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+      "mutation_outcome": "MUTATION_SURVIVED",
+      "dimension": "CRITICAL",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 0,
+        "passed": true,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/waike_curriculum/evaluation/metrics.py",
+          "kind": "flip_return_zero",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/exams.py",
+          "kind": "remove_validation",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/labs.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_KILLED"
+        }
+      ],
+      "mutations": [
+        {
+          "path": "src/waike_curriculum/evaluation/metrics.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": true,
+          "mutated_passed": true,
+          "mutation_outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/exams.py",
+          "kind": "remove_validation",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": true,
+          "mutated_passed": true,
+          "mutation_outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/labs.py",
+          "kind": "invert_condition",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": true,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_KILLED"
+        }
+      ]
+    },
+    {
+      "repository": "gunnchos-emergent-service-intent-protocols",
+      "sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
+      "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/emergent_intent/algorithms/trainers.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/env/wireless_env.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/abstraction/encoders.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "mutations": [
+        {
+          "path": "src/emergent_intent/algorithms/trainers.py",
+          "kind": "invert_condition",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/env/wireless_env.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/abstraction/encoders.py",
+          "kind": "invert_condition",
+          "behavioral": true,
+          "full_run_executed": true,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ]
+    },
+    {
+      "repository": "gunnchos-gpu-nr-baseband-platform",
+      "sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "dimension": "NEEDS_WORK",
+      "status": "SAMPLED",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "mutations": [
+        {
+          "path": "scripts/gate6_dry_run.py",
+          "kind": "flip_return_zero",
+          "behavioral": true,
+          "full_run_executed": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ]
+    }
+  ]
+}

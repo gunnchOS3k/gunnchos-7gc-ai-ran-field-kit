@@ -1,7 +1,7 @@
 {
   "repository": "spectrumx-ai-ran-gary",
   "accepted_main_sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
-  "scanned_at_utc": "2026-08-21T17:47:49Z",
+  "scanned_at_utc": "2026-08-21T18:12:24Z",
   "counts": {
     "files_classified": 474,
     "code_files": 144,
@@ -20,7 +20,7 @@
     "theater_total": 8,
     "raw_pattern_observations": 0,
     "theater_root_causes": 0,
-    "hotspots": 51,
+    "hotspots": 52,
     "wave_dup_paths": 0,
     "fixture_paths": 1,
     "orphan_candidates": 40,
@@ -31,7 +31,9 @@
     "proof_files": 7,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -52,7 +54,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -61,10 +64,10 @@
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "CRITICAL",
-    "orphan_dead_code": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "ADEQUATE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [
     {
@@ -364,6 +367,12 @@
       "complexity": 15
     },
     {
+      "path": "paper/scripts/generate_tables.py",
+      "name": "write_policy_table",
+      "lineno": 39,
+      "complexity": 14
+    },
+    {
       "path": "scripts/test_leaderboard_submission.py",
       "name": "main",
       "lineno": 82,
@@ -404,12 +413,6 @@
       "name": "evaluate_policy",
       "lineno": 372,
       "complexity": 13
-    },
-    {
-      "path": "src/airan_research/gate2/twin_policies.py",
-      "name": "_ablate",
-      "lineno": 599,
-      "complexity": 13
     }
   ],
   "wave_duplicate_paths": [],
@@ -427,7 +430,6 @@
     "src/airan_research/synthetic_data.py",
     "src/airan_research/campus_profiles.py",
     "src/airan_research/__main__.py",
-    "src/airan_research/report.py",
     "src/airan_research/gate2/twin_policies.py",
     "src/airan_research/tool_adapters/aerial_kpi_export.py",
     "src/airan_research/tool_adapters/ns_oran_scenario_export.py",
@@ -452,335 +454,568 @@
     "src/edge_ran_gary/models/baselines.py",
     "src/edge_ran_gary/models/bandit_policies.py",
     "src/edge_ran_gary/models/actor_critic.py",
-    "src/edge_ran_gary/digital_twin/generate.py",
     "src/edge_ran_gary/digital_twin/cli_generate.py",
     "src/edge_ran_gary/viz/app_streamlit.py",
     "src/edge_ran_gary/sim/evaluation.py",
     "src/edge_ran_gary/sim/environment.py",
     "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
     "src/edge_ran_gary/detection/baselines.py",
-    "src/edge_ran_gary/detection/predict.py"
+    "src/edge_ran_gary/detection/predict.py",
+    "src/edge_ran_gary/detection/feature_baseline.py",
+    "src/edge_ran_gary/detection/features.py"
+  ],
+  "orphan_records": [
+    {
+      "path": "apps/streamlit_app.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/metrics.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/baselines.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/digital_twin_adapter.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/synthetic_data.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/campus_profiles.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/__main__.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/report.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/airan_research/gate2/twin_policies.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/tool_adapters/aerial_kpi_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/tool_adapters/ns_oran_scenario_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/tool_adapters/oran_kpi_schema.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/tool_adapters/srsran_config_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/tool_adapters/oai_config_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/airan_research/tool_adapters/xapp_policy_stub.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/judged_headline_metrics.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/submission_adapter.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/config.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/gary_scenario_engine.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/gary_occupancy_visualization.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/gary_site_geometry.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/simulation_provenance.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/ota_data_interface.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/simulation_integration_hooks.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/gary_mobility_profiles.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/data_pipeline/deepmimo_scenarios.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/utils/metrics.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/utils/plotting.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/models/baselines.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/models/bandit_policies.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/models/actor_critic.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/digital_twin/generate.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/edge_ran_gary/digital_twin/cli_generate.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/viz/app_streamlit.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/sim/evaluation.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/sim/environment.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/baselines.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/predict.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/feature_baseline.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/features.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/anomaly.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/calibrate.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/detection/ssl.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/edge_ran_gary/channels/sionna_scenes.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
   ],
   "dependency_edges_sample": [
     {
-      "from": "scripts/train_v6_model.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/train_v5_model.py",
-      "to": "argparse"
-    },
-    {
-      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
-      "to": "os"
-    },
-    {
-      "from": "src/airan_research/experiments/__init__.py",
-      "to": "digital_programme"
-    },
-    {
-      "from": "submissions/leaderboard_baseline_v2/zip_submission.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/export_oai_testbed_stub.py",
-      "to": "airan_research"
-    },
-    {
-      "from": "scripts/validate_feature_leaderboard_submission.py",
-      "to": "submissions"
-    },
-    {
-      "from": "scripts/train_v8_model.py",
-      "to": "argparse"
-    },
-    {
-      "from": "scripts/train_v11_model.py",
-      "to": "argparse"
-    },
-    {
-      "from": "src/edge_ran_gary/gary_site_geometry.py",
-      "to": "math"
-    },
-    {
       "from": "src/airan_research/gate2/cli.py",
-      "to": "airan_research"
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_psd_logreg.py",
+      "to": "sklearn"
     },
     {
       "from": "paper/scripts/generate_tables.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/export_sionna_rt_summary.py",
-      "to": "json"
-    },
-    {
-      "from": "src/airan_research/tool_adapters/aerial_kpi_export.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_psd_logreg.py",
-      "to": "src"
-    },
-    {
-      "from": "scripts/import_asana_csv_to_github_projects.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/edge_ran_gary/detection/calibrate.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/smoke_test_digital_twin.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/train_v4_model.py",
-      "to": "pandas"
-    },
-    {
-      "from": "scripts/smoke_test_v14.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/__init__.py",
-      "to": "contracts"
-    },
-    {
-      "from": "scripts/train_v5_model.py",
-      "to": "sklearn"
+      "to": "matplotlib"
     },
     {
       "from": "src/airan_research/gate2/twin_policies.py",
-      "to": "typing"
+      "to": "time"
     },
     {
-      "from": "scripts/train_v8_model.py",
-      "to": "sklearn"
+      "from": "submissions/leaderboard_baseline_v2/main.py",
+      "to": "sys"
     },
     {
-      "from": "scripts/train_v11_model.py",
-      "to": "sklearn"
-    },
-    {
-      "from": "scripts/sweep_baseline_thresholds.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_psd_logreg.py",
+      "from": "scripts/train_v5_model.py",
       "to": "__future__"
-    },
-    {
-      "from": "submissions/leaderboard_v5/zip_submission.py",
-      "to": "zipfile"
-    },
-    {
-      "from": "scripts/import_asana_csv_to_github_projects.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/smoke_test_digital_twin.py",
-      "to": "pathlib"
     },
     {
       "from": "src/airan_research/metrics.py",
       "to": "energy"
     },
     {
-      "from": "scripts/smoke_test_v14.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/train_v6_model.py",
-      "to": "pandas"
-    },
-    {
-      "from": "src/airan_research/tool_adapters/oai_config_export.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/dataset_builder.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/edge_ran_gary/gary_occupancy_visualization.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/cli_generate.py",
-      "to": "gary_micro_twin"
-    },
-    {
-      "from": "scripts/bootstrap_aodt_access.py",
+      "from": "scripts/run_paper_ii_digital.py",
       "to": "json"
     },
     {
-      "from": "scripts/train_v5_model.py",
-      "to": "numpy"
-    },
-    {
-      "from": "submissions/leaderboard_baseline_v3/main.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/zones.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "scripts/check_ngc_access.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/validate_simulation_exports.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_baselines.py",
-      "to": "argparse"
-    },
-    {
-      "from": "submissions/leaderboard_v14/main.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/export_deepmimo_summary.py",
-      "to": "os"
-    },
-    {
-      "from": "scripts/train_v8_model.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/cli_generate.py",
-      "to": "argparse"
-    },
-    {
-      "from": "submissions/leaderboard_baseline_v1/main.py",
-      "to": "__future__"
-    },
-    {
-      "from": "submissions/leaderboard_baseline_v1/main.py",
+      "from": "scripts/setup_github_project_epics.py",
       "to": "sys"
     },
     {
-      "from": "src/edge_ran_gary/digital_twin/samples.py",
-      "to": "generator"
+      "from": "scripts/smoke_test_v14.py",
+      "to": "sys"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "__future__"
     },
     {
       "from": "scripts/import_asana_csv_to_github_projects.py",
       "to": "subprocess"
     },
     {
-      "from": "scripts/train_v4_model.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/train_v4_model.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/__init__.py",
-      "to": "samples"
-    },
-    {
-      "from": "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
-      "to": "pandas"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/gary_micro_twin.py",
-      "to": "yaml"
-    },
-    {
-      "from": "src/edge_ran_gary/sim/evaluation.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "scripts/train_v12_ensemble.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/train_v6_model.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/train_v6_model.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/dataset_builder.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/train_v12_ensemble.py",
+      "from": "src/edge_ran_gary/digital_twin/cli_generate.py",
       "to": "json"
     },
     {
-      "from": "src/airan_research/gate2/twin_policies.py",
+      "from": "scripts/train_v4_model.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_report_plots.py",
+      "to": "math"
+    },
+    {
+      "from": "scripts/sweep_baseline_thresholds.py",
       "to": "json"
     },
     {
-      "from": "scripts/generate_v12_submission.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/export_oai_testbed_stub.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/airan_research/gate2/cli.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/smoke_test_digital_twin.py",
-      "to": "traceback"
-    },
-    {
-      "from": "scripts/test_leaderboard_submission.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/import_asana_csv_to_github_projects.py",
-      "to": "re"
-    },
-    {
-      "from": "src/edge_ran_gary/pyaerial_bridge/__init__.py",
-      "to": "src"
-    },
-    {
-      "from": "scripts/test_leaderboard_submission.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/edge_ran_gary/gary_occupancy_visualization.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/train_v7_model.py",
-      "to": "time"
-    },
-    {
-      "from": "scripts/run_baselines.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/train_v6_model.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/train_v7_model.py",
+      "from": "submissions/leaderboard_v9/main.py",
       "to": "scipy"
     },
     {
-      "from": "src/edge_ran_gary/gary_occupancy_visualization.py",
+      "from": "src/airan_research/gate2/twin_policies.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "src/edge_ran_gary/submission_adapter.py",
+      "to": "tempfile"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/dataset_builder.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/predict.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/train_v6_model.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_airan_research.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/airan_research/policy_interface.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/__init__.py",
+      "to": "zones"
+    },
+    {
+      "from": "src/edge_ran_gary/config.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_paper_ii_digital.py",
+      "to": "airan_research"
+    },
+    {
+      "from": "scripts/import_asana_csv_to_github_projects.py",
       "to": "json"
     },
     {
-      "from": "src/airan_research/metrics.py",
-      "to": "fairness"
+      "from": "scripts/train_v6_model.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/generate_v14_submission.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/demo_airan_policy.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/check_ngc_access.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/validate_simulation_exports.py",
+      "to": "json"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v3/main.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_baselines.py",
+      "to": "src"
+    },
+    {
+      "from": "scripts/train_v7_model.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/airan_research/gate2/cli.py",
+      "to": "airan_research"
+    },
+    {
+      "from": "submissions/leaderboard_v11/main.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/generator.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/generate_xapp_policy_stub.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/submission_adapter.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/_gary_export_common.py",
+      "to": "math"
+    },
+    {
+      "from": "submissions/leaderboard_v4/zip_submission.py",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/run_paper_ii_digital.py",
+      "to": "airan_research"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/__init__.py",
+      "to": "src"
+    },
+    {
+      "from": "submissions/leaderboard_v6/main.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "submissions/leaderboard_v7/main.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_v14_model.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/bootstrap_aodt_access.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/airan_research/tool_adapters/ns_oran_scenario_export.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/dataset_builder.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_feature_leaderboard_submission.py",
+      "to": "submissions"
+    },
+    {
+      "from": "src/edge_ran_gary/viz/app_streamlit.py",
+      "to": "src"
+    },
+    {
+      "from": "submissions/leaderboard_v10/main.py",
+      "to": "scipy"
+    },
+    {
+      "from": "submissions/leaderboard_v6/zip_submission.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/smoke_test_v14.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_mobility_profiles.py",
+      "to": "typing"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v3/main.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_scenario_engine.py",
+      "to": "math"
+    },
+    {
+      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/airan_research/gate2/twin_policies.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/run_baselines.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_deepmimo_summary.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/gary_micro_twin.py",
+      "to": "zones"
+    },
+    {
+      "from": "scripts/train_v4_model.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/train_v14_model.py",
+      "to": "sys"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v1/zip_submission.py",
+      "to": "zipfile"
+    },
+    {
+      "from": "src/edge_ran_gary/detection/baselines.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/train_v12_ensemble.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/generate_report_plots.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/export_ns_oran_scenario.py",
+      "to": "airan_research"
+    },
+    {
+      "from": "scripts/train_v5_model.py",
+      "to": "numpy"
+    },
+    {
+      "from": "submissions/leaderboard_v12/main.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "submissions/leaderboard_v6/main.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/train_feature_detector.py",
+      "to": "submissions"
+    },
+    {
+      "from": "scripts/export_sionna_rt_summary.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "sys"
     }
   ],
   "path_classification_sample": [
@@ -1801,28 +2036,54 @@
     "mutations": [
       {
         "index": 1,
-        "path": "scripts/_gary_export_common.py",
+        "path": "src/airan_research/experiments/digital_programme.py",
         "kind": "flip_return_true",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 2,
-        "path": "scripts/check_ngc_access.py",
-        "kind": "flip_return_true",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 3,
-        "path": "scripts/import_asana_csv_to_github_projects.py",
-        "kind": "flip_return_true",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "ADEQUATE",
-    "detected_count": 3
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "spectrumx-ai-ran-gary",
+      "sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

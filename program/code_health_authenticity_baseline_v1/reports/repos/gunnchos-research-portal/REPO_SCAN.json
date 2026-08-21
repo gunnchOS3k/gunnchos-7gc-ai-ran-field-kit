@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-research-portal",
   "accepted_main_sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
-  "scanned_at_utc": "2026-08-21T17:47:17Z",
+  "scanned_at_utc": "2026-08-21T18:11:50Z",
   "counts": {
     "files_classified": 114,
     "code_files": 8,
@@ -31,7 +31,9 @@
     "proof_files": 0,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "NOT_APPLICABLE_NO_PRODUCTION_CODE"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -48,9 +50,10 @@
       ],
       "has_tests": true,
       "tests_reference_production": false,
-      "proof_independence_status": "NOT_APPLICABLE_NO_PRODUCTION_CODE",
+      "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "NEEDS_WORK",
@@ -248,98 +251,91 @@
   "wave_duplicate_paths": [],
   "fixtures": [],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "datetime"
+    },
     {
       "from": "scripts/audit_portfolio.py",
       "to": "os"
     },
     {
-      "from": "scripts/supervisor_snapshot.py",
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
       "to": "subprocess"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "pathlib"
     },
     {
       "from": "scripts/audit_portfolio.py",
       "to": "yaml"
     },
     {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_supervisor_ready.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_supervisor_ready.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/audit_portfolio.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/run_vp012_portal_first.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/audit_portfolio.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "pathlib"
-    },
-    {
       "from": "scripts/validate_supervisor_ready.py",
       "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_vp012_portal_first.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/run_vp012_portal_first.py",
-      "to": "json"
     },
     {
       "from": "scripts/supervisor_snapshot.py",
       "to": "datetime"
-    },
-    {
-      "from": "scripts/run_vp012_portal_first.py",
-      "to": "re"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "json"
     },
     {
       "from": "scripts/supervisor_snapshot.py",
       "to": "os"
     },
     {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "json"
+    },
+    {
       "from": "scripts/audit_portfolio.py",
       "to": "typing"
     },
     {
-      "from": "scripts/validate_supervisor_ready.py",
-      "to": "re"
-    },
-    {
-      "from": "scripts/audit_portfolio.py",
+      "from": "scripts/run_vp012_portal_first.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/audit_portfolio.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/audit_portfolio.py",
-      "to": "argparse"
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "subprocess"
     },
     {
       "from": "scripts/audit_portfolio.py",
@@ -347,7 +343,15 @@
     },
     {
       "from": "scripts/run_vp012_portal_first.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
       "to": "__future__"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "pathlib"
     }
   ],
   "path_classification_sample": [
@@ -938,14 +942,83 @@
     "mutations": [
       {
         "index": 1,
-        "path": "scripts/run_vp012_portal_first.py",
-        "kind": "flip_return_true",
+        "path": "scripts/validate_supervisor_ready.py",
+        "kind": "flip_return_zero",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "NO_TESTS_DIR"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_KILLED",
+        "mutation_outcome": "MUTATION_KILLED"
+      },
+      {
+        "index": 2,
+        "path": "scripts/audit_portfolio.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": true,
+        "test_reaction": "MUTATION_SURVIVED",
+        "mutation_outcome": "MUTATION_SURVIVED"
       }
     ],
     "status": "SAMPLED",
     "dimension": "CRITICAL",
-    "detected_count": 0
+    "mutation_outcome": "MUTATION_SURVIVED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-research-portal",
+      "sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 0,
+        "passed": true,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "scripts/validate_supervisor_ready.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_KILLED"
+        },
+        {
+          "path": "scripts/audit_portfolio.py",
+          "kind": "flip_return_zero",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 1,
+    "survived_count": 1
   }
 }

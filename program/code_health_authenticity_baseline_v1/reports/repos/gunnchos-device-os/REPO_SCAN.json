@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-device-os",
   "accepted_main_sha": "28562a8456207540c205a1c8a6434a491b0a4771",
-  "scanned_at_utc": "2026-08-21T17:47:22Z",
+  "scanned_at_utc": "2026-08-21T18:11:55Z",
   "counts": {
     "files_classified": 2771,
     "code_files": 1089,
@@ -23,136 +23,17 @@
     "hotspots": 338,
     "wave_dup_paths": 101,
     "fixture_paths": 26,
-    "orphan_candidates": 40,
+    "orphan_candidates": 38,
     "dep_edges": 4712
   },
   "proof_independence": {
     "production_files": 180,
     "proof_files": 207,
-    "production_imports_proof_count": 20,
-    "production_imports_proof": [
-      {
-        "path": "apps/launcher_mock/vitest.config.ts",
-        "imports": [
-          "vitest/config"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/shell.test.tsx",
-        "imports": [
-          "@testing-library/react"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/shell.test.tsx",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
-        "imports": [
-          "@testing-library/react"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/localMedia.shell.test.tsx",
-        "imports": [
-          "@testing-library/react"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/localMedia.shell.test.tsx",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/policy.shell.test.tsx",
-        "imports": [
-          "@testing-library/react"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/policy.shell.test.tsx",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/gameLaunch.shell.test.tsx",
-        "imports": [
-          "@testing-library/react"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/gameLaunch.shell.test.tsx",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/browser.shell.test.tsx",
-        "imports": [
-          "@testing-library/react"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/shell/browser.shell.test.tsx",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/appLaunch.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/workspace.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/localMedia.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/gameLaunch.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/accessibility.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      },
-      {
-        "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
-        "imports": [
-          "vitest"
-        ]
-      }
-    ],
-    "status": "FAIL_COUPLED"
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -161,7 +42,7 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "NEEDS_WORK",
+    "authenticity": "ADEQUATE",
     "details": {
       "has_entrypoint": true,
       "entrypoint_list": [
@@ -169,20 +50,19 @@
       ],
       "has_tests": true,
       "tests_reference_production": true,
-      "proof_independence_status": "FAIL_COUPLED",
-      "gaps": [
-        "PRODUCTION_PROOF_COUPLING"
-      ]
-    }
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
-    "production_proof_separation": "CRITICAL",
+    "production_proof_separation": "STRONG",
     "anti_test_theater": "ADEQUATE",
-    "dependency_boundaries": "NEEDS_WORK",
+    "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "ADEQUATE",
-    "runtime_authenticity": "NEEDS_WORK",
+    "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "CRITICAL",
-    "orphan_dead_code": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
     "mutation_resistance": "NEEDS_WORK"
@@ -2921,7 +2801,6 @@
   "orphan_candidates": [
     "gunnchos_device_os/platform/accessibility_store.py",
     "gunnchos_device_os/platform/package_lifecycle.py",
-    "gunnchos_device_os/platform/sandbox_executor.py",
     "gunnchos_device_os/platform/persistent_sync.py",
     "gunnchos_device_os/platform/secure_packaging.py",
     "gunnchos_device_os/platform/role_policy.py",
@@ -2930,356 +2809,622 @@
     "gunnchos_device_os/platform/requirement_evaluators.py",
     "gunnchos_device_os/platform/security_injection.py",
     "gunnchos_device_os/platform/recovery_userspace.py",
-    "gunnchos_device_os/runtime/supervisor.py",
-    "gunnchos_device_os/runtime/ipc.py",
     "gunnchos_device_os/runtime/service_base.py",
-    "gunnchos_device_os/device_lab/apps/runner.py",
     "gunnchos_device_os/device_lab/apps/surfaces.py",
-    "gunnchos_device_os/phase_xii/apps/office.py",
-    "gunnchos_device_os/phase_xii/apps/media.py",
     "gunnchos_device_os/phase_xii/apps/surfaces.py",
-    "gunnchos_device_os/phase_xii/apps/ai.py",
     "gunnchos_device_os/phase_xii/apps/games.py",
-    "gunnchos_device_os/phase_xii/apps/browser.py",
     "gunnchos_device_os/phase_xii/apps/detect.py",
-    "gunnchos_device_os/phase_xii/apps/ring.py",
-    "gunnchos_device_os/phase_xi/services/stack.py",
     "sdk/apps/stream_a_pkt003_godot/godot/build_godot_pack.py",
     "src/waike/lesson_state.py",
-    "src/update_system/rollback.py",
-    "src/security/sbom.py",
     "src/security/secure_boot_status.py",
     "src/hardware_abstraction/thermal.py",
     "src/hardware_abstraction/battery.py",
     "src/gunnchos_core/config_loader.py",
     "src/gunnchos_core/device_identity.py",
     "src/gunnchos_core/event_bus.py",
-    "src/gunnchos_core/device_state.py",
     "src/fleet_management/enrollment.py",
     "src/gunnchos_launcher/gunnchai_bridge.py",
     "src/gunnchos_launcher/campus_modes.py",
-    "src/gunnchos_launcher/research_measurement_mode.py"
+    "src/gunnchos_launcher/research_measurement_mode.py",
+    "src/gunnchos_launcher/security_policy.py",
+    "src/gunnchos_launcher/parental_controls_stub.py",
+    "src/gunnchos_launcher/school_fleet_policy.py",
+    "src/gunnchos_launcher/safety_mode_stub.py",
+    "src/gunnchos_launcher/tool_adapters/edge_orchestration_manifest.py",
+    "src/gunnchos_launcher/tool_adapters/oran_traffic_class.py",
+    "src/gunnchos_launcher/tool_adapters/aerial_device_state.py",
+    "src/gunnchai/tutor_bridge.py",
+    "src/telemetry/seven_gc_export.py",
+    "src/telemetry/privacy_filter.py",
+    "src/telemetry/edge_io_export.py"
+  ],
+  "orphan_records": [
+    {
+      "path": "gunnchos_device_os/platform/accessibility_store.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/package_lifecycle.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/sandbox_executor.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "gunnchos_device_os/platform/persistent_sync.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/secure_packaging.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/role_policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/e2e_scenarios.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/encrypted_storage.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/requirement_evaluators.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/security_injection.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/platform/recovery_userspace.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/runtime/supervisor.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "gunnchos_device_os/runtime/ipc.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "gunnchos_device_os/runtime/service_base.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/apps/runner.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "gunnchos_device_os/device_lab/apps/surfaces.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/office.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/media.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/surfaces.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/ai.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/games.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/browser.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/detect.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xii/apps/ring.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "gunnchos_device_os/phase_xi/services/stack.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "sdk/apps/stream_a_pkt003_godot/godot/build_godot_pack.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/waike/lesson_state.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/update_system/rollback.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/security/sbom.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/security/secure_boot_status.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/hardware_abstraction/thermal.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/hardware_abstraction/battery.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_core/config_loader.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_core/device_identity.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_core/event_bus.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_core/device_state.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/fleet_management/enrollment.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/gunnchai_bridge.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/campus_modes.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/research_measurement_mode.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/deploy_contract.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/gunnchos_launcher/security_policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/parental_controls_stub.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/school_fleet_policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/safety_mode_stub.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/tool_adapters/edge_orchestration_manifest.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/tool_adapters/oran_traffic_class.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchos_launcher/tool_adapters/aerial_device_state.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/gunnchai/tutor_bridge.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/telemetry/seven_gc_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/telemetry/privacy_filter.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/telemetry/edge_io_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/mode_manager/modes.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    }
   ],
   "dependency_edges_sample": [
     {
-      "from": "gunnchos_device_os/phase_xii/apps/office.py",
+      "from": "gunnchos_device_os/phase_xii/defects.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/filesystem.py",
       "to": "pathlib"
     },
     {
-      "from": "gunnchos_device_os/phase_xi/services/stack.py",
+      "from": "gunnchos_device_os/device_lab/ecosystem/eco001_smoke.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/device_lab/test_wp011_profile_guest_foundation.py",
+      "to": "pytest"
+    },
+    {
+      "from": "gunnchos_device_os/golden_journeys/harness.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/product_use_attach_resume_open.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/session.py",
+      "to": "typing"
+    },
+    {
+      "from": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/dock_manager.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/waike_curriculum/register.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/collect_reference_hardware_info.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_connectivity_orchestrator.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "tests/device_lab/test_wp011r_tokens.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/debian_cloud_provisioner.py",
+      "to": "time"
+    },
+    {
+      "from": "tests/phase_xv/test_phase_xv.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/compat/corpus.py",
+      "to": "shutil"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/apps/ring.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/crypto_dev.py",
+      "to": "hmac"
+    },
+    {
+      "from": "gunnchos_device_os/localization.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/a11y_hardening.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/vp_wp013_independent_verify.py",
+      "to": "sys"
+    },
+    {
+      "from": "apps/launcher_mock/src/services/accessibility.test.ts",
+      "to": "./settingsStore"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xv/user_experience/__init__.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_imt2030_migration.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/virtualization/backend.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/update_manager.py",
+      "to": "json"
+    },
+    {
+      "from": "apps/launcher_mock/src/shell/MediaMode.tsx",
+      "to": "./LocalMediaPlayer"
+    },
+    {
+      "from": "tests/test_ring_input_adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_ota_state_machine.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xiv/local_ai/__init__.py",
+      "to": "time"
+    },
+    {
+      "from": "gunnchos_device_os/network_decision/adapters.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/launcher.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/bootable_image/builder.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "gunnchos_device_os/network_decision/completion_gate.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/shell/contract.py",
+      "to": "typing"
+    },
+    {
+      "from": "apps/launcher_mock/src/shell/BrowserPwaHub.tsx",
+      "to": "../components/AppIcon"
+    },
+    {
+      "from": "gunnchos_device_os/diagnostics_log.py",
+      "to": "opentelemetry"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/protocols/mail.py",
       "to": "uuid"
     },
     {
-      "from": "sdk/samples/connectivity/sample.py",
-      "to": "gunnchos_adopter_sdk"
+      "from": "gunnchos_device_os/release_engineering/sdk/installer.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_firmware_compatibility_demo.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/email_calendar_e2e.py",
+      "to": "http"
+    },
+    {
+      "from": "cross_repo_firmware_bridge/sync_firmware_contracts.py",
+      "to": "pathlib"
     },
     {
       "from": "firmware_compat/compatibility/interface_contract_checker.py",
       "to": "typing"
     },
     {
-      "from": "gunnchos_device_os/bootable_image/builder.py",
-      "to": "tempfile"
+      "from": "apps/launcher_mock/src/shell/FileManager.tsx",
+      "to": "react"
     },
     {
-      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/network_decision/metrics.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/digital_inventory/scanner.py",
-      "to": "re"
-    },
-    {
-      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
-      "to": "sys"
-    },
-    {
-      "from": "gunnchos_device_os/cont_ix/storage_perf_models.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/apps/ai.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "sdk/apps/stream_a_pkt003_godot/main.py",
+      "from": "scripts/run_stream_a_pkt_002.py",
       "to": "json"
     },
     {
-      "from": "gunnchos_device_os/a_pkt003/multi_template_guest.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "gunnchos_device_os/cont_viii/student_e2e.py",
+      "from": "gunnchos_device_os/cont_ix/ring_app_e2e.py",
       "to": "gunnchos_device_os"
     },
     {
-      "from": "gunnchos_device_os/runtime_profiles.py",
-      "to": "enum"
-    },
-    {
-      "from": "gunnchos_device_os/cont_viii/reproducibility.py",
-      "to": "re"
-    },
-    {
-      "from": "tests/middleware/test_stream_a_pkt_002.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/build_waike_course_register.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gunnchos_device_os/cont_viii/factory_station.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/profiles/__init__.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/hw_backends/input_backend.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_waike_integration_demo.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
-      "to": "zipfile"
-    },
-    {
-      "from": "gunnchos_device_os/cloud_edge/services.py",
-      "to": "gunnchos_device_os"
-    },
-    {
-      "from": "scripts/run_waike_integration_demo.py",
-      "to": "sys"
-    },
-    {
-      "from": "gunnchos_device_os/hardware_boot_readiness.py",
-      "to": "hardware_manifest_loader"
-    },
-    {
-      "from": "gunnchos_device_os/shell/identity_store.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_eco010_full_soak.py",
-      "to": "os"
-    },
-    {
-      "from": "gunnchos_device_os/cont_viii/factory_station.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/build_waike_course_register.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xv/ntn_migration/__init__.py",
-      "to": "typing"
-    },
-    {
-      "from": "gunnchos_device_os/release_engineering/realm_runtime.py",
-      "to": "gzip"
-    },
-    {
-      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/owner_four_game_artifacts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/device_lab/test_wp011_live_run_input.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xi/adapters/ai_local.py",
-      "to": "gunnchos_device_os"
-    },
-    {
-      "from": "scripts/sign_release_manifest.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tests/wp013/test_cli_wp013.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/update_signing.py",
-      "to": "enum"
-    },
-    {
-      "from": "gunnchos_device_os/runtime/ipc.py",
-      "to": "gunnchos_device_os"
-    },
-    {
-      "from": "tests/test_secure_boot_mdm.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/wp013/test_cli_wp013.py",
-      "to": "sys"
-    },
-    {
-      "from": "os_build/device_lab_interactive_guest/scripts/provision_interactive_guest_qemu_native.py",
-      "to": "shutil"
-    },
-    {
-      "from": "gunnchos_device_os/shell/identity_store.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/cont_ix/a11y_hardening.py",
-      "to": "typing"
-    },
-    {
-      "from": "gunnchos_device_os/app_packaging.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/owner_four_game_artifacts.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/device_lab/test_wp011_wave5_ecosystem.py",
-      "to": "pytest"
-    },
-    {
-      "from": "tests/test_secure_boot_mdm.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/app_packaging.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/profiles/__init__.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/product_use_finish_rc002_legs.py",
-      "to": "typing"
-    },
-    {
-      "from": "gunnchos_device_os/security/wp007/hostile_network.py",
-      "to": "ipaddress"
-    },
-    {
-      "from": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
-      "to": "./workspaceCrypto"
-    },
-    {
-      "from": "content/waike/courses/HARDWARE_ENGINEERING/lab.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_waike_course_lab.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/interactive_image_builder.py",
-      "to": "argparse"
-    },
-    {
-      "from": "scripts/engineering_wave004/pixel_client_probe.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/device_lab/test_wp011_live_run_input.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/virtualization/guest_input.py",
-      "to": "time"
-    },
-    {
-      "from": "tests/wp013/test_cli_wp013.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gunnchos_device_os/network_decision/preferences.py",
-      "to": "typing"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/hw_backends/audio.py",
-      "to": "tempfile"
-    },
-    {
-      "from": "gunnchos_device_os/release_engineering/sdk/first_party_game_adoption.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/dock/continuity.py",
-      "to": "capabilities"
-    },
-    {
-      "from": "scripts/run_waike_course_lab.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/collect_reference_hardware_info.py",
-      "to": "argparse"
-    },
-    {
-      "from": "apps/launcher_mock/src/main.tsx",
-      "to": "./App"
-    },
-    {
-      "from": "src/gunnchos_launcher/tool_adapters/aerial_device_state.py",
-      "to": "pathlib"
+      "from": "gunnchos_device_os/boot/probe.py",
+      "to": "platform"
     },
     {
       "from": "gunnchos_device_os/device_lab/scenarios/update_rollback.py",
       "to": "time"
     },
     {
-      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
-      "to": "time"
+      "from": "tests/wp013/test_sdk_pipeline.py",
+      "to": "pathlib"
     },
     {
-      "from": "scripts/run_phase_xii_rj.py",
+      "from": "gunnchos_device_os/service_continuity_execution/multipath.py",
       "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/stage2/update_manager.py",
+      "to": "shutil"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xi/services/stack.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/cross_repo_gunnchai/contract.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "artifacts/wp007/independent_verifier/run_independent_attacks.py",
+      "to": "pathlib"
     },
     {
       "from": "gunnchos_device_os/cont_viii/reproducibility.py",
       "to": "gunnchos_device_os"
     },
     {
-      "from": "gunnchos_device_os/cont_ix/adopter_external_sample.py",
-      "to": "gunnchos_adopter_sdk"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xi/services/stack.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "apps/launcher_mock/src/services/accessibility.test.ts",
-      "to": "./accessibilityAudit"
-    },
-    {
-      "from": "apps/launcher_mock/src/shell/NotesApp.tsx",
-      "to": "../services/notesStore"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/claim_scope.py",
+      "from": "gunnchos_device_os/phase_xv/connectivity_5ga/__init__.py",
       "to": "typing"
     },
     {
-      "from": "ring_input/adapter.py",
-      "to": "fallback_input"
+      "from": "apps/launcher_mock/src/user-focused/PersonaSelector.tsx",
+      "to": "./personaData"
+    },
+    {
+      "from": "content/waike/courses/DATA_DASHBOARDS/lab.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/ops/rma.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_unified_identity.py",
+      "to": "pytest"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/debian_cloud_provisioner.py",
+      "to": "platform"
+    },
+    {
+      "from": "tests/ops/test_factory_ops.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/a_pkt003/guest_dogfood.py",
+      "to": "time"
+    },
+    {
+      "from": "gunnchos_device_os/dock/capabilities.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/ecosystem/continuity.py",
+      "to": "time"
+    },
+    {
+      "from": "gunnchos_device_os/service_continuity_execution/sync.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xiv/compositor/__init__.py",
+      "to": "os"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xv/support_lifecycle/__init__.py",
+      "to": "time"
+    },
+    {
+      "from": "gunnchos_device_os/platform/sandbox_executor.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/device_lab/test_wp011_wave3_virtio_ring.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/hw_backends/display.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "gunnchos_device_os/release_engineering/os_image_builder.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_edge_case_coverage.py",
+      "to": "sys"
+    },
+    {
+      "from": "gunnchos_device_os/a_pkt003/multi_template_guest.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/privacy/policies.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/first_party_apps/creator_studio.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_runtime_ipc.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/ui/server.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/service_continuity_execution/prioritization.py",
+      "to": "dataclasses"
     }
   ],
   "path_classification_sample": [
@@ -4300,14 +4445,54 @@
     "mutations": [
       {
         "index": 1,
-        "path": "src/gunnchos_core/config_loader.py",
-        "kind": "append_marker",
+        "path": "scripts/collect_reference_hardware_info.py",
+        "kind": "flip_return_true",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "MARKER_LIKELY_UNDETECTED"
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
       }
     ],
     "status": "SAMPLED",
     "dimension": "NEEDS_WORK",
-    "detected_count": 0
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-device-os",
+      "sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

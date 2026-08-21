@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-7gc-ai-ran-field-kit",
   "accepted_main_sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
-  "scanned_at_utc": "2026-08-21T17:47:13Z",
+  "scanned_at_utc": "2026-08-21T18:11:48Z",
   "counts": {
     "files_classified": 2586,
     "code_files": 379,
@@ -31,7 +31,9 @@
     "proof_files": 89,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -62,7 +65,7 @@
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "ADEQUATE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [
     {
@@ -1066,326 +1069,333 @@
   "orphan_candidates": [
     "gate2/nonphysical/G2_C6_device_game_ux/runtime/profile_loader.py"
   ],
+  "orphan_records": [
+    {
+      "path": "gate2/nonphysical/G2_C6_device_game_ux/runtime/profile_loader.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
+  ],
   "dependency_edges_sample": [
     {
-      "from": "tests/pilotctl/test_pilotctl_acceptance.py",
-      "to": "pilotctl"
-    },
-    {
-      "from": "scripts/prove_full_product_continuation_vii.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/assemble_controlled_dataset.py",
-      "to": "argparse"
-    },
-    {
-      "from": "gate4/harnesses/long_duration_soak.py",
+      "from": "scripts/prove_full_product_continuation_v.py",
       "to": "json"
     },
     {
-      "from": "control_plane/catalog/repositories_catalog.py",
-      "to": "__future__"
+      "from": "tests/gate2_status/test_select_gate2_run_dir.py",
+      "to": "sys"
     },
     {
-      "from": "net_sec_rc001/ai_ran_safe.py",
-      "to": "__future__"
+      "from": "scripts/analyze_failure_boundaries.py",
+      "to": "gate4_common"
     },
     {
-      "from": "research/external_reproduction/adapters/probe.py",
-      "to": "json"
-    },
-    {
-      "from": "net_sec_rc001/terrestrial_5ga.py",
-      "to": "terrestrial_rel16"
-    },
-    {
-      "from": "gate7/fleet/fleet_ops.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/operator/inventory.py",
-      "to": "gate1"
-    },
-    {
-      "from": "gate3/nonphysical/G3_C5_threat_models/tests/test_threat_model_executable.py",
-      "to": "gate3"
-    },
-    {
-      "from": "control_plane/io_util.py",
-      "to": "typing"
-    },
-    {
-      "from": "control_plane/catalog/repositories_catalog.py",
+      "from": "scripts/validate_gate2_nonphysical.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/validate_nonphysical_status.py",
+      "from": "tests/gate1/test_gate1_post_merge_hygiene.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/sensitivity/test_sensitivity.py",
+      "to": "gate4_common"
+    },
+    {
+      "from": "industry_research_stack/adapters/base.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/baseline_v2_b4_mapping_convergence.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gate5/supply_chain/bom_risk_scoring.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/verify_inherited_ci.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/validate_contract.py",
       "to": "jsonschema"
     },
     {
       "from": "industry_research_stack/adapters/sionna.py",
-      "to": "base"
-    },
-    {
-      "from": "scripts/validate_contract.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/baseline_v2_evidence_census.py",
       "to": "typing"
     },
     {
-      "from": "scripts/prove_full_product_continuation_vii.py",
-      "to": "re"
+      "from": "research/r6g/experiments/r6g002_spectrum_fabric.py",
+      "to": "statistics"
     },
     {
-      "from": "scripts/run_application_readiness.py",
+      "from": "scripts/engineering_wave001/verify_cross_device_contract.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/provenance/test_lock.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/evidence_status/test_gate3_status.py",
+      "to": "evaluate_gate3_status"
+    },
+    {
+      "from": "scripts/engineering_wave006/run_targeted_closeout.py",
       "to": "json"
     },
     {
-      "from": "gate3/nonphysical/G3_C4_fleet_observability/fleet_observability.py",
-      "to": "time"
-    },
-    {
-      "from": "scripts/run_generalization.py",
-      "to": "typing"
+      "from": "research/external_reproduction/oulu001_fr3_mmwave.py",
+      "to": "__future__"
     },
     {
       "from": "scripts/run_gate4_evaluation.py",
       "to": "generate_gate4_report"
     },
     {
-      "from": "tests/evidence_status/test_gate3_status.py",
-      "to": "gate3_common"
-    },
-    {
-      "from": "scripts/validate_gate2_nonphysical.py",
-      "to": "json"
+      "from": "gate5/provisioning/factory_station_sim.py",
+      "to": "__future__"
     },
     {
       "from": "control_plane/generate.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tests/contracts/test_schemas.py",
-      "to": "validate_contract"
-    },
-    {
-      "from": "scripts/run_gate4_evaluation.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/run_corrective_validators.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/build_collection_matrix.py",
-      "to": "argparse"
-    },
-    {
-      "from": "industry_research_stack/otel/__init__.py",
-      "to": "instrumentation"
-    },
-    {
-      "from": "research/external_reproduction/oulu002_cfmimo_isac.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/corrective/test_gate6_fail_closed.py",
-      "to": "json"
-    },
-    {
-      "from": "research/external_reproduction/oulu002_cfmimo_isac.py",
-      "to": "research"
-    },
-    {
-      "from": "gate1/orchestrator/cli.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/build_evaluation_splits.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/engineering_wave001/verify_cross_device_contract.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_gate4_evaluation.py",
-      "to": "evaluate_gate4_status"
-    },
-    {
-      "from": "scripts/run_corrective_validators.py",
-      "to": "re"
-    },
-    {
-      "from": "scripts/prove_full_product_continuation_viii.py",
-      "to": "collections"
-    },
-    {
-      "from": "gate1/orchestrator/cli.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/validate_game_release_claims.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_full_product_requirement_graph.py",
-      "to": "collections"
-    },
-    {
-      "from": "scripts/gates_4_6_common.py",
-      "to": "torch"
-    },
-    {
-      "from": "gate1/orchestrator/cli.py",
-      "to": "json"
-    },
-    {
-      "from": "generalization/tests/test_nordicdat_adapter.py",
-      "to": "generalization"
-    },
-    {
-      "from": "scripts/evaluate_gate2_status.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_c_pkt002_external_reproduction.py",
-      "to": "research"
-    },
-    {
-      "from": "gate6/release/build_release_manifest.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/run_gate4_evaluation.py",
-      "to": "run_ablations"
-    },
-    {
-      "from": "standards/harnesses/imt2030_eval_harness.py",
+      "from": "control_plane/cli.py",
       "to": "__future__"
     },
     {
-      "from": "scripts/gate3_common.py",
+      "from": "scripts/sync_full_product_requirement_totality.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/engineering_wave005/test_wave005_targeted_closeout.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/engineering_wave001/run_targeted_closeout.py",
+      "to": "copy"
+    },
+    {
+      "from": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/validate_evt0_nfr_freeze.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/provenance/test_repo_lock_verify.py",
+      "to": "verify_repo_lock"
+    },
+    {
+      "from": "tests/full_product/test_requirement_promotion_validators.py",
+      "to": "json"
+    },
+    {
+      "from": "research/r6g/experiments/r6g008_semantic_ntn.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/register_external_dataset.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/engineering_wave007/run_targeted_closeout.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/operator/evidence_session.py",
+      "to": "gate1"
+    },
+    {
+      "from": "scripts/engineering_wave001/run_full_ops_wave001.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/full_product/test_continuation_ix_release_lock.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_gate3_report.py",
+      "to": "json"
+    },
+    {
+      "from": "gate6/e2e/simulate_app_game_paths.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/engineering_wave005/run_targeted_closeout.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_tables.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/engineering_wave002/test_targeted_closeout.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/application_readiness/test_master_integrity.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/build_evaluation_splits.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/gate1/test_gate1_locked_thesis.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/engineering_wave008/test_wave008_targeted_closeout.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "research/r6g/experiments/r6g003_fr3_isac.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/provenance/test_repo_lock_verify.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/engineering_wave008/validate_aggregate.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/write_gates_4_6_version_lock.py",
+      "to": "sys"
+    },
+    {
+      "from": "gate1/operator/inventory_android.py",
       "to": "typing"
     },
     {
-      "from": "gate1/operator/probe.py",
-      "to": "shutil"
+      "from": "scripts/run_integrated_pipeline.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "net_sec_rc001/migration_6g.py",
+      "to": "json"
+    },
+    {
+      "from": "control_plane/catalog/repositories_catalog.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_main_branch_policy.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/checkout_locked_repositories.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_gate3_evidence_pipeline.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/verify_provenance.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/application_readiness/test_master_integrity.py",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/validate_gate3_nonphysical.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/verify_checksums.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "research/external_reproduction/adapters/nvidia_6g_probe.py",
+      "to": "research"
+    },
+    {
+      "from": "scripts/prove_full_product_continuation_vii.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/prove_full_product_continuation_iv.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1/orchestrator/evidence_collector.py",
+      "to": "sys"
+    },
+    {
+      "from": "generalization/tests/test_nordicdat_adapter.py",
+      "to": "tempfile"
+    },
+    {
+      "from": "net_sec_rc001/hostile_network.py",
+      "to": "threading"
+    },
+    {
+      "from": "industry_research_stack/research_experiments/ai_energy_ntn_isac.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/contracts/test_schemas.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate2/nonphysical/G2_C5_signed_update/bundle/update_bundle.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/pilotctl/test_pilotctl_acceptance.py",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/evidence_status/test_gate3_status.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_factory_rma_support_stream.py",
+      "to": "yaml"
     },
     {
       "from": "gate1/operator/redaction.py",
       "to": "re"
     },
     {
-      "from": "research/r6g/experiments/r6g007_adaptive_ris_contract.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/engineering_wave006/validate_aggregate.py",
-      "to": "sys"
-    },
-    {
-      "from": "gate1/orchestrator/evidence_collector.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/validate_claim_firewall.py",
-      "to": "typing"
-    },
-    {
-      "from": "research/r6g/metrics/useful_connectivity.py",
+      "from": "gate6/release/build_release_manifest.py",
       "to": "json"
     },
     {
-      "from": "scripts/gates_4_6_common.py",
-      "to": "shutil"
+      "from": "gate2/nonphysical/G2_C4_secure_boot/emulator/secure_boot_emulator.py",
+      "to": "hashlib"
     },
     {
-      "from": "scripts/engineering_wave006/validate_aggregate.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "research/r6g/replication/ladder.py",
+      "from": "tests/ablations/test_ablations.py",
       "to": "__future__"
     },
     {
-      "from": "research/r6g/experiments/r6g004_multimodal_isac_personal.py",
-      "to": "__future__"
+      "from": "gate2/nonphysical/G2_C1_enclosure/check_interference.py",
+      "to": "yaml"
     },
     {
-      "from": "research/r6g/replication/reproduce.py",
+      "from": "gate1/operator/evidence_session.py",
       "to": "typing"
     },
     {
-      "from": "scripts/pilotctl.py",
+      "from": "gate3/nonphysical/G3_C3_connectivity_manager/providers/camara_real.py",
+      "to": "base"
+    },
+    {
+      "from": "research/toolkit/new_packet.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_integrated_pipeline.py",
       "to": "subprocess"
     },
     {
-      "from": "scripts/engineering_wave001/run_full_ops_wave001.py",
-      "to": "verify_cross_device_contract"
-    },
-    {
-      "from": "scripts/engineering_wave006/validate_aggregate.py",
-      "to": "json"
-    },
-    {
-      "from": "research/r6g/replication/reproduce.py",
-      "to": "research"
-    },
-    {
-      "from": "industry_research_stack/otel/__init__.py",
-      "to": "conventions"
-    },
-    {
-      "from": "scripts/write_gates_4_6_version_lock.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/write_gates_4_6_version_lock.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_docs_integrity.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_master_status.py",
-      "to": "json"
-    },
-    {
-      "from": "net_sec_rc001/evaluate.py",
-      "to": "terrestrial_rel16"
-    },
-    {
-      "from": "gate1/orchestrator/result_aggregator.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_release_firewall.py",
-      "to": "re"
-    },
-    {
-      "from": "generalization/tests/test_adapter_interface.py",
-      "to": "generalization"
-    },
-    {
-      "from": "scripts/write_gates_4_6_version_lock.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_gate4_evaluation.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/calculate_uncertainty.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/write_gates_4_6_version_lock.py",
-      "to": "json"
+      "from": "scripts/engineering_wave001/run_targeted_closeout.py",
+      "to": "subprocess"
     }
   ],
   "path_classification_sample": [
@@ -2406,28 +2416,54 @@
     "mutations": [
       {
         "index": 1,
-        "path": "research/external_reproduction/adapters/probe.py",
-        "kind": "flip_return_true",
+        "path": "scripts/assignment_canonical.py",
+        "kind": "remove_validation",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 2,
-        "path": "gate1/orchestrator/evidence_collector.py",
-        "kind": "flip_return_false",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-      },
-      {
-        "index": 3,
-        "path": "industry_research_stack/adapters/camara.py",
-        "kind": "flip_return_false",
-        "syntax_ok_after_mutation": true,
-        "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "ADEQUATE",
-    "detected_count": 3
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

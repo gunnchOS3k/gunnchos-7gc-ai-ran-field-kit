@@ -1,7 +1,7 @@
 {
   "repository": "7gc-digital-twin",
   "accepted_main_sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
-  "scanned_at_utc": "2026-08-21T17:47:47Z",
+  "scanned_at_utc": "2026-08-21T18:12:14Z",
   "counts": {
     "files_classified": 518,
     "code_files": 98,
@@ -23,7 +23,7 @@
     "hotspots": 4,
     "wave_dup_paths": 0,
     "fixture_paths": 7,
-    "orphan_candidates": 26,
+    "orphan_candidates": 25,
     "dep_edges": 280
   },
   "proof_independence": {
@@ -31,7 +31,9 @@
     "proof_files": 15,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -59,10 +62,10 @@
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "CRITICAL",
-    "orphan_dead_code": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "CRITICAL"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [],
   "theater_calibrated_all": [],
@@ -149,7 +152,6 @@
     "src/seven_gc_twin/visualization_stub.py",
     "src/seven_gc_twin/__main__.py",
     "src/seven_gc_twin/config/source_registry.py",
-    "src/seven_gc_twin/diagrams/diagram_data_export.py",
     "src/seven_gc_twin/gate2/edge_ingest.py",
     "src/seven_gc_twin/gate2/common.py",
     "src/seven_gc_twin/tool_adapters/oran_policy_export.py",
@@ -158,13 +160,325 @@
     "src/seven_gc_twin/tool_adapters/aerial_dt_export.py",
     "src/seven_gc_twin/scene/osm_overpass.py"
   ],
-  "dependency_edges_sample": [
+  "orphan_records": [
     {
-      "from": "src/seven_gc_twin/cli.py",
-      "to": "toy_scores"
+      "path": "apps/streamlit_7gc_campus_design_dashboard.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
     },
     {
-      "from": "src/seven_gc_twin/diagrams/diagram_data_export.py",
+      "path": "apps/streamlit_7gc_scene_dashboard.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/svg_floorplan_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/material_scoring.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/rf_scoring.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/room_adjacency.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/site_registry.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/export_bundle.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/acoustic_scoring.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/evidence_flags.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/power_model.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/floorplan_model.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/latency.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/baseline_policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/visualization_stub.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/__main__.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/config/source_registry.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/diagrams/diagram_data_export.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/seven_gc_twin/gate2/edge_ingest.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/gate2/common.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/oran_policy_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/sionna_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/ns3_scenario_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/aerial_dt_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/scene/osm_overpass.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "src/seven_gc_twin/provenance.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_metrics.py",
+      "to": "provenance"
+    },
+    {
+      "from": "tests/gate2/test_edge_ingest.py",
+      "to": "pytest"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "src/site_buildings/room_adjacency.py",
+      "to": "__future__"
+    },
+    {
+      "from": "apps/streamlit_7gc_campus_design_dashboard.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/export_oran_policy_loop.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "tests/test_7gc_material_scoring.py",
+      "to": "site_buildings"
+    },
+    {
+      "from": "scripts/e2e_postprocess.py",
+      "to": "shutil"
+    },
+    {
+      "from": "src/site_buildings/export_bundle.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/integrations/__init__.py",
+      "to": "beam_selection"
+    },
+    {
+      "from": "src/seven_gc_twin/__main__.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "scripts/export_site_for_ns3.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/seven_gc_twin/scene_builder.py",
+      "to": "yaml"
+    },
+    {
+      "from": "tests/test_cli.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "campus_metrics"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "campus_reports"
+    },
+    {
+      "from": "scripts/e2e_postprocess.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "scenario_loader"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_reports.py",
+      "to": "local_capacity"
+    },
+    {
+      "from": "scripts/bootstrap_site_profiles.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_metrics.py",
+      "to": "scenario_loader"
+    },
+    {
+      "from": "src/seven_gc_twin/gate2/edge_ingest.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "tests/test_site_profiles_operational.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_site_for_ns3.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "scenario_engine"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_reports.py",
+      "to": "campus_metrics"
+    },
+    {
+      "from": "tests/test_7gc_room_adjacency.py",
+      "to": "site_buildings"
+    },
+    {
+      "from": "scripts/export_oran_policy_loop.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "scene"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_full_scene_build.py",
+      "to": "xml"
+    },
+    {
+      "from": "apps/streamlit_7gc_campus_design_dashboard.py",
+      "to": "streamlit"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "campus_metrics"
+    },
+    {
+      "from": "src/seven_gc_twin/integrations/__init__.py",
+      "to": "device_os"
+    },
+    {
+      "from": "src/seven_gc_twin/provenance.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/site_profiles.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/seven_gc_twin/config/loader.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_site_configs.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/seven_gc_twin/scenario_engine.py",
+      "to": "site_profiles"
+    },
+    {
+      "from": "tests/test_rq1_supervisor_digital.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "scripts/export_site_for_ns3.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_reports.py",
+      "to": "__future__"
+    },
+    {
+      "from": "apps/streamlit_7gc_scene_dashboard.py",
       "to": "json"
     },
     {
@@ -172,312 +486,132 @@
       "to": "config"
     },
     {
-      "from": "scripts/e2e_postprocess.py",
-      "to": "shutil"
-    },
-    {
-      "from": "src/site_buildings/acoustic_scoring.py",
+      "from": "src/site_buildings/rf_scoring.py",
       "to": "__future__"
-    },
-    {
-      "from": "src/seven_gc_twin/tool_adapters/ns3_scenario_export.py",
-      "to": "json"
-    },
-    {
-      "from": "src/seven_gc_twin/report.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/seven_gc_twin/gate2/common.py",
-      "to": "importlib"
-    },
-    {
-      "from": "src/seven_gc_twin/integrations/__init__.py",
-      "to": "waike"
-    },
-    {
-      "from": "apps/streamlit_7gc_scene_dashboard.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/seven_gc_twin/gate2/common.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_tool_adapters.py",
-      "to": "seven_gc_twin"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "json"
-    },
-    {
-      "from": "src/seven_gc_twin/integrations/ai_ran.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/seven_gc_twin/cli.py",
-      "to": "integrations"
-    },
-    {
-      "from": "tests/test_rq1_supervisor_digital.py",
-      "to": "seven_gc_twin"
-    },
-    {
-      "from": "src/seven_gc_twin/cli.py",
-      "to": "bad_day_scenarios"
-    },
-    {
-      "from": "src/seven_gc_twin/experiment_manifest.py",
-      "to": "campus_metrics"
-    },
-    {
-      "from": "src/seven_gc_twin/gate2/edge_ingest.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/seven_gc_twin/gate2/edge_ingest.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/site_buildings/export_bundle.py",
-      "to": "__future__"
-    },
-    {
-      "from": "apps/streamlit_7gc_scene_dashboard.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_all_tool_exports.py",
-      "to": "seven_gc_twin"
-    },
-    {
-      "from": "scripts/e2e_postprocess.py",
-      "to": "subprocess"
     },
     {
       "from": "src/seven_gc_twin/site_validator.py",
       "to": "__future__"
     },
     {
-      "from": "src/seven_gc_twin/experiment_manifest.py",
-      "to": "continuity_benchmark"
-    },
-    {
-      "from": "src/seven_gc_twin/sites.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/seven_gc_twin/continuity_benchmark.py",
-      "to": "site_profiles"
-    },
-    {
-      "from": "tests/test_site_validator.py",
-      "to": "pytest"
-    },
-    {
-      "from": "scripts/export_oran_policy_loop.py",
-      "to": "sys"
-    },
-    {
-      "from": "apps/streamlit_7gc_campus_design_dashboard.py",
-      "to": "json"
-    },
-    {
-      "from": "src/seven_gc_twin/campus_reports.py",
-      "to": "site_profiles"
-    },
-    {
-      "from": "src/seven_gc_twin/integrations/waike.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/seven_gc_twin/integrations/device_os.py",
+      "from": "src/seven_gc_twin/local_capacity.py",
       "to": "__future__"
     },
     {
       "from": "tests/test_full_scene_build.py",
-      "to": "seven_gc_twin"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_7gc_material_scoring.py",
-      "to": "site_buildings"
-    },
-    {
-      "from": "scripts/reproduce.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "src/seven_gc_twin/scene_builder.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/site_buildings/rf_scoring.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/seven_gc_twin/gate2/common.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "src/seven_gc_twin/campus_reports.py",
-      "to": "scenario_engine"
-    },
-    {
-      "from": "tests/test_cli.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "src/seven_gc_twin/cli.py",
-      "to": "argparse"
-    },
-    {
-      "from": "src/site_buildings/export_bundle.py",
       "to": "pathlib"
     },
     {
-      "from": "tests/test_7gc_sensitive_site_privacy.py",
+      "from": "paper/scripts/generate_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/site_buildings/room_adjacency.py",
       "to": "site_buildings"
     },
     {
-      "from": "scripts/export_site_for_sionna.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/seven_gc_twin/sites.py",
-      "to": "yaml"
-    },
-    {
-      "from": "scripts/generate_7gc_campus_twin_bundle.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/export_site_for_aerial_dt.py",
-      "to": "sys"
+      "from": "src/seven_gc_twin/scene_builder.py",
+      "to": "site_profiles"
     },
     {
       "from": "tests/test_site_configs.py",
       "to": "seven_gc_twin"
     },
     {
-      "from": "scripts/export_oran_policy_loop.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/site_buildings/room_adjacency.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/site_buildings/svg_floorplan_export.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/seven_gc_twin/scene/osm_overpass.py",
-      "to": "urllib"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "csv"
-    },
-    {
-      "from": "tests/test_rq1_supervisor_digital.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/bootstrap_site_profiles.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/seven_gc_twin/campus_metrics.py",
-      "to": "site_profiles"
-    },
-    {
-      "from": "src/seven_gc_twin/campus_metrics.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "src/seven_gc_twin/scenario_engine.py",
-      "to": "site_profiles"
-    },
-    {
-      "from": "src/seven_gc_twin/integrations/edge_io.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/seven_gc_twin/scene_builder.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/seven_gc_twin/provenance.py",
+      "from": "scripts/e2e_postprocess.py",
       "to": "json"
     },
     {
-      "from": "src/seven_gc_twin/scene_builder.py",
+      "from": "scripts/reproduce.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/run_all_tool_exports.py",
+      "from": "src/site_buildings/export_bundle.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "toy_scores"
+    },
+    {
+      "from": "src/seven_gc_twin/sites.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/site_buildings/material_scoring.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_site_validator.py",
       "to": "sys"
     },
     {
-      "from": "tests/test_7gc_site_registry.py",
-      "to": "site_buildings"
+      "from": "src/seven_gc_twin/use_cases.py",
+      "to": "__future__"
     },
     {
-      "from": "scripts/export_site_for_sionna.py",
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "config"
+    },
+    {
+      "from": "apps/streamlit_app.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/e2e_postprocess.py",
-      "to": "json"
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "provenance"
+    },
+    {
+      "from": "scripts/bootstrap_site_profiles.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/export_site_for_aerial_dt.py",
+      "to": "pathlib"
     },
     {
       "from": "scripts/generate_7gc_campus_twin_bundle.py",
       "to": "pathlib"
     },
     {
-      "from": "src/seven_gc_twin/cli.py",
-      "to": "scenario_engine"
+      "from": "src/seven_gc_twin/campus_metrics.py",
+      "to": "site_profiles"
     },
     {
-      "from": "src/seven_gc_twin/__main__.py",
+      "from": "src/seven_gc_twin/bad_day_scenarios.py",
+      "to": "site_profiles"
+    },
+    {
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_oran_policy_loop.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_site_validator.py",
       "to": "seven_gc_twin"
-    },
-    {
-      "from": "src/seven_gc_twin/integrations/__init__.py",
-      "to": "ntn"
-    },
-    {
-      "from": "src/site_buildings/room_adjacency.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/test_tool_adapters.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/export_site_for_sionna.py",
-      "to": "seven_gc_twin"
-    },
-    {
-      "from": "scripts/bootstrap_site_profiles.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_rq1_supervisor_digital.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/seven_gc_twin/continuity_benchmark.py",
-      "to": "collections"
     }
   ],
   "path_classification_sample": [
@@ -1501,11 +1635,101 @@
         "path": "src/seven_gc_twin/scene/osm_overpass.py",
         "kind": "flip_return_true",
         "syntax_ok_after_mutation": true,
-        "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 2,
+        "path": "src/seven_gc_twin/cli.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 3,
+        "path": "src/seven_gc_twin/continuity_benchmark.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
       }
     ],
     "status": "SAMPLED",
-    "dimension": "CRITICAL",
-    "detected_count": 0
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "7gc-digital-twin",
+      "sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/seven_gc_twin/scene/osm_overpass.py",
+          "kind": "flip_return_true",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/cli.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/continuity_benchmark.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

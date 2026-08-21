@@ -105,11 +105,57 @@ jobs:
           print("NOTE: S0/S1 findings do not fail this workflow")
           PY
 
-      - name: Confirm Baseline requirement counts untouched
+      - name: Truth convergence + mutation classifier gates
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
+          base = Path("program/code_health_authenticity_baseline_v1")
+          br = json.loads((base / "BASELINE_RESULT.json").read_text())
+          flags = br.get("calibration_flags") or {}
+          for k in [
+              "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL",
+              "COLLECTION_ONLY_NOT_SURVIVAL",
+              "LIKELY_UNDETECTED_NOT_SURVIVAL",
+              "NO_TESTS_DIR_NOT_SURVIVAL",
+              "BEHAVIORAL_MUTATION_REQUIRED",
+              "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS",
+              "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT",
+          ]:
+              assert flags.get(k) is True, (k, flags.get(k))
+          assert flags.get("MARKER_MUTATIONS_COUNT_AS_SURVIVAL") is False
+          assert br.get("controls", {}).get("MUTATION_CLASSIFIER_CONTROLS_PASS") is True
+          prov = json.loads((base / "MUTATION_EXECUTION_PROVENANCE.json").read_text())
+          assert prov.get("MUTATION_CLASSIFIER_CONTROLS_PASS") is True
+          mut = json.loads((base / "MUTATION_RESISTANCE_SAMPLES.json").read_text())
+          for r in mut.get("results") or []:
+              if r.get("mutation_outcome") != "MUTATION_SURVIVED":
+                  continue
+              ok = False
+              for m in r.get("mutations") or []:
+                  if m.get("mutation_outcome") != "MUTATION_SURVIVED":
+                      continue
+                  assert m.get("full_run_executed") is True
+                  assert m.get("baseline_passed") is True
+                  assert m.get("mutated_passed") is True
+                  assert m.get("behavioral") is True
+                  assert m.get("kind") != "append_marker"
+                  assert m.get("test_reaction") not in {
+                      "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED",
+                      "MARKER_LIKELY_UNDETECTED",
+                      "NO_TESTS_DIR",
+                  }
+                  ok = True
+              assert ok, r.get("repository")
+          hot = json.loads((base / "COMPLEXITY_HOTSPOTS.json").read_text())
+          assert hot.get("VENDORED_ENVIRONMENT_COMPLEXITY_HOTSPOTS", 0) == 0
+          assert br.get("S0_REGEX_ONLY_COUNT", 0) == 0
+          assert br.get("CANONICAL_REPOS_AUDITED", br.get("totals", {}).get("repos_scanned")) == 17
+          assert br.get("BASELINE_COUNTS_CHANGED") is False
+          tv = json.loads((base / "TRUTH_CONVERGENCE_VALIDATION.json").read_text())
+          assert tv.get("CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION") == "PASS", tv.get("failures")
+          assert tv.get("token") == "CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION_PASS"
+          # Baseline unchanged
           d = json.loads(Path("program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json").read_text())
           t = d["totals"]
           assert t["ATOMIC_TOTAL"] == 419
@@ -121,5 +167,5 @@ jobs:
           ni = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_IMPLEMENTATION_WORK.json").read_text())
           assert nv["total_open"] == 0
           assert ni["total_open"] == 51
-          print("BASELINE_COUNTS_UNCHANGED_OK")
+          print("TRUTH_CONVERGENCE_AND_MUTATION_GATES_OK")
           PY

@@ -26,10 +26,10 @@ Accepted main: `916520919bea`
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
 - `complexity_hotspots`: **CRITICAL**
-- `orphan_dead_code`: **NEEDS_WORK**
+- `orphan_dead_code`: **ADEQUATE**
 - `fixture_honesty`: **STRONG**
 - `documentation_readability`: **ADEQUATE**
-- `mutation_resistance`: **NOT_APPLICABLE**
+- `mutation_resistance`: **NEEDS_WORK**
 
 ## First files to read
 1. README.md (if present)

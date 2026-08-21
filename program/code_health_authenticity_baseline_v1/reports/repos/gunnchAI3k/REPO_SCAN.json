@@ -1,7 +1,7 @@
 {
   "repository": "gunnchAI3k",
   "accepted_main_sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
-  "scanned_at_utc": "2026-08-21T17:47:32Z",
+  "scanned_at_utc": "2026-08-21T18:12:01Z",
   "counts": {
     "files_classified": 658,
     "code_files": 375,
@@ -29,28 +29,11 @@
   "proof_independence": {
     "production_files": 262,
     "proof_files": 74,
-    "production_imports_proof_count": 3,
-    "production_imports_proof": [
-      {
-        "path": "src/local-runtime/runtime.ts",
-        "imports": [
-          "./providers/fixtureProvider"
-        ]
-      },
-      {
-        "path": "src/local-runtime/index.ts",
-        "imports": [
-          "./providers/fixtureProvider"
-        ]
-      },
-      {
-        "path": "src/local-runtime/providers/localModelProvider.ts",
-        "imports": [
-          "./fixtureProvider"
-        ]
-      }
-    ],
-    "status": "FAIL_COUPLED"
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -60,7 +43,7 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "NEEDS_WORK",
+    "authenticity": "ADEQUATE",
     "details": {
       "has_entrypoint": true,
       "entrypoint_list": [
@@ -69,23 +52,22 @@
       ],
       "has_tests": true,
       "tests_reference_production": true,
-      "proof_independence_status": "FAIL_COUPLED",
-      "gaps": [
-        "PRODUCTION_PROOF_COUPLING"
-      ]
-    }
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
-    "production_proof_separation": "CRITICAL",
+    "production_proof_separation": "STRONG",
     "anti_test_theater": "ADEQUATE",
-    "dependency_boundaries": "NEEDS_WORK",
+    "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "ADEQUATE",
-    "runtime_authenticity": "NEEDS_WORK",
+    "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "ADEQUATE",
     "orphan_dead_code": "ADEQUATE",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
-    "mutation_resistance": "NOT_APPLICABLE"
+    "mutation_resistance": "NEEDS_WORK"
   },
   "theater_findings": [],
   "theater_calibrated_all": [
@@ -7025,326 +7007,327 @@
     }
   ],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
     {
-      "from": "src/phase_xiv/agent/audit.ts",
-      "to": "node:path"
+      "from": "3kmlv-arcade/distribution/device-optimization/optimize-for-devices.js",
+      "to": "path"
     },
     {
-      "from": "src/phase_xiv/index.ts",
-      "to": "./multimodal"
+      "from": "src/system-layer/privacy_policy.ts",
+      "to": "../local-runtime/types"
     },
     {
-      "from": "tests/product-completion/digital_product.test.ts",
-      "to": "../../src/user-ready/vision_vlm"
-    },
-    {
-      "from": "src/study/ssj-infinity.ts",
-      "to": "discord.js"
-    },
-    {
-      "from": "src/user-ready/index.ts",
-      "to": "./projects_memory"
-    },
-    {
-      "from": "src/system-layer/product_service/rag_engine.ts",
-      "to": "node:crypto"
-    },
-    {
-      "from": "src/security/audit.ts",
-      "to": "sqlite3"
-    },
-    {
-      "from": "src/waike-mastery/data_dashboards_consumption.ts",
-      "to": "./remediation_engine"
-    },
-    {
-      "from": "src/system-layer/product_service/service.ts",
-      "to": "./governance"
-    },
-    {
-      "from": "tests/phase_xiv/agent_runtime.test.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "tests/user-ready/model_manager.test.ts",
-      "to": "../../src/user-ready/model_manager"
-    },
-    {
-      "from": "tests/system-layer/os_integration.test.ts",
-      "to": "../../src/system-layer/os_integration/requirement_proof"
-    },
-    {
-      "from": "src/independent-eval/runner.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "src/evals/wave003/runner.ts",
-      "to": "./constants"
-    },
-    {
-      "from": "src/waike-mastery/comm_pd_consumption.ts",
-      "to": "./modes"
-    },
-    {
-      "from": "src/user-ready/runtime_001.ts",
-      "to": "./projects_memory"
-    },
-    {
-      "from": "src/music/spotify-integration.ts",
-      "to": "axios"
-    },
-    {
-      "from": "src/study/bot.ts",
-      "to": "./exporters/pptx"
-    },
-    {
-      "from": "src/local-runtime/discovery.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "src/study/ssj-infinity.ts",
-      "to": "./enhanced-course-integration"
-    },
-    {
-      "from": "src/system-layer/product_service/service.ts",
-      "to": "./permissions"
-    },
-    {
-      "from": "src/local-runtime/runtime.ts",
-      "to": "./network"
-    },
-    {
-      "from": "test-bot-start.js",
-      "to": "dotenv/config"
-    },
-    {
-      "from": "src/waike-mastery/comm_pd_consumption.ts",
-      "to": "./contract"
-    },
-    {
-      "from": "src/study/exporters/pptx.ts",
-      "to": "../plan"
-    },
-    {
-      "from": "tests/user-ready/market_runtime.test.ts",
-      "to": "../../src/user-ready/companion"
-    },
-    {
-      "from": "src/phase_xiv/agent/lab_report_e2e.ts",
-      "to": "./runtime"
-    },
-    {
-      "from": "src/phase_xiv/scheduled/tasks.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "src/user-ready/agent_tools.ts",
-      "to": "node:os"
-    },
-    {
-      "from": "src/stage2/index.ts",
-      "to": "./memory/store"
-    },
-    {
-      "from": "src/system-layer/local_inference/index.ts",
-      "to": "./backends/deterministic"
-    },
-    {
-      "from": "src/evals/wave003/hashing.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "src/local-runtime/server.ts",
-      "to": "./runtime"
-    },
-    {
-      "from": "src/phase_xiv/multimodal/vision.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "src/tutor/discordInteractionRouter.ts",
-      "to": "./responseModes"
-    },
-    {
-      "from": "src/waike-mastery/tool_runners.ts",
-      "to": "fs"
-    },
-    {
-      "from": "tests/stage2/projects.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "src/music/jockie-powers.ts",
-      "to": "stream"
-    },
-    {
-      "from": "src/independent-eval/runner.ts",
-      "to": "./experience"
-    },
-    {
-      "from": "src/user-ready/runtime_003.ts",
-      "to": "./runtime"
-    },
-    {
-      "from": "src/stage2/index.ts",
-      "to": "./eval/harness"
-    },
-    {
-      "from": "src/user-ready/cowrite_workspace.ts",
-      "to": "node:crypto"
-    },
-    {
-      "from": "src/core/learning.ts",
-      "to": "./database"
-    },
-    {
-      "from": "tests/system-layer/task_router.test.ts",
-      "to": "../../src/system-layer/model_registry"
-    },
-    {
-      "from": "src/system-layer/local_rag.ts",
-      "to": "./product_service/rag_engine"
-    },
-    {
-      "from": "src/user-ready/computer_use_real.ts",
-      "to": "../stage2/os/permissions"
-    },
-    {
-      "from": "src/local-runtime/index.ts",
-      "to": "./discovery"
+      "from": "tests/waike-mastery/mastery.test.ts",
+      "to": "../../src/waike-mastery/course_honesty"
     },
     {
       "from": "src/system-layer/product_service/index.ts",
-      "to": "./audit"
+      "to": "./continuity"
     },
     {
-      "from": "src/evals/wave003/runner.ts",
-      "to": "node:child_process"
+      "from": "src/waike-mastery/eval_suite.ts",
+      "to": "./diagnosis"
     },
     {
-      "from": "tests/system-layer/platform_status.test.ts",
-      "to": "../../src/system-layer/platform_complete"
+      "from": "python-ai-bridge/ai_bridge.py",
+      "to": "structlog"
     },
     {
-      "from": "src/phase_xiv/mcp/connectors.ts",
-      "to": "node:crypto"
-    },
-    {
-      "from": "src/user-ready/local_pro_audit.ts",
-      "to": "node:os"
-    },
-    {
-      "from": "tests/phase_xiv/artifacts_scheduled.test.ts",
-      "to": "../../src/phase_xiv"
+      "from": "src/study/ssj-infinity.ts",
+      "to": "./bot"
     },
     {
       "from": "src/user-ready/local_pro_runtime.ts",
       "to": "node:path"
     },
     {
-      "from": "python-ai-bridge/ai_bridge.py",
-      "to": "dataclasses"
+      "from": "src/user-ready/custom_agents.ts",
+      "to": "./agent_tools"
     },
     {
-      "from": "src/phase_xiv/agent/lab_report_e2e.ts",
-      "to": "pdfkit"
+      "from": "src/study/emergency-bot.ts",
+      "to": "./exporters/docx"
     },
     {
-      "from": "src/phase_xiv/agent/planner.ts",
-      "to": "./task_graph"
+      "from": "scripts/run_mastery_002_plateau_closeout.ts",
+      "to": "../src/waike-mastery/remediation_engine"
     },
     {
-      "from": "tests/journeys/waike_to_gunnchai.test.ts",
-      "to": "../../src/user-ready/tokens"
+      "from": "src/local-runtime/resources.ts",
+      "to": "node:perf_hooks"
     },
     {
-      "from": "src/phase_xiv/multimodal/vision.ts",
-      "to": "../../stage2/os/permissions"
+      "from": "src/user-ready/local_fast_runtime.ts",
+      "to": "./model_manager"
     },
     {
-      "from": "tests/system-layer/product_service.test.ts",
-      "to": "../../src/system-layer/product_service/service"
+      "from": "src/tutor/discordInteractionRouter.ts",
+      "to": "./academicIntegrityPolicy"
+    },
+    {
+      "from": "tests/user-ready/market_runtime.test.ts",
+      "to": "../../src/user-ready/stub_challenge"
+    },
+    {
+      "from": "src/study/compute.ts",
+      "to": "./jarvis-core"
+    },
+    {
+      "from": "src/study/enhanced-course-integration.ts",
+      "to": "fs"
+    },
+    {
+      "from": "src/phase_xiv/agent/tools/index.ts",
+      "to": "./shell"
     },
     {
       "from": "src/evals/wave003/reproduction.ts",
-      "to": "./types"
+      "to": "./hashing"
     },
     {
-      "from": "src/user-ready/agent_tools.ts",
-      "to": "node:crypto"
+      "from": "tests/tutor/responseModes.test.ts",
+      "to": "../../src/tutor/responseModes"
     },
     {
-      "from": "src/commands/morning.ts",
+      "from": "src/waike-mastery/tool_runners.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "tests/system-layer/os_integration.test.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "src/waike-mastery/cli.ts",
+      "to": "./eval_suite"
+    },
+    {
+      "from": "src/system-layer/product_service/governance.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/system-layer/local_inference/runtime_adapter.ts",
+      "to": "./backends/llamacpp"
+    },
+    {
+      "from": "src/evals/wave003/baseline.ts",
+      "to": "./hashing"
+    },
+    {
+      "from": "src/user-ready/runtime_003.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "tests/readme_supervisor_front_door.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "tests/product-completion/digital_product.test.ts",
+      "to": "../../src/user-ready/audio_overview"
+    },
+    {
+      "from": "src/waike-mastery/course_honesty.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "python-ai-bridge/ai_bridge.py",
+      "to": "asyncio"
+    },
+    {
+      "from": "src/system-layer/os_integration/index.ts",
+      "to": "./requirement_proof"
+    },
+    {
+      "from": "src/phase_xiv/computer_use/index.ts",
+      "to": "./runtime"
+    },
+    {
+      "from": "src/seasonal/seasonal-manager.ts",
       "to": "discord.js"
     },
     {
-      "from": "src/user-ready/index.ts",
-      "to": "./voice_realtime"
+      "from": "src/study/bot.ts",
+      "to": "./plan"
     },
     {
-      "from": "src/phase_xiv/continuity/index.ts",
-      "to": "./hooks"
+      "from": "tests/user-ready/market_runtime.test.ts",
+      "to": "../../src/user-ready/tokens"
     },
     {
-      "from": "src/phase_xiv/multimodal/index.ts",
-      "to": "./screen"
-    },
-    {
-      "from": "tests/local-runtime/local-runtime.smoke.test.ts",
-      "to": "node:os"
-    },
-    {
-      "from": "tests/user-ready/ai004_surfaces.test.ts",
-      "to": "../../src/user-ready/matrix"
-    },
-    {
-      "from": "src/phase_xiv/agent/index.ts",
-      "to": "./task_graph"
-    },
-    {
-      "from": "src/product-completion/runtime.ts",
-      "to": "../user-ready/matrix"
-    },
-    {
-      "from": "src/study/lock-in.ts",
-      "to": "./emergency"
-    },
-    {
-      "from": "src/waike-mastery/baseline_v1.ts",
-      "to": "node:os"
-    },
-    {
-      "from": "src/system-layer/platform_status.ts",
-      "to": "./product_service/types"
-    },
-    {
-      "from": "tests/system-layer/model_registry.test.ts",
-      "to": "../../src/system-layer/model_registry"
-    },
-    {
-      "from": "src/user-ready/voice_realtime.ts",
-      "to": "../stage2/os/permissions"
-    },
-    {
-      "from": "src/user-ready/voice_realtime.ts",
-      "to": "node:path"
+      "from": "src/phase_xiv/agent/lab_report_e2e.ts",
+      "to": "node:fs"
     },
     {
       "from": "src/independent-eval/runner.ts",
-      "to": "../local-runtime/runtime"
+      "to": "../system-layer/product_service/service"
     },
     {
-      "from": "src/user-ready/audio_overview.ts",
-      "to": "./speech_local"
+      "from": "src/evals/wave003/scorers/ai_local.ts",
+      "to": "../../../system-layer/product_service/rag_engine"
     },
     {
-      "from": "src/local-runtime/runtime.ts",
-      "to": "./providers/cloudProvider"
+      "from": "tests/online-awake.test.ts",
+      "to": "../src/announcements/online-awake"
     },
     {
-      "from": "src/security/audit.ts",
-      "to": "../utils/logger"
+      "from": "src/tutor/discordInteractionRouter.ts",
+      "to": "discord.js"
+    },
+    {
+      "from": "src/evals/wave003/scorers/crosscheck_requirement_proof.ts",
+      "to": "../../../system-layer/product_service/service"
+    },
+    {
+      "from": "src/user-ready/index.ts",
+      "to": "./runtime_003"
+    },
+    {
+      "from": "src/phase_xiv/agent/lab_report_e2e.ts",
+      "to": "docx"
+    },
+    {
+      "from": "tests/independent-eval/independent_eval.test.ts",
+      "to": "../../src/independent-eval/tokens"
+    },
+    {
+      "from": "src/study/ssj-infinity.ts",
+      "to": "./user-feedback-system"
+    },
+    {
+      "from": "tests/user-ready/ai004_surfaces.test.ts",
+      "to": "../../src/user-ready/computer_use_safe"
+    },
+    {
+      "from": "tests/phase_xiv/multimodal_voice.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/user-ready/runtime.ts",
+      "to": "./model_manager"
+    },
+    {
+      "from": "src/local-runtime/cli.ts",
+      "to": "./runtime"
+    },
+    {
+      "from": "src/stage2/eval/harness.ts",
+      "to": "../os/capability_api"
+    },
+    {
+      "from": "python-ai-bridge/ai_bridge.py",
+      "to": "uvloop"
+    },
+    {
+      "from": "src/study/ingest.ts",
+      "to": "path"
+    },
+    {
+      "from": "src/product-completion/security_regression.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "3kmlv-arcade/src/screens/HomeScreen.tsx",
+      "to": "../core/GameEmulationEngine"
+    },
+    {
+      "from": "src/music/music-service-manager.ts",
+      "to": "discord.js"
+    },
+    {
+      "from": "src/phase_xiv/artifacts/creator.ts",
+      "to": "node:crypto"
+    },
+    {
+      "from": "src/waike-mastery/comm_pd_consumption.ts",
+      "to": "./tokens"
+    },
+    {
+      "from": "src/independent-eval/audit.ts",
+      "to": "./tokens"
+    },
+    {
+      "from": "src/user-ready/companion_backend.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/stage2/index.ts",
+      "to": "./os/sync"
+    },
+    {
+      "from": "src/local-runtime/index.ts",
+      "to": "./resources"
+    },
+    {
+      "from": "src/system-layer/index.ts",
+      "to": "./platform_status"
+    },
+    {
+      "from": "src/simple-bot.ts",
+      "to": "./config/startup"
+    },
+    {
+      "from": "tests/phase_xiv/agent_runtime.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/user-ready/runtime.ts",
+      "to": "./stub_challenge"
+    },
+    {
+      "from": "src/user-ready/runtime_004.ts",
+      "to": "./coverage"
+    },
+    {
+      "from": "src/system-layer/product_service/service.ts",
+      "to": "../local_inference/backends/llamacpp"
+    },
+    {
+      "from": "scripts/run_b_pkt_002_comm_pd.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "scripts/run_b_pkt_003_data_dashboards.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "tests/phase_xiv/long_context.test.ts",
+      "to": "../../src/phase_xiv"
+    },
+    {
+      "from": "src/user-ready/index.ts",
+      "to": "./projects_memory"
+    },
+    {
+      "from": "src/product-completion/security_regression.ts",
+      "to": "../user-ready/vision_screen"
+    },
+    {
+      "from": "tests/system-layer/governance_runtime.test.ts",
+      "to": "node:os"
+    },
+    {
+      "from": "src/user-ready/matrix.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "src/user-ready/coding_agent_pr.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/waike-mastery/remediation_engine.ts",
+      "to": "./diagnosis"
+    },
+    {
+      "from": "python-ai-bridge/ai_bridge.py",
+      "to": "webrtcvad"
+    },
+    {
+      "from": "3kmlv-arcade/src/App.tsx",
+      "to": "@react-navigation/bottom-tabs"
+    },
+    {
+      "from": "src/study/emergency-bot.ts",
+      "to": "discord.js"
     }
   ],
   "path_classification_sample": [
@@ -8362,8 +8345,57 @@
   "mutation_sampling": {
     "repository": "gunnchAI3k",
     "sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
-    "mutations": [],
-    "status": "NO_MUTATION_TARGETS",
-    "dimension": "NOT_APPLICABLE"
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/prove_phase_xiv_ai.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchAI3k",
+      "sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
   }
 }

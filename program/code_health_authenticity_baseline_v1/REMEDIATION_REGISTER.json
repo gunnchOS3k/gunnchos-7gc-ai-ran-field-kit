@@ -1,6 +1,6 @@
 {
   "schema": "gunnchos.code_health_authenticity_baseline_v1.remediation_register",
-  "generated_at_utc": "2026-08-21T17:48:03Z",
+  "generated_at_utc": "2026-08-21T18:12:36Z",
   "note": "Remediation families only. Does NOT change Baseline requirement counts.",
   "baseline_counts_unchanged": true,
   "families": {
@@ -219,130 +219,7 @@
     },
     "R4": {
       "name": "Runtime-path inauthenticity",
-      "items": [
-        {
-          "family": "R4",
-          "severity": "S2",
-          "repository": "gunnchos-device-os",
-          "kind": "runtime_needs_work",
-          "title": "Runtime authenticity NEEDS_WORK",
-          "disposition": "RUNTIME_NEEDS_WORK",
-          "runtime_authenticity": {
-            "has_entrypoint": true,
-            "entrypoints": [
-              "Makefile"
-            ],
-            "has_tests": true,
-            "tests_reference_production": true,
-            "authenticity": "NEEDS_WORK",
-            "details": {
-              "has_entrypoint": true,
-              "entrypoint_list": [
-                "Makefile"
-              ],
-              "has_tests": true,
-              "tests_reference_production": true,
-              "proof_independence_status": "FAIL_COUPLED",
-              "gaps": [
-                "PRODUCTION_PROOF_COUPLING"
-              ]
-            }
-          }
-        },
-        {
-          "family": "R4",
-          "severity": "S2",
-          "repository": "gunnchAI3k",
-          "kind": "runtime_needs_work",
-          "title": "Runtime authenticity NEEDS_WORK",
-          "disposition": "RUNTIME_NEEDS_WORK",
-          "runtime_authenticity": {
-            "has_entrypoint": true,
-            "entrypoints": [
-              "package.json",
-              "Makefile"
-            ],
-            "has_tests": true,
-            "tests_reference_production": true,
-            "authenticity": "NEEDS_WORK",
-            "details": {
-              "has_entrypoint": true,
-              "entrypoint_list": [
-                "package.json",
-                "Makefile"
-              ],
-              "has_tests": true,
-              "tests_reference_production": true,
-              "proof_independence_status": "FAIL_COUPLED",
-              "gaps": [
-                "PRODUCTION_PROOF_COUPLING"
-              ]
-            }
-          }
-        },
-        {
-          "family": "R4",
-          "severity": "S2",
-          "repository": "archive-of-life-artifact-world",
-          "kind": "runtime_needs_work",
-          "title": "Runtime authenticity NEEDS_WORK",
-          "disposition": "RUNTIME_NEEDS_WORK",
-          "runtime_authenticity": {
-            "has_entrypoint": true,
-            "entrypoints": [
-              "package.json",
-              "Makefile"
-            ],
-            "has_tests": true,
-            "tests_reference_production": true,
-            "authenticity": "NEEDS_WORK",
-            "details": {
-              "has_entrypoint": true,
-              "entrypoint_list": [
-                "package.json",
-                "Makefile"
-              ],
-              "has_tests": true,
-              "tests_reference_production": true,
-              "proof_independence_status": "FAIL_COUPLED",
-              "gaps": [
-                "PRODUCTION_PROOF_COUPLING"
-              ]
-            }
-          }
-        },
-        {
-          "family": "R4",
-          "severity": "S2",
-          "repository": "beatlink-party",
-          "kind": "runtime_needs_work",
-          "title": "Runtime authenticity NEEDS_WORK",
-          "disposition": "RUNTIME_NEEDS_WORK",
-          "runtime_authenticity": {
-            "has_entrypoint": true,
-            "entrypoints": [
-              "package.json",
-              "Makefile"
-            ],
-            "has_tests": true,
-            "tests_reference_production": true,
-            "authenticity": "NEEDS_WORK",
-            "details": {
-              "has_entrypoint": true,
-              "entrypoint_list": [
-                "package.json",
-                "Makefile"
-              ],
-              "has_tests": true,
-              "tests_reference_production": true,
-              "proof_independence_status": "FAIL_COUPLED",
-              "gaps": [
-                "PRODUCTION_PROOF_COUPLING"
-              ]
-            }
-          }
-        }
-      ]
+      "items": []
     },
     "R5": {
       "name": "Mutation blindness",
@@ -351,91 +228,39 @@
           "family": "R5",
           "severity": "S1",
           "repository": "gunnchos-research-portal",
-          "kind": "mutation_survival",
-          "title": "Mutation sample not detected by available tests",
+          "kind": "MUTATION_BLINDNESS",
+          "title": "Proven mutation survival: behavioral mutation not detected by full relevant suite",
           "detail": [
             {
               "index": 1,
-              "path": "scripts/run_vp012_portal_first.py",
-              "kind": "flip_return_true",
+              "path": "scripts/validate_supervisor_ready.py",
+              "kind": "flip_return_zero",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "NO_TESTS_DIR"
-            }
-          ],
-          "disposition": "ROOT_CAUSE_S1",
-          "reachability": {
-            "reachability_status": "ACTIVE_FIRST_PARTY",
-            "active": true,
-            "first_party": true,
-            "path_bucket": "PRODUCTION"
-          },
-          "requirement_capability_link": true,
-          "semantic_review_disposition": "CONFIRMED_S1",
-          "material_weakness": "mutation_survival",
-          "raw_observation_count": 1,
-          "sample_lines": [
-            null
-          ]
-        },
-        {
-          "family": "R5",
-          "severity": "S1",
-          "repository": "7gc-digital-twin",
-          "kind": "mutation_survival",
-          "title": "Mutation sample not detected by available tests",
-          "detail": [
-            {
-              "index": 1,
-              "path": "src/seven_gc_twin/scene/osm_overpass.py",
-              "kind": "flip_return_true",
-              "syntax_ok_after_mutation": true,
-              "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
-            }
-          ],
-          "disposition": "ROOT_CAUSE_S1",
-          "reachability": {
-            "reachability_status": "ACTIVE_FIRST_PARTY",
-            "active": true,
-            "first_party": true,
-            "path_bucket": "PRODUCTION"
-          },
-          "requirement_capability_link": true,
-          "semantic_review_disposition": "CONFIRMED_S1",
-          "material_weakness": "mutation_survival",
-          "raw_observation_count": 1,
-          "sample_lines": [
-            null
-          ]
-        },
-        {
-          "family": "R5",
-          "severity": "S1",
-          "repository": "readygary-6g-beam-selection",
-          "kind": "mutation_survival",
-          "title": "Mutation sample not detected by available tests",
-          "detail": [
-            {
-              "index": 1,
-              "path": "sim/experiments/digital_programme.py",
-              "kind": "flip_return_true",
-              "syntax_ok_after_mutation": true,
-              "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_KILLED",
+              "mutation_outcome": "MUTATION_KILLED"
             },
             {
               "index": 2,
-              "path": "sim/channels/synthetic.py",
-              "kind": "flip_return_true",
+              "path": "scripts/audit_portfolio.py",
+              "kind": "flip_return_zero",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
-            },
-            {
-              "index": 3,
-              "path": "sim/channels/sionna_rt.py",
-              "kind": "flip_return_true",
-              "syntax_ok_after_mutation": true,
-              "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": true,
+              "test_reaction": "MUTATION_SURVIVED",
+              "mutation_outcome": "MUTATION_SURVIVED"
             }
           ],
+          "mutation_outcome": "MUTATION_SURVIVED",
           "disposition": "ROOT_CAUSE_S1",
           "reachability": {
             "reachability_status": "ACTIVE_FIRST_PARTY",
@@ -455,31 +280,53 @@
           "family": "R5",
           "severity": "S1",
           "repository": "waike-research-ops",
-          "kind": "mutation_survival",
-          "title": "Mutation sample not detected by available tests",
+          "kind": "MUTATION_BLINDNESS",
+          "title": "Proven mutation survival: behavioral mutation not detected by full relevant suite",
           "detail": [
             {
               "index": 1,
               "path": "src/waike_curriculum/evaluation/metrics.py",
               "kind": "flip_return_zero",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": true,
+              "test_reaction": "MUTATION_SURVIVED",
+              "mutation_outcome": "MUTATION_SURVIVED"
             },
             {
               "index": 2,
-              "path": "src/waike_curriculum/evaluation/mock_data.py",
-              "kind": "append_marker",
+              "path": "src/waike_course_ready/batch002/exams.py",
+              "kind": "remove_validation",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "MARKER_LIKELY_UNDETECTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": true,
+              "test_reaction": "MUTATION_SURVIVED",
+              "mutation_outcome": "MUTATION_SURVIVED"
             },
             {
               "index": 3,
-              "path": "src/waike_curriculum/evaluation/report.py",
-              "kind": "append_marker",
+              "path": "src/waike_course_ready/batch002/labs.py",
+              "kind": "invert_condition",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "MARKER_LIKELY_UNDETECTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_KILLED",
+              "mutation_outcome": "MUTATION_KILLED"
             }
           ],
+          "mutation_outcome": "MUTATION_SURVIVED",
           "disposition": "ROOT_CAUSE_S1",
           "reachability": {
             "reachability_status": "ACTIVE_FIRST_PARTY",
@@ -497,47 +344,162 @@
         },
         {
           "family": "R5",
-          "severity": "S1",
+          "severity": "S2",
+          "repository": "7gc-digital-twin",
+          "kind": "mutation_evidence_incomplete",
+          "title": "Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE",
+          "detail": [
+            {
+              "index": 1,
+              "path": "src/seven_gc_twin/scene/osm_overpass.py",
+              "kind": "flip_return_true",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 2,
+              "path": "src/seven_gc_twin/cli.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 3,
+              "path": "src/seven_gc_twin/continuity_benchmark.py",
+              "kind": "invert_condition",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            }
+          ],
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+          "disposition": "INCOMPLETE_EVIDENCE"
+        },
+        {
+          "family": "R5",
+          "severity": "S2",
+          "repository": "readygary-6g-beam-selection",
+          "kind": "mutation_evidence_incomplete",
+          "title": "Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE",
+          "detail": [
+            {
+              "index": 1,
+              "path": "sim/experiments/digital_programme.py",
+              "kind": "flip_return_true",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 2,
+              "path": "scripts/run_benchmark_table.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 3,
+              "path": "scripts/run_timing_harness.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            }
+          ],
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+          "disposition": "INCOMPLETE_EVIDENCE"
+        },
+        {
+          "family": "R5",
+          "severity": "S2",
           "repository": "gunnchos-emergent-service-intent-protocols",
-          "kind": "mutation_survival",
-          "title": "Mutation sample not detected by available tests",
+          "kind": "mutation_evidence_incomplete",
+          "title": "Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE",
           "detail": [
             {
               "index": 1,
               "path": "src/emergent_intent/algorithms/trainers.py",
-              "kind": "append_marker",
+              "kind": "invert_condition",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "MARKER_LIKELY_UNDETECTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
             },
             {
               "index": 2,
-              "path": "src/emergent_intent/utils/device.py",
-              "kind": "append_marker",
-              "syntax_ok_after_mutation": true,
-              "test_reaction": "MARKER_LIKELY_UNDETECTED"
-            },
-            {
-              "index": 3,
               "path": "src/emergent_intent/env/wireless_env.py",
               "kind": "flip_return_zero",
               "syntax_ok_after_mutation": true,
-              "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 3,
+              "path": "src/emergent_intent/abstraction/encoders.py",
+              "kind": "invert_condition",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
             }
           ],
-          "disposition": "ROOT_CAUSE_S1",
-          "reachability": {
-            "reachability_status": "ACTIVE_FIRST_PARTY",
-            "active": true,
-            "first_party": true,
-            "path_bucket": "PRODUCTION"
-          },
-          "requirement_capability_link": true,
-          "semantic_review_disposition": "CONFIRMED_S1",
-          "material_weakness": "mutation_survival",
-          "raw_observation_count": 1,
-          "sample_lines": [
-            null
-          ]
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+          "disposition": "INCOMPLETE_EVIDENCE"
         }
       ]
     },
@@ -1016,12 +978,12 @@
           "orphans": [
             "gunnchos_device_os/platform/accessibility_store.py",
             "gunnchos_device_os/platform/package_lifecycle.py",
-            "gunnchos_device_os/platform/sandbox_executor.py",
             "gunnchos_device_os/platform/persistent_sync.py",
             "gunnchos_device_os/platform/secure_packaging.py",
             "gunnchos_device_os/platform/role_policy.py",
             "gunnchos_device_os/platform/e2e_scenarios.py",
-            "gunnchos_device_os/platform/encrypted_storage.py"
+            "gunnchos_device_os/platform/encrypted_storage.py",
+            "gunnchos_device_os/platform/requirement_evaluators.py"
           ]
         },
         {
@@ -1032,28 +994,12 @@
           "orphans": [
             "src/edge_io_node/latency_probe.py",
             "src/edge_io_node/packet_loss_probe.py",
-            "src/edge_io_node/demo.py",
             "src/edge_io_node/__main__.py",
-            "src/edge_io_node/collectors/base.py",
             "src/edge_io_node/exporters/seven_gc_export.py",
-            "src/edge_io_node/contracts/validate.py",
-            "src/edge_io_node/tool_adapters/measurement_validation.py"
-          ]
-        },
-        {
-          "family": "R7",
-          "severity": "S2",
-          "repository": "archive-of-life-artifact-world",
-          "title": "Orphan candidates and/or fixture honesty issues",
-          "orphans": [
-            "data-pipeline/src/archive_life_pipeline/audit.py",
-            "data-pipeline/src/archive_life_pipeline/duckdb_runner.py",
-            "data-pipeline/src/archive_life_pipeline/models.py",
-            "data-pipeline/src/archive_life_pipeline/paths.py",
-            "data-pipeline/src/archive_life_pipeline/nasa_ingest.py",
-            "data-pipeline/src/archive_life_pipeline/snapshot.py",
-            "data-pipeline/src/archive_life_pipeline/science_db.py",
-            "data-pipeline/src/archive_life_pipeline/source_import.py"
+            "src/edge_io_node/tool_adapters/measurement_validation.py",
+            "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
+            "src/edge_io_node/tool_adapters/oran_kpi_export.py",
+            "src/edge_io_node/consent/lifecycle.py"
           ]
         },
         {
@@ -1085,7 +1031,7 @@
             "src/airan_research/synthetic_data.py",
             "src/airan_research/campus_profiles.py",
             "src/airan_research/__main__.py",
-            "src/airan_research/report.py"
+            "src/airan_research/gate2/twin_policies.py"
           ]
         },
         {
@@ -1107,32 +1053,17 @@
         {
           "family": "R7",
           "severity": "S2",
-          "repository": "readygary-6g-beam-selection",
-          "title": "Orphan candidates and/or fixture honesty issues",
-          "orphans": [
-            "src/readygary_tool_adapters/deepmimo_adapter.py",
-            "src/readygary_tool_adapters/tensorrt_adapter.py",
-            "src/readygary_tool_adapters/nvidia_probe.py",
-            "src/readygary_tool_adapters/aerial_adapter.py",
-            "src/readygary_tool_adapters/aodt_adapter.py",
-            "src/readygary_tool_adapters/sionna_channel_adapter.py",
-            "src/readygary_tool_adapters/benchmark_dataset_registry.py"
-          ]
-        },
-        {
-          "family": "R7",
-          "severity": "S2",
           "repository": "gunnchos-emergent-service-intent-protocols",
           "title": "Orphan candidates and/or fixture honesty issues",
           "orphans": [
             "src/emergent_intent/stats.py",
             "src/emergent_intent/abstraction/policy.py",
             "src/emergent_intent/abstraction/encoders.py",
-            "src/emergent_intent/algorithms/dial_tarmac.py",
             "src/emergent_intent/algorithms/networks.py",
             "src/emergent_intent/algorithms/value_decomp.py",
-            "src/emergent_intent/algorithms/ippo.py",
-            "src/emergent_intent/algorithms/tarmac.py"
+            "src/emergent_intent/algorithms/trainers.py",
+            "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
+            "src/emergent_intent/comm/attention.py"
           ]
         }
       ]

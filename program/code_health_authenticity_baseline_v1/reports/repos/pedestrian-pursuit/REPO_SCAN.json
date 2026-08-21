@@ -1,7 +1,7 @@
 {
   "repository": "pedestrian-pursuit",
   "accepted_main_sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
-  "scanned_at_utc": "2026-08-21T17:47:40Z",
+  "scanned_at_utc": "2026-08-21T18:12:08Z",
   "counts": {
     "files_classified": 269,
     "code_files": 101,
@@ -31,7 +31,9 @@
     "proof_files": 17,
     "production_imports_proof_count": 0,
     "production_imports_proof": [],
-    "status": "PASS_INDEPENDENT"
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -50,7 +52,8 @@
       "tests_reference_production": true,
       "proof_independence_status": "PASS_INDEPENDENT",
       "gaps": []
-    }
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
@@ -1001,266 +1004,19 @@
   "wave_duplicate_paths": [],
   "fixtures": [],
   "orphan_candidates": [],
+  "orphan_records": [],
   "dependency_edges_sample": [
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "uuid"
-    },
-    {
-      "from": "gate1/tools/log_collector.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "shutil"
-    },
-    {
-      "from": "tools/ai_batch_sim.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "re"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "g2_c6_runtime"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "typing"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "tools/ai_batch_sim.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "sys"
-    },
-    {
-      "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/tools/log_collector.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "re"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "validate_content"
-    },
-    {
-      "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "core_loop_runner"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "wave"
-    },
-    {
-      "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "math"
-    },
-    {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "PIL"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/ai_batch_sim.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/ai_batch_sim.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "struct"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "unittest"
-    },
-    {
-      "from": "gate1/tools/log_collector.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "math"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "unittest"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "math"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "typing"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "pathlib"
-    },
     {
       "from": "gate1/tools/core_loop_runner.py",
       "to": "os"
     },
     {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "json"
+      "from": "tools/ai_batch_sim.py",
+      "to": "math"
     },
     {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "pathlib"
+      "from": "tools/validate_content.py",
+      "to": "json"
     },
     {
       "from": "gate1/tools/performance_sample_hooks.py",
@@ -1271,8 +1027,256 @@
       "to": "datetime"
     },
     {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "unittest"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "wave"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "pathlib"
+    },
+    {
       "from": "tools/ai_batch_sim.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "unittest"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "uuid"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "g2_c6_runtime"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/tools/performance_sample_hooks.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/ai_batch_sim.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/tools/log_collector.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "core_loop_runner"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1/tools/performance_sample_hooks.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "PIL"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "struct"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "re"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1/tools/performance_sample_hooks.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1/tools/log_collector.py",
+      "to": "sys"
+    },
+    {
+      "from": "tools/ai_batch_sim.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "shutil"
+    },
+    {
+      "from": "tools/validate_content.py",
       "to": "math"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "re"
+    },
+    {
+      "from": "tools/ai_batch_sim.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "math"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "math"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "validate_content"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "sys"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1/tools/log_collector.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "sys"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "sys"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "sys"
     }
   ],
   "path_classification_sample": [
@@ -2292,6 +2296,40 @@
     "sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
     "mutations": [],
     "status": "NO_MUTATION_TARGETS",
-    "dimension": "NOT_APPLICABLE"
+    "dimension": "NOT_APPLICABLE",
+    "mutation_outcome": "INVALID_MUTATION_SAMPLE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "pedestrian-pursuit",
+      "sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
+      "test_command": {
+        "argv": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "-m",
+          "pytest",
+          "-q"
+        ],
+        "source": "pytest",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    }
   }
 }

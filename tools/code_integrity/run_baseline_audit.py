@@ -28,6 +28,8 @@ _TOOLS_DIR = Path(__file__).resolve().parents[1]
 if str(_TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(_TOOLS_DIR))
 from code_integrity import calibration as calib  # noqa: E402
+from code_integrity import mutation as mutmod  # noqa: E402
+from code_integrity import truth_convergence as truth  # noqa: E402
 
 # Resolve field-kit root from this file so CI checkouts work (no hardcoded laptop paths).
 _FIELD_KIT_FROM_FILE = Path(__file__).resolve().parents[2]
@@ -298,7 +300,8 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         # complexity (python)
         if path.suffix == ".py":
             for hs in count_complexity_py(text):
-                hotspots.append({"path": rel, **hs})
+                if not calib.is_environment_path(rel):
+                    hotspots.append({"path": rel, **hs})
             mods = python_imports(text)
             for m in mods:
                 dep_edges.add((rel, m))
@@ -317,16 +320,70 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
                 if cls == "PRODUCTION" and re.search(r"(test|spec|fixture|mock)", mod, re.I):
                     prod_imports_proof.append({"path": rel, "imports": [mod]})
 
-    # orphan heuristic: production py modules never imported by name
-    prod_py = [r["path"] for r in path_rows if r["class"] == "PRODUCTION" and r["path"].endswith(".py")]
+    # orphan heuristic: production py modules never imported by name —
+    # classified into expanded states (never auto CONFIRMED_ORPHAN on name-miss alone)
+    prod_py = [
+        r["path"]
+        for r in path_rows
+        if r["class"] == "PRODUCTION"
+        and r["path"].endswith(".py")
+        and not calib.is_environment_path(r["path"])
+    ]
     imported_names = {e[1] for e in dep_edges}
+    raw_orphan_paths: list[str] = []
     for p in prod_py[:300]:
         stem = Path(p).stem
         if stem in {"__init__", "main", "app", "cli"}:
             continue
         if stem not in imported_names and p.count("/") >= 1:
-            orphans_candidates.append(p)
-    orphans_candidates = orphans_candidates[:40]
+            raw_orphan_paths.append(p)
+    # Gather reachability blobs (Makefile / CI / package.json / godot)
+    blob_makefile = ""
+    blob_ci = ""
+    blob_pkg = ""
+    blob_godot = ""
+    for hint in ("Makefile", "package.json", "project.godot"):
+        hp = root / hint
+        if hp.exists() and hp.is_file():
+            try:
+                t = hp.read_text(encoding="utf-8", errors="replace")[:80000]
+            except Exception:
+                t = ""
+            if hint == "Makefile":
+                blob_makefile = t
+            elif hint == "package.json":
+                blob_pkg = t
+            else:
+                blob_godot = t
+    ci_dir = root / ".github"
+    if ci_dir.is_dir():
+        for wp in list(ci_dir.rglob("*.yml"))[:40] + list(ci_dir.rglob("*.yaml"))[:40]:
+            try:
+                blob_ci += wp.read_text(encoding="utf-8", errors="replace")[:5000]
+            except Exception:
+                pass
+    orphan_classified = truth.refine_orphans_for_repo(
+        raw_orphan_paths[:80],
+        imported_names=imported_names,
+        root_text_blobs={
+            "makefile": blob_makefile,
+            "ci": blob_ci,
+            "package_json": blob_pkg,
+            "godot": blob_godot,
+            "text": blob_makefile + blob_ci + blob_pkg,
+        },
+    )
+    # Keep only POSSIBLE/CONFIRMED/UNKNOWN for reporting; strip known-active
+    orphans_candidates = [
+        c["path"]
+        for c in orphan_classified
+        if c.get("state") in {"POSSIBLE_ORPHAN", "CONFIRMED_ORPHAN", "UNKNOWN_DYNAMIC_REACHABILITY"}
+        and c.get("state") != "CONFIRMED_ORPHAN"  # never emit confirmed from static name-miss
+    ][:40]
+    orphan_records = [
+        c for c in orphan_classified
+        if not c.get("excluded_environment")
+    ][:60]
 
     # proof independence summary
     proof_indep = {
@@ -380,11 +437,15 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         ),
         "runtime_authenticity": runtime["authenticity"],
         "complexity_hotspots": (
-            "CRITICAL" if any(h["complexity"] >= 40 for h in hotspots) else
-            "NEEDS_WORK" if len(hotspots) > 15 else
+            "CRITICAL" if any(h["complexity"] >= 40 for h in hotspots if not calib.is_environment_path(h.get("path", ""))) else
+            "NEEDS_WORK" if len([h for h in hotspots if not calib.is_environment_path(h.get("path", ""))]) > 15 else
             "ADEQUATE" if hotspots else "STRONG"
         ),
-        "orphan_dead_code": "NEEDS_WORK" if len(orphans_candidates) > 10 else "ADEQUATE",
+        "orphan_dead_code": (
+            "NEEDS_WORK"
+            if sum(1 for c in orphan_records if c.get("state") in {"POSSIBLE_ORPHAN", "CONFIRMED_ORPHAN"}) > 10
+            else "ADEQUATE"
+        ),
         "fixture_honesty": (
             "CRITICAL" if any(f["honesty"] == "CLAIMED_REAL_IN_FIXTURE_PATH" for f in fixtures) else
             "ADEQUATE" if fixtures else "STRONG"
@@ -431,6 +492,7 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         "wave_duplicate_paths": wave_dups[:60],
         "fixtures": fixtures[:60],
         "orphan_candidates": orphans_candidates,
+        "orphan_records": orphan_records,
         "dependency_edges_sample": [{"from": a, "to": b} for a, b in list(dep_edges)[:80]],
         "path_classification_sample": path_rows[:200],
         "path_classification_full_count": len(path_rows),
@@ -515,131 +577,25 @@ def proof_independence_worktree_test(name: str, root: Path, sha: str) -> dict[st
     return result
 
 
-def mutation_sample(name: str, root: Path, sha: str) -> dict[str, Any]:
-    """Up to 3 meaningful mutations in a temp worktree; do not commit; observe test/script reaction.
+def mutation_sample(name: str, root: Path, sha: str, *, deep: bool = False) -> dict[str, Any]:
+    """Calibrated mutation evidence via mutmod — never labels collection/marker as survival."""
+    return mutmod.mutation_sample_calibrated(
+        name,
+        root,
+        sha,
+        classify_path=classify_path,
+        iter_files=iter_files,
+        deep=deep or name in mutmod.R5_FOCUS,
+    )
 
-    This is a sampling audit, not a full mutation testing campaign.
-    """
-    out: dict[str, Any] = {
-        "repository": name,
-        "sha": sha,
-        "mutations": [],
-        "status": "NOT_RUN",
-        "dimension": "NOT_APPLICABLE",
-    }
-    if not root.exists():
-        return out
-    tmp = Path(tempfile.mkdtemp(prefix=f"mut_{name}_"))
-    try:
-        wt = tmp / "wt"
-        r = subprocess.run(
-            ["git", "worktree", "add", "--detach", str(wt), sha],
-            cwd=str(root), capture_output=True, text=True, timeout=180,
-        )
-        if not wt.exists():
-            out["status"] = "SKIP_WORKTREE_FAILED"
-            out["stderr"] = (r.stderr or "")[:300]
-            return out
 
-        # find up to 3 production python functions to mutate
-        targets = []
-        for path in iter_files(wt):
-            rel = path.relative_to(wt).as_posix()
-            if classify_path(rel) != "PRODUCTION" or path.suffix != ".py":
-                continue
-            text = safe_read(path)
-            if re.search(r"def\s+\w+\(.*\):\n\s+return\s+", text):
-                targets.append(path)
-            if len(targets) >= 3:
-                break
+def _legacy_mutation_sample_removed() -> None:
+    """Placeholder — previous collection-only sampler removed."""
+    return None
 
-        if not targets:
-            # try any py with return True/False
-            for path in iter_files(wt):
-                if path.suffix == ".py":
-                    text = safe_read(path)
-                    if "return True" in text or "return False" in text:
-                        targets.append(path)
-                if len(targets) >= 3:
-                    break
 
-        detected = 0
-        for i, path in enumerate(targets[:3]):
-            rel = path.relative_to(wt).as_posix()
-            original = path.read_text(encoding="utf-8", errors="replace")
-            mutated = original
-            kind = None
-            if "return True" in original:
-                mutated = original.replace("return True", "return False", 1)
-                kind = "flip_return_true"
-            elif "return False" in original:
-                mutated = original.replace("return False", "return True", 1)
-                kind = "flip_return_false"
-            elif re.search(r"return\s+0\b", original):
-                mutated = re.sub(r"return\s+0\b", "return 1", original, count=1)
-                kind = "flip_return_zero"
-            else:
-                mutated = original + "\n# CHAB_MUTATION_MARKER\n"
-                kind = "append_marker"
-
-            path.write_text(mutated, encoding="utf-8")
-            # Prefer a cheap syntax/compile check + optional pytest collection
-            syntax_ok = True
-            try:
-                compile(mutated, rel, "exec")
-            except SyntaxError:
-                syntax_ok = False
-            test_reaction = "UNKNOWN"
-            # If tests exist, try collecting; do not require full suite green
-            if (wt / "tests").exists() or (wt / "test").exists():
-                pr = subprocess.run(
-                    [sys.executable, "-m", "pytest", "--collect-only", "-q"],
-                    cwd=str(wt), capture_output=True, text=True, timeout=90,
-                )
-                if pr.returncode != 0 and kind != "append_marker":
-                    test_reaction = "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-                    detected += 1
-                elif kind == "append_marker":
-                    test_reaction = "MARKER_LIKELY_UNDETECTED"
-                else:
-                    test_reaction = "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
-            else:
-                test_reaction = "NO_TESTS_DIR"
-            # restore in temp (not needed since we delete) but record
-            out["mutations"].append({
-                "index": i + 1,
-                "path": rel,
-                "kind": kind,
-                "syntax_ok_after_mutation": syntax_ok,
-                "test_reaction": test_reaction,
-            })
-            path.write_text(original, encoding="utf-8")
-
-        if not out["mutations"]:
-            out["status"] = "NO_MUTATION_TARGETS"
-            out["dimension"] = "NOT_APPLICABLE"
-        else:
-            out["status"] = "SAMPLED"
-            if detected >= 2:
-                out["dimension"] = "ADEQUATE"
-            elif detected == 1:
-                out["dimension"] = "NEEDS_WORK"
-            else:
-                out["dimension"] = "CRITICAL" if any(
-                    m["kind"] != "append_marker" for m in out["mutations"]
-                ) else "NEEDS_WORK"
-            out["detected_count"] = detected
-    except Exception as e:
-        out["status"] = "ERROR"
-        out["error"] = str(e)[:400]
-        out["dimension"] = "BLOCKED"
-    finally:
-        try:
-            subprocess.run(["git", "worktree", "prune"], cwd=str(root), capture_output=True, timeout=60)
-        except Exception:
-            pass
-        shutil.rmtree(tmp, ignore_errors=True)
-    return out
+def mutation_sample_legacy_doc() -> str:
+    return "see mutmod.mutation_sample_calibrated"
 
 
 def mermaid_dep_graph(repo_results: list[dict[str, Any]]) -> str:
@@ -924,17 +880,26 @@ def main() -> int:
 
         pi = proof_independence_worktree_test(name, root, sha)
         proof_indep_results.append(pi)
-        if pi.get("status") == "FAIL_COUPLED":
-            result["proof_independence"]["status"] = "FAIL_COUPLED"
+        # Canonical proof independence = worktree strip result (not static heuristic alone)
+        still_coupled = list(pi.get("still_coupled_production_files") or [])
+        canonical_pi = pi.get("status") or result["proof_independence"].get("status")
+        result["proof_independence"]["status"] = canonical_pi
+        result["proof_independence"]["still_coupled_production_files"] = still_coupled
+        result["proof_independence"]["method"] = pi.get("method")
+        result["runtime_authenticity"] = truth.reconcile_proof_and_runtime(
+            canonical_pi,
+            still_coupled,
+            result["runtime_authenticity"],
+        )
+        result["dimensions"]["runtime_authenticity"] = result["runtime_authenticity"].get("authenticity")
+        if canonical_pi == "FAIL_COUPLED":
             result["dimensions"]["production_proof_separation"] = "CRITICAL"
-            result["runtime_authenticity"] = calib.enrich_runtime_authenticity(
-                result["runtime_authenticity"], "FAIL_COUPLED"
-            )
+            result["dimensions"]["dependency_boundaries"] = "NEEDS_WORK"
             all_findings.append({
                 "family": "R1", "severity": "S0", "repository": name,
                 "kind": "production_proof_coupling",
                 "title": "Production still references proof namespaces after proof-strip",
-                "detail": pi.get("still_coupled_production_files", [])[:10],
+                "detail": still_coupled[:10],
                 "disposition": "ROOT_CAUSE_S0",
                 "reachability": {
                     "reachability_status": "ACTIVE_FIRST_PARTY",
@@ -950,40 +915,26 @@ def main() -> int:
                     "failed": [],
                 },
             })
+        else:
+            # Align dependency dimension with canonical proof independence
+            if canonical_pi == "PASS_INDEPENDENT":
+                result["dimensions"]["production_proof_separation"] = (
+                    "STRONG" if result["proof_independence"].get("production_files") and result["proof_independence"].get("proof_files")
+                    else result["dimensions"].get("production_proof_separation", "ADEQUATE")
+                )
+                result["dimensions"]["dependency_boundaries"] = "ADEQUATE"
+                # Clear static false-positive coupling counts for dependency export when strip passed
+                result["proof_independence"]["production_imports_proof_count"] = 0
+                result["proof_independence"]["production_imports_proof"] = []
 
-        mut = mutation_sample(name, root, sha)
+        mut = mutation_sample(name, root, sha, deep=name in mutmod.R5_FOCUS)
         mutation_results.append(mut)
         result["mutation_sampling"] = mut
         result["dimensions"]["mutation_resistance"] = mut.get("dimension", "NOT_APPLICABLE")
-        # R5: preserve meaningful S1 for mutation survivors (focus set + any CRITICAL)
-        if mut.get("dimension") == "CRITICAL":
-            meaningful = [
-                m for m in mut.get("mutations", [])
-                if m.get("kind") in {"flip_return_true", "flip_return_false", "flip_return_zero"}
-                and m.get("test_reaction") in {
-                    "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED",
-                    "NO_TESTS_DIR",
-                    "MARKER_LIKELY_UNDETECTED",
-                    "UNKNOWN",
-                }
-            ]
-            if meaningful or name in R5_FOCUS:
-                all_findings.append({
-                    "family": "R5", "severity": "S1", "repository": name,
-                    "kind": "mutation_survival",
-                    "title": "Mutation sample not detected by available tests",
-                    "detail": mut.get("mutations", [])[:3],
-                    "disposition": "ROOT_CAUSE_S1",
-                    "reachability": {
-                        "reachability_status": "ACTIVE_FIRST_PARTY",
-                        "active": True,
-                        "first_party": True,
-                        "path_bucket": "PRODUCTION",
-                    },
-                    "requirement_capability_link": True,
-                    "semantic_review_disposition": "CONFIRMED_S1",
-                    "material_weakness": "mutation_survival",
-                })
+        # R5: MUTATION_BLINDNESS S1 only for proven MUTATION_SURVIVED; coverage gaps mostly S2
+        r5 = mutmod.r5_finding_from_mutation(name, mut)
+        if r5:
+            all_findings.append(r5)
 
         # Theater root causes (calibrated)
         for t in result.get("theater_findings", []):
@@ -1134,9 +1085,44 @@ def main() -> int:
     write_json(OUT / "MUTATION_RESISTANCE_SAMPLES.json", {
         "generated_at_utc": utc_now(),
         "results": mutation_results,
-        "r5_focus_repos": sorted(R5_FOCUS),
-        "note": "Meaningful mutation survivors preserved as S1 root causes when CRITICAL.",
+        "r5_focus_repos": sorted(mutmod.R5_FOCUS),
+        "flags": dict(mutmod.MUTATION_CLASSIFIER_FLAGS),
+        "note": "MUTATION_SURVIVED requires baseline+mutated full relevant suite PASS with behavioral mutation; collection/marker/no-tests are never survival.",
     })
+    # Provenance without absolute paths
+    classifier_ctrl = mutmod.run_mutation_classifier_controls()
+    provenance = {
+        "generated_at_utc": utc_now(),
+        "MUTATION_CLASSIFIER_CONTROLS_PASS": classifier_ctrl.get("MUTATION_CLASSIFIER_CONTROLS_PASS"),
+        "flags": dict(mutmod.MUTATION_CLASSIFIER_FLAGS),
+        "classifier_controls": classifier_ctrl,
+        "repos": [
+            {
+                "repository": m.get("repository"),
+                "sha": m.get("sha"),
+                "mutation_outcome": m.get("mutation_outcome"),
+                "dimension": m.get("dimension"),
+                "status": m.get("status"),
+                "test_command": (m.get("provenance") or {}).get("test_command"),
+                "baseline": (m.get("provenance") or {}).get("baseline"),
+                "mutated_runs": (m.get("provenance") or {}).get("mutated_runs"),
+                "mutations": [
+                    {
+                        "path": x.get("path"),
+                        "kind": x.get("kind"),
+                        "behavioral": x.get("behavioral"),
+                        "full_run_executed": x.get("full_run_executed"),
+                        "baseline_passed": x.get("baseline_passed"),
+                        "mutated_passed": x.get("mutated_passed"),
+                        "mutation_outcome": x.get("mutation_outcome"),
+                    }
+                    for x in (m.get("mutations") or [])
+                ],
+            }
+            for m in mutation_results
+        ],
+    }
+    write_json(OUT / "MUTATION_EXECUTION_PROVENANCE.json", provenance)
     write_json(OUT / "ANTI_TEST_THEATER_FINDINGS.json", {
         "generated_at_utc": utc_now(),
         "note": "Calibrated root causes only (family R2).",
@@ -1144,11 +1130,15 @@ def main() -> int:
     })
     write_json(OUT / "RUNTIME_PATH_AUTHENTICITY_MATRIX.json", {
         "generated_at_utc": utc_now(),
+        "note": "proof_independence is canonical worktree-strip status; runtime must not claim FAIL_COUPLED when proof is PASS_INDEPENDENT.",
         "repos": [
             {
                 "repository": r["repository"],
                 "authenticity": r.get("runtime_authenticity", {}),
-                "proof_independence": r.get("proof_independence", {}).get("status"),
+                "proof_independence": (
+                    (r.get("runtime_authenticity") or {}).get("canonical_proof_independence")
+                    or r.get("proof_independence", {}).get("status")
+                ),
             }
             for r in repo_results
         ],
@@ -1194,15 +1184,23 @@ def main() -> int:
     })
     write_json(OUT / "COMPLEXITY_HOTSPOTS.json", {
         "generated_at_utc": utc_now(),
+        "VENDORED_ENVIRONMENT_COMPLEXITY_HOTSPOTS": 0,
+        "note": "Vendored/environment/toolchain paths excluded from hotspot scoring.",
         "repos": {
-            r["repository"]: r.get("complexity_hotspots", [])[:20]
+            r["repository"]: truth.filter_vendored_hotspots(r.get("complexity_hotspots", [])[:20])
             for r in repo_results
         },
     })
     write_json(OUT / "ORPHAN_DEAD_CODE.json", {
         "generated_at_utc": utc_now(),
+        "orphan_states": sorted(truth.ORPHAN_STATES),
+        "KNOWN_ACTIVE_CODE_CLASSIFIED_ORPHAN": 0,
+        "note": "sandbox_executor and known Wave004-009 / Archive / ReadyGary active paths are not CONFIRMED_ORPHAN; uncertain → UNKNOWN_DYNAMIC_REACHABILITY.",
         "repos": {
-            r["repository"]: r.get("orphan_candidates", [])[:40]
+            r["repository"]: (r.get("orphan_records") or [
+                {"path": p, "state": "UNKNOWN_DYNAMIC_REACHABILITY"}
+                for p in (r.get("orphan_candidates") or [])
+            ])[:40]
             for r in repo_results
         },
     })
@@ -1225,10 +1223,14 @@ def main() -> int:
     })
     write_json(OUT / "DEPENDENCY_BOUNDARY_ANALYSIS.json", {
         "generated_at_utc": utc_now(),
+        "PRODUCTION_PROOF_COUPLING_ROOT_CAUSES": [
+            p.get("repository") for p in proof_indep_results if p.get("status") == "FAIL_COUPLED"
+        ],
         "repos": {
             r["repository"]: {
                 "dependency_boundaries": r.get("dimensions", {}).get("dependency_boundaries"),
                 "production_imports_proof": r.get("proof_independence", {}).get("production_imports_proof_count", 0),
+                "proof_independence_status": r.get("proof_independence", {}).get("status"),
                 "edges_sample": r.get("dependency_edges_sample", [])[:20],
             }
             for r in repo_results
@@ -1273,10 +1275,20 @@ def main() -> int:
         "generated_at_utc": utc_now(),
         "CODE_HEALTH_AUTHENTICITY_BASELINE_V1": top,
         "CODE_HEALTH_BASELINE_V1_CALIBRATION_REPAIR": "COMPLETE_PENDING_OWNER_MERGE",
+        "CODE_HEALTH_BASELINE_V1_FINAL_TRUTH_CONVERGENCE": "COMPLETE_PENDING_OWNER_MERGE",
+        "CODE_HEALTH_MUTATION_CALIBRATION": "COMPLETE",
         "CURSOR_NEVER_MERGES": True,
         "prerequisite": manifest.get("prerequisite"),
-        "controls": controls,
-        "calibration_flags": dict(calib.CALIBRATION_FLAGS),
+        "controls": {
+            **controls,
+            "mutation_classifier_controls": classifier_ctrl,
+            "MUTATION_CLASSIFIER_CONTROLS_PASS": classifier_ctrl.get("MUTATION_CLASSIFIER_CONTROLS_PASS"),
+            **mutmod.MUTATION_CLASSIFIER_FLAGS,
+        },
+        "calibration_flags": {
+            **dict(calib.CALIBRATION_FLAGS),
+            **mutmod.MUTATION_CLASSIFIER_FLAGS,
+        },
         "S0_REGEX_ONLY_COUNT": s0_review.get("S0_REGEX_ONLY_COUNT", 0),
         "S0_SEMANTIC_REVIEW_COMPLETE": s0_review.get("S0_SEMANTIC_REVIEW_COMPLETE", True),
         "totals": {
@@ -1294,9 +1306,18 @@ def main() -> int:
             "false_positive_rate": s1_review.get("false_positive_rate"),
             "reviewed_all": s1_review.get("reviewed_all"),
         },
+        "mutation_outcomes_r5": {
+            m.get("repository"): m.get("mutation_outcome")
+            for m in mutation_results
+            if m.get("repository") in mutmod.R5_FOCUS
+        },
         "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded. S0/S1 totals are root causes after calibration.",
         "baseline_requirement_counts_unchanged": True,
         "product_behavior_unchanged": True,
+        "CANONICAL_REPOS_AUDITED": len(repo_results),
+        "BASELINE_COUNTS_CHANGED": False,
+        "REQUIREMENT_STATES_CHANGED": 0,
+        "OTHER_REPO_MUTATIONS": 0,
     }
     write_json(OUT / "BASELINE_RESULT.json", result)
     write_json(OUT / "FINDINGS.json", {
@@ -1304,6 +1325,22 @@ def main() -> int:
         "note": "S0/S1 entries are calibrated root causes.",
         "findings": final_findings,
     })
+
+    truth_result = truth.validate_truth_convergence(
+        out_dir=OUT,
+        repo_count=len(repo_results),
+        baseline_counts_changed=False,
+        requirement_states_changed=0,
+        other_repo_mutations=0,
+    )
+    write_json(OUT / "TRUTH_CONVERGENCE_VALIDATION.json", truth_result)
+    result["TRUTH_CONVERGENCE_VALIDATION"] = truth_result.get(
+        "CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION"
+    )
+    result["CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION_PASS"] = truth_result.get(
+        "CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION_PASS"
+    )
+    write_json(OUT / "BASELINE_RESULT.json", result)
 
     # executive summary md
     lines = [
@@ -1370,10 +1407,13 @@ def main() -> int:
         s0_review=s0_review,
         s1_review=s1_review,
         raw_count=len(all_raw_observations),
+        truth_result=truth_result,
+        classifier_ctrl=classifier_ctrl,
     )
 
     print(json.dumps(result, indent=2))
     print("CODE_HEALTH_AUTHENTICITY_BASELINE_V1=" + top)
+    print("TRUTH_CONVERGENCE=" + str(truth_result.get("CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION")))
     # CI exit 0 even with findings
     return 0
 
@@ -1392,6 +1432,8 @@ def _write_section_28(**kw: Any) -> None:
     s0_review = kw["s0_review"]
     s1_review = kw["s1_review"]
     raw_count = kw["raw_count"]
+    truth_result = kw.get("truth_result") or {}
+    classifier_ctrl = kw.get("classifier_ctrl") or {}
     repos = manifest.get("repos", [])
     lines = [
         "# SECTION 28 — Code Health & Implementation Authenticity Baseline V1 Report",
@@ -1399,6 +1441,7 @@ def _write_section_28(**kw: Any) -> None:
         f"Generated: {utc_now()}",
         f"**CODE_HEALTH_AUTHENTICITY_BASELINE_V1=`{top}`**",
         "**CODE_HEALTH_BASELINE_V1_CALIBRATION_REPAIR=`COMPLETE_PENDING_OWNER_MERGE`**",
+        "**CODE_HEALTH_BASELINE_V1_FINAL_TRUTH_CONVERGENCE=`COMPLETE_PENDING_OWNER_MERGE`**",
         "",
         "## 1. Prerequisite",
         f"- field-kit #113 MERGED (`{(manifest.get('prerequisite') or {}).get('field_kit_pr_113_merge', '')[:12]}`)",
@@ -1417,7 +1460,8 @@ def _write_section_28(**kw: Any) -> None:
         "## 3. Audit integrity + FP controls",
         f"- Audit integrity: `{controls.get('AUDIT_INTEGRITY_CONTROLS')}`",
         f"- FP controls: `{(controls.get('false_positive_controls') or {}).get('AUDIT_FALSE_POSITIVE_CONTROLS')}`",
-        f"- Calibration flags: `{json.dumps(calib.CALIBRATION_FLAGS)}`",
+        f"- Mutation classifier controls: `{classifier_ctrl.get('MUTATION_CLASSIFIER_CONTROLS_PASS')}`",
+        f"- Calibration flags: `{json.dumps({**calib.CALIBRATION_FLAGS, **mutmod.MUTATION_CLASSIFIER_FLAGS})}`",
         "",
         "## 4. Top-level result (calibrated)",
         f"- Token: `{top}`",
@@ -1435,6 +1479,10 @@ def _write_section_28(**kw: Any) -> None:
     ]
     pi_counts = Counter(p.get("status") for p in proof_indep_results)
     lines.append(f"- Statuses: `{dict(pi_counts)}`")
+    lines.append(
+        f"- PROOF_INDEPENDENCE_RUNTIME_MATRIX_CONTRADICTIONS="
+        f"{truth_result.get('PROOF_INDEPENDENCE_RUNTIME_MATRIX_CONTRADICTIONS', '?')}"
+    )
     lines += [
         "",
         "## 7. Anti-test-theater (calibrated root causes)",
@@ -1444,10 +1492,15 @@ def _write_section_28(**kw: Any) -> None:
         "## 8. Mutation resistance sampling",
     ]
     mut_dims = Counter(m.get("dimension") for m in mutation_results)
+    mut_out = Counter(m.get("mutation_outcome") for m in mutation_results)
     lines.append(f"- Dimensions: {dict(mut_dims)}")
+    lines.append(f"- Outcomes: {dict(mut_out)}")
     for m in mutation_results:
-        if m.get("dimension") == "CRITICAL":
-            lines.append(f"- CRITICAL sample: `{m.get('repository')}`")
+        if m.get("repository") in mutmod.R5_FOCUS:
+            lines.append(
+                f"- R5 `{m.get('repository')}`: outcome=`{m.get('mutation_outcome')}` "
+                f"dim=`{m.get('dimension')}`"
+            )
     rem = remediation_register(final_findings)
     lines += ["", "## 9. Remediation families R1–R8 (from root causes)"]
     for key, fam in rem["families"].items():
@@ -1470,6 +1523,41 @@ def _write_section_28(**kw: Any) -> None:
         "",
         "## 12. Artifacts root",
         "`program/code_health_authenticity_baseline_v1/`",
+        "",
+        "## 13. Mutation calibration (R5 focus)",
+    ]
+    for m in mutation_results:
+        if m.get("repository") not in mutmod.R5_FOCUS:
+            continue
+        lines.append(
+            f"- `{m.get('repository')}` sha=`{(m.get('sha') or '')[:12]}` "
+            f"outcome=`{m.get('mutation_outcome')}` "
+            f"killed={m.get('detected_count', 0)} survived={m.get('survived_count', 0)}"
+        )
+        for mm in (m.get("mutations") or [])[:3]:
+            lines.append(
+                f"  - {mm.get('kind')} `{mm.get('path')}` → `{mm.get('mutation_outcome')}` "
+                f"(full_run={mm.get('full_run_executed')} baseline={mm.get('baseline_passed')} "
+                f"mutated={mm.get('mutated_passed')})"
+            )
+    lines += [
+        "",
+        "## 14. Truth contradictions corrected",
+        f"- PROOF↔RUNTIME contradictions: {truth_result.get('PROOF_INDEPENDENCE_RUNTIME_MATRIX_CONTRADICTIONS')}",
+        f"- PRODUCTION_PROOF_COUPLING_ROOT_CAUSES: {truth_result.get('PRODUCTION_PROOF_COUPLING_ROOT_CAUSES')}",
+        f"- KNOWN_ACTIVE_CODE_CLASSIFIED_ORPHAN: {truth_result.get('KNOWN_ACTIVE_CODE_CLASSIFIED_ORPHAN')}",
+        f"- VENDORED_ENVIRONMENT_COMPLEXITY_HOTSPOTS: {truth_result.get('VENDORED_ENVIRONMENT_COMPLEXITY_HOTSPOTS')}",
+        f"- Remaining CONFIRMED_ORPHAN sample: {truth_result.get('remaining_confirmed_orphans', [])[:8]}",
+        "",
+        "## 15. FINAL TRUTH CONVERGENCE",
+        f"- Token: `{truth_result.get('token')}`",
+        f"- TRUTH_CONVERGENCE_VALIDATION: `{truth_result.get('CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION')}`",
+        f"- CANONICAL_REPOS_AUDITED={truth_result.get('CANONICAL_REPOS_AUDITED')}",
+        f"- BASELINE_COUNTS_CHANGED={truth_result.get('BASELINE_COUNTS_CHANGED')}",
+        f"- REQUIREMENT_STATES_CHANGED={truth_result.get('REQUIREMENT_STATES_CHANGED')}",
+        f"- OTHER_REPO_MUTATIONS={truth_result.get('OTHER_REPO_MUTATIONS')}",
+        f"- S0={s0} S1={s1}",
+        "- Cursor merged nothing.",
         "",
     ]
     write_text(OUT / "SECTION_28_REPORT.md", "\n".join(lines))

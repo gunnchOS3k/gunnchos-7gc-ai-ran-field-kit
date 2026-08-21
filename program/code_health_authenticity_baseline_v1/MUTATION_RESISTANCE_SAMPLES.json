@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-21T17:48:03Z",
+  "generated_at_utc": "2026-08-21T18:12:36Z",
   "results": [
     {
       "repository": "gunnchos-7gc-ai-ran-field-kit",
@@ -7,29 +7,55 @@
       "mutations": [
         {
           "index": 1,
-          "path": "research/external_reproduction/adapters/probe.py",
-          "kind": "flip_return_true",
+          "path": "scripts/assignment_canonical.py",
+          "kind": "remove_validation",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 2,
-          "path": "gate1/orchestrator/evidence_collector.py",
-          "kind": "flip_return_false",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 3,
-          "path": "industry_research_stack/adapters/camara.py",
-          "kind": "flip_return_false",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "ADEQUATE",
-      "detected_count": 3
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchos-7gc-ai-ran-field-kit",
+        "sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "gunnchos-research-portal",
@@ -37,15 +63,84 @@
       "mutations": [
         {
           "index": 1,
-          "path": "scripts/run_vp012_portal_first.py",
-          "kind": "flip_return_true",
+          "path": "scripts/validate_supervisor_ready.py",
+          "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "NO_TESTS_DIR"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": true,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_KILLED",
+          "mutation_outcome": "MUTATION_KILLED"
+        },
+        {
+          "index": 2,
+          "path": "scripts/audit_portfolio.py",
+          "kind": "flip_return_zero",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": true,
+          "mutated_passed": true,
+          "test_reaction": "MUTATION_SURVIVED",
+          "mutation_outcome": "MUTATION_SURVIVED"
         }
       ],
       "status": "SAMPLED",
       "dimension": "CRITICAL",
-      "detected_count": 0
+      "mutation_outcome": "MUTATION_SURVIVED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchos-research-portal",
+        "sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": 0,
+          "passed": true,
+          "executed": true,
+          "blocked": false,
+          "note": null
+        },
+        "mutated_runs": [
+          {
+            "path": "scripts/validate_supervisor_ready.py",
+            "kind": "flip_return_zero",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_KILLED"
+          },
+          {
+            "path": "scripts/audit_portfolio.py",
+            "kind": "flip_return_zero",
+            "returncode": 0,
+            "passed": true,
+            "outcome": "MUTATION_SURVIVED"
+          }
+        ],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 1,
+      "survived_count": 1
     },
     {
       "repository": "gunnchos-device-os",
@@ -53,15 +148,55 @@
       "mutations": [
         {
           "index": 1,
-          "path": "src/gunnchos_core/config_loader.py",
-          "kind": "append_marker",
+          "path": "scripts/collect_reference_hardware_info.py",
+          "kind": "flip_return_true",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "MARKER_LIKELY_UNDETECTED"
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
         }
       ],
       "status": "SAMPLED",
       "dimension": "NEEDS_WORK",
-      "detected_count": 0
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchos-device-os",
+        "sha": "28562a8456207540c205a1c8a6434a491b0a4771",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "gunnchos-hardware-industrial-design",
@@ -69,36 +204,111 @@
       "mutations": [
         {
           "index": 1,
-          "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
-          "kind": "flip_return_true",
+          "path": "scripts/check_required_files.py",
+          "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 2,
-          "path": "scripts/compile_supply_chain_fields.py",
-          "kind": "flip_return_false",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 3,
-          "path": "scripts/validate_dvt_pvt_readiness.py",
-          "kind": "flip_return_true",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "ADEQUATE",
-      "detected_count": 3
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchos-hardware-industrial-design",
+        "sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "gunnchAI3k",
       "sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
-      "mutations": [],
-      "status": "NO_MUTATION_TARGETS",
-      "dimension": "NOT_APPLICABLE"
+      "mutations": [
+        {
+          "index": 1,
+          "path": "scripts/prove_phase_xiv_ai.py",
+          "kind": "flip_return_zero",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ],
+      "status": "SAMPLED",
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchAI3k",
+        "sha": "4b4f411710e8cdb8102a7e11502f8497f68156b1",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "edge-io-measurement-node",
@@ -106,43 +316,153 @@
       "mutations": [
         {
           "index": 1,
-          "path": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
-          "kind": "flip_return_false",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 2,
-          "path": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
-          "kind": "flip_return_true",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 3,
           "path": "src/edge_io_node/anti_replay.py",
           "kind": "flip_return_true",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "ADEQUATE",
-      "detected_count": 3
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "edge-io-measurement-node",
+        "sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "anime-aggressors",
       "sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
-      "mutations": [],
-      "status": "NO_MUTATION_TARGETS",
-      "dimension": "NOT_APPLICABLE"
+      "mutations": [
+        {
+          "index": 1,
+          "path": "scripts/test_g2_c6_product_depth.py",
+          "kind": "invert_condition",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ],
+      "status": "SAMPLED",
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "anime-aggressors",
+        "sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
+        "test_command": {
+          "argv": [
+            "npm",
+            "test",
+            "--if-present"
+          ],
+          "source": "package.json:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "pedestrian-pursuit",
       "sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
       "mutations": [],
       "status": "NO_MUTATION_TARGETS",
-      "dimension": "NOT_APPLICABLE"
+      "dimension": "NOT_APPLICABLE",
+      "mutation_outcome": "INVALID_MUTATION_SAMPLE",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "pedestrian-pursuit",
+        "sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
+        "test_command": {
+          "argv": [
+            "/opt/homebrew/opt/python@3.14/bin/python3.14",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "source": "pytest",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      }
     },
     {
       "repository": "archive-of-life-artifact-world",
@@ -150,22 +470,111 @@
       "mutations": [
         {
           "index": 1,
-          "path": "data-pipeline/src/archive_life_pipeline/source_import.py",
-          "kind": "flip_return_true",
+          "path": "scripts/engineering_wave008/compare_pipeline_ab.py",
+          "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
         }
       ],
       "status": "SAMPLED",
       "dimension": "NEEDS_WORK",
-      "detected_count": 1
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "archive-of-life-artifact-world",
+        "sha": "069243c365552f00707650e9d81a8046ba3075d8",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "beatlink-party",
       "sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
-      "mutations": [],
-      "status": "NO_MUTATION_TARGETS",
-      "dimension": "NOT_APPLICABLE"
+      "mutations": [
+        {
+          "index": 1,
+          "path": "scripts/validate_game_rc_contracts.py",
+          "kind": "flip_return_zero",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ],
+      "status": "SAMPLED",
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "beatlink-party",
+        "sha": "23a95d152c2d8c8d4a966b4ac7b90d9bca414526",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "7gc-digital-twin",
@@ -176,12 +585,102 @@
           "path": "src/seven_gc_twin/scene/osm_overpass.py",
           "kind": "flip_return_true",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "index": 2,
+          "path": "src/seven_gc_twin/cli.py",
+          "kind": "flip_return_zero",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "index": 3,
+          "path": "src/seven_gc_twin/continuity_benchmark.py",
+          "kind": "invert_condition",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "CRITICAL",
-      "detected_count": 0
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "7gc-digital-twin",
+        "sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": 2,
+          "passed": false,
+          "executed": true,
+          "blocked": false,
+          "note": null
+        },
+        "mutated_runs": [
+          {
+            "path": "src/seven_gc_twin/scene/osm_overpass.py",
+            "kind": "flip_return_true",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          },
+          {
+            "path": "src/seven_gc_twin/cli.py",
+            "kind": "flip_return_zero",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          },
+          {
+            "path": "src/seven_gc_twin/continuity_benchmark.py",
+            "kind": "invert_condition",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          }
+        ],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "spectrumx-ai-ran-gary",
@@ -189,36 +688,111 @@
       "mutations": [
         {
           "index": 1,
-          "path": "scripts/_gary_export_common.py",
+          "path": "src/airan_research/experiments/digital_programme.py",
           "kind": "flip_return_true",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 2,
-          "path": "scripts/check_ngc_access.py",
-          "kind": "flip_return_true",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
-        },
-        {
-          "index": 3,
-          "path": "scripts/import_asana_csv_to_github_projects.py",
-          "kind": "flip_return_true",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "SUITE_IMPACTED_OR_BROKEN_COLLECTION"
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "ADEQUATE",
-      "detected_count": 3
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "spectrumx-ai-ran-gary",
+        "sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "ntn-resilience-sim",
       "sha": "916520919bea4d9957970d824045c32929bb80e5",
-      "mutations": [],
-      "status": "NO_MUTATION_TARGETS",
-      "dimension": "NOT_APPLICABLE"
+      "mutations": [
+        {
+          "index": 1,
+          "path": "src/ntn_resilience/campus_scenarios.py",
+          "kind": "remove_validation",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ],
+      "status": "SAMPLED",
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "ntn-resilience-sim",
+        "sha": "916520919bea4d9957970d824045c32929bb80e5",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "readygary-6g-beam-selection",
@@ -229,26 +803,102 @@
           "path": "sim/experiments/digital_programme.py",
           "kind": "flip_return_true",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
         },
         {
           "index": 2,
-          "path": "sim/channels/synthetic.py",
-          "kind": "flip_return_true",
+          "path": "scripts/run_benchmark_table.py",
+          "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
         },
         {
           "index": 3,
-          "path": "sim/channels/sionna_rt.py",
-          "kind": "flip_return_true",
+          "path": "scripts/run_timing_harness.py",
+          "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "CRITICAL",
-      "detected_count": 0
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "readygary-6g-beam-selection",
+        "sha": "569875224db7812890ec6abc48dfe43a608094f3",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": 2,
+          "passed": false,
+          "executed": true,
+          "blocked": false,
+          "note": null
+        },
+        "mutated_runs": [
+          {
+            "path": "sim/experiments/digital_programme.py",
+            "kind": "flip_return_true",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          },
+          {
+            "path": "scripts/run_benchmark_table.py",
+            "kind": "flip_return_zero",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          },
+          {
+            "path": "scripts/run_timing_harness.py",
+            "kind": "flip_return_zero",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          }
+        ],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "waike-research-ops",
@@ -259,26 +909,102 @@
           "path": "src/waike_curriculum/evaluation/metrics.py",
           "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": true,
+          "mutated_passed": true,
+          "test_reaction": "MUTATION_SURVIVED",
+          "mutation_outcome": "MUTATION_SURVIVED"
         },
         {
           "index": 2,
-          "path": "src/waike_curriculum/evaluation/mock_data.py",
-          "kind": "append_marker",
+          "path": "src/waike_course_ready/batch002/exams.py",
+          "kind": "remove_validation",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "MARKER_LIKELY_UNDETECTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": true,
+          "mutated_passed": true,
+          "test_reaction": "MUTATION_SURVIVED",
+          "mutation_outcome": "MUTATION_SURVIVED"
         },
         {
           "index": 3,
-          "path": "src/waike_curriculum/evaluation/report.py",
-          "kind": "append_marker",
+          "path": "src/waike_course_ready/batch002/labs.py",
+          "kind": "invert_condition",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "MARKER_LIKELY_UNDETECTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": true,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_KILLED",
+          "mutation_outcome": "MUTATION_KILLED"
         }
       ],
       "status": "SAMPLED",
       "dimension": "CRITICAL",
-      "detected_count": 0
+      "mutation_outcome": "MUTATION_SURVIVED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "waike-research-ops",
+        "sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": 0,
+          "passed": true,
+          "executed": true,
+          "blocked": false,
+          "note": null
+        },
+        "mutated_runs": [
+          {
+            "path": "src/waike_curriculum/evaluation/metrics.py",
+            "kind": "flip_return_zero",
+            "returncode": 0,
+            "passed": true,
+            "outcome": "MUTATION_SURVIVED"
+          },
+          {
+            "path": "src/waike_course_ready/batch002/exams.py",
+            "kind": "remove_validation",
+            "returncode": 0,
+            "passed": true,
+            "outcome": "MUTATION_SURVIVED"
+          },
+          {
+            "path": "src/waike_course_ready/batch002/labs.py",
+            "kind": "invert_condition",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_KILLED"
+          }
+        ],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 1,
+      "survived_count": 2
     },
     {
       "repository": "gunnchos-emergent-service-intent-protocols",
@@ -287,35 +1013,160 @@
         {
           "index": 1,
           "path": "src/emergent_intent/algorithms/trainers.py",
-          "kind": "append_marker",
+          "kind": "invert_condition",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "MARKER_LIKELY_UNDETECTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
         },
         {
           "index": 2,
-          "path": "src/emergent_intent/utils/device.py",
-          "kind": "append_marker",
-          "syntax_ok_after_mutation": true,
-          "test_reaction": "MARKER_LIKELY_UNDETECTED"
-        },
-        {
-          "index": 3,
           "path": "src/emergent_intent/env/wireless_env.py",
           "kind": "flip_return_zero",
           "syntax_ok_after_mutation": true,
-          "test_reaction": "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED"
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "index": 3,
+          "path": "src/emergent_intent/abstraction/encoders.py",
+          "kind": "invert_condition",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": true,
+          "full_run_executed": true,
+          "collection_only": false,
+          "baseline_passed": false,
+          "mutated_passed": false,
+          "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
         }
       ],
       "status": "SAMPLED",
-      "dimension": "CRITICAL",
-      "detected_count": 0
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchos-emergent-service-intent-protocols",
+        "sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": 2,
+          "passed": false,
+          "executed": true,
+          "blocked": false,
+          "note": null
+        },
+        "mutated_runs": [
+          {
+            "path": "src/emergent_intent/algorithms/trainers.py",
+            "kind": "invert_condition",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          },
+          {
+            "path": "src/emergent_intent/env/wireless_env.py",
+            "kind": "flip_return_zero",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          },
+          {
+            "path": "src/emergent_intent/abstraction/encoders.py",
+            "kind": "invert_condition",
+            "returncode": 2,
+            "passed": false,
+            "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+          }
+        ],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     },
     {
       "repository": "gunnchos-gpu-nr-baseband-platform",
       "sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
-      "mutations": [],
-      "status": "NO_MUTATION_TARGETS",
-      "dimension": "NOT_APPLICABLE"
+      "mutations": [
+        {
+          "index": 1,
+          "path": "scripts/gate6_dry_run.py",
+          "kind": "flip_return_zero",
+          "syntax_ok_after_mutation": true,
+          "behavioral": true,
+          "mutation_verified_present": false,
+          "full_run_executed": false,
+          "collection_only": false,
+          "baseline_passed": null,
+          "mutated_passed": null,
+          "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+          "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+        }
+      ],
+      "status": "SAMPLED",
+      "dimension": "NEEDS_WORK",
+      "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "provenance": {
+        "repository": "gunnchos-gpu-nr-baseband-platform",
+        "sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
+        "test_command": {
+          "argv": [
+            "make",
+            "test"
+          ],
+          "source": "Makefile:test",
+          "full_run": true
+        },
+        "baseline": {
+          "returncode": null,
+          "passed": null,
+          "executed": false,
+          "blocked": false,
+          "note": "full_run_deferred_non_r5"
+        },
+        "mutated_runs": [],
+        "worktree_mode": "temp_detached_discarded"
+      },
+      "detected_count": 0,
+      "survived_count": 0
     }
   ],
   "r5_focus_repos": [
@@ -325,5 +1176,15 @@
     "readygary-6g-beam-selection",
     "waike-research-ops"
   ],
-  "note": "Meaningful mutation survivors preserved as S1 root causes when CRITICAL."
+  "flags": {
+    "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+    "COLLECTION_ONLY_NOT_SURVIVAL": true,
+    "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+    "NO_TESTS_DIR_NOT_SURVIVAL": true,
+    "BEHAVIORAL_MUTATION_REQUIRED": true,
+    "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+    "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+    "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+  },
+  "note": "MUTATION_SURVIVED requires baseline+mutated full relevant suite PASS with behavioral mutation; collection/marker/no-tests are never survival."
 }
