@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 66
+Count: 51
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,21 +16,6 @@ Count: 66
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- GAME-AOL-001: Archive of Life covers known record without completeness claim
-- GAME-AOL-002: Scientific record field: Canonical identifier
-- GAME-AOL-003: Scientific record field: Scientific name
-- GAME-AOL-004: Scientific record field: Taxonomic authority
-- GAME-AOL-005: Scientific record field: Source organization
-- GAME-AOL-006: Scientific record field: Source record identifier
-- GAME-AOL-007: Scientific record field: License
-- GAME-AOL-008: Scientific record field: Retrieval date
-- GAME-AOL-009: Scientific record field: Version
-- GAME-AOL-010: Scientific record field: Geographic provenance
-- GAME-AOL-011: Scientific record field: Time range
-- GAME-AOL-012: Scientific record field: Confidence or uncertainty
-- GAME-AOL-013: Scientific record field: Editorial status
-- GAME-AOL-014: Scientific record field: Citation shown to the user where appropriate
-- GAME-AOL-015: No fake source integration claims
 - GAME-PP-001: Pedestrian Pursuit: Sprinting
 - GAME-PP-002: Pedestrian Pursuit: Foot drifting
 - GAME-PP-003: Pedestrian Pursuit: Jumping
@@ -52,4 +37,19 @@ Count: 66
 - GAME-AA-004: Anime Aggressors: Directional throws
 - GAME-AA-005: Anime Aggressors: Fighter-specific movement
 - GAME-AA-006: Anime Aggressors: Defense and recovery
-- … and 16 more
+- GAME-AA-007: Anime Aggressors: Original power identities
+- GAME-AA-008: Anime Aggressors: Readable impact
+- GAME-AA-009: Anime Aggressors: Competitive frame behavior
+- GAME-AA-010: Anime Aggressors: Training and debug tools
+- GATE-0-002: Gate 0: Device roles frozen
+- GATE-0-003: Gate 0: Requirement identifiers assigned
+- GATE-0-005: Gate 0: Repository ownership established
+- GATE-3-001: Gate 3: Cross-device identity and continuity
+- GATE-3-002: Gate 3: Multi-device saves
+- GATE-3-003: Gate 3: Connectivity manager
+- GATE-3-004: Gate 3: Fleet observability
+- GATE-3-005: Gate 3: Security threat models
+- GATE-3-006: Gate 3: 7GC test plans
+- GATE-3-007: Gate 3: Repair procedure
+- GATE-5-005: Gate 5: Privacy and security review
+- … and 1 more
