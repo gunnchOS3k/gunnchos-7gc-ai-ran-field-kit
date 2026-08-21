@@ -1,0 +1,162 @@
+{
+  "schema": "gunnchos.engineering_wave006.targeted_closeout_result.v1",
+  "generated_at_utc": "2026-08-21T00:11:42Z",
+  "phase": "ENGINEERING_WAVE_006_TARGETED_CLOSEOUT",
+  "ENGINEERING_WAVE_006_CLOSEOUT": "COMPLETE",
+  "ENGINEERING_WAVE_006_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+  "CURSOR_MERGED_NOTHING": true,
+  "READY_FOR_OWNER_MERGE": true,
+  "STOP_FOR_OWNER_MERGE": true,
+  "MULTIPATH_KIND": "APPLICATION_LEVEL_MULTIPATH",
+  "prerequisites": {
+    "gunnchos-device-os_pr_130": {
+      "pr": 130,
+      "merge_commit": "1c9d54a6e57a568288ee6beec9d0cdf4ccbeca63",
+      "merged_at": "2026-08-21T00:01:03Z",
+      "title": "Wave006 integrity repair: real continuity execution, multipath, resume, cache, sync"
+    },
+    "gunnchos-7gc-ai-ran-field-kit_pr_105": {
+      "pr": 105,
+      "merge_commit": "d156fd4ebf7355460126850ba950f2444670e50d",
+      "merged_at": "2026-08-21T00:01:18Z",
+      "title": "Wave006 integrity correction aggregate: strengthened continuity execution evidence"
+    },
+    "accepted_main_shas": {
+      "gunnchos-device-os": "1c9d54a6e57a568288ee6beec9d0cdf4ccbeca63",
+      "gunnchos-7gc-ai-ran-field-kit": "d156fd4ebf7355460126850ba950f2444670e50d"
+    },
+    "required_ci_state": "SUCCESS"
+  },
+  "wave006_accepted_main_truth": {
+    "TARGET_REQUIREMENTS": 10,
+    "IMPLEMENTED_AND_VALIDATED": 10,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS": 0,
+    "UNCONDITIONAL_TRUE_CLASSIFIERS_COMPUTED": true,
+    "WAVE006_COMPLETE_GATE_REQUIRES_10_OF_10": true,
+    "WAVE006_POSTMERGE_INTEGRITY_REPAIR": "PASS",
+    "PARTIAL": false,
+    "BROKEN_EVALUATOR_GATE_RESULT": "REJECTED",
+    "BEHAVIORAL_NEGATIVE_CONTROLS_PASS": true,
+    "E2E_A_J_10_OF_10": true,
+    "MULTIPATH_KIND": "APPLICATION_LEVEL_MULTIPATH",
+    "OS_PLATFORM_020_UNTOUCHED": true,
+    "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+  },
+  "pre_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 75,
+    "DIGITAL_IMPLEMENTATION_OPEN": 86,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "EVIDENCE_MAPPING_OPEN": 0
+  },
+  "post_closeout_baseline": {
+    "ATOMIC_TOTAL": 419,
+    "DIGITAL_IMPLEMENTATION_COMPLETE": 85,
+    "DIGITAL_IMPLEMENTATION_OPEN": 76,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "EVIDENCE_MAPPING_OPEN": 0,
+    "DIGITAL_CONTROLLABLE_POOL": 162
+  },
+  "targets_digital_implementation_complete": [
+    "NET-ORCH-026",
+    "NET-ORCH-027",
+    "NET-ORCH-028",
+    "NET-ORCH-029",
+    "NET-ORCH-030",
+    "NET-ORCH-031",
+    "NET-ORCH-032",
+    "NET-ORCH-033",
+    "NET-ORCH-034",
+    "NET-ORCH-035"
+  ],
+  "targets_digital_validation_open": [],
+  "OS_PLATFORM_020": {
+    "implementation_present": true,
+    "validation_state": "DIGITAL_VALIDATION_OPEN",
+    "blocker_class": "BLOCKED_ENVIRONMENT",
+    "blocker": "SANDBOX_ENFORCEMENT_ENVIRONMENT",
+    "plain_subprocess_counts_as_sandbox": false,
+    "kernel_sandbox": false,
+    "OS_PLATFORM_020_CHANGED": false,
+    "NOT_MARKED_COMPLETE": true
+  },
+  "UNTARGETED_ROWS_CHANGED": 0,
+  "UNEXPECTED_CHANGED_IDS": [],
+  "UNRELATED_IMPLEMENTATION_QUEUE_ROWS_CHANGED": 0,
+  "claim_boundaries": {
+    "CARRIER_ACCEPTED": false,
+    "FIELD_MEASURED_PERFORMANCE": false,
+    "FIELD_MEASURED_SATELLITE_VISIBILITY": false,
+    "HUMAN_E6": false,
+    "KERNEL_MPTCP_VALIDATED": false,
+    "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+    "PHYSICAL_VALIDATION": false,
+    "PRODUCTION_APP_PRIORITY_SIGNING": false,
+    "PRODUCTION_MPTCP_VALIDATED": false,
+    "PRODUCTION_NETWORK_OPTIMALITY": false,
+    "REAL_MPTCP": false,
+    "REAL_NTN_MODEM_VALIDATED": false,
+    "STANDARDIZED_6G": false,
+    "UNIVERSAL_OPTIMALITY": false
+  },
+  "closeout_validation": {
+    "ENGINEERING_WAVE_006_TARGETED_CLOSEOUT_VALIDATION_PASS": true,
+    "errors": [],
+    "accepted_main_shas": {
+      "gunnchos-device-os": "1c9d54a6e57a568288ee6beec9d0cdf4ccbeca63",
+      "gunnchos-7gc-ai-ran-field-kit": "d156fd4ebf7355460126850ba950f2444670e50d"
+    },
+    "claim_boundaries": {
+      "CARRIER_ACCEPTED": false,
+      "FIELD_MEASURED_PERFORMANCE": false,
+      "FIELD_MEASURED_SATELLITE_VISIBILITY": false,
+      "HUMAN_E6": false,
+      "KERNEL_MPTCP_VALIDATED": false,
+      "LIVE_CARRIER_HANDOVER_VALIDATED": false,
+      "PHYSICAL_VALIDATION": false,
+      "PRODUCTION_APP_PRIORITY_SIGNING": false,
+      "PRODUCTION_MPTCP_VALIDATED": false,
+      "PRODUCTION_NETWORK_OPTIMALITY": false,
+      "REAL_MPTCP": false,
+      "REAL_NTN_MODEM_VALIDATED": false,
+      "STANDARDIZED_6G": false,
+      "UNIVERSAL_OPTIMALITY": false
+    },
+    "EXPECTED_AFTER": {
+      "ATOMIC_TOTAL": 419,
+      "DIGITAL_IMPLEMENTATION_COMPLETE": 85,
+      "DIGITAL_IMPLEMENTATION_OPEN": 76,
+      "DIGITAL_VALIDATION_OPEN": 1,
+      "EVIDENCE_MAPPING_OPEN": 0
+    },
+    "DIGITAL_CONTROLLABLE_POOL": 162,
+    "OS_PLATFORM_020_CHANGED": false,
+    "MULTIPATH_KIND": "APPLICATION_LEVEL_MULTIPATH",
+    "cross_checks": {
+      "complete_delta": 10,
+      "impl_open_delta": 10,
+      "validation_open_unchanged": true,
+      "len_next_impl_matches_open": true,
+      "len_next_val_matches_open": true,
+      "next_val_only_020": true
+    }
+  },
+  "queue_integrity": {
+    "len_NEXT_IMPL": 76,
+    "DIGITAL_IMPLEMENTATION_OPEN": 76,
+    "len_NEXT_VALIDATION": 1,
+    "DIGITAL_VALIDATION_OPEN": 1,
+    "NEXT_VALIDATION_only": [
+      "OS-PLATFORM-020"
+    ]
+  },
+  "non_digital_pending_preserved": true,
+  "non_digital_pending_rows": 257,
+  "generated_at_utc_ready_flag": "2026-08-21T00:24:09Z",
+  "remote_ci": {
+    "pr": 106,
+    "state": "SUCCESS",
+    "checked_at_utc": "2026-08-21T00:24:09Z",
+    "url": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/106"
+  }
+}

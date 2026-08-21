@@ -1,0 +1,33 @@
+name: Engineering Wave 006 closeout
+
+on:
+  push:
+    branches: [main, 'eng/wave006-*']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave006/**'
+      - 'artifacts/engineering_wave006_closeout/**'
+      - 'scripts/engineering_wave006/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
+      - 'tests/engineering_wave006/**'
+      - '.github/workflows/engineering-wave006.yml'
+
+jobs:
+  wave006-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Wave006 closeout integrity test
+        run: pytest tests/engineering_wave006 -q
+
+      - name: Wave006 aggregate validation
+        run: python3 scripts/engineering_wave006/validate_aggregate.py
