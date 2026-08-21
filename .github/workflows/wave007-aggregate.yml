@@ -1,0 +1,27 @@
+name: Wave007 Aggregate
+
+on:
+  push:
+    branches: [main, 'eng/wave007-*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wave007-aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install test deps
+        run: python3 -m pip install --upgrade pip pytest
+      - name: Validate Wave007 aggregate
+        run: python3 scripts/engineering_wave007/validate_aggregate.py
+      - name: Aggregate unit checks
+        run: python3 -m pytest -q tests/engineering_wave007
