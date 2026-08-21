@@ -78,8 +78,8 @@ def test_closeout_result_and_queues():
     assert result["OS_PLATFORM_020"]["blocker"] == "SANDBOX_ENFORCEMENT_ENVIRONMENT"
     assert result["OS_PLATFORM_020"]["OS_PLATFORM_020_CHANGED"] is False
     assert result["OS_PLATFORM_020"]["NOT_MARKED_COMPLETE"] is True
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 95
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 66
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 51
     assert totals["DIGITAL_VALIDATION_OPEN"] == 1
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
     assert result["post_closeout_baseline"]["DIGITAL_CONTROLLABLE_POOL"] == 162
