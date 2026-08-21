@@ -4,6 +4,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+def _wave009_closeout_applied(baseline: dict) -> bool:
+    return baseline.get("phase") == "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT" or bool(
+        (baseline.get("ENGINEERING_WAVE_009_TARGETED_CLOSEOUT") or {}).get(
+            "ENGINEERING_WAVE_009_TARGETED_CLOSEOUT_VALIDATION_PASS"
+        )
+    )
+
 
 TARGET_IDS = {
     "AI-LOCAL-001",
@@ -64,11 +71,21 @@ def test_register_counts_arithmetic():
             encoding="utf-8"
         )
     )
+    baseline = json.loads(
+        (root / "program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json").read_text(
+            encoding="utf-8"
+        )
+    )
     totals = reg["totals"]
     assert len(impl["all_items"]) == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     assert impl["total_open"] == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 51
     assert len(val["all_items"]) == totals["DIGITAL_VALIDATION_OPEN"]
     assert val["total_open"] == totals["DIGITAL_VALIDATION_OPEN"]
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
-    assert totals["DIGITAL_VALIDATION_OPEN"] == 1
+    if _wave009_closeout_applied(baseline):
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+        assert totals["DIGITAL_VALIDATION_OPEN"] == 0
+        assert val["all_items"] == []
+    else:
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
+        assert totals["DIGITAL_VALIDATION_OPEN"] == 1
