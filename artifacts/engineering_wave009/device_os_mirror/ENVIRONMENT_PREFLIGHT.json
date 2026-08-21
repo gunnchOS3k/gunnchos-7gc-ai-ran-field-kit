@@ -1,7 +1,7 @@
 {
   "BWRAP_INVOKED_WITH_SUDO": false,
-  "PRE_REPAIR_BWRAP_ERROR": null,
-  "PRE_REPAIR_UNPRIVILEGED_BWRAP_WORKS": true,
+  "PRE_REPAIR_BWRAP_ERROR": "bwrap: setting up uid map: Permission denied\n",
+  "PRE_REPAIR_UNPRIVILEGED_BWRAP_WORKS": false,
   "SANDBOX_EXECUTED_AS_ROOT": false,
   "aa_status": {
     "cmd": [
@@ -21,9 +21,9 @@
       ],
       "returncode": 0,
       "stderr": "",
-      "stdout": "0\n"
+      "stdout": "1\n"
     },
-    "value": "0"
+    "value": "1"
   },
   "bwrap_path": "/usr/bin/bwrap",
   "bwrap_version": {
@@ -36,7 +36,7 @@
     "stdout": "bubblewrap 0.9.0\n"
   },
   "euid": 1001,
-  "generated_at_utc": "2026-08-21T14:33:18Z",
+  "generated_at_utc": "2026-08-21T14:48:56Z",
   "gid": 1001,
   "id_cmd": {
     "cmd": [
@@ -58,9 +58,9 @@
       ],
       "returncode": 0,
       "stderr": "",
-      "stdout": "63791\n"
+      "stdout": "63838\n"
     },
-    "value": "63791"
+    "value": "63838"
   },
   "os_release": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
   "proc_self_status_caps": {
@@ -83,7 +83,7 @@
         "/usr/bin/id"
       ],
       "returncode": 1,
-      "stderr": "bwrap: execvp /usr/bin/id: No such file or directory\n",
+      "stderr": "bwrap: setting up uid map: Permission denied\n",
       "stdout": ""
     },
     "bound_true": {
@@ -109,8 +109,8 @@
         "--",
         "/bin/true"
       ],
-      "returncode": 0,
-      "stderr": "",
+      "returncode": 1,
+      "stderr": "bwrap: setting up uid map: Permission denied\n",
       "stdout": ""
     }
   },
