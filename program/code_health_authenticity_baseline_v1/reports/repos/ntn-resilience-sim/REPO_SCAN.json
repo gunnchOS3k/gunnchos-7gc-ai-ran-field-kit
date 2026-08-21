@@ -1,7 +1,7 @@
 {
   "repository": "ntn-resilience-sim",
   "accepted_main_sha": "916520919bea4d9957970d824045c32929bb80e5",
-  "scanned_at_utc": "2026-08-21T17:10:33Z",
+  "scanned_at_utc": "2026-08-21T17:47:50Z",
   "counts": {
     "files_classified": 390,
     "code_files": 50,
@@ -16,8 +16,10 @@
       "PRODUCTION": 30
     },
     "theater_s0": 0,
-    "theater_s1": 7,
-    "theater_total": 7,
+    "theater_s1": 0,
+    "theater_total": 0,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 6,
     "wave_dup_paths": 0,
     "fixture_paths": 0,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -52,57 +64,15 @@
     "documentation_readability": "ADEQUATE",
     "mutation_resistance": "NOT_APPLICABLE"
   },
-  "theater_findings": [
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "paper/scripts/generate_tables.py",
-      "line": 368,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/reproduce.py",
-      "line": 63,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/e2e_check_required_artifacts.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_required_files.py",
-      "line": 42,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "src/ntn_resilience/cli.py",
-      "line": 66,
-      "snippet": "xit(\"Use --toy for synthetic run\")     result = _run_toy(args.scenario_id)     print(json.dumps(result, indent=2))     _"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "src/ntn_resilience/cli.py",
-      "line": 220,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "src/ntn_resilience/__main__.py",
-      "line": 5,
-      "snippet": "xit(main()) "
-    }
-  ],
+  "theater_findings": [],
+  "theater_calibrated_all": [],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "ntn-resilience-sim",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "paper/scripts/generate_tables.py",
@@ -162,220 +132,64 @@
   ],
   "dependency_edges_sample": [
     {
-      "from": "src/ntn_resilience/cli.py",
-      "to": "fallback_policy"
+      "from": "src/ntn_resilience/outage_model.py",
+      "to": "random"
     },
     {
-      "from": "src/ntn_resilience/metrics.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/ntn_resilience/cli.py",
-      "to": "experiment"
-    },
-    {
-      "from": "src/sites/link_budget.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/sites/run_site_scenario.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/gate2/test_decide.py",
-      "to": "pytest"
-    },
-    {
-      "from": "tests/test_all_site_configs.py",
+      "from": "src/ntn_resilience/tool_adapters/sionna_link_export.py",
       "to": "yaml"
     },
     {
-      "from": "src/ntn_resilience/campus_reports.py",
+      "from": "src/ntn_resilience/experiment.py",
       "to": "json"
     },
     {
-      "from": "tests/test_site_registry.py",
-      "to": "sites"
-    },
-    {
-      "from": "scripts/generate_7gc_resilience_bundle.py",
-      "to": "sites"
-    },
-    {
-      "from": "tests/gate2/test_decide.py",
-      "to": "yaml"
-    },
-    {
-      "from": "src/sites/classroom_gateway.py",
-      "to": "sites"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "pathlib"
+      "from": "src/ntn_resilience/tool_adapters/ns3_export.py",
+      "to": "json"
     },
     {
       "from": "paper/scripts/generate_tables.py",
-      "to": "matplotlib"
+      "to": "json"
     },
     {
-      "from": "tests/test_edge_cache.py",
+      "from": "tests/test_metrics.py",
       "to": "sites"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "csv"
     },
     {
       "from": "src/ntn_resilience/cli.py",
       "to": "argparse"
     },
     {
-      "from": "src/sites/metrics.py",
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/sites/link_budget.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/ntn_resilience/campus_reports.py",
+      "to": "fallback_policy"
+    },
+    {
+      "from": "src/ntn_resilience/campus_reports.py",
+      "to": "experiment"
+    },
+    {
+      "from": "scripts/e2e_check_required_artifacts.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_site_registry.py",
       "to": "sites"
-    },
-    {
-      "from": "src/ntn_resilience/campus_scenarios.py",
-      "to": "yaml"
-    },
-    {
-      "from": "tests/test_all_site_configs.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "random"
     },
     {
       "from": "tests/test_cli.py",
       "to": "subprocess"
-    },
-    {
-      "from": "tests/test_rq3_supervisor_digital.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/gate2/test_decide.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "metrics"
-    },
-    {
-      "from": "src/ntn_resilience/channel_assumptions.py",
-      "to": "yaml"
-    },
-    {
-      "from": "tests/test_rq3_supervisor_digital.py",
-      "to": "ntn_resilience"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "__future__"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_gaza_privacy_guardrails.py",
-      "to": "sites"
-    },
-    {
-      "from": "src/ntn_resilience/campus_scenarios.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/cli.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/ntn_resilience/gate2/decide.py",
-      "to": "yaml"
-    },
-    {
-      "from": "src/ntn_resilience/cli.py",
-      "to": "outage_model"
-    },
-    {
-      "from": "src/sites/__init__.py",
-      "to": "sites"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "fallback_policy"
-    },
-    {
-      "from": "src/ntn_resilience/channel_assumptions.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/fallback_policy.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/ntn_resilience/scenario_loader.py",
-      "to": "yaml"
-    },
-    {
-      "from": "src/ntn_resilience/gate2/decide.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/sites/link_budget.py",
-      "to": "sites"
-    },
-    {
-      "from": "tests/test_tool_adapters.py",
-      "to": "ntn_resilience"
-    },
-    {
-      "from": "src/ntn_resilience/cli.py",
-      "to": "json"
-    },
-    {
-      "from": "src/sites/run_site_scenario.py",
-      "to": "sites"
-    },
-    {
-      "from": "scripts/reproduce.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/scenario_loader.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/gate2/decide.py",
-      "to": "importlib"
-    },
-    {
-      "from": "tests/gate2/test_decide.py",
-      "to": "ntn_resilience"
-    },
-    {
-      "from": "src/ntn_resilience/__main__.py",
-      "to": "ntn_resilience"
-    },
-    {
-      "from": "src/sites/store_forward.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_tool_adapters.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_7gc_resilience_bundle.py",
-      "to": "yaml"
     },
     {
       "from": "src/ntn_resilience/cli.py",
@@ -383,54 +197,110 @@
     },
     {
       "from": "src/ntn_resilience/gate2/decide.py",
-      "to": "hashlib"
+      "to": "typing"
     },
     {
-      "from": "src/sites/edge_cache.py",
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "csv"
+    },
+    {
+      "from": "tests/test_edge_cache.py",
+      "to": "sites"
+    },
+    {
+      "from": "tests/test_all_site_configs.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/e2e_check_required_artifacts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "fallback_policy"
+    },
+    {
+      "from": "src/sites/metrics.py",
       "to": "__future__"
     },
     {
-      "from": "src/sites/coverage_model.py",
+      "from": "src/sites/run_site_scenario.py",
       "to": "__future__"
     },
     {
-      "from": "src/ntn_resilience/channel_assumptions.py",
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/ntn_resilience/metrics.py",
       "to": "__future__"
     },
     {
-      "from": "src/ntn_resilience/tool_adapters/ns3_export.py",
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "os"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "csv"
+    },
+    {
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "yaml"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/gate2/test_decide.py",
+      "to": "ntn_resilience"
+    },
+    {
+      "from": "tests/gate2/test_decide.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "json"
+    },
+    {
+      "from": "src/sites/metrics.py",
+      "to": "sites"
+    },
+    {
+      "from": "scripts/run_all_tool_exports.py",
       "to": "pathlib"
     },
     {
       "from": "src/sites/run_site_scenario.py",
-      "to": "json"
+      "to": "sites"
     },
     {
-      "from": "scripts/reproduce.py",
-      "to": "datetime"
-    },
-    {
-      "from": "src/ntn_resilience/gate2/decide.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/reproduce.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/generate_7gc_resilience_bundle.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_all_tool_exports.py",
+      "from": "src/ntn_resilience/__main__.py",
       "to": "ntn_resilience"
     },
     {
-      "from": "scripts/reproduce.py",
-      "to": "hashlib"
+      "from": "tests/test_scenarios.py",
+      "to": "pathlib"
     },
     {
-      "from": "src/ntn_resilience/tool_adapters/standards_watch.py",
+      "from": "src/ntn_resilience/scenario_loader.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/sites/site_registry.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/ntn_resilience/experiment.py",
+      "to": "fallback_policy"
+    },
+    {
+      "from": "tests/gate2/test_decide.py",
       "to": "pathlib"
     },
     {
@@ -438,20 +308,140 @@
       "to": "yaml"
     },
     {
-      "from": "scripts/e2e_check_required_artifacts.py",
+      "from": "scripts/check_required_files.py",
       "to": "sys"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "metrics"
+    },
+    {
+      "from": "src/ntn_resilience/scenario_loader.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/sites/classroom_gateway.py",
+      "to": "sites"
+    },
+    {
+      "from": "src/sites/outage_model.py",
+      "to": "sites"
+    },
+    {
+      "from": "src/sites/plots.py",
+      "to": "sites"
+    },
+    {
+      "from": "src/ntn_resilience/campus_scenarios.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/ntn_resilience/campus_reports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/sites/store_forward.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "experiment"
+    },
+    {
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "importlib"
+    },
+    {
+      "from": "scripts/generate_7gc_resilience_bundle.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "json"
+    },
+    {
+      "from": "src/ntn_resilience/campus_reports.py",
+      "to": "json"
     },
     {
       "from": "scripts/check_required_files.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/reproduce.py",
+      "from": "src/sites/edge_cache.py",
       "to": "__future__"
     },
     {
-      "from": "tests/test_graham_land_non_claim_policy.py",
+      "from": "src/ntn_resilience/campus_scenarios.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/ntn_resilience/experiment.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/sites/run_site_scenario.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_7gc_resilience_bundle.py",
       "to": "sites"
+    },
+    {
+      "from": "src/ntn_resilience/channel_assumptions.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/ntn_resilience/gate2/decide.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/ntn_resilience/experiment.py",
+      "to": "metrics"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "src/sites/edge_cache.py",
+      "to": "sites"
+    },
+    {
+      "from": "src/ntn_resilience/cli.py",
+      "to": "scenario_loader"
+    },
+    {
+      "from": "tests/test_campus_scenarios.py",
+      "to": "ntn_resilience"
+    },
+    {
+      "from": "src/sites/classroom_gateway.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/sites/__init__.py",
+      "to": "sites"
+    },
+    {
+      "from": "src/sites/run_site_scenario.py",
+      "to": "json"
+    },
+    {
+      "from": "src/sites/outage_model.py",
+      "to": "__future__"
     },
     {
       "from": "src/sites/plots.py",
@@ -459,27 +449,7 @@
     },
     {
       "from": "src/ntn_resilience/campus_reports.py",
-      "to": "fallback_policy"
-    },
-    {
-      "from": "tests/test_scenarios.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/ntn_resilience/experiment.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/sites/outage_model.py",
-      "to": "random"
-    },
-    {
-      "from": "scripts/run_all_tool_exports.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_all_site_configs.py",
-      "to": "sites"
+      "to": "campus_scenarios"
     }
   ],
   "path_classification_sample": [
@@ -1485,6 +1455,15 @@
     }
   ],
   "path_classification_full_count": 390,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "ntn-resilience-sim",
     "sha": "916520919bea4d9957970d824045c32929bb80e5",

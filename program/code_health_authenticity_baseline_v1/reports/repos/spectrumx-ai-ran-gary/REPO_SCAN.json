@@ -1,7 +1,7 @@
 {
   "repository": "spectrumx-ai-ran-gary",
   "accepted_main_sha": "cef3900af100c0526e8f75efd238303fd6a268bd",
-  "scanned_at_utc": "2026-08-21T17:10:31Z",
+  "scanned_at_utc": "2026-08-21T17:47:49Z",
   "counts": {
     "files_classified": 474,
     "code_files": 144,
@@ -16,8 +16,10 @@
       "PRODUCTION": 71
     },
     "theater_s0": 0,
-    "theater_s1": 26,
-    "theater_total": 34,
+    "theater_s1": 0,
+    "theater_total": 8,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 51,
     "wave_dup_paths": 0,
     "fixture_paths": 1,
@@ -39,11 +41,22 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile",
+        "pyproject.toml"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -55,244 +68,168 @@
   },
   "theater_findings": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "paper/scripts/generate_tables.py",
-      "line": 274,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_ngc_access.py",
-      "line": 101,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/test_leaderboard_submission.py",
-      "line": 138,
-      "snippet": "xit(main())  "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/e2e_check_required_artifacts.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/bootstrap_aodt_access.py",
-      "line": 106,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "scripts/import_asana_csv_to_github_projects.py",
-      "line": 840,
-      "snippet": "xit(1)          # Step 3: Create project fields     fields_map = create_project_fields(project_id)          # Step 4: Pa"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_feature_leaderboard_submission.py",
-      "line": 108,
-      "snippet": "xit(main())  "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/demo_airan_policy.py",
-      "line": 49,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/setup_github_project_epics.py",
-      "line": 344,
-      "snippet": "xit(1)          # Create labels     create_labels()          # Create project     project_number = create_project()     "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/setup_github_project_epics.py",
-      "line": 353,
-      "snippet": "xit(1)          # Note about fields     create_project_fields(project_number)          # Create EPIC issues     print(\"\\"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/export_sionna_rt_summary.py",
-      "line": 155,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_simulation_exports.py",
-      "line": 154,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_paper_ii_digital.py",
-      "line": 45,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/smoke_test_digital_twin.py",
-      "line": 162,
-      "snippet": "xit(1)     except Exception as e:         print(f\"\\n\u274c Unexpected error: {type(e).__name__}: {e}\")         import traceba"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/smoke_test_digital_twin.py",
-      "line": 167,
-      "snippet": "xit(1) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/export_deepmimo_summary.py",
-      "line": 103,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_paper_ii_heldout.py",
-      "line": 20,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "submissions/leaderboard_v4/main.py",
-      "line": 133,
-      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "submissions/leaderboard_v5/main.py",
-      "line": 211,
-      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "submissions/leaderboard_baseline_v3/main.py",
-      "line": 186,
-      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "submissions/leaderboard_baseline_v2/main.py",
-      "line": 167,
-      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result)) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "submissions/leaderboard_baseline_v1/main.py",
-      "line": 292,
-      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result))  "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "submissions/leaderboard_baseline_v1/test3k/main.py",
-      "line": 224,
-      "snippet": "xit(1)      result = evaluate(sys.argv[1])     print(int(result))  "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "src/airan_research/__main__.py",
-      "line": 5,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "src/airan_research/gate2/cli.py",
-      "line": 108,
-      "snippet": "xit(f\"unknown command {args.cmd}\")   if __name__ == \"__main__\":     raise SystemExit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "src/airan_research/gate2/cli.py",
-      "line": 112,
-      "snippet": "xit(main()) "
-    },
+      "line": 822,
+      "snippet": "except Exception:             pass  # Skip if date parsing fails   def main():     \"\"\"Main execution.\"\"\"     print(\"=\" *",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
     {
       "severity": "S2",
       "kind": "broad_except_pass",
       "path": "scripts/import_asana_csv_to_github_projects.py",
       "line": 822,
-      "snippet": "except Exception:             pass  # Skip if date parsing fails   def main():     \"\"\"Main execution.\"\"\"     print(\"=\" *"
+      "snippet": "except Exception:             pass  # Skip if date parsing fails   def main():     \"\"\"Main execution.\"\"\"     print(\"=\" *",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 23,
-      "snippet": "def test_basic_generation():     \"\"\"Test basic IQ window generation.\"\"\"     print(\"Test 1: Generate label=0 (noise only)"
+      "snippet": "def test_basic_generation():     \"\"\"Test basic IQ window generation.\"\"\"     print(\"Test 1: Generate label=0 (noise only)",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 43,
-      "snippet": "def test_qpsk_complex():     \"\"\"Test that QPSK symbols are truly complex.\"\"\"     print(\"Test 3: Verify QPSK symbols are "
+      "snippet": "def test_qpsk_complex():     \"\"\"Test that QPSK symbols are truly complex.\"\"\"     print(\"Test 3: Verify QPSK symbols are ",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 56,
-      "snippet": "def test_snr_accuracy():     \"\"\"Test that AWGN achieves roughly correct SNR.\"\"\"     print(\"Test 4: Verify SNR accuracy.."
+      "snippet": "def test_snr_accuracy():     \"\"\"Test that AWGN achieves roughly correct SNR.\"\"\"     print(\"Test 4: Verify SNR accuracy..",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 77,
-      "snippet": "def test_invalid_zone_id():     \"\"\"Test that invalid zone_id raises ValueError.\"\"\"     print(\"Test 5: Invalid zone_id ra"
+      "snippet": "def test_invalid_zone_id():     \"\"\"Test that invalid zone_id raises ValueError.\"\"\"     print(\"Test 5: Invalid zone_id ra",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 91,
-      "snippet": "def test_valid_zone_id():     \"\"\"Test that valid zone_id works.\"\"\"     print(\"Test 6: Valid zone_id works...\")     # Use"
+      "snippet": "def test_valid_zone_id():     \"\"\"Test that valid zone_id works.\"\"\"     print(\"Test 6: Valid zone_id works...\")     # Use",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 103,
-      "snippet": "def test_reproducibility():     \"\"\"Same seed + zone_id + label must produce identical IQ and metadata.\"\"\"     print(\"Tes"
+      "snippet": "def test_reproducibility():     \"\"\"Same seed + zone_id + label must produce identical IQ and metadata.\"\"\"     print(\"Tes",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     },
     {
       "severity": "S3",
       "kind": "print_debug_in_test",
       "path": "scripts/smoke_test_digital_twin.py",
       "line": 121,
-      "snippet": "def test_zone_metadata_consistency():     \"\"\"Test that zone_id in metadata matches actual zone used.\"\"\"     print(\"Test "
+      "snippet": "def test_zone_metadata_consistency():     \"\"\"Test that zone_id in metadata matches actual zone used.\"\"\"     print(\"Test ",
+      "repository": "spectrumx-ai-ran-gary",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "spectrumx-ai-ran-gary"
+      }
     }
   ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "spectrumx-ai-ran-gary",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "apps/streamlit_app.py",
@@ -526,324 +463,324 @@
   ],
   "dependency_edges_sample": [
     {
-      "from": "scripts/run_psd_logreg.py",
-      "to": "sklearn"
+      "from": "scripts/train_v6_model.py",
+      "to": "numpy"
     },
     {
-      "from": "src/edge_ran_gary/detection/predict.py",
+      "from": "scripts/train_v5_model.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
+      "to": "os"
+    },
+    {
+      "from": "src/airan_research/experiments/__init__.py",
+      "to": "digital_programme"
+    },
+    {
+      "from": "submissions/leaderboard_baseline_v2/zip_submission.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/run_psd_logreg.py",
-      "to": "json"
+      "from": "scripts/export_oai_testbed_stub.py",
+      "to": "airan_research"
     },
     {
-      "from": "scripts/train_v12_ensemble.py",
-      "to": "sklearn"
-    },
-    {
-      "from": "scripts/export_srsran_testbed_stub.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_baselines.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/train_v12_ensemble.py",
-      "to": "json"
-    },
-    {
-      "from": "submissions/leaderboard_v5/main.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/edge_ran_gary/detection/predict.py",
-      "to": "src"
-    },
-    {
-      "from": "scripts/smoke_test_v14.py",
-      "to": "main"
-    },
-    {
-      "from": "scripts/test_leaderboard_submission.py",
-      "to": "typing"
+      "from": "scripts/validate_feature_leaderboard_submission.py",
+      "to": "submissions"
     },
     {
       "from": "scripts/train_v8_model.py",
-      "to": "pandas"
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/train_v11_model.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_site_geometry.py",
+      "to": "math"
+    },
+    {
+      "from": "src/airan_research/gate2/cli.py",
+      "to": "airan_research"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/export_sionna_rt_summary.py",
+      "to": "json"
+    },
+    {
+      "from": "src/airan_research/tool_adapters/aerial_kpi_export.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_psd_logreg.py",
+      "to": "src"
     },
     {
       "from": "scripts/import_asana_csv_to_github_projects.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
-      "to": "typing"
+      "to": "sys"
     },
     {
       "from": "src/edge_ran_gary/detection/calibrate.py",
       "to": "typing"
     },
     {
-      "from": "submissions/leaderboard_baseline_v1/test3k/main.py",
+      "from": "scripts/smoke_test_digital_twin.py",
       "to": "sys"
     },
     {
-      "from": "scripts/demo_airan_policy.py",
-      "to": "argparse"
-    },
-    {
-      "from": "submissions/leaderboard_v5/zip_submission.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/demo_airan_policy.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/test_leaderboard_submission.py",
-      "to": "submissions"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/train_v11_model.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/gary_micro_twin.py",
-      "to": "yaml"
-    },
-    {
-      "from": "scripts/run_paper_ii_heldout.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/gary_scenario_engine.py",
-      "to": "__future__"
-    },
-    {
-      "from": "submissions/leaderboard_v6/zip_submission.py",
-      "to": "zipfile"
-    },
-    {
-      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
-      "to": "dotenv"
-    },
-    {
-      "from": "src/airan_research/experiments/digital_programme.py",
-      "to": "time"
-    },
-    {
-      "from": "src/airan_research/tool_adapters/ns_oran_scenario_export.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/detection/feature_baseline.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/generate.py",
+      "from": "scripts/train_v4_model.py",
       "to": "pandas"
     },
     {
-      "from": "src/edge_ran_gary/detection/predict.py",
-      "to": "numpy"
-    },
-    {
-      "from": "src/airan_research/gate2/twin_policies.py",
-      "to": "statistics"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/check_ngc_access.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/generate_v12_submission.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_paper_ii_digital.py",
-      "to": "airan_research"
-    },
-    {
-      "from": "src/edge_ran_gary/detection/anomaly.py",
-      "to": "src"
-    },
-    {
-      "from": "src/airan_research/experiments/digital_programme.py",
-      "to": "math"
-    },
-    {
-      "from": "src/edge_ran_gary/digital_twin/__init__.py",
-      "to": "generator"
-    },
-    {
-      "from": "src/edge_ran_gary/detection/baselines.py",
-      "to": "src"
-    },
-    {
-      "from": "scripts/bootstrap_aodt_access.py",
-      "to": "datetime"
-    },
-    {
-      "from": "submissions/leaderboard_baseline_v1/main.py",
+      "from": "scripts/smoke_test_v14.py",
       "to": "sys"
     },
     {
-      "from": "submissions/leaderboard_v11/main.py",
-      "to": "numpy"
+      "from": "src/edge_ran_gary/digital_twin/__init__.py",
+      "to": "contracts"
     },
     {
-      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "from": "scripts/train_v5_model.py",
+      "to": "sklearn"
+    },
+    {
+      "from": "src/airan_research/gate2/twin_policies.py",
       "to": "typing"
     },
     {
-      "from": "src/edge_ran_gary/ota_data_interface.py",
-      "to": "pathlib"
+      "from": "scripts/train_v8_model.py",
+      "to": "sklearn"
     },
     {
-      "from": "src/edge_ran_gary/digital_twin/zones.py",
-      "to": "pathlib"
+      "from": "scripts/train_v11_model.py",
+      "to": "sklearn"
     },
     {
-      "from": "scripts/demo_airan_policy.py",
+      "from": "scripts/sweep_baseline_thresholds.py",
       "to": "json"
+    },
+    {
+      "from": "scripts/run_psd_logreg.py",
+      "to": "__future__"
+    },
+    {
+      "from": "submissions/leaderboard_v5/zip_submission.py",
+      "to": "zipfile"
+    },
+    {
+      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/smoke_test_digital_twin.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/airan_research/metrics.py",
+      "to": "energy"
+    },
+    {
+      "from": "scripts/smoke_test_v14.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_v6_model.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/airan_research/tool_adapters/oai_config_export.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/dataset_builder.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_occupancy_visualization.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/cli_generate.py",
+      "to": "gary_micro_twin"
+    },
+    {
+      "from": "scripts/bootstrap_aodt_access.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/train_v5_model.py",
+      "to": "numpy"
     },
     {
       "from": "submissions/leaderboard_baseline_v3/main.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/train_feature_detector.py",
-      "to": "typing"
+      "from": "src/edge_ran_gary/digital_twin/zones.py",
+      "to": "dataclasses"
     },
     {
-      "from": "scripts/train_feature_detector.py",
-      "to": "pandas"
+      "from": "scripts/check_ngc_access.py",
+      "to": "datetime"
     },
     {
-      "from": "src/airan_research/experiments/digital_programme.py",
-      "to": "scipy"
+      "from": "scripts/validate_simulation_exports.py",
+      "to": "json"
     },
     {
-      "from": "submissions/leaderboard_baseline_v1/zip_submission.py",
-      "to": "pathlib"
+      "from": "scripts/run_baselines.py",
+      "to": "argparse"
+    },
+    {
+      "from": "submissions/leaderboard_v14/main.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/export_deepmimo_summary.py",
+      "to": "os"
+    },
+    {
+      "from": "scripts/train_v8_model.py",
+      "to": "numpy"
     },
     {
       "from": "src/edge_ran_gary/digital_twin/cli_generate.py",
       "to": "argparse"
     },
     {
-      "from": "scripts/export_psd_logreg_weights.py",
-      "to": "argparse"
-    },
-    {
-      "from": "scripts/train_v6_model.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/sweep_baseline_thresholds.py",
-      "to": "math"
-    },
-    {
-      "from": "scripts/train_v11_model.py",
-      "to": "numpy"
-    },
-    {
-      "from": "submissions/leaderboard_v10/main.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_report_plots.py",
+      "from": "submissions/leaderboard_baseline_v1/main.py",
       "to": "__future__"
     },
     {
-      "from": "scripts/generate_v14_submission.py",
-      "to": "pathlib"
+      "from": "submissions/leaderboard_baseline_v1/main.py",
+      "to": "sys"
     },
     {
-      "from": "scripts/train_feature_detector.py",
-      "to": "submissions"
+      "from": "src/edge_ran_gary/digital_twin/samples.py",
+      "to": "generator"
     },
     {
-      "from": "src/edge_ran_gary/simulation_integration_hooks.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/airan_research/report.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/edge_ran_gary/submission_adapter.py",
-      "to": "os"
-    },
-    {
-      "from": "src/edge_ran_gary/detection/feature_baseline.py",
-      "to": "numpy"
-    },
-    {
-      "from": "scripts/train_v7_model.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/export_ns_oran_scenario.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "apps/streamlit_app.py",
-      "to": "pydeck"
-    },
-    {
-      "from": "scripts/sweep_baseline_thresholds.py",
-      "to": "scipy"
-    },
-    {
-      "from": "src/edge_ran_gary/judged_headline_metrics.py",
-      "to": "__future__"
-    },
-    {
-      "from": "submissions/leaderboard_v7/main.py",
-      "to": "scipy"
+      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "to": "subprocess"
     },
     {
       "from": "scripts/train_v4_model.py",
       "to": "__future__"
     },
     {
-      "from": "src/airan_research/campus_profiles.py",
-      "to": "pathlib"
+      "from": "scripts/train_v4_model.py",
+      "to": "sys"
     },
     {
-      "from": "scripts/sweep_baseline_thresholds.py",
+      "from": "src/edge_ran_gary/digital_twin/__init__.py",
+      "to": "samples"
+    },
+    {
+      "from": "src/edge_ran_gary/pyaerial_bridge/phy_interface.py",
       "to": "dataclasses"
     },
     {
-      "from": "scripts/generate_xapp_policy_stub.py",
+      "from": "src/edge_ran_gary/data_pipeline/spectrumx_loader.py",
+      "to": "pandas"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/gary_micro_twin.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/edge_ran_gary/sim/evaluation.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/train_v12_ensemble.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/train_v14_model.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/export_deepmimo_summary.py",
-      "to": "typing"
-    },
-    {
-      "from": "submissions/leaderboard_baseline_v2/main.py",
+      "from": "scripts/train_v6_model.py",
       "to": "__future__"
     },
     {
-      "from": "scripts/_gary_export_common.py",
-      "to": "math"
+      "from": "scripts/train_v6_model.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_ran_gary/digital_twin/dataset_builder.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/train_v12_ensemble.py",
+      "to": "json"
+    },
+    {
+      "from": "src/airan_research/gate2/twin_policies.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_v12_submission.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_oai_testbed_stub.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/airan_research/gate2/cli.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/smoke_test_digital_twin.py",
+      "to": "traceback"
+    },
+    {
+      "from": "scripts/test_leaderboard_submission.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/import_asana_csv_to_github_projects.py",
+      "to": "re"
+    },
+    {
+      "from": "src/edge_ran_gary/pyaerial_bridge/__init__.py",
+      "to": "src"
+    },
+    {
+      "from": "scripts/test_leaderboard_submission.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_occupancy_visualization.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_v7_model.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_baselines.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/train_v6_model.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/train_v7_model.py",
+      "to": "scipy"
+    },
+    {
+      "from": "src/edge_ran_gary/gary_occupancy_visualization.py",
+      "to": "json"
+    },
+    {
+      "from": "src/airan_research/metrics.py",
+      "to": "fairness"
     }
   ],
   "path_classification_sample": [
@@ -1849,6 +1786,15 @@
     }
   ],
   "path_classification_full_count": 474,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "spectrumx-ai-ran-gary",
     "sha": "cef3900af100c0526e8f75efd238303fd6a268bd",

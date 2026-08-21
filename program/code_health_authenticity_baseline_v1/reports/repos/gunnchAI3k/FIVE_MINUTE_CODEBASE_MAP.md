@@ -16,14 +16,14 @@ Accepted main: `4b4f411710e8`
 ## Authenticity snapshot
 - Proof independence: `FAIL_COUPLED`
 - Runtime authenticity: `NEEDS_WORK`
-- Theater: S0=276 S1=68 total=344
+- Theater: S0=0 S1=0 total=171
 - Hotspots: 2; wave-dup paths: 35; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **CRITICAL**
-- `anti_test_theater`: **CRITICAL**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **NEEDS_WORK**
-- `canonical_vs_wave_dup`: **NEEDS_WORK**
+- `canonical_vs_wave_dup`: **ADEQUATE**
 - `runtime_authenticity`: **NEEDS_WORK**
 - `complexity_hotspots`: **ADEQUATE**
 - `orphan_dead_code`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `4b4f411710e8`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S0` `assert_true_literal` at `tests/reactivation.test.ts:74`
+- No static theater hits in scanned sample.
 - Hottest function: `scripts/prove_phase_xiv_ai.py::main` complexity=23

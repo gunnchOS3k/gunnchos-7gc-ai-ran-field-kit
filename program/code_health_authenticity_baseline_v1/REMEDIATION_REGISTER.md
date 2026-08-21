@@ -1,41 +1,26 @@
 # Remediation Register — Code Health Authenticity Baseline V1
 
 Baseline requirement counts are **unchanged**.
+Built from calibrated **root causes** (not raw regex hits).
 
 ## R1 — Production/proof coupling
 Items: 0
 
 ## R2 — Test theater (S0/S1)
-Items: 255
-- [S0] `gunnchos-7gc-ai-ran-field-kit`: Test theater: always_pass_gate
-- [S0] `gunnchos-7gc-ai-ran-field-kit`: Test theater: always_pass_gate
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
-- [S1] `gunnchos-7gc-ai-ran-field-kit`: Test theater: todo_pass
+Items: 0
 
 ## R3 — Wave/canonical duplicate implementations
 Items: 5
-- [S2] `gunnchos-7gc-ai-ran-field-kit`: Wave/duplicate path concentration (60 paths)
-- [S2] `gunnchos-device-os`: Wave/duplicate path concentration (60 paths)
-- [S2] `gunnchAI3k`: Wave/duplicate path concentration (35 paths)
-- [S2] `archive-of-life-artifact-world`: Wave/duplicate path concentration (41 paths)
-- [S2] `beatlink-party`: Wave/duplicate path concentration (43 paths)
+- [S2] `gunnchos-7gc-ai-ran-field-kit`: WAVE_CODE_CONCENTRATION (310 paths) — not LIKELY_DUPLICATE
+- [S2] `gunnchos-device-os`: WAVE_CODE_CONCENTRATION (101 paths) — not LIKELY_DUPLICATE
+- [S2] `gunnchAI3k`: WAVE_CODE_CONCENTRATION (35 paths) — not LIKELY_DUPLICATE
+- [S2] `archive-of-life-artifact-world`: WAVE_CODE_CONCENTRATION (41 paths) — not LIKELY_DUPLICATE
+- [S2] `beatlink-party`: WAVE_CODE_CONCENTRATION (43 paths) — not LIKELY_DUPLICATE
 
 ## R4 — Runtime-path inauthenticity
-Items: 5
+Items: 4
 - [S2] `gunnchos-device-os`: Runtime authenticity NEEDS_WORK
 - [S2] `gunnchAI3k`: Runtime authenticity NEEDS_WORK
-- [S2] `edge-io-measurement-node`: Runtime authenticity NEEDS_WORK
 - [S2] `archive-of-life-artifact-world`: Runtime authenticity NEEDS_WORK
 - [S2] `beatlink-party`: Runtime authenticity NEEDS_WORK
 

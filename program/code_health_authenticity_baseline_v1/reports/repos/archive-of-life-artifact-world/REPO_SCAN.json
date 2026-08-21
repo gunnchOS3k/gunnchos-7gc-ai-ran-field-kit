@@ -1,7 +1,7 @@
 {
   "repository": "archive-of-life-artifact-world",
   "accepted_main_sha": "069243c365552f00707650e9d81a8046ba3075d8",
-  "scanned_at_utc": "2026-08-21T17:10:25Z",
+  "scanned_at_utc": "2026-08-21T17:47:42Z",
   "counts": {
     "files_classified": 574,
     "code_files": 262,
@@ -15,9 +15,11 @@
       "PRODUCTION": 159,
       "CI_OR_DEPLOY": 11
     },
-    "theater_s0": 162,
-    "theater_s1": 50,
-    "theater_total": 212,
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 63,
+    "raw_pattern_observations": 63,
+    "theater_root_causes": 0,
     "hotspots": 5,
     "wave_dup_paths": 41,
     "fixture_paths": 9,
@@ -232,13 +234,26 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "NEEDS_WORK"
+    "authenticity": "NEEDS_WORK",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "package.json",
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "FAIL_COUPLED",
+      "gaps": [
+        "PRODUCTION_PROOF_COUPLING"
+      ]
+    }
   },
   "dimensions": {
     "production_proof_separation": "CRITICAL",
-    "anti_test_theater": "CRITICAL",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "NEEDS_WORK",
-    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "ADEQUATE",
     "runtime_authenticity": "NEEDS_WORK",
     "complexity_hotspots": "ADEQUATE",
     "orphan_dead_code": "ADEQUATE",
@@ -246,568 +261,3183 @@
     "documentation_readability": "ADEQUATE",
     "mutation_resistance": "NEEDS_WORK"
   },
-  "theater_findings": [
+  "theater_findings": [],
+  "theater_calibrated_all": [
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
       "line": 172,
-      "snippet": ".toBe(true);     }      if ((g.state.companion.modules?.unlockedModules.length ?? 0) < 1) {       await g.acceptTravel('"
+      "snippet": "expect(wrote, `artifact write in ${regionId}`).toBe(true);     }      if ((g.state.companion.modules?.unlockedModules.le",
+      "match_span": [
+        6733,
+        6790
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
-      "line": 189,
-      "snippet": ".toBe(true);      g.acceptViewEra('holocene');     g.acceptViewEra('carboniferous');     g.acceptViewEra('cretaceous'); "
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
       "line": 205,
-      "snippet": ".toBe(true);     expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCredits();     g.acceptOp"
+      "snippet": "expect(evaled.complete).toBe(true);     expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCr",
+      "match_span": [
+        8031,
+        8065
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
       "line": 206,
-      "snippet": ".toBe(true);      g.acceptOpenCredits();     g.acceptOpenAchievements();     g.save();      const rt = g.getAchievementR"
+      "snippet": "expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCredits();     g.acceptOpenAchievements();",
+      "match_span": [
+        8071,
+        8130
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
       "line": 244,
-      "snippet": ".toBe(true);     expect(reloaded!.campaign?.globalCoverageClaimed).toBe(false);     expect(getCollectedIds(reloaded!).si"
+      "snippet": "expect(reloaded!.campaign?.launchCampaignComplete).toBe(true);     expect(reloaded!.campaign?.globalCoverageClaimed).toB",
+      "match_span": [
+        9601,
+        9662
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
-      "line": 251,
-      "snippet": ".toBe(true);     expect(rt2.isUnlocked('aol.hidden_credits')).toBe(true);     expect((game2 as unknown as GameHarness).s"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
-      "line": 252,
-      "snippet": ".toBe(true);     expect((game2 as unknown as GameHarness).state.campaign?.globalCoverageClaimed).toBe(false);   }, 180_0"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 98,
-      "snippet": ".toBe(true);     expect(roles.has('fossil_uncertain')).toBe(true);     expect(roles.has('conflicted_taxonomy')).toBe(tru"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 99,
-      "snippet": ".toBe(true);     expect(roles.has('conflicted_taxonomy')).toBe(true);     expect(roles.has('game_authored')).toBe(true);"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 100,
-      "snippet": ".toBe(true);     expect(roles.has('game_authored')).toBe(true);     expect(roles.has('mock_sample')).toBe(true);     exp"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 101,
-      "snippet": ".toBe(true);     expect(roles.has('mock_sample')).toBe(true);     expect(roles.has('blocked_incomplete')).toBe(true);   "
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 102,
-      "snippet": ".toBe(true);     expect(roles.has('blocked_incomplete')).toBe(true);      const fixtureOnlySv = countFixtureOnlySourceVe"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 103,
-      "snippet": ".toBe(true);      const fixtureOnlySv = countFixtureOnlySourceVerified(bundle.records);     expect(fixtureOnlySv).toBe(0"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "line": 142,
-      "snippet": ".toBe(true);     writeJson('SCIENTIFIC_NAME_RESULT.json', {       ok: true,       SOURCE_LINKED: extant.field_evidence.s"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 238,
-      "snippet": ".toBe(true);      const repro = independentReproductionAB(       raw,       (rawText) => {         const records = adapt"
+      "snippet": "expect(manifestValidation.ok).toBe(true);      const repro = independentReproductionAB(       raw,       (rawText) => { ",
+      "match_span": [
+        9942,
+        9982
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 258,
-      "snippet": ".toBe(true);      const httpStub = new HttpSourceAdapterStub('gbif');     expect(httpStub.integration_status()).toBe('CO"
+      "snippet": "expect(repro.ok).toBe(true);      const httpStub = new HttpSourceAdapterStub('gbif');     expect(httpStub.integration_st",
+      "match_span": [
+        10618,
+        10645
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 362,
-      "snippet": ".toBe(true);     expect(metrics.scope_total).toBeGreaterThan(metrics.documented_records);     const after = coveragePerc"
+      "snippet": "expect(metrics.denominator_explicit).toBe(true);     expect(metrics.scope_total).toBeGreaterThan(metrics.documented_reco",
+      "match_span": [
+        15065,
+        15112
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 433,
-      "snippet": ".toBe(true);     writeJson('BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json', behavioral);      const browser = loadArt('ARCHIVE"
+      "snippet": "expect(behavioral.BEHAVIORAL_NEGATIVE_CONTROLS_PASS).toBe(true);     writeJson('BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json'",
+      "match_span": [
+        18616,
+        18679
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 437,
-      "snippet": ".toBe(true);     expect(browser.playwright_skipped).toBe(false);     expect(browser.ok).toBe(true);     expect(browser.r"
+      "snippet": "expect(browser.playwright_ran).toBe(true);     expect(browser.playwright_skipped).toBe(false);     expect(browser.ok).to",
+      "match_span": [
+        18823,
+        18864
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 439,
-      "snippet": ".toBe(true);     expect(browser.runtime).toBe('vite_preview');      if (!existsSync(join(ARTIFACT_DIR, 'CITATION_UI_RESU"
+      "snippet": "expect(browser.ok).toBe(true);     expect(browser.runtime).toBe('vite_preview');      if (!existsSync(join(ARTIFACT_DIR,",
+      "match_span": [
+        18922,
+        18951
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 451,
-      "snippet": ".toBe(true);     writeJson('EVALUATOR_INTEGRITY_RESULT.json', integrity);      const evalResults: EvalResult[] = WAVE008"
+      "snippet": "expect(integrity.UNCONDITIONAL_TRUE_CLASSIFIERS_COMPUTED).toBe(true);     writeJson('EVALUATOR_INTEGRITY_RESULT.json', i",
+      "match_span": [
+        19358,
+        19426
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 467,
-      "snippet": ".toBe(true);     expect(brokenNeg.WRONG_SOURCE_HASH_REJECTED).toBe(true);     expect(brokenNeg.STALE_EVIDENCE_REJECTED)."
+      "snippet": "expect(brokenNeg.DUPLICATE_ID_REJECTED).toBe(true);     expect(brokenNeg.WRONG_SOURCE_HASH_REJECTED).toBe(true);     exp",
+      "match_span": [
+        20093,
+        20143
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 468,
-      "snippet": ".toBe(true);     expect(brokenNeg.STALE_EVIDENCE_REJECTED).toBe(true);     writeJson('COMPLETION_GATE_NEGATIVE_CONTROL_R"
+      "snippet": "expect(brokenNeg.WRONG_SOURCE_HASH_REJECTED).toBe(true);     expect(brokenNeg.STALE_EVIDENCE_REJECTED).toBe(true);     w",
+      "match_span": [
+        20149,
+        20204
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 469,
-      "snippet": ".toBe(true);     writeJson('COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json', brokenNeg);      const gate = runCompletionGa"
+      "snippet": "expect(brokenNeg.STALE_EVIDENCE_REJECTED).toBe(true);     writeJson('COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json', brok",
+      "match_span": [
+        20210,
+        20262
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 474,
-      "snippet": ".toBe(true);     expect(gate.binding_ok).toBe(true);      const validated = evalResults.filter((r) => r.classification ="
+      "snippet": "expect(gate.TARGET_IDS_UNIQUE).toBe(true);     expect(gate.binding_ok).toBe(true);      const validated = evalResults.fi",
+      "match_span": [
+        20449,
+        20490
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 475,
-      "snippet": ".toBe(true);      const validated = evalResults.filter((r) => r.classification === 'IMPLEMENTED_AND_VALIDATED').length; "
+      "snippet": "expect(gate.binding_ok).toBe(true);      const validated = evalResults.filter((r) => r.classification === 'IMPLEMENTED_A",
+      "match_span": [
+        20496,
+        20530
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
       "line": 607,
-      "snippet": ".toBe(true);     expect(fixtureOnlySv).toBe(0);     expect(behavioral.BEHAVIORAL_NEGATIVE_CONTROL_COUNT).toBeGreaterThan"
+      "snippet": "expect(wave008_ok).toBe(true);     expect(fixtureOnlySv).toBe(0);     expect(behavioral.BEHAVIORAL_NEGATIVE_CONTROL_COUN",
+      "match_span": [
+        26050,
+        26079
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/crossDevice/contractProvider.test.ts",
       "line": 21,
-      "snippet": ".toBe(true);     expect(doc.probes.input.status).toBe('pass');   });    it('rules surface is stable for parity', () => {"
+      "snippet": "expect(doc.input_profile.remapping_persisted).toBe(true);     expect(doc.probes.input.status).toBe('pass');   });    it(",
+      "match_span": [
+        839,
+        895
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 96,
-      "snippet": ".toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);     expect(launch.tierE.playable).toBeGreaterT"
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_E_COMPLETE).toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);   ",
+      "match_span": [
+        3713,
+        3768
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 97,
-      "snippet": ".toBe(true);     expect(launch.tierE.playable).toBeGreaterThanOrEqual(120);     expect(launch.tierF.withGameplay).toBe(2"
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);     expect(launch.tierE.playable).toBeGreaterThanOrEqual(120); ",
+      "match_span": [
+        3774,
+        3829
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 112,
-      "snippet": ".toBe(true);     expect(report.observations).toBeGreaterThanOrEqual(8);     expect(report.encounters).toBeGreaterThanOrE"
+      "snippet": "expect(report.dbUsedForLookups).toBe(true);     expect(report.observations).toBeGreaterThanOrEqual(8);     expect(report",
+      "match_span": [
+        4237,
+        4279
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/db/scienceDb.test.ts",
-      "line": 115,
-      "snippet": ".toBe(true);   }); });  describe('Digital RC suite + claim ledger runtime gate', () => {   it('runs Cont VI RC suite che"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 122,
-      "snippet": ".toBe(true);     expect(suite.checks.snapshot_corrupt_detect.ok).toBe(true);     expect(suite.checks.update_rollback.ok)"
+      "snippet": "expect(suite.checks.db_migration.ok).toBe(true);     expect(suite.checks.snapshot_corrupt_detect.ok).toBe(true);     exp",
+      "match_span": [
+        4625,
+        4672
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 123,
-      "snippet": ".toBe(true);     expect(suite.checks.update_rollback.ok).toBe(true);     expect(suite.checks.unique_icon_title.ok).toBe("
+      "snippet": "expect(suite.checks.snapshot_corrupt_detect.ok).toBe(true);     expect(suite.checks.update_rollback.ok).toBe(true);     ",
+      "match_span": [
+        4678,
+        4736
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 124,
-      "snippet": ".toBe(true);     expect(suite.checks.unique_icon_title.ok).toBe(true);     expect(suite.checks.localization_ready.ok).to"
+      "snippet": "expect(suite.checks.update_rollback.ok).toBe(true);     expect(suite.checks.unique_icon_title.ok).toBe(true);     expect",
+      "match_span": [
+        4742,
+        4792
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 125,
-      "snippet": ".toBe(true);     expect(suite.checks.localization_ready.ok).toBe(true);     expect(suite.allOk).toBe(true);   });    it("
+      "snippet": "expect(suite.checks.unique_icon_title.ok).toBe(true);     expect(suite.checks.localization_ready.ok).toBe(true);     exp",
+      "match_span": [
+        4798,
+        4850
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 126,
-      "snippet": ".toBe(true);     expect(suite.allOk).toBe(true);   });    it('withholds ARCHIVE_DIGITAL_RC_READY without runtime integra"
+      "snippet": "expect(suite.checks.localization_ready.ok).toBe(true);     expect(suite.allOk).toBe(true);   });    it('withholds ARCHIV",
+      "match_span": [
+        4856,
+        4909
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/db/scienceDb.test.ts",
       "line": 127,
-      "snippet": ".toBe(true);   });    it('withholds ARCHIVE_DIGITAL_RC_READY without runtime integration', () => {     const regions = l"
+      "snippet": "expect(suite.allOk).toBe(true);   });    it('withholds ARCHIVE_DIGITAL_RC_READY without runtime integration', () => {   ",
+      "match_span": [
+        4915,
+        4945
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/device/deviceRoles.test.ts",
-      "line": 33,
-      "snippet": ".toBe(true);     expect(getDeviceRole('ds_xl_coder').dualPane).toBe(true);     expect(getDeviceRole('handheld_hybrid').t"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/device/deviceRoles.test.ts",
-      "line": 34,
-      "snippet": ".toBe(true);     expect(getDeviceRole('handheld_hybrid').touchPrimary).toBe(true);   });    it('resolves role from query"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/device/deviceRoles.test.ts",
-      "line": 35,
-      "snippet": ".toBe(true);   });    it('resolves role from query param and applies CSS/data attrs', () => {     expect(isDeviceRoleId("
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/device/deviceRoles.test.ts",
-      "line": 39,
-      "snippet": ".toBe(true);     expect(isDeviceRoleId('not_a_role')).toBe(false);     const role = resolveDeviceRole(null, new URLSearc"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/device/deviceRoles.test.ts",
-      "line": 44,
-      "snippet": ".toBe(true);     expect(document.documentElement.dataset.deviceRole).toBe('ds_xl_coder');     expect(document.documentEl"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/continuationVii.release.test.ts",
       "line": 10,
-      "snippet": ".toBe(true);     expect(fw.ok).toBe(true);     expect(fw.releaseEligibleEntries).toBeGreaterThan(0);   });    it('deepen"
+      "snippet": "expect(fw.honesty.mockCannotSatisfyReleaseGates).toBe(true);     expect(fw.ok).toBe(true);     expect(fw.releaseEligible",
+      "match_span": [
+        525,
+        584
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/continuationVii.release.test.ts",
       "line": 11,
-      "snippet": ".toBe(true);     expect(fw.releaseEligibleEntries).toBeGreaterThan(0);   });    it('deepens bulk ingest sources without "
+      "snippet": "expect(fw.ok).toBe(true);     expect(fw.releaseEligibleEntries).toBeGreaterThan(0);   });    it('deepens bulk ingest sou",
+      "match_span": [
+        590,
+        614
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/continuationVii.release.test.ts",
       "line": 27,
-      "snippet": ".toBe(true);   }); }); "
+      "snippet": "expect(m.honesty.deepenBulkDoesNotEqualGlobalCatalog).toBe(true);   }); }); ",
+      "match_span": [
+        1247,
+        1311
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/wp014ProductionGate.test.ts",
-      "line": 42,
-      "snippet": ".toBe(true); }  function installCanvasStub() {   // World/companion/minigame rendering exercises many CanvasRenderingCon"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/wp014ProductionGate.test.ts",
       "line": 162,
-      "snippet": ".toBe(true);     for (let i = 0; i < 45; i++) g.update(1 / 60);     window.dispatchEvent(new KeyboardEvent('keyup', { ke"
+      "snippet": "expect(g.keys['d']).toBe(true);     for (let i = 0; i < 45; i++) g.update(1 / 60);     window.dispatchEvent(new Keyboard",
+      "match_span": [
+        6649,
+        6679
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/wp014ProductionGate.test.ts",
-      "line": 431,
-      "snippet": ".toBe(true);     expect(() => game.stop()).not.toThrow();     emit('clean_exit', !g.isRunning(), { running_after_stop: g"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/telemetry.test.ts",
-      "line": 17,
-      "snippet": ".toBe(true);     const event = track('device_role_apply', { role: 'handheld_hybrid' });     expect(event?.name).toBe('de"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/companionProgression.test.ts",
       "line": 70,
-      "snippet": ".toBe(true);     expect(result.level).toBeGreaterThanOrEqual(2);     expect(c.level).toBe(result.level);   }); }); "
+      "snippet": "expect(result.leveledUp).toBe(true);     expect(result.level).toBeGreaterThanOrEqual(2);     expect(c.level).toBe(result",
+      "match_span": [
+        1913,
+        1948
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/gameRc004Density.test.ts",
-      "line": 48,
-      "snippet": ".toBe(true);     expect(getDiscoveryHistory().length).toBe(2);     const notes = discoveryCriticNotes();     expect(note"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/gameRc004Density.test.ts",
-      "line": 73,
-      "snippet": ".toBe(true);     expect(tracker.mark('title_to_onboarding')).toBe(false);     tracker.mark('onboarding_to_first_region')"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/gameRc004Density.test.ts",
-      "line": 78,
-      "snippet": ".toBe(true);   });    it('expands fail-soft audio cues used by density path', () => {     clearCueHistory();     playCue"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/gameRc004Density.test.ts",
-      "line": 113,
-      "snippet": ".toBe(true);   });    it('keeps honesty tokens false and critic BETA with S2 open', () => {     const gate = JSON.parse("
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/inputBindings.test.ts",
-      "line": 24,
-      "snippet": ".toBe(true);     expect(loadInputBindings().bindings.map).toBe('touch:map_corner');   });    it('rejects invalid and con"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/inputBindings.test.ts",
       "line": 48,
-      "snippet": ".toBe(true);   }); }); "
+      "snippet": "expect(result.ok).toBe(true);   }); }); ",
+      "match_span": [
+        1495,
+        1523
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/alphaExit.test.ts",
-      "line": 64,
-      "snippet": ".toBe(true);       expect(s.checkpoint?.liveClaim).toBe(false);     }      // Resume advances checkpoint     expect(stor"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/alphaExit.test.ts",
       "line": 76,
-      "snippet": ".toBe(true);     expect(report.bySource.every((s) => s.liveClaim === false)).toBe(true);   });    it('dedup + validate r"
+      "snippet": "expect(report.honesty.fixturesNeverClaimedLive).toBe(true);     expect(report.bySource.every((s) => s.liveClaim === fals",
+      "match_span": [
+        3110,
+        3168
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/alphaExit.test.ts",
-      "line": 77,
-      "snippet": ".toBe(true);   });    it('dedup + validate reject honesty violations', () => {     const bad = {       scientificName: '"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/alphaExit.test.ts",
       "line": 175,
-      "snippet": ".toBe(true);     expect(scan.liveClaim).toBe(false);      const pack = buildOfflinePackManifest({       packId: 'test', "
+      "snippet": "expect(scan.matched).toBe(true);     expect(scan.liveClaim).toBe(false);      const pack = buildOfflinePackManifest({   ",
+      "match_span": [
+        6713,
+        6744
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/alphaExit.test.ts",
-      "line": 187,
-      "snippet": ".toBe(true);   });    it('expedition objectives support observe/scan/time', () => {     const state = createDefaultSave("
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/alphaExit.test.ts",
       "line": 219,
-      "snippet": ".toBe(true);   });    it('evaluateAlphaExit issues DIGITAL_PASS only when systems+floors met; never Beta/RC', () => {   "
+      "snippet": "expect(result.complete).toBe(true);   });    it('evaluateAlphaExit issues DIGITAL_PASS only when systems+floors met; nev",
+      "match_span": [
+        8292,
+        8326
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/alphaExit.test.ts",
       "line": 260,
-      "snippet": ".toBe(true);   }); });  describe('ADR content floors still hold', () => {   it('12 regions, \u2265120 E, 24 F, polar', () => "
+      "snippet": "expect(report.tierR.scalesBeyondEncounterCatalog).toBe(true);   }); });  describe('ADR content floors still hold', () =>",
+      "match_span": [
+        9905,
+        9965
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/alphaExit.test.ts",
-      "line": 270,
-      "snippet": ".toBe(true);     expect(heroes.species.length).toBeGreaterThanOrEqual(24);     expect(enc.species.filter((s) => s.progra"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/claimIntegrity.test.ts",
-      "line": 15,
-      "snippet": ".toBe(true);     expect(canonicalizeTaxonName('Tyrannosaurus sp.')).toBe('Tyrannosaurus');     expect(isAcceptableTaxonN"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/claimIntegrity.test.ts",
-      "line": 23,
-      "snippet": ".toBe(true);     expect(isForbiddenClaimToken('ALL_SPECIES_INGESTED')).toBe(true);     expect(() => assertNoForbiddenCla"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/claimIntegrity.test.ts",
-      "line": 24,
-      "snippet": ".toBe(true);     expect(() => assertNoForbiddenClaims(['GLOBAL_DATA_COMPLETE'])).toThrow(/CLAIM_FIREWALL/);     expect(s"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/claimIntegrity.test.ts",
       "line": 53,
-      "snippet": ".toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);      const ledger = evaluateClaimLedger({     "
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_E_COMPLETE).toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);   ",
+      "match_span": [
+        2182,
+        2237
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/claimIntegrity.test.ts",
       "line": 54,
-      "snippet": ".toBe(true);      const ledger = evaluateClaimLedger({       snapshotId: 't',       snapshotVersion: '2.0.0',       laun"
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);      const ledger = evaluateClaimLedger({       snapshotId: 't'",
+      "match_span": [
+        2243,
+        2298
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/claimIntegrity.test.ts",
-      "line": 71,
-      "snippet": ".toBe(true);     expect(ledger.earned.some((e) => e.token === 'PIPELINE_COMPLETE')).toBe(false);     expect(ledger.revok"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/claimIntegrity.test.ts",
-      "line": 73,
-      "snippet": ".toBe(true);     expect(ledger.forbiddenRejected.map((f) => f.token)).toEqual(       expect.arrayContaining(['GLOBAL_DAT"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/saveSystem.test.ts",
-      "line": 64,
-      "snippet": ".toBe(true);     saveGame(state);     expect(hasSave()).toBe(true);     const loaded = loadSave();     expect(loaded?.pl"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/saveSystem.test.ts",
-      "line": 66,
-      "snippet": ".toBe(true);     const loaded = loadSave();     expect(loaded?.player.currentRegion).toBe('museum');     expect(loaded?."
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/saveSystem.test.ts",
       "line": 79,
-      "snippet": ".toBe(true);     if (!result.success) return;     expect(state.notebook[0].provenanceCitations?.length).toBeGreaterThan("
+      "snippet": "expect(result.success).toBe(true);     if (!result.success) return;     expect(state.notebook[0].provenanceCitations?.le",
+      "match_span": [
+        2240,
+        2273
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/betaRc.test.ts",
-      "line": 43,
-      "snippet": ".toBe(true);     }     expect(mayCallLiveHttp(DEFAULT_SOURCE_REGISTRY.find((e) => e.id === 'col')!)).toBe(true);     exp"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "src/systems/betaRc.test.ts",
-      "line": 45,
-      "snippet": ".toBe(true);     expect(mayCallLiveHttp(DEFAULT_SOURCE_REGISTRY.find((e) => e.id === 'iucn')!)).toBe(false);   });    it"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/betaRc.test.ts",
       "line": 87,
-      "snippet": ".toBe(true);     expect(result.sourceStates.every((s) => s.mode === 'fixture' || s.mode === 'blocked')).toBe(       true"
+      "snippet": "expect(result.actualCounts.honesty.noFabricatedGlobalComplete).toBe(true);     expect(result.sourceStates.every((s) => s",
+      "match_span": [
+        3404,
+        3477
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
+      "severity_hint": "S0",
       "path": "src/systems/betaRc.test.ts",
-      "line": 169,
-      "snippet": ".toBe(true);     expect(fieldGameplayReady({       hasObservation: true,       hasScanning: true,       hasCodex: true, "
+      "line": 320,
+      "snippet": "expect(report.allCriticalOk).toBe(true);   }); }); ",
+      "match_span": [
+        10985,
+        11024
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S0",
       "kind": "assert_true_literal",
-      "path": "src/systems/betaRc.test.ts",
-      "line": 175,
-      "snippet": ".toBe(true);   }); });  describe('Beta + Digital RC tokens', () => {   it('emits ARCHIVE_BETA_CONTENT_COMPLETE_DIGITAL w"
+      "severity_hint": "S0",
+      "path": "src/systems/fullProductDepth.test.ts",
+      "line": 106,
+      "snippet": "expect(result.success).toBe(true);     if (!result.success) return;     expect(result.newlyUnlockedModules).toContain('m",
+      "match_span": [
+        3143,
+        3176
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/fullProductDepth.test.ts",
+      "line": 177,
+      "snippet": "expect(good.liveClaimHonest).toBe(true);     expect(good.checked).toBeGreaterThan(0);     expect(good.ok).toBe(true);   ",
+      "match_span": [
+        6225,
+        6264
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/fullProductDepth.test.ts",
+      "line": 179,
+      "snippet": "expect(good.ok).toBe(true);      // Corrupt probe: copy a stamped required bundle, mutate, point path at mutant.     con",
+      "match_span": [
+        6315,
+        6341
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002Playthrough.test.ts",
+      "line": 129,
+      "snippet": "expect(g.state.campaign?.onboardingComplete).toBe(true);     expect(g.state.companion.name).toBe('Relic');      const re",
+      "match_span": [
+        5226,
+        5281
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002Playthrough.test.ts",
+      "line": 216,
+      "snippet": "expect(evaled.complete).toBe(true);      g.acceptOpenCredits();     expect(g.state.campaign?.creditsOpened).toBe(true); ",
+      "match_span": [
+        8774,
+        8808
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002Playthrough.test.ts",
+      "line": 219,
+      "snippet": "expect(g.state.campaign?.creditsOpened).toBe(true);     expect(document.getElementById('credits-overlay')?.classList.con",
+      "match_span": [
+        8842,
+        8892
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 122,
+      "snippet": "expect(pbdb.records[0].provenance.isFixture).toBe(true);   });    it('rate-limit / backoff helpers are configured', () =",
+      "match_span": [
+        4464,
+        4519
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 208,
+      "snippet": "expect(result.complete).toBe(true);     expect(state.expeditions?.completed).toContain(exp.id);   }); });  describe('Wav",
+      "match_span": [
+        7327,
+        7361
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 239,
+      "snippet": "expect(report.floors.regions.met).toBe(true);     expect(report.floors.flagship.met).toBe(true);     expect(report.floor",
+      "match_span": [
+        8296,
+        8340
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 240,
+      "snippet": "expect(report.floors.flagship.met).toBe(true);     expect(report.floors.polarRegion.met).toBe(true);     expect(report.f",
+      "match_span": [
+        8346,
+        8391
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 241,
+      "snippet": "expect(report.floors.polarRegion.met).toBe(true);     expect(report.floors.encounterTaxa.met).toBe(true);     expect(rep",
+      "match_span": [
+        8397,
+        8445
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 242,
+      "snippet": "expect(report.floors.encounterTaxa.met).toBe(true);     expect(report.honesty.fixturesNeverClaimedLive).toBe(true);     ",
+      "match_span": [
+        8451,
+        8501
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 243,
+      "snippet": "expect(report.honesty.fixturesNeverClaimedLive).toBe(true);     expect(report.honesty.authoredPublicTaxonomyLiveClaim).t",
+      "match_span": [
+        8507,
+        8565
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/streamBPkt003.test.ts",
+      "line": 50,
+      "snippet": "expect(pack.bounded).toBe(true);     expect(pack.globalComplete).toBe(false);     expect(pack.liveClaim).toBe(false);   ",
+      "match_span": [
+        1517,
+        1548
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/streamBPkt003.test.ts",
+      "line": 58,
+      "snippet": "expect(prog.progressionOk).toBe(true);     expect(prog.steps.at(-1)!.level).toBeGreaterThan(prog.steps[0].level);   }); ",
+      "match_span": [
+        1793,
+        1830
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/streamBPkt003.test.ts",
+      "line": 83,
+      "snippet": "expect(div.diversityOk).toBe(true);     expect(div.uniqueBiomes.length).toBeGreaterThanOrEqual(2);   });    it('playtest",
+      "match_span": [
+        2541,
+        2575
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+      "line": 174,
+      "snippet": "expect(wrote, `artifact write in ${regionId}`).toBe(true);     }      if ((g.state.campaign?.observedGroups.length ?? 0)",
+      "match_span": [
+        6896,
+        6953
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+      "line": 256,
+      "snippet": "expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCredits();     g.acceptOpenAchievements();",
+      "match_span": [
+        9993,
+        10052
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+      "line": 294,
+      "snippet": "expect(reloaded!.campaign?.launchCampaignComplete).toBe(true);     expect(reloaded!.campaign?.globalCoverageClaimed).toB",
+      "match_span": [
+        11523,
+        11584
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/services/providers/provenanceAdapters.test.ts",
+      "line": 70,
+      "snippet": "expect(result.usedFixture).toBe(true);     expect(result.records).toHaveLength(1);     expect(result.records[0].scientif",
+      "match_span": [
+        2240,
+        2277
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/services/providers/openDataPipeline.digital.test.ts",
+      "line": 125,
+      "snippet": "expect(health.ok).toBe(true);     expect(health.message).toMatch(/fixture/i);      const rows = await pbdbProvider.getFo",
+      "match_span": [
+        4374,
+        4402
+      ],
+      "repository": "archive-of-life-artifact-world",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "archive-of-life-artifact-world"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     }
   ],
+  "raw_pattern_observations": [
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 172,
+      "snippet": "expect(wrote, `artifact write in ${regionId}`).toBe(true);     }      if ((g.state.companion.modules?.unlockedModules.le",
+      "match_span": [
+        6733,
+        6790
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 205,
+      "snippet": "expect(evaled.complete).toBe(true);     expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCr",
+      "match_span": [
+        8031,
+        8065
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 206,
+      "snippet": "expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCredits();     g.acceptOpenAchievements();",
+      "match_span": [
+        8071,
+        8130
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "line": 244,
+      "snippet": "expect(reloaded!.campaign?.launchCampaignComplete).toBe(true);     expect(reloaded!.campaign?.globalCoverageClaimed).toB",
+      "match_span": [
+        9601,
+        9662
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 238,
+      "snippet": "expect(manifestValidation.ok).toBe(true);      const repro = independentReproductionAB(       raw,       (rawText) => { ",
+      "match_span": [
+        9942,
+        9982
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 258,
+      "snippet": "expect(repro.ok).toBe(true);      const httpStub = new HttpSourceAdapterStub('gbif');     expect(httpStub.integration_st",
+      "match_span": [
+        10618,
+        10645
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 362,
+      "snippet": "expect(metrics.denominator_explicit).toBe(true);     expect(metrics.scope_total).toBeGreaterThan(metrics.documented_reco",
+      "match_span": [
+        15065,
+        15112
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 433,
+      "snippet": "expect(behavioral.BEHAVIORAL_NEGATIVE_CONTROLS_PASS).toBe(true);     writeJson('BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json'",
+      "match_span": [
+        18616,
+        18679
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 437,
+      "snippet": "expect(browser.playwright_ran).toBe(true);     expect(browser.playwright_skipped).toBe(false);     expect(browser.ok).to",
+      "match_span": [
+        18823,
+        18864
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 439,
+      "snippet": "expect(browser.ok).toBe(true);     expect(browser.runtime).toBe('vite_preview');      if (!existsSync(join(ARTIFACT_DIR,",
+      "match_span": [
+        18922,
+        18951
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 451,
+      "snippet": "expect(integrity.UNCONDITIONAL_TRUE_CLASSIFIERS_COMPUTED).toBe(true);     writeJson('EVALUATOR_INTEGRITY_RESULT.json', i",
+      "match_span": [
+        19358,
+        19426
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 467,
+      "snippet": "expect(brokenNeg.DUPLICATE_ID_REJECTED).toBe(true);     expect(brokenNeg.WRONG_SOURCE_HASH_REJECTED).toBe(true);     exp",
+      "match_span": [
+        20093,
+        20143
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 468,
+      "snippet": "expect(brokenNeg.WRONG_SOURCE_HASH_REJECTED).toBe(true);     expect(brokenNeg.STALE_EVIDENCE_REJECTED).toBe(true);     w",
+      "match_span": [
+        20149,
+        20204
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 469,
+      "snippet": "expect(brokenNeg.STALE_EVIDENCE_REJECTED).toBe(true);     writeJson('COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json', brok",
+      "match_span": [
+        20210,
+        20262
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 474,
+      "snippet": "expect(gate.TARGET_IDS_UNIQUE).toBe(true);     expect(gate.binding_ok).toBe(true);      const validated = evalResults.fi",
+      "match_span": [
+        20449,
+        20490
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 475,
+      "snippet": "expect(gate.binding_ok).toBe(true);      const validated = evalResults.filter((r) => r.classification === 'IMPLEMENTED_A",
+      "match_span": [
+        20496,
+        20530
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "line": 607,
+      "snippet": "expect(wave008_ok).toBe(true);     expect(fixtureOnlySv).toBe(0);     expect(behavioral.BEHAVIORAL_NEGATIVE_CONTROL_COUN",
+      "match_span": [
+        26050,
+        26079
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/crossDevice/contractProvider.test.ts",
+      "line": 21,
+      "snippet": "expect(doc.input_profile.remapping_persisted).toBe(true);     expect(doc.probes.input.status).toBe('pass');   });    it(",
+      "match_span": [
+        839,
+        895
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 96,
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_E_COMPLETE).toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);   ",
+      "match_span": [
+        3713,
+        3768
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 97,
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);     expect(launch.tierE.playable).toBeGreaterThanOrEqual(120); ",
+      "match_span": [
+        3774,
+        3829
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 112,
+      "snippet": "expect(report.dbUsedForLookups).toBe(true);     expect(report.observations).toBeGreaterThanOrEqual(8);     expect(report",
+      "match_span": [
+        4237,
+        4279
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 122,
+      "snippet": "expect(suite.checks.db_migration.ok).toBe(true);     expect(suite.checks.snapshot_corrupt_detect.ok).toBe(true);     exp",
+      "match_span": [
+        4625,
+        4672
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 123,
+      "snippet": "expect(suite.checks.snapshot_corrupt_detect.ok).toBe(true);     expect(suite.checks.update_rollback.ok).toBe(true);     ",
+      "match_span": [
+        4678,
+        4736
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 124,
+      "snippet": "expect(suite.checks.update_rollback.ok).toBe(true);     expect(suite.checks.unique_icon_title.ok).toBe(true);     expect",
+      "match_span": [
+        4742,
+        4792
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 125,
+      "snippet": "expect(suite.checks.unique_icon_title.ok).toBe(true);     expect(suite.checks.localization_ready.ok).toBe(true);     exp",
+      "match_span": [
+        4798,
+        4850
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 126,
+      "snippet": "expect(suite.checks.localization_ready.ok).toBe(true);     expect(suite.allOk).toBe(true);   });    it('withholds ARCHIV",
+      "match_span": [
+        4856,
+        4909
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/db/scienceDb.test.ts",
+      "line": 127,
+      "snippet": "expect(suite.allOk).toBe(true);   });    it('withholds ARCHIVE_DIGITAL_RC_READY without runtime integration', () => {   ",
+      "match_span": [
+        4915,
+        4945
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/continuationVii.release.test.ts",
+      "line": 10,
+      "snippet": "expect(fw.honesty.mockCannotSatisfyReleaseGates).toBe(true);     expect(fw.ok).toBe(true);     expect(fw.releaseEligible",
+      "match_span": [
+        525,
+        584
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/continuationVii.release.test.ts",
+      "line": 11,
+      "snippet": "expect(fw.ok).toBe(true);     expect(fw.releaseEligibleEntries).toBeGreaterThan(0);   });    it('deepens bulk ingest sou",
+      "match_span": [
+        590,
+        614
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/continuationVii.release.test.ts",
+      "line": 27,
+      "snippet": "expect(m.honesty.deepenBulkDoesNotEqualGlobalCatalog).toBe(true);   }); }); ",
+      "match_span": [
+        1247,
+        1311
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/wp014ProductionGate.test.ts",
+      "line": 162,
+      "snippet": "expect(g.keys['d']).toBe(true);     for (let i = 0; i < 45; i++) g.update(1 / 60);     window.dispatchEvent(new Keyboard",
+      "match_span": [
+        6649,
+        6679
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/companionProgression.test.ts",
+      "line": 70,
+      "snippet": "expect(result.leveledUp).toBe(true);     expect(result.level).toBeGreaterThanOrEqual(2);     expect(c.level).toBe(result",
+      "match_span": [
+        1913,
+        1948
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/inputBindings.test.ts",
+      "line": 48,
+      "snippet": "expect(result.ok).toBe(true);   }); }); ",
+      "match_span": [
+        1495,
+        1523
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 76,
+      "snippet": "expect(report.honesty.fixturesNeverClaimedLive).toBe(true);     expect(report.bySource.every((s) => s.liveClaim === fals",
+      "match_span": [
+        3110,
+        3168
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 175,
+      "snippet": "expect(scan.matched).toBe(true);     expect(scan.liveClaim).toBe(false);      const pack = buildOfflinePackManifest({   ",
+      "match_span": [
+        6713,
+        6744
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 219,
+      "snippet": "expect(result.complete).toBe(true);   });    it('evaluateAlphaExit issues DIGITAL_PASS only when systems+floors met; nev",
+      "match_span": [
+        8292,
+        8326
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/alphaExit.test.ts",
+      "line": 260,
+      "snippet": "expect(report.tierR.scalesBeyondEncounterCatalog).toBe(true);   }); });  describe('ADR content floors still hold', () =>",
+      "match_span": [
+        9905,
+        9965
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 53,
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_E_COMPLETE).toBe(true);     expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);   ",
+      "match_span": [
+        2182,
+        2237
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/claimIntegrity.test.ts",
+      "line": 54,
+      "snippet": "expect(launch.tokens.LAUNCH_TIER_F_COMPLETE).toBe(true);      const ledger = evaluateClaimLedger({       snapshotId: 't'",
+      "match_span": [
+        2243,
+        2298
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/saveSystem.test.ts",
+      "line": 79,
+      "snippet": "expect(result.success).toBe(true);     if (!result.success) return;     expect(state.notebook[0].provenanceCitations?.le",
+      "match_span": [
+        2240,
+        2273
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 87,
+      "snippet": "expect(result.actualCounts.honesty.noFabricatedGlobalComplete).toBe(true);     expect(result.sourceStates.every((s) => s",
+      "match_span": [
+        3404,
+        3477
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/betaRc.test.ts",
+      "line": 320,
+      "snippet": "expect(report.allCriticalOk).toBe(true);   }); }); ",
+      "match_span": [
+        10985,
+        11024
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/fullProductDepth.test.ts",
+      "line": 106,
+      "snippet": "expect(result.success).toBe(true);     if (!result.success) return;     expect(result.newlyUnlockedModules).toContain('m",
+      "match_span": [
+        3143,
+        3176
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/fullProductDepth.test.ts",
+      "line": 177,
+      "snippet": "expect(good.liveClaimHonest).toBe(true);     expect(good.checked).toBeGreaterThan(0);     expect(good.ok).toBe(true);   ",
+      "match_span": [
+        6225,
+        6264
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/fullProductDepth.test.ts",
+      "line": 179,
+      "snippet": "expect(good.ok).toBe(true);      // Corrupt probe: copy a stamped required bundle, mutate, point path at mutant.     con",
+      "match_span": [
+        6315,
+        6341
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002Playthrough.test.ts",
+      "line": 129,
+      "snippet": "expect(g.state.campaign?.onboardingComplete).toBe(true);     expect(g.state.companion.name).toBe('Relic');      const re",
+      "match_span": [
+        5226,
+        5281
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002Playthrough.test.ts",
+      "line": 216,
+      "snippet": "expect(evaled.complete).toBe(true);      g.acceptOpenCredits();     expect(g.state.campaign?.creditsOpened).toBe(true); ",
+      "match_span": [
+        8774,
+        8808
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002Playthrough.test.ts",
+      "line": 219,
+      "snippet": "expect(g.state.campaign?.creditsOpened).toBe(true);     expect(document.getElementById('credits-overlay')?.classList.con",
+      "match_span": [
+        8842,
+        8892
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 122,
+      "snippet": "expect(pbdb.records[0].provenance.isFixture).toBe(true);   });    it('rate-limit / backoff helpers are configured', () =",
+      "match_span": [
+        4464,
+        4519
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 208,
+      "snippet": "expect(result.complete).toBe(true);     expect(state.expeditions?.completed).toContain(exp.id);   }); });  describe('Wav",
+      "match_span": [
+        7327,
+        7361
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 239,
+      "snippet": "expect(report.floors.regions.met).toBe(true);     expect(report.floors.flagship.met).toBe(true);     expect(report.floor",
+      "match_span": [
+        8296,
+        8340
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 240,
+      "snippet": "expect(report.floors.flagship.met).toBe(true);     expect(report.floors.polarRegion.met).toBe(true);     expect(report.f",
+      "match_span": [
+        8346,
+        8391
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 241,
+      "snippet": "expect(report.floors.polarRegion.met).toBe(true);     expect(report.floors.encounterTaxa.met).toBe(true);     expect(rep",
+      "match_span": [
+        8397,
+        8445
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 242,
+      "snippet": "expect(report.floors.encounterTaxa.met).toBe(true);     expect(report.honesty.fixturesNeverClaimedLive).toBe(true);     ",
+      "match_span": [
+        8451,
+        8501
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/waveF.alpha.test.ts",
+      "line": 243,
+      "snippet": "expect(report.honesty.fixturesNeverClaimedLive).toBe(true);     expect(report.honesty.authoredPublicTaxonomyLiveClaim).t",
+      "match_span": [
+        8507,
+        8565
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/streamBPkt003.test.ts",
+      "line": 50,
+      "snippet": "expect(pack.bounded).toBe(true);     expect(pack.globalComplete).toBe(false);     expect(pack.liveClaim).toBe(false);   ",
+      "match_span": [
+        1517,
+        1548
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/streamBPkt003.test.ts",
+      "line": 58,
+      "snippet": "expect(prog.progressionOk).toBe(true);     expect(prog.steps.at(-1)!.level).toBeGreaterThan(prog.steps[0].level);   }); ",
+      "match_span": [
+        1793,
+        1830
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/streamBPkt003.test.ts",
+      "line": 83,
+      "snippet": "expect(div.diversityOk).toBe(true);     expect(div.uniqueBiomes.length).toBeGreaterThanOrEqual(2);   });    it('playtest",
+      "match_span": [
+        2541,
+        2575
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+      "line": 174,
+      "snippet": "expect(wrote, `artifact write in ${regionId}`).toBe(true);     }      if ((g.state.campaign?.observedGroups.length ?? 0)",
+      "match_span": [
+        6896,
+        6953
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+      "line": 256,
+      "snippet": "expect(g.state.campaign?.launchCampaignComplete).toBe(true);      g.acceptOpenCredits();     g.acceptOpenAchievements();",
+      "match_span": [
+        9993,
+        10052
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/systems/gameRc002IndependentVerifier.test.ts",
+      "line": 294,
+      "snippet": "expect(reloaded!.campaign?.launchCampaignComplete).toBe(true);     expect(reloaded!.campaign?.globalCoverageClaimed).toB",
+      "match_span": [
+        11523,
+        11584
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/services/providers/provenanceAdapters.test.ts",
+      "line": 70,
+      "snippet": "expect(result.usedFixture).toBe(true);     expect(result.records).toHaveLength(1);     expect(result.records[0].scientif",
+      "match_span": [
+        2240,
+        2277
+      ],
+      "repository": "archive-of-life-artifact-world"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "src/services/providers/openDataPipeline.digital.test.ts",
+      "line": 125,
+      "snippet": "expect(health.ok).toBe(true);     expect(health.message).toMatch(/fixture/i);      const rows = await pbdbProvider.getFo",
+      "match_span": [
+        4374,
+        4402
+      ],
+      "repository": "archive-of-life-artifact-world"
+    }
+  ],
+  "wave_duplicate_classification": {
+    "repository": "archive-of-life-artifact-world",
+    "classification": "WAVE_CODE_CONCENTRATION",
+    "severity": "S2",
+    "path_count": 41,
+    "sample_paths": [
+      "artifacts/engineering_wave008/PIPELINE_AB_REPRODUCTION_RESULT.json",
+      "artifacts/engineering_wave008/WAVE008_INTEGRITY_REPAIR_RESULT.json",
+      "artifacts/engineering_wave008/SOURCE_ORGANIZATION_RESULT.json",
+      "artifacts/engineering_wave008/SNAPSHOT_REPRODUCTION_RESULT.json",
+      "artifacts/engineering_wave008/WAVE008_RESULT.json",
+      "artifacts/engineering_wave008/SOURCE_INTEGRATION_TRUTH_RESULT.json",
+      "artifacts/engineering_wave008/CLAIM_BOUNDARIES.json",
+      "artifacts/engineering_wave008/LICENSE_TERMS_RESULT.json"
+    ],
+    "evidence": {
+      "similarity": true,
+      "callers": false,
+      "divergence": false
+    },
+    "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+  },
   "complexity_hotspots": [
     {
       "path": "scripts/validate_game_rc_contracts.py",
@@ -1056,324 +3686,324 @@
   ],
   "dependency_edges_sample": [
     {
-      "from": "js/game.js",
-      "to": "./world.js"
-    },
-    {
-      "from": "src/services/scientific/canonicalId.ts",
-      "to": "@/schema/scientificRecord"
-    },
-    {
-      "from": "src/systems/expeditionSystem.ts",
-      "to": "@/schema"
-    },
-    {
-      "from": "scripts/generate-bundles.ts",
-      "to": "../src/schema/conservation"
-    },
-    {
-      "from": "src/systems/saveSystem.ts",
-      "to": "@/systems/telemetry"
-    },
-    {
-      "from": "src/ui/wave008ScientificDemo.ts",
-      "to": "@/services/scientific/renderScientificUI"
-    },
-    {
-      "from": "src/systems/fullProductDepth.test.ts",
-      "to": "@/systems/artifactSystem"
-    },
-    {
-      "from": "scripts/batch-ingest-snapshot.ts",
-      "to": "../src/services/ingestion/BatchSnapshotIngest"
-    },
-    {
-      "from": "src/ui/settingsUI.ts",
-      "to": "@/systems/telemetry"
-    },
-    {
-      "from": "scripts/audit-coverage.ts",
-      "to": "./audits/bias"
-    },
-    {
-      "from": "scripts/audit-archivedex.ts",
-      "to": "fs"
-    },
-    {
-      "from": "data-pipeline/src/archive_life_pipeline/source_import.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "scripts/implementation/scan-incomplete.ts",
-      "to": "fs"
-    },
-    {
-      "from": "src/game/Game.ts",
-      "to": "@/ui/mapUI"
-    },
-    {
-      "from": "src/game/Game.ts",
-      "to": "./companion"
-    },
-    {
-      "from": "src/schema/index.ts",
-      "to": "./species"
-    },
-    {
-      "from": "src/systems/wp014ProductionGate.test.ts",
-      "to": "vitest"
-    },
-    {
-      "from": "src/db/scienceDb.test.ts",
-      "to": "@/claims/launchTierAudit"
-    },
-    {
-      "from": "src/game/companion.ts",
-      "to": "@/schema"
+      "from": "scripts/audit-release-readiness.ts",
+      "to": "path"
     },
     {
       "from": "src/main.ts",
       "to": "@/services/EarthLayerService"
     },
     {
-      "from": "src/systems/waveF.alpha.test.ts",
-      "to": "@/schema"
-    },
-    {
-      "from": "scripts/implementation/data-quality-counts.ts",
-      "to": "../../src/schema"
-    },
-    {
-      "from": "src/systems/artifactSystem.ts",
-      "to": "@/services/DataCatalogService"
-    },
-    {
-      "from": "scripts/build-science-db.ts",
-      "to": "path"
-    },
-    {
-      "from": "data-pipeline/src/archive_life_pipeline/science_db.py",
-      "to": "hashlib"
+      "from": "data-pipeline/src/archive_life_pipeline/snapshot.py",
+      "to": "pathlib"
     },
     {
       "from": "src/main.ts",
-      "to": "@/services/ArchiveDexService"
+      "to": "@/device/deviceRoles"
     },
     {
-      "from": "src/systems/betaRc.test.ts",
-      "to": "@/services/ingestion/ProductionIngestOrchestrator"
+      "from": "src/ui/archiveDexTabs.ts",
+      "to": "@/schema/htmlSafety"
     },
     {
-      "from": "data-pipeline/src/archive_life_pipeline/science_db.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/report-coverage.ts",
-      "to": "./audits/earth"
-    },
-    {
-      "from": "scripts/qa/tier-ef-runtime-traversal.ts",
-      "to": "../../src/systems/saveSystem"
-    },
-    {
-      "from": "src/systems/alphaExit.test.ts",
-      "to": "@/services/ingestion/checkpointStore"
-    },
-    {
-      "from": "src/schema/index.ts",
-      "to": "./conservation"
-    },
-    {
-      "from": "src/game/Game.ts",
-      "to": "@/services/TemporalMapService"
-    },
-    {
-      "from": "src/services/providers/openDataPipeline.digital.test.ts",
-      "to": "@/services/providers/registry"
-    },
-    {
-      "from": "src/systems/saveSystem.test.ts",
-      "to": "@/systems/saveSystem"
-    },
-    {
-      "from": "data-pipeline/transform/gbif_to_distribution.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/services/providers/registry.ts",
-      "to": "./provenanceAdapters"
-    },
-    {
-      "from": "js/main.js",
-      "to": "./systems/dataLoader.js"
-    },
-    {
-      "from": "data-pipeline/transform/iucn_to_conservation.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/systems/observationSystem.ts",
-      "to": "@/systems/companionProgression"
-    },
-    {
-      "from": "src/schema/index.ts",
-      "to": "./manifest"
-    },
-    {
-      "from": "data-pipeline/src/archive_life_pipeline/audit.py",
+      "from": "data-pipeline/transform/col_to_archive.py",
       "to": "json"
     },
     {
-      "from": "src/services/ingestion/synonyms.ts",
-      "to": "./types"
+      "from": "scripts/report-alpha-exit.ts",
+      "to": "../src/systems/alphaExit"
     },
     {
-      "from": "scripts/implementation/scan-incomplete.ts",
-      "to": "./types"
+      "from": "scripts/qa/world-traversal-qa.ts",
+      "to": "fs"
     },
     {
-      "from": "src/systems/gameRc002Playthrough.test.ts",
-      "to": "@/time/TimeAtlasService"
+      "from": "src/db/buildScienceDb.ts",
+      "to": "./ScientificDb"
     },
     {
-      "from": "src/schema/species.ts",
-      "to": "./conservation"
+      "from": "data-pipeline/src/archive_life_pipeline/snapshot.py",
+      "to": "json"
     },
     {
-      "from": "src/systems/gameRc002Playthrough.test.ts",
-      "to": "@/systems/saveSystem"
+      "from": "js/game.js",
+      "to": "./ui/companionUI.js"
+    },
+    {
+      "from": "scripts/audit-biomes.ts",
+      "to": "./audits/biomes"
+    },
+    {
+      "from": "src/db/index.ts",
+      "to": "./schema"
+    },
+    {
+      "from": "src/services/ingestion/bulk/BulkSnapshotManifest.ts",
+      "to": "crypto"
     },
     {
       "from": "src/systems/betaRc.test.ts",
-      "to": "@/services/ingestion/synonyms"
+      "to": "@/systems/deepTimeSystem"
+    },
+    {
+      "from": "src/services/scientific/validateRecord.ts",
+      "to": "@/schema/scientificRecord"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/cli.py",
+      "to": "json"
+    },
+    {
+      "from": "src/systems/offlinePack.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "@/systems/worldPresentation"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "@/ui/questUI"
+    },
+    {
+      "from": "src/game/companion.ts",
+      "to": "@/schema"
+    },
+    {
+      "from": "src/services/ingestion/ProductionIngestOrchestrator.ts",
+      "to": "@/coverage/ActualCountsReport"
     },
     {
       "from": "src/schema/index.ts",
+      "to": "./earth"
+    },
+    {
+      "from": "src/schema/index.ts",
+      "to": "./fossil"
+    },
+    {
+      "from": "src/services/ingestion/index.ts",
+      "to": "./httpClient"
+    },
+    {
+      "from": "src/ui/earthLayerUI.ts",
+      "to": "@/services/EarthLayerService"
+    },
+    {
+      "from": "src/services/ArchiveDexService.ts",
+      "to": "@/schema/archivedex"
+    },
+    {
+      "from": "src/schema/archivedex.ts",
       "to": "./scientificRecord"
+    },
+    {
+      "from": "scripts/engineering_wave008/compare_pipeline_ab.py",
+      "to": "json"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/science_db.py",
+      "to": "archive_life_pipeline"
+    },
+    {
+      "from": "src/services/providers/FederationService.evidence.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "scripts/audit-release-readiness.ts",
+      "to": "./audits/shared"
+    },
+    {
+      "from": "scripts/audit-coverage.ts",
+      "to": "./audits/shared"
+    },
+    {
+      "from": "scripts/audit-temporal-maps.ts",
+      "to": "../src/time/schema"
+    },
+    {
+      "from": "src/schema/species.ts",
+      "to": "./artifact"
+    },
+    {
+      "from": "src/ui/wave008ScientificDemo.ts",
+      "to": "@/ui/archiveDexTabs"
+    },
+    {
+      "from": "src/services/scientific/adapters.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "scripts/audit-earth.ts",
+      "to": "./audits/earth"
+    },
+    {
+      "from": "src/crossDevice/contractProvider.test.ts",
+      "to": "@/crossDevice/contractProvider"
+    },
+    {
+      "from": "data-pipeline/src/archive_life_pipeline/source_import.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/game/companion.runtime.test.ts",
+      "to": "vitest"
+    },
+    {
+      "from": "src/systems/gameRc004Density.test.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "src/services/ingestion/index.ts",
+      "to": "./types"
+    },
+    {
+      "from": "scripts/qa/tier-ef-runtime-traversal.ts",
+      "to": "../../src/systems/companionModules"
+    },
+    {
+      "from": "src/systems/betaRc.test.ts",
+      "to": "@/systems/saveSystem"
     },
     {
       "from": "src/services/providers/provenanceAdapters.test.ts",
       "to": "@/services/providers/provenanceAdapters"
     },
     {
-      "from": "src/db/runtimeBridge.ts",
-      "to": "@/systems/deepTimeSystem"
+      "from": "artifacts/game_rc_002/independent_verifier_playthrough.test.ts",
+      "to": "node:path"
     },
     {
-      "from": "src/db/runtimeBridge.ts",
-      "to": "@/systems/artifactSystem"
-    },
-    {
-      "from": "scripts/source-cli.ts",
-      "to": "path"
-    },
-    {
-      "from": "scripts/qa/world-traversal-qa.ts",
-      "to": "../../src/systems/deepTimeSystem"
-    },
-    {
-      "from": "scripts/ingest-bulk-manifest.ts",
-      "to": "path"
-    },
-    {
-      "from": "scripts/validate_archive_claim_firewall.ts",
-      "to": "fs"
-    },
-    {
-      "from": "src/services/scientific/renderScientificUI.ts",
-      "to": "@/schema/scientificRecord"
-    },
-    {
-      "from": "scripts/report-claim-ledger.ts",
-      "to": "../src/claims/evaluateClaimLedger"
-    },
-    {
-      "from": "data-pipeline/transform/col_transform.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "data-pipeline/src/archive_life_pipeline/nasa_ingest.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "src/ui/timeAtlasUI.ts",
-      "to": "@/services/DataCatalogService"
-    },
-    {
-      "from": "data-pipeline/src/archive_life_pipeline/snapshot.py",
-      "to": "archive_life_pipeline"
-    },
-    {
-      "from": "src/services/providers/FederationService.ts",
-      "to": "./boundedPromise"
-    },
-    {
-      "from": "src/claims/mockReleaseFirewall.ts",
-      "to": "path"
-    },
-    {
-      "from": "src/db/runtimeBridge.ts",
-      "to": "@/systems/codexSystem"
-    },
-    {
-      "from": "scripts/audits/temporal-maps.ts",
-      "to": "path"
-    },
-    {
-      "from": "scripts/audits/shared.ts",
-      "to": "path"
-    },
-    {
-      "from": "scripts/audits/bias.ts",
-      "to": "./shared"
-    },
-    {
-      "from": "tests/engineering_wave008/wave008_scientific_records.test.ts",
-      "to": "./integrityScan"
-    },
-    {
-      "from": "scripts/status.ts",
-      "to": "./implementation/write-reports"
-    },
-    {
-      "from": "src/services/ingestion/dedup.ts",
+      "from": "scripts/implementation/write-reports.ts",
       "to": "./types"
     },
     {
-      "from": "scripts/audit-coverage.ts",
-      "to": "./audits/biomes"
+      "from": "src/ui/archiveDexUI.ts",
+      "to": "@/systems/artifactSystem"
     },
     {
-      "from": "scripts/audit-temporal-maps.ts",
-      "to": "../src/coverage/CoverageTypes"
-    },
-    {
-      "from": "scripts/ingest-production-ops.ts",
-      "to": "path"
-    },
-    {
-      "from": "src/db/ScientificDb.ts",
-      "to": "./schema"
-    },
-    {
-      "from": "src/schema/archivedex.ts",
-      "to": "./provenance"
+      "from": "scripts/audit-provenance.ts",
+      "to": "./audits/shared"
     },
     {
       "from": "src/game/Game.ts",
-      "to": "@/ui/notebookUI"
+      "to": "@/minigames/wildlifeObservation"
     },
     {
-      "from": "src/services/DataCatalogService.ts",
+      "from": "scripts/status.ts",
+      "to": "fs"
+    },
+    {
+      "from": "tests/engineering_wave008/behavioralNegatives.ts",
+      "to": "@/services/scientific/fixtures"
+    },
+    {
+      "from": "src/ui/earthLayerUI.ts",
+      "to": "@/schema/earth"
+    },
+    {
+      "from": "src/systems/alphaExit.test.ts",
+      "to": "fs"
+    },
+    {
+      "from": "src/systems/betaRc.test.ts",
+      "to": "@/systems/fieldGameplay"
+    },
+    {
+      "from": "scripts/batch-ingest-snapshot.ts",
+      "to": "../src/services/ingestion/types"
+    },
+    {
+      "from": "scripts/report-coverage.ts",
+      "to": "path"
+    },
+    {
+      "from": "src/services/scientific/canonicalId.ts",
+      "to": "@/schema/scientificRecord"
+    },
+    {
+      "from": "src/systems/wp014ProductionGate.test.ts",
+      "to": "@/systems/saveSystem"
+    },
+    {
+      "from": "src/systems/gameRc002Playthrough.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/ui/notebookUI.ts",
       "to": "@/schema"
     },
     {
-      "from": "src/systems/streamBPkt003.ts",
-      "to": "node:crypto"
+      "from": "src/services/providers/openDataPipeline.digital.test.ts",
+      "to": "@/services/providers/types"
     },
     {
-      "from": "src/ui/coverageDashboardUI.ts",
-      "to": "@/services/DataCatalogService"
+      "from": "scripts/audit-coverage.ts",
+      "to": "./audits/provenance"
+    },
+    {
+      "from": "src/claims/mockReleaseFirewall.ts",
+      "to": "fs"
+    },
+    {
+      "from": "scripts/qa/tier-ef-runtime-traversal.ts",
+      "to": "../../src/db/runtimeBridge"
+    },
+    {
+      "from": "scripts/restore-launch-floors.ts",
+      "to": "fs"
+    },
+    {
+      "from": "src/systems/fullProductDepth.test.ts",
+      "to": "@/systems/saveSystem"
+    },
+    {
+      "from": "data-pipeline/tests/test_source_import.py",
+      "to": "json"
+    },
+    {
+      "from": "src/ui/timeAtlasUI.ts",
+      "to": "@/schema"
+    },
+    {
+      "from": "tests/engineering_wave008/behavioralNegatives.ts",
+      "to": "@/services/scientific/snapshotManifest"
+    },
+    {
+      "from": "scripts/audit-temporal-maps.ts",
+      "to": "../src/schema/temporalMap"
+    },
+    {
+      "from": "data-pipeline/transform/pbdb_to_fossil.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/engineering_wave008/evaluators.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "src/time/index.ts",
+      "to": "./schema"
+    },
+    {
+      "from": "src/systems/waveF.alpha.test.ts",
+      "to": "fs"
+    },
+    {
+      "from": "scripts/generate-temporal-map-catalog.ts",
+      "to": "path"
+    },
+    {
+      "from": "tests/engineering_wave008/wave008_scientific_records.test.ts",
+      "to": "@/schema/sourceRegistry"
+    },
+    {
+      "from": "data-pipeline/transform/gbif_to_distribution.py",
+      "to": "json"
+    },
+    {
+      "from": "src/game/Game.ts",
+      "to": "@/ui/companionUI"
     }
   ],
   "path_classification_sample": [
@@ -2379,6 +5009,15 @@
     }
   ],
   "path_classification_full_count": 574,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "archive-of-life-artifact-world",
     "sha": "069243c365552f00707650e9d81a8046ba3075d8",

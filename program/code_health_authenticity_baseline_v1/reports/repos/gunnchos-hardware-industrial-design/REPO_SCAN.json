@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-hardware-industrial-design",
   "accepted_main_sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",
-  "scanned_at_utc": "2026-08-21T17:09:59Z",
+  "scanned_at_utc": "2026-08-21T17:47:27Z",
   "counts": {
     "files_classified": 1642,
     "code_files": 152,
@@ -15,9 +15,11 @@
       "PROOF": 280,
       "CI_OR_DEPLOY": 7
     },
-    "theater_s0": 22,
-    "theater_s1": 70,
-    "theater_total": 94,
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 2,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 59,
     "wave_dup_paths": 0,
     "fixture_paths": 25,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "CRITICAL",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -54,566 +66,83 @@
   },
   "theater_findings": [
     {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 46,
-      "snippet": "force_passive(C.usbc_pins()), body_w=17.78),         K.make_lib_symbol(\"PD_CTRL\", C.force_passive(C.pd_controller_pins()"
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "firmware/_device_util.py",
+      "line": 56,
+      "snippet": "except Exception:         pass     if path.suffix == \".json\":         return json.loads(text)     # Minimal YAML-ish fal",
+      "repository": "gunnchos-hardware-industrial-design",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-hardware-industrial-design"
+      }
     },
     {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 47,
-      "snippet": "force_passive(C.pd_controller_pins()), body_w=17.78),         K.make_lib_symbol(\"CHARGER\", C.force_passive(C.charger_pin"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 48,
-      "snippet": "force_passive(C.charger_pins()), body_w=17.78),         K.make_lib_symbol(\"BUCK\", C.force_passive(C.buck_pins()), body_w"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 49,
-      "snippet": "force_passive(C.buck_pins()), body_w=15.24),         K.make_lib_symbol(\"ESD\", C.force_passive(C.esd_pins()), body_w=7.62"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 50,
-      "snippet": "force_passive(C.esd_pins()), body_w=7.62, body_h=7.62),     ]     if product == \"handheld_hybrid\":         symbols.appen"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 53,
-      "snippet": "force_passive(C.sodimm_public_pins()), body_w=30.48))         symbols.append(             K.make_lib_symbol(            "
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 70,
-      "snippet": "force_passive(C.nrf52840_pins()), body_w=25.4),             K.make_lib_symbol(\"NPM1300\", C.force_passive(C.npm1300_pins("
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 71,
-      "snippet": "force_passive(C.npm1300_pins()), body_w=15.24),             K.make_lib_symbol(\"IQS7222A\", C.force_passive(C.iqs7222_pins"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 72,
-      "snippet": "force_passive(C.iqs7222_pins()), body_w=15.24),             K.make_lib_symbol(\"BMI270\", C.force_passive(C.bmi270_pins())"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 73,
-      "snippet": "force_passive(C.bmi270_pins()), body_w=12.7),         ]     elif product == \"dock\":         symbols += [             K.m"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 77,
-      "snippet": "force_passive(C.jhl8440_role_pins()), body_w=22.86),             K.make_lib_symbol(\"RTL8156\", C.force_passive(C.rtl8156_"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 78,
-      "snippet": "force_passive(C.rtl8156_pins()), body_w=15.24),             K.make_lib_symbol(                 \"VL817\",                 "
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 94,
-      "snippet": "force_passive(C.comhpc_public_feature_pins()), body_w=25.4),             K.make_lib_symbol(                 \"TPM\",      "
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 228,
-      "snippet": "force_passive(C.sodimm_public_pins()),             \"wires\": {\"251\": \"SOM_VIN\", \"1\": \"GND\", \"109\": \"USB_DM\", \"111\": \"USB_"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 242,
-      "snippet": "force_passive(C.nrf52840_pins()),             \"wires\": {\"13\": \"VDD_3V3\", \"15\": \"GND\", \"42\": \"SWDIO\", \"43\": \"SWDCLK\", \"32"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 248,
-      "snippet": "force_passive(C.npm1300_pins()),             \"wires\": {\"1\": \"VBUS\", \"2\": \"VBAT\", \"3\": \"GND\", \"4\": \"VDD_3V3\", \"5\": \"I2C_S"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 254,
-      "snippet": "force_passive(C.iqs7222_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"GND\", \"3\": \"I2C_SCL\", \"4\": \"I2C_SDA\", \"5\": "
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 260,
-      "snippet": "force_passive(C.bmi270_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"VDD_3V3\", \"3\": \"GND\", \"4\": \"I2C_SCL\", \"5\": \""
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 268,
-      "snippet": "force_passive(C.jhl8440_role_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"GND\", \"3\": \"USB4_UP\", \"4\": \"USB4_UP\", "
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 274,
-      "snippet": "force_passive(C.rtl8156_pins()),             \"wires\": {\"1\": \"VDD_3V3\", \"2\": \"GND\", \"3\": \"USB_DP\", \"4\": \"USB_DM\", \"5\": \"E"
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/continuation_viii_manufacturer_release.py",
-      "line": 294,
-      "snippet": "force_passive(C.comhpc_public_feature_pins()),             \"wires\": {\"VIN\": \"COM_VIN\", \"GND\": \"GND\", \"PWRBTN\": \"PWRBTN\","
-    },
-    {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "scripts/cont_viii_lib/circuits.py",
-      "line": 229,
-      "snippet": "force_passive(pins):     return redistribute_lr(pins)   def redistribute_lr(pins):     \"\"\"Place pins on L/R only for rel"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "firmware/capsule_update/verify_capsule_manifest.py",
-      "line": 39,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "firmware/capsule_update/simulate_capsule_update.py",
-      "line": 55,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
       "path": "firmware/qemu/run_device_profile_vm.py",
-      "line": 50,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
-      "line": 52,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
-      "line": 351,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "component_selection/simulations/simulate_power_thermal_budget.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "component_selection/simulations/simulate_workload_fit.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "component_selection/simulations/simulate_dock_display_bandwidth.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "component_selection/simulations/simulate_component_fit.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "component_selection/simulations/simulate_storage_memory_pressure.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "component_selection/simulations/simulate_user_persona_fit.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_supervisor_eda_checks.sh",
-      "line": 51,
-      "snippet": "xit(0) try:     data = json.loads(p.read_text()) except Exception as e:     print(f\"parse_error:{e}\")     raise SystemEx"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_supervisor_eda_checks.sh",
-      "line": 56,
-      "snippet": "xit(0) n = 0 for sheet in data.get(\"sheets\") or []:     for v in sheet.get(\"violations\") or []:         if str(v.get(\"se"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_hardware_os_validation.py",
-      "line": 77,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_component_selection.py",
-      "line": 34,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_certification_readiness.py",
-      "line": 56,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_mechanical_correctness.py",
-      "line": 125,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_continuation_ix.py",
-      "line": 107,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/compile_supply_chain_fields.py",
-      "line": 136,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_firmware_implementation.py",
-      "line": 61,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_firmware_descriptors.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_bom_schema.py",
-      "line": 19,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_hlk_readiness.py",
-      "line": 60,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_dvt_pvt_readiness.py",
-      "line": 59,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_production_track.py",
-      "line": 122,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_device_spec_tables.py",
-      "line": 16,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/update_cont_vi_kicad_status.py",
-      "line": 63,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_firmware_manifests.py",
-      "line": 10,
-      "snippet": "xit(1)  ROOT = Path(__file__).resolve().parents[1] FW = ROOT / \"firmware\" / \"manifests\" DEVICES = [\"student_14_5\", \"hand"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_firmware_manifests.py",
-      "line": 41,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_printability.py",
-      "line": 104,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vi_eda_closure.py",
-      "line": 98,
-      "snippet": "xit(f\"Expected 260 NX5 pins, got {len(pins)}\")     return pins   def classify_signal(sig: str) -> str:     s = sig.upper"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vi_eda_closure.py",
-      "line": 1362,
-      "snippet": "xit(\"missing scripts/run_family_kicad_cli.sh \u2014 write it before running generator\")     sh.chmod(0o755)      # Makefile a"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vi_eda_closure.py",
-      "line": 1455,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/e2e_check_required_artifacts.py",
-      "line": 37,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_production_release_gate.py",
-      "line": 52,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_bom.py",
-      "line": 32,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_digital_manufacturing.py",
-      "line": 151,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_full_hardware_simulation.py",
-      "line": 33,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_continuation_vi.py",
-      "line": 96,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_power_budget.py",
-      "line": 40,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/gate6_dry_run.py",
-      "line": 128,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_stl_exports.py",
-      "line": 116,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_supply_chain_fields.py",
-      "line": 94,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_continuation_viii.py",
-      "line": 79,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_cad_tree.py",
-      "line": 21,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_schematics.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/make_e2e_report.py",
-      "line": 17,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_os_compatibility_handoff.py",
-      "line": 165,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_secure_boot_simulation.py",
-      "line": 33,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_capsule_update_simulation.py",
-      "line": 24,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_no_stale_not_implemented_language.py",
-      "line": 68,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_required_files.py",
-      "line": 220,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vii_eda_release_clean.py",
-      "line": 247,
-      "snippet": "xit(f\"Cannot load base schematic for {product}\")     old = git_show.stdout     comps = parse_sch_components(old)     lab"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vii_eda_release_clean.py",
-      "line": 252,
-      "snippet": "xit(f\"No components parsed for {product}\")      lines = [         '(kicad_sch (version 20230121) (generator \"continuatio"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vii_eda_release_clean.py",
-      "line": 1309,
-      "snippet": "xit(f\"Missing kicad-cli at {KICAD_CLI}\")      ART.mkdir(parents=True, exist_ok=True)      # \u00a710 ledger from Cont VI evid"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/continuation_vii_eda_release_clean.py",
-      "line": 1400,
-      "snippet": "xit(                         f\"Unfixed {kind.upper()} error on {r['product']}: {typ} x{count}\"                     )    "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_firmware_os_interface.py",
-      "line": 70,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/hardware_validate.py",
-      "line": 25,
-      "snippet": "xit(main()) "
+      "line": 29,
+      "snippet": "\"status\": \"pass\",         \"device\": canon,         \"requested_device\": device,         \"profile\": profile,         \"qemu",
+      "repository": "gunnchos-hardware-industrial-design",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-hardware-industrial-design"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "firmware/_device_util.py",
+      "line": 56,
+      "snippet": "except Exception:         pass     if path.suffix == \".json\":         return json.loads(text)     # Minimal YAML-ish fal",
+      "repository": "gunnchos-hardware-industrial-design",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-hardware-industrial-design"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "firmware/qemu/run_device_profile_vm.py",
+      "line": 29,
+      "snippet": "\"status\": \"pass\",         \"device\": canon,         \"requested_device\": device,         \"profile\": profile,         \"qemu",
+      "repository": "gunnchos-hardware-industrial-design",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-hardware-industrial-design"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-hardware-industrial-design",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py",
@@ -902,324 +431,324 @@
   "orphan_candidates": [],
   "dependency_edges_sample": [
     {
-      "from": "tests/test_supply_chain_fields.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/update_cont_vi_kicad_status.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/continuation_vi_eda_closure.py",
-      "to": "collections"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/receiver.py",
-      "to": "time"
-    },
-    {
-      "from": "scripts/close_digital_hardware_pass.py",
-      "to": "math"
-    },
-    {
-      "from": "scripts/validate_cad_tree.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_supply_chain_fields.py",
-      "to": "importlib"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/audit.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_dvt_pvt_readiness.py",
-      "to": "re"
-    },
-    {
-      "from": "secure_boot/scripts/generate_test_keys.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/continuation_viii_manufacturer_release.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_issue_closure_matrix.py",
-      "to": "re"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/receiver.py",
-      "to": "enum"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/__init__.py",
-      "to": "pairing"
-    },
-    {
-      "from": "scripts/cont_ix_lib/packages.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_hlk_readiness.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "pathlib"
-    },
-    {
       "from": "firmware/_device_util.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_production_track.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/continuation_vii_eda_release_clean.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/validate_continuation_viii.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/continuation_vi_eda_closure.py",
-      "to": "zipfile"
-    },
-    {
-      "from": "scripts/generate_device_spec_tables.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_certification_readiness.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_continuation_vii.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "tests/test_stl_exports.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_printability.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_power_budget.py",
-      "to": "csv"
-    },
-    {
-      "from": "scripts/continuation_vii_eda_release_clean.py",
-      "to": "shutil"
-    },
-    {
-      "from": "scripts/cont_ix_lib/common.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/continuation_vii_eda_release_clean.py",
-      "to": "re"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/receiver.py",
-      "to": "typing"
-    },
-    {
-      "from": "firmware/capsule_update/simulate_capsule_update.py",
-      "to": "yaml"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/sender.py",
-      "to": "secrets"
-    },
-    {
-      "from": "scripts/cont_ix_lib/common.py",
       "to": "__future__"
     },
     {
-      "from": "scripts/continuation_viii_manufacturer_release.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_firmware_compat_smoke.py",
+      "from": "scripts/validate_schematics.py",
       "to": "sys"
-    },
-    {
-      "from": "tests/test_wp010_evt0_readiness.py",
-      "to": "__future__"
     },
     {
       "from": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/continuation_vi_eda_closure.py",
       "to": "datetime"
     },
     {
-      "from": "tests/test_component_selection.py",
-      "to": "subprocess"
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/validate_digital_fab_package.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_power_budget_schema.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/cont_viii_lib/common.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_supply_chain_fields.py",
+      "to": "__future__"
     },
     {
       "from": "tests/test_wp002_handheld_storage.py",
       "to": "__future__"
     },
     {
-      "from": "scripts/validate_continuation_viii.py",
-      "to": "json"
+      "from": "scripts/continuation_viii_manufacturer_release.py",
+      "to": "pathlib"
     },
     {
-      "from": "scripts/validate_issue_closure_matrix.py",
+      "from": "scripts/close_digital_hardware_pass.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_digital_manufacturing.py",
       "to": "sys"
     },
     {
-      "from": "scripts/generate_hbom.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "firmware/_device_util.py",
-      "to": "yaml"
-    },
-    {
-      "from": "scripts/cont_ix_lib/emit_sch.py",
-      "to": "common"
-    },
-    {
-      "from": "scripts/validate_continuation_vi.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/sender.py",
-      "to": "latency"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/__init__.py",
-      "to": "simulated_stream"
-    },
-    {
-      "from": "gate1_digital_fabrication/edge_io_ring/scripts/update_kicad_status.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/bootstrap_firmware_implementation.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/test_os_compatibility_handoff.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "secure_boot/scripts/generate_test_keys.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/run_firmware_compat_smoke.py",
+      "from": "component_selection/simulations/simulate_dock_display_bandwidth.py",
       "to": "json"
     },
     {
       "from": "scripts/continuation_viii_manufacturer_release.py",
-      "to": "cont_viii_lib"
-    },
-    {
-      "from": "scripts/build_hw_fw_rc_001_packages.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/validate_hardware_os_validation.py",
-      "to": "re"
-    },
-    {
-      "from": "scripts/cont_ix_lib/emit_sch.py",
-      "to": "__future__"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/codec.py",
-      "to": "hmac"
-    },
-    {
-      "from": "scripts/run_full_hardware_simulation.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "tests/test_certification_readiness.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "component_selection/simulations/simulate_power_thermal_budget.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_mechanical_correctness.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "ring_input/python/authenticated_ring_input/fallback.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/cont_viii_lib/kicad_emit.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_certification_readiness.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_os_compatibility_handoff.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_hw_fw_rc_001.py",
       "to": "json"
     },
     {
-      "from": "ring_input/python/authenticated_ring_input/audit.py",
-      "to": "time"
-    },
-    {
-      "from": "tests/test_stl_exports.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/update_cont_vi_kicad_status.py",
+      "from": "scripts/validate_schematics.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/validate_printability.py",
+      "from": "scripts/validate_bom_schema.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_supply_chain_fields.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_power_budget_schema.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/calibration.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/close_digital_hardware_pass.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_no_stale_not_implemented_language.py",
       "to": "subprocess"
     },
     {
-      "from": "scripts/validate_stl_exports.py",
+      "from": "scripts/cont_ix_lib/common.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_validation_toolchain_matrix.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "datetime"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/bootstrap_production_track.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_bom_schema.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/cont_viii_lib/kicad_emit.py",
+      "to": "common"
+    },
+    {
+      "from": "scripts/cont_ix_lib/common.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_hlk_readiness.py",
       "to": "sys"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/calibration.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/continuation_viii_manufacturer_release.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/latency.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/validate_production_release_gate.py",
+      "to": "re"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_power_budget_schema.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_issue_closure_matrix.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_hlk_readiness.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_hbom.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_certification_readiness.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_campus_device_kits.py",
+      "to": "csv"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/simulated_stream.py",
+      "to": "dataclasses"
     },
     {
       "from": "scripts/validate_continuation_vi.py",
       "to": "csv"
     },
     {
-      "from": "tests/test_secure_boot_simulation.py",
+      "from": "scripts/continuation_vii_eda_release_clean.py",
+      "to": "uuid"
+    },
+    {
+      "from": "tests/test_issue_closure_matrix.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/cont_ix_lib/emit_sch.py",
+      "to": "common"
+    },
+    {
+      "from": "firmware/capsule_update/simulate_capsule_update.py",
+      "to": "yaml"
+    },
+    {
+      "from": "tests/test_continuation_ix.py",
+      "to": "json"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/simulated_stream.py",
+      "to": "__future__"
+    },
+    {
+      "from": "firmware/capsule_update/verify_capsule_manifest.py",
+      "to": "_device_util"
+    },
+    {
+      "from": "scripts/validate_secure_boot_simulation.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_continuation_vii.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/check_required_files.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_printability.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/run_firmware_compat_smoke.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_firmware_compat_smoke.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_component_selection.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/build_hw_fw_rc_001_packages.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/test_issue_closure_matrix.py",
       "to": "subprocess"
     },
     {
-      "from": "artifacts/c_pkt_003/factory_hil/run_hil_mock.py",
-      "to": "argparse"
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "to": "hashlib"
     },
     {
-      "from": "scripts/validate_production_track.py",
+      "from": "scripts/bootstrap_os_compatibility_handoff.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/check_required_files.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_printability.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/run_firmware_compat_smoke.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_hw_fw_rc_001.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_component_selection.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/continuation_vi_eda_closure.py",
+      "to": "json"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/sender.py",
+      "to": "uuid"
+    },
+    {
+      "from": "scripts/validate_mechanical_correctness.py",
+      "to": "math"
+    },
+    {
+      "from": "scripts/bootstrap_complete_implementation_pass.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_hlk_readiness.py",
       "to": "re"
+    },
+    {
+      "from": "scripts/continuation_ix_pre_evt_hardware_lock.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/codec.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "secure_boot/scripts/generate_test_keys.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/continuation_vii_eda_release_clean.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_c_pkt003_evt_firmware.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/edge_io_ring/scripts/generate_ring_digital_fab_package.py",
+      "to": "math"
+    },
+    {
+      "from": "ring_input/python/authenticated_ring_input/receiver.py",
+      "to": "revocation"
     }
   ],
   "path_classification_sample": [
@@ -2225,6 +1754,15 @@
     }
   ],
   "path_classification_full_count": 1642,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "gunnchos-hardware-industrial-design",
     "sha": "9ee0ef2f688b2c18428bfabc316b23687a02988d",

@@ -1,7 +1,8 @@
 {
   "schema": "gunnchos.code_health_authenticity_baseline_v1.result",
-  "generated_at_utc": "2026-08-21T17:10:45Z",
+  "generated_at_utc": "2026-08-21T17:48:03Z",
   "CODE_HEALTH_AUTHENTICITY_BASELINE_V1": "BASELINE_COMPLETE_WITH_FINDINGS",
+  "CODE_HEALTH_BASELINE_V1_CALIBRATION_REPAIR": "COMPLETE_PENDING_OWNER_MERGE",
   "CURSOR_NEVER_MERGES": true,
   "prerequisite": {
     "field_kit_pr_113": "MERGED",
@@ -24,30 +25,103 @@
     "negative_hits": [
       {
         "severity": "S0",
-        "kind": "assert_true_literal",
+        "kind": "pass_only_test",
         "path": "tests/test_theater.py",
-        "line": 2,
-        "snippet": "assert True  def test_empty():     pass "
+        "line": 6,
+        "snippet": "def test_empty():     pass ",
+        "disposition": "ROOT_CAUSE_S0"
       },
       {
         "severity": "S0",
-        "kind": "pass_only_test",
+        "kind": "always_pass_gate",
+        "path": "tests/test_theater.py",
+        "line": 2,
+        "snippet": "ALWAYS_PASS = True def test_always():     assert ALWAYS_PASS  def test_empty():     pass ",
+        "disposition": "ROOT_CAUSE_S0"
+      },
+      {
+        "severity": "S0",
+        "kind": "always_pass_gate",
         "path": "tests/test_theater.py",
         "line": 4,
-        "snippet": "def test_empty():     pass "
+        "snippet": "ALWAYS_PASS  def test_empty():     pass ",
+        "disposition": "ROOT_CAUSE_S0"
       }
     ],
     "positive_hits": [],
+    "false_positive_controls": {
+      "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+      "clean_env_control": {
+        "path": ".venv/site-packages/pkg/test_vendored.py",
+        "raw_observations": 1,
+        "s0_s1_after_calibration": 0,
+        "pass": true
+      },
+      "bad_theater_control": {
+        "path": "tests/test_always_pass_gate.py",
+        "detects_s0_or_gate": true,
+        "calibrated_sample": [
+          {
+            "kind": "assert_true_literal",
+            "severity": "S0",
+            "disposition": "ROOT_CAUSE_S0"
+          },
+          {
+            "kind": "always_pass_gate",
+            "severity": "S0",
+            "disposition": "ROOT_CAUSE_S0"
+          },
+          {
+            "kind": "always_pass_gate",
+            "severity": "S0",
+            "disposition": "ROOT_CAUSE_S0"
+          }
+        ]
+      },
+      "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+      "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+      "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+      "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+      "ROOT_CAUSE_DEDUPLICATION": true,
+      "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true,
+      "AUDIT_FALSE_POSITIVE_CONTROLS": "PASS"
+    },
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true,
     "AUDIT_INTEGRITY_CONTROLS": "PASS"
   },
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "S0_REGEX_ONLY_COUNT": 0,
+  "S0_SEMANTIC_REVIEW_COMPLETE": true,
   "totals": {
     "repos_scanned": 17,
-    "findings": 291,
-    "s0": 105,
-    "s1": 155,
-    "critical_dimension_cells": 27
+    "raw_pattern_observations": 369,
+    "findings": 35,
+    "s0": 0,
+    "s1": 5,
+    "s0_s1_are_root_causes": true,
+    "critical_dimension_cells": 19
   },
-  "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded.",
+  "s1_calibration_sample": {
+    "sample_size": 2,
+    "sample_fraction": 0.4,
+    "false_positive_rate": 0.0,
+    "reviewed_all": false
+  },
+  "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded. S0/S1 totals are root causes after calibration.",
   "baseline_requirement_counts_unchanged": true,
   "product_behavior_unchanged": true
 }

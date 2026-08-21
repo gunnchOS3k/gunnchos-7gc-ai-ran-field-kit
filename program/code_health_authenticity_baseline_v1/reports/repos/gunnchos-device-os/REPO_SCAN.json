@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-device-os",
   "accepted_main_sha": "28562a8456207540c205a1c8a6434a491b0a4771",
-  "scanned_at_utc": "2026-08-21T17:09:55Z",
+  "scanned_at_utc": "2026-08-21T17:47:22Z",
   "counts": {
     "files_classified": 2771,
     "code_files": 1089,
@@ -15,9 +15,11 @@
       "PRODUCTION": 221,
       "CI_OR_DEPLOY": 21
     },
-    "theater_s0": 12,
-    "theater_s1": 188,
-    "theater_total": 276,
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 80,
+    "raw_pattern_observations": 4,
+    "theater_root_causes": 0,
     "hotspots": 338,
     "wave_dup_paths": 101,
     "fixture_paths": 26,
@@ -159,13 +161,25 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "NEEDS_WORK"
+    "authenticity": "NEEDS_WORK",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "FAIL_COUPLED",
+      "gaps": [
+        "PRODUCTION_PROOF_COUPLING"
+      ]
+    }
   },
   "dimensions": {
     "production_proof_separation": "CRITICAL",
-    "anti_test_theater": "CRITICAL",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "NEEDS_WORK",
-    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "ADEQUATE",
     "runtime_authenticity": "NEEDS_WORK",
     "complexity_hotspots": "CRITICAL",
     "orphan_dead_code": "NEEDS_WORK",
@@ -175,566 +189,2205 @@
   },
   "theater_findings": [
     {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
-      "line": 80,
-      "snippet": ".toBe(true)     render(<NotesApp onBack={() => {}} />)     fireEvent.click(screen.getAllByText('Persist Me')[0])     exp"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
-      "line": 81,
-      "snippet": ".toBe(true)     const stored = localStorage.getItem(ENCRYPTED_WORKSPACE_KEY)     expect(stored).toBeTruthy()     expect("
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
-      "line": 105,
-      "snippet": ".toBe(true)     expect(getChildren(null).length).toBe(0)     expect(listNotes().length).toBe(0)   })    it('unlock resto"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
-      "line": 131,
-      "snippet": ".toBe(true)   })    it('does not store passphrase in localStorage', async () => {     const payload = loadPlaintextPaylo"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/workspace.test.ts",
-      "line": 29,
-      "snippet": ".toBe(true)     expect(roots.some(n => n.name === 'Notes')).toBe(true)   })    it('creates folder and text file', () => "
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/workspace.test.ts",
-      "line": 30,
-      "snippet": ".toBe(true)   })    it('creates folder and text file', () => {     const folder = createFolder(null, 'Test Folder')     "
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/workspace.test.ts",
-      "line": 62,
-      "snippet": ".toBe(true)   })    it('creates and saves a note', () => {     const note = createNote('Test Note', 'body')     saveNote"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/accessibility.test.ts",
-      "line": 8,
-      "snippet": ".toBe(true)     expect(r.certificationClaimed).toBe(false)   }) }) "
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
-      "line": 26,
-      "snippet": ".toBe(true)   })    it('Campus Mode allows school/productivity native apps', () => {     expect(evaluateAppPolicy('files"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
-      "line": 30,
-      "snippet": ".toBe(true)     expect(evaluateAppPolicy('notes', 'School', { isNativeShellApp: true }).canLaunch).toBe(true)   })    it"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
-      "line": 31,
-      "snippet": ".toBe(true)   })    it('Game Mode allows first-party games', () => {     const r = evaluateAppPolicy('anime-aggressors',"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
-      "line": 36,
-      "snippet": ".toBe(true)   })    it('appLaunchService respects policy in School mode', () => {     const result = launchApp(       { "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "firmware_compat/probes/firmware_probe.py",
-      "line": 94,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "mdm/device_policy_agent.py",
-      "line": 130,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "artifacts/wp007/independent_verifier/run_independent_attacks.py",
-      "line": 1477,
-      "snippet": "xit(main()) "
+      "line": 1124,
+      "snippet": "except Exception:                 pass     ok = started_ok and work.resolve().is_relative_to(base)     record(         F",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
-      "line": 1057,
-      "snippet": "xit(main()) "
+      "line": 161,
+      "snippet": "except Exception:             pass      # First-party recreation: GunnchPlay + accepted in-tree web packages.     # Sibl",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "security/dev_ops/sast_hook.py",
-      "line": 95,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "line": 357,
+      "snippet": "except Exception:             pass      detach = pm.on_dock_detach()     undock = dock_manager.dock_state(connected=Fals",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "assert_equals_self",
-      "path": "tests/test_adversarial_fuzz_starters.py",
-      "line": 48,
-      "snippet": "assert score == score  # finite after sanitization     result = orch.evaluate()     assert \"active\" in result     assert"
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "tests/test_continuation_vi_fleet_lifecycle.py",
+      "line": 62,
+      "snippet": "except Exception:             pass         try:             store.close()         except Exception:             pass   d",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tests/wp013/test_serviceability.py",
-      "line": 96,
-      "snippet": "xit(tmp_path):     device_root = _make_device_root(tmp_path)     assert svc.is_in_repair_mode(device_root) is False     "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "tests/test_continuation_vi_fleet_lifecycle.py",
+      "line": 66,
+      "snippet": "except Exception:             pass   def test_multi_instance_and_save_conflict(tmp_path: Path):     db = tmp_path / \"mul",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "hardware_component_runtime/scripts/validate_component_runtime.py",
-      "line": 24,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/ipc_robustness.py",
+      "line": 109,
+      "snippet": "except Exception:             pass      ok = all(results.values())     decision = \"KEEP_UNIX_SOCKET_IPC\" if ok else \"REP",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "hardware_component_runtime/scripts/sync_component_stacks.py",
-      "line": 64,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/security_red_team/harness.py",
+      "line": 623,
+      "snippet": "except Exception:             pass     return CaseResult(         case_id=\"SEC-LAB-001\",         surface=\"device_lab/ses",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "hardware_component_runtime/scripts/simulate_os_on_component_stack.py",
-      "line": 54,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 105,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Local-first identity store with persistence + tests\"},             \"OS-PLATFORM-002\": {\"statu",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/SOFTWARE_BUILDER/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 106,
+      "snippet": "\"status\": \"PASS\", \"note\": \"HAL registry with provenance enum\"},             \"OS-PLATFORM-003\": {\"status\": \"PASS\", \"note\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/PM_AGILE_LSS/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/NETWORKING_INFRA/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/AI_ML_EDGE/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/IT_SUPPORT_HARDWARE/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/COMM_PD_ETHICS/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/WIRELESS_6G/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/DATA_DASHBOARDS/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/GUNNCHOS_PRODUCT_LAB/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/EMBEDDED_PROTOTYPING/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/DATA_VIZ_BI/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/CLOUD_DEVOPS/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/HARDWARE_ENGINEERING/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/SEVEN_GC_APPRENTICESHIP/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/ROBOTICS_CONTROL/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/CYBER_SOC/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "content/waike/courses/DIGITAL_CONFIDENCE/lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "os_build/device_lab_interactive_guest/scripts/provision_interactive_guest_debian_cloud.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "os_build/device_lab_interactive_guest/scripts/provision_interactive_guest_qemu_native.py",
-      "line": 474,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "os_build/device_lab_interactive_guest/debian_cloud/guest_agent/gunnchos_guest_agent.py",
-      "line": 1166,
-      "snippet": "xit(0) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/hardware_capability_detector.py",
-      "line": 42,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/waike_curriculum/writer.py",
-      "line": 40,
-      "snippet": "xit(main()) '''   def write_course(root: Path, course_id: str) -> Path:     spec = course_by_id(course_id)     seed = se"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/boot/cli.py",
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
       "line": 107,
-      "snippet": "xit(main()) "
+      "snippet": "\"status\": \"PASS\", \"note\": \"Six form-factor shell profiles wired to stage2 shell + display manager\"},             \"OS-PLA",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/boot/__main__.py",
-      "line": 4,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 109,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Normalized routing touch/controller/kbm/ring with remap persistence\"},             \"OS-PLATFO",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/device_lab/interactive_image_builder.py",
-      "line": 458,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 111,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Continuity checkpoint/restore/revoke/conflict\"},             \"OS-CONTINUITY-002\": {\"status\": ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 112,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: what is synchronized\"},             \"OS-CONTINUITY-003\": {\"status\": \"PASS\", \"note",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 113,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: storage location\"},             \"OS-CONTINUITY-004\": {\"status\": \"PASS\", \"note\": \"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 114,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: authorized devices\"},             \"OS-CONTINUITY-005\": {\"status\": \"PASS\", \"note\":",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 115,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: local-only fields\"},             \"OS-CONTINUITY-006\": {\"status\": \"PASS\", \"note\": ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 116,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure + revoke API\"},             \"OS-CONTINUITY-007\": {\"status\": \"PASS\", \"note\": \"Expor",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 117,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Export/delete API\"},         } ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_artifacts.py",
+      "line": 457,
+      "snippet": "except Exception:                 pass             body = b\"\".join(chunks)         else:             body = self.rfile.r",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/manifest.py",
+      "line": 89,
+      "snippet": "\"status\": \"PASS\" if result.get(\"ok\") else \"FAIL\",             \"summary\": {k: result.get(k) for k in (\"ok\", \"scenario_id\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
-      "line": 1132,
-      "snippet": "xit(main()) "
+      "line": 229,
+      "snippet": "except Exception:                 pass         time.sleep(0.35)     return {\"ok\": False, \"error\": \"guest_bash_timeout\", ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/device_lab/debian_cloud_provisioner.py",
-      "line": 834,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
-      "line": 1954,
-      "snippet": "xit(0 if t.is_file() and m in t.read_text() else 3)\\n\"             \"PY\\n\"             \"  if [ $? -eq 0 ]; then echo HL_O"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
-      "line": 2701,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/device_lab/cli.py",
-      "line": 558,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/device_lab/__main__.py",
-      "line": 4,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
-      "line": 1620,
-      "snippet": "xit(2); }, 8000);\\n\"         \"s.on('connect', () => {\\n\"         \"  clearTimeout(t);\\n\"         \"  console.log(JSON.stri"
+      "line": 368,
+      "snippet": "except Exception:                 pass             try:                 os.symlink(os.path.relpath(zsrc, snm), dest)    ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
-      "line": 1624,
-      "snippet": "xit(0);\\n\"         \"});\\n\"         \"NODE\",         timeout_sec=30,         name=\"sio-probe\",     )     out[\"socketio_cli"
+      "line": 405,
+      "snippet": "except Exception:                     pass print('pnpm_hoisted', hoisted, 'body_parser', (nm / 'body-parser' / 'package.",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/creation_enablement/guest_chain.py",
-      "line": 87,
-      "snippet": "xit(main())\\n\",         encoding=\"utf-8\",     )      manifest = {         \"schema\": \"gunnchos.creation_enablement.ninep_"
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 661,
+      "snippet": "except Exception:                     pass print('pnpm_hoisted', hoisted, 'body_parser', (nm / 'body-parser' / 'package.",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/creation_enablement/guest_dogfood.py",
-      "line": 336,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1323,
+      "snippet": "except Exception:                 pass         if native.get(\"ok\") and native.get(\"lines\") and not native_save:         ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/a_pkt003/guest_dogfood.py",
-      "line": 189,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1328,
+      "snippet": "except Exception:                 pass         mut = archive_save_mutated_from_default(native_save)         if mut.get(\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/release_engineering/cli.py",
-      "line": 63,
-      "snippet": "xit(main())\\n\",         encoding=\"utf-8\",     )     return {\"ok\": True, \"app_dir\": str(app_dir), \"app_id\": ns.app_id, \"m"
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1378,
+      "snippet": "except Exception:             pass     # Fallback: scrape Chromium leveldb/strings for native key after interactions.   ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/dock/cli.py",
-      "line": 106,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1814,
+      "snippet": "except Exception:             pass         fallback = httpd_port + 1         httpd = start_host_artifact_httpd(staging, ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/dock/__main__.py",
-      "line": 4,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1831,
+      "snippet": "except Exception:                 pass             result[\"blocker\"] = \"host_artifact_httpd_listen_failed\"             (",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gunnchos_device_os/service_continuity_execution/resume.py",
-      "line": 236,
-      "snippet": "xit(\"bad mode\") \"\"\"   def prove_session_resume_a_b_c(storage_dir: Path) -> dict[str, Any]:     storage_dir.mkdir(parents"
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1908,
+      "snippet": "except Exception:             pass      all_ok = all(         bool((result[\"games\"].get(g) or {}).get(\"FOUR_GAME_REAL_RU",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/examples/creator_stub/main.py",
-      "line": 34,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 432,
+      "snippet": "except Exception:             pass         result = {             \"ok\": ok,             \"scenario_id\": \"ECO-006\",       ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/examples/gunnchai_client_stub/main.py",
-      "line": 39,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 97,
+      "snippet": "\"status\": \"PASS\" if (ok and content_ok) else \"FAIL\",             \"seeded\": seeded,             \"exported\": exported,    ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/examples/waike_stub/main.py",
-      "line": 33,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 174,
+      "snippet": "\"status\": \"PASS\" if ok else \"FAIL\",             \"game\": game,             \"before\": before,             \"attached\": atta",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/apps/stream_a_pkt003_godot/main.py",
-      "line": 28,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 327,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",             \"ai_workload\": ai,             \"exported\": exported,             \"imp",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/apps/creator_studio/main.py",
-      "line": 44,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 377,
+      "snippet": "\"status\": \"PASS\" if ok else \"FAIL\",             \"build_ok\": build_ok,             \"launch\": launch,             \"state\":",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/apps/gunnchai_tutor/main.py",
-      "line": 106,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 438,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",             \"managed\": managed,             \"offline\": offline,             \"less",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/apps/waike_learning/main.py",
-      "line": 58,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 489,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",             \"steps\": steps,             \"GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/apps/stream_a_pkt003_research/main.py",
-      "line": 20,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 513,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",         \"games\": games,         \"GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "sdk/apps/stream_a_sample_memo/main.py",
-      "line": 96,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 557,
+      "snippet": "\"status\": \"PASS\" if ok else \"FAIL\",             \"exported\": exported,             \"destroyed\": destroyed,             \"s",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_hardware_boot_readiness_demo.py",
-      "line": 30,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/prove_stage2_os.py",
-      "line": 285,
-      "snippet": "xit(\"host path leaked into prove report\")     out.write_text(text, encoding=\"utf-8\")     print(         json.dumps(     "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/prove_stage2_os.py",
-      "line": 302,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_waike_course_lab.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_release_readiness_firewall.py",
-      "line": 36,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_cycle3b_live_dsxl_ring_reearn.py",
-      "line": 416,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/product_use_rc_002.py",
-      "line": 351,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/device_lab_score_independent.py",
-      "line": 294,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/ecosystem/games.py",
+      "line": 151,
+      "snippet": "except Exception:         pass      evidence = {         \"game_id\": game_id,         \"kind\": \"web_http_server\",         ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "artifacts/wp007/independent_verifier/run_independent_attacks.py",
+      "line": 1124,
+      "snippet": "except Exception:                 pass     ok = started_ok and work.resolve().is_relative_to(base)     record(         F",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "artifacts/phase_xii/rj/creator/creator_sample.py",
+      "line": 4,
+      "snippet": "def test_add():     assert add(1, 2) == 3  if __name__ == '__main__':     test_add()     print('ok') ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "artifacts/phase_xii/rj/creator_smoke/creator_sample.py",
+      "line": 4,
+      "snippet": "def test_add():     assert add(1, 2) == 3  if __name__ == '__main__':     test_add()     print('ok') ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "ARTIFACT",
+        "reachability_status": "ARTIFACT_NOT_AUTOMATICALLY_ACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "line": 161,
+      "snippet": "except Exception:             pass      # First-party recreation: GunnchPlay + accepted in-tree web packages.     # Sibl",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "quality/golden_journeys/verifier/run_independent_acceptance.py",
+      "line": 357,
+      "snippet": "except Exception:             pass      detach = pm.on_dock_detach()     undock = dock_manager.dock_state(connected=Fals",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "kind": "assert_equals_self",
+      "severity_hint": "S1",
+      "path": "tests/test_adversarial_fuzz_starters.py",
+      "line": 48,
+      "snippet": "assert score == score  # finite after sanitization     result = orch.evaluate()     assert \"active\" in result     assert",
+      "match_span": [
+        1304,
+        1325
+      ],
+      "repository": "gunnchos-device-os",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NAN_FINITE_IDIOM",
+        "theater_token_alone": false,
+        "token_alone": false,
+        "candidate_severity": "S3",
+        "reason": "assert x == x used as NaN/finite idiom \u2014 not material theater"
+      },
+      "semantic_review_disposition": "DEMOTED_TOKEN_ALONE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_NAN_IDIOM_OR_INACTIVE"
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "tests/test_continuation_vi_fleet_lifecycle.py",
+      "line": 62,
+      "snippet": "except Exception:             pass         try:             store.close()         except Exception:             pass   d",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "tests/test_continuation_vi_fleet_lifecycle.py",
+      "line": 66,
+      "snippet": "except Exception:             pass   def test_multi_instance_and_save_conflict(tmp_path: Path):     db = tmp_path / \"mul",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "tests/wp013/test_sdk_pipeline.py",
+      "line": 124,
+      "snippet": "def test_update_bumps_version_and_tracks_previous(rig):     app_dir = rig[\"out_dir\"].parent / \"versioned_app\"     manife",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S3",
+      "kind": "print_debug_in_test",
+      "path": "tests/wp013/test_sdk_pipeline.py",
+      "line": 147,
+      "snippet": "def test_package_builder_rejects_invalid_manifest(rig, tmp_path):     app_dir = tmp_path / \"bad_app\"     app_dir.mkdir()",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S3",
+      "kind": "skipped_without_ticket",
+      "path": "tests/wp013/test_first_party_game_sdk.py",
+      "line": 29,
+      "snippet": "@pytest.mark.skipif(     not (_godot_available() and _pedestrian_repo_available()),     reason=\"Godot 4.5 and/or sibling",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/ipc_robustness.py",
+      "line": 109,
+      "snippet": "except Exception:             pass      ok = all(results.values())     decision = \"KEEP_UNIX_SOCKET_IPC\" if ok else \"REP",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/security_red_team/harness.py",
+      "line": 623,
+      "snippet": "except Exception:             pass     return CaseResult(         case_id=\"SEC-LAB-001\",         surface=\"device_lab/ses",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 105,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Local-first identity store with persistence + tests\"},             \"OS-PLATFORM-002\": {\"statu",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 106,
+      "snippet": "\"status\": \"PASS\", \"note\": \"HAL registry with provenance enum\"},             \"OS-PLATFORM-003\": {\"status\": \"PASS\", \"note\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 107,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Six form-factor shell profiles wired to stage2 shell + display manager\"},             \"OS-PLA",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 109,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Normalized routing touch/controller/kbm/ring with remap persistence\"},             \"OS-PLATFO",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 111,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Continuity checkpoint/restore/revoke/conflict\"},             \"OS-CONTINUITY-002\": {\"status\": ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 112,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: what is synchronized\"},             \"OS-CONTINUITY-003\": {\"status\": \"PASS\", \"note",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 113,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: storage location\"},             \"OS-CONTINUITY-004\": {\"status\": \"PASS\", \"note\": \"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 114,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: authorized devices\"},             \"OS-CONTINUITY-005\": {\"status\": \"PASS\", \"note\":",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 115,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure: local-only fields\"},             \"OS-CONTINUITY-006\": {\"status\": \"PASS\", \"note\": ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 116,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Disclosure + revoke API\"},             \"OS-CONTINUITY-007\": {\"status\": \"PASS\", \"note\": \"Expor",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/shell/coordinator.py",
+      "line": 117,
+      "snippet": "\"status\": \"PASS\", \"note\": \"Export/delete API\"},         } ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_artifacts.py",
+      "line": 457,
+      "snippet": "except Exception:                 pass             body = b\"\".join(chunks)         else:             body = self.rfile.r",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/manifest.py",
+      "line": 89,
+      "snippet": "\"status\": \"PASS\" if result.get(\"ok\") else \"FAIL\",             \"summary\": {k: result.get(k) for k in (\"ok\", \"scenario_id\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
+      "line": 229,
+      "snippet": "except Exception:                 pass         time.sleep(0.35)     return {\"ok\": False, \"error\": \"guest_bash_timeout\", ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 368,
+      "snippet": "except Exception:                 pass             try:                 os.symlink(os.path.relpath(zsrc, snm), dest)    ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 405,
+      "snippet": "except Exception:                     pass print('pnpm_hoisted', hoisted, 'body_parser', (nm / 'body-parser' / 'package.",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 661,
+      "snippet": "except Exception:                     pass print('pnpm_hoisted', hoisted, 'body_parser', (nm / 'body-parser' / 'package.",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1323,
+      "snippet": "except Exception:                 pass         if native.get(\"ok\") and native.get(\"lines\") and not native_save:         ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1328,
+      "snippet": "except Exception:                 pass         mut = archive_save_mutated_from_default(native_save)         if mut.get(\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1378,
+      "snippet": "except Exception:             pass     # Fallback: scrape Chromium leveldb/strings for native key after interactions.   ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1814,
+      "snippet": "except Exception:             pass         fallback = httpd_port + 1         httpd = start_host_artifact_httpd(staging, ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1831,
+      "snippet": "except Exception:                 pass             result[\"blocker\"] = \"host_artifact_httpd_listen_failed\"             (",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/owner_four_game_guest.py",
+      "line": 1908,
+      "snippet": "except Exception:             pass      all_ok = all(         bool((result[\"games\"].get(g) or {}).get(\"FOUR_GAME_REAL_RU",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 432,
+      "snippet": "except Exception:             pass         result = {             \"ok\": ok,             \"scenario_id\": \"ECO-006\",       ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 97,
+      "snippet": "\"status\": \"PASS\" if (ok and content_ok) else \"FAIL\",             \"seeded\": seeded,             \"exported\": exported,    ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 174,
+      "snippet": "\"status\": \"PASS\" if ok else \"FAIL\",             \"game\": game,             \"before\": before,             \"attached\": atta",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 327,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",             \"ai_workload\": ai,             \"exported\": exported,             \"imp",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 377,
+      "snippet": "\"status\": \"PASS\" if ok else \"FAIL\",             \"build_ok\": build_ok,             \"launch\": launch,             \"state\":",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 438,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",             \"managed\": managed,             \"offline\": offline,             \"less",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 489,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",             \"steps\": steps,             \"GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 513,
+      "snippet": "\"status\": \"PASS\" if ok else \"PARTIAL\",         \"games\": games,         \"GUNNCHDEVICE_LAB_FULL_ECOSYSTEM_DIGITAL_COMPLETE",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "gunnchos_device_os/device_lab/ecosystem/scenarios.py",
+      "line": 557,
+      "snippet": "\"status\": \"PASS\" if ok else \"FAIL\",             \"exported\": exported,             \"destroyed\": destroyed,             \"s",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/ecosystem/games.py",
+      "line": 151,
+      "snippet": "except Exception:         pass      evidence = {         \"game_id\": game_id,         \"kind\": \"web_http_server\",         ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/ecosystem/games.py",
+      "line": 360,
+      "snippet": "except Exception:         pass     # Process proof is sufficient; stdout may race with short-lived sleep.     token_ok =",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/virtualization/qemu_guest.py",
+      "line": 1078,
+      "snippet": "except Exception:                 pass         pid = None         if self.pid_file and self.pid_file.exists():          ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "sleep_as_sync",
+      "path": "gunnchos_device_os/device_lab/virtualization/qemu_guest.py",
+      "line": 1031,
+      "snippet": "time.sleep(0.5)         assert self.agent is not None         # Prefer virtio-serial; if not ready, fall back to mailbox",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/hw_backends/display.py",
+      "line": 147,
+      "snippet": "except Exception:                 pass         return {\"ok\": True, \"window\": win.to_dict()}      def windows_on(self, ou",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/hw_backends/display.py",
+      "line": 165,
+      "snippet": "except Exception:                 pass         return {\"ok\": True, \"focus\": hit.to_dict()}      def persist_layout(self)",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/scenarios/ring_app_mutation.py",
+      "line": 233,
+      "snippet": "except Exception:                 pass         stop_session(session.instance_id)         stop_session(companion_sess.ins",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/device_lab/scenarios/ring_real_input.py",
+      "line": 250,
+      "snippet": "except Exception:             pass     stop_session(session.instance_id)     stop_session(companion_sess.instance_id)   ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/phase_xii/journeys/real_harness.py",
+      "line": 45,
+      "snippet": "except Exception:             pass      def _override_real_handlers(self) -> None:         h = self._handlers         h[",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/phase_xii/journeys/real_harness.py",
+      "line": 277,
+      "snippet": "except Exception:             pass         for step in journey_data.get(\"steps\", []):             action = step[\"action\"",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/phase_xii/protocols/stack.py",
+      "line": 61,
+      "snippet": "except Exception:                 pass         self._started = False ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/phase_xii/protocols/caldav_carddav.py",
+      "line": 32,
+      "snippet": "except Exception:             pass         app = Application(cfg)         self._httpd = make_server(\"127.0.0.1\", self.po",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/phase_xii/protocols/caldav_carddav.py",
+      "line": 67,
+      "snippet": "except Exception:                 pass             r = httpx.put(url, content=ics.encode(\"utf-8\"), headers={\"Content-Typ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/phase_xii/protocols/caldav_carddav.py",
+      "line": 73,
+      "snippet": "except Exception:             pass         cal = self.data_dir / \"radicale\" / \"collection-root\" / \"dev\" / \"calendar\"    ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "gunnchos_device_os/golden_journeys/digital_paths.py",
+      "line": 119,
+      "snippet": "except Exception:             pass      receipt_ok = bool(receipt and (receipt.get(\"ok\") or receipt.get(\"receipt\")))    ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_live_dsxl_ring_reearn.py",
+      "line": 226,
+      "snippet": "except Exception:             pass         time.sleep(2)      summary[\"live\"] = {         k: live.get(k)         for k i",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_live_dsxl_ring_reearn.py",
+      "line": 283,
+      "snippet": "except Exception:                 pass             session = None             time.sleep(2)         _kill_stale_qemu()  ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_live_dsxl_ring_reearn.py",
+      "line": 360,
+      "snippet": "except Exception:                 pass      summary[\"ring\"] = {         k: ring.get(k)         for k in (             \"R",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_wp011r2_four_game_owner_reearn.py",
+      "line": 236,
+      "snippet": "except Exception:             pass      summary = {         \"FOUR_GAME_REAL_RUNTIME_DEVICE_LAB_PASS\": out.get(\"four_game",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_eco010_full_soak.py",
+      "line": 229,
+      "snippet": "except Exception:                 pass         result = {             \"ok\": False,             \"scenario_id\": \"ECO-010\",",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_demoted_reearn.py",
+      "line": 230,
+      "snippet": "except Exception:             pass      out = ROOT / \"artifacts/wp011r/CYCLE3B_REEARN_SUMMARY.json\"     out.write_text(j",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/collect_reference_hardware_info.py",
+      "line": 72,
+      "snippet": "except Exception:         pass     if sys.platform == \"darwin\":         try:             import subprocess              ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/collect_reference_hardware_info.py",
+      "line": 131,
+      "snippet": "except Exception:             pass     return interfaces   def collect_host_info() -> dict[str, Any]:     \"\"\"Build a saf",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/validate_beta_gate.py",
+      "line": 91,
+      "snippet": "except Exception:             pass     return None   def main() -> int:     if yaml is None:         print(\"PyYAML requi",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_interactive_guest_live_visual.py",
+      "line": 204,
+      "snippet": "except Exception:             pass     evidence[\"finished_at_utc\"] = datetime.now(timezone.utc).strftime(\"%Y-%m-%dT%H:%M",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/product_use_resume_open_legs.py",
+      "line": 390,
+      "snippet": "except Exception:             pass         (OUT / \"RESUME_OPEN_SUMMARY.json\").write_text(             json.dumps(summary",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "line": 576,
+      "snippet": "except Exception:             pass         time.sleep(2)      if not result.get(\"phase_a\", {}).get(\"dual_ok\"):         r",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "line": 613,
+      "snippet": "except Exception:             pass         time.sleep(2)      if not result.get(\"phase_b_disconnect\", {}).get(\"disconnec",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "line": 705,
+      "snippet": "except Exception:             pass         raise   def main() -> int:     started = datetime.now(timezone.utc).strftime(",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_cycle3b_dsxl_ring.py",
+      "line": 802,
+      "snippet": "except Exception:                 pass      prior_path = ROOT / \"artifacts/wp011r/CYCLE3B_REEARN_SUMMARY.json\"     prior",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/engineering_wave005/run_wave005_evidence.py",
+      "line": 91,
+      "snippet": "except Exception:                 pass             return \"<redacted_absolute_path>\"         return obj     return obj  ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/engineering_wave006/run_wave006_evidence.py",
+      "line": 72,
+      "snippet": "except Exception:                 pass             return \"<redacted_absolute_path>\"         return obj     return obj  ",
+      "repository": "gunnchos-device-os",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      }
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "apps/launcher_mock/src/services/accessibility.test.ts",
+      "line": 8,
+      "snippet": "expect(r.largeTextEnabled).toBe(true)     expect(r.certificationClaimed).toBe(false)   }) }) ",
+      "match_span": [
+        351,
+        388
+      ],
+      "repository": "gunnchos-device-os",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 26,
+      "snippet": "expect(r.canLaunch).toBe(true)   })    it('Campus Mode allows school/productivity native apps', () => {     expect(evalu",
+      "match_span": [
+        1010,
+        1040
+      ],
+      "repository": "gunnchos-device-os",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 36,
+      "snippet": "expect(r.canLaunch).toBe(true)   })    it('appLaunchService respects policy in School mode', () => {     const result = ",
+      "match_span": [
+        1458,
+        1488
+      ],
+      "repository": "gunnchos-device-os",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-device-os"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    }
+  ],
+  "raw_pattern_observations": [
+    {
+      "kind": "assert_equals_self",
+      "severity_hint": "S1",
+      "path": "tests/test_adversarial_fuzz_starters.py",
+      "line": 48,
+      "snippet": "assert score == score  # finite after sanitization     result = orch.evaluate()     assert \"active\" in result     assert",
+      "match_span": [
+        1304,
+        1325
+      ],
+      "repository": "gunnchos-device-os"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "apps/launcher_mock/src/services/accessibility.test.ts",
+      "line": 8,
+      "snippet": "expect(r.largeTextEnabled).toBe(true)     expect(r.certificationClaimed).toBe(false)   }) }) ",
+      "match_span": [
+        351,
+        388
+      ],
+      "repository": "gunnchos-device-os"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 26,
+      "snippet": "expect(r.canLaunch).toBe(true)   })    it('Campus Mode allows school/productivity native apps', () => {     expect(evalu",
+      "match_span": [
+        1010,
+        1040
+      ],
+      "repository": "gunnchos-device-os"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "apps/launcher_mock/src/services/policyEnforcement.test.ts",
+      "line": 36,
+      "snippet": "expect(r.canLaunch).toBe(true)   })    it('appLaunchService respects policy in School mode', () => {     const result = ",
+      "match_span": [
+        1458,
+        1488
+      ],
+      "repository": "gunnchos-device-os"
+    }
+  ],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-device-os",
+    "classification": "WAVE_CODE_CONCENTRATION",
+    "severity": "S2",
+    "path_count": 101,
+    "sample_paths": [
+      "artifacts/engineering_wave004/FINAL_INTEGRITY_RESULT.json",
+      "artifacts/engineering_wave004/PIXEL_CLIENT_PROBE.json",
+      "artifacts/engineering_wave004/CLAIM_BOUNDARIES.json",
+      "artifacts/engineering_wave004/WAVE004_RESULT.json",
+      "artifacts/engineering_wave004/REQUIREMENT_RESULTS.json",
+      "artifacts/engineering_wave004/INTEGRITY_REPAIR_RESULT.json",
+      "artifacts/engineering_wave004/RUNTIME_STATUS.json",
+      "artifacts/engineering_wave004/SECURITY_INJECTION_RESULT.json"
+    ],
+    "evidence": {
+      "similarity": true,
+      "callers": false,
+      "divergence": false
+    },
+    "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+  },
   "complexity_hotspots": [
     {
       "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
@@ -1309,324 +2962,324 @@
   ],
   "dependency_edges_sample": [
     {
-      "from": "tests/test_wp002_handheld_storage_policy.py",
-      "to": "gunnchos_device_os"
+      "from": "gunnchos_device_os/phase_xii/apps/office.py",
+      "to": "pathlib"
     },
     {
-      "from": "content/waike/courses/SOFTWARE_BUILDER/lab.py",
-      "to": "json"
+      "from": "gunnchos_device_os/phase_xi/services/stack.py",
+      "to": "uuid"
     },
     {
-      "from": "tests/test_phase_xii_execution_reality.py",
-      "to": "gunnchos_device_os"
+      "from": "sdk/samples/connectivity/sample.py",
+      "to": "gunnchos_adopter_sdk"
     },
     {
-      "from": "gunnchos_device_os/phase_xii/protocols/webrtc.py",
-      "to": "json"
+      "from": "firmware_compat/compatibility/interface_contract_checker.py",
+      "to": "typing"
     },
     {
-      "from": "gunnchos_device_os/runtime/__init__.py",
+      "from": "gunnchos_device_os/bootable_image/builder.py",
+      "to": "tempfile"
+    },
+    {
+      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
       "to": "__future__"
     },
     {
-      "from": "tests/test_gate1_boot_probe.py",
-      "to": "pytest"
+      "from": "gunnchos_device_os/network_decision/metrics.py",
+      "to": "__future__"
     },
     {
-      "from": "gunnchos_device_os/device_lab/scenarios/dsxl_dualscreen.py",
-      "to": "gunnchos_device_os"
+      "from": "gunnchos_device_os/digital_inventory/scanner.py",
+      "to": "re"
     },
     {
-      "from": "scripts/product_use_rerun_four_game_only.py",
-      "to": "json"
+      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
+      "to": "sys"
     },
     {
       "from": "gunnchos_device_os/cont_ix/storage_perf_models.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/product_use_rerun_four_game_only.py",
-      "to": "socket"
-    },
-    {
-      "from": "scripts/check_launcher_contract_fresh.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/stage2/crypto_dev.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/updater.py",
       "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/hardware_display_policy.py",
-      "to": "hardware_manifest_loader"
-    },
-    {
-      "from": "scripts/run_waike_course_lab.py",
-      "to": "argparse"
-    },
-    {
-      "from": "scripts/build_reality_depth_ledger.py",
-      "to": "sys"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/base_image_pipeline.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/apps/games.py",
-      "to": "os"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/protocols/mail.py",
-      "to": "imaplib"
-    },
-    {
-      "from": "scripts/show_campus_mode.py",
-      "to": "argparse"
-    },
-    {
-      "from": "scripts/product_use_close_s1.py",
-      "to": "shutil"
-    },
-    {
-      "from": "scripts/run_waike_integration_demo.py",
-      "to": "json"
-    },
-    {
-      "from": "gunnchos_device_os/release_engineering/ab_update.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_phase_xii_execution_reality.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "apps/launcher_mock/src/hooks/useLocalStorage.ts",
-      "to": "react"
-    },
-    {
-      "from": "gunnchos_device_os/system_image.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/scenarios/dsxl_dualscreen.py",
-      "to": "pathlib"
     },
     {
       "from": "gunnchos_device_os/phase_xii/apps/ai.py",
-      "to": "__future__"
-    },
-    {
-      "from": "apps/launcher_mock/src/shell/workspace.shell.test.tsx",
-      "to": "../data/studentProfile"
-    },
-    {
-      "from": "scripts/validate_persona_coverage.py",
-      "to": "sys"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/apps/detect.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xv/support_lifecycle/__init__.py",
-      "to": "time"
-    },
-    {
-      "from": "gunnchos_device_os/first_party_apps/runtime.py",
       "to": "pathlib"
     },
     {
-      "from": "gunnchos_device_os/dual_screen_workflows.py",
-      "to": "gunnchos_device_os"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/soak.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/prove_phase_xiv_os.py",
+      "from": "sdk/apps/stream_a_pkt003_godot/main.py",
       "to": "json"
     },
     {
-      "from": "src/gunnchos_launcher/research_measurement_mode.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_os_component_stack_simulation.py",
+      "from": "gunnchos_device_os/a_pkt003/multi_template_guest.py",
       "to": "subprocess"
     },
     {
-      "from": "gunnchos_device_os/phase_xv/files_storage/__init__.py",
-      "to": "__future__"
+      "from": "gunnchos_device_os/cont_viii/student_e2e.py",
+      "to": "gunnchos_device_os"
     },
     {
-      "from": "gunnchos_device_os/cloud_dev_plane/store.py",
-      "to": "fcntl"
+      "from": "gunnchos_device_os/runtime_profiles.py",
+      "to": "enum"
     },
     {
-      "from": "gunnchos_device_os/network_decision/evaluator_integrity.py",
-      "to": "typing"
+      "from": "gunnchos_device_os/cont_viii/reproducibility.py",
+      "to": "re"
     },
     {
-      "from": "scripts/run_firmware_probe_demo.py",
+      "from": "tests/middleware/test_stream_a_pkt_002.py",
       "to": "pathlib"
     },
     {
-      "from": "apps/launcher_mock/src/shell/GunnchOSShell.tsx",
-      "to": "../services/accessibilityAudit"
+      "from": "scripts/build_waike_course_register.py",
+      "to": "pathlib"
     },
     {
-      "from": "gunnchos_device_os/shell/input_routing.py",
-      "to": "gunnchos_device_os"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/hw_backends/audio.py",
-      "to": "math"
-    },
-    {
-      "from": "tests/wp013/test_image_realms_and_builder.py",
-      "to": "pytest"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/protocols/lms.py",
-      "to": "time"
-    },
-    {
-      "from": "mdm/device_policy_agent.py",
-      "to": "typing"
-    },
-    {
-      "from": "gunnchos_device_os/cloud_dev_plane/__init__.py",
-      "to": "gunnchos_device_os"
-    },
-    {
-      "from": "gunnchos_device_os/a_pkt003/guest_dogfood.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_ota_state_machine.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xiv/compositor/__init__.py",
+      "from": "gunnchos_device_os/cont_viii/factory_station.py",
       "to": "dataclasses"
     },
     {
-      "from": "gunnchos_device_os/cont_ix/support_self_service.py",
+      "from": "gunnchos_device_os/device_lab/profiles/__init__.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/hw_backends/input_backend.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_waike_integration_demo.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
+      "to": "zipfile"
+    },
+    {
+      "from": "gunnchos_device_os/cloud_edge/services.py",
       "to": "gunnchos_device_os"
     },
     {
-      "from": "gunnchos_device_os/shell/input_routing.py",
+      "from": "scripts/run_waike_integration_demo.py",
+      "to": "sys"
+    },
+    {
+      "from": "gunnchos_device_os/hardware_boot_readiness.py",
+      "to": "hardware_manifest_loader"
+    },
+    {
+      "from": "gunnchos_device_os/shell/identity_store.py",
       "to": "pathlib"
     },
     {
-      "from": "content/waike/courses/DATA_VIZ_BI/lab.py",
+      "from": "scripts/run_eco010_full_soak.py",
+      "to": "os"
+    },
+    {
+      "from": "gunnchos_device_os/cont_viii/factory_station.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/build_waike_course_register.py",
       "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xv/ntn_migration/__init__.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/release_engineering/realm_runtime.py",
+      "to": "gzip"
+    },
+    {
+      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/owner_four_game_artifacts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/device_lab/test_wp011_live_run_input.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xi/adapters/ai_local.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "scripts/sign_release_manifest.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/wp013/test_cli_wp013.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gunnchos_device_os/update_signing.py",
+      "to": "enum"
+    },
+    {
+      "from": "gunnchos_device_os/runtime/ipc.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "tests/test_secure_boot_mdm.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/wp013/test_cli_wp013.py",
+      "to": "sys"
+    },
+    {
+      "from": "os_build/device_lab_interactive_guest/scripts/provision_interactive_guest_qemu_native.py",
+      "to": "shutil"
+    },
+    {
+      "from": "gunnchos_device_os/shell/identity_store.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/a11y_hardening.py",
+      "to": "typing"
+    },
+    {
+      "from": "gunnchos_device_os/app_packaging.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "content/waike/courses/GAME_DEV_INTERACTIVE/lab.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/owner_four_game_artifacts.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/device_lab/test_wp011_wave5_ecosystem.py",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_secure_boot_mdm.py",
+      "to": "json"
+    },
+    {
+      "from": "gunnchos_device_os/app_packaging.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/profiles/__init__.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/product_use_finish_rc002_legs.py",
+      "to": "typing"
     },
     {
       "from": "gunnchos_device_os/security/wp007/hostile_network.py",
       "to": "ipaddress"
     },
     {
-      "from": "scripts/validate_wp007_evidence_consistency.py",
-      "to": "gunnchos_device_os"
+      "from": "apps/launcher_mock/src/services/encryptedWorkspace.test.ts",
+      "to": "./workspaceCrypto"
     },
     {
-      "from": "apps/launcher_mock/src/shell/BrowserPwaHub.tsx",
-      "to": "../data/pwaTargets"
-    },
-    {
-      "from": "scripts/run_privacy_security_demo.py",
-      "to": "sys"
-    },
-    {
-      "from": "firmware_compat/compatibility/interface_contract_checker.py",
-      "to": "yaml"
-    },
-    {
-      "from": "gunnchos_device_os/boot/cli.py",
-      "to": "evidence"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
-      "to": "urllib"
-    },
-    {
-      "from": "gunnchos_device_os/middleware/contracts.py",
+      "from": "content/waike/courses/HARDWARE_ENGINEERING/lab.py",
       "to": "json"
     },
     {
-      "from": "gunnchos_device_os/release_engineering/factory_provisioning.py",
-      "to": "uuid"
-    },
-    {
-      "from": "scripts/engineering_wave005/run_wave005_evidence.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gunnchos_device_os/ipc_robustness.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/recommend_merge_golden.py",
+      "from": "scripts/run_waike_course_lab.py",
       "to": "pathlib"
     },
     {
-      "from": "gunnchos_device_os/cont_ix/support_self_service.py",
-      "to": "pathlib"
+      "from": "gunnchos_device_os/device_lab/interactive_image_builder.py",
+      "to": "argparse"
     },
     {
-      "from": "gunnchos_device_os/device_lab/performance.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gunnchos_device_os/phase_xii/protocols/mail.py",
-      "to": "smtplib"
-    },
-    {
-      "from": "gunnchos_device_os/creation_enablement/guest_dogfood.py",
+      "from": "scripts/engineering_wave004/pixel_client_probe.py",
       "to": "json"
     },
     {
-      "from": "scripts/validate_wp007_evidence_consistency.py",
+      "from": "tests/device_lab/test_wp011_live_run_input.py",
       "to": "pathlib"
     },
     {
-      "from": "scripts/run_wp011r2_four_game_owner_reearn.py",
-      "to": "sys"
+      "from": "gunnchos_device_os/device_lab/virtualization/guest_input.py",
+      "to": "time"
     },
     {
-      "from": "gunnchos_device_os/runtime/ipc.py",
-      "to": "json"
+      "from": "tests/wp013/test_cli_wp013.py",
+      "to": "pathlib"
     },
     {
-      "from": "gunnchos_device_os/runtime/ipc.py",
-      "to": "socket"
-    },
-    {
-      "from": "gunnchos_device_os/device_lab/cli.py",
+      "from": "gunnchos_device_os/network_decision/preferences.py",
       "to": "typing"
     },
     {
-      "from": "gunnchos_device_os/device_lab/apps/runner.py",
-      "to": "signal"
+      "from": "gunnchos_device_os/device_lab/hw_backends/audio.py",
+      "to": "tempfile"
     },
     {
-      "from": "gunnchos_device_os/cont_ix/security_hardening.py",
-      "to": "subprocess"
+      "from": "gunnchos_device_os/release_engineering/sdk/first_party_game_adoption.py",
+      "to": "__future__"
     },
     {
-      "from": "scripts/product_use_dock_reboot.py",
+      "from": "gunnchos_device_os/dock/continuity.py",
+      "to": "capabilities"
+    },
+    {
+      "from": "scripts/run_waike_course_lab.py",
       "to": "json"
     },
     {
-      "from": "gunnchos_device_os/bootable_image/__init__.py",
-      "to": "__future__"
+      "from": "scripts/collect_reference_hardware_info.py",
+      "to": "argparse"
+    },
+    {
+      "from": "apps/launcher_mock/src/main.tsx",
+      "to": "./App"
+    },
+    {
+      "from": "src/gunnchos_launcher/tool_adapters/aerial_device_state.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/scenarios/update_rollback.py",
+      "to": "time"
+    },
+    {
+      "from": "gunnchos_device_os/device_lab/interactive_guest_four_games.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_phase_xii_rj.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/cont_viii/reproducibility.py",
+      "to": "gunnchos_device_os"
+    },
+    {
+      "from": "gunnchos_device_os/cont_ix/adopter_external_sample.py",
+      "to": "gunnchos_adopter_sdk"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xi/services/stack.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "apps/launcher_mock/src/services/accessibility.test.ts",
+      "to": "./accessibilityAudit"
+    },
+    {
+      "from": "apps/launcher_mock/src/shell/NotesApp.tsx",
+      "to": "../services/notesStore"
+    },
+    {
+      "from": "gunnchos_device_os/phase_xii/claim_scope.py",
+      "to": "typing"
+    },
+    {
+      "from": "ring_input/adapter.py",
+      "to": "fallback_input"
     }
   ],
   "path_classification_sample": [
@@ -2632,6 +4285,15 @@
     }
   ],
   "path_classification_full_count": 2771,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "gunnchos-device-os",
     "sha": "28562a8456207540c205a1c8a6434a491b0a4771",

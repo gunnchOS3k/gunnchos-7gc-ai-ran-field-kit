@@ -16,12 +16,12 @@ Accepted main: `4cd70169b35a`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=0 S1=10 total=10
+- Theater: S0=0 S1=0 total=0
 - Hotspots: 4; wave-dup paths: 0; orphans≈26
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `4cd70169b35a`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `paper/scripts/generate_tables.py:310`
+- No static theater hits in scanned sample.
 - Hottest function: `paper/scripts/generate_tables.py::main` complexity=43

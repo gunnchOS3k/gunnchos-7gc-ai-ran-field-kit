@@ -16,14 +16,14 @@ Accepted main: `28562a845620`
 ## Authenticity snapshot
 - Proof independence: `FAIL_COUPLED`
 - Runtime authenticity: `NEEDS_WORK`
-- Theater: S0=12 S1=188 total=276
+- Theater: S0=0 S1=0 total=80
 - Hotspots: 338; wave-dup paths: 101; orphans≈40
 
 ## Dimension ratings
 - `production_proof_separation`: **CRITICAL**
-- `anti_test_theater`: **CRITICAL**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **NEEDS_WORK**
-- `canonical_vs_wave_dup`: **NEEDS_WORK**
+- `canonical_vs_wave_dup`: **ADEQUATE**
 - `runtime_authenticity`: **NEEDS_WORK**
 - `complexity_hotspots`: **CRITICAL**
 - `orphan_dead_code`: **NEEDS_WORK**
@@ -38,5 +38,5 @@ Accepted main: `28562a845620`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S0` `assert_true_literal` at `apps/launcher_mock/src/shell/workspace.shell.test.tsx:80`
+- Top theater hit: `S2` `broad_except_pass` at `artifacts/wp007/independent_verifier/run_independent_attacks.py:1124`
 - Hottest function: `gunnchos_device_os/device_lab/interactive_guest_proofs.py::attempt_ring_app_mutation_pass` complexity=204

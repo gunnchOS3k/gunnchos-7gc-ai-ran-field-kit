@@ -16,12 +16,12 @@ Accepted main: `9ee0ef2f688b`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=22 S1=70 total=94
+- Theater: S0=0 S1=0 total=2
 - Hotspots: 59; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **CRITICAL**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `9ee0ef2f688b`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S0` `always_pass_gate` at `scripts/continuation_viii_manufacturer_release.py:46`
+- Top theater hit: `S2` `broad_except_pass` at `firmware/_device_util.py:56`
 - Hottest function: `gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py::run_erc` complexity=43

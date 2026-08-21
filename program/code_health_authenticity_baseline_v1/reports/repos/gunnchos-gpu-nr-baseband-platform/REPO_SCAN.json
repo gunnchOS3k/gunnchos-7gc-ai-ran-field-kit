@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-gpu-nr-baseband-platform",
   "accepted_main_sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",
-  "scanned_at_utc": "2026-08-21T17:10:45Z",
+  "scanned_at_utc": "2026-08-21T17:48:03Z",
   "counts": {
     "files_classified": 239,
     "code_files": 110,
@@ -16,8 +16,10 @@
       "CI_OR_DEPLOY": 2
     },
     "theater_s0": 0,
-    "theater_s1": 3,
-    "theater_total": 4,
+    "theater_s1": 0,
+    "theater_total": 1,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 0,
     "wave_dup_paths": 0,
     "fixture_paths": 0,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -54,97 +66,128 @@
   },
   "theater_findings": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_phy_independent.py",
-      "line": 61,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/gate6_dry_run.py",
-      "line": 52,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_claim_boundaries.py",
-      "line": 54,
-      "snippet": "xit(main()) "
-    },
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/system_manifest.sh",
+      "line": 14,
+      "snippet": "\"status\": \"PASS\",   \"os\": \"$OS\",   \"arch\": \"$ARCH\",   \"cpu\": \"$CPU\",   \"ncpu\": $NCPU,   \"mem_bytes\": $MEM,   \"cmake\": \"$",
+      "repository": "gunnchos-gpu-nr-baseband-platform",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-gpu-nr-baseband-platform"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/system_manifest.sh",
       "line": 14,
-      "snippet": "\"status\": \"PASS\",   \"os\": \"$OS\",   \"arch\": \"$ARCH\",   \"cpu\": \"$CPU\",   \"ncpu\": $NCPU,   \"mem_bytes\": $MEM,   \"cmake\": \"$"
+      "snippet": "\"status\": \"PASS\",   \"os\": \"$OS\",   \"arch\": \"$ARCH\",   \"cpu\": \"$CPU\",   \"ncpu\": $NCPU,   \"mem_bytes\": $MEM,   \"cmake\": \"$",
+      "repository": "gunnchos-gpu-nr-baseband-platform",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-gpu-nr-baseband-platform"
+      }
     }
   ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-gpu-nr-baseband-platform",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [],
   "wave_duplicate_paths": [],
   "fixtures": [],
   "orphan_candidates": [],
   "dependency_edges_sample": [
     {
-      "from": "scripts/generate_ldpc_bg_tables.py",
+      "from": "tools/reference_adapters/oai/adapter.py",
       "to": "__future__"
     },
     {
-      "from": "tools/reference_adapters/sionna/adapter.py",
-      "to": "numpy"
+      "from": "scripts/gate6_dry_run.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/reference_adapters/matlab/adapter.py",
+      "to": "pathlib"
     },
     {
       "from": "scripts/validate_phy_independent.py",
       "to": "importlib"
+    },
+    {
+      "from": "scripts/validate_phy_independent.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/reference_adapters/srsran/adapter.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_ldpc_bg_tables.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/reference_adapters/matlab/adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/reference_adapters/oai/adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/reference_adapters/matlab/adapter.py",
+      "to": "shutil"
+    },
+    {
+      "from": "scripts/validate_claim_boundaries.py",
+      "to": "__future__"
     },
     {
       "from": "scripts/generate_ldpc_bg_tables.py",
       "to": "csv"
     },
     {
-      "from": "tools/reference_adapters/oai/adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/reference_adapters/matlab/adapter.py",
-      "to": "shutil"
-    },
-    {
-      "from": "tools/reference_adapters/matlab/adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/reference_adapters/oai/adapter.py",
-      "to": "shutil"
-    },
-    {
-      "from": "scripts/validate_phy_independent.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_claim_boundaries.py",
+      "from": "tools/reference_adapters/srsran/adapter.py",
       "to": "pathlib"
     },
     {
-      "from": "tools/reference_adapters/sionna/adapter.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/reference_adapters/sionna/adapter.py",
+      "from": "tools/reference_adapters/oai/adapter.py",
       "to": "json"
     },
     {
-      "from": "tools/reference_adapters/srsran/adapter.py",
-      "to": "pathlib"
+      "from": "scripts/gate6_dry_run.py",
+      "to": "datetime"
     },
     {
-      "from": "tools/reference_adapters/srsran/adapter.py",
+      "from": "scripts/validate_phy_independent.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
       "to": "json"
     },
     {
@@ -153,63 +196,47 @@
     },
     {
       "from": "scripts/validate_phy_independent.py",
-      "to": "__future__"
+      "to": "sys"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/reference_adapters/oai/adapter.py",
+      "to": "shutil"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
+      "to": "numpy"
     },
     {
       "from": "tools/reference_adapters/sionna/adapter.py",
       "to": "importlib"
     },
     {
+      "from": "tools/reference_adapters/srsran/adapter.py",
+      "to": "json"
+    },
+    {
       "from": "tools/reference_adapters/matlab/adapter.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/reference_adapters/sionna/adapter.py",
       "to": "json"
     },
     {
       "from": "scripts/validate_claim_boundaries.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/reference_adapters/oai/adapter.py",
       "to": "pathlib"
-    },
-    {
-      "from": "tools/reference_adapters/oai/adapter.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/reference_adapters/matlab/adapter.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_phy_independent.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_phy_independent.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/reference_adapters/sionna/adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/reference_adapters/srsran/adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/gate6_dry_run.py",
-      "to": "datetime"
     },
     {
       "from": "tools/reference_adapters/srsran/adapter.py",
       "to": "shutil"
+    },
+    {
+      "from": "scripts/validate_phy_independent.py",
+      "to": "pathlib"
     }
   ],
   "path_classification_sample": [
@@ -1215,6 +1242,15 @@
     }
   ],
   "path_classification_full_count": 239,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "gunnchos-gpu-nr-baseband-platform",
     "sha": "3931f51d43b7bee87db6d710a9df5a7c1136fcfa",

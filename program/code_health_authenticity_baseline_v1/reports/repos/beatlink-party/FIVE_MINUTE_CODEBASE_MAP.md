@@ -16,14 +16,14 @@ Accepted main: `23a95d152c2d`
 ## Authenticity snapshot
 - Proof independence: `FAIL_COUPLED`
 - Runtime authenticity: `NEEDS_WORK`
-- Theater: S0=157 S1=8 total=165
+- Theater: S0=0 S1=0 total=93
 - Hotspots: 1; wave-dup paths: 43; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **CRITICAL**
-- `anti_test_theater`: **CRITICAL**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **NEEDS_WORK**
-- `canonical_vs_wave_dup`: **NEEDS_WORK**
+- `canonical_vs_wave_dup`: **ADEQUATE**
 - `runtime_authenticity`: **NEEDS_WORK**
 - `complexity_hotspots`: **ADEQUATE**
 - `orphan_dead_code`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `23a95d152c2d`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S0` `assert_true_literal` at `artifacts/game_rc_002/independent_verifier_session.test.ts:132`
+- No static theater hits in scanned sample.
 - Hottest function: `scripts/validate_game_rc_contracts.py::main` complexity=35

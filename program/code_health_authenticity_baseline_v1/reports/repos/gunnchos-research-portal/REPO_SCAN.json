@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-research-portal",
   "accepted_main_sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
-  "scanned_at_utc": "2026-08-21T17:09:51Z",
+  "scanned_at_utc": "2026-08-21T17:47:17Z",
   "counts": {
     "files_classified": 114,
     "code_files": 8,
@@ -16,8 +16,10 @@
       "CI_OR_DEPLOY": 1
     },
     "theater_s0": 0,
-    "theater_s1": 5,
-    "theater_total": 8,
+    "theater_s1": 0,
+    "theater_total": 3,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 11,
     "wave_dup_paths": 0,
     "fixture_paths": 0,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": false,
-    "authenticity": "NOT_APPLICABLE"
+    "authenticity": "NOT_APPLICABLE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": false,
+      "proof_independence_status": "NOT_APPLICABLE_NO_PRODUCTION_CODE",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "NEEDS_WORK",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "NOT_APPLICABLE",
@@ -54,62 +66,117 @@
   },
   "theater_findings": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_supervisor_ready.py",
-      "line": 160,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_vp012_portal_first.py",
-      "line": 219,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/audit_portfolio.py",
-      "line": 204,
-      "snippet": "xit(\"missing portfolio/repo_roles.json\")   def audit_repo(repo: Path, role: dict[str, Any]) -> dict[str, Any]:     uml ="
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/audit_portfolio.py",
-      "line": 578,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/supervisor_snapshot.py",
-      "line": 689,
-      "snippet": "xit(main()) "
-    },
-    {
       "severity": "S2",
       "kind": "broad_except_pass",
       "path": "scripts/supervisor_snapshot.py",
       "line": 140,
-      "snippet": "except Exception:         return {}   def load_accepted_main() -> dict[str, dict]:     freeze = load_json(B4_FREEZE)    "
+      "snippet": "except Exception:         return {}   def load_accepted_main() -> dict[str, dict]:     freeze = load_json(B4_FREEZE)    ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
     },
     {
       "severity": "S2",
       "kind": "broad_except_pass",
       "path": "scripts/supervisor_snapshot.py",
       "line": 161,
-      "snippet": "except Exception:         return {}   def load_baseline_v2_totals() -> dict:     data = load_json(BASELINE_V2_RESULT)   "
+      "snippet": "except Exception:         return {}   def load_baseline_v2_totals() -> dict:     data = load_json(BASELINE_V2_RESULT)   ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
     },
     {
       "severity": "S2",
       "kind": "broad_except_pass",
       "path": "scripts/supervisor_snapshot.py",
       "line": 271,
-      "snippet": "except Exception:                 pass     return {         \"number\": data.get(\"number\", num),         \"url\": data.get(\""
+      "snippet": "except Exception:                 pass     return {         \"number\": data.get(\"number\", num),         \"url\": data.get(\"",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 140,
+      "snippet": "except Exception:         return {}   def load_accepted_main() -> dict[str, dict]:     freeze = load_json(B4_FREEZE)    ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 161,
+      "snippet": "except Exception:         return {}   def load_baseline_v2_totals() -> dict:     data = load_json(BASELINE_V2_RESULT)   ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 271,
+      "snippet": "except Exception:                 pass     return {         \"number\": data.get(\"number\", num),         \"url\": data.get(\"",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-research-portal",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "scripts/run_vp012_portal_first.py",
@@ -183,32 +250,76 @@
   "orphan_candidates": [],
   "dependency_edges_sample": [
     {
-      "from": "scripts/validate_supervisor_ready.py",
-      "to": "sys"
+      "from": "scripts/audit_portfolio.py",
+      "to": "os"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "subprocess"
     },
     {
       "from": "scripts/audit_portfolio.py",
       "to": "yaml"
     },
     {
-      "from": "scripts/audit_portfolio.py",
-      "to": "os"
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "__future__"
     },
     {
       "from": "scripts/supervisor_snapshot.py",
-      "to": "os"
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "subprocess"
     },
     {
       "from": "scripts/run_vp012_portal_first.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
       "to": "__future__"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "datetime"
     },
     {
       "from": "scripts/run_vp012_portal_first.py",
       "to": "re"
     },
     {
-      "from": "scripts/validate_supervisor_ready.py",
-      "to": "__future__"
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "os"
     },
     {
       "from": "scripts/audit_portfolio.py",
@@ -220,35 +331,11 @@
     },
     {
       "from": "scripts/audit_portfolio.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/audit_portfolio.py",
       "to": "pathlib"
     },
     {
       "from": "scripts/audit_portfolio.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/run_vp012_portal_first.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/run_vp012_portal_first.py",
-      "to": "json"
+      "to": "datetime"
     },
     {
       "from": "scripts/audit_portfolio.py",
@@ -256,30 +343,10 @@
     },
     {
       "from": "scripts/audit_portfolio.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/validate_supervisor_ready.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
-      "to": "sys"
+      "to": "json"
     },
     {
       "from": "scripts/run_vp012_portal_first.py",
-      "to": "datetime"
-    },
-    {
-      "from": "scripts/audit_portfolio.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/supervisor_snapshot.py",
       "to": "__future__"
     }
   ],
@@ -856,6 +923,15 @@
     }
   ],
   "path_classification_full_count": 114,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "gunnchos-research-portal",
     "sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",

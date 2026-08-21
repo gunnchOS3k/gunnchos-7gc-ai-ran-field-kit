@@ -16,12 +16,12 @@ Accepted main: `5d416c09164c`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=0 S1=47 total=48
+- Theater: S0=0 S1=0 total=1
 - Hotspots: 25; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `5d416c09164c`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `scripts/validate_no_exam_heavy_courses.py:40`
+- Top theater hit: `S2` `hardcoded_pass_json` at `scripts/detect_templated_courses.py:24`
 - Hottest function: `src/waike_course_ready/provenance.py::audit` complexity=60

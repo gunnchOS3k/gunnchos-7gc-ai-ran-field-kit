@@ -16,14 +16,14 @@ Accepted main: `556f2815a0b3`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=2 S1=252 total=263
+- Theater: S0=0 S1=0 total=9
 - Hotspots: 187; wave-dup paths: 310; orphans≈1
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **CRITICAL**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
-- `canonical_vs_wave_dup`: **NEEDS_WORK**
+- `canonical_vs_wave_dup`: **ADEQUATE**
 - `runtime_authenticity`: **ADEQUATE**
 - `complexity_hotspots`: **CRITICAL**
 - `orphan_dead_code`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `556f2815a0b3`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S0` `always_pass_gate` at `research/external_reproduction/oulu001_fr3_mmwave.py:161`
+- Top theater hit: `S2` `hardcoded_pass_json` at `scripts/baseline_v2_evidence_census.py:258`
 - Hottest function: `scripts/validate_digital_ecosystem_baseline_v2.py::main` complexity=114

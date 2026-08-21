@@ -1,7 +1,7 @@
 {
   "repository": "pedestrian-pursuit",
   "accepted_main_sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",
-  "scanned_at_utc": "2026-08-21T17:10:23Z",
+  "scanned_at_utc": "2026-08-21T17:47:40Z",
   "counts": {
     "files_classified": 269,
     "code_files": 101,
@@ -16,8 +16,10 @@
       "CI_OR_DEPLOY": 1
     },
     "theater_s0": 0,
-    "theater_s1": 5,
-    "theater_total": 15,
+    "theater_s1": 0,
+    "theater_total": 21,
+    "raw_pattern_observations": 11,
+    "theater_root_causes": 0,
     "hotspots": 5,
     "wave_dup_paths": 0,
     "fixture_paths": 0,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "project.godot"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -54,111 +66,906 @@
   },
   "theater_findings": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate1/tools/core_loop_runner.py",
-      "line": 271,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/validate_content.py",
-      "line": 334,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/validate_game_rc_contracts.py",
-      "line": 95,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/ai_batch_sim.py",
-      "line": 120,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/tracks/SpeedLane.gd",
-      "line": 20,
-      "snippet": "xit(body: Node3D) -> void: \tif body.has_method(\"set_terrain_modifiers\"): \t\tbody.set_terrain_modifiers(\"standard\", 1.0, 1"
-    },
-    {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 167,
-      "snippet": "\"status\": \"pass\", \"evidence_ref\": status_path, \"detail\": parsed} \treturn {\"status\": \"pass\", \"detail\": {\"runtime_ready\": "
+      "snippet": "\"status\": \"pass\", \"evidence_ref\": status_path, \"detail\": parsed} \treturn {\"status\": \"pass\", \"detail\": {\"runtime_ready\": ",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 168,
-      "snippet": "\"status\": \"pass\", \"detail\": {\"runtime_ready\": true, \"autoloads_live\": true}}   static func _probe_save_roundtrip() -> Di"
+      "snippet": "\"status\": \"pass\", \"detail\": {\"runtime_ready\": true, \"autoloads_live\": true}}   static func _probe_save_roundtrip() -> Di",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 183,
-      "snippet": "\"status\": \"pass\" if loaded == before_xp + 10 else \"fail\", \t\t\"detail\": { \t\t\t\"save_version\": ProgressionSave.SAVE_VERSION,"
+      "snippet": "\"status\": \"pass\" if loaded == before_xp + 10 else \"fail\", \t\t\"detail\": { \t\t\t\"save_version\": ProgressionSave.SAVE_VERSION,",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 198,
-      "snippet": "\"status\": \"pass\" if not golden.is_empty() else \"fail\", \t\t\"detail\": {\"golden_checksum\": _stable_hash(golden), \"cup_id\": \""
+      "snippet": "\"status\": \"pass\" if not golden.is_empty() else \"fail\", \t\t\"detail\": {\"golden_checksum\": _stable_hash(golden), \"cup_id\": \"",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 206,
-      "snippet": "\"status\": \"pass\" if ids.size() >= 4 else \"fail\", \t\t\"detail\": {\"profile_ids\": Array(ids), \"tested_actions\": NORMALIZED_AC"
+      "snippet": "\"status\": \"pass\" if ids.size() >= 4 else \"fail\", \t\t\"detail\": {\"profile_ids\": Array(ids), \"tested_actions\": NORMALIZED_AC",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 213,
-      "snippet": "\"status\": \"pass\" if FileAccess.file_exists(\"user://accessibility.cfg\") or _has_autoload(\"AccessibilitySettings\") else \"f"
+      "snippet": "\"status\": \"pass\" if FileAccess.file_exists(\"user://accessibility.cfg\") or _has_autoload(\"AccessibilitySettings\") else \"f",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 219,
-      "snippet": "\"status\": \"pass\", \"detail\": {\"hud_scale\": _a11y_ui_scale()}}   static func _probe_quality() -> Dictionary: \treturn { \t\t\""
+      "snippet": "\"status\": \"pass\", \"detail\": {\"hud_scale\": _a11y_ui_scale()}}   static func _probe_quality() -> Dictionary: \treturn { \t\t\"",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 224,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": {\"gameplay_timing_locked\": true, \"total_laps\": GameManager.total_laps}, \t}   static func _"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": {\"gameplay_timing_locked\": true, \"total_laps\": GameManager.total_laps}, \t}   static func _",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 231,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": {\"local_mp\": true, \"online\": \"not_applicable\"}, \t}   static func _probe_deterministic() ->"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": {\"local_mp\": true, \"online\": \"not_applicable\"}, \t}   static func _probe_deterministic() ->",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 238,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"boundary\": \"accept_test_mode autopilot only; human steer nondeterministic\", \t\t\t\"acce"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"boundary\": \"accept_test_mode autopilot only; human steer nondeterministic\", \t\t\t\"acce",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 72,
+      "snippet": "assertTrue(path.exists(), f\"missing gameplay file for {rid}\")             data = json.loads(path.read_text(encoding=\"utf",
+      "match_span": [
+        2654,
+        2678
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 112,
+      "snippet": "assertTrue(track.get(\"has_shortcut\") or track.get(\"shortcut_routes\"))             self.assertGreaterEqual(len(track.get(",
+      "match_span": [
+        4799,
+        4835
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 114,
+      "snippet": "assertTrue((ROOT / f\"assets/art/tracks/{track_id}.png\").exists())      def test_shipped_course_identity_is_original(self",
+      "match_span": [
+        4962,
+        5017
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 149,
+      "snippet": "assertTrue(sid, f\"{path.name} missing special_ability_id\")             if path.stem in {                 \"dash_reed\",   ",
+      "match_span": [
+        6584,
+        6642
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 166,
+      "snippet": "assertTrue(reg_path.exists(), \"missing pedestrian_full feature register\")         reg = json.loads(reg_path.read_text(en",
+      "match_span": [
+        7234,
+        7262
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 202,
+      "snippet": "assertTrue(out.exists())         payload = json.loads(out.read_text(encoding=\"utf-8\"))         self.assertFalse(payload.",
+      "match_span": [
+        8588,
+        8611
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 39,
+      "snippet": "assertTrue(resolved[\"hud_layout\"])             self.assertIn(\"map_profile\", resolved[\"role\"])      def test_gps_never_li",
+      "match_span": [
+        1166,
+        1200
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 66,
+      "snippet": "assertTrue(hybrid[\"role\"].get(\"show_touch_controls\"))         self.assertTrue(hybrid[\"role\"].get(\"soft_path_assist\"))   ",
+      "match_span": [
+        2427,
+        2479
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 67,
+      "snippet": "assertTrue(hybrid[\"role\"].get(\"soft_path_assist\"))         student = resolve_role(catalog, \"student_14_5\")         self.",
+      "match_span": [
+        2494,
+        2543
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 90,
+      "snippet": "assertTrue((ROOT / rel).is_file(), rel)      def test_project_registers_autoloads(self) -> None:         text = (ROOT / ",
+      "match_span": [
+        3541,
+        3564
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 133,
+      "snippet": "assertTrue(entry[\"payload\"][\"perf\"][\"within_budget\"])   class NoProtectedAssetsTests(unittest.TestCase):     def test_de",
+      "match_span": [
+        5514,
+        5567
+      ],
+      "repository": "pedestrian-pursuit",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 167,
+      "snippet": "\"status\": \"pass\", \"evidence_ref\": status_path, \"detail\": parsed} \treturn {\"status\": \"pass\", \"detail\": {\"runtime_ready\": ",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 168,
+      "snippet": "\"status\": \"pass\", \"detail\": {\"runtime_ready\": true, \"autoloads_live\": true}}   static func _probe_save_roundtrip() -> Di",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 183,
+      "snippet": "\"status\": \"pass\" if loaded == before_xp + 10 else \"fail\", \t\t\"detail\": { \t\t\t\"save_version\": ProgressionSave.SAVE_VERSION,",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 198,
+      "snippet": "\"status\": \"pass\" if not golden.is_empty() else \"fail\", \t\t\"detail\": {\"golden_checksum\": _stable_hash(golden), \"cup_id\": \"",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 206,
+      "snippet": "\"status\": \"pass\" if ids.size() >= 4 else \"fail\", \t\t\"detail\": {\"profile_ids\": Array(ids), \"tested_actions\": NORMALIZED_AC",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 213,
+      "snippet": "\"status\": \"pass\" if FileAccess.file_exists(\"user://accessibility.cfg\") or _has_autoload(\"AccessibilitySettings\") else \"f",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 219,
+      "snippet": "\"status\": \"pass\", \"detail\": {\"hud_scale\": _a11y_ui_scale()}}   static func _probe_quality() -> Dictionary: \treturn { \t\t\"",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 224,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": {\"gameplay_timing_locked\": true, \"total_laps\": GameManager.total_laps}, \t}   static func _",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 231,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": {\"local_mp\": true, \"online\": \"not_applicable\"}, \t}   static func _probe_deterministic() ->",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 238,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"boundary\": \"accept_test_mode autopilot only; human steer nondeterministic\", \t\t\t\"acce",
+      "repository": "pedestrian-pursuit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "pedestrian-pursuit"
+      }
+    }
+  ],
+  "raw_pattern_observations": [
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 72,
+      "snippet": "assertTrue(path.exists(), f\"missing gameplay file for {rid}\")             data = json.loads(path.read_text(encoding=\"utf",
+      "match_span": [
+        2654,
+        2678
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 112,
+      "snippet": "assertTrue(track.get(\"has_shortcut\") or track.get(\"shortcut_routes\"))             self.assertGreaterEqual(len(track.get(",
+      "match_span": [
+        4799,
+        4835
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 114,
+      "snippet": "assertTrue((ROOT / f\"assets/art/tracks/{track_id}.png\").exists())      def test_shipped_course_identity_is_original(self",
+      "match_span": [
+        4962,
+        5017
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 149,
+      "snippet": "assertTrue(sid, f\"{path.name} missing special_ability_id\")             if path.stem in {                 \"dash_reed\",   ",
+      "match_span": [
+        6584,
+        6642
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 166,
+      "snippet": "assertTrue(reg_path.exists(), \"missing pedestrian_full feature register\")         reg = json.loads(reg_path.read_text(en",
+      "match_span": [
+        7234,
+        7262
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_content.py",
+      "line": 202,
+      "snippet": "assertTrue(out.exists())         payload = json.loads(out.read_text(encoding=\"utf-8\"))         self.assertFalse(payload.",
+      "match_span": [
+        8588,
+        8611
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 39,
+      "snippet": "assertTrue(resolved[\"hud_layout\"])             self.assertIn(\"map_profile\", resolved[\"role\"])      def test_gps_never_li",
+      "match_span": [
+        1166,
+        1200
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 66,
+      "snippet": "assertTrue(hybrid[\"role\"].get(\"show_touch_controls\"))         self.assertTrue(hybrid[\"role\"].get(\"soft_path_assist\"))   ",
+      "match_span": [
+        2427,
+        2479
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 67,
+      "snippet": "assertTrue(hybrid[\"role\"].get(\"soft_path_assist\"))         student = resolve_role(catalog, \"student_14_5\")         self.",
+      "match_span": [
+        2494,
+        2543
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 90,
+      "snippet": "assertTrue((ROOT / rel).is_file(), rel)      def test_project_registers_autoloads(self) -> None:         text = (ROOT / ",
+      "match_span": [
+        3541,
+        3564
+      ],
+      "repository": "pedestrian-pursuit"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "tests/test_g2_c6_runtime.py",
+      "line": 133,
+      "snippet": "assertTrue(entry[\"payload\"][\"perf\"][\"within_budget\"])   class NoProtectedAssetsTests(unittest.TestCase):     def test_de",
+      "match_span": [
+        5514,
+        5567
+      ],
+      "repository": "pedestrian-pursuit"
+    }
+  ],
+  "wave_duplicate_classification": {
+    "repository": "pedestrian-pursuit",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "tools/validate_content.py",
@@ -196,116 +1003,204 @@
   "orphan_candidates": [],
   "dependency_edges_sample": [
     {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "core_loop_runner"
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "uuid"
+    },
+    {
+      "from": "gate1/tools/log_collector.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "shutil"
     },
     {
       "from": "tools/ai_batch_sim.py",
       "to": "pathlib"
     },
     {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "PIL"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "math"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "re"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "unittest"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "json"
-    },
-    {
       "from": "tools/validate_game_rc_contracts.py",
       "to": "__future__"
     },
     {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "validate_content"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "__future__"
-    },
-    {
       "from": "gate1/tools/core_loop_runner.py",
-      "to": "os"
-    },
-    {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "pathlib"
+      "to": "hashlib"
     },
     {
       "from": "tools/validate_content.py",
       "to": "re"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "json"
     },
     {
       "from": "tools/art/generate_launch_assets.py",
       "to": "hashlib"
     },
     {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "math"
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "pathlib"
     },
     {
       "from": "tests/test_g2_c6_runtime.py",
       "to": "g2_c6_runtime"
     },
     {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tools/ai_batch_sim.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "sys"
+    },
+    {
       "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "time"
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/tools/log_collector.py",
+      "to": "sys"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tools/g2_c6_runtime.py",
+      "to": "re"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "validate_content"
+    },
+    {
+      "from": "gate1/tools/performance_sample_hooks.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "core_loop_runner"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "wave"
+    },
+    {
+      "from": "gate1/tools/performance_sample_hooks.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "sys"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "__future__"
     },
     {
       "from": "tests/test_content.py",
       "to": "__future__"
     },
     {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "typing"
+      "from": "tests/test_content.py",
+      "to": "sys"
     },
     {
       "from": "tools/art/generate_launch_assets.py",
+      "to": "math"
+    },
+    {
+      "from": "tools/validate_game_rc_contracts.py",
+      "to": "json"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "PIL"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/ai_batch_sim.py",
       "to": "__future__"
+    },
+    {
+      "from": "tools/art/generate_launch_assets.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_g2_c6_runtime.py",
+      "to": "pathlib"
     },
     {
       "from": "tools/ai_batch_sim.py",
@@ -316,156 +1211,68 @@
       "to": "struct"
     },
     {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/g2_c6_runtime.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/tools/performance_sample_hooks.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "shutil"
-    },
-    {
-      "from": "gate1/tools/log_collector.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate1/tools/log_collector.py",
-      "to": "json"
-    },
-    {
       "from": "tests/test_g2_c6_runtime.py",
       "to": "unittest"
     },
     {
-      "from": "tools/ai_batch_sim.py",
-      "to": "json"
+      "from": "gate1/tools/log_collector.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tools/validate_content.py",
+      "to": "math"
+    },
+    {
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/test_content.py",
+      "to": "unittest"
+    },
+    {
+      "from": "tools/audio/generate_procedural_audio.py",
+      "to": "math"
     },
     {
       "from": "tools/validate_content.py",
       "to": "typing"
     },
     {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "json"
+      "from": "tools/g2_c6_runtime.py",
+      "to": "__future__"
     },
     {
-      "from": "tools/ai_batch_sim.py",
-      "to": "math"
+      "from": "gate1/tools/core_loop_runner.py",
+      "to": "json"
     },
     {
       "from": "tools/validate_content.py",
       "to": "pathlib"
     },
     {
-      "from": "tools/validate_content.py",
-      "to": "json"
-    },
-    {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "sys"
-    },
-    {
       "from": "gate1/tools/core_loop_runner.py",
-      "to": "uuid"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "tools/ai_batch_sim.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "math"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gate1/tools/log_collector.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_g2_c6_runtime.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_content.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tools/art/generate_launch_assets.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_gate1_core_loop.py",
-      "to": "json"
+      "to": "os"
     },
     {
       "from": "tools/art/generate_launch_assets.py",
       "to": "json"
     },
     {
-      "from": "tests/test_content.py",
-      "to": "json"
+      "from": "tests/test_gate1_core_loop.py",
+      "to": "pathlib"
     },
     {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "hashlib"
+      "from": "gate1/tools/performance_sample_hooks.py",
+      "to": "time"
     },
     {
       "from": "gate1/tools/log_collector.py",
-      "to": "sys"
+      "to": "datetime"
     },
     {
-      "from": "tools/validate_game_rc_contracts.py",
-      "to": "sys"
-    },
-    {
-      "from": "tools/audio/generate_procedural_audio.py",
-      "to": "wave"
-    },
-    {
-      "from": "tools/validate_content.py",
-      "to": "sys"
-    },
-    {
-      "from": "gate1/tools/core_loop_runner.py",
-      "to": "__future__"
+      "from": "tools/ai_batch_sim.py",
+      "to": "math"
     }
   ],
   "path_classification_sample": [
@@ -1471,6 +2278,15 @@
     }
   ],
   "path_classification_full_count": 269,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "pedestrian-pursuit",
     "sha": "3f8fdb5f0f2f6459e42cd38cf0e067084a7a0791",

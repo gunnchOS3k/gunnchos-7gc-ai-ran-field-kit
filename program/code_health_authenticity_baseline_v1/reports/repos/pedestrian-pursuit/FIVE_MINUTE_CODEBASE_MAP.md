@@ -16,12 +16,12 @@ Accepted main: `3f8fdb5f0f2f`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=0 S1=5 total=15
+- Theater: S0=0 S1=0 total=21
 - Hotspots: 5; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `3f8fdb5f0f2f`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `gate1/tools/core_loop_runner.py:271`
+- Top theater hit: `S2` `hardcoded_pass_json` at `scripts/cross_device/CrossDeviceContractProvider.gd:167`
 - Hottest function: `tools/validate_content.py::validate_project` complexity=55

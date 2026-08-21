@@ -1,7 +1,7 @@
 {
   "repository": "readygary-6g-beam-selection",
   "accepted_main_sha": "569875224db7812890ec6abc48dfe43a608094f3",
-  "scanned_at_utc": "2026-08-21T17:10:33Z",
+  "scanned_at_utc": "2026-08-21T17:47:51Z",
   "counts": {
     "files_classified": 310,
     "code_files": 71,
@@ -16,8 +16,10 @@
       "PRODUCTION": 8
     },
     "theater_s0": 0,
-    "theater_s1": 21,
-    "theater_total": 23,
+    "theater_s1": 0,
+    "theater_total": 2,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 19,
     "wave_dup_paths": 0,
     "fixture_paths": 1,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -54,167 +66,83 @@
   },
   "theater_findings": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "paper/scripts/generate_tables.py",
-      "line": 443,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "deploy/server.py",
-      "line": 254,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "deploy/onnx_export.py",
-      "line": 84,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "deploy/client.py",
-      "line": 33,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "deploy/tensorrt_compile.py",
-      "line": 155,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_deepmimo_benchmark.py",
-      "line": 7,
-      "snippet": "xit(0) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_readme_claims.py",
-      "line": 31,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/onnx_export_stub.py",
-      "line": 21,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_band_firewall.py",
-      "line": 62,
-      "snippet": "xit(f\"Sub-6 result reused 28 GHz: {json_path}\")     print(json.dumps({\"profiles\": sorted(profiles), \"primary_sub6\": prim"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_band_firewall.py",
-      "line": 68,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_additive_programme.py",
-      "line": 172,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_sub6_programme.py",
-      "line": 22,
-      "snippet": "xit(\"Missing frozen Sub-6 protocol\")     bundle = run_programme(heldout=args.heldout)     path = write_bundle(bundle, ar"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_sub6_programme.py",
-      "line": 30,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_benchmark_table.py",
-      "line": 104,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_paper_ii_beam_experiment.py",
-      "line": 47,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/e2e_check_required_artifacts.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_timing_harness.py",
-      "line": 28,
-      "snippet": "xit(1)  from sim.metrics import inference_latency_ms, oracle_beam_index, toy_beam_gains  # noqa: E402   def percentile(x"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_timing_harness.py",
-      "line": 151,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_dualband_programme.py",
-      "line": 22,
-      "snippet": "xit(\"Missing frozen dual-band protocol\")     bundle = run_programme(heldout=args.heldout)     path = write_bundle(bundle"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_dualband_programme.py",
-      "line": 30,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_paper_ii_heldout.py",
-      "line": 20,
-      "snippet": "xit(main()) "
-    },
-    {
       "severity": "S2",
       "kind": "broad_except_pass",
       "path": "paper/scripts/generate_tables.py",
       "line": 349,
-      "snippet": "except Exception:         pass     print(\"wrote\", md)   def write_dualband() -> None:     src = EXP / \"rq2_dualband_held"
+      "snippet": "except Exception:         pass     print(\"wrote\", md)   def write_dualband() -> None:     src = EXP / \"rq2_dualband_held",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
     },
     {
       "severity": "S2",
       "kind": "broad_except_pass",
       "path": "deploy/server.py",
       "line": 245,
-      "snippet": "except Exception:             pass     httpd = ThreadingHTTPServer((host, port), Handler)     print(json.dumps({\"serving"
+      "snippet": "except Exception:             pass     httpd = ThreadingHTTPServer((host, port), Handler)     print(json.dumps({\"serving",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "paper/scripts/generate_tables.py",
+      "line": 349,
+      "snippet": "except Exception:         pass     print(\"wrote\", md)   def write_dualband() -> None:     src = EXP / \"rq2_dualband_held",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "deploy/server.py",
+      "line": 245,
+      "snippet": "except Exception:             pass     httpd = ThreadingHTTPServer((host, port), Handler)     print(json.dumps({\"serving",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "readygary-6g-beam-selection",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "sim/experiments/digital_programme.py",
@@ -349,11 +277,31 @@
   ],
   "dependency_edges_sample": [
     {
-      "from": "sim/metrics.py",
-      "to": "typing"
+      "from": "scripts/run_paper_ii_beam_experiment.py",
+      "to": "sys"
     },
     {
-      "from": "sim/channels/sionna_rt.py",
+      "from": "tests/test_additive_fr2.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/generate_dataset.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/readygary_tool_adapters/aerial_adapter.py",
+      "to": "pyaerial"
+    },
+    {
+      "from": "deploy/tensorrt_compile.py",
+      "to": "time"
+    },
+    {
+      "from": "sim/baselines/exhaustive_search.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "sim/dualband/controller.py",
       "to": "numpy"
     },
     {
@@ -361,219 +309,119 @@
       "to": "shutil"
     },
     {
-      "from": "src/readygary_tool_adapters/aerial_adapter.py",
-      "to": "pathlib"
+      "from": "scripts/run_dualband_programme.py",
+      "to": "argparse"
     },
     {
-      "from": "deploy/server.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_tool_adapters.py",
-      "to": "readygary_tool_adapters"
-    },
-    {
-      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_dataset.py",
+      "from": "tests/test_paper_ii_digital.py",
       "to": "numpy"
-    },
-    {
-      "from": "scripts/prepare_sionna_channel_config.py",
-      "to": "readygary_tool_adapters"
-    },
-    {
-      "from": "deploy/server.py",
-      "to": "http"
-    },
-    {
-      "from": "sim/dualband/controller.py",
-      "to": "typing"
-    },
-    {
-      "from": "deploy/server.py",
-      "to": "time"
-    },
-    {
-      "from": "deploy/onnx_validate.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/run_paper_ii_beam_experiment.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/run_additive_programme.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "sim/experiments/dualband_programme.py",
-      "to": "sim"
-    },
-    {
-      "from": "src/readygary_tool_adapters/nvidia_probe.py",
-      "to": "typing"
-    },
-    {
-      "from": "sim/access/radio_decision.py",
-      "to": "dataclasses"
-    },
-    {
-      "from": "scripts/check_readme_claims.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_sub6_dualband.py",
-      "to": "sim"
-    },
-    {
-      "from": "sim/experiments/digital_programme.py",
-      "to": "yaml"
-    },
-    {
-      "from": "src/readygary_tool_adapters/nvidia_probe.py",
-      "to": "json"
-    },
-    {
-      "from": "src/readygary_tool_adapters/benchmark_dataset_registry.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "sim/experiments/dualband_programme.py",
-      "to": "__future__"
-    },
-    {
-      "from": "sim/experiments/sub6_programme.py",
-      "to": "math"
-    },
-    {
-      "from": "sim/baselines/hierarchical_search.py",
-      "to": "numpy"
-    },
-    {
-      "from": "sim/channels/__init__.py",
-      "to": "sim"
-    },
-    {
-      "from": "sim/channels/backend.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "matplotlib"
-    },
-    {
-      "from": "deploy/server.py",
-      "to": "fastapi"
-    },
-    {
-      "from": "scripts/onnx_export_stub.py",
-      "to": "onnx"
-    },
-    {
-      "from": "paper/scripts/generate_tables.py",
-      "to": "csv"
-    },
-    {
-      "from": "scripts/prepare_sionna_channel_config.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "deploy/onnx_validate.py",
-      "to": "onnx"
     },
     {
       "from": "scripts/run_paper_ii_heldout.py",
       "to": "pathlib"
     },
     {
-      "from": "sim/experiments/dualband_programme.py",
-      "to": "numpy"
-    },
-    {
-      "from": "sim/policies/adaptive_tracking.py",
-      "to": "math"
-    },
-    {
-      "from": "scripts/run_deepmimo_benchmark.py",
-      "to": "sys"
-    },
-    {
-      "from": "sim/channels/synthetic.py",
-      "to": "sim"
-    },
-    {
-      "from": "scripts/run_additive_programme.py",
-      "to": "sys"
-    },
-    {
-      "from": "sim/channels/__init__.py",
+      "from": "sim/experiments/sub6_programme.py",
       "to": "__future__"
     },
     {
-      "from": "src/readygary_tool_adapters/tensorrt_adapter.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "sim/experiments/digital_programme.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_additive_fr2.py",
-      "to": "importlib"
-    },
-    {
-      "from": "deploy/onnx_export.py",
+      "from": "deploy/server.py",
       "to": "deploy"
     },
     {
-      "from": "scripts/run_all_tool_exports.py",
-      "to": "readygary_tool_adapters"
+      "from": "sim/channels/tdl_cdl.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_timing_harness.py",
+      "to": "numpy"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_benchmark_table.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_benchmark_table.py",
+      "to": "sys"
+    },
+    {
+      "from": "sim/baselines/hierarchical_search.py",
+      "to": "typing"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_dataset.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/run_paper_ii_beam_experiment.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/readygary_tool_adapters/tensorrt_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "sim/models/lstm_beam_tracker.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/prepare_deepmimo_config.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/readygary_tool_adapters/aodt_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "sim/experiments/sub6_programme.py",
+      "to": "math"
     },
     {
       "from": "src/readygary_tool_adapters/deepmimo_adapter.py",
       "to": "yaml"
     },
     {
-      "from": "src/readygary_tool_adapters/aodt_adapter.py",
+      "from": "sim/experiments/sub6_programme.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/e2e_check_required_artifacts.py",
       "to": "sys"
     },
     {
-      "from": "deploy/grpc_servicer.py",
-      "to": "json"
+      "from": "sim/channels/tdl_cdl.py",
+      "to": "typing"
     },
     {
-      "from": "scripts/run_additive_programme.py",
-      "to": "sim"
-    },
-    {
-      "from": "sim/channels/synthetic.py",
-      "to": "__future__"
-    },
-    {
-      "from": "sim/channels/sionna_rt.py",
-      "to": "sim"
+      "from": "sim/channels/sub6.py",
+      "to": "numpy"
     },
     {
       "from": "sim/experiments/dualband_programme.py",
-      "to": "json"
-    },
-    {
-      "from": "src/readygary_tool_adapters/aodt_adapter.py",
-      "to": "sim"
-    },
-    {
-      "from": "scripts/run_benchmark_table.py",
       "to": "pathlib"
     },
     {
-      "from": "paper/scripts/generate_tables.py",
+      "from": "tests/test_sub6_dualband.py",
+      "to": "numpy"
+    },
+    {
+      "from": "sim/bands/__init__.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_benchmark_table.py",
       "to": "pathlib"
     },
     {
@@ -581,91 +429,171 @@
       "to": "dataclasses"
     },
     {
-      "from": "deploy/server.py",
-      "to": "deploy"
+      "from": "deploy/tensorrt_compile.py",
+      "to": "numpy"
     },
     {
-      "from": "scripts/run_additive_programme.py",
+      "from": "tests/test_additive_fr2.py",
       "to": "__future__"
     },
     {
-      "from": "sim/channels/sub6.py",
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "sim"
+    },
+    {
+      "from": "tests/test_metrics.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/dualband/controller.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/experiments/dualband_programme.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "run_paper_ii_beam_experiment"
+    },
+    {
+      "from": "scripts/prepare_deepmimo_config.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "deploy/server.py",
       "to": "sim"
     },
     {
       "from": "sim/models/lstm_beam_tracker.py",
-      "to": "exhaustive_search"
+      "to": "torch"
     },
     {
-      "from": "sim/channels/synthetic.py",
+      "from": "scripts/prepare_sionna_channel_config.py",
+      "to": "sys"
+    },
+    {
+      "from": "deploy/onnx_validate.py",
       "to": "numpy"
     },
     {
-      "from": "scripts/check_readme_claims.py",
-      "to": "__future__"
+      "from": "scripts/run_benchmark_table.py",
+      "to": "json"
     },
     {
-      "from": "src/readygary_tool_adapters/aodt_adapter.py",
-      "to": "__future__"
+      "from": "scripts/check_band_firewall.py",
+      "to": "json"
     },
     {
-      "from": "sim/access/radio_decision.py",
-      "to": "__future__"
+      "from": "scripts/run_timing_harness.py",
+      "to": "time"
     },
     {
-      "from": "deploy/tiny_beam_scorer.py",
-      "to": "__future__"
+      "from": "sim/metrics.py",
+      "to": "time"
     },
     {
-      "from": "src/readygary_tool_adapters/deepmimo_adapter.py",
+      "from": "scripts/run_sub6_programme.py",
+      "to": "json"
+    },
+    {
+      "from": "deploy/tensorrt_compile.py",
+      "to": "tensorrt"
+    },
+    {
+      "from": "sim/experiments/digital_programme.py",
+      "to": "time"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/e2e_check_required_artifacts.py",
       "to": "pathlib"
     },
     {
-      "from": "sim/channels/sub6.py",
-      "to": "__future__"
+      "from": "sim/experiments/dualband_programme.py",
+      "to": "yaml"
     },
     {
-      "from": "scripts/check_deepmimo_ready.py",
-      "to": "readygary_tool_adapters"
+      "from": "sim/channels/sionna_rt.py",
+      "to": "numpy"
     },
     {
-      "from": "sim/bands/__init__.py",
-      "to": "typing"
+      "from": "sim/channels/aodt.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
+      "to": "deploy"
     },
     {
       "from": "tests/test_onnx_ort.py",
       "to": "__future__"
     },
     {
-      "from": "sim/channels/aodt.py",
+      "from": "sim/channels/synthetic.py",
+      "to": "numpy"
+    },
+    {
+      "from": "deploy/onnx_validate.py",
+      "to": "onnxruntime"
+    },
+    {
+      "from": "sim/experiments/sub6_programme.py",
       "to": "sim"
     },
     {
-      "from": "deploy/tensorrt_compile.py",
-      "to": "pathlib"
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "sys"
     },
     {
-      "from": "scripts/run_benchmark_table.py",
-      "to": "argparse"
+      "from": "deploy/server.py",
+      "to": "pydantic"
     },
     {
       "from": "deploy/tiny_beam_scorer.py",
       "to": "numpy"
     },
     {
-      "from": "scripts/run_timing_harness.py",
-      "to": "sys"
+      "from": "tests/test_additive_fr2.py",
+      "to": "pathlib"
     },
     {
-      "from": "sim/access/__init__.py",
+      "from": "scripts/prepare_deepmimo_config.py",
+      "to": "readygary_tool_adapters"
+    },
+    {
+      "from": "sim/dualband/controller.py",
       "to": "typing"
     },
     {
-      "from": "deploy/grpc_servicer.py",
-      "to": "grpc"
+      "from": "deploy/client.py",
+      "to": "sys"
     },
     {
-      "from": "scripts/run_paper_ii_heldout.py",
+      "from": "sim/bands/__init__.py",
+      "to": "sim"
+    },
+    {
+      "from": "scripts/prepare_sionna_channel_config.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_timing_harness.py",
+      "to": "math"
+    },
+    {
+      "from": "sim/access/radio_decision.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_onnx_ort.py",
+      "to": "deploy"
+    },
+    {
+      "from": "sim/channels/sub6.py",
       "to": "__future__"
     }
   ],
@@ -1672,6 +1600,15 @@
     }
   ],
   "path_classification_full_count": 310,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "readygary-6g-beam-selection",
     "sha": "569875224db7812890ec6abc48dfe43a608094f3",

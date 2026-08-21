@@ -3,7 +3,7 @@
 Accepted main: `af57fbdac857`
 
 ## What this repo is
-- Classified files: **6024** (code=2068, production≈1982, proof≈38)
+- Classified files: **386** (code=129, production≈59, proof≈22)
 - Entrypoints: Makefile
 
 ## Where production lives
@@ -14,17 +14,17 @@ Accepted main: `af57fbdac857`
 - `tests/`, `evals/`, `evidence/`, `artifacts/`, fixtures, wave harnesses.
 
 ## Authenticity snapshot
-- Proof independence: `FAIL_COUPLED`
-- Runtime authenticity: `NEEDS_WORK`
-- Theater: S0=0 S1=196 total=196
-- Hotspots: 1393; wave-dup paths: 0; orphans≈40
+- Proof independence: `PASS_INDEPENDENT`
+- Runtime authenticity: `ADEQUATE`
+- Theater: S0=0 S1=0 total=19
+- Hotspots: 40; wave-dup paths: 0; orphans≈11
 
 ## Dimension ratings
-- `production_proof_separation`: **CRITICAL**
-- `anti_test_theater`: **NEEDS_WORK**
-- `dependency_boundaries`: **NEEDS_WORK**
+- `production_proof_separation`: **STRONG**
+- `anti_test_theater`: **ADEQUATE**
+- `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
-- `runtime_authenticity`: **NEEDS_WORK**
+- `runtime_authenticity`: **ADEQUATE**
 - `complexity_hotspots`: **CRITICAL**
 - `orphan_dead_code`: **NEEDS_WORK**
 - `fixture_honesty`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `af57fbdac857`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `.venv-zephyr/bin/hexmerge.py:178`
-- Hottest function: `.venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py::validate_https___setuptools_pypa_io_en_latest_references_keywords_html` complexity=351
+- No static theater hits in scanned sample.
+- Hottest function: `.venv-zephyr/bin/readelf.py::decode_flags` complexity=44

@@ -1,7 +1,7 @@
 {
   "repository": "gunnchos-7gc-ai-ran-field-kit",
   "accepted_main_sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
-  "scanned_at_utc": "2026-08-21T17:09:45Z",
+  "scanned_at_utc": "2026-08-21T17:47:13Z",
   "counts": {
     "files_classified": 2586,
     "code_files": 379,
@@ -15,9 +15,11 @@
       "PROOF": 825,
       "CI_OR_DEPLOY": 25
     },
-    "theater_s0": 2,
-    "theater_s1": 252,
-    "theater_total": 263,
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 9,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 187,
     "wave_dup_paths": 310,
     "fixture_paths": 136,
@@ -38,13 +40,23 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "CRITICAL",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
-    "canonical_vs_wave_dup": "NEEDS_WORK",
+    "canonical_vs_wave_dup": "ADEQUATE",
     "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "CRITICAL",
     "orphan_dead_code": "ADEQUATE",
@@ -54,566 +66,337 @@
   },
   "theater_findings": [
     {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "research/external_reproduction/oulu001_fr3_mmwave.py",
-      "line": 161,
-      "snippet": "force_pass\": True,         \"eucnc_doi\": \"10.1109/EuCNC/6GSummit68295.2026.11577293\",         \"adjacent_fr3_arxiv_not_tab"
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 258,
+      "snippet": "\"status\": \"PASS\"' in content:             if any(m in low for m in L3_PATH_MARKERS):                 return \"RUNTIME_RES",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S0",
-      "kind": "always_pass_gate",
-      "path": "tests/test_c_pkt003_external_reproduction.py",
-      "line": 33,
-      "snippet": "force_pass\"] is True     assert cls[\"spec_discrepancy_resolution\"] == \"DOCUMENTED_C_PKT_003\"     assert abs(range_resolu"
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1452,
+      "snippet": "\"status\": \"PASS\" if not alarms else \"FAIL\",         \"alarms\": alarms,         \"metrics\": {             \"digital_implemen",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/external_reproduction/cli/researcher_cli.py",
-      "line": 173,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1527,
+      "snippet": "\"status\": \"PASS\" if len(deduped) >= 50 and pass_count == len(deduped) else \"FAIL\",         \"samples\": deduped,     }   d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/external_reproduction/adapters/nvidia_6g_probe.py",
-      "line": 113,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/r6g/evaluate.py",
-      "line": 436,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/r6g/replication/reproduce.py",
-      "line": 829,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/r6g/replication/verify_independent.py",
-      "line": 208,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/toolkit/reproduce_packet.py",
-      "line": 70,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "research/toolkit/new_packet.py",
-      "line": 65,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate6/release/build_release_manifest.py",
-      "line": 23,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate6/e2e/simulate_app_game_paths.py",
-      "line": 14,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate1/operator/cli.py",
-      "line": 235,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate1/orchestrator/cli.py",
-      "line": 147,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate7/fleet/fleet_ops.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate2/nonphysical/G2_C1_enclosure/check_interference.py",
-      "line": 9,
-      "snippet": "xit(2)  ROOT = Path(__file__).resolve().parents[3] DESIGNS = ROOT / \"device_designs\"  def check_device(d: Path) -> dict:"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate2/nonphysical/G2_C1_enclosure/check_interference.py",
-      "line": 57,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate5/provisioning/factory_station_sim.py",
-      "line": 16,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate5/supply_chain/bom_risk_scoring.py",
-      "line": 19,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate4/harnesses/connectivity_collector.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "gate4/harnesses/long_duration_soak.py",
-      "line": 25,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "reproduction/verify_reproduction.py",
-      "line": 11,
-      "snippet": "xit('missing: '+', '.join(missing)) print('reproduction artifacts present') "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "control_plane/__main__.py",
-      "line": 6,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "control_plane/validators/__init__.py",
-      "line": 296,
-      "snippet": "xit(issues: list[ValidationIssue]) -> bool:     return any(i.severity == \"error\" for i in issues) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/evaluate_gate3_status.py",
-      "line": 182,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/prove_full_product_continuation_v.py",
-      "line": 1950,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/prove_full_product_continuation_vii.py",
-      "line": 1433,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_ablations.py",
-      "line": 67,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_pilot_assignments.py",
-      "line": 88,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_gate3_evidence_pipeline.py",
-      "line": 75,
-      "snippet": "xit(\"Refusing to treat emulator session as genuine Gate 3 evidence\")         edge_batch = run_dir / \"integrated_runs\" / "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_gate3_evidence_pipeline.py",
-      "line": 171,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_gate4.py",
-      "line": 148,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/audit_collection_coverage.py",
-      "line": 158,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_figures.py",
-      "line": 79,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_gate4_evaluation.py",
-      "line": 157,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/register_external_dataset.py",
-      "line": 174,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "scripts/run_edge_ai_benchmark.py",
-      "line": 87,
-      "snippet": "xit(main()) "
+      "line": 54,
+      "snippet": "except Exception:         pass      result = {         \"benchmark_id\": \"edge-ai-synthetic-matmul\",         \"evidence_lab",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_gate5.py",
-      "line": 93,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/rebuild_convergence_coverage.py",
-      "line": 32,
-      "snippet": "xit(\"missing stable 138-row summary snapshot\") UR = json.loads((ROOT / \"program\" / \"user_ready_rc\" / \"ATOMIC_PRODUCT_REG"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_physical_pending_ok.py",
-      "line": 44,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/verify_repo_lock.py",
-      "line": 219,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_baselines.py",
-      "line": 88,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_privacy_bom_stream.py",
-      "line": 53,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/audit_default_branches.py",
-      "line": 57,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/verify_external_dataset.py",
-      "line": 5,
-      "snippet": "xit(main([\"verify\"])) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_sensitivity.py",
-      "line": 64,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_digital_ecosystem_baseline_v2.py",
-      "line": 744,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/verify_provenance.py",
-      "line": 52,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_physical_evidence.py",
-      "line": 100,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/evaluate_gate2_status.py",
-      "line": 169,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_gate1_runtime_artifacts_untracked.py",
-      "line": 47,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_baseline_v2_b4_register_integrity.py",
-      "line": 213,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_gate3_nonphysical.py",
-      "line": 9,
-      "snippet": "xit(2)  ROOT = Path(__file__).resolve().parents[1] STATUS = ROOT / \"gate3/nonphysical/STATUS.yaml\" MODS = [     \"G3_C1_i"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_gate3_nonphysical.py",
-      "line": 46,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_generalization.py",
-      "line": 39,
-      "snippet": "xit(f\"Unsupported DATASET={dataset!r}; supported: {sorted(SUPPORTED)}\")     return ROOT / \"generalization/configs\" / f\"{"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_generalization.py",
-      "line": 135,
-      "snippet": "xit(f\"preprocess not implemented for {dataset}\")     verify_result = verify(dataset)     if not verify_result[\"ok\"]:    "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_generalization.py",
-      "line": 138,
-      "snippet": "xit(f\"verify failed before preprocess: {verify_result['errors']}\")     adapter = create_nordicdat_adapter()     normaliz"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_generalization.py",
-      "line": 162,
-      "snippet": "xit(f\"evaluate not implemented for {dataset}\")     cfg = load_config()     normalized_path = ROOT / cfg[\"paths\"][\"normal"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_generalization.py",
-      "line": 166,
-      "snippet": "xit(f\"run preprocess first; missing {normalized_path}\")     payload = json.loads(normalized_path.read_text(encoding=\"utf"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_generalization.py",
-      "line": 210,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_nonphysical_status.py",
-      "line": 9,
-      "snippet": "xit(2)  ROOT = Path(__file__).resolve().parents[1] STATUS = ROOT / \"program/nonphysical/gate_nonphysical_status.yaml\" SC"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_nonphysical_status.py",
-      "line": 52,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/select_gate2_run_dir.py",
-      "line": 149,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_product_quality_contract.py",
-      "line": 50,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/write_repo_lock.py",
-      "line": 128,
-      "snippet": "xit(f\"required path missing for lock write: {repo_path}\")         commit = _git(repo_path, \"rev-parse\", \"HEAD\")         "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/write_repo_lock.py",
-      "line": 133,
-      "snippet": "xit(f\"empty/invalid commit for {spec['name']}\")         if dirty and not allow_dirty:             raise SystemExit(f\"dir"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/write_repo_lock.py",
-      "line": 135,
-      "snippet": "xit(f\"dirty tree blocks lock write: {spec['name']} ({repo_path})\")         components[spec[\"name\"]] = {             \"rep"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/write_repo_lock.py",
-      "line": 210,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/evaluate_release_evidence.py",
-      "line": 31,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_ecosystem_version_lock.py",
-      "line": 13,
-      "snippet": "xit(2)  ROOT = Path(__file__).resolve().parents[1] LOCK = ROOT / \"program\" / \"repositories\" / \"ecosystem_version_lock.ya"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_ecosystem_version_lock.py",
-      "line": 157,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/evaluate_gate4_status.py",
-      "line": 44,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_contract.py",
-      "line": 16,
-      "snippet": "xit(         \"jsonschema is required. Install with: pip install 'jsonschema>=4.20'\"     ) from exc  SCHEMA_FILES = {    "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_contract.py",
-      "line": 287,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "broad_except_pass",
       "path": "scripts/gates_4_6_common.py",
-      "line": 152,
-      "snippet": "xit(f\"CROSS_REPO_VERSION_LOCK mismatch: {failures}\")     return report   def write_json(path: Path, data: Any) -> None: "
+      "line": 88,
+      "snippet": "except Exception:         pass     return {         \"nvidia_smi\": nvidia is not None,         \"nvcc\": nvcc is not None, ",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/verify_mandatory_workflows.py",
-      "line": 128,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/validate_main_branch_policy.py",
+      "line": 54,
+      "snippet": "except Exception:             pass         if rel == glob:             return True     return False   def workflow_has_m",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_gate6_dry_run.py",
-      "line": 357,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_corrective_validators.py",
+      "line": 112,
+      "snippet": "except Exception:                 pass     if \"BG1\" in src_text or \"bg1\" in src_text.lower() or \"lifting\" in src_text.lo",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_digital_ecosystem_baseline_v2.py",
-      "line": 267,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/engineering_wave009/run_targeted_closeout.py",
+      "line": 836,
+      "snippet": "\"status\": \"PASS\",         \"target_ids\": TARGET_IDS,         \"device_os_131_head\": DEVICE_OS_PR_HEAD,         \"device_os_",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_industry_license_boundaries.py",
-      "line": 86,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_full_product_requirement_graph.py",
-      "line": 227,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/calculate_uncertainty.py",
-      "line": 104,
-      "snippet": "xit(main()) "
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "net_sec_rc001/hostile_network.py",
+      "line": 379,
+      "snippet": "except Exception:                         pass          t = threading.Thread(target=_serve, name=\"netsec-hostile-tls\", d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 258,
+      "snippet": "\"status\": \"PASS\"' in content:             if any(m in low for m in L3_PATH_MARKERS):                 return \"RUNTIME_RES",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1452,
+      "snippet": "\"status\": \"PASS\" if not alarms else \"FAIL\",         \"alarms\": alarms,         \"metrics\": {             \"digital_implemen",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1527,
+      "snippet": "\"status\": \"PASS\" if len(deduped) >= 50 and pass_count == len(deduped) else \"FAIL\",         \"samples\": deduped,     }   d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_edge_ai_benchmark.py",
+      "line": 54,
+      "snippet": "except Exception:         pass      result = {         \"benchmark_id\": \"edge-ai-synthetic-matmul\",         \"evidence_lab",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/gates_4_6_common.py",
+      "line": 88,
+      "snippet": "except Exception:         pass     return {         \"nvidia_smi\": nvidia is not None,         \"nvcc\": nvcc is not None, ",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/validate_main_branch_policy.py",
+      "line": 54,
+      "snippet": "except Exception:             pass         if rel == glob:             return True     return False   def workflow_has_m",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_corrective_validators.py",
+      "line": 112,
+      "snippet": "except Exception:                 pass     if \"BG1\" in src_text or \"bg1\" in src_text.lower() or \"lifting\" in src_text.lo",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/engineering_wave009/run_targeted_closeout.py",
+      "line": 836,
+      "snippet": "\"status\": \"PASS\",         \"target_ids\": TARGET_IDS,         \"device_os_131_head\": DEVICE_OS_PR_HEAD,         \"device_os_",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "net_sec_rc001/hostile_network.py",
+      "line": 379,
+      "snippet": "except Exception:                         pass          t = threading.Thread(target=_serve, name=\"netsec-hostile-tls\", d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-7gc-ai-ran-field-kit",
+    "classification": "WAVE_CODE_CONCENTRATION",
+    "severity": "S2",
+    "path_count": 310,
+    "sample_paths": [
+      "artifacts/engineering_wave005_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave005_closeout/CLOSEOUT_RESULT.json",
+      "artifacts/engineering_wave004_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave004_closeout/CLOSEOUT_RESULT.json",
+      "artifacts/engineering_wave002_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave003_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave008_closeout/PROVENANCE_BINDING_RESULT.json",
+      "artifacts/engineering_wave008_closeout/TARGETED_ROW_DIFF.json"
+    ],
+    "evidence": {
+      "similarity": true,
+      "callers": false,
+      "divergence": false
+    },
+    "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+  },
   "complexity_hotspots": [
     {
       "path": "scripts/validate_digital_ecosystem_baseline_v2.py",
@@ -1285,324 +1068,324 @@
   ],
   "dependency_edges_sample": [
     {
-      "from": "scripts/engineering_wave007/validate_aggregate.py",
-      "to": "re"
-    },
-    {
-      "from": "research/external_reproduction/adapters/nvidia_6g_probe.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/verify_provenance.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/gate1/test_gate1_locked_thesis.py",
-      "to": "validate_gate1_thesis"
-    },
-    {
-      "from": "scripts/run_gate4_evaluation.py",
-      "to": "calculate_uncertainty"
-    },
-    {
-      "from": "tests/provenance/test_lock.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/audit_collection_coverage.py",
-      "to": "gate3_common"
-    },
-    {
-      "from": "scripts/compute_recovery_time.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/engineering_wave008/validate_aggregate.py",
-      "to": "subprocess"
-    },
-    {
-      "from": "scripts/generate_tables.py",
-      "to": "gate4_common"
-    },
-    {
-      "from": "scripts/validate_physical_evidence.py",
-      "to": "gates_4_6_common"
-    },
-    {
-      "from": "tests/evidence_status/test_gate3_status.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/orchestrator/evidence_collector.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/application_readiness/test_master_integrity.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_full_product_requirement_graph.py",
-      "to": "typing"
-    },
-    {
-      "from": "research/external_reproduction/oulu001_fr3_mmwave.py",
-      "to": "math"
-    },
-    {
-      "from": "scripts/generate_gate3_report.py",
-      "to": "json"
-    },
-    {
-      "from": "gate1/orchestrator/cli.py",
-      "to": "gate1"
-    },
-    {
-      "from": "scripts/assignment_canonical.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_digital_ecosystem_baseline_v2.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/test_c_pkt003_external_reproduction.py",
-      "to": "research"
-    },
-    {
-      "from": "scripts/generate_tables.py",
-      "to": "argparse"
-    },
-    {
-      "from": "tests/engineering_wave008/test_wave008_aggregate.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/full_product/test_continuation_ix_release_lock.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_digital_ecosystem_baseline_v2.py",
-      "to": "os"
-    },
-    {
-      "from": "gate1/operator/evidence_session.py",
-      "to": "jsonschema"
-    },
-    {
-      "from": "scripts/generate_digital_ecosystem_baseline_v2.py",
-      "to": "baseline_v2_b4_mapping_convergence"
-    },
-    {
-      "from": "scripts/validate_game_release_claims.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/ablations/test_ablations.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/baselines/test_baselines.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate2/nonphysical/G2_C2_display_controls/hal/display_controls_hal.py",
-      "to": "typing"
-    },
-    {
-      "from": "research/r6g/experiments/r6g011_imt2030_harness.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/full_product/test_continuation_viii_release_readiness.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "control_plane/cli.py",
-      "to": "sys"
-    },
-    {
-      "from": "net_sec_rc001/hostile_network.py",
-      "to": "urllib"
-    },
-    {
-      "from": "scripts/engineering_wave006/run_targeted_closeout.py",
-      "to": "json"
+      "from": "tests/pilotctl/test_pilotctl_acceptance.py",
+      "to": "pilotctl"
     },
     {
       "from": "scripts/prove_full_product_continuation_vii.py",
-      "to": "datetime"
+      "to": "subprocess"
     },
     {
-      "from": "scripts/gates_4_6_common.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/sanitize_session.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/baseline_v2_b4_mapping_convergence.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate3/nonphysical/G3_C1_identity_continuity/identity_continuity.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "net_sec_rc001/imt2030_eval.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/uncertainty/test_uncertainty.py",
-      "to": "run_baselines"
-    },
-    {
-      "from": "scripts/validate_cross_repo_evidence.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "net_sec_rc001/service_continuity.py",
-      "to": "__future__"
-    },
-    {
-      "from": "gate3/nonphysical/G3_C3_connectivity_manager/providers/simulation.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/test_net_sec_rc001.py",
-      "to": "standards"
-    },
-    {
-      "from": "gate2/nonphysical/G2_C7_ring_calibration/host_sim/ring_calibration_sim.py",
-      "to": "time"
-    },
-    {
-      "from": "scripts/baseline_v2_b4_mapping_convergence.py",
-      "to": "collections"
-    },
-    {
-      "from": "scripts/validate_industry_adoption.py",
-      "to": "yaml"
-    },
-    {
-      "from": "tests/engineering_wave009/test_wave009_aggregate.py",
-      "to": "__future__"
-    },
-    {
-      "from": "net_sec_rc001/hostile_network.py",
-      "to": "ssl"
-    },
-    {
-      "from": "scripts/prove_full_product_continuation_v.py",
-      "to": "yaml"
-    },
-    {
-      "from": "generalization/tests/test_nordicdat_adapter.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/provenance/test_repo_lock_verify.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/build_application_evidence_pack.py",
-      "to": "sys"
-    },
-    {
-      "from": "control_plane/catalog/repositories_catalog.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/run_generalization.py",
+      "from": "scripts/assemble_controlled_dataset.py",
       "to": "argparse"
     },
     {
-      "from": "scripts/run_baselines.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/scan_nvidia_secret_leaks.py",
-      "to": "sys"
-    },
-    {
-      "from": "research/r6g/replication/ablations.py",
-      "to": "research"
-    },
-    {
-      "from": "scripts/pilotctl.py",
-      "to": "validate_contract"
-    },
-    {
-      "from": "scripts/checkout_locked_repositories.py",
-      "to": "collections"
-    },
-    {
-      "from": "scripts/validate_rfq_packages.py",
-      "to": "__future__"
-    },
-    {
-      "from": "research/external_reproduction/adapters/nvidia_6g_probe.py",
-      "to": "platform"
-    },
-    {
-      "from": "scripts/engineering_wave007/run_targeted_closeout.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/gate4_common.py",
+      "from": "gate4/harnesses/long_duration_soak.py",
       "to": "json"
     },
     {
-      "from": "scripts/generate_digital_ecosystem_baseline_v2.py",
-      "to": "datetime"
+      "from": "control_plane/catalog/repositories_catalog.py",
+      "to": "__future__"
     },
     {
-      "from": "generalization/tests/test_adapter_interface.py",
-      "to": "sys"
+      "from": "net_sec_rc001/ai_ran_safe.py",
+      "to": "__future__"
     },
     {
-      "from": "research/external_reproduction/oulu002_cfmimo_isac.py",
+      "from": "research/external_reproduction/adapters/probe.py",
+      "to": "json"
+    },
+    {
+      "from": "net_sec_rc001/terrestrial_5ga.py",
+      "to": "terrestrial_rel16"
+    },
+    {
+      "from": "gate7/fleet/fleet_ops.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/operator/inventory.py",
+      "to": "gate1"
+    },
+    {
+      "from": "gate3/nonphysical/G3_C5_threat_models/tests/test_threat_model_executable.py",
+      "to": "gate3"
+    },
+    {
+      "from": "control_plane/io_util.py",
+      "to": "typing"
+    },
+    {
+      "from": "control_plane/catalog/repositories_catalog.py",
       "to": "pathlib"
     },
     {
-      "from": "gate5/provisioning/factory_station_sim.py",
-      "to": "pathlib"
+      "from": "scripts/validate_nonphysical_status.py",
+      "to": "jsonschema"
+    },
+    {
+      "from": "industry_research_stack/adapters/sionna.py",
+      "to": "base"
+    },
+    {
+      "from": "scripts/validate_contract.py",
+      "to": "json"
     },
     {
       "from": "scripts/baseline_v2_evidence_census.py",
-      "to": "dataclasses"
+      "to": "typing"
+    },
+    {
+      "from": "scripts/prove_full_product_continuation_vii.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/run_application_readiness.py",
+      "to": "json"
+    },
+    {
+      "from": "gate3/nonphysical/G3_C4_fleet_observability/fleet_observability.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_generalization.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_gate4_evaluation.py",
+      "to": "generate_gate4_report"
+    },
+    {
+      "from": "tests/evidence_status/test_gate3_status.py",
+      "to": "gate3_common"
+    },
+    {
+      "from": "scripts/validate_gate2_nonphysical.py",
+      "to": "json"
+    },
+    {
+      "from": "control_plane/generate.py",
+      "to": "datetime"
+    },
+    {
+      "from": "tests/contracts/test_schemas.py",
+      "to": "validate_contract"
+    },
+    {
+      "from": "scripts/run_gate4_evaluation.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/run_corrective_validators.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/build_collection_matrix.py",
+      "to": "argparse"
+    },
+    {
+      "from": "industry_research_stack/otel/__init__.py",
+      "to": "instrumentation"
+    },
+    {
+      "from": "research/external_reproduction/oulu002_cfmimo_isac.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/corrective/test_gate6_fail_closed.py",
+      "to": "json"
+    },
+    {
+      "from": "research/external_reproduction/oulu002_cfmimo_isac.py",
+      "to": "research"
+    },
+    {
+      "from": "gate1/orchestrator/cli.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/build_evaluation_splits.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/engineering_wave001/verify_cross_device_contract.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_gate4_evaluation.py",
+      "to": "evaluate_gate4_status"
+    },
+    {
+      "from": "scripts/run_corrective_validators.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/prove_full_product_continuation_viii.py",
+      "to": "collections"
+    },
+    {
+      "from": "gate1/orchestrator/cli.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_game_release_claims.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/validate_full_product_requirement_graph.py",
+      "to": "collections"
+    },
+    {
+      "from": "scripts/gates_4_6_common.py",
+      "to": "torch"
+    },
+    {
+      "from": "gate1/orchestrator/cli.py",
+      "to": "json"
+    },
+    {
+      "from": "generalization/tests/test_nordicdat_adapter.py",
+      "to": "generalization"
+    },
+    {
+      "from": "scripts/evaluate_gate2_status.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_c_pkt002_external_reproduction.py",
+      "to": "research"
+    },
+    {
+      "from": "gate6/release/build_release_manifest.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/run_gate4_evaluation.py",
+      "to": "run_ablations"
+    },
+    {
+      "from": "standards/harnesses/imt2030_eval_harness.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/gate3_common.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1/operator/probe.py",
+      "to": "shutil"
+    },
+    {
+      "from": "gate1/operator/redaction.py",
+      "to": "re"
+    },
+    {
+      "from": "research/r6g/experiments/r6g007_adaptive_ris_contract.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/engineering_wave006/validate_aggregate.py",
+      "to": "sys"
+    },
+    {
+      "from": "gate1/orchestrator/evidence_collector.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/validate_claim_firewall.py",
+      "to": "typing"
+    },
+    {
+      "from": "research/r6g/metrics/useful_connectivity.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/gates_4_6_common.py",
+      "to": "shutil"
+    },
+    {
+      "from": "scripts/engineering_wave006/validate_aggregate.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "research/r6g/replication/ladder.py",
+      "to": "__future__"
+    },
+    {
+      "from": "research/r6g/experiments/r6g004_multimodal_isac_personal.py",
+      "to": "__future__"
     },
     {
       "from": "research/r6g/replication/reproduce.py",
       "to": "typing"
     },
     {
-      "from": "tests/evidence_status/test_gate3_status.py",
-      "to": "gate3_common"
+      "from": "scripts/pilotctl.py",
+      "to": "subprocess"
     },
     {
-      "from": "scripts/verify_repo_lock.py",
-      "to": "argparse"
+      "from": "scripts/engineering_wave001/run_full_ops_wave001.py",
+      "to": "verify_cross_device_contract"
     },
     {
-      "from": "scripts/verify_provenance.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "gate1/orchestrator/result_aggregator.py",
+      "from": "scripts/engineering_wave006/validate_aggregate.py",
       "to": "json"
     },
     {
-      "from": "research/toolkit/new_packet.py",
-      "to": "pathlib"
+      "from": "research/r6g/replication/reproduce.py",
+      "to": "research"
     },
     {
-      "from": "tests/negative_results/test_negative_results.py",
+      "from": "industry_research_stack/otel/__init__.py",
+      "to": "conventions"
+    },
+    {
+      "from": "scripts/write_gates_4_6_version_lock.py",
       "to": "__future__"
     },
     {
-      "from": "tests/evidence_status/test_gate3_status.py",
-      "to": "audit_collection_coverage"
+      "from": "scripts/write_gates_4_6_version_lock.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_docs_integrity.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_master_status.py",
+      "to": "json"
+    },
+    {
+      "from": "net_sec_rc001/evaluate.py",
+      "to": "terrestrial_rel16"
+    },
+    {
+      "from": "gate1/orchestrator/result_aggregator.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/validate_release_firewall.py",
+      "to": "re"
+    },
+    {
+      "from": "generalization/tests/test_adapter_interface.py",
+      "to": "generalization"
+    },
+    {
+      "from": "scripts/write_gates_4_6_version_lock.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_gate4_evaluation.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/calculate_uncertainty.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/write_gates_4_6_version_lock.py",
+      "to": "json"
     }
   ],
   "path_classification_sample": [
@@ -2608,6 +2391,15 @@
     }
   ],
   "path_classification_full_count": 2586,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "gunnchos-7gc-ai-ran-field-kit",
     "sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",

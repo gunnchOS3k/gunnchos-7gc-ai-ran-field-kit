@@ -16,12 +16,12 @@ Accepted main: `3931f51d43b7`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=0 S1=3 total=4
+- Theater: S0=0 S1=0 total=1
 - Hotspots: 0; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,4 +38,4 @@ Accepted main: `3931f51d43b7`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `scripts/validate_phy_independent.py:61`
+- Top theater hit: `S2` `hardcoded_pass_json` at `scripts/system_manifest.sh:14`

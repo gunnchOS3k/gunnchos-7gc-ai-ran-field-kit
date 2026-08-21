@@ -16,12 +16,12 @@ Accepted main: `0afe3079db47`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=11 S1=26 total=47
+- Theater: S0=0 S1=0 total=17
 - Hotspots: 3; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **CRITICAL**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `0afe3079db47`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S0` `assert_true_literal` at `legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts:175`
+- Top theater hit: `S2` `hardcoded_pass_json` at `game-godot/scripts/cross_device/CrossDeviceContractProvider.gd:171`
 - Hottest function: `tools/validate_game_rc_contracts.py::main` complexity=28

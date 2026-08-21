@@ -1,0 +1,37 @@
+{
+  "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+  "clean_env_control": {
+    "path": ".venv/site-packages/pkg/test_vendored.py",
+    "raw_observations": 1,
+    "s0_s1_after_calibration": 0,
+    "pass": true
+  },
+  "bad_theater_control": {
+    "path": "tests/test_always_pass_gate.py",
+    "detects_s0_or_gate": true,
+    "calibrated_sample": [
+      {
+        "kind": "assert_true_literal",
+        "severity": "S0",
+        "disposition": "ROOT_CAUSE_S0"
+      },
+      {
+        "kind": "always_pass_gate",
+        "severity": "S0",
+        "disposition": "ROOT_CAUSE_S0"
+      },
+      {
+        "kind": "always_pass_gate",
+        "severity": "S0",
+        "disposition": "ROOT_CAUSE_S0"
+      }
+    ]
+  },
+  "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+  "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+  "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+  "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+  "ROOT_CAUSE_DEDUPLICATION": true,
+  "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true,
+  "AUDIT_FALSE_POSITIVE_CONTROLS": "PASS"
+}

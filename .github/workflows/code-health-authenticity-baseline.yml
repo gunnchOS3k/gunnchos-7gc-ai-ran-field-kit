@@ -79,7 +79,29 @@ jobs:
               raise SystemExit("Audit integrity controls failed")
           if token == "BLOCKED_INCOMPLETE_AUDIT":
               raise SystemExit("Incomplete audit")
+          flags = d.get("calibration_flags") or {}
+          required_flags = [
+              "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1",
+              "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1",
+              "S0_REQUIRES_CAPABILITY_CLOSURE_PATH",
+              "ASSERT_TRUE_TOKEN_ALONE_NOT_S0",
+              "PASS_TODO_TOKEN_ALONE_NOT_S1",
+              "ROOT_CAUSE_DEDUPLICATION",
+              "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE",
+          ]
+          for k in required_flags:
+              assert flags.get(k) is True, (k, flags.get(k))
+          assert d.get("S0_REGEX_ONLY_COUNT", 0) == 0
+          assert d.get("S0_SEMANTIC_REVIEW_COMPLETE") is True
+          for name in (
+              "RAW_PATTERN_OBSERVATIONS.json",
+              "S0_SEMANTIC_REVIEW.json",
+              "S1_CALIBRATION_REVIEW.json",
+              "AUDIT_FALSE_POSITIVE_CONTROLS.json",
+          ):
+              assert (Path("program/code_health_authenticity_baseline_v1") / name).exists(), name
           print("CI_ACCEPTS_TOKEN", token)
+          print("CALIBRATION_FLAGS_OK")
           print("NOTE: S0/S1 findings do not fail this workflow")
           PY
 

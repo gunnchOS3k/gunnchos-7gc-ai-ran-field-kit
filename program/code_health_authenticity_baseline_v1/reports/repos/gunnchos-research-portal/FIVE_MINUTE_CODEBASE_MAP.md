@@ -16,12 +16,12 @@ Accepted main: `afb2bab2b415`
 ## Authenticity snapshot
 - Proof independence: `NOT_APPLICABLE_NO_PRODUCTION_CODE`
 - Runtime authenticity: `NOT_APPLICABLE`
-- Theater: S0=0 S1=5 total=8
+- Theater: S0=0 S1=0 total=3
 - Hotspots: 11; wave-dup paths: 0; orphans≈0
 
 ## Dimension ratings
 - `production_proof_separation`: **NEEDS_WORK**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **NOT_APPLICABLE**
@@ -38,5 +38,5 @@ Accepted main: `afb2bab2b415`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `scripts/validate_supervisor_ready.py:160`
+- Top theater hit: `S2` `broad_except_pass` at `scripts/supervisor_snapshot.py:140`
 - Hottest function: `scripts/run_vp012_portal_first.py::main` complexity=46

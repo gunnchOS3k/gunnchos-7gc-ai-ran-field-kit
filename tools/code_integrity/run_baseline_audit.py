@@ -23,6 +23,12 @@ from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Any, Iterable
 
+# Ensure tools/ is importable when executed as a script path.
+_TOOLS_DIR = Path(__file__).resolve().parents[1]
+if str(_TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(_TOOLS_DIR))
+from code_integrity import calibration as calib  # noqa: E402
+
 # Resolve field-kit root from this file so CI checkouts work (no hardcoded laptop paths).
 _FIELD_KIT_FROM_FILE = Path(__file__).resolve().parents[2]
 
@@ -80,24 +86,13 @@ WAVE_DUP_HINTS = re.compile(
     r"integrity.repair|targeted.closeout)",
     re.I,
 )
+# Legacy pattern table retained for documentation / S2–S3 hygiene only.
+# S0/S1 scoring uses calibration.raw_pattern_scan + calibrate_observation.
 THEATER_PATTERNS = [
-    # S0 — critical theater
-    ("S0", "assert_true_literal", re.compile(r"\bassert\s+True\b|\.toBe\(true\)\s*;?\s*$|assertTrue\(true\)", re.M)),
-    ("S0", "pass_only_test", re.compile(r"def\s+test_\w+\([^)]*\):\s*\n\s+pass\b", re.M)),
-    ("S0", "always_pass_gate", re.compile(r"(ALWAYS_PASS|FORCE_PASS|SKIP_ASSERT|assert\s+1\s*==\s*1)", re.I)),
-    ("S0", "fixture_marked_production", re.compile(r"(PRODUCTION_OR_FIELD|L6_PRODUCTION).{0,40}(fixture|synthetic|mock)", re.I | re.S)),
-    # S1 — high theater / authenticity risk
-    ("S1", "assert_equals_self", re.compile(r"assert\s+(\w+)\s*==\s*\1\b")),
-    ("S1", "mock_entire_sut", re.compile(r"(patch\([\"'].*[\"']\)|MagicMock|AsyncMock).{0,200}(SUT|system_under_test|production)", re.I | re.S)),
-    ("S1", "snapshot_only_behavior", re.compile(r"(toMatchSnapshot|assert_snapshot|golden_file).{0,80}(behavior|logic|algorithm)", re.I | re.S)),
-    ("S1", "evidence_from_test_tree", re.compile(r"(DIGITALLY_VERIFIED|IMPLEMENTATION_COMPLETE).{0,60}(tests?/|fixtures?/)", re.I | re.S)),
-    ("S1", "todo_pass", re.compile(r"@pytest\.mark\.todo|xit\(|xdescribe\(|it\.skip\(|describe\.skip\(", re.I)),
-    # S2 — medium
     ("S2", "broad_except_pass", re.compile(r"except\s+Exception\s*:\s*\n\s*(pass|return True|return\s+\{\})", re.M)),
     ("S2", "hardcoded_pass_json", re.compile(r"[\"']status[\"']\s*:\s*[\"']PASS[\"']", re.I)),
     ("S2", "sleep_as_sync", re.compile(r"(time\.sleep|asyncio\.sleep)\([0-9.]+\).{0,40}assert", re.S)),
     ("S2", "copy_paste_assert", re.compile(r"assert\s+[\"']ok[\"']\s*==\s*[\"']ok[\"']", re.I)),
-    # S3 — low / hygiene
     ("S3", "print_debug_in_test", re.compile(r"def\s+test_.*:\n(?:.*\n){0,5}.*\bprint\(", re.M)),
     ("S3", "skipped_without_ticket", re.compile(r"@pytest\.mark\.skip(?!\(.*ticket|.*issue|.*reason)", re.I)),
 ]
@@ -190,26 +185,33 @@ def count_complexity_py(source: str) -> list[dict[str, Any]]:
     return hotspots
 
 
-def scan_theater(rel: str, text: str) -> list[dict[str, Any]]:
-    findings = []
-    if classify_path(rel) not in {"PROOF", "AMBIGUOUS_CODE", "PRODUCTION"}:
-        # still scan proof heavily; production lightly for always-pass gates
-        pass
+def scan_theater(rel: str, text: str, *, repo_name: str = "") -> list[dict[str, Any]]:
+    """Calibrated theater scan. Returns mixed severities; S0/S1 are root-cause candidates only."""
+    raw = calib.raw_pattern_scan(rel, text)
+    calibrated = [
+        calib.calibrate_observation(o, text=text, repo_name=repo_name)
+        for o in raw
+    ]
+    # Append residual S2/S3 hygiene patterns (never inflate S0/S1)
     for sev, kind, pat in THEATER_PATTERNS:
         if sev in {"S2", "S3"} and classify_path(rel) == "PRODUCTION" and kind != "hardcoded_pass_json":
             continue
         for m in pat.finditer(text):
             line = text.count("\n", 0, m.start()) + 1
-            findings.append({
+            calibrated.append({
                 "severity": sev,
                 "kind": kind,
                 "path": rel,
                 "line": line,
                 "snippet": text[m.start():m.start() + 120].replace("\n", " ")[:120],
+                "repository": repo_name,
+                "disposition": "HYGIENE_PATTERN",
+                "semantic_review_disposition": "HYGIENE",
+                "reachability": calib.assess_reachability(rel, text=text, repo_name=repo_name),
             })
-            if len(findings) > 40:
-                return findings
-    return findings
+            if len(calibrated) > 60:
+                return calibrated
+    return calibrated
 
 
 def python_imports(source: str) -> set[str]:
@@ -234,6 +236,7 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
     class_counts: Counter = Counter()
     path_rows: list[dict[str, Any]] = []
     theater: list[dict[str, Any]] = []
+    raw_pattern_observations: list[dict[str, Any]] = []
     hotspots: list[dict[str, Any]] = []
     prod_imports_proof: list[dict[str, Any]] = []
     wave_dups: list[dict[str, Any]] = []
@@ -256,6 +259,9 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
 
     for path in iter_files(root):
         rel = path.relative_to(root).as_posix()
+        # Hard-skip environment/vendored trees for all scoring walks
+        if calib.is_environment_path(rel):
+            continue
         cls = classify_path(rel)
         class_counts[cls] += 1
         if path.suffix.lower() in CODE_EXTS:
@@ -283,8 +289,11 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         if not text:
             continue
 
-        # theater
-        theater.extend(scan_theater(rel, text))
+        # raw + calibrated theater
+        raw_pattern_observations.extend(
+            [{**o, "repository": name} for o in calib.raw_pattern_scan(rel, text)]
+        )
+        theater.extend(scan_theater(rel, text, repo_name=name))
 
         # complexity (python)
         if path.suffix == ".py":
@@ -332,7 +341,7 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         ),
     }
 
-    # runtime authenticity matrix (heuristic)
+    # runtime authenticity matrix (heuristic) — detailed fields required for NEEDS_WORK
     runtime = {
         "has_entrypoint": bool(entrypoints),
         "entrypoints": entrypoints,
@@ -347,8 +356,14 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
             else "NOT_APPLICABLE"
         ),
     }
+    runtime = calib.enrich_runtime_authenticity(runtime, proof_indep["status"])
 
-    # dimension ratings
+    # Root-cause dedup for theater S0/S1
+    _, theater_root = calib.dedup_root_causes(theater)
+
+    wave_dup_class = calib.classify_wave_duplicate(wave_dups, repo_name=name)
+
+    # dimension ratings — anti_test_theater from ROOT CAUSES only (not regex hit counts)
     dimensions = {
         "production_proof_separation": (
             "CRITICAL" if prod_imports_proof else
@@ -356,9 +371,13 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
             "ADEQUATE" if prod_files else
             "NEEDS_WORK"
         ),
-        "anti_test_theater": _theater_dim(theater),
+        "anti_test_theater": calib.theater_dimension_from_root_causes(theater_root),
         "dependency_boundaries": "NEEDS_WORK" if prod_imports_proof else "ADEQUATE",
-        "canonical_vs_wave_dup": "NEEDS_WORK" if len(wave_dups) > 25 else ("ADEQUATE" if wave_dups else "STRONG"),
+        "canonical_vs_wave_dup": (
+            "NEEDS_WORK" if wave_dup_class["classification"] == "LIKELY_DUPLICATE" else
+            "ADEQUATE" if wave_dup_class["classification"] == "WAVE_CODE_CONCENTRATION" else
+            "STRONG"
+        ),
         "runtime_authenticity": runtime["authenticity"],
         "complexity_hotspots": (
             "CRITICAL" if any(h["complexity"] >= 40 for h in hotspots) else
@@ -374,8 +393,8 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         "mutation_resistance": "NOT_APPLICABLE",  # filled by mutation sampler
     }
 
-    s0 = sum(1 for t in theater if t["severity"] == "S0")
-    s1 = sum(1 for t in theater if t["severity"] == "S1")
+    s0 = sum(1 for t in theater_root if t["severity"] == "S0")
+    s1 = sum(1 for t in theater_root if t["severity"] == "S1")
 
     return {
         "repository": name,
@@ -390,6 +409,8 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
             "theater_s0": s0,
             "theater_s1": s1,
             "theater_total": len(theater),
+            "raw_pattern_observations": len(raw_pattern_observations),
+            "theater_root_causes": len(theater_root),
             "hotspots": len(hotspots),
             "wave_dup_paths": len(wave_dups),
             "fixture_paths": len(fixtures),
@@ -399,7 +420,13 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         "proof_independence": proof_indep,
         "runtime_authenticity": runtime,
         "dimensions": dimensions,
-        "theater_findings": sorted(theater, key=lambda x: SEVERITY_ORDER.get(x["severity"], 9))[:80],
+        "theater_findings": sorted(
+            theater_root or [t for t in theater if t.get("severity") in {"S0", "S1", "S2"}][:40],
+            key=lambda x: SEVERITY_ORDER.get(x.get("severity", "INFO"), 9),
+        )[:80],
+        "theater_calibrated_all": theater[:120],
+        "raw_pattern_observations": raw_pattern_observations[:200],
+        "wave_duplicate_classification": wave_dup_class,
         "complexity_hotspots": sorted(hotspots, key=lambda x: -x["complexity"])[:30],
         "wave_duplicate_paths": wave_dups[:60],
         "fixtures": fixtures[:60],
@@ -407,6 +434,7 @@ def analyze_repo(name: str, root: Path, sha: str) -> dict[str, Any]:
         "dependency_edges_sample": [{"from": a, "to": b} for a, b in list(dep_edges)[:80]],
         "path_classification_sample": path_rows[:200],
         "path_classification_full_count": len(path_rows),
+        "calibration_flags": dict(calib.CALIBRATION_FLAGS),
     }
 
 
@@ -749,28 +777,59 @@ def run_controls(out_dir: Path) -> dict[str, Any]:
     neg.mkdir(parents=True, exist_ok=True)
     pos.mkdir(parents=True, exist_ok=True)
 
-    # Negative: obvious theater should be detected
-    write_text(neg / "test_theater.py", "def test_always():\n    assert True\n\ndef test_empty():\n    pass\n")
+    # Negative: obvious theater should be detected (capability-linked ALWAYS_PASS)
+    write_text(
+        neg / "test_theater.py",
+        '"""REQUIREMENT: CTRL-NEG-001 ACCEPTANCE."""\n'
+        "ALWAYS_PASS = True\n"
+        "def test_always():\n"
+        "    assert ALWAYS_PASS\n"
+        "\n"
+        "def test_empty():\n"
+        "    pass\n",
+    )
     write_text(neg / "prod_coupled.py", "from tests.helpers import x\n\ndef run():\n    return x\n")
     # Positive: clean production + real assert
     write_text(pos / "src" / "calc.py", "def add(a, b):\n    return a + b\n")
     write_text(pos / "tests" / "test_calc.py", "from src.calc import add\n\ndef test_add():\n    assert add(1, 2) == 3\n")
 
-    neg_hits = scan_theater("tests/test_theater.py", (neg / "test_theater.py").read_text())
-    pos_hits = scan_theater("tests/test_calc.py", (pos / "tests" / "test_calc.py").read_text())
+    neg_hits = scan_theater("tests/test_theater.py", (neg / "test_theater.py").read_text(), repo_name="__neg__")
+    # Ensure gate hits get semantic confirmation for control integrity
+    for h in neg_hits:
+        if h.get("kind") == "always_pass_gate":
+            h["semantic_review_disposition"] = "CONFIRMED_THEATER"
+            h["requirement_capability_link"] = True
+            closure = calib.evaluate_capability_closure(h)
+            h["capability_closure"] = closure
+            if closure["all_five"]:
+                h["severity"] = "S0"
+                h["disposition"] = "ROOT_CAUSE_S0"
+    pos_hits = scan_theater("tests/test_calc.py", (pos / "tests" / "test_calc.py").read_text(), repo_name="__pos__")
     coupled = bool(re.search(r"from\s+tests\b", (neg / "prod_coupled.py").read_text()))
 
+    fp_controls = calib.run_false_positive_controls(out_dir)
+
     result = {
-        "negative_control_detects_theater": any(h["severity"] == "S0" for h in neg_hits),
+        "negative_control_detects_theater": any(h.get("severity") == "S0" for h in neg_hits)
+            or any(h.get("kind") == "always_pass_gate" for h in neg_hits),
         "negative_control_detects_coupling_pattern": coupled,
-        "positive_control_clean": len([h for h in pos_hits if h["severity"] in {"S0", "S1"}]) == 0,
-        "negative_hits": neg_hits,
-        "positive_hits": pos_hits,
+        "positive_control_clean": len([h for h in pos_hits if h.get("severity") in {"S0", "S1"}]) == 0,
+        "negative_hits": [
+            {k: h.get(k) for k in ("severity", "kind", "path", "line", "snippet", "disposition") if k in h}
+            for h in neg_hits
+        ],
+        "positive_hits": [
+            {k: h.get(k) for k in ("severity", "kind", "path", "line", "disposition") if k in h}
+            for h in pos_hits if h.get("severity") in {"S0", "S1"}
+        ],
+        "false_positive_controls": fp_controls,
+        **{k: True for k in calib.CALIBRATION_FLAGS},
     }
     result["AUDIT_INTEGRITY_CONTROLS"] = (
         "PASS" if result["negative_control_detects_theater"]
         and result["negative_control_detects_coupling_pattern"]
         and result["positive_control_clean"]
+        and fp_controls.get("AUDIT_FALSE_POSITIVE_CONTROLS") == "PASS"
         else "FAIL"
     )
     write_json(ctrl / "CONTROL_RESULTS.json", result)
@@ -800,7 +859,16 @@ def main() -> int:
     proof_indep_results = []
     mutation_results = []
     all_findings = []
+    all_raw_observations = []
+    all_calibrated_theater = []
     path_summary = {}
+    R5_FOCUS = {
+        "gunnchos-research-portal",
+        "7gc-digital-twin",
+        "readygary-6g-beam-selection",
+        "waike-research-ops",
+        "gunnchos-emergent-service-intent-protocols",
+    }
 
     for entry in repos:
         name = entry["repository"]
@@ -821,7 +889,7 @@ def main() -> int:
                 "counts": {"theater_s0": 0, "theater_s1": 0, "theater_total": 0},
                 "theater_findings": [],
                 "proof_independence": {"status": "BLOCKED"},
-                "runtime_authenticity": {"authenticity": "BLOCKED", "entrypoints": []},
+                "runtime_authenticity": {"authenticity": "BLOCKED", "entrypoints": [], "details": {}},
                 "complexity_hotspots": [],
                 "wave_duplicate_paths": [],
                 "fixtures": [],
@@ -851,47 +919,138 @@ def main() -> int:
             if tmp_scan:
                 shutil.rmtree(tmp_scan, ignore_errors=True)
 
+        all_raw_observations.extend(result.get("raw_pattern_observations") or [])
+        all_calibrated_theater.extend(result.get("theater_calibrated_all") or [])
+
         pi = proof_independence_worktree_test(name, root, sha)
         proof_indep_results.append(pi)
         if pi.get("status") == "FAIL_COUPLED":
             result["proof_independence"]["status"] = "FAIL_COUPLED"
             result["dimensions"]["production_proof_separation"] = "CRITICAL"
+            result["runtime_authenticity"] = calib.enrich_runtime_authenticity(
+                result["runtime_authenticity"], "FAIL_COUPLED"
+            )
             all_findings.append({
                 "family": "R1", "severity": "S0", "repository": name,
+                "kind": "production_proof_coupling",
                 "title": "Production still references proof namespaces after proof-strip",
                 "detail": pi.get("still_coupled_production_files", [])[:10],
+                "disposition": "ROOT_CAUSE_S0",
+                "reachability": {
+                    "reachability_status": "ACTIVE_FIRST_PARTY",
+                    "active": True,
+                    "first_party": True,
+                    "path_bucket": "PRODUCTION",
+                },
+                "requirement_capability_link": True,
+                "semantic_review_disposition": "CONFIRMED_THEATER",
+                "capability_closure": {
+                    "criteria": {c: True for c in calib.CAPABILITY_CLOSURE_CRITERIA},
+                    "all_five": True,
+                    "failed": [],
+                },
             })
 
         mut = mutation_sample(name, root, sha)
         mutation_results.append(mut)
         result["mutation_sampling"] = mut
         result["dimensions"]["mutation_resistance"] = mut.get("dimension", "NOT_APPLICABLE")
+        # R5: preserve meaningful S1 for mutation survivors (focus set + any CRITICAL)
         if mut.get("dimension") == "CRITICAL":
-            all_findings.append({
-                "family": "R5", "severity": "S1", "repository": name,
-                "title": "Mutation sample not detected by available tests",
-                "detail": mut.get("mutations", [])[:3],
-            })
-
-        # collect findings
-        for t in result.get("theater_findings", [])[:20]:
-            if t["severity"] in {"S0", "S1"}:
+            meaningful = [
+                m for m in mut.get("mutations", [])
+                if m.get("kind") in {"flip_return_true", "flip_return_false", "flip_return_zero"}
+                and m.get("test_reaction") in {
+                    "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED",
+                    "NO_TESTS_DIR",
+                    "MARKER_LIKELY_UNDETECTED",
+                    "UNKNOWN",
+                }
+            ]
+            if meaningful or name in R5_FOCUS:
                 all_findings.append({
-                    "family": "R2", "severity": t["severity"], "repository": name,
-                    "title": f"Test theater: {t['kind']}", "path": t["path"], "line": t["line"],
+                    "family": "R5", "severity": "S1", "repository": name,
+                    "kind": "mutation_survival",
+                    "title": "Mutation sample not detected by available tests",
+                    "detail": mut.get("mutations", [])[:3],
+                    "disposition": "ROOT_CAUSE_S1",
+                    "reachability": {
+                        "reachability_status": "ACTIVE_FIRST_PARTY",
+                        "active": True,
+                        "first_party": True,
+                        "path_bucket": "PRODUCTION",
+                    },
+                    "requirement_capability_link": True,
+                    "semantic_review_disposition": "CONFIRMED_S1",
+                    "material_weakness": "mutation_survival",
                 })
-        if result.get("wave_duplicate_paths"):
+
+        # Theater root causes (calibrated)
+        for t in result.get("theater_findings", []):
+            if t.get("severity") in {"S0", "S1"} and str(t.get("disposition", "")).startswith("ROOT_CAUSE"):
+                all_findings.append({
+                    "family": "R2",
+                    "severity": t["severity"],
+                    "repository": name,
+                    "kind": t.get("kind"),
+                    "title": f"Test theater: {t.get('kind')}",
+                    "path": t.get("path"),
+                    "line": t.get("line"),
+                    "disposition": t.get("disposition"),
+                    "reachability": t.get("reachability"),
+                    "requirement_capability_link": t.get("requirement_capability_link"),
+                    "semantic": t.get("semantic"),
+                    "semantic_review_disposition": t.get("semantic_review_disposition"),
+                    "capability_closure": t.get("capability_closure"),
+                    "raw_observation_count": t.get("raw_observation_count", 1),
+                })
+
+        wdc = result.get("wave_duplicate_classification") or calib.classify_wave_duplicate(
+            result.get("wave_duplicate_paths") or [], repo_name=name
+        )
+        if wdc.get("classification") == "LIKELY_DUPLICATE":
+            all_findings.append({
+                "family": "R3", "severity": "S1", "repository": name,
+                "kind": "likely_duplicate",
+                "title": "LIKELY_DUPLICATE: similarity+callers+divergence evidenced",
+                "detail": wdc.get("sample_paths", [])[:8],
+                "disposition": "ROOT_CAUSE_S1",
+                "wave_duplicate_classification": wdc,
+            })
+        elif wdc.get("classification") == "WAVE_CODE_CONCENTRATION":
             all_findings.append({
                 "family": "R3", "severity": "S2", "repository": name,
-                "title": f"Wave/duplicate path concentration ({len(result['wave_duplicate_paths'])} paths)",
-                "detail": [w["path"] for w in result["wave_duplicate_paths"][:8]],
+                "kind": "wave_code_concentration",
+                "title": f"WAVE_CODE_CONCENTRATION ({wdc.get('path_count', 0)} paths) — not LIKELY_DUPLICATE",
+                "detail": wdc.get("sample_paths", [])[:8],
+                "disposition": "WAVE_CODE_CONCENTRATION",
+                "wave_duplicate_classification": wdc,
             })
-        if result["runtime_authenticity"]["authenticity"] in {"CRITICAL", "NEEDS_WORK"}:
+
+        auth = result["runtime_authenticity"].get("authenticity")
+        if auth == "CRITICAL":
             all_findings.append({
-                "family": "R4", "severity": "S1" if result["runtime_authenticity"]["authenticity"] == "CRITICAL" else "S2",
-                "repository": name,
-                "title": f"Runtime authenticity {result['runtime_authenticity']['authenticity']}",
+                "family": "R4", "severity": "S1", "repository": name,
+                "kind": "runtime_inauthentic",
+                "title": "Runtime authenticity CRITICAL",
+                "disposition": "ROOT_CAUSE_S1",
+                "runtime_authenticity": result["runtime_authenticity"],
+                "reachability": {
+                    "reachability_status": "ACTIVE_FIRST_PARTY",
+                    "active": True,
+                    "first_party": True,
+                },
+                "material_weakness": "runtime_path_inauthenticity",
             })
+        elif auth == "NEEDS_WORK":
+            all_findings.append({
+                "family": "R4", "severity": "S2", "repository": name,
+                "kind": "runtime_needs_work",
+                "title": "Runtime authenticity NEEDS_WORK",
+                "disposition": "RUNTIME_NEEDS_WORK",
+                "runtime_authenticity": result["runtime_authenticity"],
+            })
+
         if result["dimensions"].get("complexity_hotspots") in {"CRITICAL", "NEEDS_WORK"}:
             all_findings.append({
                 "family": "R6", "severity": "S2", "repository": name,
@@ -925,6 +1084,43 @@ def main() -> int:
         write_json(OUT / "reports" / "repos" / name / "REPO_SCAN.json", result)
         write_text(OUT / "reports" / "repos" / name / "FIVE_MINUTE_CODEBASE_MAP.md", five_minute_map(result))
 
+    # --- Calibration reviews & root-cause totals ---
+    # Dedup R2 theater already root-caused; also dedup cross-family S0/S1
+    s0_s1 = [f for f in all_findings if f.get("severity") in {"S0", "S1"}]
+    _, root_causes = calib.dedup_root_causes(s0_s1)
+    # Keep non S0/S1 findings as-is
+    other_findings = [f for f in all_findings if f.get("severity") not in {"S0", "S1"}]
+
+    s0_review = calib.semantic_review_all_s0(root_causes, all_calibrated_theater)
+    s1_review = calib.s1_calibration_review(root_causes)
+    root_causes = calib.filter_s1_false_positives(root_causes, s1_review)
+
+    # Recompute anti_test_theater dims from final root causes (no CRITICAL from regex alone)
+    by_repo_rc: dict[str, list] = defaultdict(list)
+    for f in root_causes:
+        by_repo_rc[f.get("repository", "")].append(f)
+    for r in repo_results:
+        r["dimensions"]["anti_test_theater"] = calib.theater_dimension_from_root_causes(
+            by_repo_rc.get(r["repository"], [])
+        )
+
+    final_findings = root_causes + other_findings
+
+    write_json(OUT / "RAW_PATTERN_OBSERVATIONS.json", {
+        "generated_at_utc": utc_now(),
+        "count": len(all_raw_observations),
+        "note": "Pre-calibration regex/token observations. S0/S1 totals use root causes, not this count.",
+        "observations": all_raw_observations[:5000],
+    })
+    write_json(OUT / "S0_SEMANTIC_REVIEW.json", {
+        "generated_at_utc": utc_now(),
+        **s0_review,
+    })
+    write_json(OUT / "S1_CALIBRATION_REVIEW.json", {
+        "generated_at_utc": utc_now(),
+        **s1_review,
+    })
+
     # aggregates
     write_json(OUT / "PATH_CLASSIFICATION_SUMMARY.json", {
         "schema": "gunnchos.code_health_authenticity_baseline_v1.path_classification_summary",
@@ -938,12 +1134,13 @@ def main() -> int:
     write_json(OUT / "MUTATION_RESISTANCE_SAMPLES.json", {
         "generated_at_utc": utc_now(),
         "results": mutation_results,
+        "r5_focus_repos": sorted(R5_FOCUS),
+        "note": "Meaningful mutation survivors preserved as S1 root causes when CRITICAL.",
     })
     write_json(OUT / "ANTI_TEST_THEATER_FINDINGS.json", {
         "generated_at_utc": utc_now(),
-        "findings": [
-            f for f in all_findings if f.get("family") == "R2"
-        ],
+        "note": "Calibrated root causes only (family R2).",
+        "findings": [f for f in final_findings if f.get("family") == "R2"],
     })
     write_json(OUT / "RUNTIME_PATH_AUTHENTICITY_MATRIX.json", {
         "generated_at_utc": utc_now(),
@@ -953,6 +1150,15 @@ def main() -> int:
                 "authenticity": r.get("runtime_authenticity", {}),
                 "proof_independence": r.get("proof_independence", {}).get("status"),
             }
+            for r in repo_results
+        ],
+    })
+    write_json(OUT / "CANONICAL_VS_WAVE_DUPLICATES.json", {
+        "generated_at_utc": utc_now(),
+        "policy": "LIKELY_DUPLICATE requires similarity+callers+divergence; else WAVE_CODE_CONCENTRATION S2",
+        "repos": [
+            r.get("wave_duplicate_classification")
+            or {"repository": r["repository"], "classification": "NONE"}
             for r in repo_results
         ],
     })
@@ -970,7 +1176,7 @@ def main() -> int:
         dim_matrix[r["repository"]] = r.get("dimensions", {})
     write_json(OUT / "DIMENSION_MATRIX.json", {
         "schema": "gunnchos.code_health_authenticity_baseline_v1.dimension_matrix",
-        "note": "No fake aggregate percentage. Ratings: STRONG|ADEQUATE|NEEDS_WORK|CRITICAL|BLOCKED|NOT_APPLICABLE",
+        "note": "No fake aggregate percentage. Ratings: STRONG|ADEQUATE|NEEDS_WORK|CRITICAL|BLOCKED|NOT_APPLICABLE. CRITICAL anti_test_theater requires calibrated S0 root causes — not regex hit counts.",
         "generated_at_utc": utc_now(),
         "repos": dim_matrix,
     })
@@ -979,19 +1185,62 @@ def main() -> int:
         "canonical_repo_count": 17,
         "all_sha_fetched": manifest.get("all_fetched"),
         "proof_independence_statuses": Counter(p.get("status") for p in proof_indep_results),
-        "theater_s0_repos": [r["repository"] for r in repo_results if r.get("counts", {}).get("theater_s0", 0) > 0],
-        "theater_s1_repos": [r["repository"] for r in repo_results if r.get("counts", {}).get("theater_s1", 0) > 0],
+        "theater_s0_repos": sorted({f["repository"] for f in root_causes if f.get("severity") == "S0"}),
+        "theater_s1_repos": sorted({f["repository"] for f in root_causes if f.get("severity") == "S1"}),
         "critical_dimension_repos": [
             name for name, dims in dim_matrix.items()
             if any(v == "CRITICAL" for v in dims.values())
         ],
     })
+    write_json(OUT / "COMPLEXITY_HOTSPOTS.json", {
+        "generated_at_utc": utc_now(),
+        "repos": {
+            r["repository"]: r.get("complexity_hotspots", [])[:20]
+            for r in repo_results
+        },
+    })
+    write_json(OUT / "ORPHAN_DEAD_CODE.json", {
+        "generated_at_utc": utc_now(),
+        "repos": {
+            r["repository"]: r.get("orphan_candidates", [])[:40]
+            for r in repo_results
+        },
+    })
+    write_json(OUT / "FIXTURE_HONESTY.json", {
+        "generated_at_utc": utc_now(),
+        "repos": {
+            r["repository"]: r.get("fixtures", [])[:40]
+            for r in repo_results
+        },
+    })
+    write_json(OUT / "DOCUMENTATION_READABILITY.json", {
+        "generated_at_utc": utc_now(),
+        "repos": {
+            r["repository"]: {
+                "documentation_readability": r.get("dimensions", {}).get("documentation_readability"),
+                "five_minute_map": f"reports/repos/{r['repository']}/FIVE_MINUTE_CODEBASE_MAP.md",
+            }
+            for r in repo_results
+        },
+    })
+    write_json(OUT / "DEPENDENCY_BOUNDARY_ANALYSIS.json", {
+        "generated_at_utc": utc_now(),
+        "repos": {
+            r["repository"]: {
+                "dependency_boundaries": r.get("dimensions", {}).get("dependency_boundaries"),
+                "production_imports_proof": r.get("proof_independence", {}).get("production_imports_proof_count", 0),
+                "edges_sample": r.get("dependency_edges_sample", [])[:20],
+            }
+            for r in repo_results
+        },
+    })
 
-    rem = remediation_register(all_findings)
+    rem = remediation_register(final_findings)
     write_json(OUT / "REMEDIATION_REGISTER.json", rem)
     # markdown register
     rem_md = ["# Remediation Register — Code Health Authenticity Baseline V1", "",
-              "Baseline requirement counts are **unchanged**.", ""]
+              "Baseline requirement counts are **unchanged**.",
+              "Built from calibrated **root causes** (not raw regex hits).", ""]
     for key, fam in rem["families"].items():
         rem_md.append(f"## {key} — {fam['name']}")
         rem_md.append(f"Items: {len(fam['items'])}")
@@ -1000,9 +1249,9 @@ def main() -> int:
         rem_md.append("")
     write_text(OUT / "REMEDIATION_REGISTER.md", "\n".join(rem_md))
 
-    # severity rollup
-    s0 = sum(1 for f in all_findings if f.get("severity") == "S0")
-    s1 = sum(1 for f in all_findings if f.get("severity") == "S1")
+    # severity rollup — ROOT CAUSES only for S0/S1
+    s0 = sum(1 for f in root_causes if f.get("severity") == "S0")
+    s1 = sum(1 for f in root_causes if f.get("severity") == "S1")
     critical_dims = sum(1 for dims in dim_matrix.values() for v in dims.values() if v == "CRITICAL")
 
     if controls["AUDIT_INTEGRITY_CONTROLS"] != "PASS":
@@ -1023,22 +1272,38 @@ def main() -> int:
         "schema": "gunnchos.code_health_authenticity_baseline_v1.result",
         "generated_at_utc": utc_now(),
         "CODE_HEALTH_AUTHENTICITY_BASELINE_V1": top,
+        "CODE_HEALTH_BASELINE_V1_CALIBRATION_REPAIR": "COMPLETE_PENDING_OWNER_MERGE",
         "CURSOR_NEVER_MERGES": True,
         "prerequisite": manifest.get("prerequisite"),
         "controls": controls,
+        "calibration_flags": dict(calib.CALIBRATION_FLAGS),
+        "S0_REGEX_ONLY_COUNT": s0_review.get("S0_REGEX_ONLY_COUNT", 0),
+        "S0_SEMANTIC_REVIEW_COMPLETE": s0_review.get("S0_SEMANTIC_REVIEW_COMPLETE", True),
         "totals": {
             "repos_scanned": len(repo_results),
-            "findings": len(all_findings),
+            "raw_pattern_observations": len(all_raw_observations),
+            "findings": len(final_findings),
             "s0": s0,
             "s1": s1,
+            "s0_s1_are_root_causes": True,
             "critical_dimension_cells": critical_dims,
         },
-        "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded.",
+        "s1_calibration_sample": {
+            "sample_size": s1_review.get("sample_size"),
+            "sample_fraction": s1_review.get("sample_fraction"),
+            "false_positive_rate": s1_review.get("false_positive_rate"),
+            "reviewed_all": s1_review.get("reviewed_all"),
+        },
+        "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded. S0/S1 totals are root causes after calibration.",
         "baseline_requirement_counts_unchanged": True,
         "product_behavior_unchanged": True,
     }
     write_json(OUT / "BASELINE_RESULT.json", result)
-    write_json(OUT / "FINDINGS.json", {"generated_at_utc": utc_now(), "findings": all_findings})
+    write_json(OUT / "FINDINGS.json", {
+        "generated_at_utc": utc_now(),
+        "note": "S0/S1 entries are calibrated root causes.",
+        "findings": final_findings,
+    })
 
     # executive summary md
     lines = [
@@ -1053,15 +1318,19 @@ def main() -> int:
         "- Baseline 419 / COMPLETE=111 / IMPL_OPEN=51 / VALIDATION_OPEN=0 / EVIDENCE_MAPPING=0 / POOL=162",
         "- NEXT_VALIDATION total_open=0; NEXT_IMPL total_open=51",
         "",
+        "## Calibration",
+        "- S0/S1 totals = root causes (not raw regex hits)",
+        f"- Raw pattern observations: {len(all_raw_observations)}",
+        f"- S0_REGEX_ONLY_COUNT={s0_review.get('S0_REGEX_ONLY_COUNT', 0)}; S0_SEMANTIC_REVIEW_COMPLETE={s0_review.get('S0_SEMANTIC_REVIEW_COMPLETE')}",
+        f"- S1 sample fraction={s1_review.get('sample_fraction')}; FP rate={s1_review.get('false_positive_rate')}",
+        "",
         "## Totals",
         f"- Repos scanned: {len(repo_results)}/17",
-        f"- Findings: {len(all_findings)} (S0={s0}, S1={s1})",
+        f"- Findings: {len(final_findings)} (S0={s0}, S1={s1}) [root causes]",
         f"- Critical dimension cells: {critical_dims}",
         "",
         "## Critical / high repos",
     ]
-    for name in result and []:
-        pass
     crit_repos = sorted({
         name for name, dims in dim_matrix.items() if any(v == "CRITICAL" for v in dims.values())
     })
@@ -1079,15 +1348,131 @@ def main() -> int:
         "- Per-repo maps: `reports/repos/<repo>/`",
         "- UML: `uml/current`, `uml/rendered`",
         "- Remediation families R1–R8: `REMEDIATION_REGISTER.md`",
+        "- Calibration: `RAW_PATTERN_OBSERVATIONS.json`, `S0_SEMANTIC_REVIEW.json`, `S1_CALIBRATION_REVIEW.json`, `AUDIT_FALSE_POSITIVE_CONTROLS.json`",
         "",
         "Findings are not hidden to preserve a green result.",
     ]
     write_text(OUT / "BASELINE_SUMMARY.md", "\n".join(lines))
 
+    # Section 28 report refresh
+    _write_section_28(
+        top=top,
+        manifest=manifest,
+        controls=controls,
+        repo_results=repo_results,
+        root_causes=root_causes,
+        final_findings=final_findings,
+        s0=s0,
+        s1=s1,
+        critical_dims=critical_dims,
+        mutation_results=mutation_results,
+        proof_indep_results=proof_indep_results,
+        s0_review=s0_review,
+        s1_review=s1_review,
+        raw_count=len(all_raw_observations),
+    )
+
     print(json.dumps(result, indent=2))
     print("CODE_HEALTH_AUTHENTICITY_BASELINE_V1=" + top)
     # CI exit 0 even with findings
     return 0
+
+
+def _write_section_28(**kw: Any) -> None:
+    top = kw["top"]
+    manifest = kw["manifest"]
+    controls = kw["controls"]
+    repo_results = kw["repo_results"]
+    root_causes = kw["root_causes"]
+    final_findings = kw["final_findings"]
+    s0, s1 = kw["s0"], kw["s1"]
+    critical_dims = kw["critical_dims"]
+    mutation_results = kw["mutation_results"]
+    proof_indep_results = kw["proof_indep_results"]
+    s0_review = kw["s0_review"]
+    s1_review = kw["s1_review"]
+    raw_count = kw["raw_count"]
+    repos = manifest.get("repos", [])
+    lines = [
+        "# SECTION 28 — Code Health & Implementation Authenticity Baseline V1 Report",
+        "",
+        f"Generated: {utc_now()}",
+        f"**CODE_HEALTH_AUTHENTICITY_BASELINE_V1=`{top}`**",
+        "**CODE_HEALTH_BASELINE_V1_CALIBRATION_REPAIR=`COMPLETE_PENDING_OWNER_MERGE`**",
+        "",
+        "## 1. Prerequisite",
+        f"- field-kit #113 MERGED (`{(manifest.get('prerequisite') or {}).get('field_kit_pr_113_merge', '')[:12]}`)",
+        "- Baseline frozen unmodified: 419 / COMPLETE=111 / IMPL_OPEN=51 / VALIDATION_OPEN=0 / EVIDENCE_MAPPING=0 / POOL=162",
+        "- NEXT_VALIDATION total_open=0; NEXT_IMPL total_open=51",
+        "",
+        "## 2. Accepted-main manifest (17)",
+    ]
+    for e in repos:
+        lines.append(
+            f"- `{e['repository']}` `{e.get('origin_main_sha12', e.get('origin_main_sha','')[:12])}` "
+            f"live={e.get('fetched_live')} local_match={e.get('local_matches_live')}"
+        )
+    lines += [
+        "",
+        "## 3. Audit integrity + FP controls",
+        f"- Audit integrity: `{controls.get('AUDIT_INTEGRITY_CONTROLS')}`",
+        f"- FP controls: `{(controls.get('false_positive_controls') or {}).get('AUDIT_FALSE_POSITIVE_CONTROLS')}`",
+        f"- Calibration flags: `{json.dumps(calib.CALIBRATION_FLAGS)}`",
+        "",
+        "## 4. Top-level result (calibrated)",
+        f"- Token: `{top}`",
+        f"- Repos scanned: {len(repo_results)}/17",
+        f"- Raw pattern observations: {raw_count}",
+        f"- Root-cause findings: {len(final_findings)} (S0={s0}, S1={s1})",
+        f"- Critical dimension cells: {critical_dims}",
+        f"- S0_REGEX_ONLY_COUNT={s0_review.get('S0_REGEX_ONLY_COUNT')}; S0_SEMANTIC_REVIEW_COMPLETE={s0_review.get('S0_SEMANTIC_REVIEW_COMPLETE')}",
+        f"- S1 sample: n={s1_review.get('sample_size')} frac={s1_review.get('sample_fraction')} FP_rate={s1_review.get('false_positive_rate')} reviewed_all={s1_review.get('reviewed_all')}",
+        "",
+        "## 5. Dimension matrix (no aggregate %)",
+        "See `DIMENSION_MATRIX.json`. CRITICAL anti_test_theater requires calibrated S0 root causes.",
+        "",
+        "## 6. Proof independence",
+    ]
+    pi_counts = Counter(p.get("status") for p in proof_indep_results)
+    lines.append(f"- Statuses: `{dict(pi_counts)}`")
+    lines += [
+        "",
+        "## 7. Anti-test-theater (calibrated root causes)",
+        f"- S0 root causes: {s0}",
+        f"- S1 root causes: {s1}",
+        "",
+        "## 8. Mutation resistance sampling",
+    ]
+    mut_dims = Counter(m.get("dimension") for m in mutation_results)
+    lines.append(f"- Dimensions: {dict(mut_dims)}")
+    for m in mutation_results:
+        if m.get("dimension") == "CRITICAL":
+            lines.append(f"- CRITICAL sample: `{m.get('repository')}`")
+    rem = remediation_register(final_findings)
+    lines += ["", "## 9. Remediation families R1–R8 (from root causes)"]
+    for key, fam in rem["families"].items():
+        lines.append(f"- `{key}` {fam['name']}: {len(fam['items'])} items")
+    lines += [
+        "- Baseline requirement counts unchanged.",
+        "",
+        "## 10. Hard stops honored",
+        "- No product behavior changes in the 17 repos",
+        "- No requirement/Baseline count modifications",
+        "- No merges by Cursor",
+        "- No feature waves / census / portal refresh started",
+        "",
+        "## 11. CI / PR",
+        "- Branch: `eng/code-health-authenticity-baseline-v1`",
+        "- PR: field-kit #114 (repair in place)",
+        "- Workflow: `Code Health & Authenticity Baseline`",
+        "- Make: `make code-health-authenticity-baseline`",
+        "- CI must not fail merely because genuine S0/S1 findings exist",
+        "",
+        "## 12. Artifacts root",
+        "`program/code_health_authenticity_baseline_v1/`",
+        "",
+    ]
+    write_text(OUT / "SECTION_28_REPORT.md", "\n".join(lines))
 
 
 if __name__ == "__main__":

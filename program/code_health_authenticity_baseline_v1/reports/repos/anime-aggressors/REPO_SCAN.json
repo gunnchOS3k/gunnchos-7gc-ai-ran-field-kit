@@ -1,7 +1,7 @@
 {
   "repository": "anime-aggressors",
   "accepted_main_sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",
-  "scanned_at_utc": "2026-08-21T17:10:20Z",
+  "scanned_at_utc": "2026-08-21T17:47:37Z",
   "counts": {
     "files_classified": 1312,
     "code_files": 769,
@@ -15,9 +15,11 @@
       "PROOF": 288,
       "CI_OR_DEPLOY": 5
     },
-    "theater_s0": 11,
-    "theater_s1": 26,
-    "theater_total": 47,
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 17,
+    "raw_pattern_observations": 7,
+    "theater_root_causes": 0,
     "hotspots": 3,
     "wave_dup_paths": 0,
     "fixture_paths": 0,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "package.json"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "CRITICAL",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -54,335 +66,706 @@
   },
   "theater_findings": [
     {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 175,
-      "snippet": ".toBe(true);        const dragonBallCharacters = game.getCharactersByAnime('Dragon Ball Z');       expect(dragonBallChar"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 179,
-      "snippet": ".toBe(true);     });      test('should filter characters by element', () => {       const windCharacters = game.getChara"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 185,
-      "snippet": ".toBe(true);        const lightningCharacters = game.getCharactersByElement(ElementalNature.LIGHTNING);       expect(lig"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 189,
-      "snippet": ".toBe(true);     });      test('should get random character', () => {       const randomChar = game.getRandomCharacter()"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 252,
-      "snippet": ".toBe(true);              const gameState = game.getGameState();       expect(gameState.isRunning).toBe(true);       exp"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 255,
-      "snippet": ".toBe(true);       expect(gameState.gameMode.name).toBe('Versus Mode');     });      test('should not start game if alre"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 313,
-      "snippet": ".toBe(true);       expect(player1?.isBlocking).toBe(false);       expect(player1?.isStunned).toBe(false);       expect(p"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 391,
-      "snippet": ".toBe(true);              const gameState = game.getGameState();       expect(gameState.isRunning).toBe(true);          "
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 394,
-      "snippet": ".toBe(true);              const players = game.getAllPlayers();       expect(players.length).toBe(2);              const"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 410,
-      "snippet": ".toBe(true);              game.stopGame();       expect(game.getGameState().isRunning).toBe(false);              // Seco"
-    },
-    {
-      "severity": "S0",
-      "kind": "assert_true_literal",
-      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
-      "line": 418,
-      "snippet": ".toBe(true);       expect(game.getGameState().gameMode.name).toBe('Tournament Mode');              game.stopGame();     "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/validate_game_rc_contracts.py",
-      "line": 95,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/blender/export_all_fighters.py",
-      "line": 55,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/blender/generate_fighter_proxy_assets.py",
-      "line": 10,
-      "snippet": "xit(0)  OUTPUT = \"game/godot/assets/fighters/glb/ember-vale-proxy.glb\"  # Minimal placeholder export for pipeline wiring"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/blender/generate_fighter_blockouts.py",
-      "line": 28,
-      "snippet": "xit(2)   ROOT = Path(__file__).resolve().parents[2] SOURCE_DIR = ROOT / \"assets\" / \"blender\" / \"fighters\" EXPORT_DIR = R"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "tools/blender/generate_fighter_blockouts.py",
-      "line": 601,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "game-godot/scripts/core/boot_scene.gd",
-      "line": 274,
-      "snippet": "xit() "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "game-godot/scripts/core/NavigationAuthority.gd",
-      "line": 46,
-      "snippet": "xit() \t\treturn \tif path.ends_with(\"MainMenuScene.tscn\"): \t\tSceneRouter.go(\"boot\") \t\treturn \tif path.ends_with(\"ModeSelec"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "game-godot/scripts/core/NavigationAuthority.gd",
-      "line": 98,
-      "snippet": "xit() -> void: \t_request_exit()   func _request_exit() -> void: \tvar now := Time.get_ticks_msec() \tif _exit_armed and no"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "game-godot/scripts/core/NavigationAuthority.gd",
-      "line": 99,
-      "snippet": "xit()   func _request_exit() -> void: \tvar now := Time.get_ticks_msec() \tif _exit_armed and now - _exit_arm_time_msec < "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "game-godot/scripts/core/NavigationAuthority.gd",
-      "line": 102,
-      "snippet": "xit() -> void: \tvar now := Time.get_ticks_msec() \tif _exit_armed and now - _exit_arm_time_msec < 2000: \t\tget_tree().quit"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/test_g2_c6_product_depth.py",
-      "line": 66,
-      "snippet": "xit(0 if result.wasSuccessful() else 1) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit();callRuntimeCallbacks(__ATEXIT__);FS.quit();TTY.shutdown();IDBFS.quit();runtimeExited=true}function postRun(){check"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(${status})`;this.status=status}var callRuntimeCallbacks=callbacks=>{while(callbacks.length>0){callbacks.shift()(Modu"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(status)};var _exit=exitJS;var handleException=e=>{if(e instanceof ExitStatus||e==\"unwind\"){return EXITSTATUS}checkSt"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(EXITSTATUS)}catch(e){handleException(e)}}};var runtimeKeepalivePop=()=>{assert(runtimeKeepaliveCounter>0);runtimeKee"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit();return false}return true}Browser.mainLoop.running=false;Browser.mainLoop.runner=function Browser_mainLoop_runner()"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit()}catch(e){handleException(e)}};var safeSetTimeout=(func,timeout)=>{runtimeKeepalivePush();return setTimeout(()=>{ru"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(status)};var getHeapMax=()=>2147483648;var growMemory=size=>{var b=wasmMemory.buffer;var pages=(size-b.byteLength+65"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(GodotAudio.close_async);return ctx.destination.channelCount},create_input:function(callback){if(GodotAudio.input){re"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(){return GodotDisplayScreen.exitFullscreen()}function _godot_js_display_fullscreen_request(){return GodotDisplayScre"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(function(resolve,reject){GodotInputDragDrop.remove_drop(files,DROP);resolve()})}else{GodotInputDragDrop.remove_drop("
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(function(resolve,reject){GodotDisplayCursor.clear();resolve()});GodotOS.atexit(function(resolve,reject){GodotEventLi"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(function(resolve,reject){GodotEventListeners.clear();resolve()});GodotOS.atexit(function(resolve,reject){GodotDispla"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(function(resolve,reject){GodotDisplayVK.clear();resolve()});GodotOS.atexit(function(resolve,reject){GodotIME.clear()"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 9,
-      "snippet": "xit(function(resolve,reject){GodotIME.clear();resolve()});GodotJSWrapper.proxies=new Map;function checkIncomingModuleAPI"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "apps/web/public/godot/runtime/1ffe614/index.js",
-      "line": 619,
-      "snippet": "xit(p_code); \t\t\t\t} \t\t\t}, \t\t}; \t}; \treturn new Config(initConfig); };  /**  * Projects exported for the Web expose the :j"
-    },
-    {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 171,
-      "snippet": "\"status\": \"pass\", \"evidence_ref\": status_path, \"detail\": parsed} \treturn { \t\t\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"runtime"
+      "snippet": "\"status\": \"pass\", \"evidence_ref\": status_path, \"detail\": parsed} \treturn { \t\t\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"runtime",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 173,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"runtime_ready\": true, \t\t\t\"autoloads\": [\"GameState\", \"MatchTelemetry\", \"DeviceRoleRun"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"runtime_ready\": true, \t\t\t\"autoloads\": [\"GameState\", \"MatchTelemetry\", \"DeviceRoleRun",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 195,
-      "snippet": "\"status\": \"pass\" if loaded_wins == before + 1 and migrated.get(\"ok\") else \"fail\", \t\t\"detail\": { \t\t\t\"save_version\": GameS"
+      "snippet": "\"status\": \"pass\" if loaded_wins == before + 1 and migrated.get(\"ok\") else \"fail\", \t\t\"detail\": { \t\t\t\"save_version\": GameS",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 214,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"golden_checksum\": _stable_hash(golden), \t\t\t\"expected_ruleset_token\": expected, \t\t}, "
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"golden_checksum\": _stable_hash(golden), \t\t\t\"expected_ruleset_token\": expected, \t\t}, ",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 237,
-      "snippet": "\"status\": \"pass\" if missing.is_empty() and remap.get(\"ok\", false) else \"fail\", \t\t\"detail\": { \t\t\t\"missing_actions\": missi"
+      "snippet": "\"status\": \"pass\" if missing.is_empty() and remap.get(\"ok\", false) else \"fail\", \t\t\"detail\": { \t\t\t\"missing_actions\": missi",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 248,
-      "snippet": "\"status\": \"pass\" if GameState.has_method(\"_persist_save\") else \"fail\", \t\t\"detail\": { \t\t\t\"vocabulary\": A11Y_VOCABULARY, \t"
+      "snippet": "\"status\": \"pass\" if GameState.has_method(\"_persist_save\") else \"fail\", \t\t\"detail\": { \t\t\t\"vocabulary\": A11Y_VOCABULARY, \t",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 258,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"viewport\": Vector2i( \t\t\t\tProjectSettings.get_setting(\"display/window/size/viewport_w"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"viewport\": Vector2i( \t\t\t\tProjectSettings.get_setting(\"display/window/size/viewport_w",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 271,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"tier_timing_unchanged\": true, \t\t\t\"match_timer_seconds\": GameState.match_timer_second"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"tier_timing_unchanged\": true, \t\t\t\"match_timer_seconds\": GameState.match_timer_second",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 282,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"local_multiplayer\": true, \t\t\t\"online_queue\": GameState.online_queue, \t\t\t\"online_rank"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"local_multiplayer\": true, \t\t\t\"online_queue\": GameState.online_queue, \t\t\t\"online_rank",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     },
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
       "line": 293,
-      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"boundary\": \"battle_eval_mode CPU-vs-CPU on real BattleScene; human input nondetermin"
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"boundary\": \"battle_eval_mode CPU-vs-CPU on real BattleScene; human input nondetermin",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
     }
   ],
+  "theater_calibrated_all": [
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 252,
+      "snippet": "expect(success).toBe(true);              const gameState = game.getGameState();       expect(gameState.isRunning).toBe(t",
+      "match_span": [
+        10427,
+        10453
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "LEGACY_OR_PROTOTYPE",
+        "reachability_status": "LEGACY_NOT_REACHABLE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 255,
+      "snippet": "expect(gameState.isRunning).toBe(true);       expect(gameState.gameMode.name).toBe('Versus Mode');     });      test('sh",
+      "match_span": [
+        10513,
+        10551
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "LEGACY_OR_PROTOTYPE",
+        "reachability_status": "LEGACY_NOT_REACHABLE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 313,
+      "snippet": "expect(player1?.isGrounded).toBe(true);       expect(player1?.isBlocking).toBe(false);       expect(player1?.isStunned).",
+      "match_span": [
+        12510,
+        12548
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "LEGACY_OR_PROTOTYPE",
+        "reachability_status": "LEGACY_NOT_REACHABLE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 391,
+      "snippet": "expect(success).toBe(true);              const gameState = game.getGameState();       expect(gameState.isRunning).toBe(t",
+      "match_span": [
+        15041,
+        15067
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "LEGACY_OR_PROTOTYPE",
+        "reachability_status": "LEGACY_NOT_REACHABLE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 394,
+      "snippet": "expect(gameState.isRunning).toBe(true);              const players = game.getAllPlayers();       expect(players.length).",
+      "match_span": [
+        15127,
+        15165
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "LEGACY_OR_PROTOTYPE",
+        "reachability_status": "LEGACY_NOT_REACHABLE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "LEGITIMATE_BOOLEAN_ASSERTION",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "expect(<non-literal>).toBe(true) is a real boolean oracle"
+      },
+      "semantic_review_disposition": "DEMOTED_INACTIVE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_INACTIVE_PATH"
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 171,
+      "snippet": "\"status\": \"pass\", \"evidence_ref\": status_path, \"detail\": parsed} \treturn { \t\t\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"runtime",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 173,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"runtime_ready\": true, \t\t\t\"autoloads\": [\"GameState\", \"MatchTelemetry\", \"DeviceRoleRun",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 195,
+      "snippet": "\"status\": \"pass\" if loaded_wins == before + 1 and migrated.get(\"ok\") else \"fail\", \t\t\"detail\": { \t\t\t\"save_version\": GameS",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 214,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"golden_checksum\": _stable_hash(golden), \t\t\t\"expected_ruleset_token\": expected, \t\t}, ",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 237,
+      "snippet": "\"status\": \"pass\" if missing.is_empty() and remap.get(\"ok\", false) else \"fail\", \t\t\"detail\": { \t\t\t\"missing_actions\": missi",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 248,
+      "snippet": "\"status\": \"pass\" if GameState.has_method(\"_persist_save\") else \"fail\", \t\t\"detail\": { \t\t\t\"vocabulary\": A11Y_VOCABULARY, \t",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 258,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"viewport\": Vector2i( \t\t\t\tProjectSettings.get_setting(\"display/window/size/viewport_w",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 271,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"tier_timing_unchanged\": true, \t\t\t\"match_timer_seconds\": GameState.match_timer_second",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 282,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"local_multiplayer\": true, \t\t\t\"online_queue\": GameState.online_queue, \t\t\t\"online_rank",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "game-godot/scripts/cross_device/CrossDeviceContractProvider.gd",
+      "line": 293,
+      "snippet": "\"status\": \"pass\", \t\t\"detail\": { \t\t\t\"boundary\": \"battle_eval_mode CPU-vs-CPU on real BattleScene; human input nondetermin",
+      "repository": "anime-aggressors",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "PRODUCTION",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      }
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "scripts/test_g2_c6_product_depth.py",
+      "line": 31,
+      "snippet": "assertTrue(profile[\"input\"])             self.assertTrue(profile[\"layout\"])      def test_device_runtime_mentions_roles(",
+      "match_span": [
+        1033,
+        1061
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "scripts/test_g2_c6_product_depth.py",
+      "line": 32,
+      "snippet": "assertTrue(profile[\"layout\"])      def test_device_runtime_mentions_roles(self) -> None:         text = DEVICE_RUNTIME.r",
+      "match_span": [
+        1079,
+        1108
+      ],
+      "repository": "anime-aggressors",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "anime-aggressors"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
+    }
+  ],
+  "raw_pattern_observations": [
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 252,
+      "snippet": "expect(success).toBe(true);              const gameState = game.getGameState();       expect(gameState.isRunning).toBe(t",
+      "match_span": [
+        10427,
+        10453
+      ],
+      "repository": "anime-aggressors"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 255,
+      "snippet": "expect(gameState.isRunning).toBe(true);       expect(gameState.gameMode.name).toBe('Versus Mode');     });      test('sh",
+      "match_span": [
+        10513,
+        10551
+      ],
+      "repository": "anime-aggressors"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 313,
+      "snippet": "expect(player1?.isGrounded).toBe(true);       expect(player1?.isBlocking).toBe(false);       expect(player1?.isStunned).",
+      "match_span": [
+        12510,
+        12548
+      ],
+      "repository": "anime-aggressors"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 391,
+      "snippet": "expect(success).toBe(true);              const gameState = game.getGameState();       expect(gameState.isRunning).toBe(t",
+      "match_span": [
+        15041,
+        15067
+      ],
+      "repository": "anime-aggressors"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "legacy/game-prototype/src/__tests__/AnimeAggressorsGame.test.ts",
+      "line": 394,
+      "snippet": "expect(gameState.isRunning).toBe(true);              const players = game.getAllPlayers();       expect(players.length).",
+      "match_span": [
+        15127,
+        15165
+      ],
+      "repository": "anime-aggressors"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "scripts/test_g2_c6_product_depth.py",
+      "line": 31,
+      "snippet": "assertTrue(profile[\"input\"])             self.assertTrue(profile[\"layout\"])      def test_device_runtime_mentions_roles(",
+      "match_span": [
+        1033,
+        1061
+      ],
+      "repository": "anime-aggressors"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "scripts/test_g2_c6_product_depth.py",
+      "line": 32,
+      "snippet": "assertTrue(profile[\"layout\"])      def test_device_runtime_mentions_roles(self) -> None:         text = DEVICE_RUNTIME.r",
+      "match_span": [
+        1079,
+        1108
+      ],
+      "repository": "anime-aggressors"
+    }
+  ],
+  "wave_duplicate_classification": {
+    "repository": "anime-aggressors",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "tools/validate_game_rc_contracts.py",
@@ -408,324 +791,324 @@
   "orphan_candidates": [],
   "dependency_edges_sample": [
     {
-      "from": "packages/game-core/src/movement/jumpPhysics.ts",
-      "to": "./movementTuning.js"
+      "from": "apps/web/src/screens/ControlsScreen.ts",
+      "to": "../input/gamepad.js"
     },
     {
-      "from": "packages/game-core/src/combat.ts",
-      "to": "./stageLayouts.js"
+      "from": "apps/web/test/rulesetStorage.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/src/input/deviceAssignment.ts",
+      "to": "./keyboard.ts"
+    },
+    {
+      "from": "apps/web/test/godotPagesPath.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "apps/web/test/combatEventAdapter.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "apps/web/src/screens/MatchSetupRulesScreen.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "packages/game-core/src/combat/projectiles.ts",
+      "to": "./beamTypes.js"
     },
     {
       "from": "apps/web/src/renderer-three/vfx/ElementalAuraChargeSystem.ts",
-      "to": "./AuraParticleSystem.ts"
-    },
-    {
-      "from": "apps/web/test/mainMenuHierarchy.test.ts",
-      "to": "../src/screens/homeScreenMarkup.ts"
-    },
-    {
-      "from": "apps/web/src/ui/setup/SetupFlowShell.ts",
-      "to": "./SetupFooterActions.ts"
-    },
-    {
-      "from": "packages/game-core/test/impactDummyDerby.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "apps/web/test/battleRouteRender.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/web/test/mainMenuRoutes.test.ts",
-      "to": "../src/screens/homeScreenMarkup.ts"
-    },
-    {
-      "from": "packages/game-core/src/modes/flaglineClash.ts",
-      "to": "./flaglineMaps.js"
-    },
-    {
-      "from": "apps/web/src/screens/CustomGameScreen.ts",
-      "to": "../router.js"
-    },
-    {
-      "from": "legacy/game-prototype/src/systems/SuperMovesSystem.ts",
-      "to": "./FightingSystem"
-    },
-    {
-      "from": "apps/web/src/renderer-three/menu/MainMenuSceneRenderer.ts",
       "to": "three"
     },
     {
-      "from": "apps/web/test/startMatchRoute.test.ts",
-      "to": "../src/screens/homeScreenMarkup.ts"
+      "from": "apps/web/src/match/matchSetupSession.ts",
+      "to": "./matchSession.ts"
     },
     {
-      "from": "tools/audio/generate_procedural_sfx.py",
-      "to": "json"
+      "from": "packages/game-core/src/simulate.ts",
+      "to": "./combat.js"
     },
     {
-      "from": "apps/web/src/renderer-three/fighters/ProceduralPoseSystem.ts",
-      "to": "@anime-aggressors/game-core"
+      "from": "apps/web/src/renderer-three/menu/MenuFighterShowcase.ts",
+      "to": "../fighters/FighterAppearance.ts"
     },
     {
-      "from": "packages/game-core/test/platformFighterFeel.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "packages/game-core/src/combat.ts",
-      "to": "./frameData.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/CameraDirector.ts",
-      "to": "./camera/BattleCamera.ts"
-    },
-    {
-      "from": "apps/web/test/limbTrailEmitter.test.ts",
-      "to": "three"
-    },
-    {
-      "from": "apps/web/src/renderer-three/vfx/CombatVfxSystems.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/src/renderer-three/preview/CharacterPreviewRenderer.ts",
-      "to": "../fighters/FighterModelFactory.ts"
-    },
-    {
-      "from": "apps/web/test/battlePresentation.test.ts",
-      "to": "../src/renderer-three/CameraDirector.ts"
-    },
-    {
-      "from": "packages/game-core/src/movement/jumpPhysics.ts",
-      "to": "../fighterCreation.js"
-    },
-    {
-      "from": "packages/rollback/src/index.ts",
-      "to": "./rollbackSession.js"
-    },
-    {
-      "from": "packages/game-core/src/combat.ts",
-      "to": "./combat/moveSelection.js"
-    },
-    {
-      "from": "apps/web/test/godotBootManifest.test.ts",
+      "from": "apps/web/test/energyClashVfx.test.ts",
       "to": "node:url"
     },
     {
-      "from": "apps/web/src/screens/CharacterSelectScreen.ts",
-      "to": "../audio/AudioManager.js"
+      "from": "apps/web/src/modes/flaglineClashView.ts",
+      "to": "../screens/FlaglineClashHUD.js"
     },
     {
-      "from": "packages/game-core/src/feel.ts",
-      "to": "./types.js"
-    },
-    {
-      "from": "packages/game-core/src/combat/dodgeSystem.ts",
-      "to": "../constants.js"
-    },
-    {
-      "from": "apps/web/test/careerStorage.test.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/src/combat/moveStateMachine.ts",
-      "to": "../moves/moveDefinitions.js"
-    },
-    {
-      "from": "apps/web/test/matchSetupSession.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "legacy/game-prototype/src/AnimeAggressorsGame.ts",
-      "to": "./systems/FightingSystem"
-    },
-    {
-      "from": "packages/rollback/test/rollback.test.ts",
-      "to": "../src/index.js"
+      "from": "packages/game-core/src/moves/fighterMoveTuning.ts",
+      "to": "../defaultFighters.js"
     },
     {
       "from": "apps/web/test/readyFightSequence.test.ts",
       "to": "node:assert/strict"
     },
     {
-      "from": "apps/web/test/derbyModeEntryGuard.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "packages/game-core/test/impactDummyDerbyPhysics.test.ts",
-      "to": "../src/modes/impactDummyDerby.js"
-    },
-    {
-      "from": "packages/game-core/test/auraChargeDoesNotBlockJump.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "apps/web/test/mapSelectActualPreview.test.ts",
-      "to": "node:fs"
-    },
-    {
-      "from": "apps/web/src/renderer-three/ImpactDummyView.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/src/screens/ReplayViewerScreen.ts",
-      "to": "../replay/ReplayPlayer.ts"
-    },
-    {
-      "from": "apps/web/src/renderer-three/stages/StageModelFactory.ts",
-      "to": "three"
-    },
-    {
-      "from": "apps/web/src/ui/stage/StageSelectGrid.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/test/stageCollision.test.ts",
-      "to": "../src/combat.js"
-    },
-    {
-      "from": "apps/web/test/customGameTheme.test.ts",
-      "to": "node:url"
-    },
-    {
-      "from": "apps/web/src/screens/HomeScreen.ts",
-      "to": "../ui/mainMenuConfig.ts"
-    },
-    {
-      "from": "packages/game-core/src/stageCollision.ts",
-      "to": "./stageLayouts.js"
-    },
-    {
-      "from": "packages/game-core/test/milestone2FighterControllerFeel.test.ts",
-      "to": "./helpers/playerStub.js"
-    },
-    {
-      "from": "packages/netplay/src/transport.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/test/impactDummyDerbyLoop.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "apps/web/test/mapSelectActualPreview.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "scripts/test_g2_c6_product_depth.py",
-      "to": "__future__"
-    },
-    {
-      "from": "apps/web/test/impactDummyDerbyVisibleObjects.test.ts",
-      "to": "node:path"
-    },
-    {
-      "from": "packages/game-core/test/milestone3CombatGrammar.test.ts",
-      "to": "../src/combat/staleMoves.js"
-    },
-    {
-      "from": "apps/web/src/screens/CareerScreen.ts",
-      "to": "./careerScreenShared.ts"
-    },
-    {
-      "from": "apps/web/src/ui/stage/StagePreviewCanvas.ts",
-      "to": "./StageMiniMap.ts"
-    },
-    {
-      "from": "apps/web/src/renderer-three/fighters/FighterAnimationClips.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/src/ui/stage/StageSelectGrid.ts",
-      "to": "../../renderer-three/stages/stageVisualConfigs.ts"
-    },
-    {
-      "from": "apps/web/test/derbyUsesCombatAnimation.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "apps/web/src/renderer-three/camera/PlatformFighterCamera.ts",
-      "to": "./CameraImpulseSystem.ts"
-    },
-    {
-      "from": "apps/web/src/navigation/RequiredSelections.ts",
-      "to": "./ModeIntent.ts"
-    },
-    {
-      "from": "packages/game-core/src/index.ts",
-      "to": "./replay.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/fighters/FighterModelFactory.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "apps/web/test/characterPreviewRenderer.test.ts",
-      "to": "../src/renderer-three/fighters/FighterModelFactory.ts"
-    },
-    {
-      "from": "apps/web/src/renderer-three/vfx/LaunchTrailSystem.ts",
-      "to": "./CombatVfxSystems.ts"
-    },
-    {
-      "from": "apps/web/test/comboGuide.test.ts",
-      "to": "../src/ui/ComboRouteCard.ts"
-    },
-    {
-      "from": "packages/game-core/test/impactDummyDerbyPhysics.test.ts",
-      "to": "node:test"
-    },
-    {
-      "from": "packages/game-core/test/combatInputGrammar.test.ts",
-      "to": "node:assert/strict"
-    },
-    {
-      "from": "apps/web/src/renderer-three/HurtboxDebugView.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/src/combat.ts",
-      "to": "./combat/playerLifecycle.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/createBattleScene.ts",
-      "to": "./ThreeGameRenderer.ts"
-    },
-    {
-      "from": "packages/edgeio/src/EdgeIO.ts",
-      "to": "events"
-    },
-    {
-      "from": "packages/game-core/src/state.ts",
-      "to": "./rulesets.js"
-    },
-    {
-      "from": "apps/web/src/renderer-three/AnimationController.ts",
-      "to": "@anime-aggressors/game-core"
-    },
-    {
-      "from": "packages/game-core/test/replayRecord.test.ts",
+      "from": "packages/game-core/test/hitResolution.test.ts",
       "to": "../src/index.js"
     },
     {
-      "from": "apps/web/src/screens/CreateFighterScreen.ts",
+      "from": "apps/web/test/mainMenuRoutes.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "apps/web/src/ui/MainMenuCarousel.ts",
+      "to": "./mainMenuConfig.ts"
+    },
+    {
+      "from": "apps/web/src/screens/homeScreenMarkup.ts",
+      "to": "../ui/MainMenuCarousel.ts"
+    },
+    {
+      "from": "apps/web/src/screens/StageSelectScreen.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/test/stageSelectTheme.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "packages/game-core/src/movement/recovery.ts",
+      "to": "./movementTypes.js"
+    },
+    {
+      "from": "packages/game-core/src/index.ts",
+      "to": "./training/trainingMode.js"
+    },
+    {
+      "from": "apps/web/test/createdFightersStorage.test.ts",
+      "to": "../src/storage/createdFightersStorage.ts"
+    },
+    {
+      "from": "apps/web/src/renderer-three/fighters/FighterModelFactory.ts",
+      "to": "./LowPolyHumanoid.ts"
+    },
+    {
+      "from": "packages/game-core/test/gate1CoreLoop.test.ts",
+      "to": "node:child_process"
+    },
+    {
+      "from": "packages/rollback/src/rollbackSession.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "packages/game-core/src/combat/fighterProjectiles.ts",
+      "to": "../moves/universalMoveSchema.js"
+    },
+    {
+      "from": "apps/web/test/fighterModelDepth.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/src/renderer-three/preview/CharacterPreviewRenderer.ts",
+      "to": "../fighters/FighterModelFactory.ts"
+    },
+    {
+      "from": "apps/web/src/screens/ImpactDummyDerbyResultsScreen.ts",
+      "to": "../router.ts"
+    },
+    {
+      "from": "packages/netplay/src/index.ts",
+      "to": "./webSocketTransport.js"
+    },
+    {
+      "from": "apps/web/src/ui/setup/SetupFlowShell.ts",
+      "to": "../theme/arenaClasses.ts"
+    },
+    {
+      "from": "apps/web/test/battleSceneBoot.test.ts",
+      "to": "../src/renderer-three/fighters/FighterModelFactory.ts"
+    },
+    {
+      "from": "apps/web/src/game/App.ts",
+      "to": "../input/deviceAssignment.js"
+    },
+    {
+      "from": "packages/game-core/src/combat/fighterProjectiles.ts",
+      "to": "../moves/combatMoveData.js"
+    },
+    {
+      "from": "apps/web/test/godotBootManifest.test.ts",
+      "to": "../src/godot/godotExportStatus.ts"
+    },
+    {
+      "from": "packages/game-core/test/energyClash.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/src/combat/CombatEventAdapter.ts",
+      "to": "../audio/AudioEventBus.ts"
+    },
+    {
+      "from": "apps/web/src/ui/StageGrid.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/test/mainMenuRoutes.test.ts",
+      "to": "../src/ui/mainMenuConfig.ts"
+    },
+    {
+      "from": "apps/web/src/renderer-three/fighters/victoryAnimations.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/src/ui/setup/SetupProgressRail.ts",
+      "to": "../theme/arenaTheme.ts"
+    },
+    {
+      "from": "apps/web/test/mapSelectActualPreview.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "apps/web/test/combatEventAdapter.test.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/test/impactDummyDerbyRoutes.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "apps/web/test/homeScreenMenu.test.ts",
+      "to": "../src/routes.ts"
+    },
+    {
+      "from": "apps/web/src/modes/flaglineClashView.ts",
       "to": "../router.js"
     },
     {
-      "from": "packages/game-core/test/milestone2FighterControllerFeel.test.ts",
+      "from": "apps/web/src/renderer-three/fighters/ProceduralPoseSystem.ts",
+      "to": "./FighterAnimator.ts"
+    },
+    {
+      "from": "tools/blender/export_all_fighters.py",
+      "to": "shutil"
+    },
+    {
+      "from": "packages/game-core/src/index.ts",
+      "to": "./career/stats.js"
+    },
+    {
+      "from": "packages/game-core/src/combat.ts",
+      "to": "./types.js"
+    },
+    {
+      "from": "apps/web/test/impactDummyDerbyVisibleObjects.test.ts",
+      "to": "node:url"
+    },
+    {
+      "from": "apps/web/src/navigation/modeEntryGuards.ts",
+      "to": "../match/matchSetupSession.ts"
+    },
+    {
+      "from": "apps/web/test/godotCacheBusting.test.ts",
+      "to": "node:path"
+    },
+    {
+      "from": "apps/web/src/renderer-three/StageView.ts",
+      "to": "three"
+    },
+    {
+      "from": "packages/game-core/test/combat.test.ts",
       "to": "node:test"
     },
     {
-      "from": "legacy/web/src/components/MiniGames.tsx",
-      "to": "react"
+      "from": "apps/web/test/stageSelectTheme.test.ts",
+      "to": "@anime-aggressors/game-core"
     },
     {
-      "from": "apps/web/test/designGapDocs.test.ts",
+      "from": "packages/game-core/src/combat/hitResolution.ts",
+      "to": "../stages.js"
+    },
+    {
+      "from": "apps/web/test/readmeControlsAuraCharge.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "apps/web/src/modes/impactDummyDerbyBoot.ts",
+      "to": "../renderer-three/ImpactDummyView.ts"
+    },
+    {
+      "from": "apps/web/src/screens/MatchResultsScreen.ts",
+      "to": "../ui/theme/arenaClasses.ts"
+    },
+    {
+      "from": "apps/web/src/input/inputBindings.ts",
+      "to": "./actions.ts"
+    },
+    {
+      "from": "packages/game-core/src/combat.ts",
+      "to": "./moves.js"
+    },
+    {
+      "from": "apps/web/src/renderer-three/ThreeGameRenderer.ts",
+      "to": "./HurtboxDebugView.ts"
+    },
+    {
+      "from": "apps/web/test/jumpAnimationHooks.test.ts",
+      "to": "@anime-aggressors/game-core"
+    },
+    {
+      "from": "apps/web/src/input/keyboard.ts",
+      "to": "./inputFrame.js"
+    },
+    {
+      "from": "apps/web/test/controlsCheckVersus.test.ts",
+      "to": "node:fs"
+    },
+    {
+      "from": "packages/game-core/test/saveGameRecord.test.ts",
       "to": "node:test"
     },
     {
-      "from": "packages/game-core/src/moves/fighterMoveTuning.ts",
-      "to": "../defaultFighters.js"
+      "from": "packages/game-core/test/auraChargeDoesNotBlockJump.test.ts",
+      "to": "../src/types.js"
+    },
+    {
+      "from": "apps/web/test/gameGodotPrimaryValidation.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "apps/web/src/renderer-three/fighters/LowPolyFighterRig.ts",
+      "to": "three"
+    },
+    {
+      "from": "apps/web/test/impactDummyDerbyNoFakeResults.test.ts",
+      "to": "node:assert/strict"
+    },
+    {
+      "from": "apps/web/test/godotBuildManifestCacheBusting.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "apps/web/test/fighterRigParts.test.ts",
+      "to": "../src/renderer-three/fighters/FighterRigParts.ts"
+    },
+    {
+      "from": "packages/game-core/test/rulesetMatchIntegration.test.ts",
+      "to": "node:test"
+    },
+    {
+      "from": "packages/netplay/src/index.ts",
+      "to": "./netplaySession.js"
+    },
+    {
+      "from": "apps/web/src/renderer-three/vfx/AuraParticleSystem.ts",
+      "to": "./AuraChargeMaterials.ts"
+    },
+    {
+      "from": "packages/game-core/src/combat/fighterProjectiles.ts",
+      "to": "../moves/fighterMoveTuning.js"
+    },
+    {
+      "from": "apps/web/test/impactDummyDerbyVisibleObjects.test.ts",
+      "to": "../src/modes/impactDummyDerbyBoot.ts"
     }
   ],
   "path_classification_sample": [
@@ -1731,6 +2114,15 @@
     }
   ],
   "path_classification_full_count": 1312,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "anime-aggressors",
     "sha": "0afe3079db474fcfd75cd8a40659e96a5867b8fc",

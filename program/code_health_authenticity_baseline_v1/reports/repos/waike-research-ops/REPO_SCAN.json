@@ -1,7 +1,7 @@
 {
   "repository": "waike-research-ops",
   "accepted_main_sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
-  "scanned_at_utc": "2026-08-21T17:10:36Z",
+  "scanned_at_utc": "2026-08-21T17:47:53Z",
   "counts": {
     "files_classified": 7145,
     "code_files": 151,
@@ -16,8 +16,10 @@
       "PRODUCTION": 84
     },
     "theater_s0": 0,
-    "theater_s1": 47,
-    "theater_total": 48,
+    "theater_s1": 0,
+    "theater_total": 1,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
     "hotspots": 25,
     "wave_dup_paths": 0,
     "fixture_paths": 9,
@@ -38,11 +40,21 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "ADEQUATE"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
     "production_proof_separation": "STRONG",
-    "anti_test_theater": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
     "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
     "runtime_authenticity": "ADEQUATE",
@@ -54,342 +66,49 @@
   },
   "theater_findings": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_no_exam_heavy_courses.py",
-      "line": 40,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_curriculum.py",
-      "line": 48,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_placeholder_files.py",
-      "line": 51,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_industry_alignment_depth.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/fix_batch004_exams.py",
-      "line": 234,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/emit_waike_mastery.py",
-      "line": 378,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_group_project_pack.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/export_instructor_packet.py",
-      "line": 24,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_assignment_depth.py",
-      "line": 35,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_lesson_depth.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_rubrics.py",
-      "line": 28,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/run_course_labs.py",
-      "line": 43,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/map_issues_to_artifacts.py",
-      "line": 25,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/export_student_packet.py",
-      "line": 24,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/e2e_check_required_artifacts.py",
-      "line": 61,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_issue_completion.py",
-      "line": 21,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_case_study_depth.py",
-      "line": 29,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_7gc_alignment.py",
-      "line": 37,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_7gc_case_study_pack.py",
-      "line": 31,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_depth_all.py",
-      "line": 44,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_student_ready.py",
-      "line": 46,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_group_project_depth.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_course_depth.py",
-      "line": 51,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/prove_product_consumption.py",
-      "line": 130,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_readiness_audit.py",
-      "line": 51,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/write_course_digital_rc.py",
-      "line": 182,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_syllabi.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_syllabi.py",
-      "line": 36,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/check_required_files.py",
-      "line": 39,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_curriculum_provenance.py",
-      "line": 25,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/remediate_batch004_lesson_depth.py",
-      "line": 449,
-      "snippet": "xit(             f\"{cid} w{week} still short after unique deepen: {len(out)} < {FLOOR} \"             \"(refusing identica"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/remediate_batch004_lesson_depth.py",
-      "line": 456,
-      "snippet": "xit(f\"{cid} w{week} still contains padding marker: {bad}\")     return out   def main() -> int:     path = BATCH / \"cours"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/remediate_batch004_lesson_depth.py",
-      "line": 472,
-      "snippet": "xit(f\"{cid} repeated trailer spam after remediate: {spam}\")         if mins[cid] < 871:             raise SystemExit(f\"{"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/remediate_batch004_lesson_depth.py",
-      "line": 474,
-      "snippet": "xit(f\"{cid} min {mins[cid]} < 871\")     path.write_text(json.dumps(data, indent=2) + \"\\n\", encoding=\"utf-8\")     print(j"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/remediate_batch004_lesson_depth.py",
-      "line": 481,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/classify_issue_completion.py",
-      "line": 77,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_all_curriculum.py",
-      "line": 41,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_all_waike_readiness.py",
-      "line": 41,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_instructor_ready.py",
-      "line": 35,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/audit_open_issues.py",
-      "line": 65,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
       "path": "scripts/detect_templated_courses.py",
-      "line": 35,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_assignments.py",
-      "line": 25,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/generate_assignment_pack.py",
-      "line": 26,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_group_projects.py",
-      "line": 35,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/export_course_repo_map.py",
-      "line": 47,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/emit_digital_rc.py",
-      "line": 27,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": "scripts/validate_waike_artifacts.py",
-      "line": 54,
-      "snippet": "xit(main()) "
-    },
+      "line": 24,
+      "snippet": "\"status\": \"PASS\"         if result[\"BATCH_TEMPLATED_COURSES\"] == 0 and result[\"BATCH_STUB_COURSES\"] == 0         else \"F",
+      "repository": "waike-research-ops",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "waike-research-ops"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
     {
       "severity": "S2",
       "kind": "hardcoded_pass_json",
       "path": "scripts/detect_templated_courses.py",
       "line": 24,
-      "snippet": "\"status\": \"PASS\"         if result[\"BATCH_TEMPLATED_COURSES\"] == 0 and result[\"BATCH_STUB_COURSES\"] == 0         else \"F"
+      "snippet": "\"status\": \"PASS\"         if result[\"BATCH_TEMPLATED_COURSES\"] == 0 and result[\"BATCH_STUB_COURSES\"] == 0         else \"F",
+      "repository": "waike-research-ops",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "waike-research-ops"
+      }
     }
   ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "waike-research-ops",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
       "path": "src/waike_course_ready/provenance.py",
@@ -584,287 +303,15 @@
   "orphan_candidates": [],
   "dependency_edges_sample": [
     {
-      "from": "scripts/validate_depth_all.py",
-      "to": "datetime"
-    },
-    {
-      "from": "tests/test_group_project_generation.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "scripts/export_student_packet.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "src/waike_course_ready/provenance.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_group_project_depth.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/run_course_labs.py",
-      "to": "waike_course_ready"
-    },
-    {
-      "from": "scripts/validate_assignment_depth.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "src/waike_course_ready/batch005/content.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/gen_course_ready_004.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/corpus_diff.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/validate_lesson_depth.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_mastery/skill_graph.py",
-      "to": "__future__"
-    },
-    {
-      "from": "tests/journeys/test_learner_journey.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/generate_7gc_upnow_bundle.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/e2e_check_required_artifacts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_group_projects.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/benchmark.py",
-      "to": "re"
-    },
-    {
-      "from": "src/waike_mastery/diagnosis.py",
-      "to": "typing"
-    },
-    {
-      "from": "tests/test_7gc_upnow_campus.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_group_project_depth.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "scripts/write_course_digital_rc.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/packaging.py",
-      "to": "__future__"
-    },
-    {
-      "from": "scripts/validate_curriculum.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/classify_issue_completion.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/failure_taxonomy.py",
-      "to": "re"
-    },
-    {
-      "from": "scripts/export_instructor_packet.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "tests/test_7gc_upnow_campus.py",
-      "to": "waike_campus"
-    },
-    {
-      "from": "src/waike_mastery/grading.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/validate_curriculum_provenance.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_depth_all.py",
-      "to": "sys"
-    },
-    {
-      "from": "scripts/validate_waike_artifacts.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "tests/test_campus_tracks.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/emit.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/__init__.py",
-      "to": "skill_graph"
-    },
-    {
-      "from": "scripts/write_course_digital_rc.py",
-      "to": "json"
-    },
-    {
-      "from": "tests/mastery/test_waike_mastery.py",
-      "to": "waike_mastery"
-    },
-    {
-      "from": "src/waike_mastery/registry.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/audit.py",
-      "to": "datetime"
-    },
-    {
-      "from": "src/waike_mastery/__init__.py",
-      "to": "discover"
-    },
-    {
-      "from": "src/waike_course_ready/batch003/content.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/validate_syllabi.py",
-      "to": "sys"
-    },
-    {
-      "from": "src/waike_mastery/tool_use.py",
-      "to": "waike_course_ready"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/exams.py",
-      "to": "json"
-    },
-    {
-      "from": "scripts/fix_batch004_exams.py",
-      "to": "re"
-    },
-    {
-      "from": "src/waike_course_ready/exams.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/generate_batch007_residual_closure.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_course_ready/labs.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/waike_ops/pathways.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/waike_mastery/audit.py",
-      "to": "re"
-    },
-    {
-      "from": "src/waike_mastery/corpus_inventory.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/validate_curriculum_provenance.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_course_ready/batch004/packaging.py",
-      "to": "typing"
-    },
-    {
-      "from": "src/waike_curriculum/catalog.py",
-      "to": "json"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/content.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/labs.py",
-      "to": "tarfile"
-    },
-    {
-      "from": "scripts/generate_syllabi.py",
-      "to": "argparse"
-    },
-    {
-      "from": "src/waike_mastery/discover.py",
-      "to": "typing"
-    },
-    {
-      "from": "scripts/generate_syllabi.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/curriculum/test_batch006_data_dashboards.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "scripts/emit_waike_mastery.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_mastery/canary.py",
-      "to": "registry"
+      "from": "src/waike_course_ready/batch003/labs.py",
+      "to": "dataclasses"
     },
     {
       "from": "src/waike_course_ready/batch005/labs.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_course_ready/batch002/labs.py",
       "to": "typing"
     },
     {
-      "from": "scripts/prove_product_consumption.py",
-      "to": "waike_course_ready"
-    },
-    {
-      "from": "src/waike_mastery/tool_use.py",
-      "to": "ipaddress"
-    },
-    {
-      "from": "scripts/validate_industry_alignment_depth.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/tool_use.py",
-      "to": "hashlib"
-    },
-    {
-      "from": "scripts/deepen_all_courses.py",
-      "to": "sys"
-    },
-    {
-      "from": "tests/test_group_project_generation.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_mastery/tool_use.py",
-      "to": "__future__"
-    },
-    {
-      "from": "src/waike_course_ready/batch006/labs.py",
+      "from": "src/waike_course_ready/batch002/labs.py",
       "to": "typing"
     },
     {
@@ -872,36 +319,308 @@
       "to": "pathlib"
     },
     {
-      "from": "scripts/validate_all_waike_readiness.py",
+      "from": "src/waike_course_ready/batch003/labs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_campus_tracks.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/generate_7gc_upnow_bundle.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_industry_alignment_depth.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_curriculum/depth_generators.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_student_ready.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/export_instructor_packet.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "src/waike_curriculum/catalog.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/exams.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/remediate_batch004_lesson_depth.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_course_ready/batch003/labs.py",
+      "to": "math"
+    },
+    {
+      "from": "src/waike_mastery/benchmark.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/validate_7gc_alignment.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/prove_product_consumption.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_industry_alignment_depth.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/benchmark.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_assignment_depth.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "src/waike_curriculum/catalog.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/registry.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/waike_ops/prereqs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_pathway_schema.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_all_campus_tracks.py",
+      "to": "waike_ops"
+    },
+    {
+      "from": "scripts/_gen_batch006_data_dashboards.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch005/labs.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_course_ready/batch003/packaging.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/labs.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/content.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_campus/__init__.py",
+      "to": "waike_campus"
+    },
+    {
+      "from": "tests/journeys/test_learner_journey.py",
+      "to": "waike_ops"
+    },
+    {
+      "from": "scripts/validate_lesson_depth.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/labs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/validate_placeholder_files.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/classify_issue_completion.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/detect_templated_courses.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/check_required_files.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_mastery/registry.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_7gc_upnow_campus.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_curriculum.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/content.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/classify_issue_completion.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_batch007_residual_closure.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/check_required_files.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/classify_issue_completion.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/gen_course_ready_004.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_mastery/policy.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/tool_use.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_course_labs.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_curriculum.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_batch007_residual_closure.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/labs.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_ops/pathways.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/validate_case_study_depth.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/export_instructor_packet.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_student_ready.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_evaluation_dashboard.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_course_ready/batch006/labs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/discover.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/classify_issue_completion.py",
       "to": "subprocess"
     },
     {
-      "from": "scripts/generate_syllabi.py",
+      "from": "scripts/validate_rubrics.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/validate_7gc_alignment.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/exams.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_curriculum/issue_completion.py",
+      "to": "yaml"
+    },
+    {
+      "from": "tests/journeys/test_instructor_journey.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_student_ready.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_instructor_packet.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/registry.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/labs.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/test_course_depth.py",
       "to": "waike_curriculum"
     },
     {
       "from": "scripts/validate_assignment_depth.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/batch006/exams.py",
-      "to": "waike_course_ready"
-    },
-    {
-      "from": "tests/test_case_study_generation.py",
       "to": "sys"
     },
     {
-      "from": "scripts/export_course_catalog.py",
-      "to": "waike_curriculum"
-    },
-    {
-      "from": "tests/test_course_depth.py",
-      "to": "pathlib"
-    },
-    {
-      "from": "src/waike_course_ready/ingest.py",
+      "from": "scripts/validate_all_curriculum.py",
       "to": "datetime"
+    },
+    {
+      "from": "scripts/validate_all_waike_readiness.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_course_ready/labs.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/validate_rubrics.py",
+      "to": "pathlib"
     }
   ],
   "path_classification_sample": [
@@ -1907,6 +1626,15 @@
     }
   ],
   "path_classification_full_count": 5000,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "waike-research-ops",
     "sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",

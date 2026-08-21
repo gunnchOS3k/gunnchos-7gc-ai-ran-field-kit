@@ -16,12 +16,12 @@ Accepted main: `cef3900af100`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=0 S1=26 total=34
+- Theater: S0=0 S1=0 total=8
 - Hotspots: 51; wave-dup paths: 0; orphans≈40
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `cef3900af100`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `todo_pass` at `paper/scripts/generate_tables.py:274`
+- Top theater hit: `S2` `broad_except_pass` at `scripts/import_asana_csv_to_github_projects.py:822`
 - Hottest function: `apps/streamlit_app.py::_render_judge_gary_micro_twin_3d` complexity=395

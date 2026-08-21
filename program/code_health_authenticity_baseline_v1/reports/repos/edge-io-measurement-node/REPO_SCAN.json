@@ -1,60 +1,37 @@
 {
   "repository": "edge-io-measurement-node",
   "accepted_main_sha": "af57fbdac857ae386b23b5b747fdc05797621f92",
-  "scanned_at_utc": "2026-08-21T17:10:17Z",
+  "scanned_at_utc": "2026-08-21T17:47:34Z",
   "counts": {
-    "files_classified": 6024,
-    "code_files": 2068,
-    "production_code_files": 1982,
-    "proof_files": 38,
+    "files_classified": 386,
+    "code_files": 129,
+    "production_code_files": 59,
+    "proof_files": 22,
     "class_histogram": {
       "DOCS_OR_PROGRAM": 193,
       "OTHER": 35,
-      "PROOF": 58,
-      "PRODUCTION": 5681,
+      "PROOF": 42,
+      "PRODUCTION": 59,
       "AMBIGUOUS_CODE": 47,
       "CI_OR_DEPLOY": 10
     },
     "theater_s0": 0,
-    "theater_s1": 196,
-    "theater_total": 196,
-    "hotspots": 1393,
+    "theater_s1": 0,
+    "theater_total": 19,
+    "raw_pattern_observations": 19,
+    "theater_root_causes": 0,
+    "hotspots": 40,
     "wave_dup_paths": 0,
-    "fixture_paths": 10,
-    "orphan_candidates": 40,
-    "dep_edges": 11648
+    "fixture_paths": 7,
+    "orphan_candidates": 11,
+    "dep_edges": 312
   },
   "proof_independence": {
-    "production_files": 1982,
-    "proof_files": 38,
-    "production_imports_proof_count": 4,
-    "production_imports_proof": [
-      {
-        "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/index/package_finder.py",
-        "imports": [
-          "tests_or_proof_namespace"
-        ]
-      },
-      {
-        "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/log.py",
-        "imports": [
-          "tests_or_proof_namespace"
-        ]
-      },
-      {
-        "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_internal/index/package_finder.py",
-        "imports": [
-          "tests_or_proof_namespace"
-        ]
-      },
-      {
-        "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/log.py",
-        "imports": [
-          "tests_or_proof_namespace"
-        ]
-      }
-    ],
-    "status": "FAIL_COUPLED"
+    "production_files": 59,
+    "proof_files": 22,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT"
   },
   "runtime_authenticity": {
     "has_entrypoint": true,
@@ -63,780 +40,1177 @@
     ],
     "has_tests": true,
     "tests_reference_production": true,
-    "authenticity": "NEEDS_WORK"
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    }
   },
   "dimensions": {
-    "production_proof_separation": "CRITICAL",
-    "anti_test_theater": "NEEDS_WORK",
-    "dependency_boundaries": "NEEDS_WORK",
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
     "canonical_vs_wave_dup": "STRONG",
-    "runtime_authenticity": "NEEDS_WORK",
+    "runtime_authenticity": "ADEQUATE",
     "complexity_hotspots": "CRITICAL",
     "orphan_dead_code": "NEEDS_WORK",
     "fixture_honesty": "ADEQUATE",
     "documentation_readability": "ADEQUATE",
     "mutation_resistance": "ADEQUATE"
   },
-  "theater_findings": [
+  "theater_findings": [],
+  "theater_calibrated_all": [
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hexmerge.py",
-      "line": 178,
-      "snippet": "xit(main()) "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 26,
+      "snippet": "assertTrue(state.receiptId!!.startsWith(\"rcpt_\"))         assertTrue(state.capturedAtIso!!.endsWith(\"Z\"))     } }  class",
+      "match_span": [
+        777,
+        825
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/bin2hex.py",
-      "line": 71,
-      "snippet": "xit(0)             elif o in (\"-v\", \"--version\"):                 print(VERSION)                 sys.exit(0)            "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 27,
+      "snippet": "assertTrue(state.capturedAtIso!!.endsWith(\"Z\"))     } }  class SessionModeTest {     @Test     fun durationsAndPrefixesM",
+      "match_span": [
+        835,
+        881
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/bin2hex.py",
-      "line": 74,
-      "snippet": "xit(0)             elif o in (\"--offset\"):                 base = 10                 if a[:2].lower() == '0x':          "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 40,
+      "snippet": "assertTrue(SessionMode.CALIBRATION.calibrationOnly)         assertFalse(SessionMode.CALIBRATION.rehearsalOnly)         a",
+      "match_span": [
+        1444,
+        1495
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/bin2hex.py",
-      "line": 95,
-      "snippet": "xit(2)      from intelhex import compat      fin = args[0]     if fin == '-':         # read from stdin         fin = co"
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 43,
+      "snippet": "assertTrue(SessionMode.PILOT_REHEARSAL.rehearsalOnly)         assertFalse(SessionMode.PILOT.calibrationOnly)         ass",
+      "match_span": [
+        1628,
+        1681
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/bin2hex.py",
-      "line": 106,
-      "snippet": "xit(1)      if len(args) == 2:         fout = args[1]     else:         # write to stdout         fout = sys.stdout   # "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 107,
+      "snippet": "assertTrue(asn.rehearsalOnly)         assertEquals(\"wifi\", asn.expectedNetworkTransport)         assertEquals(300.0, asn",
+      "match_span": [
+        4487,
+        4516
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/bin2hex.py",
-      "line": 115,
-      "snippet": "xit(bin2hex(fin, fout, offset)) "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 118,
+      "snippet": "assertTrue(canon.contains(\"\\\"planned_duration_seconds\\\":300\"))         assertFalse(canon.contains(\"\\\"planned_duration_se",
+      "match_span": [
+        5038,
+        5099
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/readelf.py",
-      "line": 1942,
-      "snippet": "xit(0)      if args.show_all_headers:         do_file_header = do_section_header = do_program_header = True     else:   "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 190,
+      "snippet": "assertTrue(NetworkTransportDetector.isCompatible(\"wifi\", \"wifi\"))         assertFalse(NetworkTransportDetector.isCompati",
+      "match_span": [
+        8319,
+        8383
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/readelf.py",
-      "line": 1990,
-      "snippet": "xit(1)         except BrokenPipeError:             # Python flushes standard streams on exit; redirect remaining output "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/readelf.py",
-      "line": 1996,
-      "snippet": "xit(1)   def profile_main() -> None:     # Run 'main' redirecting its output to readelfout.txt     # Saves profiling inf"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hex2bin.py",
-      "line": 78,
-      "snippet": "xit(0)             elif o in (\"-v\", \"--version\"):                 print(VERSION)                 sys.exit(0)            "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hex2bin.py",
-      "line": 81,
-      "snippet": "xit(0)             elif o in (\"-p\", \"--pad\"):                 try:                     pad = int(a, 16) & 0x0FF         "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hex2bin.py",
-      "line": 116,
-      "snippet": "xit(2)      fin = args[0]     if not os.path.isfile(fin):         txt = \"ERROR: File not found: %s\" % fin  # that's requ"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hex2bin.py",
-      "line": 122,
-      "snippet": "xit(1)      if len(args) == 2:         fout = args[1]     else:         # write to stdout         from intelhex import c"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hex2bin.py",
-      "line": 132,
-      "snippet": "xit(hex2bin(fin, fout, start, end, size, pad)) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hexinfo.py",
-      "line": 108,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hex2dump.py",
-      "line": 135,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/bin/hexdiff.py",
-      "line": 90,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
-      "line": 22,
-      "snippet": "xit(SystemExit):      \"\"\"Exit in case user invoked program with incorrect arguments.\"\"\"      usage = ''      def __init_"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
-      "line": 482,
-      "snippet": "xit()     if version and any(o.name == '--version' and o.value for o in options):         print(version)         sys.exi"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
-      "line": 485,
-      "snippet": "xit()   class Dict(dict):     def __repr__(self):         return '{%s}' % ',\\n '.join('%r: %r' % i for i in sorted(self."
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/docopt.py",
-      "line": 579,
-      "snippet": "xit() "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/dependency_groups.py",
-      "line": 142,
-      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._p"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/dependency_groups.py",
-      "line": 155,
-      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._r"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/metadata.py",
-      "line": 896,
-      "snippet": "xit(\"invalid or unparsed metadata\") as collector:                 for unparsed_key in unparsed:                     if u"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/errors.py",
-      "line": 65,
-      "snippet": "xit(self, msg: str) -> typing.Generator[_ErrorCollector, None, None]:         \"\"\"         Calls finalize if no uncollect"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/can/viewer.py",
-      "line": 483,
-      "snippet": "xit(errno.EINVAL)      parsed_args, unknown_args = parser.parse_known_args(args)     if unknown_args:         print(\"Unk"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/can/bridge.py",
-      "line": 39,
-      "snippet": "xit(errno.EINVAL)      results, _unknown_args = parser.parse_known_args(args)     return results   def main() -> None:  "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/can/logger.py",
-      "line": 93,
-      "snippet": "xit(errno.EINVAL)      results, unknown_args = parser.parse_known_args(args)     additional_config = _parse_additional_c"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/can/player.py",
-      "line": 95,
-      "snippet": "xit(errno.EINVAL)      results, unknown_args = parser.parse_known_args()     additional_config = _parse_additional_confi"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/can/logconvert.py",
-      "line": 19,
-      "snippet": "xit(errno.EINVAL, f\"{self.prog}: error: {message}\\n\")   def main() -> None:     parser = ArgumentParser(         descrip"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/can/logconvert.py",
-      "line": 65,
-      "snippet": "xit(1)   if __name__ == \"__main__\":     main() "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/intelhex/bench.py",
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
       "line": 280,
-      "snippet": "xit(main(sys.argv[1:]))   \"\"\"  Some Results ************   21/04/2007 revno.40 Python 2.5 @ Windows XP, Intel Celeron M "
+      "snippet": "assertTrue(ctx.getBoolean(\"calibration_only\"))         assertFalse(ctx.getBoolean(\"rehearsal_only\"))         assertEqual",
+      "match_span": [
+        11838,
+        11883
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/idna/cli.py",
-      "line": 128,
-      "snippet": "xit(main()) "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 285,
+      "snippet": "assertTrue(ctx.getDouble(\"actual_duration_seconds\") >= 59.0)         assertTrue(ctx.getString(\"operator_notes\").contains",
+      "match_span": [
+        12177,
+        12228
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/idna/__main__.py",
-      "line": 6,
-      "snippet": "xit(main()) "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 286,
+      "snippet": "assertTrue(ctx.getString(\"operator_notes\").contains(\"calibration_only=true\"))         val batch = root.getJSONObject(\"me",
+      "match_span": [
+        12246,
+        12288
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/__pip-runner__.py",
-      "line": 20,
-      "snippet": "xit(         \"This version of pip does not support python {} (requires >={}).\".format(             version_str(sys.versi"
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 294,
+      "snippet": "assertTrue(m0.isNull(\"upload_mbps\"))         assertTrue(m0.has(\"unavailable_fields\"))     }      @Test     fun calibrati",
+      "match_span": [
+        12929,
+        12964
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/__main__.py",
-      "line": 24,
-      "snippet": "xit(_main()) "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 295,
+      "snippet": "assertTrue(m0.has(\"unavailable_fields\"))     }      @Test     fun calibrationExportHasCalibrationOnlyTrue() {         va",
+      "match_span": [
+        12974,
+        13013
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
-      "line": 224,
-      "snippet": "xit(3)      def _get_ordered_configuration_items(         self,     ) -> Generator[tuple[str, Any], None, None]:        "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 329,
+      "snippet": "assertTrue(ctx.getBoolean(\"calibration_only\"))         assertEquals(\"CALIBRATION\", ctx.getString(\"session_mode\"))       ",
+      "match_span": [
+        14289,
+        14334
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
-      "line": 332,
-      "snippet": "xit(UNKNOWN_ERROR, str(err))          defaults = self._update_defaults(self.defaults.copy())  # ours         for option "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 378,
+      "snippet": "assertTrue(ctx.getBoolean(\"rehearsal_only\"))         assertFalse(ctx.getBoolean(\"calibration_only\"))         assertEqual",
+      "match_span": [
+        16401,
+        16444
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
-      "line": 345,
-      "snippet": "xit(UNKNOWN_ERROR, f\"{msg}\\n\")      def _create_console_for_help(self, file: Any = None) -> PipConsole:         # This i"
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 427,
+      "snippet": "assertTrue(ctx.isNull(\"protocol_deviation\"))     }      @Test     fun exportKeepsFrozenActiveConsentAfterLaterWithdrawal",
+      "match_span": [
+        18595,
+        18638
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
-      "line": 46,
-      "snippet": "xit(1)         # special case: list locally installed dists for show and uninstall         should_list_installed = not c"
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 523,
+      "snippet": "assertTrue(out.exists() && out.length() > 0)             assertEquals(\"\"\"{\"ok\":true}\"\"\", out.readText())         } final",
+      "match_span": [
+        22152,
+        22175
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
-      "line": 69,
-      "snippet": "xit(1)          should_list_installables = (             not current.startswith(\"-\") and subcommand_name == \"install\"   "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 537,
+      "snippet": "assertTrue(expected.endsWith(EdgeIoFileProvider.AUTHORITY_SUFFIX))         assertFalse(expected.contains(\".files\"))     ",
+      "match_span": [
+        22633,
+        22698
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
-      "line": 77,
-      "snippet": "xit(1)          subcommand = create_command(subcommand_name)          for opt in subcommand.parser.option_list_all:     "
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/AssignmentCanonicalGoldenTest.kt",
+      "line": 29,
+      "snippet": "assertTrue(expectedCanon.contentEquals(result.canonicalUtf8))         val asn = PilotAssignment.fromJson(text)         a",
+      "match_span": [
+        1175,
+        1235
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     },
     {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/autocompletion.py",
-      "line": 132,
-      "snippet": "xit(1)   def get_path_completion_type(     cwords: list[str], cword: int, opts: Iterable[Any] ) -> str | None:     \"\"\"Ge"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/base_command.py",
-      "line": 224,
-      "snippet": "xit(ERROR)          # TODO: Try to get these passing down from the command?         #       without resorting to os.envi"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/base_command.py",
-      "line": 240,
-      "snippet": "xit(VIRTUALENV_NOT_FOUND)          if options.cache_dir:             options.cache_dir = normalize_path(options.cache_di"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main_parser.py",
-      "line": 106,
-      "snippet": "xit(returncode)      # --version     if general_options.version:         sys.stdout.write(parser.version)         sys.st"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main_parser.py",
-      "line": 112,
-      "snippet": "xit()      # pip || pip help -> print_help()     if not args_else or (args_else[0] == \"help\" and len(args_else) == 1):  "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main_parser.py",
-      "line": 117,
-      "snippet": "xit()      # the subcommand name     cmd_name = args_else[0]      if cmd_name not in commands_dict:         guess = get_"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/main.py",
-      "line": 74,
-      "snippet": "xit(1)      # Needed for locale encoding detection to work     # in pip._internal.utils.encoding.auto_decode     # TODO:"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/operations/install/wheel.py",
-      "line": 425,
-      "snippet": "xit(%(func)s()) \"\"\")      def make(         self, specification: str, options: dict[str, Any] | None = None     ) -> lis"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/req/req_install.py",
-      "line": 730,
-      "snippet": "xit(-1)          if not create_archive:             return          zip_output = zipfile.ZipFile(             archive_pa"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/req/req_file.py",
-      "line": 486,
-      "snippet": "xit(self: Any, msg: str) -> NoReturn:         raise OptionParsingError(msg)      # NOTE: mypy disallows assigning to a m"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/vcs/versioncontrol.py",
-      "line": 559,
-      "snippet": "xit(-1)          if response == \"w\":             logger.warning(\"Deleting %s\", display_path(dest))             rmtree(de"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/locations/base.py",
-      "line": 65,
-      "snippet": "xit(\"The folder you are executing pip from can no longer be found.\")      # under macOS + virtualenv sys.prefix is not p"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/dependency_groups.py",
-      "line": 124,
-      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._p"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/dependency_groups.py",
-      "line": 137,
-      "snippet": "xit(             f\"[dependency-groups] data for {group!r} was malformed\"         ) as errors:             return self._r"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/metadata.py",
-      "line": 832,
-      "snippet": "xit(\"unparsed\") as collector:                 for unparsed_key in unparsed:                     if unparsed_key in _EMAI"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/errors.py",
-      "line": 65,
-      "snippet": "xit(self, msg: str) -> typing.Generator[_ErrorCollector, None, None]:         \"\"\"         Calls finalize if no uncollect"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pygments/__main__.py",
-      "line": 15,
-      "snippet": "xit(main(sys.argv)) except KeyboardInterrupt:     sys.exit(1) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pygments/__main__.py",
-      "line": 17,
-      "snippet": "xit(1) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/distlib/scripts.py",
-      "line": 50,
-      "snippet": "xit(%(func)s()) '''  # Pre-fetch the contents of all executable wrapper stubs. # This is to address https://github.com/p"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/idna/cli.py",
-      "line": 128,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/idna/__main__.py",
-      "line": 6,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py",
-      "line": 355,
-      "snippet": "xit(\"Needs args: hook_name, control_dir\")     hook_name = sys.argv[1]     control_dir = sys.argv[2]     if hook_name not"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py",
-      "line": 359,
-      "snippet": "xit(\"Unknown hook: %s\" % hook_name)      # Remove the parent directory from sys.path to avoid polluting the backend     "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/console.py",
-      "line": 2025,
-      "snippet": "xit(1)      def _check_buffer(self) -> None:         \"\"\"Check if the buffer may be rendered. Render it if it can (e.g. C"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/json.py",
-      "line": 137,
-      "snippet": "xit(-1)      console.print(JSON(json_data, indent=args.indent), soft_wrap=True) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pylink/__main__.py",
-      "line": 618,
-      "snippet": "xit(main()) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/command/easy_install.py",
-      "line": 217,
-      "snippet": "xit()      def finalize_options(self):  # noqa: C901  # is too complex (25)  # FIXME         self.version and self._rend"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/command/easy_install.py",
-      "line": 2089,
-      "snippet": "xit(load_entry_point(%(spec)r, %(group)r, %(name)r)())         \"\"\").lstrip()      command_spec_class = CommandSpec      "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
-      "line": 150,
-      "snippet": "xit(\"error in setup command: %s\" % msg)         else:             raise SystemExit(\"error in {} setup command: {}\".forma"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
-      "line": 152,
-      "snippet": "xit(\"error in {} setup command: {}\".format(attrs['name'], msg))      if _setup_stop_after == \"init\":         return dist"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
-      "line": 174,
-      "snippet": "xit(gen_usage(dist.script_name) + \"\\nerror: %s\" % msg)      if DEBUG:         print(\"options (after parsing command line"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
-      "line": 203,
-      "snippet": "xit(\"interrupted\")     except OSError as exc:         if DEBUG:             sys.stderr.write(\"error: {}\\n\".format(exc)) "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
-      "line": 209,
-      "snippet": "xit(\"error: {}\".format(exc))      except (DistutilsError, CCompilerError) as msg:         if DEBUG:             raise   "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/core.py",
-      "line": 215,
-      "snippet": "xit(\"error: \" + str(msg))      return dist   def run_setup(script_name, script_args=None, stop_after=\"run\"):     \"\"\"Run "
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/dist.py",
-      "line": 526,
-      "snippet": "xit(\"invalid command name '%s'\" % command)         self.commands.append(command)          # Dig up the command class tha"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/west/log.py",
-      "line": 175,
-      "snippet": "xit(exit_code)  def msg(*args, color=None, stream=sys.stdout):     '''Print a message using a color.      :param args: s"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/west/commands.py",
-      "line": 524,
-      "snippet": "xit(exit_code)      @property     def color_ui(self) -> bool:         '''Should we colorize output?'''         return se"
-    },
-    {
-      "severity": "S1",
-      "kind": "todo_pass",
-      "path": ".venv-zephyr/lib/python3.11/site-packages/west/app/main.py",
-      "line": 455,
-      "snippet": "xit(ece.returncode)      def setup_parsers(self):         # Set up and install command-line argument parsers.          w"
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/AssignmentCanonicalGoldenTest.kt",
+      "line": 43,
+      "snippet": "assertTrue(asn.rehearsalOnly)         assertEquals(300.0, asn.plannedDurationSeconds, 0.0)         assertEquals(Assignme",
+      "match_span": [
+        1818,
+        1847
+      ],
+      "repository": "edge-io-measurement-node",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "edge-io-measurement-node"
+      },
+      "requirement_capability_link": true,
+      "semantic": {
+        "semantic_class": "NON_THEATER_TRUE_MATCH",
+        "theater_token_alone": false,
+        "candidate_severity": null,
+        "reason": "pattern match did not survive semantic filter"
+      },
+      "semantic_review_disposition": "NOT_FINDING",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "INFO",
+      "disposition": "FILTERED_NON_THEATER"
     }
   ],
+  "raw_pattern_observations": [
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 26,
+      "snippet": "assertTrue(state.receiptId!!.startsWith(\"rcpt_\"))         assertTrue(state.capturedAtIso!!.endsWith(\"Z\"))     } }  class",
+      "match_span": [
+        777,
+        825
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 27,
+      "snippet": "assertTrue(state.capturedAtIso!!.endsWith(\"Z\"))     } }  class SessionModeTest {     @Test     fun durationsAndPrefixesM",
+      "match_span": [
+        835,
+        881
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 40,
+      "snippet": "assertTrue(SessionMode.CALIBRATION.calibrationOnly)         assertFalse(SessionMode.CALIBRATION.rehearsalOnly)         a",
+      "match_span": [
+        1444,
+        1495
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 43,
+      "snippet": "assertTrue(SessionMode.PILOT_REHEARSAL.rehearsalOnly)         assertFalse(SessionMode.PILOT.calibrationOnly)         ass",
+      "match_span": [
+        1628,
+        1681
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 107,
+      "snippet": "assertTrue(asn.rehearsalOnly)         assertEquals(\"wifi\", asn.expectedNetworkTransport)         assertEquals(300.0, asn",
+      "match_span": [
+        4487,
+        4516
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 118,
+      "snippet": "assertTrue(canon.contains(\"\\\"planned_duration_seconds\\\":300\"))         assertFalse(canon.contains(\"\\\"planned_duration_se",
+      "match_span": [
+        5038,
+        5099
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 190,
+      "snippet": "assertTrue(NetworkTransportDetector.isCompatible(\"wifi\", \"wifi\"))         assertFalse(NetworkTransportDetector.isCompati",
+      "match_span": [
+        8319,
+        8383
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 280,
+      "snippet": "assertTrue(ctx.getBoolean(\"calibration_only\"))         assertFalse(ctx.getBoolean(\"rehearsal_only\"))         assertEqual",
+      "match_span": [
+        11838,
+        11883
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 285,
+      "snippet": "assertTrue(ctx.getDouble(\"actual_duration_seconds\") >= 59.0)         assertTrue(ctx.getString(\"operator_notes\").contains",
+      "match_span": [
+        12177,
+        12228
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 286,
+      "snippet": "assertTrue(ctx.getString(\"operator_notes\").contains(\"calibration_only=true\"))         val batch = root.getJSONObject(\"me",
+      "match_span": [
+        12246,
+        12288
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 294,
+      "snippet": "assertTrue(m0.isNull(\"upload_mbps\"))         assertTrue(m0.has(\"unavailable_fields\"))     }      @Test     fun calibrati",
+      "match_span": [
+        12929,
+        12964
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 295,
+      "snippet": "assertTrue(m0.has(\"unavailable_fields\"))     }      @Test     fun calibrationExportHasCalibrationOnlyTrue() {         va",
+      "match_span": [
+        12974,
+        13013
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 329,
+      "snippet": "assertTrue(ctx.getBoolean(\"calibration_only\"))         assertEquals(\"CALIBRATION\", ctx.getString(\"session_mode\"))       ",
+      "match_span": [
+        14289,
+        14334
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 378,
+      "snippet": "assertTrue(ctx.getBoolean(\"rehearsal_only\"))         assertFalse(ctx.getBoolean(\"calibration_only\"))         assertEqual",
+      "match_span": [
+        16401,
+        16444
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 427,
+      "snippet": "assertTrue(ctx.isNull(\"protocol_deviation\"))     }      @Test     fun exportKeepsFrozenActiveConsentAfterLaterWithdrawal",
+      "match_span": [
+        18595,
+        18638
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 523,
+      "snippet": "assertTrue(out.exists() && out.length() > 0)             assertEquals(\"\"\"{\"ok\":true}\"\"\", out.readText())         } final",
+      "match_span": [
+        22152,
+        22175
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/ConsentManagerTest.kt",
+      "line": 537,
+      "snippet": "assertTrue(expected.endsWith(EdgeIoFileProvider.AUTHORITY_SUFFIX))         assertFalse(expected.contains(\".files\"))     ",
+      "match_span": [
+        22633,
+        22698
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/AssignmentCanonicalGoldenTest.kt",
+      "line": 29,
+      "snippet": "assertTrue(expectedCanon.contentEquals(result.canonicalUtf8))         val asn = PilotAssignment.fromJson(text)         a",
+      "match_span": [
+        1175,
+        1235
+      ],
+      "repository": "edge-io-measurement-node"
+    },
+    {
+      "kind": "assert_true_literal",
+      "severity_hint": "S0",
+      "path": "clients/android/app/src/test/java/org/gunnchos/edgeio/AssignmentCanonicalGoldenTest.kt",
+      "line": 43,
+      "snippet": "assertTrue(asn.rehearsalOnly)         assertEquals(300.0, asn.plannedDurationSeconds, 0.0)         assertEquals(Assignme",
+      "match_span": [
+        1818,
+        1847
+      ],
+      "repository": "edge-io-measurement-node"
+    }
+  ],
+  "wave_duplicate_classification": {
+    "repository": "edge-io-measurement-node",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
   "complexity_hotspots": [
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
-      "name": "validate_https___setuptools_pypa_io_en_latest_references_keywords_html",
-      "lineno": 104,
-      "complexity": 351
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "decode_flags",
+      "lineno": 192,
+      "complexity": 44
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
-      "name": "validate_https___setuptools_pypa_io_en_latest_references_keywords_html",
-      "lineno": 104,
-      "complexity": 351
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "decode_flags",
+      "lineno": 192,
+      "complexity": 44
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
-      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_project_metadata",
-      "lineno": 652,
-      "complexity": 269
+      "path": "gate1_digital_fabrication/ring_firmware/scripts/static_analysis.py",
+      "name": "main",
+      "lineno": 34,
+      "complexity": 28
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
-      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_project_metadata",
-      "lineno": 652,
-      "complexity": 269
+      "path": ".venv-zephyr/bin/hexmerge.py",
+      "name": "main",
+      "lineno": 86,
+      "complexity": 27
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/charset_normalizer/api.py",
-      "name": "from_bytes",
-      "lineno": 50,
-      "complexity": 147
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "main",
+      "lineno": 1874,
+      "complexity": 23
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/dateutil/rrule.py",
-      "name": "_iter",
-      "lineno": 776,
-      "complexity": 83
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "_dump_debug_line_programs",
+      "lineno": 1259,
+      "complexity": 23
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/rrule.py",
-      "name": "_iter",
-      "lineno": 776,
-      "complexity": 83
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "main",
+      "lineno": 1874,
+      "complexity": 23
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/serial/rfc2217.py",
-      "name": "_telnet_process_subnegotiation",
-      "lineno": 1148,
-      "complexity": 80
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "_dump_debug_line_programs",
+      "lineno": 1259,
+      "complexity": 23
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/dateutil/rrule.py",
-      "name": "__init__",
-      "lineno": 428,
-      "complexity": 73
+      "path": ".venv-zephyr/bin/hex2dump.py",
+      "name": "main",
+      "lineno": 77,
+      "complexity": 21
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/rrule.py",
-      "name": "__init__",
-      "lineno": 428,
-      "complexity": 73
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "display_dynamic_tags",
+      "lineno": 516,
+      "complexity": 20
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
-      "name": "traverse",
-      "lineno": 580,
-      "complexity": 62
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "display_relocations",
+      "lineno": 587,
+      "complexity": 20
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
-      "name": "traverse",
-      "lineno": 580,
-      "complexity": 62
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "display_dynamic_tags",
+      "lineno": 516,
+      "complexity": 20
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
-      "name": "_traverse",
-      "lineno": 621,
-      "complexity": 58
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "display_relocations",
+      "lineno": 587,
+      "complexity": 20
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/pretty.py",
-      "name": "_traverse",
-      "lineno": 621,
-      "complexity": 58
+      "path": "src/edge_io_node/ring_e2e/pipeline.py",
+      "name": "run",
+      "lineno": 114,
+      "complexity": 20
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
-      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_build_dependencies",
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "display_symbol_tables",
+      "lineno": 444,
+      "complexity": 19
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "display_symbol_tables",
+      "lineno": 444,
+      "complexity": 19
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/scripts/write_firmware_status.py",
+      "name": "main",
+      "lineno": 15,
+      "complexity": 18
+    },
+    {
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "display_version_info",
+      "lineno": 708,
+      "complexity": 17
+    },
+    {
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "_dump_loclist",
+      "lineno": 1642,
+      "complexity": 17
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "display_version_info",
+      "lineno": 708,
+      "complexity": 17
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "_dump_loclist",
+      "lineno": 1642,
+      "complexity": 17
+    },
+    {
+      "path": "gate1_digital_fabrication/ring_firmware/scripts/zephyr_west_probe.py",
+      "name": "probe",
       "lineno": 31,
-      "complexity": 57
+      "complexity": 17
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/fastjsonschema_validations.py",
-      "name": "validate_https___packaging_python_org_en_latest_specifications_declaring_build_dependencies",
-      "lineno": 31,
-      "complexity": 57
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "_dump_debug_info",
+      "lineno": 1128,
+      "complexity": 16
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__init__.py",
-      "name": "_to_diagram_element",
-      "lineno": 442,
-      "complexity": 51
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "_dump_debug_info",
+      "lineno": 1128,
+      "complexity": 16
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/diagram/__init__.py",
-      "name": "_to_diagram_element",
-      "lineno": 442,
-      "complexity": 51
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "_dump_frames_interp_info",
+      "lineno": 1467,
+      "complexity": 15
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/serial/serialposix.py",
-      "name": "_reconfigure_port",
-      "lineno": 376,
-      "complexity": 51
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "_dump_rangelist",
+      "lineno": 1786,
+      "complexity": 15
     },
     {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/dateutil/parser/_parser.py",
-      "name": "parse",
-      "lineno": 1390,
-      "complexity": 51
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "_dump_frames_interp_info",
+      "lineno": 1467,
+      "complexity": 15
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__init__.py",
-      "name": "_to_diagram_element",
-      "lineno": 442,
-      "complexity": 51
+      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "name": "_dump_rangelist",
+      "lineno": 1786,
+      "complexity": 15
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/diagram/__init__.py",
-      "name": "_to_diagram_element",
-      "lineno": 442,
-      "complexity": 51
+      "path": "gate1_digital_fabrication/ring_firmware/host_sim/backends/fake_bus.py",
+      "name": "write_read",
+      "lineno": 48,
+      "complexity": 14
     },
     {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/parser/_parser.py",
-      "name": "parse",
-      "lineno": 1390,
-      "complexity": 51
-    },
-    {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/table.py",
-      "name": "_render",
-      "lineno": 747,
-      "complexity": 50
-    },
-    {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/table.py",
-      "name": "_render",
-      "lineno": 747,
-      "complexity": 50
-    },
-    {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/packaging/_ranges.py",
-      "name": "filter_by_ranges",
-      "lineno": 529,
-      "complexity": 48
-    },
-    {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/ruamel/yaml/emitter.py",
-      "name": "analyze_scalar",
-      "lineno": 1040,
-      "complexity": 48
-    },
-    {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/packaging/_ranges.py",
-      "name": "filter_by_ranges",
-      "lineno": 529,
-      "complexity": 48
-    },
-    {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/ruamel/yaml/emitter.py",
-      "name": "analyze_scalar",
-      "lineno": 1040,
-      "complexity": 48
-    },
-    {
-      "path": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/style.py",
-      "name": "__init__",
-      "lineno": 127,
-      "complexity": 47
+      "path": ".venv-zephyr/bin/readelf.py",
+      "name": "display_program_headers",
+      "lineno": 292,
+      "complexity": 13
     }
   ],
   "wave_duplicate_paths": [],
   "fixtures": [
     {
       "path": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_fixtures.py",
-      "honesty": "DECLARED_FIXTURE"
-    },
-    {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/cmake/data/share/cmake-3.31/Help/prop_test/FIXTURES_REQUIRED.rst",
-      "honesty": "DECLARED_FIXTURE"
-    },
-    {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/cmake/data/share/cmake-3.31/Help/prop_test/FIXTURES_SETUP.rst",
-      "honesty": "DECLARED_FIXTURE"
-    },
-    {
-      "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/cmake/data/share/cmake-3.31/Help/prop_test/FIXTURES_CLEANUP.rst",
       "honesty": "DECLARED_FIXTURE"
     },
     {
@@ -865,367 +1239,338 @@
     }
   ],
   "orphan_candidates": [
-    ".venv-zephyr/lib/python3.11/site-packages/packaging/_musllinux.py",
-    ".venv-zephyr/lib/python3.11/site-packages/packaging/dependency_groups.py",
-    ".venv-zephyr/lib/python3.11/site-packages/packaging/metadata.py",
-    ".venv-zephyr/lib/python3.11/site-packages/packaging/direct_url.py",
-    ".venv-zephyr/lib/python3.11/site-packages/packaging/pylock.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/viewer.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/ctypesutil.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/bridge.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/logconvert.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/iscan.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/slcan.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/virtual.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/robotell.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/nican.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/neousys/neousys.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ixxat/canlib_vcinpl.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ixxat/canlib_vcinpl2.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/systec/ucanbus.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/seeedstudio/seeedstudio.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/pcan/pcan.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/vector/xlclass.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/vector/xldefine.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/vector/xldriver.py",
-    ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/serial/serial_can.py",
-    ".venv-zephyr/lib/python3.11/site-packages/progress/bar.py",
-    ".venv-zephyr/lib/python3.11/site-packages/progress/counter.py",
-    ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/datatype_cpp.py",
-    ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/descriptions.py",
-    ".venv-zephyr/lib/python3.11/site-packages/elftools/ehabi/ehabiinfo.py",
-    ".venv-zephyr/lib/python3.11/site-packages/elftools/elf/descriptions.py",
-    ".venv-zephyr/lib/python3.11/site-packages/intelhex/test.py",
-    ".venv-zephyr/lib/python3.11/site-packages/intelhex/bench.py",
-    ".venv-zephyr/lib/python3.11/site-packages/intelhex/getsizeof.py",
-    ".venv-zephyr/lib/python3.11/site-packages/idna/idnadata.py",
-    ".venv-zephyr/lib/python3.11/site-packages/idna/codec.py",
-    ".venv-zephyr/lib/python3.11/site-packages/requests/certs.py",
-    ".venv-zephyr/lib/python3.11/site-packages/requests/packages.py",
-    ".venv-zephyr/lib/python3.11/site-packages/requests/help.py",
-    ".venv-zephyr/lib/python3.11/site-packages/pip/__pip-runner__.py",
-    ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/configuration.py"
+    "src/edge_io_node/latency_probe.py",
+    "src/edge_io_node/packet_loss_probe.py",
+    "src/edge_io_node/demo.py",
+    "src/edge_io_node/__main__.py",
+    "src/edge_io_node/collectors/base.py",
+    "src/edge_io_node/exporters/seven_gc_export.py",
+    "src/edge_io_node/contracts/validate.py",
+    "src/edge_io_node/tool_adapters/measurement_validation.py",
+    "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
+    "src/edge_io_node/tool_adapters/oran_kpi_export.py",
+    "src/edge_io_node/consent/lifecycle.py"
   ],
   "dependency_edges_sample": [
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/layout.py",
-      "to": "region"
+      "from": "tests/test_campus_profiles.py",
+      "to": "edge_io_node"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/packaging/specifiers.py",
-      "to": "utils"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/config/_validate_pyproject/__init__.py",
+      "from": ".venv-zephyr/bin/readelf.py",
       "to": "functools"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_distutils/file_util.py",
-      "to": "errno"
+      "from": "src/edge_io_node/measurement_plan.py",
+      "to": "__future__"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/gs_usb.py",
-      "to": "typing"
+      "from": "src/edge_io_node/campus_profiles.py",
+      "to": "yaml"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/dwarf_expr.py",
-      "to": "construct"
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "to": "argparse"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/dateutil/tz/tz.py",
-      "to": "win"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_internal/utils/egg_link.py",
-      "to": "os"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/platformdirs/unix.py",
-      "to": "pathlib"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/packaging/version.py",
-      "to": "typing"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/_musllinux.py",
-      "to": "sysconfig"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/packaging/_manylinux.py",
-      "to": "warnings"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/nixnet.py",
-      "to": "typing"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/msvc9compiler.py",
-      "to": "distutils"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/msvccompiler.py",
-      "to": "os"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/urllib3/util/ssl_.py",
-      "to": "ssltransport"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/cli/parser.py",
-      "to": "pip"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/construct/core.py",
-      "to": "io"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/yaml/representer.py",
-      "to": "nodes"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_vendor/importlib_metadata/__init__.py",
-      "to": "warnings"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/intelhex/__init__.py",
-      "to": "binascii"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_internal/index/package_finder.py",
-      "to": "re"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/io/blf.py",
-      "to": "generic"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/typeunit.py",
-      "to": "abbrevtable"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/requests/auth.py",
-      "to": "time"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/requests/auth.py",
-      "to": "time"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ics_neovi/neovi_bus.py",
-      "to": "datetime"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/pkg_resources/__init__.py",
-      "to": "typing_extensions"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
-      "to": "sys"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/urllib3/util/ssl_.py",
-      "to": "exceptions"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/platformdirs/unix.py",
-      "to": "collections"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/markup.py",
-      "to": "style"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/distlib/scripts.py",
-      "to": "java"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/anytree/render.py",
-      "to": "collections"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/ruamel/yaml/parser.py",
-      "to": "ruamel"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/packaging/_musllinux.py",
-      "to": "struct"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/requests/models.py",
-      "to": "_internal_utils"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/ics_neovi/__init__.py",
-      "to": "neovi_bus"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/requests/help.py",
-      "to": "sys"
+      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
+      "to": "dataclasses"
     },
     {
       "from": "src/edge_io_node/research_export.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
+      "to": "csv"
+    },
+    {
+      "from": "src/edge_io_node/ring_e2e/siblings.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_pinout_board.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "argparse"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/host_sim/backends/fake_bus.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_ring_input_harness.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_pipeline.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_pinout_board.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "subprocess"
+    },
+    {
+      "from": ".venv-zephyr/bin/hexmerge.py",
+      "to": "getopt"
+    },
+    {
+      "from": "scripts/gate6_dry_run.py",
       "to": "datetime"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/_win32_console.py",
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_full_firmware_digital.py",
       "to": "sys"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/packaging/specifiers.py",
-      "to": "functools"
+      "from": "gate1_digital_fabrication/ring_firmware/host_sim/ring_host_sim.py",
+      "to": "argparse"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/dwarf/dwarfinfo.py",
-      "to": "callframe"
+      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
+      "to": "latency_hooks"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/_null_file.py",
-      "to": "typing"
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_full_firmware_digital.py",
+      "to": "pathlib"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/util.py",
-      "to": "functools"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/wrapt/decorators.py",
+      "from": ".venv-zephyr/bin/bin2hex.py",
       "to": "sys"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/elftools/elf/elffile.py",
-      "to": "io"
+      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
+      "to": "__future__"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/tomli/_re.py",
+      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
+      "to": "sys"
+    },
+    {
+      "from": ".venv-zephyr/bin/readelf.py",
+      "to": "os"
+    },
+    {
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/research_export.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_pinout_board.py",
       "to": "re"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/urllib3/contrib/emscripten/request.py",
+      "from": "src/edge_io_node/consent/lifecycle.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_fixtures.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/ring_input_harness/measurement_run.py",
+      "to": "validator"
+    },
+    {
+      "from": ".venv-zephyr/bin/bin2hex.py",
+      "to": "getopt"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/write_firmware_status.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/ring_e2e/siblings.py",
+      "to": "importlib"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/write_firmware_status.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/zephyr_west_probe.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+      "to": "itertools"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_pipeline.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/edge_io_node/ring_e2e/pipeline.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/edge_io_node/campus_reports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/demo.py",
+      "to": "synthetic_device_emulator"
+    },
+    {
+      "from": "src/edge_io_node/demo.py",
       "to": "__future__"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/platformdirs/macos.py",
-      "to": "os"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/util.py",
-      "to": "py_compile"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/west/manifest.py",
-      "to": "pykwalify"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/charset_normalizer/utils.py",
-      "to": "unicodedata"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/pip/_vendor/rich/_inspect.py",
-      "to": "table"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/util.py",
-      "to": "collections"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/dateutil/relativedelta.py",
-      "to": "math"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/elftools/elf/relocation.py",
-      "to": "common"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/command/install_egg_info.py",
-      "to": "_path"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/requests/utils.py",
-      "to": "socket"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/requests/cookies.py",
-      "to": "collections"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/sandbox.py",
-      "to": "org"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/dist.py",
-      "to": "contextlib"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_internal/build_env/virtual.py",
+      "from": "src/edge_io_node/consent/lifecycle.py",
       "to": "typing"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/setuptools/_vendor/pyparsing/diagram/__init__.py",
-      "to": "jinja2"
+      "from": "tests/contracts/test_gate2_edge_contracts.py",
+      "to": "json"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/packaging/specifiers.py",
-      "to": "abc"
+      "from": "tests/test_telemetry_schema.py",
+      "to": "edge_io_node"
     },
     {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/direct_url.py",
-      "to": "typing"
+      "from": "scripts/gate6_dry_run.py",
+      "to": "json"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pkg_resources/_vendor/pyparsing/core.py",
-      "to": "collections"
+      "from": "tests/test_tool_adapters.py",
+      "to": "edge_io_node"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/launch.py",
-      "to": "tokenize"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/can/interfaces/socketcan/utils.py",
-      "to": "errno"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/rule.py",
-      "to": "align"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/rich/panel.py",
-      "to": "typing"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_vendor/packaging/utils.py",
-      "to": "typing"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/ranges.py",
-      "to": "version"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/command/_framework_compat.py",
-      "to": "os"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/anytree/iterators/levelordergroupiter.py",
-      "to": "abstractiter"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/requests/_types.py",
-      "to": "cookies"
-    },
-    {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/colorama/initialise.py",
-      "to": "atexit"
-    },
-    {
-      "from": ".venv-zephyr/lib/python3.11/site-packages/packaging/errors.py",
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
       "to": "__future__"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/pip/_vendor/urllib3/connection.py",
-      "to": "_collections"
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
+      "to": "sys"
     },
     {
-      "from": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/lib/python3.11/site-packages/setuptools/_distutils/command/sdist.py",
-      "to": "glob"
+      "from": "src/edge_io_node/ring_e2e/classifier.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
+      "to": "backends"
+    },
+    {
+      "from": ".venv-zephyr/bin/hex2dump.py",
+      "to": "intelhex"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_protocol_host.py",
+      "to": "hmac"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/ring_input_harness/__init__.py",
+      "to": "latency_hooks"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "campus_reports"
+    },
+    {
+      "from": "src/edge_io_node/campus_export.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/demo.py",
+      "to": "export_to_7gc"
+    },
+    {
+      "from": "src/edge_io_node/ring_e2e/ble_sim.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/edge_io_node/exporters/seven_gc_export.py",
+      "to": "shutil"
+    },
+    {
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/ring_e2e/app_feedback.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/edge_io_node/campus_reports.py",
+      "to": "campus_export"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_mcuboot_pipeline.py",
+      "to": "importlib"
+    },
+    {
+      "from": "src/edge_io_node/ring_input_harness/validator.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_sign.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/edge_io_node/collectors/base.py",
+      "to": "json"
+    },
+    {
+      "from": "src/edge_io_node/cli.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/mcuboot_dev_sign.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/pack_arm_elf.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/native_sim/native_sim_boot.py",
+      "to": "argparse"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/scripts/pack_arm_elf.py",
+      "to": "sys"
+    },
+    {
+      "from": "gate1_digital_fabrication/ring_firmware/tests/test_continuation_vii.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "tests/test_rq3_digital_measurement.py",
+      "to": "pytest"
     }
   ],
   "path_classification_sample": [
@@ -2230,7 +2575,16 @@
       "ext": ".md"
     }
   ],
-  "path_classification_full_count": 5000,
+  "path_classification_full_count": 386,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
   "mutation_sampling": {
     "repository": "edge-io-measurement-node",
     "sha": "af57fbdac857ae386b23b5b747fdc05797621f92",

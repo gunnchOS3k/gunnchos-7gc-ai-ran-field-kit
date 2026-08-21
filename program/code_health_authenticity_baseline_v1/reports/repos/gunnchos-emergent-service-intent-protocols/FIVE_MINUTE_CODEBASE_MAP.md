@@ -16,12 +16,12 @@ Accepted main: `088c5e88e155`
 ## Authenticity snapshot
 - Proof independence: `PASS_INDEPENDENT`
 - Runtime authenticity: `ADEQUATE`
-- Theater: S0=0 S1=5 total=5
+- Theater: S0=0 S1=0 total=1
 - Hotspots: 31; wave-dup paths: 0; orphans≈31
 
 ## Dimension ratings
 - `production_proof_separation`: **STRONG**
-- `anti_test_theater`: **NEEDS_WORK**
+- `anti_test_theater`: **ADEQUATE**
 - `dependency_boundaries`: **ADEQUATE**
 - `canonical_vs_wave_dup`: **STRONG**
 - `runtime_authenticity`: **ADEQUATE**
@@ -38,5 +38,5 @@ Accepted main: `088c5e88e155`
 4. Any `artifacts/**/ACCEPTANCE.json` or RESULT json — treat as proof, not product
 
 ## Maintainability risks (this scan)
-- Top theater hit: `S1` `assert_equals_self` at `tests/unit/test_interpretability_metrics.py:40`
+- No static theater hits in scanned sample.
 - Hottest function: `src/emergent_intent/comm/channel.py::exchange` complexity=38
