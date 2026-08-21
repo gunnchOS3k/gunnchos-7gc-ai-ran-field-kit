@@ -1,0 +1,33 @@
+name: Engineering Wave 008 closeout
+
+on:
+  push:
+    branches: [main, 'eng/wave008-*']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave008/**'
+      - 'artifacts/engineering_wave008_closeout/**'
+      - 'scripts/engineering_wave008/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
+      - 'tests/engineering_wave008/**'
+      - '.github/workflows/engineering-wave008.yml'
+
+jobs:
+  wave008-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Wave008 closeout integrity test
+        run: pytest tests/engineering_wave008/test_wave008_targeted_closeout.py -q
+
+      - name: Wave008 aggregate validation
+        run: python3 scripts/engineering_wave008/validate_aggregate.py

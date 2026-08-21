@@ -1,6 +1,7 @@
-# Remaining gaps (Wave 007 targeted closeout)
+# Remaining gaps (Wave 008 targeted closeout)
 
-- Wave 007 targeted closeout draft PR pending owner merge
-- DIGITAL_IMPLEMENTATION_OPEN=66 rows need digital engineering
+- Wave 008 targeted closeout draft PR pending owner merge
+- DIGITAL_IMPLEMENTATION_OPEN=51 rows need digital engineering
 - DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)
 - OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false
+- Archive scientific records remain fixture-only; AUTHENTIC_EXTERNAL_SOURCE_SNAPSHOTS_PRESENT=false
