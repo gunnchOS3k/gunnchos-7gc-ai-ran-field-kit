@@ -1,6 +1,6 @@
-# Remaining gaps (Wave 006 targeted closeout)
+# Remaining gaps (Wave 007 targeted closeout)
 
-- Wave 006 targeted closeout draft PR pending owner merge
-- DIGITAL_IMPLEMENTATION_OPEN=76 rows need digital engineering
+- Wave 007 targeted closeout draft PR pending owner merge
+- DIGITAL_IMPLEMENTATION_OPEN=66 rows need digital engineering
 - DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)
 - OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false

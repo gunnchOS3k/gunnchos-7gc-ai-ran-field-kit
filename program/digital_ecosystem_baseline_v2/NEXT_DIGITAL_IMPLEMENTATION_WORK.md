@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-Count: 76
+Count: 66
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,16 +16,6 @@ Count: 76
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- GAME-BEATLINK-001: Beat Link: Host starts a room
-- GAME-BEATLINK-002: Beat Link: Players join through devices or browsers
-- GAME-BEATLINK-003: Beat Link: Legal and supported song source selected
-- GAME-BEATLINK-004: Beat Link: Players choose active or audience roles
-- GAME-BEATLINK-005: Beat Link: Timing calibrated per device
-- GAME-BEATLINK-006: Beat Link: Performers sing/tap/swipe/play roles/complete prompts
-- GAME-BEATLINK-007: Beat Link: Audience influence on energy/awards/multipliers/conditions/result
-- GAME-BEATLINK-008: Beat Link: Individual and team outcomes produced
-- GAME-BEATLINK-009: Beat Link: Reconnect and rematch work
-- GAME-BEATLINK-010: Music links are not rip permission
 - GAME-AOL-001: Archive of Life covers known record without completeness claim
 - GAME-AOL-002: Scientific record field: Canonical identifier
 - GAME-AOL-003: Scientific record field: Scientific name
@@ -52,4 +42,14 @@ Count: 76
 - GAME-PP-009: Pedestrian Pursuit: Boost management
 - GAME-PP-010: Pedestrian Pursuit: Items
 - GAME-PP-011: Pedestrian Pursuit: Shortcuts
-- … and 26 more
+- GAME-PP-012: Pedestrian Pursuit: Terrain interaction
+- GAME-PP-013: Pedestrian Pursuit: Distinct racers
+- GAME-PP-014: Pedestrian Pursuit: Fair comeback mechanics
+- GAME-PP-015: Pedestrian Pursuit: Competitive mastery
+- GAME-AA-001: Anime Aggressors: Aura charging
+- GAME-AA-002: Anime Aggressors: Aura-scaled hand-to-hand combat
+- GAME-AA-003: Anime Aggressors: Charge-scaled projectiles
+- GAME-AA-004: Anime Aggressors: Directional throws
+- GAME-AA-005: Anime Aggressors: Fighter-specific movement
+- GAME-AA-006: Anime Aggressors: Defense and recovery
+- … and 16 more
