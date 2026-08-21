@@ -1,11 +1,11 @@
 {
   "schema": "gunnchos.digital_ecosystem_baseline_v2.remaining_gaps",
-  "generated_at_utc": "2026-08-21T05:45:31Z",
+  "generated_at_utc": "2026-08-21T16:21:58Z",
   "top_blockers": [
-    "Wave 008 targeted closeout draft PR pending owner merge",
+    "Wave 009 targeted closeout draft PR pending owner merge",
     "DIGITAL_IMPLEMENTATION_OPEN=51 rows need digital engineering",
-    "DIGITAL_VALIDATION_OPEN=1 (OS-PLATFORM-020 sandbox enforcement environment)",
-    "OS-PLATFORM-020: re-run mandatory sandbox suite on working isolation backend; PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX=false",
+    "DIGITAL_VALIDATION_OPEN=0 (digital validation queue empty after OS-PLATFORM-020 closeout)",
+    "Next phase after owner merge: ECOSYSTEM CODE HEALTH & IMPLEMENTATION AUTHENTICITY BASELINE",
     "Archive scientific records remain fixture-only; AUTHENTIC_EXTERNAL_SOURCE_SNAPSHOTS_PRESENT=false"
   ],
   "gates_7_8_requirement_count": 28,
@@ -494,6 +494,34 @@
       "plain_subprocess_counts_as_sandbox": false,
       "kernel_sandbox": false,
       "changed": false
+    }
+  },
+  "wave009_closeout": {
+    "targets_closed": [
+      "OS-PLATFORM-020"
+    ],
+    "targets_validation_open": [],
+    "validation_queue_empty": true,
+    "claim_boundaries": {
+      "APPARMOR_POLICY_CERTIFIED": false,
+      "FORMALLY_VERIFIED_SANDBOX": false,
+      "HARDWARE_TEE_ISOLATION_VALIDATED": false,
+      "HUMAN_E6": false,
+      "KERNEL_SANDBOX": true,
+      "PHYSICAL_VALIDATION": false,
+      "PLAIN_SUBPROCESS_COUNTS_AS_SANDBOX": false,
+      "PRODUCTION_SECURITY_CERTIFIED": false,
+      "SANDBOX_EXECUTION_VALIDATED": true,
+      "SELINUX_POLICY_CERTIFIED": false,
+      "THIRD_PARTY_PEN_TESTED": false,
+      "CURSOR_MERGED": false,
+      "BASELINE_COUNTS_UPDATED_ON_WAVE_EVIDENCE": false
+    },
+    "OS_PLATFORM_020": {
+      "work_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "kernel_sandbox": true,
+      "sandbox_execution_validated": true,
+      "plain_subprocess_counts_as_sandbox": false
     }
   }
 }
