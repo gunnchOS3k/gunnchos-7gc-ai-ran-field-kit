@@ -76,8 +76,8 @@ def test_closeout_result_and_queues():
     assert result["OS_PLATFORM_020"]["blocker"] == "SANDBOX_ENFORCEMENT_ENVIRONMENT"
     assert result["OS_PLATFORM_020"]["OS_PLATFORM_020_CHANGED"] is False
     assert result["OS_PLATFORM_020"]["NOT_MARKED_COMPLETE"] is True
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 85
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 76
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 95
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 66
     assert totals["DIGITAL_VALIDATION_OPEN"] == 1
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
     assert result["post_closeout_baseline"]["DIGITAL_CONTROLLABLE_POOL"] == 162
@@ -101,9 +101,11 @@ def test_closeout_result_and_queues():
     assert "ENGINEERING_WAVE_004_TARGETED_PARTIAL_CLOSEOUT" in baseline
     assert "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT" in baseline
     assert "ENGINEERING_WAVE_006_TARGETED_CLOSEOUT" in baseline
+    assert "ENGINEERING_WAVE_007_TARGETED_CLOSEOUT" in baseline
     assert "wave001_targeted_closeout" in reg
     assert "wave002_targeted_closeout" in reg
     assert "wave003_targeted_closeout" in reg
     assert "wave004_targeted_partial_closeout" in reg
     assert "wave005_targeted_closeout" in reg
     assert "wave006_targeted_closeout" in reg
+    assert "wave007_targeted_closeout" in reg
