@@ -76,8 +76,8 @@ def test_closeout_result_and_queues():
     assert result["OS_PLATFORM_020"]["blocker"] == "SANDBOX_ENFORCEMENT_ENVIRONMENT"
     assert result["OS_PLATFORM_020"]["OS_PLATFORM_020_CHANGED"] is False
     assert result["OS_PLATFORM_020"]["NOT_MARKED_COMPLETE"] is True
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 75
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 86
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 85
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 76
     assert totals["DIGITAL_VALIDATION_OPEN"] == 1
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
     assert result["post_closeout_baseline"]["DIGITAL_CONTROLLABLE_POOL"] == 162
@@ -87,20 +87,23 @@ def test_closeout_result_and_queues():
     assert val["total_open"] == 1
     assert val["all_items"][0]["requirement_id"] == "OS-PLATFORM-020"
     assert not any(i["requirement_id"] in TARGET_IDS for i in impl["all_items"])
-    # NET-ORCH-026+ must remain in implementation queue
+    # Wave005 targets remain closed; Wave006 closed NET-ORCH-026..035 (no longer in impl queue)
     remaining_net = [i["requirement_id"] for i in impl["all_items"] if i["requirement_id"].startswith("NET-ORCH-")]
-    assert "NET-ORCH-026" in remaining_net
+    assert "NET-ORCH-026" not in remaining_net
+    assert "NET-ORCH-035" not in remaining_net
     row020 = next(r for r in reg["requirements"] if r["requirement_id"] == "OS-PLATFORM-020")
     assert row020["work_state"] == "DIGITAL_VALIDATION_OPEN"
     assert row020["implementation_state"] == "IMPLEMENTED"
-    # Wave001–004 history preserved
+    # Wave001–006 history preserved
     assert "ENGINEERING_WAVE_001_TARGETED_CLOSEOUT" in baseline
     assert "ENGINEERING_WAVE_002_TARGETED_CLOSEOUT" in baseline
     assert "ENGINEERING_WAVE_003_TARGETED_CLOSEOUT" in baseline
     assert "ENGINEERING_WAVE_004_TARGETED_PARTIAL_CLOSEOUT" in baseline
     assert "ENGINEERING_WAVE_005_TARGETED_CLOSEOUT" in baseline
+    assert "ENGINEERING_WAVE_006_TARGETED_CLOSEOUT" in baseline
     assert "wave001_targeted_closeout" in reg
     assert "wave002_targeted_closeout" in reg
     assert "wave003_targeted_closeout" in reg
     assert "wave004_targeted_partial_closeout" in reg
     assert "wave005_targeted_closeout" in reg
+    assert "wave006_targeted_closeout" in reg

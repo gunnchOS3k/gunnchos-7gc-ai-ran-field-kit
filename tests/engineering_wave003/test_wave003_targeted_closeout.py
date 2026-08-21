@@ -67,8 +67,8 @@ def test_register_counts_arithmetic():
     totals = reg["totals"]
     assert len(impl["all_items"]) == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     assert impl["total_open"] == totals["DIGITAL_IMPLEMENTATION_OPEN"]
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 86
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 76
     assert len(val["all_items"]) == totals["DIGITAL_VALIDATION_OPEN"]
     assert val["total_open"] == totals["DIGITAL_VALIDATION_OPEN"]
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 75
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 85
     assert totals["DIGITAL_VALIDATION_OPEN"] == 1
