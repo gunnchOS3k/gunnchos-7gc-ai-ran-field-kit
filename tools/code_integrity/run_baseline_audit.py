@@ -23,11 +23,31 @@ from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Any, Iterable
 
-SPINE = Path(os.environ.get(
-    "GUNNCHOS_SPINE",
-    "/Users/gunnchos/Downloads/gunnchos-7gc-research-product-spine/repos",
-))
-FIELD_KIT = SPINE / "gunnchos-7gc-ai-ran-field-kit"
+# Resolve field-kit root from this file so CI checkouts work (no hardcoded laptop paths).
+_FIELD_KIT_FROM_FILE = Path(__file__).resolve().parents[2]
+
+
+def _resolve_field_kit() -> Path:
+    env = os.environ.get("GUNNCHOS_FIELD_KIT")
+    if env:
+        return Path(env)
+    return _FIELD_KIT_FROM_FILE
+
+
+def _resolve_spine() -> Path:
+    env = os.environ.get("GUNNCHOS_SPINE")
+    if env:
+        return Path(env)
+    # Prefer sibling repos next to field-kit when present; else field-kit parent.
+    fk = _resolve_field_kit()
+    parent = fk.parent
+    if (parent / "gunnchos-device-os").exists() or (parent / "gunnchos-research-portal").exists():
+        return parent
+    return parent
+
+
+SPINE = _resolve_spine()
+FIELD_KIT = _resolve_field_kit()
 OUT = FIELD_KIT / "program" / "code_health_authenticity_baseline_v1"
 SKIP_DIRS = {
     ".git", "node_modules", ".venv", "venv", "__pycache__", ".pytest_cache",

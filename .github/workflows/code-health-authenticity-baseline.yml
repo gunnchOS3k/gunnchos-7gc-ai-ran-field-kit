@@ -40,13 +40,17 @@ jobs:
       - name: Audit integrity controls (synthetic fixtures only)
         run: |
           python3 - <<'PY'
-          import json, re, sys
+          import json, sys
           from pathlib import Path
           sys.path.insert(0, "tools")
-          from code_integrity.run_baseline_audit import run_controls, OUT
-          OUT.mkdir(parents=True, exist_ok=True)
-          r = run_controls(OUT)
-          print(json.dumps(r, indent=2))
+          from code_integrity import run_baseline_audit as audit
+          # Force repo-relative OUT for CI (never laptop absolute paths)
+          audit.FIELD_KIT = Path(".").resolve()
+          audit.OUT = audit.FIELD_KIT / "program" / "code_health_authenticity_baseline_v1"
+          audit.OUT.mkdir(parents=True, exist_ok=True)
+          r = audit.run_controls(audit.OUT)
+          print("FIELD_KIT", audit.FIELD_KIT)
+          print(json.dumps({k: r[k] for k in r if k != "negative_hits"}, indent=2))
           assert r["AUDIT_INTEGRITY_CONTROLS"] == "PASS", r
           print("AUDIT_INTEGRITY_CONTROLS_PASS")
           PY
