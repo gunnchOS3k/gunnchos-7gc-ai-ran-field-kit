@@ -57,6 +57,8 @@ def main() -> int:
     assert agg["requirement_ids"] == REQUIRED
     assert agg["prerequisite_field_kit_pr_106"] == "MERGED"
     assert agg["beatlink_pr"] == 25
+    assert agg.get("mandatory_playwright") is True
+    assert agg.get("playwright_skipped") is False
     assert agg["summary_mirror"]["validated"] == 10
     assert agg["PARTIAL"] is False
     assert agg["wave007_ok"] is True
@@ -74,14 +76,28 @@ def main() -> int:
     for name in MIRROR_FILES:
         assert (mirror / name).is_file(), f"missing mirror {name}"
 
+    # New integrity mirror files (optional but preferred)
+    for name in (
+        "BROWSER_E2E_RESULT.json",
+        "CREATE_ROOM_BROWSER_RESULT.json",
+        "MULTICLIENT_BROWSER_RESULT.json",
+    ):
+        assert (mirror / name).is_file(), f"missing mirror {name}"
+
     wave = json.loads((mirror / "WAVE007_RESULT.json").read_text(encoding="utf-8"))
     assert wave["wave007_ok"] is True
     assert wave["summary"]["validated"] == 10
     assert wave["IMPLEMENTED_AND_VALIDATED"] == 10
     assert wave["PARTIAL"] is False
     assert wave["UNCONDITIONAL_TRUE_CLASSIFIERS"] == 0
+    assert wave.get("PLAYWRIGHT_MANDATORY") is True
+    assert wave.get("PLAYWRIGHT_SKIPPED") is False
     assert wave["OS_PLATFORM_020_UNTOUCHED"] is True
     assert wave["BASELINE_COUNTS_UPDATED"] is False
+
+    browser = json.loads((mirror / "BROWSER_E2E_RESULT.json").read_text(encoding="utf-8"))
+    assert browser.get("playwright_ran") is True
+    assert browser.get("playwright_skipped") is False
 
     claims = json.loads((mirror / "CLAIM_BOUNDARIES.json").read_text(encoding="utf-8"))
     assert claims.get("COMMERCIAL_MEDIA_RIPPED") is False
