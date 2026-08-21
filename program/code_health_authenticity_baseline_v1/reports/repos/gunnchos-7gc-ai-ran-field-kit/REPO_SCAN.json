@@ -1,0 +1,2469 @@
+{
+  "repository": "gunnchos-7gc-ai-ran-field-kit",
+  "accepted_main_sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+  "scanned_at_utc": "2026-08-21T18:11:48Z",
+  "counts": {
+    "files_classified": 2586,
+    "code_files": 379,
+    "production_code_files": 2,
+    "proof_files": 89,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 977,
+      "OTHER": 372,
+      "AMBIGUOUS_CODE": 286,
+      "PRODUCTION": 101,
+      "PROOF": 825,
+      "CI_OR_DEPLOY": 25
+    },
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 9,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
+    "hotspots": 187,
+    "wave_dup_paths": 310,
+    "fixture_paths": 136,
+    "orphan_candidates": 1,
+    "dep_edges": 1649
+  },
+  "proof_independence": {
+    "production_files": 2,
+    "proof_files": 89,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "ADEQUATE",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NEEDS_WORK"
+  },
+  "theater_findings": [
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 258,
+      "snippet": "\"status\": \"PASS\"' in content:             if any(m in low for m in L3_PATH_MARKERS):                 return \"RUNTIME_RES",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1452,
+      "snippet": "\"status\": \"PASS\" if not alarms else \"FAIL\",         \"alarms\": alarms,         \"metrics\": {             \"digital_implemen",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1527,
+      "snippet": "\"status\": \"PASS\" if len(deduped) >= 50 and pass_count == len(deduped) else \"FAIL\",         \"samples\": deduped,     }   d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_edge_ai_benchmark.py",
+      "line": 54,
+      "snippet": "except Exception:         pass      result = {         \"benchmark_id\": \"edge-ai-synthetic-matmul\",         \"evidence_lab",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/gates_4_6_common.py",
+      "line": 88,
+      "snippet": "except Exception:         pass     return {         \"nvidia_smi\": nvidia is not None,         \"nvcc\": nvcc is not None, ",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/validate_main_branch_policy.py",
+      "line": 54,
+      "snippet": "except Exception:             pass         if rel == glob:             return True     return False   def workflow_has_m",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_corrective_validators.py",
+      "line": 112,
+      "snippet": "except Exception:                 pass     if \"BG1\" in src_text or \"bg1\" in src_text.lower() or \"lifting\" in src_text.lo",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/engineering_wave009/run_targeted_closeout.py",
+      "line": 836,
+      "snippet": "\"status\": \"PASS\",         \"target_ids\": TARGET_IDS,         \"device_os_131_head\": DEVICE_OS_PR_HEAD,         \"device_os_",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "net_sec_rc001/hostile_network.py",
+      "line": 379,
+      "snippet": "except Exception:                         pass          t = threading.Thread(target=_serve, name=\"netsec-hostile-tls\", d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 258,
+      "snippet": "\"status\": \"PASS\"' in content:             if any(m in low for m in L3_PATH_MARKERS):                 return \"RUNTIME_RES",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1452,
+      "snippet": "\"status\": \"PASS\" if not alarms else \"FAIL\",         \"alarms\": alarms,         \"metrics\": {             \"digital_implemen",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "line": 1527,
+      "snippet": "\"status\": \"PASS\" if len(deduped) >= 50 and pass_count == len(deduped) else \"FAIL\",         \"samples\": deduped,     }   d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_edge_ai_benchmark.py",
+      "line": 54,
+      "snippet": "except Exception:         pass      result = {         \"benchmark_id\": \"edge-ai-synthetic-matmul\",         \"evidence_lab",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/gates_4_6_common.py",
+      "line": 88,
+      "snippet": "except Exception:         pass     return {         \"nvidia_smi\": nvidia is not None,         \"nvcc\": nvcc is not None, ",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/validate_main_branch_policy.py",
+      "line": 54,
+      "snippet": "except Exception:             pass         if rel == glob:             return True     return False   def workflow_has_m",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/run_corrective_validators.py",
+      "line": 112,
+      "snippet": "except Exception:                 pass     if \"BG1\" in src_text or \"bg1\" in src_text.lower() or \"lifting\" in src_text.lo",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/engineering_wave009/run_targeted_closeout.py",
+      "line": 836,
+      "snippet": "\"status\": \"PASS\",         \"target_ids\": TARGET_IDS,         \"device_os_131_head\": DEVICE_OS_PR_HEAD,         \"device_os_",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "net_sec_rc001/hostile_network.py",
+      "line": 379,
+      "snippet": "except Exception:                         pass          t = threading.Thread(target=_serve, name=\"netsec-hostile-tls\", d",
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-7gc-ai-ran-field-kit"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-7gc-ai-ran-field-kit",
+    "classification": "WAVE_CODE_CONCENTRATION",
+    "severity": "S2",
+    "path_count": 310,
+    "sample_paths": [
+      "artifacts/engineering_wave005_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave005_closeout/CLOSEOUT_RESULT.json",
+      "artifacts/engineering_wave004_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave004_closeout/CLOSEOUT_RESULT.json",
+      "artifacts/engineering_wave002_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave003_closeout/TARGETED_ROW_DIFF.json",
+      "artifacts/engineering_wave008_closeout/PROVENANCE_BINDING_RESULT.json",
+      "artifacts/engineering_wave008_closeout/TARGETED_ROW_DIFF.json"
+    ],
+    "evidence": {
+      "similarity": true,
+      "callers": false,
+      "divergence": false
+    },
+    "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+  },
+  "complexity_hotspots": [
+    {
+      "path": "scripts/validate_digital_ecosystem_baseline_v2.py",
+      "name": "main",
+      "lineno": 72,
+      "complexity": 114
+    },
+    {
+      "path": "control_plane/validators/__init__.py",
+      "name": "validate_control_plane",
+      "lineno": 47,
+      "complexity": 93
+    },
+    {
+      "path": "scripts/rebuild_convergence_coverage.py",
+      "name": "build_atomics_and_trace",
+      "lineno": 278,
+      "complexity": 85
+    },
+    {
+      "path": "scripts/rebuild_convergence_coverage.py",
+      "name": "pick_summaries",
+      "lineno": 116,
+      "complexity": 83
+    },
+    {
+      "path": "scripts/engineering_wave009/validate_aggregate.py",
+      "name": "main",
+      "lineno": 67,
+      "complexity": 71
+    },
+    {
+      "path": "scripts/validate_claim_firewall.py",
+      "name": "check_phase_xii_execution_depth",
+      "lineno": 623,
+      "complexity": 68
+    },
+    {
+      "path": "scripts/validate_baseline_v2_b4_register_integrity.py",
+      "name": "main",
+      "lineno": 42,
+      "complexity": 67
+    },
+    {
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "name": "choose_work_state",
+      "lineno": 872,
+      "complexity": 56
+    },
+    {
+      "path": "scripts/generate_digital_ecosystem_baseline_v2.py",
+      "name": "main",
+      "lineno": 341,
+      "complexity": 54
+    },
+    {
+      "path": "scripts/assemble_controlled_dataset.py",
+      "name": "assemble",
+      "lineno": 37,
+      "complexity": 54
+    },
+    {
+      "path": "control_plane/reports/__init__.py",
+      "name": "generate_reports",
+      "lineno": 38,
+      "complexity": 53
+    },
+    {
+      "path": "scripts/baseline_v2_evidence_census.py",
+      "name": "map_families",
+      "lineno": 592,
+      "complexity": 53
+    },
+    {
+      "path": "scripts/validate_release_firewall.py",
+      "name": "main",
+      "lineno": 376,
+      "complexity": 53
+    },
+    {
+      "path": "scripts/prove_full_product_continuation_viii.py",
+      "name": "prove_node",
+      "lineno": 668,
+      "complexity": 52
+    },
+    {
+      "path": "scripts/prove_full_product_continuation_vii.py",
+      "name": "prove_node",
+      "lineno": 566,
+      "complexity": 51
+    },
+    {
+      "path": "scripts/pilotctl.py",
+      "name": "validate_import",
+      "lineno": 340,
+      "complexity": 51
+    },
+    {
+      "path": "scripts/sync_full_product_requirement_totality.py",
+      "name": "main",
+      "lineno": 542,
+      "complexity": 49
+    },
+    {
+      "path": "scripts/engineering_wave008/run_targeted_closeout.py",
+      "name": "_validate_closeout",
+      "lineno": 729,
+      "complexity": 46
+    },
+    {
+      "path": "scripts/engineering_wave006/run_targeted_closeout.py",
+      "name": "_load_wave006_truth",
+      "lineno": 352,
+      "complexity": 44
+    },
+    {
+      "path": "scripts/validate_full_product_requirement_graph.py",
+      "name": "validate_node",
+      "lineno": 51,
+      "complexity": 43
+    },
+    {
+      "path": "scripts/engineering_wave007/run_targeted_closeout.py",
+      "name": "_validate_closeout",
+      "lineno": 545,
+      "complexity": 42
+    },
+    {
+      "path": "scripts/validate_ecosystem_version_lock.py",
+      "name": "main",
+      "lineno": 56,
+      "complexity": 41
+    },
+    {
+      "path": "scripts/engineering_wave008/run_targeted_closeout.py",
+      "name": "main",
+      "lineno": 871,
+      "complexity": 41
+    },
+    {
+      "path": "control_plane/catalog/repositories_catalog.py",
+      "name": "build_repository_inventory",
+      "lineno": 107,
+      "complexity": 39
+    },
+    {
+      "path": "scripts/prove_full_product_continuation_vii.py",
+      "name": "write_cont_vii_artifacts",
+      "lineno": 888,
+      "complexity": 38
+    },
+    {
+      "path": "scripts/prove_full_product_continuation_vi.py",
+      "name": "write_continuation_vi_queues",
+      "lineno": 1492,
+      "complexity": 38
+    },
+    {
+      "path": "scripts/prove_full_product_continuation_viii.py",
+      "name": "write_cont_viii_artifacts",
+      "lineno": 998,
+      "complexity": 38
+    },
+    {
+      "path": "scripts/engineering_wave007/run_targeted_closeout.py",
+      "name": "main",
+      "lineno": 677,
+      "complexity": 38
+    },
+    {
+      "path": "scripts/validate_gate1_thesis.py",
+      "name": "evaluate",
+      "lineno": 30,
+      "complexity": 37
+    },
+    {
+      "path": "scripts/evaluate_gate3_status.py",
+      "name": "evaluate",
+      "lineno": 12,
+      "complexity": 36
+    }
+  ],
+  "wave_duplicate_paths": [
+    {
+      "path": "artifacts/engineering_wave005_closeout/TARGETED_ROW_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave005_closeout/CLOSEOUT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004_closeout/TARGETED_ROW_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave004_closeout/CLOSEOUT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave002_closeout/TARGETED_ROW_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave003_closeout/TARGETED_ROW_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/PROVENANCE_BINDING_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/TARGETED_ROW_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/CLOSEOUT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/PIPELINE_AB_REPRODUCTION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/WAVE008_INTEGRITY_REPAIR_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SOURCE_ORGANIZATION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SNAPSHOT_REPRODUCTION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/WAVE008_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SOURCE_INTEGRATION_TRUTH_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/LICENSE_TERMS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/REQUIREMENT_RESULTS.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SNAPSHOT_MANIFEST_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/TIME_RANGE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SOURCE_RECORD_ID_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/UNCERTAINTY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/ARCHIVEDEX_BROWSER_E2E_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/COVERAGE_SCOPE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/GEOGRAPHIC_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/FIELD_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/TAXONOMIC_AUTHORITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/RETRIEVAL_DATE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/EXTERNAL_TEXT_SAFETY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/REQUIREMENT_EVALUATOR_MATRIX.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/RUNTIME_IDENTITY.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/CITATION_UI_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SOURCE_PROVENANCE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/BEHAVIORAL_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/CANONICAL_IDENTIFIER_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/EDITORIAL_STATUS_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SOURCE_VERSION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/SCIENTIFIC_NAME_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/pipeline_ab/A/release_snapshot_manifest.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave008_closeout/_gha_authoritative/pipeline_ab/B/release_snapshot_manifest.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/PROVENANCE_BINDING_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/VALIDATION_QUEUE_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/TARGETED_ROW_DIFF.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/CLOSEOUT_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/CLAIM_BOUNDARY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/EXECUTION_PROVENANCE.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/HOST_USERNS_CONFIGURATION_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/CLAIM_BOUNDARIES.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/OS_PLATFORM_020_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/ENVIRONMENT_PREFLIGHT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/EVALUATOR_INTEGRITY_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/COMPLETION_GATE_NEGATIVE_CONTROL_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/BWRAP_SMOKE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/PRIVILEGE_ESCAPE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/CHILD_EXEC_SECCOMP_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/NETWORK_SECCOMP_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/FILESYSTEM_ESCAPE_RESULT.json",
+      "class": "PROOF"
+    },
+    {
+      "path": "artifacts/engineering_wave009_closeout/_gha_authoritative/CONTROL_PROBES_RESULT.json",
+      "class": "PROOF"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "gate1/fixtures/valid/device_identity.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/valid/dock_session.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/valid/evidence_event.software.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/valid/evidence_event.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/valid/authenticated_input.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/invalid/device_identity.missing_fields.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/invalid/evidence_event.physical_from_software.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "gate1/fixtures/invalid/physical_claim_software_class.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/oai_flexric.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/camara.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/lena_ns3.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/oran_sc.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/nyusim.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/open5gs.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "industry_research_stack/adapters/fixtures/sionna.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/gate1/fixtures/valid/device_identity.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/gate1/fixtures/valid/evidence_event.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/gate1/fixtures/valid/authenticated_input.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/gate1/fixtures/invalid/device_identity.missing_fields.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/gate1/fixtures/invalid/physical_claim_software_class.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/control_plane/fixtures/valid/sample_requirement.yaml",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/control_plane/fixtures/invalid/circular_dependencies.yaml",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/control_plane/fixtures/invalid/illegal_claim_transition.yaml",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/control_plane/fixtures/invalid/physical_evidence_claim.yaml",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/control_plane/fixtures/invalid/duplicate_requirement_ids.yaml",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/engineering_wave001/fixtures/anime-aggressors.cross_device_contract.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/engineering_wave001/fixtures/invalid_missing_probes.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/engineering_wave001/fixtures/archive-of-life-artifact-world.cross_device_contract.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/engineering_wave001/fixtures/pedestrian-pursuit.cross_device_contract.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "tests/engineering_wave001/fixtures/beatlink-party.cross_device_contract.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/edge_io_rings/factory_test/FIXTURE_PLAN.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/ds_xl_coder/factory_test/FIXTURE_PLAN.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/student_14_5/factory_test/FIXTURE_PLAN.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/first_party_dock/factory_test/FIXTURE_PLAN.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "npi/handheld_hybrid/factory_test/FIXTURE_PLAN.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/01_edge_measurements.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_twin_informed_decision.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_optimization_decision.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/gate2_status.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/02_twin_state.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/integrated_report.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_network_only_decision.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_static_decision.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/command_log.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/reproduction_log.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/03_airan_service_priority_decision.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/manifest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/validation_report.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/environment.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/integrated/2026-07-22-synthetic-gary-learn-001/04_resilience_decision.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/gate4/gate4-run-20260722T170351Z/synthetic_infrastructure_dataset_manifest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/gate4/gate4-run-20260722T220015Z/synthetic_infrastructure_dataset_manifest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/controlled/README.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/valid/edge_measurement_batch.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/valid/twin_state_bundle.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/valid/_edge_sha.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/valid/resilience_decision_bundle.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/valid/airan_decision_bundle.valid.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/invalid/airan/unsupported_major.reason.txt",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/invalid/airan/unsupported_major.json",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [
+    "gate2/nonphysical/G2_C6_device_game_ux/runtime/profile_loader.py"
+  ],
+  "orphan_records": [
+    {
+      "path": "gate2/nonphysical/G2_C6_device_game_ux/runtime/profile_loader.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "scripts/prove_full_product_continuation_v.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/gate2_status/test_select_gate2_run_dir.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/analyze_failure_boundaries.py",
+      "to": "gate4_common"
+    },
+    {
+      "from": "scripts/validate_gate2_nonphysical.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/gate1/test_gate1_post_merge_hygiene.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/sensitivity/test_sensitivity.py",
+      "to": "gate4_common"
+    },
+    {
+      "from": "industry_research_stack/adapters/base.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "scripts/baseline_v2_b4_mapping_convergence.py",
+      "to": "datetime"
+    },
+    {
+      "from": "gate5/supply_chain/bom_risk_scoring.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/verify_inherited_ci.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/validate_contract.py",
+      "to": "jsonschema"
+    },
+    {
+      "from": "industry_research_stack/adapters/sionna.py",
+      "to": "typing"
+    },
+    {
+      "from": "research/r6g/experiments/r6g002_spectrum_fabric.py",
+      "to": "statistics"
+    },
+    {
+      "from": "scripts/engineering_wave001/verify_cross_device_contract.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/provenance/test_lock.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/evidence_status/test_gate3_status.py",
+      "to": "evaluate_gate3_status"
+    },
+    {
+      "from": "scripts/engineering_wave006/run_targeted_closeout.py",
+      "to": "json"
+    },
+    {
+      "from": "research/external_reproduction/oulu001_fr3_mmwave.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_gate4_evaluation.py",
+      "to": "generate_gate4_report"
+    },
+    {
+      "from": "gate5/provisioning/factory_station_sim.py",
+      "to": "__future__"
+    },
+    {
+      "from": "control_plane/generate.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "control_plane/cli.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/sync_full_product_requirement_totality.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/engineering_wave005/test_wave005_targeted_closeout.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/engineering_wave001/run_targeted_closeout.py",
+      "to": "copy"
+    },
+    {
+      "from": "program/operating_cycle_2/wp-008_evt0_nfr_target_freeze/validate_evt0_nfr_freeze.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/provenance/test_repo_lock_verify.py",
+      "to": "verify_repo_lock"
+    },
+    {
+      "from": "tests/full_product/test_requirement_promotion_validators.py",
+      "to": "json"
+    },
+    {
+      "from": "research/r6g/experiments/r6g008_semantic_ntn.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/register_external_dataset.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/engineering_wave007/run_targeted_closeout.py",
+      "to": "json"
+    },
+    {
+      "from": "gate1/operator/evidence_session.py",
+      "to": "gate1"
+    },
+    {
+      "from": "scripts/engineering_wave001/run_full_ops_wave001.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/full_product/test_continuation_ix_release_lock.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_gate3_report.py",
+      "to": "json"
+    },
+    {
+      "from": "gate6/e2e/simulate_app_game_paths.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/engineering_wave005/run_targeted_closeout.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_tables.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/engineering_wave002/test_targeted_closeout.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/application_readiness/test_master_integrity.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/build_evaluation_splits.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/gate1/test_gate1_locked_thesis.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/engineering_wave008/test_wave008_targeted_closeout.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "research/r6g/experiments/r6g003_fr3_isac.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/provenance/test_repo_lock_verify.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/engineering_wave008/validate_aggregate.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/write_gates_4_6_version_lock.py",
+      "to": "sys"
+    },
+    {
+      "from": "gate1/operator/inventory_android.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_integrated_pipeline.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "net_sec_rc001/migration_6g.py",
+      "to": "json"
+    },
+    {
+      "from": "control_plane/catalog/repositories_catalog.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/test_main_branch_policy.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/checkout_locked_repositories.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_gate3_evidence_pipeline.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/verify_provenance.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/application_readiness/test_master_integrity.py",
+      "to": "csv"
+    },
+    {
+      "from": "scripts/validate_gate3_nonphysical.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/verify_checksums.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "research/external_reproduction/adapters/nvidia_6g_probe.py",
+      "to": "research"
+    },
+    {
+      "from": "scripts/prove_full_product_continuation_vii.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/prove_full_product_continuation_iv.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate1/orchestrator/evidence_collector.py",
+      "to": "sys"
+    },
+    {
+      "from": "generalization/tests/test_nordicdat_adapter.py",
+      "to": "tempfile"
+    },
+    {
+      "from": "net_sec_rc001/hostile_network.py",
+      "to": "threading"
+    },
+    {
+      "from": "industry_research_stack/research_experiments/ai_energy_ntn_isac.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/contracts/test_schemas.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "gate2/nonphysical/G2_C5_signed_update/bundle/update_bundle.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/pilotctl/test_pilotctl_acceptance.py",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/evidence_status/test_gate3_status.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_factory_rma_support_stream.py",
+      "to": "yaml"
+    },
+    {
+      "from": "gate1/operator/redaction.py",
+      "to": "re"
+    },
+    {
+      "from": "gate6/release/build_release_manifest.py",
+      "to": "json"
+    },
+    {
+      "from": "gate2/nonphysical/G2_C4_secure_boot/emulator/secure_boot_emulator.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "tests/ablations/test_ablations.py",
+      "to": "__future__"
+    },
+    {
+      "from": "gate2/nonphysical/G2_C1_enclosure/check_interference.py",
+      "to": "yaml"
+    },
+    {
+      "from": "gate1/operator/evidence_session.py",
+      "to": "typing"
+    },
+    {
+      "from": "gate3/nonphysical/G3_C3_connectivity_manager/providers/camara_real.py",
+      "to": "base"
+    },
+    {
+      "from": "research/toolkit/new_packet.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_integrated_pipeline.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/engineering_wave001/run_targeted_closeout.py",
+      "to": "subprocess"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "NON_AUTHOR_REPRODUCTION_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "LOCAL_NO_REPO_DISCOVERY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE2_TEST_AND_VALIDATION_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "EXTERNAL_GATE_REGISTRY.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "POST_MERGE_GATE3_TOPOLOGY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PIXEL_NO_REPO_LOCAL_CONTINUATION_FINAL_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PIXEL_CALIBRATION_AND_PILOT_READINESS_FINAL_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CROSS_REPO_VERSION_LOCK.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "GATE3_DAY1_READINESS_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PILOTCTL_ACCEPTANCE_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_LOCAL_PILOT_HARDENING_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ENVIRONMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_LOCAL_PILOT_HARDENING_FINAL_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_DAY1_GO_NO_GO_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_PILOT_OPERATOR_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "ROLE_REQUIREMENT_TRACEABILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PILOT_ASSIGNMENT_HASH_INTEROPERABILITY_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "AUTHOR_REPRODUCTION_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_GATE2_BASELINE_VERIFICATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATES_1_TO_4_CLEAN_DEFAULT_BRANCH_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "GATE3_DAY1_POST_MERGE_PREFLIGHT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CROSS_REPO_IMPLEMENTATION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CORRECTIVE_DEPTH_FINAL_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "NON_AUTHOR_REPRODUCTION_TEMPLATE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE2_WORKSPACE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_PILOT_MODE_BASELINE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_PILOT_MODE_VALIDATION_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE4_EXPERIMENT_DESIGN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "INTERRUPTED_PILOT_MODE_RECOVERY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "LOCAL_NO_REPO_BRANCH_SYNC_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PRE_COLLECTION_FREEZE_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "POST_MERGE_GATE3_GATE4_FINAL_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PORTFOLIO_APP_CREDENTIAL_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "NON_NEGOTIABLES_GATES_4_6.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE4_TEST_AND_VALIDATION_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "BRANCH_PROTECTION_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "POST_MERGE_GATE3_MAIN_BASELINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ACCEPTANCE_COMPLETION_INITIAL_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_FIVE_MINUTE_REHEARSAL_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_CALIBRATION_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE2_EXTERNAL_EVIDENCE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CORRECTIVE_DEPTH_FAILURE_REPRODUCTION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PHYSICAL_EVIDENCE_REGISTRY.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "POST_MERGE_GATE3_TEST_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE3_DEVICE_COLLECTION_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PHYSICAL_EXTERNAL_AUTOMATION_PACKETS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATES_4_6_MASTER_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "RELEASE_CANDIDATE_TAG_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTINUATION_PR_PREFLIGHT_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATES_4_6_INITIAL_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATES_1_TO_4_CLOUD_CLOSURE_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATES_4_6_FINAL_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GATE1_LOCKED_RESEARCH_THESIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REMOTE_CI_FAILURE_REPRODUCTION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "STATUS_DEPENDENCY_GRAPH.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "CORRECTIVE_DEPTH_INITIAL_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/reproduce/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/6g_breakthroughs/IMPROVEMENT_HYPOTHESES.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/RESEARCH_BACKLOG.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/BREAKTHROUGH_REGISTRY.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/R6G_PORTFOLIO_MATRIX.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/SOURCE_PROVENANCE.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/PHYSICAL_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/6g_breakthroughs/REPRODUCTION_MATRIX.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/ATLAS_INDEX.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/R6G_NEGATIVE_RESULTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/CROSS_REPO_ADOPTION_MAP.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/R6G_PORTFOLIO_DASHBOARD.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/6g_breakthroughs/EVIDENCE_CLASSIFICATION.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/BRIDGE_STATUS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/oulu002_cfmimo_isac.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/oulu002_oracle.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/NVIDIA_6G_PROBE.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/oulu001_fr3_mmwave.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/NVIDIA_OULU_TARGET_REGISTRY.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/NVIDIA_6G_ENVIRONMENT.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/claim_firewall.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/MAC_NVIDIA_6G_CLIENT_PROBE.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/NVIDIA_UPSTREAM_SOURCE_LOCK.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/NVIDIA_6G_EXECUTION_ENVIRONMENT.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/SOURCE_MANIFEST.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/ABLATION.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/REPRO_CONFIG.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/STATISTICS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/NEGATIVE_RESULTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/REPRODUCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/REFERENCE_SCENARIO.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/RAW_RESULTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-001/CLASSIFICATION.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/NVIDIA-002/PREPARATION_SPEC.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/SOURCE_MANIFEST.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/ORACLE_CROSS_CHECK.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/ABLATION.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/REPRO_CONFIG.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/STATISTICS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/EQUATION_TRACEABILITY.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/NEGATIVE_RESULTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/REPRODUCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/REFERENCE_SCENARIO.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/RAW_RESULTS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/FIGURE_DIGITIZED_Fig1a.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-002/CLASSIFICATION.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-004/PREPARATION_SPEC.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/OULU-003/PREPARATION_SPEC.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/targets/NVIDIA-001/PREPARATION_SPEC.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/external_reproduction/bridge/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/bridge/twin_bridge.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/cli/researcher_cli.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/cli/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/adapters/aodt_soft_twin.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/adapters/nvidia_6g_probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/adapters/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/external_reproduction/adapters/probe.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/new/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/ENVIRONMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/REPRODUCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/claim_firewall.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/evaluate.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/metrics/stable_seed.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/metrics/useful_connectivity.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/metrics/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-005.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-011.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-010.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-004.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-003.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-009.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/waike/case_studies/R6G-008.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/external_reproduction/EXTERNAL_REPRODUCTION_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/external_reproduction/STATUS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/experiments/r6g004_multimodal_isac_personal.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g008_semantic_ntn.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g011_imt2030_harness.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g010_security_pqc_privacy.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g007_adaptive_ris_contract.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g006_cellfree_mimo_contract.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/__init__.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/semantic_continuity_ntn_education.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g002_spectrum_fabric.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g003_fr3_isac.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g009_predictive_twin.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/experiments/r6g005_ai_phy.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "research/r6g/adoption/ADOPTION_LEVELS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/METHOD.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/PROBLEM.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/LIMITATIONS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/README.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/FAILURE_MODES.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/manifest.json",
+      "class": "PRODUCTION",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/METRICS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/REPRODUCTION.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-002/SECURITY_PRIVACY.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/METHOD.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/PROBLEM.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/LIMITATIONS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/README.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/FAILURE_MODES.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/manifest.json",
+      "class": "PRODUCTION",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/METRICS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/REPRODUCTION.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-005/SECURITY_PRIVACY.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/METHOD.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/PROBLEM.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/LIMITATIONS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/README.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/FAILURE_MODES.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/manifest.json",
+      "class": "PRODUCTION",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/METRICS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/REPRODUCTION.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-004/SECURITY_PRIVACY.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/METHOD.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/PROBLEM.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/LIMITATIONS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/README.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/FAILURE_MODES.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/manifest.json",
+      "class": "PRODUCTION",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/METRICS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/REPRODUCTION.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-003/SECURITY_PRIVACY.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/METHOD.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/PROBLEM.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/LIMITATIONS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/README.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/FAILURE_MODES.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/manifest.json",
+      "class": "PRODUCTION",
+      "ext": ".json"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/METRICS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/REPRODUCTION.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-010/SECURITY_PRIVACY.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-011/METHOD.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-011/PROBLEM.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "research/r6g/adoption/packages/R6G-011/LIMITATIONS.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    }
+  ],
+  "path_classification_full_count": 2586,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "mutation_sampling": {
+    "repository": "gunnchos-7gc-ai-ran-field-kit",
+    "sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/assignment_canonical.py",
+        "kind": "remove_validation",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": false,
+        "full_run_executed": false,
+        "collection_only": false,
+        "baseline_passed": null,
+        "mutated_passed": null,
+        "test_reaction": "MUTATION_TEST_NOT_EXECUTED",
+        "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_TEST_NOT_EXECUTED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-7gc-ai-ran-field-kit",
+      "sha": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": null,
+        "passed": null,
+        "executed": false,
+        "blocked": false,
+        "note": "full_run_deferred_non_r5"
+      },
+      "mutated_runs": [],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
+  }
+}

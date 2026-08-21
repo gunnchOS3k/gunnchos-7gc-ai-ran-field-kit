@@ -413,3 +413,11 @@ nvidia-6g-probe:
 
 nvidia-6g-leak-scan:
 	$(PYTHON) scripts/scan_nvidia_secret_leaks.py --root . --fail
+
+
+# Code Health & Implementation Authenticity Baseline V1 (field-kit audit tooling only)
+.PHONY: code-health-authenticity-baseline
+code-health-authenticity-baseline:
+	$(PYTHON) tools/code_integrity/run_baseline_audit.py
+	@test -f program/code_health_authenticity_baseline_v1/BASELINE_RESULT.json
+	@echo "CODE_HEALTH_AUTHENTICITY_BASELINE_V1 artifacts written under program/code_health_authenticity_baseline_v1/"

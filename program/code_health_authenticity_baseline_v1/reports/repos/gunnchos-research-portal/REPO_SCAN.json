@@ -1,0 +1,1024 @@
+{
+  "repository": "gunnchos-research-portal",
+  "accepted_main_sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
+  "scanned_at_utc": "2026-08-21T18:11:50Z",
+  "counts": {
+    "files_classified": 114,
+    "code_files": 8,
+    "production_code_files": 0,
+    "proof_files": 0,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 91,
+      "OTHER": 6,
+      "PROOF": 8,
+      "AMBIGUOUS_CODE": 7,
+      "PRODUCTION": 1,
+      "CI_OR_DEPLOY": 1
+    },
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 3,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
+    "hotspots": 11,
+    "wave_dup_paths": 0,
+    "fixture_paths": 0,
+    "orphan_candidates": 0,
+    "dep_edges": 25
+  },
+  "proof_independence": {
+    "production_files": 0,
+    "proof_files": 0,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": false,
+    "authenticity": "NOT_APPLICABLE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": false,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
+  },
+  "dimensions": {
+    "production_proof_separation": "NEEDS_WORK",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "NOT_APPLICABLE",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "STRONG",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "CRITICAL"
+  },
+  "theater_findings": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 140,
+      "snippet": "except Exception:         return {}   def load_accepted_main() -> dict[str, dict]:     freeze = load_json(B4_FREEZE)    ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 161,
+      "snippet": "except Exception:         return {}   def load_baseline_v2_totals() -> dict:     data = load_json(BASELINE_V2_RESULT)   ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 271,
+      "snippet": "except Exception:                 pass     return {         \"number\": data.get(\"number\", num),         \"url\": data.get(\"",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 140,
+      "snippet": "except Exception:         return {}   def load_accepted_main() -> dict[str, dict]:     freeze = load_json(B4_FREEZE)    ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 161,
+      "snippet": "except Exception:         return {}   def load_baseline_v2_totals() -> dict:     data = load_json(BASELINE_V2_RESULT)   ",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "scripts/supervisor_snapshot.py",
+      "line": 271,
+      "snippet": "except Exception:                 pass     return {         \"number\": data.get(\"number\", num),         \"url\": data.get(\"",
+      "repository": "gunnchos-research-portal",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "gunnchos-research-portal"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-research-portal",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
+  "complexity_hotspots": [
+    {
+      "path": "scripts/run_vp012_portal_first.py",
+      "name": "main",
+      "lineno": 81,
+      "complexity": 46
+    },
+    {
+      "path": "scripts/audit_portfolio.py",
+      "name": "audit_repo",
+      "lineno": 207,
+      "complexity": 36
+    },
+    {
+      "path": "scripts/supervisor_snapshot.py",
+      "name": "main",
+      "lineno": 411,
+      "complexity": 31
+    },
+    {
+      "path": "scripts/supervisor_snapshot.py",
+      "name": "gh_pr",
+      "lineno": 211,
+      "complexity": 27
+    },
+    {
+      "path": "scripts/validate_supervisor_ready.py",
+      "name": "main",
+      "lineno": 100,
+      "complexity": 21
+    },
+    {
+      "path": "scripts/audit_portfolio.py",
+      "name": "_parse_simple_yaml",
+      "lineno": 115,
+      "complexity": 21
+    },
+    {
+      "path": "scripts/audit_portfolio.py",
+      "name": "dump_yaml",
+      "lineno": 349,
+      "complexity": 19
+    },
+    {
+      "path": "scripts/supervisor_snapshot.py",
+      "name": "adb_pixel",
+      "lineno": 287,
+      "complexity": 16
+    },
+    {
+      "path": "scripts/supervisor_snapshot.py",
+      "name": "load_accepted_main",
+      "lineno": 144,
+      "complexity": 13
+    },
+    {
+      "path": "scripts/audit_portfolio.py",
+      "name": "main",
+      "lineno": 496,
+      "complexity": 12
+    },
+    {
+      "path": "scripts/supervisor_snapshot.py",
+      "name": "count_stale_preview_refs",
+      "lineno": 377,
+      "complexity": 12
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [],
+  "orphan_candidates": [],
+  "orphan_records": [],
+  "dependency_edges_sample": [
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "argparse"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "os"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/validate_supervisor_ready.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "os"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_vp012_portal_first.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/supervisor_snapshot.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/audit_portfolio.py",
+      "to": "pathlib"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "GOLDEN_JOURNEYS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "MANUFACTURING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPO_CATALOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "START_HERE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SOFTWARE_STACK.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "DEVICE_LAB.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "WAIKE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ECOSYSTEM_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONNECTIVITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "PRODUCT_FAMILY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "MIDDLEWARE_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "GAMES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPO_CATALOG.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/MANUFACTURER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/STUDENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/RESEARCHER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/DEVELOPER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/CURIOUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/EDUCATOR.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/INTERN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "audiences/SECURITY_REVIEWER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "artifacts/baseline_v2/NEXT_DIGITAL_VALIDATION_WORK.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/baseline_v2/PORTAL_SNAPSHOT_VALIDATION.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/baseline_v2/B4_ACCEPTED_MAIN_SHA_FREEZE.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/baseline_v2/NEXT_DIGITAL_IMPLEMENTATION_WORK.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/baseline_v2/NON_DIGITAL_PENDING_REGISTER.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/baseline_v2/REMAINING_GAPS.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/baseline_v2/BASELINE_V2_RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "artifacts/vp012/VP-012-RESULT.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "research_manuscripts/VENUE_READINESS_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research_manuscripts/paper3_tn_ntn_resilience/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research_manuscripts/paper1_service_continuity/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "research_manuscripts/paper2_cross_layer_orchestration/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "content/devices.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "content/projects.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "content/research_spine.ts",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".ts"
+    },
+    {
+      "path": "docs/phd_application_packet.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/traceability_matrix.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/render_plantuml.sh",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".sh"
+    },
+    {
+      "path": "docs/uml/legacy/product_portal_only.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/deployment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/use_case.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/package_repository.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/activity_audience_navigation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/hosted_control_plane.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/RESEARCH_SCOPE_AND_BOUNDARIES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/RQ_TO_REPO_EVIDENCE_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/START_HERE_SUPERVISOR.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/ACTIVE_RESEARCH_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/OULU_FIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/PUBLICATION_PIPELINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/EVIDENCE_TAXONOMY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/THESIS_AT_A_GLANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/PHYSICAL_REALIZATION_BOUNDARY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/EXPERIMENTAL_SYSTEM_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/UML_INDEX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/BASELINE_PORTFOLIO_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/PORTFOLIO_READINESS_DASHBOARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/CONTACT_SUPERVISOR_RELEASE_GATE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/SUPERVISOR_10_MINUTE_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/REPRODUCIBILITY_INDEX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/RESEARCH_PLAN_ALIGNMENT_REPORT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/funding_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/abstract_100.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/abstract_250.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/one_sentence.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/three_rqs.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_package/supervision_questions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_snapshots/SUPERVISOR_CONTACT_SNAPSHOT_2026-08-18.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/phd/contact_snapshots/LATEST.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/phd/contact_snapshots/LATEST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_snapshots/SUPERVISOR_CONTACT_SNAPSHOT_2026-08-19.json",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".json"
+    },
+    {
+      "path": "docs/phd/contact_snapshots/SUPERVISOR_CONTACT_SNAPSHOT_2026-08-18.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/phd/contact_snapshots/SUPERVISOR_CONTACT_SNAPSHOT_2026-08-19.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/product/CHARTER_TRACEABILITY_MATRIX.md",
+      "class": "PRODUCTION",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/SUPERVISOR_CONTACT_USER_ACTION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/PHYSICAL_EVT_BRINGUP_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/REPOSITORY_VISIBILITY_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/EXTERNAL_REPRODUCTION_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/PIXEL_6A_ACCEPTANCE_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/HUMAN_PLAYTEST_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/MANUFACTURER_RFQ_SEND_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/RF_LAB_VALIDATION_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/history/HISTORICAL_RESEARCH_SPINE_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/history/HISTORICAL_ROOT_README_PRE_WP012.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/history/PRIOR_SPINE_CLAIM.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "dashboards/PUBLIC_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "dashboards/ENGINEERING_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "scripts/validate_supervisor_ready.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "scripts/run_vp012_portal_first.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "scripts/audit_portfolio.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "scripts/supervisor_snapshot.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".yml"
+    },
+    {
+      "path": "portfolio/repo_roles.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    },
+    {
+      "path": "portfolio/supervisor_ready_manifest.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "portfolio/repo_roles.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "portfolio/supervisor_ready_manifest.yaml",
+      "class": "OTHER",
+      "ext": ".yaml"
+    }
+  ],
+  "path_classification_full_count": 114,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "mutation_sampling": {
+    "repository": "gunnchos-research-portal",
+    "sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "scripts/validate_supervisor_ready.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_KILLED",
+        "mutation_outcome": "MUTATION_KILLED"
+      },
+      {
+        "index": 2,
+        "path": "scripts/audit_portfolio.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": true,
+        "test_reaction": "MUTATION_SURVIVED",
+        "mutation_outcome": "MUTATION_SURVIVED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "CRITICAL",
+    "mutation_outcome": "MUTATION_SURVIVED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-research-portal",
+      "sha": "afb2bab2b415ec4ad83ad9bf704821fa89692ee2",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 0,
+        "passed": true,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "scripts/validate_supervisor_ready.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_KILLED"
+        },
+        {
+          "path": "scripts/audit_portfolio.py",
+          "kind": "flip_return_zero",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 1,
+    "survived_count": 1
+  }
+}

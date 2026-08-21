@@ -1,0 +1,1735 @@
+{
+  "repository": "7gc-digital-twin",
+  "accepted_main_sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
+  "scanned_at_utc": "2026-08-21T18:12:14Z",
+  "counts": {
+    "files_classified": 518,
+    "code_files": 98,
+    "production_code_files": 65,
+    "proof_files": 15,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 303,
+      "OTHER": 104,
+      "PROOF": 22,
+      "AMBIGUOUS_CODE": 16,
+      "CI_OR_DEPLOY": 8,
+      "PRODUCTION": 65
+    },
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 0,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
+    "hotspots": 4,
+    "wave_dup_paths": 0,
+    "fixture_paths": 7,
+    "orphan_candidates": 25,
+    "dep_edges": 280
+  },
+  "proof_independence": {
+    "production_files": 65,
+    "proof_files": 15,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NEEDS_WORK"
+  },
+  "theater_findings": [],
+  "theater_calibrated_all": [],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "7gc-digital-twin",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
+  "complexity_hotspots": [
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "name": "main",
+      "lineno": 118,
+      "complexity": 43
+    },
+    {
+      "path": "src/seven_gc_twin/continuity_benchmark.py",
+      "name": "analyze_continuity",
+      "lineno": 76,
+      "complexity": 27
+    },
+    {
+      "path": "src/seven_gc_twin/gate2/edge_ingest.py",
+      "name": "build_twin_state",
+      "lineno": 145,
+      "complexity": 20
+    },
+    {
+      "path": "scripts/bootstrap_site_profiles.py",
+      "name": "main",
+      "lineno": 298,
+      "complexity": 13
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [
+    {
+      "path": "results/gate2_ingest/2026-07-22-synthetic-gary-learn-001.ingest.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "results/scenes/gary/population/synthetic_population.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/device_os/PROVENANCE.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/device_os/SERVICE_CONTINUITY_PROFILES.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/synthetic/README.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "fixtures/synthetic/gary_users.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "src/seven_gc_twin/synthetic_users.py",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [
+    "apps/streamlit_7gc_campus_design_dashboard.py",
+    "apps/streamlit_7gc_scene_dashboard.py",
+    "apps/streamlit_app.py",
+    "src/site_buildings/svg_floorplan_export.py",
+    "src/site_buildings/material_scoring.py",
+    "src/site_buildings/rf_scoring.py",
+    "src/site_buildings/room_adjacency.py",
+    "src/site_buildings/site_registry.py",
+    "src/site_buildings/export_bundle.py",
+    "src/site_buildings/acoustic_scoring.py",
+    "src/site_buildings/evidence_flags.py",
+    "src/site_buildings/power_model.py",
+    "src/site_buildings/floorplan_model.py",
+    "src/seven_gc_twin/latency.py",
+    "src/seven_gc_twin/baseline_policy.py",
+    "src/seven_gc_twin/visualization_stub.py",
+    "src/seven_gc_twin/__main__.py",
+    "src/seven_gc_twin/config/source_registry.py",
+    "src/seven_gc_twin/gate2/edge_ingest.py",
+    "src/seven_gc_twin/gate2/common.py",
+    "src/seven_gc_twin/tool_adapters/oran_policy_export.py",
+    "src/seven_gc_twin/tool_adapters/sionna_export.py",
+    "src/seven_gc_twin/tool_adapters/ns3_scenario_export.py",
+    "src/seven_gc_twin/tool_adapters/aerial_dt_export.py",
+    "src/seven_gc_twin/scene/osm_overpass.py"
+  ],
+  "orphan_records": [
+    {
+      "path": "apps/streamlit_7gc_campus_design_dashboard.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "apps/streamlit_7gc_scene_dashboard.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "apps/streamlit_app.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/svg_floorplan_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/material_scoring.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/rf_scoring.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/room_adjacency.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/site_registry.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/export_bundle.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/acoustic_scoring.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/evidence_flags.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/power_model.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/site_buildings/floorplan_model.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/latency.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/baseline_policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/visualization_stub.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/__main__.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/config/source_registry.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/diagrams/diagram_data_export.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/seven_gc_twin/gate2/edge_ingest.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/gate2/common.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/oran_policy_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/sionna_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/ns3_scenario_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/tool_adapters/aerial_dt_export.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/seven_gc_twin/scene/osm_overpass.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "src/seven_gc_twin/provenance.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_metrics.py",
+      "to": "provenance"
+    },
+    {
+      "from": "tests/gate2/test_edge_ingest.py",
+      "to": "pytest"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "src/site_buildings/room_adjacency.py",
+      "to": "__future__"
+    },
+    {
+      "from": "apps/streamlit_7gc_campus_design_dashboard.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/export_oran_policy_loop.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "tests/test_7gc_material_scoring.py",
+      "to": "site_buildings"
+    },
+    {
+      "from": "scripts/e2e_postprocess.py",
+      "to": "shutil"
+    },
+    {
+      "from": "src/site_buildings/export_bundle.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/integrations/__init__.py",
+      "to": "beam_selection"
+    },
+    {
+      "from": "src/seven_gc_twin/__main__.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "scripts/export_site_for_ns3.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/seven_gc_twin/scene_builder.py",
+      "to": "yaml"
+    },
+    {
+      "from": "tests/test_cli.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "campus_metrics"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "campus_reports"
+    },
+    {
+      "from": "scripts/e2e_postprocess.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "scenario_loader"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_reports.py",
+      "to": "local_capacity"
+    },
+    {
+      "from": "scripts/bootstrap_site_profiles.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_metrics.py",
+      "to": "scenario_loader"
+    },
+    {
+      "from": "src/seven_gc_twin/gate2/edge_ingest.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "tests/test_site_profiles_operational.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_site_for_ns3.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "scenario_engine"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_reports.py",
+      "to": "campus_metrics"
+    },
+    {
+      "from": "tests/test_7gc_room_adjacency.py",
+      "to": "site_buildings"
+    },
+    {
+      "from": "scripts/export_oran_policy_loop.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "scene"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_full_scene_build.py",
+      "to": "xml"
+    },
+    {
+      "from": "apps/streamlit_7gc_campus_design_dashboard.py",
+      "to": "streamlit"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "campus_metrics"
+    },
+    {
+      "from": "src/seven_gc_twin/integrations/__init__.py",
+      "to": "device_os"
+    },
+    {
+      "from": "src/seven_gc_twin/provenance.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/site_profiles.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/seven_gc_twin/config/loader.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_site_configs.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/seven_gc_twin/scenario_engine.py",
+      "to": "site_profiles"
+    },
+    {
+      "from": "tests/test_rq1_supervisor_digital.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "scripts/export_site_for_ns3.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_reports.py",
+      "to": "__future__"
+    },
+    {
+      "from": "apps/streamlit_7gc_scene_dashboard.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "config"
+    },
+    {
+      "from": "src/site_buildings/rf_scoring.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/site_validator.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/local_capacity.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_full_scene_build.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/site_buildings/room_adjacency.py",
+      "to": "site_buildings"
+    },
+    {
+      "from": "src/seven_gc_twin/scene_builder.py",
+      "to": "site_profiles"
+    },
+    {
+      "from": "tests/test_site_configs.py",
+      "to": "seven_gc_twin"
+    },
+    {
+      "from": "scripts/e2e_postprocess.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/site_buildings/export_bundle.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "toy_scores"
+    },
+    {
+      "from": "src/seven_gc_twin/sites.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "json"
+    },
+    {
+      "from": "src/seven_gc_twin/cli.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/site_buildings/material_scoring.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_site_validator.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/seven_gc_twin/use_cases.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/seven_gc_twin/continuity_benchmark.py",
+      "to": "config"
+    },
+    {
+      "from": "apps/streamlit_app.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/experiment_manifest.py",
+      "to": "provenance"
+    },
+    {
+      "from": "scripts/bootstrap_site_profiles.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "scripts/reproduce.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/export_site_for_aerial_dt.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_7gc_campus_twin_bundle.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/seven_gc_twin/campus_metrics.py",
+      "to": "site_profiles"
+    },
+    {
+      "from": "src/seven_gc_twin/bad_day_scenarios.py",
+      "to": "site_profiles"
+    },
+    {
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_oran_policy_loop.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_site_validator.py",
+      "to": "seven_gc_twin"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "pytest.ini",
+      "class": "OTHER",
+      "ext": ".ini"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "MISSION_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ACCESSIBILITY_AND_LOW_COST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/implementation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/evaluation_plan.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/scene_generation_pipeline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/claims_needing_evidence.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/experiments_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/system_model.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/limitations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/draft.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/video_paper_explanation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/related_work_seed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/methodology.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_artifact_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/introduction.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/conference_readiness_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ethics_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/abstract.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/MANUSCRIPT_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/reproducibility_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CITATION_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_toy_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ieee_conference_draft.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ARTIFACT_EVALUATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/figures_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/artifacts/PREREGISTRATION.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/artifacts/rq1_experiment_summary.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "paper/artifacts/experiment_protocol.yaml",
+      "class": "PROOF",
+      "ext": ".yaml"
+    },
+    {
+      "path": "paper/figures/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".py"
+    },
+    {
+      "path": "quality/READINESS_GATE_TABLE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/README_CLARITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TOY_DEMO_LANGUAGE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REPO_SCORECARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/EVIDENCE_BACKLOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_RELEASE_DECISION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REALITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_DOWNGRADED.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/BLOCKER_TODO_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/GAP_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RISK_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ISSUE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TRACEABILITY_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FMEA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/IEEE_ARTIFACT_READINESS_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/V1_RELEASE_BLOCKERS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_REQUIRING_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_TO_EVIDENCE_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_READINESS_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FINAL_READINESS_CONFIRMATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RELEASE_GATE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/VOC_CTQ_TREE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ROOT_CAUSE_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/SIPOC.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/EVIDENCE_UPGRADE_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NVIDIA_SIONNA_BACKEND.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/OPTIONAL_BACKENDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/EUCNC_ECOSYSTEM_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TOOLING_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ORAN_POLICY_LOOP_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NS3_NS_ORAN_SYSTEM_SIM_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ACCESS_LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/INSTALL_NOTES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NON_AFFILIATION_NOTICE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NVIDIA_AERIAL_OMNIVERSE_DT_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "tests/test_site_configs.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_room_adjacency.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_rq1_supervisor_digital.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_acoustic_rf_tradeoff.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_site_profiles_operational.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_site_registry.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_site_validator.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_floorplan_generation.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_non_claim_policy.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_full_scene_build.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_material_scoring.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_7gc_sensitive_site_privacy.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_tool_adapters.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/gate2/test_edge_ingest.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "reproducibility/environment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/data_policy.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/runbook.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/artifact_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/expected_outputs.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/citation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/extension_guide.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/EXTERNAL_REPRODUCTION_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/E2E_RUN_RECORD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "adoption/ADOPTION_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_10_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/00_research_thesis.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/05_UML_MODELING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PUBLICATION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_RESEARCH_PRODUCT_FLOW.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AI_RAN_POLICY_INTERFACE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/06_METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/09_LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NTN_SCENARIO_INTERFACE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_WOULD_MAKE_THIS_FINAL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WIRELESS_ENGINEERING_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_REAL_TODAY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/00_SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/START_HERE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/05_phd_portfolio_story.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NO_MORE_TOY_DEMOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_RESEARCH_PLAN_MAPPING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RESEARCH_QUESTIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NEXT_90_DAYS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SEVEN_NODE_RESEARCH_DESIGN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/07_REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/03_USE_CASES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/12_CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SITE_SCHEMA_V1.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PLAIN_ENGLISH_EXPLANATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CROSS_REPO_DEPENDENCY_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AUDIENCE_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_chapter_outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_walkthrough_script.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GUNNCHOS_RESEARCH_SPINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REAL_EVIDENCE_PIPELINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GATES_4_6_ADAPTER_CONTRACT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EVAL_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EVIDENCE_STANDARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/16_OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HUMAN_REVIEW_BEFORE_MERGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/08_ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_READINESS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_demo_commands.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GARY_FLAGSHIP_NODE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WAIKE_APPRENTICESHIP_HOOKS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/10_PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_6G_PHD_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CLAIMS_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/11_RELEASE_CRITERIA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PRIVACY_AND_ETHICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EXTERNAL_RESEARCHER_QUICKSTART.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DIGITAL_EQUALITY_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_3_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/03_digital_twin_architecture.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_GUNNCHOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_diagram_talking_points.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_code_tour.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/01_PRODUCT_RESEARCH_CHARTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/14_WAIKE_INTEGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EDGE_IO_TELEMETRY_CONTRACT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_STILL_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SCENARIO_VALIDATION_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/04_reproducibility_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PROBLEM_SOLUTION_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WAIKE_INTEGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/13_PRODUCT_RESEARCH_BRIDGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/INDUSTRY_RESEARCH_TOOLING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/04_SYSTEM_ARCHITECTURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GATE3_NOTE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/15_GUNNCHAI3K_TUTOR_CARDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_metrics/latency_and_qos.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_metrics/spectral_efficiency.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_metrics/ntn_resilience.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_metrics/fairness_metrics.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_metrics/energy_efficiency.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/7GC_EVIDENCE_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/7GC_MASTER_INDEX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/7GC_NON_CLAIM_POLICY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/CROSS_REPO_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/7GC_SITE_COMPLETION_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/7GC_REPO_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/sites/guyana/CROSS_REPO_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/7gc/sites/ghana/CROSS_REPO_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    }
+  ],
+  "path_classification_full_count": 518,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "mutation_sampling": {
+    "repository": "7gc-digital-twin",
+    "sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "src/seven_gc_twin/scene/osm_overpass.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 2,
+        "path": "src/seven_gc_twin/cli.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 3,
+        "path": "src/seven_gc_twin/continuity_benchmark.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "7gc-digital-twin",
+      "sha": "4cd70169b35a67937eac076caaa7905ffd47adeb",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/seven_gc_twin/scene/osm_overpass.py",
+          "kind": "flip_return_true",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/cli.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/seven_gc_twin/continuity_benchmark.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
+  }
+}

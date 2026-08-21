@@ -1,0 +1,1076 @@
+{
+  "schema": "gunnchos.code_health_authenticity_baseline_v1.remediation_register",
+  "generated_at_utc": "2026-08-21T18:12:36Z",
+  "note": "Remediation families only. Does NOT change Baseline requirement counts.",
+  "baseline_counts_unchanged": true,
+  "families": {
+    "R1": {
+      "name": "Production/proof coupling",
+      "items": []
+    },
+    "R2": {
+      "name": "Test theater (S0/S1)",
+      "items": []
+    },
+    "R3": {
+      "name": "Wave/canonical duplicate implementations",
+      "items": [
+        {
+          "family": "R3",
+          "severity": "S2",
+          "repository": "gunnchos-7gc-ai-ran-field-kit",
+          "kind": "wave_code_concentration",
+          "title": "WAVE_CODE_CONCENTRATION (310 paths) \u2014 not LIKELY_DUPLICATE",
+          "detail": [
+            "artifacts/engineering_wave005_closeout/TARGETED_ROW_DIFF.json",
+            "artifacts/engineering_wave005_closeout/CLOSEOUT_RESULT.json",
+            "artifacts/engineering_wave004_closeout/TARGETED_ROW_DIFF.json",
+            "artifacts/engineering_wave004_closeout/CLOSEOUT_RESULT.json",
+            "artifacts/engineering_wave002_closeout/TARGETED_ROW_DIFF.json",
+            "artifacts/engineering_wave003_closeout/TARGETED_ROW_DIFF.json",
+            "artifacts/engineering_wave008_closeout/PROVENANCE_BINDING_RESULT.json",
+            "artifacts/engineering_wave008_closeout/TARGETED_ROW_DIFF.json"
+          ],
+          "disposition": "WAVE_CODE_CONCENTRATION",
+          "wave_duplicate_classification": {
+            "repository": "gunnchos-7gc-ai-ran-field-kit",
+            "classification": "WAVE_CODE_CONCENTRATION",
+            "severity": "S2",
+            "path_count": 310,
+            "sample_paths": [
+              "artifacts/engineering_wave005_closeout/TARGETED_ROW_DIFF.json",
+              "artifacts/engineering_wave005_closeout/CLOSEOUT_RESULT.json",
+              "artifacts/engineering_wave004_closeout/TARGETED_ROW_DIFF.json",
+              "artifacts/engineering_wave004_closeout/CLOSEOUT_RESULT.json",
+              "artifacts/engineering_wave002_closeout/TARGETED_ROW_DIFF.json",
+              "artifacts/engineering_wave003_closeout/TARGETED_ROW_DIFF.json",
+              "artifacts/engineering_wave008_closeout/PROVENANCE_BINDING_RESULT.json",
+              "artifacts/engineering_wave008_closeout/TARGETED_ROW_DIFF.json"
+            ],
+            "evidence": {
+              "similarity": true,
+              "callers": false,
+              "divergence": false
+            },
+            "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+          }
+        },
+        {
+          "family": "R3",
+          "severity": "S2",
+          "repository": "gunnchos-device-os",
+          "kind": "wave_code_concentration",
+          "title": "WAVE_CODE_CONCENTRATION (101 paths) \u2014 not LIKELY_DUPLICATE",
+          "detail": [
+            "artifacts/engineering_wave004/FINAL_INTEGRITY_RESULT.json",
+            "artifacts/engineering_wave004/PIXEL_CLIENT_PROBE.json",
+            "artifacts/engineering_wave004/CLAIM_BOUNDARIES.json",
+            "artifacts/engineering_wave004/WAVE004_RESULT.json",
+            "artifacts/engineering_wave004/REQUIREMENT_RESULTS.json",
+            "artifacts/engineering_wave004/INTEGRITY_REPAIR_RESULT.json",
+            "artifacts/engineering_wave004/RUNTIME_STATUS.json",
+            "artifacts/engineering_wave004/SECURITY_INJECTION_RESULT.json"
+          ],
+          "disposition": "WAVE_CODE_CONCENTRATION",
+          "wave_duplicate_classification": {
+            "repository": "gunnchos-device-os",
+            "classification": "WAVE_CODE_CONCENTRATION",
+            "severity": "S2",
+            "path_count": 101,
+            "sample_paths": [
+              "artifacts/engineering_wave004/FINAL_INTEGRITY_RESULT.json",
+              "artifacts/engineering_wave004/PIXEL_CLIENT_PROBE.json",
+              "artifacts/engineering_wave004/CLAIM_BOUNDARIES.json",
+              "artifacts/engineering_wave004/WAVE004_RESULT.json",
+              "artifacts/engineering_wave004/REQUIREMENT_RESULTS.json",
+              "artifacts/engineering_wave004/INTEGRITY_REPAIR_RESULT.json",
+              "artifacts/engineering_wave004/RUNTIME_STATUS.json",
+              "artifacts/engineering_wave004/SECURITY_INJECTION_RESULT.json"
+            ],
+            "evidence": {
+              "similarity": true,
+              "callers": false,
+              "divergence": false
+            },
+            "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+          }
+        },
+        {
+          "family": "R3",
+          "severity": "S2",
+          "repository": "gunnchAI3k",
+          "kind": "wave_code_concentration",
+          "title": "WAVE_CODE_CONCENTRATION (35 paths) \u2014 not LIKELY_DUPLICATE",
+          "detail": [
+            "evals/wave003/schemas/wave003_result.v1.json",
+            "evals/wave003/failure_cases/negative_expectations.json",
+            "evals/wave003/results/WAVE003_EVAL.json",
+            "evals/wave003/fixtures/connectivity_telemetry.json",
+            "evals/wave003/fixtures/device_state.json",
+            "evals/wave003/fixtures/bias_a11y_scope.json",
+            "evals/wave003/fixtures/a11y_ui.json",
+            "evals/wave003/fixtures/device_states.json"
+          ],
+          "disposition": "WAVE_CODE_CONCENTRATION",
+          "wave_duplicate_classification": {
+            "repository": "gunnchAI3k",
+            "classification": "WAVE_CODE_CONCENTRATION",
+            "severity": "S2",
+            "path_count": 35,
+            "sample_paths": [
+              "evals/wave003/schemas/wave003_result.v1.json",
+              "evals/wave003/failure_cases/negative_expectations.json",
+              "evals/wave003/results/WAVE003_EVAL.json",
+              "evals/wave003/fixtures/connectivity_telemetry.json",
+              "evals/wave003/fixtures/device_state.json",
+              "evals/wave003/fixtures/bias_a11y_scope.json",
+              "evals/wave003/fixtures/a11y_ui.json",
+              "evals/wave003/fixtures/device_states.json"
+            ],
+            "evidence": {
+              "similarity": true,
+              "callers": false,
+              "divergence": false
+            },
+            "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+          }
+        },
+        {
+          "family": "R3",
+          "severity": "S2",
+          "repository": "archive-of-life-artifact-world",
+          "kind": "wave_code_concentration",
+          "title": "WAVE_CODE_CONCENTRATION (41 paths) \u2014 not LIKELY_DUPLICATE",
+          "detail": [
+            "artifacts/engineering_wave008/PIPELINE_AB_REPRODUCTION_RESULT.json",
+            "artifacts/engineering_wave008/WAVE008_INTEGRITY_REPAIR_RESULT.json",
+            "artifacts/engineering_wave008/SOURCE_ORGANIZATION_RESULT.json",
+            "artifacts/engineering_wave008/SNAPSHOT_REPRODUCTION_RESULT.json",
+            "artifacts/engineering_wave008/WAVE008_RESULT.json",
+            "artifacts/engineering_wave008/SOURCE_INTEGRATION_TRUTH_RESULT.json",
+            "artifacts/engineering_wave008/CLAIM_BOUNDARIES.json",
+            "artifacts/engineering_wave008/LICENSE_TERMS_RESULT.json"
+          ],
+          "disposition": "WAVE_CODE_CONCENTRATION",
+          "wave_duplicate_classification": {
+            "repository": "archive-of-life-artifact-world",
+            "classification": "WAVE_CODE_CONCENTRATION",
+            "severity": "S2",
+            "path_count": 41,
+            "sample_paths": [
+              "artifacts/engineering_wave008/PIPELINE_AB_REPRODUCTION_RESULT.json",
+              "artifacts/engineering_wave008/WAVE008_INTEGRITY_REPAIR_RESULT.json",
+              "artifacts/engineering_wave008/SOURCE_ORGANIZATION_RESULT.json",
+              "artifacts/engineering_wave008/SNAPSHOT_REPRODUCTION_RESULT.json",
+              "artifacts/engineering_wave008/WAVE008_RESULT.json",
+              "artifacts/engineering_wave008/SOURCE_INTEGRATION_TRUTH_RESULT.json",
+              "artifacts/engineering_wave008/CLAIM_BOUNDARIES.json",
+              "artifacts/engineering_wave008/LICENSE_TERMS_RESULT.json"
+            ],
+            "evidence": {
+              "similarity": true,
+              "callers": false,
+              "divergence": false
+            },
+            "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+          }
+        },
+        {
+          "family": "R3",
+          "severity": "S2",
+          "repository": "beatlink-party",
+          "kind": "wave_code_concentration",
+          "title": "WAVE_CODE_CONCENTRATION (43 paths) \u2014 not LIKELY_DUPLICATE",
+          "detail": [
+            "artifacts/engineering_wave007/RECONNECT_BROWSER_A_B_C_RESULT.json",
+            "artifacts/engineering_wave007/DEVICE_TIMING_PROFILE_RESULT.json",
+            "artifacts/engineering_wave007/ROLE_SYNC_BROWSER_RESULT.json",
+            "artifacts/engineering_wave007/CLAIM_BOUNDARIES.json",
+            "artifacts/engineering_wave007/DEVICE_CALIBRATION_BROWSER_RESULT.json",
+            "artifacts/engineering_wave007/REQUIREMENT_RESULTS.json",
+            "artifacts/engineering_wave007/SONG_SOURCE_RIGHTS_RESULT.json",
+            "artifacts/engineering_wave007/SESSION_RESUME_A_B_C_RESULT.json"
+          ],
+          "disposition": "WAVE_CODE_CONCENTRATION",
+          "wave_duplicate_classification": {
+            "repository": "beatlink-party",
+            "classification": "WAVE_CODE_CONCENTRATION",
+            "severity": "S2",
+            "path_count": 43,
+            "sample_paths": [
+              "artifacts/engineering_wave007/RECONNECT_BROWSER_A_B_C_RESULT.json",
+              "artifacts/engineering_wave007/DEVICE_TIMING_PROFILE_RESULT.json",
+              "artifacts/engineering_wave007/ROLE_SYNC_BROWSER_RESULT.json",
+              "artifacts/engineering_wave007/CLAIM_BOUNDARIES.json",
+              "artifacts/engineering_wave007/DEVICE_CALIBRATION_BROWSER_RESULT.json",
+              "artifacts/engineering_wave007/REQUIREMENT_RESULTS.json",
+              "artifacts/engineering_wave007/SONG_SOURCE_RIGHTS_RESULT.json",
+              "artifacts/engineering_wave007/SESSION_RESUME_A_B_C_RESULT.json"
+            ],
+            "evidence": {
+              "similarity": true,
+              "callers": false,
+              "divergence": false
+            },
+            "note": "Path concentration alone is S2 WAVE_CODE_CONCENTRATION, not LIKELY_DUPLICATE"
+          }
+        }
+      ]
+    },
+    "R4": {
+      "name": "Runtime-path inauthenticity",
+      "items": []
+    },
+    "R5": {
+      "name": "Mutation blindness",
+      "items": [
+        {
+          "family": "R5",
+          "severity": "S1",
+          "repository": "gunnchos-research-portal",
+          "kind": "MUTATION_BLINDNESS",
+          "title": "Proven mutation survival: behavioral mutation not detected by full relevant suite",
+          "detail": [
+            {
+              "index": 1,
+              "path": "scripts/validate_supervisor_ready.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_KILLED",
+              "mutation_outcome": "MUTATION_KILLED"
+            },
+            {
+              "index": 2,
+              "path": "scripts/audit_portfolio.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": true,
+              "test_reaction": "MUTATION_SURVIVED",
+              "mutation_outcome": "MUTATION_SURVIVED"
+            }
+          ],
+          "mutation_outcome": "MUTATION_SURVIVED",
+          "disposition": "ROOT_CAUSE_S1",
+          "reachability": {
+            "reachability_status": "ACTIVE_FIRST_PARTY",
+            "active": true,
+            "first_party": true,
+            "path_bucket": "PRODUCTION"
+          },
+          "requirement_capability_link": true,
+          "semantic_review_disposition": "CONFIRMED_S1",
+          "material_weakness": "mutation_survival",
+          "raw_observation_count": 1,
+          "sample_lines": [
+            null
+          ]
+        },
+        {
+          "family": "R5",
+          "severity": "S1",
+          "repository": "waike-research-ops",
+          "kind": "MUTATION_BLINDNESS",
+          "title": "Proven mutation survival: behavioral mutation not detected by full relevant suite",
+          "detail": [
+            {
+              "index": 1,
+              "path": "src/waike_curriculum/evaluation/metrics.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": true,
+              "test_reaction": "MUTATION_SURVIVED",
+              "mutation_outcome": "MUTATION_SURVIVED"
+            },
+            {
+              "index": 2,
+              "path": "src/waike_course_ready/batch002/exams.py",
+              "kind": "remove_validation",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": true,
+              "test_reaction": "MUTATION_SURVIVED",
+              "mutation_outcome": "MUTATION_SURVIVED"
+            },
+            {
+              "index": 3,
+              "path": "src/waike_course_ready/batch002/labs.py",
+              "kind": "invert_condition",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": true,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_KILLED",
+              "mutation_outcome": "MUTATION_KILLED"
+            }
+          ],
+          "mutation_outcome": "MUTATION_SURVIVED",
+          "disposition": "ROOT_CAUSE_S1",
+          "reachability": {
+            "reachability_status": "ACTIVE_FIRST_PARTY",
+            "active": true,
+            "first_party": true,
+            "path_bucket": "PRODUCTION"
+          },
+          "requirement_capability_link": true,
+          "semantic_review_disposition": "CONFIRMED_S1",
+          "material_weakness": "mutation_survival",
+          "raw_observation_count": 1,
+          "sample_lines": [
+            null
+          ]
+        },
+        {
+          "family": "R5",
+          "severity": "S2",
+          "repository": "7gc-digital-twin",
+          "kind": "mutation_evidence_incomplete",
+          "title": "Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE",
+          "detail": [
+            {
+              "index": 1,
+              "path": "src/seven_gc_twin/scene/osm_overpass.py",
+              "kind": "flip_return_true",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 2,
+              "path": "src/seven_gc_twin/cli.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 3,
+              "path": "src/seven_gc_twin/continuity_benchmark.py",
+              "kind": "invert_condition",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            }
+          ],
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+          "disposition": "INCOMPLETE_EVIDENCE"
+        },
+        {
+          "family": "R5",
+          "severity": "S2",
+          "repository": "readygary-6g-beam-selection",
+          "kind": "mutation_evidence_incomplete",
+          "title": "Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE",
+          "detail": [
+            {
+              "index": 1,
+              "path": "sim/experiments/digital_programme.py",
+              "kind": "flip_return_true",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 2,
+              "path": "scripts/run_benchmark_table.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 3,
+              "path": "scripts/run_timing_harness.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            }
+          ],
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+          "disposition": "INCOMPLETE_EVIDENCE"
+        },
+        {
+          "family": "R5",
+          "severity": "S2",
+          "repository": "gunnchos-emergent-service-intent-protocols",
+          "kind": "mutation_evidence_incomplete",
+          "title": "Mutation evidence incomplete: MUTATION_VALIDATION_INCOMPLETE",
+          "detail": [
+            {
+              "index": 1,
+              "path": "src/emergent_intent/algorithms/trainers.py",
+              "kind": "invert_condition",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 2,
+              "path": "src/emergent_intent/env/wireless_env.py",
+              "kind": "flip_return_zero",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            },
+            {
+              "index": 3,
+              "path": "src/emergent_intent/abstraction/encoders.py",
+              "kind": "invert_condition",
+              "syntax_ok_after_mutation": true,
+              "behavioral": true,
+              "mutation_verified_present": true,
+              "full_run_executed": true,
+              "collection_only": false,
+              "baseline_passed": false,
+              "mutated_passed": false,
+              "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+              "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+            }
+          ],
+          "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+          "disposition": "INCOMPLETE_EVIDENCE"
+        }
+      ]
+    },
+    "R6": {
+      "name": "Complexity / hotspot debt",
+      "items": [
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "gunnchos-7gc-ai-ran-field-kit",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "scripts/validate_digital_ecosystem_baseline_v2.py",
+              "name": "main",
+              "lineno": 72,
+              "complexity": 114
+            },
+            {
+              "path": "control_plane/validators/__init__.py",
+              "name": "validate_control_plane",
+              "lineno": 47,
+              "complexity": 93
+            },
+            {
+              "path": "scripts/rebuild_convergence_coverage.py",
+              "name": "build_atomics_and_trace",
+              "lineno": 278,
+              "complexity": 85
+            },
+            {
+              "path": "scripts/rebuild_convergence_coverage.py",
+              "name": "pick_summaries",
+              "lineno": 116,
+              "complexity": 83
+            },
+            {
+              "path": "scripts/engineering_wave009/validate_aggregate.py",
+              "name": "main",
+              "lineno": 67,
+              "complexity": 71
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "gunnchos-research-portal",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "scripts/run_vp012_portal_first.py",
+              "name": "main",
+              "lineno": 81,
+              "complexity": 46
+            },
+            {
+              "path": "scripts/audit_portfolio.py",
+              "name": "audit_repo",
+              "lineno": 207,
+              "complexity": 36
+            },
+            {
+              "path": "scripts/supervisor_snapshot.py",
+              "name": "main",
+              "lineno": 411,
+              "complexity": 31
+            },
+            {
+              "path": "scripts/supervisor_snapshot.py",
+              "name": "gh_pr",
+              "lineno": 211,
+              "complexity": 27
+            },
+            {
+              "path": "scripts/validate_supervisor_ready.py",
+              "name": "main",
+              "lineno": 100,
+              "complexity": 21
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "gunnchos-device-os",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+              "name": "attempt_ring_app_mutation_pass",
+              "lineno": 1331,
+              "complexity": 204
+            },
+            {
+              "path": "gunnchos_device_os/cloud_dev_plane/server.py",
+              "name": "handle",
+              "lineno": 96,
+              "complexity": 124
+            },
+            {
+              "path": "gunnchos_device_os/device_lab/virtualization/qemu_guest.py",
+              "name": "start",
+              "lineno": 220,
+              "complexity": 118
+            },
+            {
+              "path": "gunnchos_device_os/device_lab/interactive_guest_proofs.py",
+              "name": "attempt_dsxl_dual_compositor_pass",
+              "lineno": 885,
+              "complexity": 91
+            },
+            {
+              "path": "scripts/run_cycle3b_dsxl_ring.py",
+              "name": "_placement_focus_fb",
+              "lineno": 194,
+              "complexity": 90
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "gunnchos-hardware-industrial-design",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py",
+              "name": "run_erc",
+              "lineno": 79,
+              "complexity": 43
+            },
+            {
+              "path": "scripts/build_hw_fw_rc_001_packages.py",
+              "name": "self_challenge",
+              "lineno": 821,
+              "complexity": 41
+            },
+            {
+              "path": "scripts/continuation_viii_manufacturer_release.py",
+              "name": "emit_schematic",
+              "lineno": 141,
+              "complexity": 35
+            },
+            {
+              "path": "npi/phase_xv/handheld_storage_headroom/simulate_handheld_storage_e2e.py",
+              "name": "run_e2e",
+              "lineno": 177,
+              "complexity": 34
+            },
+            {
+              "path": "gate1_digital_fabrication/edge_io_ring/scripts/static_erc_drc_validator.py",
+              "name": "run_drc",
+              "lineno": 172,
+              "complexity": 34
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "edge-io-measurement-node",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": ".venv-zephyr/bin/readelf.py",
+              "name": "decode_flags",
+              "lineno": 192,
+              "complexity": 44
+            },
+            {
+              "path": "gate1_digital_fabrication/ring_firmware/.toolchain/west-venv/bin/readelf.py",
+              "name": "decode_flags",
+              "lineno": 192,
+              "complexity": 44
+            },
+            {
+              "path": "gate1_digital_fabrication/ring_firmware/scripts/static_analysis.py",
+              "name": "main",
+              "lineno": 34,
+              "complexity": 28
+            },
+            {
+              "path": ".venv-zephyr/bin/hexmerge.py",
+              "name": "main",
+              "lineno": 86,
+              "complexity": 27
+            },
+            {
+              "path": ".venv-zephyr/bin/readelf.py",
+              "name": "main",
+              "lineno": 1874,
+              "complexity": 23
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "pedestrian-pursuit",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "tools/validate_content.py",
+              "name": "validate_project",
+              "lineno": 136,
+              "complexity": 55
+            },
+            {
+              "path": "tools/validate_content.py",
+              "name": "_validate_track",
+              "lineno": 57,
+              "complexity": 52
+            },
+            {
+              "path": "tools/validate_game_rc_contracts.py",
+              "name": "main",
+              "lineno": 25,
+              "complexity": 28
+            },
+            {
+              "path": "gate1/tools/core_loop_runner.py",
+              "name": "run_core_loop",
+              "lineno": 80,
+              "complexity": 20
+            },
+            {
+              "path": "tools/validate_content.py",
+              "name": "_validate_device_roles",
+              "lineno": 285,
+              "complexity": 12
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "7gc-digital-twin",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "paper/scripts/generate_tables.py",
+              "name": "main",
+              "lineno": 118,
+              "complexity": 43
+            },
+            {
+              "path": "src/seven_gc_twin/continuity_benchmark.py",
+              "name": "analyze_continuity",
+              "lineno": 76,
+              "complexity": 27
+            },
+            {
+              "path": "src/seven_gc_twin/gate2/edge_ingest.py",
+              "name": "build_twin_state",
+              "lineno": 145,
+              "complexity": 20
+            },
+            {
+              "path": "scripts/bootstrap_site_profiles.py",
+              "name": "main",
+              "lineno": 298,
+              "complexity": 13
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "spectrumx-ai-ran-gary",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "apps/streamlit_app.py",
+              "name": "_render_judge_gary_micro_twin_3d",
+              "lineno": 1550,
+              "complexity": 395
+            },
+            {
+              "path": "src/edge_ran_gary/simulation_integration_hooks.py",
+              "name": "_load_sionna_bundle_from_dirs",
+              "lineno": 616,
+              "complexity": 40
+            },
+            {
+              "path": "src/airan_research/experiments/digital_programme.py",
+              "name": "_mini_yaml_load",
+              "lineno": 91,
+              "complexity": 38
+            },
+            {
+              "path": "scripts/sweep_baseline_thresholds.py",
+              "name": "main",
+              "lineno": 138,
+              "complexity": 34
+            },
+            {
+              "path": "apps/streamlit_app.py",
+              "name": "scan_submissions_inventory",
+              "lineno": 918,
+              "complexity": 25
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "ntn-resilience-sim",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "paper/scripts/generate_tables.py",
+              "name": "main",
+              "lineno": 115,
+              "complexity": 71
+            },
+            {
+              "path": "src/ntn_resilience/experiment.py",
+              "name": "run_experiment",
+              "lineno": 394,
+              "complexity": 36
+            },
+            {
+              "path": "src/ntn_resilience/gate2/decide.py",
+              "name": "decide",
+              "lineno": 226,
+              "complexity": 36
+            },
+            {
+              "path": "src/ntn_resilience/gate2/decide.py",
+              "name": "_score_mode",
+              "lineno": 101,
+              "complexity": 29
+            },
+            {
+              "path": "src/ntn_resilience/fallback_policy.py",
+              "name": "select_policy_path",
+              "lineno": 27,
+              "complexity": 15
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "readygary-6g-beam-selection",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "sim/experiments/digital_programme.py",
+              "name": "_mini_yaml_load",
+              "lineno": 34,
+              "complexity": 35
+            },
+            {
+              "path": "scripts/run_additive_programme.py",
+              "name": "run_additive",
+              "lineno": 39,
+              "complexity": 27
+            },
+            {
+              "path": "sim/bands/__init__.py",
+              "name": "firewall_profile",
+              "lineno": 80,
+              "complexity": 21
+            },
+            {
+              "path": "paper/scripts/generate_tables.py",
+              "name": "write_additive",
+              "lineno": 232,
+              "complexity": 20
+            },
+            {
+              "path": "src/readygary_tool_adapters/nvidia_probe.py",
+              "name": "classify",
+              "lineno": 20,
+              "complexity": 20
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "waike-research-ops",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "src/waike_course_ready/provenance.py",
+              "name": "audit",
+              "lineno": 254,
+              "complexity": 60
+            },
+            {
+              "path": "scripts/emit_waike_mastery.py",
+              "name": "main",
+              "lineno": 37,
+              "complexity": 47
+            },
+            {
+              "path": "src/waike_course_ready/emit.py",
+              "name": "emit_course",
+              "lineno": 49,
+              "complexity": 37
+            },
+            {
+              "path": "src/waike_course_ready/labs.py",
+              "name": "run_all",
+              "lineno": 1135,
+              "complexity": 36
+            },
+            {
+              "path": "src/waike_mastery/benchmark.py",
+              "name": "run_mastery_benchmark",
+              "lineno": 103,
+              "complexity": 29
+            }
+          ]
+        },
+        {
+          "family": "R6",
+          "severity": "S2",
+          "repository": "gunnchos-emergent-service-intent-protocols",
+          "title": "Complexity hotspots present",
+          "detail": [
+            {
+              "path": "src/emergent_intent/comm/channel.py",
+              "name": "exchange",
+              "lineno": 276,
+              "complexity": 38
+            },
+            {
+              "path": "src/emergent_intent/env/wireless_env.py",
+              "name": "step",
+              "lineno": 504,
+              "complexity": 24
+            },
+            {
+              "path": "src/emergent_intent/abstraction/policy.py",
+              "name": "run_abstraction_pilot",
+              "lineno": 111,
+              "complexity": 21
+            },
+            {
+              "path": "src/emergent_intent/algorithms/trainers.py",
+              "name": "run_ippo",
+              "lineno": 79,
+              "complexity": 21
+            },
+            {
+              "path": "scripts/generate_figures.py",
+              "name": "main",
+              "lineno": 19,
+              "complexity": 20
+            }
+          ]
+        }
+      ]
+    },
+    "R7": {
+      "name": "Orphan/dead code & fixture honesty",
+      "items": [
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "gunnchos-7gc-ai-ran-field-kit",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "gate2/nonphysical/G2_C6_device_game_ux/runtime/profile_loader.py"
+          ]
+        },
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "gunnchos-device-os",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "gunnchos_device_os/platform/accessibility_store.py",
+            "gunnchos_device_os/platform/package_lifecycle.py",
+            "gunnchos_device_os/platform/persistent_sync.py",
+            "gunnchos_device_os/platform/secure_packaging.py",
+            "gunnchos_device_os/platform/role_policy.py",
+            "gunnchos_device_os/platform/e2e_scenarios.py",
+            "gunnchos_device_os/platform/encrypted_storage.py",
+            "gunnchos_device_os/platform/requirement_evaluators.py"
+          ]
+        },
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "edge-io-measurement-node",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "src/edge_io_node/latency_probe.py",
+            "src/edge_io_node/packet_loss_probe.py",
+            "src/edge_io_node/__main__.py",
+            "src/edge_io_node/exporters/seven_gc_export.py",
+            "src/edge_io_node/tool_adapters/measurement_validation.py",
+            "src/edge_io_node/tool_adapters/aerial_kpi_export.py",
+            "src/edge_io_node/tool_adapters/oran_kpi_export.py",
+            "src/edge_io_node/consent/lifecycle.py"
+          ]
+        },
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "7gc-digital-twin",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "apps/streamlit_7gc_campus_design_dashboard.py",
+            "apps/streamlit_7gc_scene_dashboard.py",
+            "apps/streamlit_app.py",
+            "src/site_buildings/svg_floorplan_export.py",
+            "src/site_buildings/material_scoring.py",
+            "src/site_buildings/rf_scoring.py",
+            "src/site_buildings/room_adjacency.py",
+            "src/site_buildings/site_registry.py"
+          ]
+        },
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "spectrumx-ai-ran-gary",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "apps/streamlit_app.py",
+            "src/airan_research/metrics.py",
+            "src/airan_research/baselines.py",
+            "src/airan_research/digital_twin_adapter.py",
+            "src/airan_research/synthetic_data.py",
+            "src/airan_research/campus_profiles.py",
+            "src/airan_research/__main__.py",
+            "src/airan_research/gate2/twin_policies.py"
+          ]
+        },
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "ntn-resilience-sim",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "src/sites/edge_cache.py",
+            "src/sites/classroom_gateway.py",
+            "src/sites/run_site_scenario.py",
+            "src/sites/site_registry.py",
+            "src/sites/link_budget.py",
+            "src/sites/coverage_model.py",
+            "src/sites/plots.py",
+            "src/sites/security_tabletop.py"
+          ]
+        },
+        {
+          "family": "R7",
+          "severity": "S2",
+          "repository": "gunnchos-emergent-service-intent-protocols",
+          "title": "Orphan candidates and/or fixture honesty issues",
+          "orphans": [
+            "src/emergent_intent/stats.py",
+            "src/emergent_intent/abstraction/policy.py",
+            "src/emergent_intent/abstraction/encoders.py",
+            "src/emergent_intent/algorithms/networks.py",
+            "src/emergent_intent/algorithms/value_decomp.py",
+            "src/emergent_intent/algorithms/trainers.py",
+            "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
+            "src/emergent_intent/comm/attention.py"
+          ]
+        }
+      ]
+    },
+    "R8": {
+      "name": "Docs/architecture truth drift",
+      "items": []
+    }
+  }
+}

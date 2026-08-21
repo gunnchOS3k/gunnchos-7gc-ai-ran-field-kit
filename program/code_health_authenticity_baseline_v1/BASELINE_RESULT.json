@@ -1,0 +1,204 @@
+{
+  "schema": "gunnchos.code_health_authenticity_baseline_v1.result",
+  "generated_at_utc": "2026-08-21T18:12:36Z",
+  "CODE_HEALTH_AUTHENTICITY_BASELINE_V1": "BASELINE_COMPLETE_WITH_FINDINGS",
+  "CODE_HEALTH_BASELINE_V1_CALIBRATION_REPAIR": "COMPLETE_PENDING_OWNER_MERGE",
+  "CODE_HEALTH_BASELINE_V1_FINAL_TRUTH_CONVERGENCE": "COMPLETE_PENDING_OWNER_MERGE",
+  "CODE_HEALTH_MUTATION_CALIBRATION": "COMPLETE",
+  "CURSOR_NEVER_MERGES": true,
+  "prerequisite": {
+    "field_kit_pr_113": "MERGED",
+    "field_kit_pr_113_merge": "556f2815a0b3a00eea71b4c4abce470df2efaf7d",
+    "baseline_frozen": {
+      "ATOMIC_TOTAL": 419,
+      "COMPLETE": 111,
+      "IMPL_OPEN": 51,
+      "VALIDATION_OPEN": 0,
+      "EVIDENCE_MAPPING": 0,
+      "POOL": 162,
+      "NEXT_VALIDATION_total_open": 0,
+      "NEXT_IMPL_total_open": 51
+    }
+  },
+  "controls": {
+    "negative_control_detects_theater": true,
+    "negative_control_detects_coupling_pattern": true,
+    "positive_control_clean": true,
+    "negative_hits": [
+      {
+        "severity": "S0",
+        "kind": "pass_only_test",
+        "path": "tests/test_theater.py",
+        "line": 6,
+        "snippet": "def test_empty():     pass ",
+        "disposition": "ROOT_CAUSE_S0"
+      },
+      {
+        "severity": "S0",
+        "kind": "always_pass_gate",
+        "path": "tests/test_theater.py",
+        "line": 2,
+        "snippet": "ALWAYS_PASS = True def test_always():     assert ALWAYS_PASS  def test_empty():     pass ",
+        "disposition": "ROOT_CAUSE_S0"
+      },
+      {
+        "severity": "S0",
+        "kind": "always_pass_gate",
+        "path": "tests/test_theater.py",
+        "line": 4,
+        "snippet": "ALWAYS_PASS  def test_empty():     pass ",
+        "disposition": "ROOT_CAUSE_S0"
+      }
+    ],
+    "positive_hits": [],
+    "false_positive_controls": {
+      "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+      "clean_env_control": {
+        "path": ".venv/site-packages/pkg/test_vendored.py",
+        "raw_observations": 1,
+        "s0_s1_after_calibration": 0,
+        "pass": true
+      },
+      "bad_theater_control": {
+        "path": "tests/test_always_pass_gate.py",
+        "detects_s0_or_gate": true,
+        "calibrated_sample": [
+          {
+            "kind": "assert_true_literal",
+            "severity": "S0",
+            "disposition": "ROOT_CAUSE_S0"
+          },
+          {
+            "kind": "always_pass_gate",
+            "severity": "S0",
+            "disposition": "ROOT_CAUSE_S0"
+          },
+          {
+            "kind": "always_pass_gate",
+            "severity": "S0",
+            "disposition": "ROOT_CAUSE_S0"
+          }
+        ]
+      },
+      "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+      "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+      "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+      "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+      "ROOT_CAUSE_DEDUPLICATION": true,
+      "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true,
+      "AUDIT_FALSE_POSITIVE_CONTROLS": "PASS"
+    },
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true,
+    "AUDIT_INTEGRITY_CONTROLS": "PASS",
+    "mutation_classifier_controls": {
+      "MUTATION_CLASSIFIER_CONTROLS_PASS": true,
+      "flags": {
+        "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+        "COLLECTION_ONLY_NOT_SURVIVAL": true,
+        "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+        "NO_TESTS_DIR_NOT_SURVIVAL": true,
+        "BEHAVIORAL_MUTATION_REQUIRED": true,
+        "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+        "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+        "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+      },
+      "cases": [
+        {
+          "name": "collection_only_not_survived",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "marker_not_survived",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "no_tests_not_survived",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "baseline_fail_inconclusive",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "behavioral_pass_survived",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "behavioral_fail_killed",
+          "pass": true,
+          "detail": ""
+        }
+      ]
+    },
+    "MUTATION_CLASSIFIER_CONTROLS_PASS": true,
+    "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+    "COLLECTION_ONLY_NOT_SURVIVAL": true,
+    "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+    "NO_TESTS_DIR_NOT_SURVIVAL": true,
+    "BEHAVIORAL_MUTATION_REQUIRED": true,
+    "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+    "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+    "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+  },
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true,
+    "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+    "COLLECTION_ONLY_NOT_SURVIVAL": true,
+    "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+    "NO_TESTS_DIR_NOT_SURVIVAL": true,
+    "BEHAVIORAL_MUTATION_REQUIRED": true,
+    "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+    "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+    "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+  },
+  "S0_REGEX_ONLY_COUNT": 0,
+  "S0_SEMANTIC_REVIEW_COMPLETE": true,
+  "totals": {
+    "repos_scanned": 17,
+    "raw_pattern_observations": 369,
+    "findings": 29,
+    "s0": 0,
+    "s1": 2,
+    "s0_s1_are_root_causes": true,
+    "critical_dimension_cells": 12
+  },
+  "s1_calibration_sample": {
+    "sample_size": 1,
+    "sample_fraction": 0.5,
+    "false_positive_rate": 0.0,
+    "reviewed_all": false
+  },
+  "mutation_outcomes_r5": {
+    "gunnchos-research-portal": "MUTATION_SURVIVED",
+    "7gc-digital-twin": "MUTATION_VALIDATION_INCOMPLETE",
+    "readygary-6g-beam-selection": "MUTATION_VALIDATION_INCOMPLETE",
+    "waike-research-ops": "MUTATION_SURVIVED",
+    "gunnchos-emergent-service-intent-protocols": "MUTATION_VALIDATION_INCOMPLETE"
+  },
+  "note": "Genuine S0/S1 findings do not fail the CI gate; they are recorded. S0/S1 totals are root causes after calibration.",
+  "baseline_requirement_counts_unchanged": true,
+  "product_behavior_unchanged": true,
+  "CANONICAL_REPOS_AUDITED": 17,
+  "BASELINE_COUNTS_CHANGED": false,
+  "REQUIREMENT_STATES_CHANGED": 0,
+  "OTHER_REPO_MUTATIONS": 0,
+  "TRUTH_CONVERGENCE_VALIDATION": "PASS",
+  "CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION_PASS": true
+}

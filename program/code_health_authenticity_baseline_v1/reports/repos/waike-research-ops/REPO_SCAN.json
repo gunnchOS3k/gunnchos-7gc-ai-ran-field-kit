@@ -1,0 +1,1748 @@
+{
+  "repository": "waike-research-ops",
+  "accepted_main_sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+  "scanned_at_utc": "2026-08-21T18:12:27Z",
+  "counts": {
+    "files_classified": 7145,
+    "code_files": 151,
+    "production_code_files": 72,
+    "proof_files": 18,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 6307,
+      "OTHER": 611,
+      "PROOF": 73,
+      "AMBIGUOUS_CODE": 61,
+      "CI_OR_DEPLOY": 9,
+      "PRODUCTION": 84
+    },
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 1,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
+    "hotspots": 25,
+    "wave_dup_paths": 0,
+    "fixture_paths": 9,
+    "orphan_candidates": 0,
+    "dep_edges": 528
+  },
+  "proof_independence": {
+    "production_files": 72,
+    "proof_files": 18,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "CRITICAL",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "CRITICAL"
+  },
+  "theater_findings": [
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/detect_templated_courses.py",
+      "line": 24,
+      "snippet": "\"status\": \"PASS\"         if result[\"BATCH_TEMPLATED_COURSES\"] == 0 and result[\"BATCH_STUB_COURSES\"] == 0         else \"F",
+      "repository": "waike-research-ops",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "waike-research-ops"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "hardcoded_pass_json",
+      "path": "scripts/detect_templated_courses.py",
+      "line": 24,
+      "snippet": "\"status\": \"PASS\"         if result[\"BATCH_TEMPLATED_COURSES\"] == 0 and result[\"BATCH_STUB_COURSES\"] == 0         else \"F",
+      "repository": "waike-research-ops",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "waike-research-ops"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "waike-research-ops",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
+  "complexity_hotspots": [
+    {
+      "path": "src/waike_course_ready/provenance.py",
+      "name": "audit",
+      "lineno": 254,
+      "complexity": 60
+    },
+    {
+      "path": "scripts/emit_waike_mastery.py",
+      "name": "main",
+      "lineno": 37,
+      "complexity": 47
+    },
+    {
+      "path": "src/waike_course_ready/emit.py",
+      "name": "emit_course",
+      "lineno": 49,
+      "complexity": 37
+    },
+    {
+      "path": "src/waike_course_ready/labs.py",
+      "name": "run_all",
+      "lineno": 1135,
+      "complexity": 36
+    },
+    {
+      "path": "src/waike_mastery/benchmark.py",
+      "name": "run_mastery_benchmark",
+      "lineno": 103,
+      "complexity": 29
+    },
+    {
+      "path": "src/waike_curriculum/depth_generators.py",
+      "name": "assignment_body",
+      "lineno": 183,
+      "complexity": 23
+    },
+    {
+      "path": "src/waike_mastery/failure_taxonomy.py",
+      "name": "classify_miss",
+      "lineno": 61,
+      "complexity": 21
+    },
+    {
+      "path": "scripts/write_course_digital_rc.py",
+      "name": "_earned",
+      "lineno": 54,
+      "complexity": 20
+    },
+    {
+      "path": "scripts/write_course_digital_rc.py",
+      "name": "_lesson_depth_ok",
+      "lineno": 18,
+      "complexity": 18
+    },
+    {
+      "path": "src/waike_mastery/discover.py",
+      "name": "discover_courses",
+      "lineno": 15,
+      "complexity": 18
+    },
+    {
+      "path": "scripts/validate_course_depth.py",
+      "name": "main",
+      "lineno": 15,
+      "complexity": 17
+    },
+    {
+      "path": "src/waike_mastery/registry.py",
+      "name": "build_assessable_registry",
+      "lineno": 44,
+      "complexity": 16
+    },
+    {
+      "path": "src/waike_course_ready/labs.py",
+      "name": "lab_siem_triage",
+      "lineno": 515,
+      "complexity": 16
+    },
+    {
+      "path": "tests/curriculum/test_digital_rc_batch.py",
+      "name": "test_empty_and_print_pass_fail",
+      "lineno": 211,
+      "complexity": 15
+    },
+    {
+      "path": "scripts/generate_readiness_audit.py",
+      "name": "main",
+      "lineno": 15,
+      "complexity": 15
+    },
+    {
+      "path": "src/waike_mastery/corpus_inventory.py",
+      "name": "build_corpus_inventory",
+      "lineno": 54,
+      "complexity": 15
+    },
+    {
+      "path": "src/waike_course_ready/provenance.py",
+      "name": "detect_repeated_near_identical_trailers",
+      "lineno": 158,
+      "complexity": 14
+    },
+    {
+      "path": "src/waike_mastery/benchmark.py",
+      "name": "solve_mcq_item",
+      "lineno": 61,
+      "complexity": 13
+    },
+    {
+      "path": "src/waike_mastery/audit.py",
+      "name": "audit_curriculum",
+      "lineno": 17,
+      "complexity": 13
+    },
+    {
+      "path": "src/waike_mastery/canary.py",
+      "name": "run_key_leak_canary",
+      "lineno": 43,
+      "complexity": 13
+    },
+    {
+      "path": "src/waike_mastery/policy.py",
+      "name": "evaluate_mastery_policy",
+      "lineno": 15,
+      "complexity": 13
+    },
+    {
+      "path": "src/waike_mastery/course_honesty.py",
+      "name": "check_wireless_6g",
+      "lineno": 22,
+      "complexity": 13
+    },
+    {
+      "path": "scripts/remediate_batch004_lesson_depth.py",
+      "name": "deepen",
+      "lineno": 421,
+      "complexity": 12
+    },
+    {
+      "path": "src/waike_mastery/benchmark.py",
+      "name": "measure_instructor_keys_in_contexts",
+      "lineno": 31,
+      "complexity": 12
+    },
+    {
+      "path": "src/waike_course_ready/batch002/labs.py",
+      "name": "lab_github_actions_ci",
+      "lineno": 170,
+      "complexity": 12
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [
+    {
+      "path": "curriculum/graham_land_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "curriculum/gaza_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "curriculum/ghana_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "curriculum/geelong_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "curriculum/gary_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "curriculum/guyana_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "curriculum/germany_upnow/datasets/synthetic_sample.json",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "evaluation/dashboard_mock_data_policy.md",
+      "honesty": "DECLARED_FIXTURE"
+    },
+    {
+      "path": "src/waike_curriculum/evaluation/mock_data.py",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [],
+  "orphan_records": [],
+  "dependency_edges_sample": [
+    {
+      "from": "src/waike_mastery/tool_use.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_course_ready/exams.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/emit_digital_rc.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "scripts/validate_student_ready.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/remediate_batch004_lesson_depth.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/content.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_mastery/grading.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/discover.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_course_ready/ingest.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "scripts/validate_instructor_ready.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/exams.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/curriculum/test_batch006_data_dashboards.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_placeholder_files.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_mastery/skill_graph.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/validate_instructor_ready.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/gen_course_ready_004.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/canary.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/emit_waike_mastery.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_curriculum/depth_generators.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/waike_mastery/diagnosis.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/exams.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/export_course_catalog.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/packaging.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/waike_mastery/course_honesty.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "registry"
+    },
+    {
+      "from": "scripts/generate_readiness_audit.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "scripts/validate_lesson_depth.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/waike_mastery/grading.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/exams.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/labs.py",
+      "to": "hashlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch003/labs.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/content.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/corpus_inventory.py",
+      "to": "skill_graph"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/content.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_waike_artifacts.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_curriculum/generators.py",
+      "to": "yaml"
+    },
+    {
+      "from": "src/waike_course_ready/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_course_ready/batch007/packaging.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/emit_digital_rc.py",
+      "to": "json"
+    },
+    {
+      "from": "tests/journeys/test_learner_journey.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_group_project_pack.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/waike_course_ready/packaging.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/remediate_batch004_lesson_depth.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_eucnc_watchlist.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch006/packaging.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "src/waike_mastery/tool_use.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/curriculum/test_digital_rc_batch.py",
+      "to": "json"
+    },
+    {
+      "from": "src/waike_mastery/canary.py",
+      "to": "tempfile"
+    },
+    {
+      "from": "scripts/validate_no_exam_heavy_courses.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/map_issues_to_artifacts.py",
+      "to": "csv"
+    },
+    {
+      "from": "src/waike_course_ready/labs.py",
+      "to": "waike_course_ready"
+    },
+    {
+      "from": "scripts/map_issues_to_artifacts.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_curriculum/issue_completion.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch005/packaging.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/waike_course_ready/ingest.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/export_student_packet.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/waike_course_ready/batch002/exams.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/generate_evaluation_dashboard.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/generate_7gc_upnow_bundle.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/generate_evaluation_dashboard.py",
+      "to": "waike_curriculum"
+    },
+    {
+      "from": "scripts/run_course_labs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/waike_mastery/audit.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_course_ready/provenance.py",
+      "to": "re"
+    },
+    {
+      "from": "src/waike_course_ready/labs.py",
+      "to": "tarfile"
+    },
+    {
+      "from": "tests/mastery/test_waike_mastery.py",
+      "to": "pytest"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/detect_templated_courses.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_course_ready/batch004/exams.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/validate_all_waike_readiness.py",
+      "to": "subprocess"
+    },
+    {
+      "from": "src/waike_mastery/benchmark.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/audit.py",
+      "to": "typing"
+    },
+    {
+      "from": "scripts/implement_issue_completion.py",
+      "to": "sys"
+    },
+    {
+      "from": "scripts/generate_rubric_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/waike_mastery/educator.py",
+      "to": "datetime"
+    },
+    {
+      "from": "scripts/generate_7gc_case_study_pack.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/prove_product_consumption.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/mastery/test_waike_mastery.py",
+      "to": "waike_mastery"
+    },
+    {
+      "from": "scripts/deepen_all_courses.py",
+      "to": "sys"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "FINAL_WAIKE_CURRICULUM_DEPTH_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "pytest.ini",
+      "class": "OTHER",
+      "ext": ".ini"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "MISSION_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "FINAL_WAIKE_CURRICULUM_REQUIREMENTS_HANDOFF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "ACCESSIBILITY_AND_LOW_COST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "FINAL_WAIKE_ISSUE_COMPLETION_AND_READINESS_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "SECURITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/implementation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/evaluation_plan.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/claims_needing_evidence.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/experiments_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/system_model.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/limitations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/draft.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/video_paper_explanation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/related_work_seed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/methodology.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/introduction.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ethics_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/abstract.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/reproducibility_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_toy_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/figures_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_01_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_02_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_03_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/general_it/week_04_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_08_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_01_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_02_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_03_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_07_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_06_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_04_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/software_engineering/week_05_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_08_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_01_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_02_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_03_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_07_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_06_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_04_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/cybersecurity/week_05_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_01_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_02_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/solution_notes_for_instructors.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/rubric.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/starter_files/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_03_lab/expected_outputs/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_04_lab/troubleshooting.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_04_lab/lab_instructions.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "labs/by_course/communication_ethics_professional_dev/week_04_lab/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    }
+  ],
+  "path_classification_full_count": 5000,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "mutation_sampling": {
+    "repository": "waike-research-ops",
+    "sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "src/waike_curriculum/evaluation/metrics.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": true,
+        "test_reaction": "MUTATION_SURVIVED",
+        "mutation_outcome": "MUTATION_SURVIVED"
+      },
+      {
+        "index": 2,
+        "path": "src/waike_course_ready/batch002/exams.py",
+        "kind": "remove_validation",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": true,
+        "test_reaction": "MUTATION_SURVIVED",
+        "mutation_outcome": "MUTATION_SURVIVED"
+      },
+      {
+        "index": 3,
+        "path": "src/waike_course_ready/batch002/labs.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": true,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_KILLED",
+        "mutation_outcome": "MUTATION_KILLED"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "CRITICAL",
+    "mutation_outcome": "MUTATION_SURVIVED",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "waike-research-ops",
+      "sha": "5d416c09164cf57e1b64eec8be09c296b14c1dae",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 0,
+        "passed": true,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/waike_curriculum/evaluation/metrics.py",
+          "kind": "flip_return_zero",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/exams.py",
+          "kind": "remove_validation",
+          "returncode": 0,
+          "passed": true,
+          "outcome": "MUTATION_SURVIVED"
+        },
+        {
+          "path": "src/waike_course_ready/batch002/labs.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_KILLED"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 1,
+    "survived_count": 2
+  }
+}

@@ -1,0 +1,171 @@
+name: Code Health & Authenticity Baseline
+
+on:
+  push:
+    branches: [main, 'eng/code-health-authenticity-baseline-v1']
+  pull_request:
+    paths:
+      - 'program/code_health_authenticity_baseline_v1/**'
+      - 'tools/code_integrity/**'
+      - 'scripts/run_code_health_authenticity_baseline.py'
+      - '.github/workflows/code-health-authenticity-baseline.yml'
+  workflow_dispatch:
+
+jobs:
+  code-health-authenticity-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify required standards and gate design exist
+        run: |
+          set -e
+          required=(
+            program/code_health_authenticity_baseline_v1/CODE_INTEGRITY_STANDARD.md
+            program/code_health_authenticity_baseline_v1/DEFINITION_OF_MAINTAINABLE.md
+            program/code_health_authenticity_baseline_v1/ANTI_TEST_THEATER_RULES.md
+            program/code_health_authenticity_baseline_v1/REUSABLE_INTEGRITY_GATE_DESIGN.md
+            program/code_health_authenticity_baseline_v1/ACCEPTED_MAIN_MANIFEST.json
+            tools/code_integrity/run_baseline_audit.py
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "MISSING $f"; exit 1; }
+          done
+
+      - name: Audit integrity controls (synthetic fixtures only)
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          from code_integrity import run_baseline_audit as audit
+          # Force repo-relative OUT for CI (never laptop absolute paths)
+          audit.FIELD_KIT = Path(".").resolve()
+          audit.OUT = audit.FIELD_KIT / "program" / "code_health_authenticity_baseline_v1"
+          audit.OUT.mkdir(parents=True, exist_ok=True)
+          r = audit.run_controls(audit.OUT)
+          print("FIELD_KIT", audit.FIELD_KIT)
+          print(json.dumps({k: r[k] for k in r if k != "negative_hits"}, indent=2))
+          assert r["AUDIT_INTEGRITY_CONTROLS"] == "PASS", r
+          print("AUDIT_INTEGRITY_CONTROLS_PASS")
+          PY
+
+      - name: Verify baseline result artifact shape (if present)
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("program/code_health_authenticity_baseline_v1/BASELINE_RESULT.json")
+          if not p.exists():
+              print("BASELINE_RESULT.json not in tree yet — controls-only CI OK")
+              raise SystemExit(0)
+          d = json.loads(p.read_text())
+          token = d.get("CODE_HEALTH_AUTHENTICITY_BASELINE_V1")
+          allowed = {
+              "BASELINE_COMPLETE_WITH_FINDINGS",
+              "BASELINE_COMPLETE_NO_CRITICAL_FINDINGS",
+              "BLOCKED_INCOMPLETE_AUDIT",
+              "FAIL_AUDIT_INTEGRITY",
+              "BLOCKED_OWNER_MERGE",
+          }
+          assert token in allowed, token
+          # Genuine findings must not fail this job:
+          if token == "FAIL_AUDIT_INTEGRITY":
+              raise SystemExit("Audit integrity controls failed")
+          if token == "BLOCKED_INCOMPLETE_AUDIT":
+              raise SystemExit("Incomplete audit")
+          flags = d.get("calibration_flags") or {}
+          required_flags = [
+              "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1",
+              "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1",
+              "S0_REQUIRES_CAPABILITY_CLOSURE_PATH",
+              "ASSERT_TRUE_TOKEN_ALONE_NOT_S0",
+              "PASS_TODO_TOKEN_ALONE_NOT_S1",
+              "ROOT_CAUSE_DEDUPLICATION",
+              "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE",
+          ]
+          for k in required_flags:
+              assert flags.get(k) is True, (k, flags.get(k))
+          assert d.get("S0_REGEX_ONLY_COUNT", 0) == 0
+          assert d.get("S0_SEMANTIC_REVIEW_COMPLETE") is True
+          for name in (
+              "RAW_PATTERN_OBSERVATIONS.json",
+              "S0_SEMANTIC_REVIEW.json",
+              "S1_CALIBRATION_REVIEW.json",
+              "AUDIT_FALSE_POSITIVE_CONTROLS.json",
+          ):
+              assert (Path("program/code_health_authenticity_baseline_v1") / name).exists(), name
+          print("CI_ACCEPTS_TOKEN", token)
+          print("CALIBRATION_FLAGS_OK")
+          print("NOTE: S0/S1 findings do not fail this workflow")
+          PY
+
+      - name: Truth convergence + mutation classifier gates
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          base = Path("program/code_health_authenticity_baseline_v1")
+          br = json.loads((base / "BASELINE_RESULT.json").read_text())
+          flags = br.get("calibration_flags") or {}
+          for k in [
+              "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL",
+              "COLLECTION_ONLY_NOT_SURVIVAL",
+              "LIKELY_UNDETECTED_NOT_SURVIVAL",
+              "NO_TESTS_DIR_NOT_SURVIVAL",
+              "BEHAVIORAL_MUTATION_REQUIRED",
+              "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS",
+              "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT",
+          ]:
+              assert flags.get(k) is True, (k, flags.get(k))
+          assert flags.get("MARKER_MUTATIONS_COUNT_AS_SURVIVAL") is False
+          assert br.get("controls", {}).get("MUTATION_CLASSIFIER_CONTROLS_PASS") is True
+          prov = json.loads((base / "MUTATION_EXECUTION_PROVENANCE.json").read_text())
+          assert prov.get("MUTATION_CLASSIFIER_CONTROLS_PASS") is True
+          mut = json.loads((base / "MUTATION_RESISTANCE_SAMPLES.json").read_text())
+          for r in mut.get("results") or []:
+              if r.get("mutation_outcome") != "MUTATION_SURVIVED":
+                  continue
+              ok = False
+              for m in r.get("mutations") or []:
+                  if m.get("mutation_outcome") != "MUTATION_SURVIVED":
+                      continue
+                  assert m.get("full_run_executed") is True
+                  assert m.get("baseline_passed") is True
+                  assert m.get("mutated_passed") is True
+                  assert m.get("behavioral") is True
+                  assert m.get("kind") != "append_marker"
+                  assert m.get("test_reaction") not in {
+                      "COLLECTION_STILL_OK_FULL_RUN_NOT_EXECUTED",
+                      "MARKER_LIKELY_UNDETECTED",
+                      "NO_TESTS_DIR",
+                  }
+                  ok = True
+              assert ok, r.get("repository")
+          hot = json.loads((base / "COMPLEXITY_HOTSPOTS.json").read_text())
+          assert hot.get("VENDORED_ENVIRONMENT_COMPLEXITY_HOTSPOTS", 0) == 0
+          assert br.get("S0_REGEX_ONLY_COUNT", 0) == 0
+          assert br.get("CANONICAL_REPOS_AUDITED", br.get("totals", {}).get("repos_scanned")) == 17
+          assert br.get("BASELINE_COUNTS_CHANGED") is False
+          tv = json.loads((base / "TRUTH_CONVERGENCE_VALIDATION.json").read_text())
+          assert tv.get("CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION") == "PASS", tv.get("failures")
+          assert tv.get("token") == "CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION_PASS"
+          # Baseline unchanged
+          d = json.loads(Path("program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json").read_text())
+          t = d["totals"]
+          assert t["ATOMIC_TOTAL"] == 419
+          assert t["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+          assert t["DIGITAL_IMPLEMENTATION_OPEN"] == 51
+          assert t["DIGITAL_VALIDATION_OPEN"] == 0
+          assert t["EVIDENCE_MAPPING_OPEN"] == 0
+          nv = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_VALIDATION_WORK.json").read_text())
+          ni = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_IMPLEMENTATION_WORK.json").read_text())
+          assert nv["total_open"] == 0
+          assert ni["total_open"] == 51
+          print("TRUTH_CONVERGENCE_AND_MUTATION_GATES_OK")
+          PY

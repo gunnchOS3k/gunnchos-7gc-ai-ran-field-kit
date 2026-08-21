@@ -1,0 +1,1750 @@
+{
+  "repository": "readygary-6g-beam-selection",
+  "accepted_main_sha": "569875224db7812890ec6abc48dfe43a608094f3",
+  "scanned_at_utc": "2026-08-21T18:12:26Z",
+  "counts": {
+    "files_classified": 310,
+    "code_files": 71,
+    "production_code_files": 8,
+    "proof_files": 7,
+    "class_histogram": {
+      "DOCS_OR_PROGRAM": 190,
+      "AMBIGUOUS_CODE": 46,
+      "OTHER": 29,
+      "PROOF": 17,
+      "CI_OR_DEPLOY": 20,
+      "PRODUCTION": 8
+    },
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 2,
+    "raw_pattern_observations": 0,
+    "theater_root_causes": 0,
+    "hotspots": 19,
+    "wave_dup_paths": 0,
+    "fixture_paths": 1,
+    "orphan_candidates": 0,
+    "dep_edges": 300
+  },
+  "proof_independence": {
+    "production_files": 8,
+    "proof_files": 7,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "ADEQUATE",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NEEDS_WORK"
+  },
+  "theater_findings": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "paper/scripts/generate_tables.py",
+      "line": 349,
+      "snippet": "except Exception:         pass     print(\"wrote\", md)   def write_dualband() -> None:     src = EXP / \"rq2_dualband_held",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "deploy/server.py",
+      "line": 245,
+      "snippet": "except Exception:             pass     httpd = ThreadingHTTPServer((host, port), Handler)     print(json.dumps({\"serving",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
+    }
+  ],
+  "theater_calibrated_all": [
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "paper/scripts/generate_tables.py",
+      "line": 349,
+      "snippet": "except Exception:         pass     print(\"wrote\", md)   def write_dualband() -> None:     src = EXP / \"rq2_dualband_held",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_INACTIVE",
+        "active": false,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
+    },
+    {
+      "severity": "S2",
+      "kind": "broad_except_pass",
+      "path": "deploy/server.py",
+      "line": 245,
+      "snippet": "except Exception:             pass     httpd = ThreadingHTTPServer((host, port), Handler)     print(json.dumps({\"serving",
+      "repository": "readygary-6g-beam-selection",
+      "disposition": "HYGIENE_PATTERN",
+      "semantic_review_disposition": "HYGIENE",
+      "reachability": {
+        "path_bucket": "OTHER",
+        "reachability_status": "AMBIGUOUS_ACTIVE",
+        "active": true,
+        "first_party": true,
+        "repository": "readygary-6g-beam-selection"
+      }
+    }
+  ],
+  "raw_pattern_observations": [],
+  "wave_duplicate_classification": {
+    "repository": "readygary-6g-beam-selection",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
+  "complexity_hotspots": [
+    {
+      "path": "sim/experiments/digital_programme.py",
+      "name": "_mini_yaml_load",
+      "lineno": 34,
+      "complexity": 35
+    },
+    {
+      "path": "scripts/run_additive_programme.py",
+      "name": "run_additive",
+      "lineno": 39,
+      "complexity": 27
+    },
+    {
+      "path": "sim/bands/__init__.py",
+      "name": "firewall_profile",
+      "lineno": 80,
+      "complexity": 21
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "name": "write_additive",
+      "lineno": 232,
+      "complexity": 20
+    },
+    {
+      "path": "src/readygary_tool_adapters/nvidia_probe.py",
+      "name": "classify",
+      "lineno": 20,
+      "complexity": 20
+    },
+    {
+      "path": "sim/experiments/digital_programme.py",
+      "name": "run_family",
+      "lineno": 438,
+      "complexity": 19
+    },
+    {
+      "path": "sim/experiments/digital_programme.py",
+      "name": "parse_scalar",
+      "lineno": 35,
+      "complexity": 16
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "name": "write_sub6",
+      "lineno": 287,
+      "complexity": 15
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "name": "write_dualband",
+      "lineno": 354,
+      "complexity": 15
+    },
+    {
+      "path": "sim/experiments/digital_programme.py",
+      "name": "parse_block",
+      "lineno": 69,
+      "complexity": 15
+    },
+    {
+      "path": "sim/channels/sionna_rt.py",
+      "name": "_try_sionna_tdl",
+      "lineno": 18,
+      "complexity": 15
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "name": "write_policy_table",
+      "lineno": 38,
+      "complexity": 14
+    },
+    {
+      "path": "scripts/check_band_firewall.py",
+      "name": "main",
+      "lineno": 23,
+      "complexity": 14
+    },
+    {
+      "path": "sim/experiments/dualband_programme.py",
+      "name": "load_dual_protocol",
+      "lineno": 36,
+      "complexity": 14
+    },
+    {
+      "path": "sim/channels/sub6.py",
+      "name": "draw",
+      "lineno": 115,
+      "complexity": 14
+    },
+    {
+      "path": "sim/access/__init__.py",
+      "name": "decide_sub6",
+      "lineno": 37,
+      "complexity": 13
+    },
+    {
+      "path": "sim/experiments/sub6_programme.py",
+      "name": "run_family",
+      "lineno": 73,
+      "complexity": 13
+    },
+    {
+      "path": "sim/policies/adaptive_tracking.py",
+      "name": "adaptive_constrained_rl",
+      "lineno": 98,
+      "complexity": 12
+    },
+    {
+      "path": "sim/channels/sub6.py",
+      "name": "_scenario_params",
+      "lineno": 54,
+      "complexity": 12
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [
+    {
+      "path": "sim/channels/synthetic.py",
+      "honesty": "DECLARED_FIXTURE"
+    }
+  ],
+  "orphan_candidates": [],
+  "orphan_records": [
+    {
+      "path": "src/readygary_tool_adapters/deepmimo_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/tensorrt_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/nvidia_probe.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/readygary_tool_adapters/aerial_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/aodt_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    },
+    {
+      "path": "src/readygary_tool_adapters/benchmark_dataset_registry.py",
+      "state": "ACTIVE_PRODUCTION",
+      "reason": "known_active_code_pattern"
+    }
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "tests/test_onnx_ort.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/test_paper_ii_digital.py",
+      "to": "numpy"
+    },
+    {
+      "from": "deploy/onnx_export.py",
+      "to": "onnx"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "sim/channels/aodt.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/experiments/dualband_programme.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/models/gnn_multi_bs.py",
+      "to": "numpy"
+    },
+    {
+      "from": "sim/channels/synthetic.py",
+      "to": "typing"
+    },
+    {
+      "from": "sim/models/gnn_trainable.py",
+      "to": "sim"
+    },
+    {
+      "from": "deploy/client.py",
+      "to": "urllib"
+    },
+    {
+      "from": "scripts/prepare_deepmimo_config.py",
+      "to": "readygary_tool_adapters"
+    },
+    {
+      "from": "sim/metrics.py",
+      "to": "random"
+    },
+    {
+      "from": "scripts/run_deepmimo_benchmark.py",
+      "to": "readygary_tool_adapters"
+    },
+    {
+      "from": "sim/bands/__init__.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "run_paper_ii_beam_experiment"
+    },
+    {
+      "from": "sim/access/radio_decision.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "deploy/onnx_validate.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/onnx_export_stub.py",
+      "to": "sys"
+    },
+    {
+      "from": "sim/models/lstm_beam_tracker.py",
+      "to": "sklearn"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/baselines/exhaustive_search.py",
+      "to": "time"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_metrics.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/metrics.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/channels/__init__.py",
+      "to": "sim"
+    },
+    {
+      "from": "deploy/tensorrt_compile.py",
+      "to": "time"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/check_readme_claims.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_tool_adapters.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/readygary_tool_adapters/aerial_adapter.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/baselines/hierarchical_search.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/test_sub6_dualband.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/run_timing_harness.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "deploy/grpc_servicer.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/access/radio_decision.py",
+      "to": "__future__"
+    },
+    {
+      "from": "deploy/grpc_servicer.py",
+      "to": "grpc"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/experiments/dualband_programme.py",
+      "to": "json"
+    },
+    {
+      "from": "sim/bands/__init__.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/readygary_tool_adapters/tensorrt_adapter.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_sub6_programme.py",
+      "to": "sys"
+    },
+    {
+      "from": "tests/test_onnx_ort.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/run_timing_harness.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/run_paper_ii_beam_experiment.py",
+      "to": "sys"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "sionna"
+    },
+    {
+      "from": "scripts/run_dualband_programme.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/channels/tdl_cdl.py",
+      "to": "numpy"
+    },
+    {
+      "from": "sim/channels/sionna_rt.py",
+      "to": "sionna"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "deploy"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/generate_dataset.py",
+      "to": "typing"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "urllib"
+    },
+    {
+      "from": "sim/channels/sionna_rt.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/test_additive_fr2.py",
+      "to": "importlib"
+    },
+    {
+      "from": "scripts/run_all_campus_radio.py",
+      "to": "yaml"
+    },
+    {
+      "from": "sim/baselines/exhaustive_search.py",
+      "to": "matplotlib"
+    },
+    {
+      "from": "sim/experiments/digital_programme.py",
+      "to": "json"
+    },
+    {
+      "from": "sim/experiments/sub6_programme.py",
+      "to": "typing"
+    },
+    {
+      "from": "paper/scripts/generate_tables.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "sim/models/lstm_beam_tracker.py",
+      "to": "torch"
+    },
+    {
+      "from": "sim/policies/adaptive_tracking.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/experiments/dualband_programme.py",
+      "to": "numpy"
+    },
+    {
+      "from": "sim/channels/aodt.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/run_paper_ii_heldout.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/test_paper_ii_digital.py",
+      "to": "sim"
+    },
+    {
+      "from": "sim/channels/synthetic.py",
+      "to": "__future__"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "http"
+    },
+    {
+      "from": "sim/policies/sequential_band.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/readygary_tool_adapters/aerial_adapter.py",
+      "to": "__future__"
+    },
+    {
+      "from": "sim/experiments/__init__.py",
+      "to": "digital_programme"
+    },
+    {
+      "from": "sim/models/gnn_multi_bs.py",
+      "to": "sim"
+    },
+    {
+      "from": "deploy/tiny_beam_scorer.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/onnx_export_stub.py",
+      "to": "onnx"
+    },
+    {
+      "from": "scripts/run_sub6_programme.py",
+      "to": "argparse"
+    },
+    {
+      "from": "deploy/tensorrt_compile.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_all_tool_exports.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "deploy/server.py",
+      "to": "fastapi"
+    },
+    {
+      "from": "src/readygary_tool_adapters/sionna_channel_adapter.py",
+      "to": "yaml"
+    },
+    {
+      "from": "scripts/run_paper_ii_beam_experiment.py",
+      "to": "argparse"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "conftest.py",
+      "class": "AMBIGUOUS_CODE",
+      "ext": ".py"
+    },
+    {
+      "path": "requirements.txt",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".txt"
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/implementation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/evaluation_plan.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/claims_needing_evidence.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/experiments_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/system_model.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/limitations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/draft.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/video_paper_explanation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/related_work_seed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/methodology.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CLAIMS_TO_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/introduction.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ethics_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CONFERENCE_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/abstract.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/MANUSCRIPT_STATUS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/reproducibility_statement.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/CITATION_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_toy_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/ARTIFACT_EVALUATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/preliminary_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/figures_needed.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_beam_domain_shift.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_beam_heldout_policies.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_additive.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_sub6.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_dualband.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_beam_train_policies.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/rq2_beam_ablations.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/artifacts/experiment_protocol.yaml",
+      "class": "PROOF",
+      "ext": ".yaml"
+    },
+    {
+      "path": "paper/artifacts/experiment_protocol_sub6.yaml",
+      "class": "PROOF",
+      "ext": ".yaml"
+    },
+    {
+      "path": "paper/artifacts/experiment_protocol_dualband.yaml",
+      "class": "PROOF",
+      "ext": ".yaml"
+    },
+    {
+      "path": "paper/artifacts/experiment_protocol_additive.yaml",
+      "class": "PROOF",
+      "ext": ".yaml"
+    },
+    {
+      "path": "paper/figures/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/scripts/generate_tables.py",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".py"
+    },
+    {
+      "path": "artifacts/independent_reproduction/README.md",
+      "class": "PROOF",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/READINESS_GATE_TABLE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/README_CLARITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TOY_DEMO_LANGUAGE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REPO_SCORECARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/EVIDENCE_BACKLOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_RELEASE_DECISION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/REALITY_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_DOWNGRADED.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/BLOCKER_TODO_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/GAP_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RISK_REGISTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ISSUE_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/TRACEABILITY_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FMEA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/V1_RELEASE_BLOCKERS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_REQUIRING_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CLAIMS_TO_EVIDENCE_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_READINESS_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/FINAL_READINESS_CONFIRMATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/RELEASE_GATE_CHECKLIST.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/VOC_CTQ_TREE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/ROOT_CAUSE_ANALYSIS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/E2E_DEFECT_LOG.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "quality/SIPOC.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "deploy/server.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/grpc_servicer.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/Dockerfile",
+      "class": "CI_OR_DEPLOY",
+      "ext": ""
+    },
+    {
+      "path": "deploy/onnx_export.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/client.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/__init__.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/onnx_validate.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/README.md",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".md"
+    },
+    {
+      "path": "deploy/tensorrt_compile.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/tiny_beam_scorer.py",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".py"
+    },
+    {
+      "path": "deploy/requirements-serve.txt",
+      "class": "CI_OR_DEPLOY",
+      "ext": ".txt"
+    },
+    {
+      "path": "deploy/artifacts/metadata.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "deploy/artifacts/tensorrt_status.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "deploy/artifacts/grpc_status.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "deploy/artifacts/onnx_ort_status.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "deploy/artifacts/timing_harness.json",
+      "class": "PROOF",
+      "ext": ".json"
+    },
+    {
+      "path": "industry_research_stack/EVIDENCE_UPGRADE_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NVIDIA_SIONNA_CHANNEL_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TEST_AND_MEASUREMENT_ROADMAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/OPTIONAL_BACKENDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/TOOLING_MATRIX.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/OAI_SRSRAN_RADIO_VALIDATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/ACCESS_LIMITATIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/INSTALL_NOTES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/NON_AFFILIATION_NOTICE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "industry_research_stack/DEEPMIMO_BENCHMARK_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "tests/test_sub6_dualband.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_paper_ii_digital.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_metrics.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_onnx_ort.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_evidence_labels.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_tool_adapters.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/test_additive_fr2.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "reproducibility/environment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/data_policy.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/runbook.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/artifact_checklist.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/expected_outputs.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/citation.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/extension_guide.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/EXTERNAL_REPRODUCTION_PROTOCOL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "reproducibility/E2E_RUN_RECORD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "adoption/ADOPTION_READINESS_TODOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_10_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/05_UML_MODELING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_RESEARCH_PRODUCT_FLOW.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ONNX_EDGE_EXPORT_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PHASE_2_PUBLICATION_GRADE_BENCHMARK.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/06_METHODS_AND_METRICS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/09_LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DATASET_PROVENANCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_WOULD_MAKE_THIS_FINAL.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_REAL_TODAY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/ABLATION_NOTES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/00_SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/START_HERE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NO_MORE_TOY_DEMOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/OULU_RESEARCH_PLAN_MAPPING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RESEARCH_QUESTIONS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/NEXT_90_DAYS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/07_REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/03_USE_CASES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/12_CONTROL_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PLAIN_ENGLISH_EXPLANATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CROSS_REPO_DEPENDENCY_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/RELATION_TO_7GC_DIGITAL_TWIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/AUDIENCE_GUIDE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_chapter_outline.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_walkthrough_script.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY_PROOF.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/METRICS_TOPK_DBLOSS_SE_LATENCY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GUNNCHOS_RESEARCH_SPINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REAL_EVIDENCE_PIPELINE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/MOBILITY_BLOCKAGE_HANDOVER_PLAN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EVIDENCE_STANDARD.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/16_OULU_CWC_ALIGNMENT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HUMAN_REVIEW_BEFORE_MERGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/08_ETHICS_SECURITY_PRIVACY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/02_REQUIREMENTS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/LATENCY_EVIDENCE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/END_TO_END_READINESS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_demo_commands.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/10_PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/LIMITATIONS_AND_NON_CLAIMS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_6G_PHD_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CLAIMS_AUDIT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/SUPERVISOR_README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/11_RELEASE_CRITERIA.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/EXTERNAL_RESEARCHER_QUICKSTART.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/DEMO_SCRIPT_3_MIN.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/GATE2_OPTIONAL_PROVIDER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/HOW_THIS_FITS_GUNNCHOS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_diagram_talking_points.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/video_code_tour.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/01_PRODUCT_RESEARCH_CHARTER.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/14_WAIKE_INTEGRATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PROFESSOR_DEMO_SCRIPT.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/WHAT_IS_STILL_RESEARCH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PROBLEM_SOLUTION_MAP.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/PUBLICATION_PATH.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/13_PRODUCT_RESEARCH_BRIDGE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/INDUSTRY_RESEARCH_TOOLING.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/04_SYSTEM_ARCHITECTURE.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/15_GUNNCHAI3K_TUTOR_CARDS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/traceability_matrix.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/render_plantuml.sh",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".sh"
+    },
+    {
+      "path": "docs/uml/legacy/unsourced_benchmark_table.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/rendered/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/timing.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/deployment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/class_beam_model.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/state_beam_tracking.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_inference.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/edge_onnx_hardware.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/diagrams/research_spine.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/diagrams/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/OWNER_ACTION_NVIDIA_SUB6.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/EXTERNAL_REPRODUCTION_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    }
+  ],
+  "path_classification_full_count": 310,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "mutation_sampling": {
+    "repository": "readygary-6g-beam-selection",
+    "sha": "569875224db7812890ec6abc48dfe43a608094f3",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "sim/experiments/digital_programme.py",
+        "kind": "flip_return_true",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 2,
+        "path": "scripts/run_benchmark_table.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 3,
+        "path": "scripts/run_timing_harness.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "readygary-6g-beam-selection",
+      "sha": "569875224db7812890ec6abc48dfe43a608094f3",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "sim/experiments/digital_programme.py",
+          "kind": "flip_return_true",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_benchmark_table.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "scripts/run_timing_harness.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
+  }
+}

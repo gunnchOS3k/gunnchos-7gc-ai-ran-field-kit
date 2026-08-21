@@ -1,0 +1,1937 @@
+{
+  "repository": "gunnchos-emergent-service-intent-protocols",
+  "accepted_main_sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
+  "scanned_at_utc": "2026-08-21T18:12:35Z",
+  "counts": {
+    "files_classified": 536,
+    "code_files": 75,
+    "production_code_files": 42,
+    "proof_files": 22,
+    "class_histogram": {
+      "OTHER": 424,
+      "DOCS_OR_PROGRAM": 31,
+      "PROOF": 22,
+      "AMBIGUOUS_CODE": 11,
+      "CI_OR_DEPLOY": 1,
+      "PRODUCTION": 47
+    },
+    "theater_s0": 0,
+    "theater_s1": 0,
+    "theater_total": 1,
+    "raw_pattern_observations": 1,
+    "theater_root_causes": 0,
+    "hotspots": 31,
+    "wave_dup_paths": 0,
+    "fixture_paths": 0,
+    "orphan_candidates": 20,
+    "dep_edges": 309
+  },
+  "proof_independence": {
+    "production_files": 42,
+    "proof_files": 22,
+    "production_imports_proof_count": 0,
+    "production_imports_proof": [],
+    "status": "PASS_INDEPENDENT",
+    "still_coupled_production_files": [],
+    "method": "temp_worktree_proof_strip_import_scan"
+  },
+  "runtime_authenticity": {
+    "has_entrypoint": true,
+    "entrypoints": [
+      "Makefile",
+      "pyproject.toml"
+    ],
+    "has_tests": true,
+    "tests_reference_production": true,
+    "authenticity": "ADEQUATE",
+    "details": {
+      "has_entrypoint": true,
+      "entrypoint_list": [
+        "Makefile",
+        "pyproject.toml"
+      ],
+      "has_tests": true,
+      "tests_reference_production": true,
+      "proof_independence_status": "PASS_INDEPENDENT",
+      "gaps": []
+    },
+    "canonical_proof_independence": "PASS_INDEPENDENT"
+  },
+  "dimensions": {
+    "production_proof_separation": "STRONG",
+    "anti_test_theater": "ADEQUATE",
+    "dependency_boundaries": "ADEQUATE",
+    "canonical_vs_wave_dup": "STRONG",
+    "runtime_authenticity": "ADEQUATE",
+    "complexity_hotspots": "NEEDS_WORK",
+    "orphan_dead_code": "ADEQUATE",
+    "fixture_honesty": "STRONG",
+    "documentation_readability": "ADEQUATE",
+    "mutation_resistance": "NEEDS_WORK"
+  },
+  "theater_findings": [],
+  "theater_calibrated_all": [
+    {
+      "kind": "assert_equals_self",
+      "severity_hint": "S1",
+      "path": "tests/unit/test_interpretability_metrics.py",
+      "line": 40,
+      "snippet": "assert topo == topo  # not NaN     assert mi >= 0.0     report = analyze_messages(messages.astype(int), conditions=state",
+      "match_span": [
+        1210,
+        1229
+      ],
+      "repository": "gunnchos-emergent-service-intent-protocols",
+      "reachability": {
+        "path_bucket": "PROOF",
+        "reachability_status": "ACTIVE_FIRST_PARTY",
+        "active": true,
+        "first_party": true,
+        "repository": "gunnchos-emergent-service-intent-protocols"
+      },
+      "requirement_capability_link": false,
+      "semantic": {
+        "semantic_class": "NAN_FINITE_IDIOM",
+        "theater_token_alone": false,
+        "token_alone": false,
+        "candidate_severity": "S3",
+        "reason": "assert x == x used as NaN/finite idiom \u2014 not material theater"
+      },
+      "semantic_review_disposition": "DEMOTED_TOKEN_ALONE",
+      "calibration_flags": {
+        "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+        "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+        "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+        "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+        "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+        "ROOT_CAUSE_DEDUPLICATION": true,
+        "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+      },
+      "severity": "S3",
+      "disposition": "DEMOTED_NAN_IDIOM_OR_INACTIVE"
+    }
+  ],
+  "raw_pattern_observations": [
+    {
+      "kind": "assert_equals_self",
+      "severity_hint": "S1",
+      "path": "tests/unit/test_interpretability_metrics.py",
+      "line": 40,
+      "snippet": "assert topo == topo  # not NaN     assert mi >= 0.0     report = analyze_messages(messages.astype(int), conditions=state",
+      "match_span": [
+        1210,
+        1229
+      ],
+      "repository": "gunnchos-emergent-service-intent-protocols"
+    }
+  ],
+  "wave_duplicate_classification": {
+    "repository": "gunnchos-emergent-service-intent-protocols",
+    "classification": "NONE",
+    "severity": null,
+    "path_count": 0
+  },
+  "complexity_hotspots": [
+    {
+      "path": "src/emergent_intent/comm/channel.py",
+      "name": "exchange",
+      "lineno": 276,
+      "complexity": 38
+    },
+    {
+      "path": "src/emergent_intent/env/wireless_env.py",
+      "name": "step",
+      "lineno": 504,
+      "complexity": 24
+    },
+    {
+      "path": "src/emergent_intent/abstraction/policy.py",
+      "name": "run_abstraction_pilot",
+      "lineno": 111,
+      "complexity": 21
+    },
+    {
+      "path": "src/emergent_intent/algorithms/trainers.py",
+      "name": "run_ippo",
+      "lineno": 79,
+      "complexity": 21
+    },
+    {
+      "path": "scripts/generate_figures.py",
+      "name": "main",
+      "lineno": 19,
+      "complexity": 20
+    },
+    {
+      "path": "scripts/run_final_experiments.py",
+      "name": "main",
+      "lineno": 276,
+      "complexity": 20
+    },
+    {
+      "path": "src/emergent_intent/algorithms/dial.py",
+      "name": "train",
+      "lineno": 206,
+      "complexity": 19
+    },
+    {
+      "path": "src/emergent_intent/intent/schema.py",
+      "name": "rule_based_parse",
+      "lineno": 47,
+      "complexity": 19
+    },
+    {
+      "path": "scripts/run_pilot_experiments.py",
+      "name": "main",
+      "lineno": 77,
+      "complexity": 18
+    },
+    {
+      "path": "scripts/run_final_experiments.py",
+      "name": "run_matrix",
+      "lineno": 127,
+      "complexity": 18
+    },
+    {
+      "path": "src/emergent_intent/env/wireless_env.py",
+      "name": "_service_probability",
+      "lineno": 427,
+      "complexity": 17
+    },
+    {
+      "path": "src/emergent_intent/algorithms/value_decomp.py",
+      "name": "train",
+      "lineno": 202,
+      "complexity": 16
+    },
+    {
+      "path": "src/emergent_intent/algorithms/value_decomp.py",
+      "name": "_update",
+      "lineno": 261,
+      "complexity": 16
+    },
+    {
+      "path": "src/emergent_intent/algorithms/tarmac.py",
+      "name": "train",
+      "lineno": 247,
+      "complexity": 16
+    },
+    {
+      "path": "scripts/supervisor_cpu_gate.py",
+      "name": "_probe",
+      "lineno": 25,
+      "complexity": 15
+    },
+    {
+      "path": "src/emergent_intent/algorithms/ippo.py",
+      "name": "train",
+      "lineno": 63,
+      "complexity": 15
+    },
+    {
+      "path": "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
+      "name": "train",
+      "lineno": 90,
+      "complexity": 15
+    },
+    {
+      "path": "scripts/run_statistics.py",
+      "name": "collect_rows",
+      "lineno": 28,
+      "complexity": 14
+    },
+    {
+      "path": "scripts/supervisor_cpu_gate.py",
+      "name": "main",
+      "lineno": 78,
+      "complexity": 14
+    },
+    {
+      "path": "src/emergent_intent/comm/semantic_protocol.py",
+      "name": "encode_fixed_protocol_message",
+      "lineno": 105,
+      "complexity": 14
+    },
+    {
+      "path": "src/emergent_intent/comm/semantic_protocol.py",
+      "name": "apply_semantic_mapping_to_action",
+      "lineno": 158,
+      "complexity": 14
+    },
+    {
+      "path": "scripts/run_final_experiments.py",
+      "name": "_heuristic_episode",
+      "lineno": 56,
+      "complexity": 13
+    },
+    {
+      "path": "src/emergent_intent/algorithms/mappo.py",
+      "name": "train",
+      "lineno": 63,
+      "complexity": 13
+    },
+    {
+      "path": "src/emergent_intent/algorithms/mappo.py",
+      "name": "_update",
+      "lineno": 111,
+      "complexity": 13
+    },
+    {
+      "path": "src/emergent_intent/env/wireless_env.py",
+      "name": "_message_coordination",
+      "lineno": 401,
+      "complexity": 13
+    },
+    {
+      "path": "src/emergent_intent/intent/parser.py",
+      "name": "parse",
+      "lineno": 26,
+      "complexity": 13
+    },
+    {
+      "path": "src/emergent_intent/intent/constraints.py",
+      "name": "action_mask",
+      "lineno": 36,
+      "complexity": 13
+    },
+    {
+      "path": "src/emergent_intent/cli.py",
+      "name": "run_smoke",
+      "lineno": 18,
+      "complexity": 12
+    },
+    {
+      "path": "src/emergent_intent/algorithms/trainers.py",
+      "name": "run_mappo",
+      "lineno": 136,
+      "complexity": 12
+    },
+    {
+      "path": "src/emergent_intent/algorithms/trainers.py",
+      "name": "run_vdn",
+      "lineno": 191,
+      "complexity": 12
+    }
+  ],
+  "wave_duplicate_paths": [],
+  "fixtures": [],
+  "orphan_candidates": [
+    "src/emergent_intent/stats.py",
+    "src/emergent_intent/abstraction/policy.py",
+    "src/emergent_intent/abstraction/encoders.py",
+    "src/emergent_intent/algorithms/networks.py",
+    "src/emergent_intent/algorithms/value_decomp.py",
+    "src/emergent_intent/algorithms/trainers.py",
+    "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
+    "src/emergent_intent/comm/attention.py",
+    "src/emergent_intent/comm/semantic_protocol.py",
+    "src/emergent_intent/comm/channel.py",
+    "src/emergent_intent/comm/gumbel.py",
+    "src/emergent_intent/objectives/multiobj.py",
+    "src/emergent_intent/objectives/rewards.py",
+    "src/emergent_intent/utils/seeding.py",
+    "src/emergent_intent/env/wireless_env.py",
+    "src/emergent_intent/env/adapters.py",
+    "src/emergent_intent/intent/parser.py",
+    "src/emergent_intent/intent/constraints.py",
+    "src/emergent_intent/interpretability/efficiency.py",
+    "src/emergent_intent/interpretability/claims.py"
+  ],
+  "orphan_records": [
+    {
+      "path": "src/emergent_intent/stats.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/abstraction/policy.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/abstraction/encoders.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/dial_tarmac.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/networks.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/value_decomp.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/ippo.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/tarmac.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/trainers.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/mappo.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/ppo_discrete_message_entropy_baseline.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/algorithms/dial.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/comm/attention.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/semantic_protocol.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/channel.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/gumbel.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/comm/interventions.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/objectives/runner.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/objectives/multiobj.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/objectives/rewards.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/utils/seeding.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/utils/device.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "makefile_reference"
+    },
+    {
+      "path": "src/emergent_intent/env/wireless_env.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/env/config.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/env/adapters.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/intent/parser.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/intent/constraints.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/intent/schema.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/interpretability/efficiency.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    },
+    {
+      "path": "src/emergent_intent/interpretability/metrics.py",
+      "state": "ACTIVE_CI_OR_EVIDENCE_PATH",
+      "reason": "ci_or_workflow_reference"
+    },
+    {
+      "path": "src/emergent_intent/interpretability/claims.py",
+      "state": "UNKNOWN_DYNAMIC_REACHABILITY",
+      "reason": "no_static_importer_found_not_confirmed"
+    }
+  ],
+  "dependency_edges_sample": [
+    {
+      "from": "src/emergent_intent/algorithms/networks.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/dial.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/unit/test_qmix_vdn.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/supervisor_cpu_gate.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/run_final_experiments.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/intent/constraints.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/integration/test_scenarios.py",
+      "to": "json"
+    },
+    {
+      "from": "scripts/validate_paper.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/objectives/multiobj.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/comm/__init__.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/intent/parser.py",
+      "to": "re"
+    },
+    {
+      "from": "scripts/generate_paper_tables.py",
+      "to": "json"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "scripts/generate_figures.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/dial.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/value_decomp.py",
+      "to": "copy"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/networks.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/objectives/rewards.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/cli.py",
+      "to": "argparse"
+    },
+    {
+      "from": "src/emergent_intent/utils/__init__.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "scripts/run_pilot_experiments.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/objectives/runner.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/scientific/test_dial_end_to_end.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/intent/parser.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_statistics.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/utils/seeding.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/comm/channel.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/objectives/runner.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "scripts/run_statistics.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/policy.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/policy.py",
+      "to": "torch"
+    },
+    {
+      "from": "tests/unit/test_causal_actions.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/unit/test_dial_tarmac_fidelity.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/test_env_comm.py",
+      "to": "hypothesis"
+    },
+    {
+      "from": "scripts/build_artifact.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/scientific/test_communication_efficiency.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/env/adapters.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/unit/test_qmix_vdn.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/__init__.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/unit/test_qmix_vdn.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/scientific/test_repeated_runs.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_smoke_experiments.py",
+      "to": "json"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/trainers.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/cli.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/objectives/rewards.py",
+      "to": "dataclasses"
+    },
+    {
+      "from": "tests/unit/test_env.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/property/test_properties.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/emit_blocked_gpu.py",
+      "to": "__future__"
+    },
+    {
+      "from": "tests/unit/test_env.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/encoders.py",
+      "to": "typing"
+    },
+    {
+      "from": "tests/property/test_properties.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/env/config.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/comm/channel.py",
+      "to": "copy"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/trainers.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/comm/attention.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/interpretability/__init__.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/comm/attention.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/intent/parser.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "scripts/supervisor_cpu_gate.py",
+      "to": "datetime"
+    },
+    {
+      "from": "src/emergent_intent/abstraction/encoders.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/intent/constraints.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/objectives/rewards.py",
+      "to": "numpy"
+    },
+    {
+      "from": "src/emergent_intent/comm/semantic_protocol.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/intent/schema.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "__future__"
+    },
+    {
+      "from": "src/emergent_intent/utils/device.py",
+      "to": "torch"
+    },
+    {
+      "from": "tests/unit/test_ippo_mappo.py",
+      "to": "torch"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/mappo.py",
+      "to": "typing"
+    },
+    {
+      "from": "src/emergent_intent/env/config.py",
+      "to": "enum"
+    },
+    {
+      "from": "tests/unit/test_interpretability_metrics.py",
+      "to": "__future__"
+    },
+    {
+      "from": "scripts/run_statistics.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "tests/scientific/test_repeated_runs.py",
+      "to": "numpy"
+    },
+    {
+      "from": "tests/scientific/test_repeated_runs.py",
+      "to": "emergent_intent"
+    },
+    {
+      "from": "tests/scientific/test_tarmac_end_to_end.py",
+      "to": "numpy"
+    },
+    {
+      "from": "scripts/build_artifact.py",
+      "to": "pathlib"
+    },
+    {
+      "from": "src/emergent_intent/algorithms/networks.py",
+      "to": "torch"
+    }
+  ],
+  "path_classification_sample": [
+    {
+      "path": "Dockerfile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "Makefile",
+      "class": "OTHER",
+      "ext": ""
+    },
+    {
+      "path": "pyproject.toml",
+      "class": "OTHER",
+      "ext": ".toml"
+    },
+    {
+      "path": "README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "OWNER_MERGE_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "codemeta.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/RESOURCE_EFFICIENT_EMERGENT_SERVICE_INTENT_PROTOCOLS.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "paper/tables/smoke_results.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "experiments/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "tests/test_env_comm.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_comm.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_status_integrity.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_causal_actions.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_intent_objectives.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_interpretability_metrics.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_qmix_vdn.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_env.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_comm_necessary_scenarios.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_observation_inbox.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_ippo_mappo.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_dial_tarmac_fidelity.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/unit/test_algorithms.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/property/test_properties.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/integration/test_scenarios.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/test_message_semantic_causality.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/test_tarmac_end_to_end.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/__init__.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/test_language_claim_gate.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/test_communication_efficiency.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/test_repeated_runs.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "tests/scientific/test_dial_end_to_end.py",
+      "class": "PROOF",
+      "ext": ".py"
+    },
+    {
+      "path": "requirements/sources/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/START_HERE_SUPERVISOR.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/CLAIM_BOUNDARIES.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/MATH_FORMULATION.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/traceability_matrix.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/legacy/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/sequence_communication.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/state_protocol.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/component.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/deployment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/class_agent_env.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/current/activity_experiment.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/uml/future/index.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/requirements/sources/README.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "docs/packets/REPOSITORY_VISIBILITY_PACKET.md",
+      "class": "DOCS_OR_PROGRAM",
+      "ext": ".md"
+    },
+    {
+      "path": "schemas/service_intent.schema.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_ippo_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/gate4_gpu_blocked.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_medium_cpu_ippo_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_ippo_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_ippo_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_dial_tarmac_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_cpu_smoke_ippo_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_ippo_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_summary_table.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/checksums.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_vdn_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/smoke/smoke_mappo_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/blocked_gpu/BLOCKED_GPU.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/robustness/summary.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/robustness/STATUS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/generalization/summary.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/generalization/STATUS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/dial_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/summary.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/no_comm_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/no_comm_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/fixed_protocol_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/dial_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/fixed_protocol_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/dial_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/fixed_protocol_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/no_comm_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/fixed_protocol_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/fixed_protocol_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/dial_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/no_comm_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/abstraction_pilot.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/STATUS.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/no_comm_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/dial_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/ablations/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_tn_ntn_failover_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_critical_service_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_tn_ntn_failover_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_tn_ntn_failover_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_terrestrial_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_education_fairness_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_education_fairness_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_terrestrial_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_education_fairness_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_terrestrial_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_tn_ntn_failover_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_tn_ntn_continuity_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_tn_ntn_continuity_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_education_fairness_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_tn_ntn_continuity_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_critical_service_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_terrestrial_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_education_fairness_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_critical_service_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_critical_service_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_critical_service_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_tn_ntn_continuity_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_critical_service_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_tn_ntn_continuity_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_critical_service_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_critical_service_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_terrestrial_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_critical_service_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/pilot_summary.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_tn_ntn_continuity_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_education_fairness_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_tn_ntn_failover_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_tn_ntn_continuity_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_terrestrial_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_education_fairness_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_education_fairness_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_tn_ntn_failover_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_hidden_blockage_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_tn_ntn_failover_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_tn_ntn_failover_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_critical_service_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_hidden_blockage_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_education_fairness_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_tn_ntn_continuity_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_education_fairness_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_hidden_blockage_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_tn_ntn_failover_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_tn_ntn_continuity_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_terrestrial_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_terrestrial_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_education_fairness_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_tn_ntn_continuity_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_education_fairness_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_tn_ntn_continuity_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_tn_ntn_continuity_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/seed_registry.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_tn_ntn_failover_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_critical_service_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_critical_service_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_tn_ntn_failover_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/statistics_summary.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_terrestrial_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_education_fairness_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_terrestrial_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_tn_ntn_failover_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_terrestrial_congestion_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_critical_service_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_critical_service_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_terrestrial_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_terrestrial_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_tn_ntn_failover_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_education_fairness_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_terrestrial_congestion_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_tn_ntn_failover_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_critical_service_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_tn_ntn_failover_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_tn_ntn_continuity_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_hidden_blockage_congestion_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_tn_ntn_continuity_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_education_fairness_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_terrestrial_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_education_fairness_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/dial_critical_service_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_tn_ntn_continuity_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_critical_service_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_terrestrial_congestion_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_hidden_blockage_congestion_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_tn_ntn_failover_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_tn_ntn_failover_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_tn_ntn_continuity_seed3.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/tarmac_education_fairness_seed1.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_tn_ntn_continuity_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ippo_tn_ntn_continuity_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/vdn_critical_service_seed4.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/ppo_discrete_message_entropy_baseline_education_fairness_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/mappo_tn_ntn_continuity_seed2.json",
+      "class": "OTHER",
+      "ext": ".json"
+    },
+    {
+      "path": "results/pilot/qmix_education_fairness_seed0.json",
+      "class": "OTHER",
+      "ext": ".json"
+    }
+  ],
+  "path_classification_full_count": 536,
+  "calibration_flags": {
+    "VENDORED_ENVIRONMENT_PATHS_EXCLUDED_FROM_S0_S1": true,
+    "LEGACY_REQUIRES_ACTIVE_REACHABILITY_FOR_S0_S1": true,
+    "S0_REQUIRES_CAPABILITY_CLOSURE_PATH": true,
+    "ASSERT_TRUE_TOKEN_ALONE_NOT_S0": true,
+    "PASS_TODO_TOKEN_ALONE_NOT_S1": true,
+    "ROOT_CAUSE_DEDUPLICATION": true,
+    "ARTIFACT_PATH_NOT_AUTOMATICALLY_ACTIVE": true
+  },
+  "mutation_sampling": {
+    "repository": "gunnchos-emergent-service-intent-protocols",
+    "sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
+    "mutations": [
+      {
+        "index": 1,
+        "path": "src/emergent_intent/algorithms/trainers.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 2,
+        "path": "src/emergent_intent/env/wireless_env.py",
+        "kind": "flip_return_zero",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      },
+      {
+        "index": 3,
+        "path": "src/emergent_intent/abstraction/encoders.py",
+        "kind": "invert_condition",
+        "syntax_ok_after_mutation": true,
+        "behavioral": true,
+        "mutation_verified_present": true,
+        "full_run_executed": true,
+        "collection_only": false,
+        "baseline_passed": false,
+        "mutated_passed": false,
+        "test_reaction": "MUTATION_VALIDATION_INCOMPLETE",
+        "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE"
+      }
+    ],
+    "status": "SAMPLED",
+    "dimension": "NEEDS_WORK",
+    "mutation_outcome": "MUTATION_VALIDATION_INCOMPLETE",
+    "flags": {
+      "FULL_TEST_RUN_REQUIRED_FOR_MUTATION_SURVIVAL": true,
+      "COLLECTION_ONLY_NOT_SURVIVAL": true,
+      "LIKELY_UNDETECTED_NOT_SURVIVAL": true,
+      "NO_TESTS_DIR_NOT_SURVIVAL": true,
+      "BEHAVIORAL_MUTATION_REQUIRED": true,
+      "MARKER_MUTATIONS_COUNT_AS_SURVIVAL": false,
+      "MUTATION_SURVIVAL_REQUIRES_EXECUTED_RELEVANT_TESTS": true,
+      "APPEND_MARKER_REQUIRES_BEHAVIORAL_EFFECT": true
+    },
+    "provenance": {
+      "repository": "gunnchos-emergent-service-intent-protocols",
+      "sha": "088c5e88e155aaf9e4711c7b87a85d37145bbe31",
+      "test_command": {
+        "argv": [
+          "make",
+          "test"
+        ],
+        "source": "Makefile:test",
+        "full_run": true
+      },
+      "baseline": {
+        "returncode": 2,
+        "passed": false,
+        "executed": true,
+        "blocked": false,
+        "note": null
+      },
+      "mutated_runs": [
+        {
+          "path": "src/emergent_intent/algorithms/trainers.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/env/wireless_env.py",
+          "kind": "flip_return_zero",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        },
+        {
+          "path": "src/emergent_intent/abstraction/encoders.py",
+          "kind": "invert_condition",
+          "returncode": 2,
+          "passed": false,
+          "outcome": "MUTATION_VALIDATION_INCOMPLETE"
+        }
+      ],
+      "worktree_mode": "temp_detached_discarded"
+    },
+    "detected_count": 0,
+    "survived_count": 0
+  }
+}

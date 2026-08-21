@@ -1,0 +1,31 @@
+@startuml
+title gunnchOS3k Canonical 17 — Ecosystem Dependency Truth
+left to right direction
+component "gunnchos-7gc-ai-ran-field-kit" as gunnchos_7gc_ai_ran_field_kit
+component "gunnchos-research-portal" as gunnchos_research_portal
+component "gunnchos-device-os" as gunnchos_device_os
+component "gunnchos-hardware-industrial-design" as gunnchos_hardware_industrial_design
+component "gunnchAI3k" as gunnchAI3k
+component "edge-io-measurement-node" as edge_io_measurement_node
+component "anime-aggressors" as anime_aggressors
+component "pedestrian-pursuit" as pedestrian_pursuit
+component "archive-of-life-artifact-world" as archive_of_life_artifact_world
+component "beatlink-party" as beatlink_party
+component "7gc-digital-twin" as 7gc_digital_twin
+component "spectrumx-ai-ran-gary" as spectrumx_ai_ran_gary
+component "ntn-resilience-sim" as ntn_resilience_sim
+component "readygary-6g-beam-selection" as readygary_6g_beam_selection
+component "waike-research-ops" as waike_research_ops
+component "gunnchos-emergent-service-intent-protocols" as gunnchos_emergent_service_intent_protocols
+component "gunnchos-gpu-nr-baseband-platform" as gunnchos_gpu_nr_baseband_platform
+gunnchos_research_portal --> gunnchos_7gc_ai_ran_field_kit
+gunnchos_device_os --> gunnchAI3k
+gunnchos_device_os --> edge_io_measurement_node
+gunnchos_7gc_ai_ran_field_kit --> readygary_6g_beam_selection
+gunnchos_7gc_ai_ran_field_kit --> ntn_resilience_sim
+anime_aggressors --> gunnchos_device_os
+pedestrian_pursuit --> gunnchos_device_os
+beatlink_party --> gunnchos_device_os
+archive_of_life_artifact_world --> gunnchos_device_os
+waike_research_ops --> gunnchAI3k
+@enduml
