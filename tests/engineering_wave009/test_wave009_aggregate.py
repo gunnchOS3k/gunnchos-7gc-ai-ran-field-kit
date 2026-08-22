@@ -87,15 +87,16 @@ def test_baseline_frozen_counts() -> None:
         )
     )
     assert totals["ATOMIC_TOTAL"] == 419
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 51
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] <= 51
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] + totals["DIGITAL_IMPLEMENTATION_OPEN"] + totals["DIGITAL_VALIDATION_OPEN"] == 162
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
     if closeout_applied:
-        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 111
         assert totals["DIGITAL_VALIDATION_OPEN"] == 0
         assert queue["total_open"] == 0
         assert queue["all_items"] == []
     else:
-        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 110
         assert totals["DIGITAL_VALIDATION_OPEN"] == 1
         assert queue["total_open"] == 1
         assert [i["requirement_id"] for i in queue["all_items"]] == ["OS-PLATFORM-020"]

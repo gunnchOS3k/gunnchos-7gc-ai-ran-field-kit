@@ -178,8 +178,16 @@ def main() -> int:
 
     if totals.get("ATOMIC_TOTAL") != 419:
         errors.append("baseline_atomic_total")
-    if totals.get("DIGITAL_IMPLEMENTATION_OPEN") != 51:
+    # Wave010+ may reduce OPEN below 51; require pool invariant and non-increase.
+    if int(totals.get("DIGITAL_IMPLEMENTATION_OPEN") or 0) > 51:
         errors.append("baseline_impl_open")
+    pool = (
+        int(totals.get("DIGITAL_IMPLEMENTATION_COMPLETE") or 0)
+        + int(totals.get("DIGITAL_IMPLEMENTATION_OPEN") or 0)
+        + int(totals.get("DIGITAL_VALIDATION_OPEN") or 0)
+    )
+    if pool != 162:
+        errors.append("baseline_pool")
     if totals.get("EVIDENCE_MAPPING_OPEN") != 0:
         errors.append("baseline_evidence_mapping_open")
     frozen = agg.get("baseline_frozen_verify") or {}
@@ -187,7 +195,7 @@ def main() -> int:
         errors.append("baseline_controllable_pool")
 
     if closeout_applied:
-        if totals.get("DIGITAL_IMPLEMENTATION_COMPLETE") != 111:
+        if int(totals.get("DIGITAL_IMPLEMENTATION_COMPLETE") or 0) < 111:
             errors.append("baseline_impl_complete_post_closeout")
         if totals.get("DIGITAL_VALIDATION_OPEN") != 0:
             errors.append("baseline_validation_open_post_closeout")

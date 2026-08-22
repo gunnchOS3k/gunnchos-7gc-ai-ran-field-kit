@@ -79,13 +79,14 @@ def test_register_counts_arithmetic():
     totals = reg["totals"]
     assert len(impl["all_items"]) == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     assert impl["total_open"] == totals["DIGITAL_IMPLEMENTATION_OPEN"]
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 51
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] <= 51
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] + totals["DIGITAL_IMPLEMENTATION_OPEN"] + totals["DIGITAL_VALIDATION_OPEN"] == 162
     assert len(val["all_items"]) == totals["DIGITAL_VALIDATION_OPEN"]
     assert val["total_open"] == totals["DIGITAL_VALIDATION_OPEN"]
     if _wave009_closeout_applied(baseline):
-        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 111
         assert totals["DIGITAL_VALIDATION_OPEN"] == 0
         assert val["all_items"] == []
     else:
-        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 110
         assert totals["DIGITAL_VALIDATION_OPEN"] == 1
