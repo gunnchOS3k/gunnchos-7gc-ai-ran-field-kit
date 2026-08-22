@@ -1,0 +1,63 @@
+name: Engineering Wave010 Accepted-Main Closeout
+
+on:
+  push:
+    branches: [main, 'eng/wave010-*']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave010/**'
+      - 'artifacts/engineering_wave010_closeout/**'
+      - 'scripts/engineering_wave010/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
+      - 'tests/engineering_wave010/**'
+      - '.github/workflows/engineering-wave010-accepted-main-closeout.yml'
+
+jobs:
+  wave010-accepted-main-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Verify Pedestrian PR #22 provenance bindings in artifacts
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          prov=json.loads(Path('artifacts/engineering_wave010_closeout/WAVE010_ACCEPTED_MAIN_PROVENANCE.json').read_text())
+          assert prov['PP22_FINAL_HEAD_SHA']=='7e64e40c5b960678bfe9e5991db26717fc32f743'
+          assert prov['PP22_MERGE_SHA']=='5950ea791ed37addb26c80be84a64c20f589f4b4'
+          assert prov['PEDESTRIAN_ACCEPTED_MAIN_TREE']=='475cb9c14f7a842ec251cb37064ffdbf5cd700ee'
+          assert prov['TREE_EQUIVALENCE_STATUS']=='TREE_EQUIVALENT_TO_PR22_FINAL_HEAD'
+          assert prov['authoritative_premerge_ci']['run_id']==32546701777
+          assert prov['authoritative_premerge_ci']['artifact_id']==9468808889
+          assert prov['authoritative_premerge_ci']['digest']=='sha256:1bd73dfad87bec4cf4babb85b8c691b436fa0317c1acda28d8d93a7352f5cadf'
+          assert prov['authoritative_premerge_ci']['head_sha']=='7e64e40c5b960678bfe9e5991db26717fc32f743'
+          wave=json.loads(Path('artifacts/engineering_wave010_closeout/_accepted_main_reproduction/WAVE010_RESULT.json').read_text())
+          assert wave['ENGINEERING_WAVE_010']=='PASS'
+          assert wave['IMPLEMENTED_COUNT']==15
+          print('provenance+accepted-main reproduction binding OK')
+          PY
+
+      - name: Wave010 accepted-main closeout integrity tests
+        run: pytest tests/engineering_wave010/test_wave010_accepted_main_closeout.py -q
+
+      - name: Field-kit register integrity
+        run: python3 scripts/validate_baseline_v2_b4_register_integrity.py
+
+      - name: Emit closeout token
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('artifacts/engineering_wave010_closeout/WAVE010_ACCEPTED_MAIN_CLOSEOUT.json').read_text())
+          assert d.get('token')=='ENGINEERING_WAVE_010_ACCEPTED_MAIN_CLOSEOUT_PASS'
+          print('ENGINEERING_WAVE_010_ACCEPTED_MAIN_CLOSEOUT_PASS')
+          PY
