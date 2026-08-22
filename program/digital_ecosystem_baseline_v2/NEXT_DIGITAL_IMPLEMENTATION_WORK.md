@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-total_open: 36
+total_open: 26
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,16 +16,6 @@ total_open: 36
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- GAME-AA-001: Anime Aggressors: Aura charging
-- GAME-AA-002: Anime Aggressors: Aura-scaled hand-to-hand combat
-- GAME-AA-003: Anime Aggressors: Charge-scaled projectiles
-- GAME-AA-004: Anime Aggressors: Directional throws
-- GAME-AA-005: Anime Aggressors: Fighter-specific movement
-- GAME-AA-006: Anime Aggressors: Defense and recovery
-- GAME-AA-007: Anime Aggressors: Original power identities
-- GAME-AA-008: Anime Aggressors: Readable impact
-- GAME-AA-009: Anime Aggressors: Competitive frame behavior
-- GAME-AA-010: Anime Aggressors: Training and debug tools
 - GATE-0-002: Gate 0: Device roles frozen
 - GATE-0-003: Gate 0: Requirement identifiers assigned
 - GATE-0-005: Gate 0: Repository ownership established

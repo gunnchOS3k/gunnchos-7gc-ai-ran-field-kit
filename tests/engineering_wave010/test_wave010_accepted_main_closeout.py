@@ -93,12 +93,19 @@ def test_register_and_queues():
     diff = _load("artifacts/engineering_wave010_closeout/TARGETED_ROW_DIFF.json")
     totals = reg["totals"]
     assert totals["ATOMIC_TOTAL"] == 419
-    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 126
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 36
+    # Wave010 closed to 126/36; later waves may raise COMPLETE / lower OPEN.
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 126
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] <= 36
     assert totals["DIGITAL_VALIDATION_OPEN"] == 0
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
-    assert impl["total_open"] == 36
-    assert len(impl["all_items"]) == 36
+    assert (
+        totals["DIGITAL_IMPLEMENTATION_COMPLETE"]
+        + totals["DIGITAL_IMPLEMENTATION_OPEN"]
+        + totals["DIGITAL_VALIDATION_OPEN"]
+        == 162
+    )
+    assert impl["total_open"] == totals["DIGITAL_IMPLEMENTATION_OPEN"]
+    assert len(impl["all_items"]) == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     assert val["total_open"] == 0
     assert val["all_items"] == []
     assert pending["total_pending_rows"] == 257
