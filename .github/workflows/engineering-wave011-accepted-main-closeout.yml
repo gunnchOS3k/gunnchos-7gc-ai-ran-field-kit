@@ -1,0 +1,63 @@
+name: Engineering Wave011 Accepted-Main Closeout
+
+on:
+  push:
+    branches: [main, 'eng/wave011-*']
+  pull_request:
+    paths:
+      - 'artifacts/engineering_wave011/**'
+      - 'artifacts/engineering_wave011_closeout/**'
+      - 'scripts/engineering_wave011/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
+      - 'tests/engineering_wave011/**'
+      - '.github/workflows/engineering-wave011-accepted-main-closeout.yml'
+
+jobs:
+  wave011-accepted-main-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Verify Anime Aggressors PR #81 provenance bindings in artifacts
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          prov=json.loads(Path('artifacts/engineering_wave011_closeout/WAVE011_ACCEPTED_MAIN_PROVENANCE.json').read_text())
+          assert prov['PR81_FINAL_HEAD_SHA']=='9e2ab6a264e2e74ba0db0a203f51d21ad587502d'
+          assert prov['PR81_MERGE_SHA']=='3b01c3d3473ec5372c5c1e3126305488dc26a08a'
+          assert prov['ANIME_ACCEPTED_MAIN_TREE']=='78e5d924bd61ddbebe8e142275f3dc562e62b199'
+          assert prov['TREE_EQUIVALENCE_STATUS']=='TREE_EQUIVALENT_TO_PR81_FINAL_HEAD'
+          assert prov['authoritative_premerge_ci']['run_id']==32585438949
+          assert prov['authoritative_premerge_ci']['artifact_id']==9478976330
+          assert prov['authoritative_premerge_ci']['digest']=='sha256:41247b4b21db62a298d4bc5987eccb79475c6648e7344b05db718eb4042298b4'
+          assert prov['authoritative_premerge_ci']['head_sha']=='9e2ab6a264e2e74ba0db0a203f51d21ad587502d'
+          wave=json.loads(Path('artifacts/engineering_wave011_closeout/_accepted_main_reproduction/WAVE011_RESULT.json').read_text())
+          assert wave['ENGINEERING_WAVE_011']=='PASS'
+          assert wave['IMPLEMENTED_COUNT']==10
+          print('provenance+accepted-main reproduction binding OK')
+          PY
+
+      - name: Wave011 accepted-main closeout integrity tests
+        run: pytest tests/engineering_wave011/test_wave011_accepted_main_closeout.py -q
+
+      - name: Field-kit register integrity
+        run: python3 scripts/validate_baseline_v2_b4_register_integrity.py
+
+      - name: Emit closeout token
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('artifacts/engineering_wave011_closeout/WAVE011_ACCEPTED_MAIN_CLOSEOUT.json').read_text())
+          assert d.get('token')=='ENGINEERING_WAVE_011_ACCEPTED_MAIN_CLOSEOUT_PASS'
+          print('ENGINEERING_WAVE_011_ACCEPTED_MAIN_CLOSEOUT_PASS')
+          PY

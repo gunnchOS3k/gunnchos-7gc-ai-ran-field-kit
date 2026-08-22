@@ -1,0 +1,309 @@
+{
+  "schema": "gunnchos.engineering_wave011.game_aa_closeout_matrix.v1",
+  "generated_at_utc": "2026-08-22T17:35:18Z",
+  "TARGETED_ROWS": [
+    "GAME-AA-001",
+    "GAME-AA-002",
+    "GAME-AA-003",
+    "GAME-AA-004",
+    "GAME-AA-005",
+    "GAME-AA-006",
+    "GAME-AA-007",
+    "GAME-AA-008",
+    "GAME-AA-009",
+    "GAME-AA-010"
+  ],
+  "rows_closed": 10,
+  "rows": {
+    "GAME-AA-001": {
+      "requirement_id": "GAME-AA-001",
+      "title": "Aura charging",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/aura_scaler.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter_state_machine.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "AURA_CHARGE_INTERRUPTION_RESULT",
+        "BATTLESCENE_E2E"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.charge_disabled",
+        "mutation.idle_decay_disabled",
+        "mutation.interrupt_loss_disabled"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-001: production paths + runtime observations (AURA_CHARGE_INTERRUPTION_RESULT, BATTLESCENE_E2E); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Input charge + hit interrupt"
+    },
+    "GAME-AA-002": {
+      "requirement_id": "GAME-AA-002",
+      "title": "Aura-scaled hand-to-hand combat",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/hit_resolver.gd",
+        "anime-aggressors:game-godot/scripts/combat/aura_scaler.gd",
+        "anime-aggressors:game-godot/scripts/combat/move_runner.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "AURA_SCALED_MELEE_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.stale_floor_neutral",
+        "mutation.ember_charge_flat"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-002: production paths + runtime observations (AURA_SCALED_MELEE_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Matched low/high aura hitbox hits"
+    },
+    "GAME-AA-003": {
+      "requirement_id": "GAME-AA-003",
+      "title": "Charge-scaled projectiles",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/projectile.gd",
+        "anime-aggressors:game-godot/scripts/combat/projectile_spawner.gd",
+        "anime-aggressors:game-godot/scripts/combat/aura_scaler.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "PROJECTILE_RUNTIME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.projectile_mask_zero"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-003: production paths + runtime observations (PROJECTILE_RUNTIME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Three charge levels with real hits"
+    },
+    "GAME-AA-004": {
+      "requirement_id": "GAME-AA-004",
+      "title": "Directional throws",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/throw_resolver.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter_state_machine.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "DIRECTIONAL_THROW_RUNTIME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.grab_range_collapsed"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-004: production paths + runtime observations (DIRECTIONAL_THROW_RUNTIME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Four runtime throw directions"
+    },
+    "GAME-AA-005": {
+      "requirement_id": "GAME-AA-005",
+      "title": "Fighter-specific movement",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/fighters/fighter.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter_state_machine.gd",
+        "anime-aggressors:game-godot/scripts/data/data_loader.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "FIGHTER_MOVEMENT_RUNTIME_MATRIX"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.rook_air_accel_flat",
+        "mutation.charge_move_mult_zero"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-005: production paths + runtime observations (FIGHTER_MOVEMENT_RUNTIME_MATRIX); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Seven BattleScene movement trials"
+    },
+    "GAME-AA-006": {
+      "requirement_id": "GAME-AA-006",
+      "title": "Defense and recovery",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/fighters/fighter_state_machine.gd",
+        "anime-aggressors:game-godot/scripts/combat/hit_resolver.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "DEFENSE_RECOVERY_RUNTIME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.shield_regen_disabled",
+        "mutation.mash_disabled",
+        "mutation.dodge_invuln_zero"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-006: production paths + runtime observations (DEFENSE_RECOVERY_RUNTIME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Shield/dodge/hitstun/recovery runtime"
+    },
+    "GAME-AA-007": {
+      "requirement_id": "GAME-AA-007",
+      "title": "Original power identities",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/aura_identity.gd",
+        "anime-aggressors:game-godot/scripts/combat/aura_special_runtime.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "FIGHTER_IDENTITY_RUNTIME_MATRIX",
+        "FIGHTER_SIGNATURE_RUNTIME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.ember_charge_flat"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-007: production paths + runtime observations (FIGHTER_IDENTITY_RUNTIME_MATRIX, FIGHTER_SIGNATURE_RUNTIME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Seven runtime identity rows"
+    },
+    "GAME-AA-008": {
+      "requirement_id": "GAME-AA-008",
+      "title": "Readable impact",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/combat_feedback.gd",
+        "anime-aggressors:game-godot/scripts/combat/hit_resolver.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "IMPACT_READABILITY_RUNTIME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.stale_floor_neutral"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-008: production paths + runtime observations (IMPACT_READABILITY_RUNTIME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Light/heavy feedback observed"
+    },
+    "GAME-AA-009": {
+      "requirement_id": "GAME-AA-009",
+      "title": "Competitive frame behavior",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/combat/competitive_rules.gd",
+        "anime-aggressors:game-godot/scripts/combat/frame_data_table.gd",
+        "anime-aggressors:game-godot/scripts/battle/battle_scene.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "STOCK_KO_RESPAWN_RESULT",
+        "COMPETITIVE_FRAME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "BATTLESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.stocks_not_competitive"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-009: production paths + runtime observations (STOCK_KO_RESPAWN_RESULT, COMPETITIVE_FRAME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Stock KO/respawn + frame rules"
+    },
+    "GAME-AA-010": {
+      "requirement_id": "GAME-AA-010",
+      "title": "Training and debug tools",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "3b01c3d3473ec5372c5c1e3126305488dc26a08a",
+      "production_paths": [
+        "anime-aggressors:game-godot/scripts/training/training_battle_scene.gd",
+        "anime-aggressors:game-godot/scripts/debug/debug_hud.gd",
+        "anime-aggressors:game-godot/scripts/training/training_menu_scene.gd"
+      ],
+      "canonical_runtime_evidence": [
+        "TRAINING_RUNTIME_RESULT"
+      ],
+      "behavioral_evidence": [
+        "TRAINING_RUNTIME_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE011_MUTATIONS_KILLED=13",
+        "mutation.training_shared"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-AA-010: production paths + runtime observations (TRAINING_RUNTIME_RESULT); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "TrainingBattleScene controls observed"
+    }
+  },
+  "BLANKET_GAME_AA_ASSIGNMENT": false,
+  "accepted_main_reproduction": "PASS",
+  "production_runtime": "game-godot/"
+}
