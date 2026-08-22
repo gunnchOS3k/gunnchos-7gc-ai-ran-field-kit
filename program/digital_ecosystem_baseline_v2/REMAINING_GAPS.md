@@ -1,7 +1,7 @@
-# Remaining gaps (Wave 009 targeted closeout)
+# Remaining gaps (Wave 010 accepted-main closeout)
 
-- Wave 009 targeted closeout draft PR pending owner merge
-- DIGITAL_IMPLEMENTATION_OPEN=51 rows need digital engineering
-- DIGITAL_VALIDATION_OPEN=0 (digital validation queue empty after OS-PLATFORM-020 closeout)
-- Next phase after owner merge: ECOSYSTEM CODE HEALTH & IMPLEMENTATION AUTHENTICITY BASELINE
-- Archive scientific records remain fixture-only; AUTHENTIC_EXTERNAL_SOURCE_SNAPSHOTS_PRESENT=false
+- Wave 010 accepted-main closeout draft PR pending owner merge
+- DIGITAL_IMPLEMENTATION_OPEN=36 rows need digital engineering
+- DIGITAL_VALIDATION_OPEN=0
+- GAME-PP-001..015 digitally complete; human/physical/store claims remain false
+- S2 code-health findings preserved (7gc/readygary/emergent + R3/R6/R7)

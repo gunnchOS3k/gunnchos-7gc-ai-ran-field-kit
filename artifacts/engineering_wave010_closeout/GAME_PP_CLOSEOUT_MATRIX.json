@@ -1,0 +1,437 @@
+{
+  "schema": "gunnchos.engineering_wave010.game_pp_closeout_matrix.v1",
+  "generated_at_utc": "2026-08-22T03:02:17Z",
+  "TARGETED_ROWS": [
+    "GAME-PP-001",
+    "GAME-PP-002",
+    "GAME-PP-003",
+    "GAME-PP-004",
+    "GAME-PP-005",
+    "GAME-PP-006",
+    "GAME-PP-007",
+    "GAME-PP-008",
+    "GAME-PP-009",
+    "GAME-PP-010",
+    "GAME-PP-011",
+    "GAME-PP-012",
+    "GAME-PP-013",
+    "GAME-PP-014",
+    "GAME-PP-015"
+  ],
+  "rows_closed": 15,
+  "rows": {
+    "GAME-PP-001": {
+      "requirement_id": "GAME-PP-001",
+      "title": "Sprinting",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/PlayerController.gd",
+        "pedestrian-pursuit:scripts/player/MovementStats.gd",
+        "pedestrian-pursuit:scripts/player/RacerStateMachine.gd"
+      ],
+      "runtime_evidence": [
+        "component.sprint"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.sprint_or_shared"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-001: production paths + runtime observations (component.sprint); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Sprint accel/brake/terrain observed"
+    },
+    "GAME-PP-002": {
+      "requirement_id": "GAME-PP-002",
+      "title": "Foot drifting",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/DriftSystem.gd",
+        "pedestrian-pursuit:scripts/player/PlayerController.gd"
+      ],
+      "runtime_evidence": [
+        "component.drift"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.drift"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-002: production paths + runtime observations (component.drift); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Drift charge + release boost observed"
+    },
+    "GAME-PP-003": {
+      "requirement_id": "GAME-PP-003",
+      "title": "Jumping",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/PlayerController.gd",
+        "pedestrian-pursuit:scripts/player/RacerStateMachine.gd"
+      ],
+      "runtime_evidence": [
+        "component.jump"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.jump"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-003: production paths + runtime observations (component.jump); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Coyote/buffer runtime observed"
+    },
+    "GAME-PP-004": {
+      "requirement_id": "GAME-PP-004",
+      "title": "Sliding",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/PlayerController.gd",
+        "pedestrian-pursuit:scripts/player/RacerStateMachine.gd"
+      ],
+      "runtime_evidence": [
+        "component.slide"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.slide"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-004: production paths + runtime observations (component.slide); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Slide profile distinct"
+    },
+    "GAME-PP-005": {
+      "requirement_id": "GAME-PP-005",
+      "title": "Wall interaction",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/PlayerController.gd"
+      ],
+      "runtime_evidence": [
+        "component.wall"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.wall"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-005: production paths + runtime observations (component.wall); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Wall scrape/kick cooldown observed"
+    },
+    "GAME-PP-006": {
+      "requirement_id": "GAME-PP-006",
+      "title": "Rail grinding",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/RailGrindSystem.gd"
+      ],
+      "runtime_evidence": [
+        "component.rail"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.rail"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-006: production paths + runtime observations (component.rail); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Rail angle attach observed"
+    },
+    "GAME-PP-007": {
+      "requirement_id": "GAME-PP-007",
+      "title": "Stomping",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/StompSystem.gd"
+      ],
+      "runtime_evidence": [
+        "component.stomp"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.stomp"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-007: production paths + runtime observations (component.stomp); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Stomp cooldown observed"
+    },
+    "GAME-PP-008": {
+      "requirement_id": "GAME-PP-008",
+      "title": "Tricks",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/TrickSystem.gd"
+      ],
+      "runtime_evidence": [
+        "component.trick_success",
+        "component.trick_fail_penalty"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.trick"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-008: production paths + runtime observations (component.trick_success, component.trick_fail_penalty); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Trick reward + single fail penalty"
+    },
+    "GAME-PP-009": {
+      "requirement_id": "GAME-PP-009",
+      "title": "Boost management",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/BoostSystem.gd"
+      ],
+      "runtime_evidence": [
+        "component.boost",
+        "component.boost_signal_arity"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.boost"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-009: production paths + runtime observations (component.boost, component.boost_signal_arity); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Boost economy + signal arity"
+    },
+    "GAME-PP-010": {
+      "requirement_id": "GAME-PP-010",
+      "title": "Items",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/items/ItemManager.gd",
+        "pedestrian-pursuit:scripts/items/ItemBox.gd"
+      ],
+      "runtime_evidence": [
+        "component.item"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.item"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-010: production paths + runtime observations (component.item); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Item grant/use observed"
+    },
+    "GAME-PP-011": {
+      "requirement_id": "GAME-PP-011",
+      "title": "Shortcuts",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/tracks/ShortcutCorridor.gd",
+        "pedestrian-pursuit:scripts/tracks/CourseTrack.gd",
+        "pedestrian-pursuit:scripts/race/RaceScene.gd"
+      ],
+      "runtime_evidence": [
+        "component.shortcut",
+        "e2e.B_advanced_route"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.shortcut"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-011: production paths + runtime observations (component.shortcut, e2e.B_advanced_route); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Shortcut corridor + ordered checkpoints"
+    },
+    "GAME-PP-012": {
+      "requirement_id": "GAME-PP-012",
+      "title": "Terrain interaction",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/player/MovementStats.gd",
+        "pedestrian-pursuit:scripts/tracks/CourseTrack.gd"
+      ],
+      "runtime_evidence": [
+        "component.terrain"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.terrain"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-012: production paths + runtime observations (component.terrain); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Terrain grips distinct"
+    },
+    "GAME-PP-013": {
+      "requirement_id": "GAME-PP-013",
+      "title": "Distinct racers",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/data/RacerData.gd",
+        "pedestrian-pursuit:scripts/player/SpecialAbilitySystem.gd"
+      ],
+      "runtime_evidence": [
+        "component.racers"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.racers"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-013: production paths + runtime observations (component.racers); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Launch racers distinct"
+    },
+    "GAME-PP-014": {
+      "requirement_id": "GAME-PP-014",
+      "title": "Fair comeback mechanics",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/race/FairComebackPolicy.gd",
+        "pedestrian-pursuit:scripts/player/DraftingSystem.gd"
+      ],
+      "runtime_evidence": [
+        "component.comeback"
+      ],
+      "behavioral_evidence": [
+        "RACESCENE_E2E_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.comeback"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-014: production paths + runtime observations (component.comeback); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Fair comeback policy identity assist"
+    },
+    "GAME-PP-015": {
+      "requirement_id": "GAME-PP-015",
+      "title": "Competitive mastery",
+      "pre_state": "DIGITAL_IMPLEMENTATION_OPEN",
+      "accepted_main_sha": "5950ea791ed37addb26c80be84a64c20f589f4b4",
+      "production_paths": [
+        "pedestrian-pursuit:scripts/race/GhostRecorder.gd",
+        "pedestrian-pursuit:scripts/race/RaceScene.gd",
+        "pedestrian-pursuit:scripts/core/GameManager.gd"
+      ],
+      "runtime_evidence": [
+        "e2e.D_time_trial_mastery",
+        "MASTERY_RESULT",
+        "CAUSAL_MASTERY_RESULT",
+        "ACTUAL_TIME_TRIAL_GHOST_RESULT",
+        "MASTERY_DRIVER_EQUIVALENCE",
+        "ADVANCED_SLOW_RUN_ROOT_CAUSE"
+      ],
+      "behavioral_evidence": [
+        "MASTERY_RESULT",
+        "CANONICAL_RUNTIME_RESULT",
+        "CODE_INTEGRITY_RESULT"
+      ],
+      "mutation_evidence": [
+        "MUTATION_RESULT.json",
+        "WAVE010_MUTATIONS_KILLED=11",
+        "mutation.mastery"
+      ],
+      "post_state": "DIGITAL_IMPLEMENTATION_COMPLETE",
+      "closeout_reason": "Independent accepted-main evidence for GAME-PP-015: production paths + runtime observations (e2e.D_time_trial_mastery, MASTERY_RESULT, CAUSAL_MASTERY_RESULT, ACTUAL_TIME_TRIAL_GHOST_RESULT, MASTERY_DRIVER_EQUIVALENCE, ADVANCED_SLOW_RUN_ROOT_CAUSE); aggregate PASS alone not used.",
+      "BLANKET": false,
+      "notes": "Causal same-driver mastery + real ghost self-improvement"
+    }
+  },
+  "BLANKET_GAME_PP_ASSIGNMENT": false,
+  "accepted_main_reproduction": "PASS"
+}

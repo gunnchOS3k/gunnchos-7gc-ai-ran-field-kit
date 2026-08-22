@@ -1,6 +1,6 @@
 # Next digital implementation work
 
-total_open: 51
+total_open: 36
 
 - SYS-MISSION-006: Cross-form-factor application parity
 - DEV-STUDENT-001: Student 14.5 primary full-session platform
@@ -16,21 +16,6 @@ total_open: 51
 - RING-INPUT-001: Spatial input processing chain
 - RING-INPUT-037: Optional game gestures only where beneficial
 - RING-RELIAB-016: No silent destructive uncertain gestures
-- GAME-PP-001: Pedestrian Pursuit: Sprinting
-- GAME-PP-002: Pedestrian Pursuit: Foot drifting
-- GAME-PP-003: Pedestrian Pursuit: Jumping
-- GAME-PP-004: Pedestrian Pursuit: Sliding
-- GAME-PP-005: Pedestrian Pursuit: Wall interaction
-- GAME-PP-006: Pedestrian Pursuit: Rail grinding
-- GAME-PP-007: Pedestrian Pursuit: Stomping
-- GAME-PP-008: Pedestrian Pursuit: Tricks
-- GAME-PP-009: Pedestrian Pursuit: Boost management
-- GAME-PP-010: Pedestrian Pursuit: Items
-- GAME-PP-011: Pedestrian Pursuit: Shortcuts
-- GAME-PP-012: Pedestrian Pursuit: Terrain interaction
-- GAME-PP-013: Pedestrian Pursuit: Distinct racers
-- GAME-PP-014: Pedestrian Pursuit: Fair comeback mechanics
-- GAME-PP-015: Pedestrian Pursuit: Competitive mastery
 - GAME-AA-001: Anime Aggressors: Aura charging
 - GAME-AA-002: Anime Aggressors: Aura-scaled hand-to-hand combat
 - GAME-AA-003: Anime Aggressors: Charge-scaled projectiles
@@ -52,3 +37,4 @@ total_open: 51
 - GATE-3-006: Gate 3: 7GC test plans
 - GATE-3-007: Gate 3: Repair procedure
 - GATE-5-005: Gate 5: Privacy and security review
+- GATE-7-006: Gate 7: Vulnerability-response process

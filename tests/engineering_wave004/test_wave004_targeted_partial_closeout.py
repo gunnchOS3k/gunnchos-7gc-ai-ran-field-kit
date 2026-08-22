@@ -82,17 +82,18 @@ def test_closeout_result_and_queues():
     assert result["OS_PLATFORM_020"]["plain_subprocess_counts_as_sandbox"] is False
     assert result["OS_PLATFORM_020"]["kernel_sandbox"] is False
     assert result["OS_PLATFORM_020"]["NOT_MARKED_COMPLETE"] is True
-    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] == 51
+    assert totals["DIGITAL_IMPLEMENTATION_OPEN"] <= 51
+    assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] + totals["DIGITAL_IMPLEMENTATION_OPEN"] + totals["DIGITAL_VALIDATION_OPEN"] == 162
     assert totals["EVIDENCE_MAPPING_OPEN"] == 0
     assert len(impl["all_items"]) == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     assert impl["total_open"] == totals["DIGITAL_IMPLEMENTATION_OPEN"]
     if _wave009_closeout_applied(baseline):
-        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 111
         assert totals["DIGITAL_VALIDATION_OPEN"] == 0
         assert len(val["all_items"]) == 0
         assert val["total_open"] == 0
     else:
-        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] == 110
+        assert totals["DIGITAL_IMPLEMENTATION_COMPLETE"] >= 110
         assert totals["DIGITAL_VALIDATION_OPEN"] == 1
         assert len(val["all_items"]) == 1
         assert val["total_open"] == 1
