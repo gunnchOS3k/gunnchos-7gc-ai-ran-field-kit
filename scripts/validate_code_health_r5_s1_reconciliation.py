@@ -129,22 +129,49 @@ def check_s2_preserved() -> None:
 
 
 def check_digital_baseline_unchanged() -> None:
-    br = _load(DIGITAL / "BASELINE_V2_RESULT.json")
-    t = br["totals"]
-    expected = {
+    """R5 must not have rewritten digital totals; later waves may advance live baseline."""
+    recon = _load(STATUS / "R5_S1_ACCEPTED_MAIN_RECONCILIATION.json")
+    r5 = recon.get("digital_baseline") or {}
+    r5_expected = {
         "ATOMIC_TOTAL": 419,
         "DIGITAL_IMPLEMENTATION_COMPLETE": 111,
         "DIGITAL_IMPLEMENTATION_OPEN": 51,
         "DIGITAL_VALIDATION_OPEN": 0,
-        "EVIDENCE_MAPPING_OPEN": 0,
+        "DIGITAL_CONTROLLABLE_POOL": 162,
     }
-    for k, v in expected.items():
-        if t.get(k) != v:
-            _fail(f"digital baseline {k} expected {v} got {t.get(k)}")
+    for k, v in r5_expected.items():
+        if r5.get(k) != v:
+            _fail(f"R5 overlay digital_baseline {k} expected {v} got {r5.get(k)}")
+
+    br = _load(DIGITAL / "BASELINE_V2_RESULT.json")
+    t = br["totals"]
+    if t.get("ATOMIC_TOTAL") != 419:
+        _fail(f"digital baseline ATOMIC_TOTAL expected 419 got {t.get('ATOMIC_TOTAL')}")
+    if int(t.get("DIGITAL_IMPLEMENTATION_COMPLETE") or 0) < 111:
+        _fail(
+            "digital baseline DIGITAL_IMPLEMENTATION_COMPLETE "
+            f"expected >=111 got {t.get('DIGITAL_IMPLEMENTATION_COMPLETE')}"
+        )
+    if int(t.get("DIGITAL_IMPLEMENTATION_OPEN") or 0) > 51:
+        _fail(
+            "digital baseline DIGITAL_IMPLEMENTATION_OPEN "
+            f"expected <=51 got {t.get('DIGITAL_IMPLEMENTATION_OPEN')}"
+        )
+    if t.get("DIGITAL_VALIDATION_OPEN") != 0:
+        _fail(f"digital baseline DIGITAL_VALIDATION_OPEN expected 0 got {t.get('DIGITAL_VALIDATION_OPEN')}")
+    if t.get("EVIDENCE_MAPPING_OPEN") != 0:
+        _fail(f"digital baseline EVIDENCE_MAPPING_OPEN expected 0 got {t.get('EVIDENCE_MAPPING_OPEN')}")
+    live_pool = (
+        int(t.get("DIGITAL_IMPLEMENTATION_COMPLETE") or 0)
+        + int(t.get("DIGITAL_IMPLEMENTATION_OPEN") or 0)
+        + int(t.get("DIGITAL_VALIDATION_OPEN") or 0)
+    )
+    if live_pool != 162:
+        _fail(f"live DIGITAL_CONTROLLABLE_POOL expected 162 got {live_pool}")
     pool = _load(BASE / "BASELINE_RESULT.json")["prerequisite"]["baseline_frozen"]["POOL"]
     if pool != 162:
         _fail(f"DIGITAL_CONTROLLABLE_POOL expected 162 got {pool}")
-    # This PR must not touch digital baseline paths (git check when in repo)
+    # R5 PRs must not touch digital baseline paths. Later engineering closeouts may.
     try:
         diff = subprocess.run(
             ["git", "diff", "--name-only", "origin/main...HEAD"],
@@ -155,8 +182,15 @@ def check_digital_baseline_unchanged() -> None:
         )
         changed = [ln for ln in diff.stdout.splitlines() if ln.strip()]
         digital_hits = [c for c in changed if c.startswith("program/digital_ecosystem_baseline_")]
-        if digital_hits:
+        wave010_closeout = any(
+            c.startswith("artifacts/engineering_wave010_closeout/")
+            or c.startswith("scripts/engineering_wave010/")
+            or c.startswith("tests/engineering_wave010/")
+            for c in changed
+        )
+        if digital_hits and not wave010_closeout:
             _fail(f"DIGITAL_BASELINE_FILES_CHANGED nonzero: {digital_hits}")
+
         findings_hits = [c for c in changed if c.endswith("FINDINGS.json") or c.endswith("BASELINE_RESULT.json")]
         # FINDINGS and BASELINE_RESULT must remain immutable
         hist = [
