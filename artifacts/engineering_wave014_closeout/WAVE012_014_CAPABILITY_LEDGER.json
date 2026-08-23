@@ -1,0 +1,205 @@
+{
+  "schema": "gunnchos.engineering_wave014.capability_ledger.v1",
+  "generated_at_utc": "2026-08-23T00:03:56Z",
+  "product": "Anime Aggressors",
+  "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+  "accepted_main_tree": "faa3ff384e74d715ff2159ccf3b182452a409d7f",
+  "evidence_ladder_max": "INDEPENDENTLY_VERIFIED_DIGITAL",
+  "atomic_row_closures": 0,
+  "entries": [
+    {
+      "capability_id": "WAVE012_ZERO_COST_ART_PIPELINE",
+      "title": "Zero-cost core art pipeline (Blender/Godot procedural authoring)",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/engineering_wave012/run_wave012.sh",
+        "anime-aggressors:tools/engineering_wave012/emit_wave012_result.py",
+        "anime-aggressors:tools/art_pipeline/",
+        "anime-aggressors:docs/art_pipeline/"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/visual/",
+        "anime-aggressors:game-godot/assets/characters/"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave012/WAVE012_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave012/QUALITY_GATES.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "VROID_MODEL_CREATION=HUMAN_GUI_REQUIRED",
+        "MOCAP_GPU_EXECUTION=BLOCKED_ENVIRONMENT_GPU",
+        "HUMAN_ART_DIRECTION_APPROVAL=false"
+      ],
+      "final_art_status": "PROCEDURAL_PROXY_ONLY",
+      "claim_boundaries": [
+        "EMBER_FINAL_ART_RUNTIME_PASS=false",
+        "FINAL_CHARACTER_ART_PASS=false",
+        "PHYSICAL_PIXEL6A_VALIDATED=false"
+      ]
+    },
+    {
+      "capability_id": "WAVE013B_NOTES_DRIVEN_CHOREOGRAPHY",
+      "title": "Notes-driven full-roster choreography depth and motion QA",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/engineering_wave013b/run_wave013b.sh",
+        "anime-aggressors:tools/engineering_wave013b/generate_wave013b_content.py",
+        "anime-aggressors:content/choreography/"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/visual/runtime_move_resolver.gd"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave013b/WAVE013B_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave013b/QUALITY_GATES.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "FINAL_ANIMATION_PRESENT=false",
+        "REAL_USER_MOTION_LIBRARY_PRESENT=false"
+      ],
+      "final_art_status": "CHOREOGRAPHY_SPECS_ONLY",
+      "claim_boundaries": [
+        "FINAL_HUMAN_AUTHORED_ANIMATION_PASS=false"
+      ]
+    },
+    {
+      "capability_id": "WAVE013B_USER_MOTION_CONTRIBUTION",
+      "title": "User motion contribution contract and BVH retarget readiness",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/engineering_wave013b/run_wave013b.sh",
+        "anime-aggressors:tools/animation_pipeline/retarget/"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/visual/procedural_bone_map.gd"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave013b/WAVE013B_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave013b/BVH_RETARGET_READY.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "REAL_USER_MOTION_LIBRARY_PRESENT=false",
+        "CONTRIBUTOR_SELF_APPROVE=false"
+      ],
+      "final_art_status": "UPLOAD_PIPELINE_READY_NO_LIBRARY",
+      "claim_boundaries": [
+        "REAL_USER_MOTION_LIBRARY_PRESENT=false"
+      ]
+    },
+    {
+      "capability_id": "WAVE014_PROCEDURAL_ROSTER_MODELS",
+      "title": "Seven-fighter procedural production-proxy roster models",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/art_pipeline/procedural_roster/generate_roster.py",
+        "anime-aggressors:tools/engineering_wave014/run_wave014.sh",
+        "anime-aggressors:content/fighters/"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/fighters/fighter_model_3d.gd",
+        "anime-aggressors:game-godot/assets/characters/procedural/"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave014/PROCEDURAL_CHARACTER_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave014/PROCEDURAL_SMOKE_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave014/WAVE014_RESULT.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "FINAL_CHARACTER_ART_PASS=false",
+        "VROID_FINAL_EXPORT_PRESENT=false"
+      ],
+      "final_art_status": "PROCEDURAL_PRODUCTION_PROXY",
+      "claim_boundaries": [
+        "FINAL_CHARACTER_ART_PASS=false",
+        "PHYSICAL_PIXEL6A_VALIDATED=false"
+      ]
+    },
+    {
+      "capability_id": "WAVE014_VISIBLE_SKELETAL_ANIMATION",
+      "title": "Visible skeletal runtime animation across full roster",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/animation_pipeline/procedural/generate_roster_animations.py",
+        "anime-aggressors:tools/engineering_wave014/validate_combat_alignment.py"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/visual/runtime_move_resolver.gd",
+        "anime-aggressors:game-godot/scripts/fighters/fighter_model_3d.gd"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave014/VISIBLE_SKELETAL_RUNTIME_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave014/RUNTIME_ANIMATION_COMBAT_ALIGNMENT.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "FINAL_HUMAN_AUTHORED_ANIMATION_PASS=false"
+      ],
+      "final_art_status": "PROCEDURAL_RUNTIME_ANIMATION",
+      "claim_boundaries": [
+        "FINAL_HUMAN_AUTHORED_ANIMATION_PASS=false"
+      ]
+    },
+    {
+      "capability_id": "WAVE014_RUNTIME_GAME_JUICE",
+      "title": "Visible runtime game juice (feedback, renders, combat alignment)",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/engineering_wave014/emit_game_juice_result.py",
+        "anime-aggressors:tools/engineering_wave014/generate_renders.py"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/combat/combat_feedback.gd",
+        "anime-aggressors:game-godot/scripts/battle/battle_scene.gd"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave014/VISIBLE_GAME_JUICE_RUNTIME_RESULT.json",
+        "anime-aggressors:artifacts/engineering_wave014/GAME_JUICE_RUNTIME.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "HUMAN_ART_DIRECTION_APPROVAL=false"
+      ],
+      "final_art_status": "DIGITAL_RUNTIME_JUICE",
+      "claim_boundaries": [
+        "HUMAN_FUN_VALIDATED=false"
+      ]
+    },
+    {
+      "capability_id": "WAVE014_CANONICAL_BATTLESCENE_PRESENTATION",
+      "title": "Canonical BattleScene visible procedural presentation E2E",
+      "repo": "anime-aggressors",
+      "accepted_main_sha": "706aba63274c9b563dfc34e76502d78a7cac19a9",
+      "production_paths": [
+        "anime-aggressors:tools/engineering_wave014/run_wave014.sh",
+        "anime-aggressors:game-godot/scenes/battle/battle_scene.tscn"
+      ],
+      "runtime_paths": [
+        "anime-aggressors:game-godot/scripts/battle/battle_scene.gd",
+        "anime-aggressors:game-godot/scenes/battle/battle_scene.tscn"
+      ],
+      "evidence_paths": [
+        "anime-aggressors:artifacts/engineering_wave014/BATTLESCENE_VISUAL_E2E.json",
+        "anime-aggressors:artifacts/engineering_wave014/WAVE014_RESULT.json"
+      ],
+      "verification_level": "DIGITALLY_REPRODUCED",
+      "human_physical_blockers": [
+        "PHYSICAL_PIXEL6A_VALIDATED=false"
+      ],
+      "final_art_status": "HOST_VISIBLE_E2E_PASS",
+      "claim_boundaries": [
+        "PHYSICAL_PIXEL6A_VALIDATED=false",
+        "PHYSICAL_ANDROID_VALIDATED=false"
+      ]
+    }
+  ]
+}
