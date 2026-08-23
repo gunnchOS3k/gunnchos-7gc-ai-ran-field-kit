@@ -421,3 +421,12 @@ code-health-authenticity-baseline:
 	$(PYTHON) tools/code_integrity/run_baseline_audit.py
 	@test -f program/code_health_authenticity_baseline_v1/BASELINE_RESULT.json
 	@echo "CODE_HEALTH_AUTHENTICITY_BASELINE_V1 artifacts written under program/code_health_authenticity_baseline_v1/"
+
+# Engineering Wave 014 accepted-main closeout (capability ledger; FORCED_ROW_CLOSURES=0)
+.PHONY: engineering-wave014-closeout
+engineering-wave014-closeout:
+	python3 scripts/engineering_wave014/run_accepted_main_closeout.py --anime-root $(REPOS_ROOT)/anime-aggressors
+	pytest -q tests/engineering_wave014/test_wave014_accepted_main_closeout.py
+	python3 scripts/validate_baseline_v2_b4_register_integrity.py
+	@test -f artifacts/engineering_wave014_closeout/WAVE014_ACCEPTED_MAIN_CLOSEOUT.json
+	@echo "ENGINEERING_WAVE_014_ACCEPTED_MAIN_CLOSEOUT_PASS"
