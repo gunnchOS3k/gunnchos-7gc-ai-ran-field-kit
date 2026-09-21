@@ -74,6 +74,16 @@ make test
 
 ---
 
+## Feedback & Suggestions
+
+Tried this project? File public feedback via the ecosystem hub:
+
+https://github.com/gunnchOS3k/gunnchos-research-portal/blob/main/FEEDBACK.md
+
+Security vulnerabilities: private only — https://github.com/gunnchOS3k/gunnchos-research-portal/blob/main/SECURITY.md
+
+---
+
 ## Citation
 
 See [CITATION.cff](CITATION.cff). Zenodo DOI: **planned** (see [docs/PUBLICATION_PLAN.md](docs/PUBLICATION_PLAN.md)).
