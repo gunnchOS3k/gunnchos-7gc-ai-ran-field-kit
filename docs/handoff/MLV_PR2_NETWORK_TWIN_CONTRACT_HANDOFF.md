@@ -104,6 +104,22 @@ Use playbook:
 
 `CURSOR_3K_MLV_AIRAN_NETWORK_TWIN_EXTENSION_ON_PR2_V3.md`
 
-Backend draft PR refs are recorded in:
+Backend draft PR refs:
+
+```text
+field-kit     https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/120
+              c87f16e6c719b6159ff8e2541c9d51a22d802be2
+
+7gc-digital-twin  https://github.com/gunnchOS3k/7gc-digital-twin/pull/33
+              1d3c159ed942bb499a83af0c4e1533bf439a5970
+
+spectrumx-ai-ran-gary  https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/pull/104
+              bffa5161de5b8f3118e89f210f43f375e6cde717
+
+edge-io-measurement-node  https://github.com/gunnchOS3k/edge-io-measurement-node/pull/41
+              1af382b489732d4dfa745f67eef9ee61ec1ba9a4
+```
+
+Also recorded in:
 
 `artifacts/integration/7GC_AIRAN_CLOSED_LOOP_V2_MANIFEST.json`
