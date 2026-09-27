@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/twin_calibration_bundle.v1.schema.json",
+  "title": "Twin Calibration Bundle v1",
+  "description": "Versioned calibration. Old model versions are never overwritten.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "campus_slug",
+    "phase",
+    "source_manifest_sha256",
+    "parent_model_version",
+    "new_model_version",
+    "prediction",
+    "measurement",
+    "residual",
+    "uncertainty",
+    "candidate_parameter_update",
+    "holdout_validation",
+    "rejected_evidence",
+    "evidence_class",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.twin_calibration_bundle"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "campus_slug": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "source_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "parent_model_version": { "type": "string", "minLength": 1 },
+    "new_model_version": { "type": "string", "minLength": 1 },
+    "prediction": { "$ref": "#/$defs/metric_map" },
+    "measurement": { "$ref": "#/$defs/metric_map" },
+    "residual": { "$ref": "#/$defs/metric_map" },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "notes"],
+      "properties": {
+        "overall": { "type": "string", "enum": ["low", "medium", "high"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "candidate_parameter_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parameters", "applied"],
+      "properties": {
+        "parameters": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "applied": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "holdout_validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "holdout_fraction",
+        "holdout_error",
+        "pass",
+        "n_train",
+        "n_holdout"
+      ],
+      "properties": {
+        "holdout_fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+        "holdout_error": { "type": "number", "minimum": 0 },
+        "pass": { "type": "boolean" },
+        "n_train": { "type": "integer", "minimum": 1 },
+        "n_holdout": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "rejected_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidence_ref", "reason"],
+        "properties": {
+          "evidence_ref": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "SIMULATED",
+        "OPEN_DATA_BACKED",
+        "CONFIGURED_ASSUMPTION",
+        "CONTROLLED_DEVICE_MEASUREMENT",
+        "SDR_MEASURED",
+        "LAB_INSTRUMENT_MEASURED",
+        "RAN_TELEMETRY_MEASURED",
+        "FIELD_VALIDATED",
+        "MIXED"
+      ]
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "metric_map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "coverage",
+        "capacity",
+        "latency",
+        "jitter",
+        "packet_loss"
+      ],
+      "properties": {
+        "coverage": { "type": "number" },
+        "capacity": { "type": "number" },
+        "latency": { "type": "number" },
+        "jitter": { "type": "number" },
+        "packet_loss": { "type": "number" }
+      }
+    }
+  }
+}

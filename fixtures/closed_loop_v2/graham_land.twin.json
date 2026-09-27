@@ -1,0 +1,180 @@
+{
+  "schema_name": "gunnchos.twin_state_bundle",
+  "schema_version": "1.0.0",
+  "run_id": "closed-loop-v2-graham_land-twin",
+  "site_id": "graham_land",
+  "source_measurement": {
+    "summary": {
+      "n_samples": 4,
+      "mean_latency_ms": 55.0,
+      "mean_jitter_ms": 3.0,
+      "mean_packet_loss_pct": 0.4,
+      "mean_upload_mbps": 12.0,
+      "mean_download_mbps": 48.0,
+      "dominant_network_type": "wifi",
+      "workload_profile": "learn",
+      "service_profile": "learn_continuity"
+    },
+    "sha256": "458d33f108d0eebe1ab679a4e7723110d7b023971566ff10e05522ef052192ff",
+    "producer_repository": "edge-io-measurement-node",
+    "producer_commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  },
+  "service_demand": {
+    "values": {
+      "service_profile": "learn_continuity",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1"
+    },
+    "origin": "configured"
+  },
+  "user_demands": [
+    {
+      "user_class": "learn",
+      "priority": 2,
+      "latency_budget_ms": 150.0,
+      "bandwidth_mbps": 10.0,
+      "origin": "configured"
+    }
+  ],
+  "connectivity_candidates": [
+    {
+      "network": "terrestrial",
+      "available": false,
+      "estimated_latency_ms": 55.0,
+      "estimated_capacity_mbps": 48.0,
+      "origin": "configured"
+    },
+    {
+      "network": "local_edge_wifi",
+      "available": true,
+      "estimated_latency_ms": 12.0,
+      "estimated_capacity_mbps": 40.0,
+      "origin": "configured"
+    },
+    {
+      "network": "degraded_local",
+      "available": true,
+      "estimated_latency_ms": 77.0,
+      "estimated_capacity_mbps": 12.0,
+      "origin": "configured"
+    },
+    {
+      "network": "ntn_fallback",
+      "available": true,
+      "estimated_latency_ms": 80.0,
+      "estimated_capacity_mbps": 5.0,
+      "origin": "configured"
+    },
+    {
+      "network": "device_to_device",
+      "available": false,
+      "estimated_latency_ms": null,
+      "estimated_capacity_mbps": null,
+      "origin": "missing"
+    },
+    {
+      "network": "offline_continuation",
+      "available": true,
+      "estimated_latency_ms": 0.0,
+      "estimated_capacity_mbps": 0.0,
+      "origin": "configured"
+    }
+  ],
+  "network_state": {
+    "values": {
+      "dominant_network_type": "wifi",
+      "mean_latency_ms": 55.0,
+      "zones": [
+        "GRAHAM.FULL.NTN_LAB",
+        "GRAHAM.REMOTE.FLEXIBLE_VIRTUAL_CLASSROOM"
+      ]
+    },
+    "origin": "inferred"
+  },
+  "spectrum_availability": {
+    "values": {
+      "budget_mhz": 20.0,
+      "band_profile": "n78_planning"
+    },
+    "origin": "configured"
+  },
+  "compute_availability": {
+    "values": {
+      "local_edge": true,
+      "offline_cache": false
+    },
+    "origin": "configured"
+  },
+  "mobility_state": {
+    "values": {
+      "class": "low_named_zone",
+      "aggregate_only": true
+    },
+    "origin": "configured"
+  },
+  "blockage_state": {
+    "values": {
+      "scenario": "interior_partitions",
+      "extra_db": 8.0
+    },
+    "origin": "configured"
+  },
+  "energy_constraints": {
+    "values": {
+      "budget_j": 120.0
+    },
+    "origin": "configured"
+  },
+  "outage_state": {
+    "values": {
+      "terrestrial_outage": true,
+      "degraded": false
+    },
+    "origin": "configured"
+  },
+  "privacy_constraints": {
+    "values": {
+      "contains_direct_identifiers": false,
+      "contains_person_path": false,
+      "location_precision": "named_zone",
+      "gaza_sensitive_export": false,
+      "graham_station_claim": false
+    },
+    "origin": "configured"
+  },
+  "continuity_requirements": {
+    "values": {
+      "class": "degraded_ok",
+      "max_interruption_s": 180
+    },
+    "origin": "configured"
+  },
+  "uncertainty": {
+    "overall": "high",
+    "notes": "Planning projection; geometry_fidelity=AUTHORED_PLANNING_LAYOUT"
+  },
+  "missing_data_flags": [
+    "surveyed_geometry",
+    "measured_occupancy"
+  ],
+  "field_provenance": {
+    "fields": {
+      "network_state": "inferred",
+      "service_demand": "configured",
+      "geometry_fidelity": "configured"
+    }
+  },
+  "scenario_provenance": {
+    "transformer": "seven_gc_twin.integrations.campus_design.v1",
+    "generated_at": "2026-09-27T00:18:23Z",
+    "notes": "No surveyed geometry invented."
+  },
+  "configuration_hash": "5acc22363564af534ec925e1565bb54568256ca239178576a6034755e55cfcb8",
+  "evidence_level": "synthetic",
+  "producer": {
+    "repository": "7gc-digital-twin",
+    "commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  },
+  "n_users": 8,
+  "service_profile": "learn_continuity"
+}

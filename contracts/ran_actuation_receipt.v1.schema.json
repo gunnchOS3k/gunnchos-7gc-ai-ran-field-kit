@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/ran_actuation_receipt.v1.schema.json",
+  "title": "RAN Actuation Receipt v1",
+  "description": "Audit receipt. Default real actuation is denied.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "request_id",
+    "decision",
+    "real_actuation_enabled",
+    "e2_claimed",
+    "applied",
+    "reason",
+    "audit",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.ran_actuation_receipt"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 8 },
+    "decision": {
+      "type": "string",
+      "enum": ["denied", "dry_run_recorded", "shadow_recorded", "applied_testbed"]
+    },
+    "real_actuation_enabled": { "type": "boolean" },
+    "e2_claimed": { "type": "boolean", "const": false },
+    "applied": { "type": "boolean" },
+    "reason": { "type": "string", "minLength": 1 },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recorded_at", "checks"],
+      "properties": {
+        "recorded_at": { "type": "string", "format": "date-time" },
+        "checks": {
+          "type": "object",
+          "additionalProperties": { "type": "boolean" }
+        }
+      }
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "real_actuation_enabled": { "const": false } }
+      },
+      "then": {
+        "properties": {
+          "applied": { "const": false },
+          "decision": { "enum": ["denied", "dry_run_recorded", "shadow_recorded"] }
+        }
+      }
+    }
+  ]
+}

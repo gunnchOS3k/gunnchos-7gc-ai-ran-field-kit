@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/ran_actuation_request.v1.schema.json",
+  "title": "RAN Actuation Request v1",
+  "description": "Server-side actuation request. No browser-direct path. Default real actuation disabled.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "request_id",
+    "identity",
+    "role",
+    "testbed",
+    "action",
+    "numeric_bounds",
+    "ttl_s",
+    "regulatory",
+    "rate_limit",
+    "dry_run",
+    "rollback",
+    "source_path",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.ran_actuation_request"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 8 },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authenticated", "principal_id"],
+      "properties": {
+        "authenticated": { "type": "boolean" },
+        "principal_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "researcher",
+        "testbed_operator",
+        "auditor",
+        "system"
+      ]
+    },
+    "testbed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["explicit", "testbed_id"],
+      "properties": {
+        "explicit": { "type": "boolean" },
+        "testbed_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "allowlisted"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "set_power_dbm",
+            "set_scheduling_priority",
+            "select_network",
+            "place_compute",
+            "dry_run_recommendation"
+          ]
+        },
+        "allowlisted": { "type": "boolean" },
+        "payload": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "numeric_bounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["within_bounds"],
+      "properties": {
+        "within_bounds": { "type": "boolean" },
+        "requested": { "type": "number" },
+        "min": { "type": "number" },
+        "max": { "type": "number" }
+      }
+    },
+    "ttl_s": { "type": "integer", "minimum": 1, "maximum": 3600 },
+    "regulatory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["band_allowed"],
+      "properties": {
+        "band_allowed": { "type": "boolean" },
+        "band_profile": { "type": "string" }
+      }
+    },
+    "rate_limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["within_limit"],
+      "properties": {
+        "within_limit": { "type": "boolean" },
+        "window_s": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "dry_run": { "type": "boolean" },
+    "rollback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supported", "safe_state"],
+      "properties": {
+        "supported": { "type": "boolean" },
+        "safe_state": { "type": "string" }
+      }
+    },
+    "source_path": {
+      "type": "string",
+      "enum": [
+        "server_control_plane",
+        "cli",
+        "authorized_testbed_agent"
+      ],
+      "description": "Browser-direct paths are rejected by the firewall."
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    }
+  }
+}

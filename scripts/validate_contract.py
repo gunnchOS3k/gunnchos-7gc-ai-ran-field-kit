@@ -29,6 +29,12 @@ SCHEMA_FILES = {
     "gunnchos.gate3_evidence_report": "gate3_evidence_report.v1.schema.json",
     "gunnchos.gate1_locked_thesis": "gate1_locked_thesis.v1.schema.json",
     "gunnchos.pilot_assignment": "pilot_assignment.v1.schema.json",
+    "gunnchos.campus_design_bundle": "campus_design_bundle.v1.schema.json",
+    "gunnchos.campus_optimization_result": "campus_optimization_result.v1.schema.json",
+    "gunnchos.twin_calibration_bundle": "twin_calibration_bundle.v1.schema.json",
+    "gunnchos.ran_actuation_request": "ran_actuation_request.v1.schema.json",
+    "gunnchos.ran_actuation_receipt": "ran_actuation_receipt.v1.schema.json",
+    "gunnchos.campus_measurement_mapping": "campus_measurement_mapping.v1.schema.json",
 }
 
 PROHIBITED_KEY_PATTERNS = [
@@ -58,6 +64,8 @@ PROHIBITED_KEY_PATTERNS = [
         r"^device[-_]?serial$",
         r"^raw[-_]?gps$",
         r"^coordinates$",
+        r"^trajectory$",
+        r"^minor[-_]?location$",
     )
 ]
 
@@ -209,6 +217,31 @@ def validate_document(
             loc = ".".join(str(p) for p in err.path) or "<root>"
             messages.append(f"{loc}: {err.message}")
         raise ContractError("Schema validation failed:\n- " + "\n- ".join(messages))
+
+    privacy_schemas = {
+        "gunnchos.edge_measurement_batch",
+        "gunnchos.campus_design_bundle",
+        "gunnchos.campus_measurement_mapping",
+        "gunnchos.twin_calibration_bundle",
+        "gunnchos.campus_optimization_result",
+    }
+    if enforce_privacy and schema_name in privacy_schemas:
+        findings = find_prohibited_identifiers(document)
+        if findings:
+            raise ContractError(
+                "Prohibited direct identifiers detected:\n- " + "\n- ".join(findings)
+            )
+        if document.get("contains_person_path") is True:
+            raise ContractError("contains_person_path must be false")
+        privacy = document.get("privacy") or {}
+        if privacy.get("contains_direct_identifiers") is True:
+            raise ContractError("privacy.contains_direct_identifiers must be false")
+        if privacy.get("contains_person_path") is True:
+            raise ContractError("privacy.contains_person_path must be false")
+        if privacy.get("gaza_sensitive_export") is True:
+            raise ContractError("Gaza sensitive coordinate export is forbidden")
+        if privacy.get("graham_station_claim") is True:
+            raise ContractError("Graham Land invented station claims are forbidden")
 
     if enforce_privacy and schema_name == "gunnchos.edge_measurement_batch":
         findings = find_prohibited_identifiers(document)

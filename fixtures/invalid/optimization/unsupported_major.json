@@ -1,0 +1,143 @@
+{
+  "schema_name": "gunnchos.campus_optimization_result",
+  "schema_version": "2.0.0",
+  "run_id": "closed-loop-v2-gary-opt",
+  "site_id": "gary",
+  "campus_slug": "gary",
+  "phase": "FULL",
+  "input_design_hash": "2e2f8ce76415e3d90a7553425d8a5cff6b22092cf8f33c97e8611a689f1cc4f4",
+  "input_twin_state_hash": "0b20bc5971ed9c89e38bc334896747cf9925cfce891ed949dd1d4fed3695b62e",
+  "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+  "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "objectives": {
+    "coverage": 0.4119,
+    "capacity": 24.0,
+    "latency": 20.0,
+    "jitter": 2.0,
+    "packet_loss": 1.2,
+    "spectral_efficiency": 1.2,
+    "unmet_demand": 0.6457,
+    "jains_fairness": 1.0,
+    "zone_service_gap": 0.5881,
+    "energy": 30.0,
+    "service_continuity": 0.94,
+    "recovery_time": 20.0,
+    "edge_compute_utilization": 0.6,
+    "planning_cost_proxy": 32.0,
+    "installation_complexity_proxy": 8.0,
+    "constraint_violations": 0,
+    "uncertainty": 0.72
+  },
+  "alternatives": [
+    {
+      "alternative_id": "gary-sparse",
+      "label": "sparse",
+      "planning_variables": {
+        "node_count": 1,
+        "power_dbm": 17.0,
+        "edge_compute": false,
+        "path_loss_exponent": 2.2,
+        "geometry_mutated": false
+      },
+      "objectives": {
+        "coverage": 0.4172,
+        "capacity": 14.8,
+        "latency": 23.0,
+        "jitter": 2.0,
+        "packet_loss": 1.5,
+        "spectral_efficiency": 0.74,
+        "unmet_demand": 0.6746,
+        "jains_fairness": 0.9524,
+        "zone_service_gap": 0.5828,
+        "energy": 18.5,
+        "service_continuity": 0.67,
+        "recovery_time": 40.0,
+        "edge_compute_utilization": 0.35,
+        "planning_cost_proxy": 12.0,
+        "installation_complexity_proxy": 4.0,
+        "constraint_violations": 0,
+        "uncertainty": 0.72
+      },
+      "pareto_member": true,
+      "notes": "Does not mutate campus/building geometry."
+    },
+    {
+      "alternative_id": "gary-balanced",
+      "label": "balanced",
+      "planning_variables": {
+        "node_count": 2,
+        "power_dbm": 20.0,
+        "edge_compute": true,
+        "path_loss_exponent": 2.2,
+        "geometry_mutated": false
+      },
+      "objectives": {
+        "coverage": 0.4119,
+        "capacity": 24.0,
+        "latency": 20.0,
+        "jitter": 2.0,
+        "packet_loss": 1.2,
+        "spectral_efficiency": 1.2,
+        "unmet_demand": 0.6457,
+        "jains_fairness": 1.0,
+        "zone_service_gap": 0.5881,
+        "energy": 30.0,
+        "service_continuity": 0.94,
+        "recovery_time": 20.0,
+        "edge_compute_utilization": 0.6,
+        "planning_cost_proxy": 32.0,
+        "installation_complexity_proxy": 8.0,
+        "constraint_violations": 0,
+        "uncertainty": 0.72
+      },
+      "pareto_member": true,
+      "notes": "Does not mutate campus/building geometry."
+    },
+    {
+      "alternative_id": "gary-dense",
+      "label": "dense",
+      "planning_variables": {
+        "node_count": 3,
+        "power_dbm": 23.0,
+        "edge_compute": true,
+        "path_loss_exponent": 2.2,
+        "geometry_mutated": false
+      },
+      "objectives": {
+        "coverage": 0.407,
+        "capacity": 33.2,
+        "latency": 17.0,
+        "jitter": 2.0,
+        "packet_loss": 0.9,
+        "spectral_efficiency": 1.66,
+        "unmet_demand": 0.6175,
+        "jains_fairness": 0.9524,
+        "zone_service_gap": 0.593,
+        "energy": 41.5,
+        "service_continuity": 1.0,
+        "recovery_time": 13.3333,
+        "edge_compute_utilization": 0.6,
+        "planning_cost_proxy": 44.0,
+        "installation_complexity_proxy": 12.0,
+        "constraint_violations": 0,
+        "uncertainty": 0.72
+      },
+      "pareto_member": true,
+      "notes": "Does not mutate campus/building geometry."
+    }
+  ],
+  "selected_alternative_id": "gary-balanced",
+  "constraint_violations": [],
+  "uncertainty": {
+    "overall": "high",
+    "notes": "Synthetic planning; no OTA evidence."
+  },
+  "evidence_class": "SIMULATED",
+  "readygary_used": false,
+  "ntn_used": false,
+  "producer": {
+    "repository": "spectrumx-ai-ran-gary",
+    "commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  },
+  "notes": "No opaque AI score. Optional beam/NTN unused unless compatible."
+}

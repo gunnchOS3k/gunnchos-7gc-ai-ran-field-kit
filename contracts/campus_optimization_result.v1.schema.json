@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/campus_optimization_result.v1.schema.json",
+  "title": "Campus Optimization Result v1",
+  "description": "Multi-objective planning result. Pareto alternatives required. No opaque AI score as the only result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "campus_slug",
+    "phase",
+    "input_design_hash",
+    "input_twin_state_hash",
+    "geometry_fidelity",
+    "source_manifest_sha256",
+    "objectives",
+    "alternatives",
+    "selected_alternative_id",
+    "constraint_violations",
+    "uncertainty",
+    "evidence_class",
+    "readygary_used",
+    "ntn_used",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.campus_optimization_result"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "campus_slug": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "input_design_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_twin_state_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "geometry_fidelity": { "type": "string", "minLength": 1 },
+    "source_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "objectives": { "$ref": "#/$defs/objective_vector" },
+    "alternatives": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "alternative_id",
+          "label",
+          "planning_variables",
+          "objectives",
+          "pareto_member"
+        ],
+        "properties": {
+          "alternative_id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "planning_variables": { "type": "object", "additionalProperties": true },
+          "objectives": { "$ref": "#/$defs/objective_vector" },
+          "pareto_member": { "type": "boolean" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "selected_alternative_id": { "type": "string", "minLength": 1 },
+    "constraint_violations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["constraint", "severity", "detail"],
+        "properties": {
+          "constraint": { "type": "string" },
+          "severity": { "type": "string", "enum": ["info", "warning", "error"] },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "notes"],
+      "properties": {
+        "overall": { "type": "string", "enum": ["low", "medium", "high"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "SIMULATED",
+        "OPEN_DATA_BACKED",
+        "CONFIGURED_ASSUMPTION",
+        "CONTROLLED_DEVICE_MEASUREMENT",
+        "SDR_MEASURED",
+        "LAB_INSTRUMENT_MEASURED",
+        "RAN_TELEMETRY_MEASURED",
+        "FIELD_VALIDATED",
+        "MIXED"
+      ]
+    },
+    "readygary_used": { "type": "boolean" },
+    "ntn_used": { "type": "boolean" },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "const": "spectrumx-ai-ran-gary"
+        },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "objective_vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "coverage",
+        "capacity",
+        "latency",
+        "jitter",
+        "packet_loss",
+        "spectral_efficiency",
+        "unmet_demand",
+        "jains_fairness",
+        "zone_service_gap",
+        "energy",
+        "service_continuity",
+        "recovery_time",
+        "edge_compute_utilization",
+        "planning_cost_proxy",
+        "installation_complexity_proxy",
+        "constraint_violations",
+        "uncertainty"
+      ],
+      "properties": {
+        "coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "capacity": { "type": "number", "minimum": 0 },
+        "latency": { "type": "number", "minimum": 0 },
+        "jitter": { "type": "number", "minimum": 0 },
+        "packet_loss": { "type": "number", "minimum": 0, "maximum": 100 },
+        "spectral_efficiency": { "type": "number", "minimum": 0 },
+        "unmet_demand": { "type": "number", "minimum": 0, "maximum": 1 },
+        "jains_fairness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "zone_service_gap": { "type": "number", "minimum": 0, "maximum": 1 },
+        "energy": { "type": "number", "minimum": 0 },
+        "service_continuity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "recovery_time": { "type": "number", "minimum": 0 },
+        "edge_compute_utilization": { "type": "number", "minimum": 0, "maximum": 1 },
+        "planning_cost_proxy": { "type": "number", "minimum": 0 },
+        "installation_complexity_proxy": { "type": "number", "minimum": 0 },
+        "constraint_violations": { "type": "integer", "minimum": 0 },
+        "uncertainty": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}
