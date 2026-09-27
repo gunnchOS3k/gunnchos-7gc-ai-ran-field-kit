@@ -1,4 +1,4 @@
-.PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean verify-repo-lock gate1-validate r6g-reproduce
+.PHONY: setup lint test contract-test benchmark ablation sensitivity integrated-pipeline reproduce clean verify-repo-lock gate1-validate r6g-reproduce closed-loop-v2
 
 # Prefer Python 3.11+ when present (system python3 on macOS is often 3.9 without deps).
 PYTHON ?= $(shell command -v python3.11 >/dev/null 2>&1 && echo python3.11 || (test -x /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 && echo /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 || echo python3))
@@ -23,6 +23,10 @@ test: contract-test
 
 contract-test:
 	$(PYTHON) -m pytest -q tests/contracts tests/failure_cases
+
+closed-loop-v2:
+	$(PYTHON) scripts/generate_closed_loop_v2_fixtures.py
+	$(PYTHON) -m pytest -q tests/contracts/test_closed_loop_v2.py
 
 benchmark:
 	@echo "Benchmarks are produced by integrated-pipeline (benchmark_results.csv)"

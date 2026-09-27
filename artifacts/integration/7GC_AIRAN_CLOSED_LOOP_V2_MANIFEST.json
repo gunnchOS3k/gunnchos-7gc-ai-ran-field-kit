@@ -1,0 +1,111 @@
+{
+  "manifest_name": "7GC_AIRAN_CLOSED_LOOP_V2",
+  "additive": true,
+  "overwrites_july_lock": false,
+  "generated_at": "2026-09-27T00:00:00Z",
+  "playbook": "CURSOR_7GC_AIRAN_RIC_CLOSED_LOOP_INTEGRATION_V2.md",
+  "current_mlv_v2_source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "source_hash_note": "Current Campus V2 source-version identifier, not a permanent global constant.",
+  "bases": {
+    "gunnchos-7gc-ai-ran-field-kit": {
+      "origin_main": "4f3095e349f522d6db9901b99101f3fe5dff9f6c",
+      "pr_branch": "integration/7gc-campus-airan-closed-loop-v2",
+      "implementation_commit": "93614673e7d57213f34df07f46c1fc233c6e3515",
+      "handoff_generated_from_commit": "93614673e7d57213f34df07f46c1fc233c6e3515",
+      "live_head_at_report_time": "recorded_in_pr_120_body_after_push",
+      "head_note": "Do not treat this JSON as the immutable self-hash of the commit that contains it. Phase 2 must consume the live PR #120 tip.",
+      "contracts_commit": "f8e066ad82d3d5300329d256bc70b9106b5a2913",
+      "privacy_hash_false_positive_fix": "93614673e7d57213f34df07f46c1fc233c6e3515",
+      "draft_pr": "https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/120"
+    },
+    "7gc-digital-twin": {
+      "origin_main": "9654ac82a722e800193e771556036dbb0df263db",
+      "branch": "integration/mlv-campus-network-twin-v2",
+      "head": "1d3c159ed942bb499a83af0c4e1533bf439a5970",
+      "draft_pr": "https://github.com/gunnchOS3k/7gc-digital-twin/pull/33"
+    },
+    "spectrumx-ai-ran-gary": {
+      "origin_main": "2dc41c73fa0b16cb5703b8876e7e199f9a1b2b0a",
+      "branch": "integration/7gc-planning-ric-loop-v2",
+      "head": "bffa5161de5b8f3118e89f210f43f375e6cde717",
+      "draft_pr": "https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/pull/104"
+    },
+    "edge-io-measurement-node": {
+      "origin_main": "758b14a2c06b70a6678fc761d5360bde5e7cb235",
+      "branch": "integration/campus-calibration-evidence-v2",
+      "head": "1af382b489732d4dfa745f67eef9ee61ec1ba9a4",
+      "draft_pr": "https://github.com/gunnchOS3k/edge-io-measurement-node/pull/41"
+    },
+    "readygary-6g-beam-selection": {
+      "origin_main": "e04b38b48cd2ebd87243153ca8fad9e914f16b21",
+      "used": false,
+      "note": "Optional. Default closed loop passes without it. No simulated beam output treated as OTA evidence."
+    },
+    "ntn-resilience-sim": {
+      "origin_main": "05aaa9aec16882f58bac6ce4ff47618d9812f69f",
+      "used": false,
+      "note": "Optional resilience bundle. Graham Land uses configured NTN fallback only. No operator claims."
+    }
+  },
+  "orthogonal_untouched": {
+    "3k_mlv_pr1": {
+      "sha": "5e99c64673557efe7cbdfbbfb4d4ebcdcabfaab7",
+      "url": "https://github.com/gunnchOS3k/3k-mlv/pull/1"
+    },
+    "3k_mlv_pr2": {
+      "sha": "5ce416d25f7821ee5506be1a60fd30315372956c",
+      "url": "https://github.com/gunnchOS3k/3k-mlv/pull/2"
+    },
+    "gunnchos_pr165": {
+      "sha": "64ce5930024b246f0ac49d7d704c82560fec7f31",
+      "url": "https://github.com/gunnchOS3k/gunnchos-device-os/pull/165"
+    },
+    "anime_pr112": {
+      "sha": "ebfe932fa18c1a1041f485327ee1199197f1886f"
+    },
+    "pedestrian_pr35": {
+      "sha": "df2fec1dd1f41f406a5b9ad136609ae8edcf2f96"
+    }
+  },
+  "waike": {
+    "WAIKE_EXISTING_LOCAL_WORK": true,
+    "WAIKE_REMOTE_HEAD_AVAILABLE": true,
+    "repo": "gunnchOS3k/gunnchos-waike-learning-platform",
+    "branch": "product/learner-first-adoption-parity-v1",
+    "sha": "f0176c2c45c1c366ad22f46407e6c55c3c5f3e8e",
+    "pr": 25,
+    "url": "https://github.com/gunnchOS3k/gunnchos-waike-learning-platform/pull/25",
+    "draft": true,
+    "mutated_this_lane": false
+  },
+  "gates": {
+    "CAMPUS_DESIGN_CONTRACT_PASS": true,
+    "CAMPUS_OPTIMIZATION_CONTRACT_PASS": true,
+    "TWIN_CALIBRATION_CONTRACT_PASS": true,
+    "ACTUATION_CONTRACT_PASS": true,
+    "MLV_V2_SOURCE_HASH_COMPAT_PASS": true,
+    "SEVEN_CAMPUS_BACKEND_PASS": "7/7",
+    "MLV_TO_7GC_ADAPTER_PASS": "7/7",
+    "7GC_TO_SPECTRUMX_PASS": "7/7",
+    "SPECTRUMX_PLANNING_OPTIMIZER_PASS": "7/7",
+    "OPTIMIZATION_RESULT_PASS": "7/7",
+    "SYNTHETIC_CLOSED_LOOP_PASS": "7/7",
+    "CALIBRATION_HOLDOUT_HARNESS_PASS": true,
+    "EVIDENCE_PROVENANCE_PASS": true,
+    "PRIVACY_NO_PERSON_TRACKING_PASS": true,
+    "FIELD_KIT_PRIVACY_HASH_FALSE_POSITIVE_FIXED": true,
+    "READ_ONLY_RIC_ADAPTER_PASS": true,
+    "MLV_PR2_UNCHANGED_PASS": true,
+    "ANIME_112_UNCHANGED_PASS": true,
+    "PEDESTRIAN_35_UNCHANGED_PASS": true,
+    "REAL_CAMPUS_MEASUREMENT_PASS": false,
+    "REAL_TWIN_CALIBRATION_PASS": false,
+    "O_RAN_E2_ACTUATION_PASS": false,
+    "AUTHORIZED_RIC_TESTBED_CONTROL_PASS": false,
+    "PRODUCTION_RIC_CONTROL_PASS": false,
+    "CARRIER_GRADE_PASS": false,
+    "MERGE_AUTHORIZED": false
+  },
+  "NEXT_7GC_AIRAN_ACTION": "RUN_PHASE2_MLV_NETWORK_TWIN_ON_LIVE_PR2",
+  "handoff": "docs/handoff/MLV_PR2_NETWORK_TWIN_CONTRACT_HANDOFF.md"
+}

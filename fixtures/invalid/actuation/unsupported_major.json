@@ -1,0 +1,48 @@
+{
+  "schema_name": "gunnchos.ran_actuation_request",
+  "schema_version": "2.0.0",
+  "run_id": "closed-loop-v2-gary-act",
+  "site_id": "gary",
+  "request_id": "garyact01",
+  "identity": {
+    "authenticated": true,
+    "principal_id": "synthetic-operator"
+  },
+  "role": "researcher",
+  "testbed": {
+    "explicit": true,
+    "testbed_id": "synthetic-lab"
+  },
+  "action": {
+    "name": "dry_run_recommendation",
+    "allowlisted": true,
+    "payload": {
+      "power_dbm": 18.0
+    }
+  },
+  "numeric_bounds": {
+    "within_bounds": true,
+    "requested": 18.0,
+    "min": 0.0,
+    "max": 23.0
+  },
+  "ttl_s": 30,
+  "regulatory": {
+    "band_allowed": true,
+    "band_profile": "n78_planning"
+  },
+  "rate_limit": {
+    "within_limit": true,
+    "window_s": 60
+  },
+  "dry_run": true,
+  "rollback": {
+    "supported": true,
+    "safe_state": "prior_planning_recommendation"
+  },
+  "source_path": "server_control_plane",
+  "producer": {
+    "repository": "gunnchos-7gc-ai-ran-field-kit",
+    "commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  }
+}

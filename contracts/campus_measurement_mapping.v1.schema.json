@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/campus_measurement_mapping.v1.schema.json",
+  "title": "Campus Measurement Mapping v1",
+  "description": "Additive envelope over edge_measurement_batch.v1. No person path. No exact minor location.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "campus_slug",
+    "phase",
+    "campus_requirement_id",
+    "space_id",
+    "coarse_grid_cell",
+    "measurement_point_id",
+    "campus_model_version",
+    "infrastructure_version",
+    "evidence_ref",
+    "batch_sha256",
+    "contains_person_path",
+    "exact_minor_location",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.campus_measurement_mapping"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": { "type": "string", "minLength": 1 },
+    "campus_slug": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "campus_requirement_id": { "type": "string", "minLength": 1 },
+    "space_id": { "type": "string", "minLength": 1 },
+    "coarse_grid_cell": { "type": "string", "minLength": 1 },
+    "measurement_point_id": { "type": "string", "minLength": 1 },
+    "campus_model_version": { "type": "string", "minLength": 1 },
+    "infrastructure_version": { "type": "string", "minLength": 1 },
+    "evidence_ref": { "type": "string", "minLength": 1 },
+    "batch_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "contains_person_path": { "type": "boolean", "const": false },
+    "exact_minor_location": { "type": "boolean", "const": false },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "const": "edge-io-measurement-node"
+        },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    }
+  }
+}

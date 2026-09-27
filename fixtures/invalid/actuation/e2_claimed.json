@@ -1,0 +1,33 @@
+{
+  "schema_name": "gunnchos.ran_actuation_receipt",
+  "schema_version": "1.0.0",
+  "run_id": "closed-loop-v2-gary-act",
+  "site_id": "gary",
+  "request_id": "garyact01",
+  "decision": "dry_run_recorded",
+  "real_actuation_enabled": false,
+  "e2_claimed": true,
+  "applied": false,
+  "reason": "REAL_ACTUATION_ENABLED=false; no physical control",
+  "audit": {
+    "recorded_at": "2026-09-27T00:18:23Z",
+    "checks": {
+      "authenticated": true,
+      "authorized_role": true,
+      "explicit_testbed": true,
+      "allowlisted_action": true,
+      "numeric_bounds": true,
+      "ttl_present": true,
+      "regulatory_band": true,
+      "rate_limit": true,
+      "dry_run": true,
+      "rollback_supported": true,
+      "not_browser_direct": true,
+      "real_actuation_disabled": true
+    }
+  },
+  "producer": {
+    "repository": "gunnchos-7gc-ai-ran-field-kit",
+    "commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gunnchos3k.org/schemas/campus_design_bundle.v1.schema.json",
+  "title": "Campus Design Bundle v1",
+  "description": "Additive network-design projection over an existing 3k MLV campus graph. Not an independent room catalog.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "run_id",
+    "site_id",
+    "campus_slug",
+    "phase",
+    "geometry_fidelity",
+    "source_manifest_sha256",
+    "projection_class",
+    "zones",
+    "candidate_infrastructure",
+    "service_intents",
+    "aggregate_demand",
+    "mobility",
+    "blockage",
+    "outage",
+    "compute",
+    "spectrum",
+    "energy",
+    "continuity",
+    "privacy",
+    "uncertainty",
+    "evidence_class",
+    "producer"
+  ],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "gunnchos.campus_design_bundle"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+\\.\\d+$"
+    },
+    "run_id": { "type": "string", "minLength": 1 },
+    "site_id": {
+      "type": "string",
+      "enum": [
+        "gary",
+        "ghana",
+        "guyana",
+        "geelong",
+        "germany",
+        "gaza",
+        "graham_land"
+      ]
+    },
+    "campus_slug": {
+      "type": "string",
+      "enum": [
+        "gary",
+        "ghana",
+        "guyana",
+        "geelong",
+        "germany",
+        "gaza",
+        "graham-land",
+        "graham_land"
+      ]
+    },
+    "phase": { "type": "string", "minLength": 1 },
+    "geometry_fidelity": {
+      "type": "string",
+      "enum": [
+        "AUTHORED_PLANNING_LAYOUT",
+        "AS_BUILT_SURVEYED",
+        "MIXED"
+      ]
+    },
+    "source_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_version_label": {
+      "type": "string",
+      "description": "Current source-version identifier. Not a permanent global constant."
+    },
+    "projection_class": {
+      "type": "string",
+      "const": "network_design_planning"
+    },
+    "zones": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/zone" }
+    },
+    "candidate_infrastructure": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/candidate_node" }
+    },
+    "service_intents": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/service_intent" }
+    },
+    "aggregate_demand": { "$ref": "#/$defs/typed_value_object" },
+    "mobility": { "$ref": "#/$defs/typed_value_object" },
+    "blockage": { "$ref": "#/$defs/typed_value_object" },
+    "outage": { "$ref": "#/$defs/typed_value_object" },
+    "compute": { "$ref": "#/$defs/typed_value_object" },
+    "spectrum": { "$ref": "#/$defs/typed_value_object" },
+    "energy": { "$ref": "#/$defs/typed_value_object" },
+    "continuity": { "$ref": "#/$defs/typed_value_object" },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contains_direct_identifiers",
+        "contains_person_path",
+        "location_precision",
+        "gaza_sensitive_export",
+        "graham_station_claim"
+      ],
+      "properties": {
+        "contains_direct_identifiers": { "type": "boolean", "const": false },
+        "contains_person_path": { "type": "boolean", "const": false },
+        "location_precision": {
+          "type": "string",
+          "enum": ["named_zone", "abstract_zone", "site_level", "none"]
+        },
+        "gaza_sensitive_export": { "type": "boolean", "const": false },
+        "graham_station_claim": { "type": "boolean", "const": false }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "notes"],
+      "properties": {
+        "overall": { "type": "string", "enum": ["low", "medium", "high"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "SIMULATED",
+        "OPEN_DATA_BACKED",
+        "CONFIGURED_ASSUMPTION",
+        "CONTROLLED_DEVICE_MEASUREMENT",
+        "SDR_MEASURED",
+        "LAB_INSTRUMENT_MEASURED",
+        "RAN_TELEMETRY_MEASURED",
+        "FIELD_VALIDATED",
+        "MIXED"
+      ]
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "site_id": { "const": "gaza" } }
+      },
+      "then": {
+        "properties": {
+          "privacy": {
+            "properties": {
+              "location_precision": { "enum": ["abstract_zone", "site_level", "none"] },
+              "gaza_sensitive_export": { "const": false }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "site_id": { "const": "graham_land" } }
+      },
+      "then": {
+        "properties": {
+          "privacy": {
+            "properties": {
+              "graham_station_claim": { "const": false }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "typed_value_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["values", "origin"],
+      "properties": {
+        "values": { "type": "object", "additionalProperties": true },
+        "origin": {
+          "type": "string",
+          "enum": ["measured", "inferred", "configured", "missing"]
+        }
+      }
+    },
+    "service_intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "template",
+        "source",
+        "assumptions",
+        "uncertainty",
+        "origin"
+      ],
+      "properties": {
+        "template": {
+          "type": "string",
+          "enum": [
+            "classroom",
+            "hybrid_lecture",
+            "repair_lab",
+            "gis_climate",
+            "industry40",
+            "media_collaboration",
+            "offline_recovery",
+            "ntn_remote_sensing"
+          ]
+        },
+        "source": { "type": "string", "minLength": 1 },
+        "assumptions": { "type": "string", "minLength": 1 },
+        "uncertainty": { "type": "string", "enum": ["low", "medium", "high"] },
+        "origin": {
+          "type": "string",
+          "enum": ["configured", "inferred"]
+        },
+        "campus_requirement_id": { "type": "string" }
+      }
+    },
+    "zone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "campus_slug",
+        "phase",
+        "campus_requirement_id",
+        "digital_object",
+        "digital_route",
+        "geometry_fidelity",
+        "space_id",
+        "kind",
+        "service_intent_template"
+      ],
+      "properties": {
+        "campus_slug": { "type": "string", "minLength": 1 },
+        "phase": { "type": "string", "minLength": 1 },
+        "campus_requirement_id": { "type": "string", "minLength": 1 },
+        "digital_object": { "type": "string", "minLength": 1 },
+        "digital_route": { "type": "string", "minLength": 1 },
+        "geometry_fidelity": {
+          "type": "string",
+          "enum": [
+            "AUTHORED_PLANNING_LAYOUT",
+            "AS_BUILT_SURVEYED",
+            "MIXED"
+          ]
+        },
+        "space_id": { "type": "string", "minLength": 1 },
+        "kind": {
+          "type": "string",
+          "enum": ["ROOM", "ZONE", "PROGRAM", "ABSTRACT_ZONE"]
+        },
+        "service_intent_template": { "type": "string" },
+        "material_assumption": { "type": "string" },
+        "floor_index": { "type": "integer" },
+        "redacted": { "type": "boolean" }
+      }
+    },
+    "candidate_node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "role",
+        "height_m_assumption",
+        "orientation_assumption",
+        "power_dbm_bound",
+        "radio_count",
+        "band_profile",
+        "backhaul",
+        "edge_compute"
+      ],
+      "properties": {
+        "node_id": { "type": "string", "minLength": 1 },
+        "role": {
+          "type": "string",
+          "enum": [
+            "indoor_ap",
+            "outdoor_small_cell",
+            "edge_compute",
+            "ntn_gateway",
+            "offline_cache"
+          ]
+        },
+        "height_m_assumption": { "type": "number", "minimum": 0 },
+        "orientation_assumption": { "type": "string" },
+        "power_dbm_bound": { "type": "number" },
+        "radio_count": { "type": "integer", "minimum": 1 },
+        "band_profile": { "type": "string" },
+        "backhaul": {
+          "type": "string",
+          "enum": [
+            "terrestrial",
+            "local_edge_wifi",
+            "degraded_local",
+            "ntn_fallback",
+            "offline_continuation"
+          ]
+        },
+        "edge_compute": { "type": "boolean" },
+        "anchor_requirement_id": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schema_name": "gunnchos.campus_design_bundle",
+  "schema_version": "1.0.0",
+  "run_id": "closed-loop-v2-gary-design",
+  "site_id": "gary",
+  "campus_slug": "gary",
+  "phase": "FULL",
+  "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+  "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "source_version_label": "mlv_campus_v2_current",
+  "projection_class": "network_design_planning",
+  "zones": [
+    {
+      "campus_slug": "gary",
+      "phase": "FULL",
+      "campus_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB",
+      "digital_object": "gary.full.hardware_repair_lab",
+      "digital_route": "#/mlv/campus/gary/full/hardware-repair-lab",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "space_id": "hardware_repair_lab",
+      "kind": "ROOM",
+      "service_intent_template": "repair_lab",
+      "material_assumption": "drywall_and_concrete_planning",
+      "floor_index": 0,
+      "redacted": false
+    },
+    {
+      "campus_slug": "gary",
+      "phase": "PILOT",
+      "campus_requirement_id": "GARY.PILOT.FLEXIBLE_CLASSROOM",
+      "digital_object": "gary.pilot.flexible_classroom",
+      "digital_route": "#/mlv/campus/gary/pilot/flexible-classroom",
+      "geometry_fidelity": "AUTHORED_PLANNING_LAYOUT",
+      "space_id": "flexible_classroom",
+      "kind": "ROOM",
+      "service_intent_template": "classroom",
+      "material_assumption": "drywall_and_concrete_planning",
+      "floor_index": 1,
+      "redacted": false
+    }
+  ],
+  "candidate_infrastructure": [
+    {
+      "node_id": "gary-indoor-ap-1",
+      "role": "indoor_ap",
+      "height_m_assumption": 3.0,
+      "orientation_assumption": "ceiling_omni",
+      "power_dbm_bound": 20.0,
+      "radio_count": 2,
+      "band_profile": "n78_planning",
+      "backhaul": "terrestrial",
+      "edge_compute": false,
+      "anchor_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB"
+    },
+    {
+      "node_id": "gary-edge-1",
+      "role": "edge_compute",
+      "height_m_assumption": 1.0,
+      "orientation_assumption": "rack",
+      "power_dbm_bound": 0.0,
+      "radio_count": 1,
+      "band_profile": "none",
+      "backhaul": "local_edge_wifi",
+      "edge_compute": true,
+      "anchor_requirement_id": "GARY.PILOT.FLEXIBLE_CLASSROOM"
+    },
+    {
+      "node_id": "gary-ntn-1",
+      "role": "ntn_gateway",
+      "height_m_assumption": 2.0,
+      "orientation_assumption": "optional_fallback",
+      "power_dbm_bound": 23.0,
+      "radio_count": 1,
+      "band_profile": "ntn_s_band_planning",
+      "backhaul": "ntn_fallback",
+      "edge_compute": false,
+      "anchor_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB"
+    }
+  ],
+  "service_intents": [
+    {
+      "template": "repair_lab",
+      "source": "planning_template",
+      "assumptions": "Derived from room/program role. Not measured occupancy.",
+      "uncertainty": "high",
+      "origin": "configured",
+      "campus_requirement_id": "GARY.FULL.HARDWARE_REPAIR_LAB"
+    },
+    {
+      "template": "classroom",
+      "source": "planning_template",
+      "assumptions": "Secondary representative zone for CI projection only.",
+      "uncertainty": "high",
+      "origin": "configured",
+      "campus_requirement_id": "GARY.PILOT.FLEXIBLE_CLASSROOM"
+    }
+  ],
+  "aggregate_demand": {
+    "values": {
+      "users_proxy": 24,
+      "downlink_mbps": 80.0,
+      "origin_note": "planning template, not measured traffic"
+    },
+    "origin": "configured"
+  },
+  "mobility": {
+    "values": {
+      "class": "low_named_zone",
+      "aggregate_only": true
+    },
+    "origin": "configured"
+  },
+  "blockage": {
+    "values": {
+      "scenario": "interior_partitions",
+      "extra_db": 8.0
+    },
+    "origin": "configured"
+  },
+  "outage": {
+    "values": {
+      "terrestrial_outage": false,
+      "degraded": false
+    },
+    "origin": "configured"
+  },
+  "compute": {
+    "values": {
+      "local_edge": true,
+      "offline_cache": false
+    },
+    "origin": "configured"
+  },
+  "spectrum": {
+    "values": {
+      "budget_mhz": 20.0,
+      "band_profile": "n78_planning"
+    },
+    "origin": "configured"
+  },
+  "energy": {
+    "values": {
+      "budget_j": 120.0
+    },
+    "origin": "configured"
+  },
+  "continuity": {
+    "values": {
+      "class": "degraded_ok",
+      "max_interruption_s": 180
+    },
+    "origin": "configured"
+  },
+  "privacy": {
+    "contains_direct_identifiers": false,
+    "contains_person_path": true,
+    "location_precision": "named_zone",
+    "gaza_sensitive_export": false,
+    "graham_station_claim": false
+  },
+  "uncertainty": {
+    "overall": "high",
+    "notes": "AUTHORED_PLANNING_LAYOUT; not surveyed geometry."
+  },
+  "evidence_class": "SIMULATED",
+  "producer": {
+    "repository": "gunnchos-7gc-ai-ran-field-kit",
+    "commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  },
+  "notes": "Representative projection only. 473-room catalog remains in 3k MLV."
+}

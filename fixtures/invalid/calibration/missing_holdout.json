@@ -1,0 +1,61 @@
+{
+  "schema_name": "gunnchos.twin_calibration_bundle",
+  "schema_version": "1.0.0",
+  "run_id": "closed-loop-v2-gary-cal",
+  "site_id": "gary",
+  "campus_slug": "gary",
+  "phase": "FULL",
+  "source_manifest_sha256": "520cbba99541b1505ebba899a2f34bfa905eadd7af8f5b5e8fa050c884067be1",
+  "parent_model_version": "CAMPUS_V2_PLANNING",
+  "new_model_version": "CALIBRATED_SIM_gary_V1",
+  "prediction": {
+    "coverage": 0.4119,
+    "capacity": 24.0,
+    "latency": 20.0,
+    "jitter": 2.0,
+    "packet_loss": 1.2
+  },
+  "measurement": {
+    "coverage": 0.3719,
+    "capacity": 22.5,
+    "latency": 23.0,
+    "jitter": 2.4,
+    "packet_loss": 1.4
+  },
+  "residual": {
+    "coverage": -0.04,
+    "capacity": -1.5,
+    "latency": 3.0,
+    "jitter": 0.4,
+    "packet_loss": 0.2
+  },
+  "uncertainty": {
+    "overall": "high",
+    "notes": "Synthetic holdout only. Not real twin calibration."
+  },
+  "candidate_parameter_update": {
+    "parameters": {
+      "path_loss_exponent": 2.15,
+      "attenuation_db": 5.5,
+      "blockage_db": 7.5,
+      "effective_node_range_m": 18.0,
+      "backhaul_latency_ms": 12.0,
+      "aggregate_demand_factor": 0.95,
+      "failover_timing_s": 8.0
+    },
+    "applied": true,
+    "notes": "New version only; parent retained."
+  },
+  "rejected_evidence": [
+    {
+      "evidence_ref": "quarantine://person-path",
+      "reason": "person-path evidence is rejected"
+    }
+  ],
+  "evidence_class": "SIMULATED",
+  "producer": {
+    "repository": "7gc-digital-twin",
+    "commit": "4f3095e349f522d6db9901b99101f3fe5dff9f6c"
+  },
+  "notes": "REAL_TWIN_CALIBRATION_PASS remains false."
+}
