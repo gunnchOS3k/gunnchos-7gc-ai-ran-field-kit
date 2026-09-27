@@ -95,9 +95,48 @@ PRIVACY_VALUE_SCAN_EXEMPT_SUFFIXES = (
     ".collector_version",
 )
 
+# Schema-constrained cryptographic integrity fields. Exempt from *value-pattern*
+# PII regex only after JSON Schema has already accepted the document. Key
+# scanning still applies. Free-form notes/labels/IDs remain fully scanned.
+INTEGRITY_SHA256_LEAVES = frozenset(
+    {
+        "input_design_hash",
+        "input_twin_state_hash",
+        "input_airan_decision_hash",
+        "source_manifest_sha256",
+        "configuration_hash",
+        "policy_configuration_hash",
+        "batch_sha256",
+        "dataset_hash",
+        "assignment_hash",
+        "sha256",
+    }
+)
+INTEGRITY_GIT_SHA_LEAVES = frozenset({"commit", "producer_commit", "field_kit_runtime_sha"})
+_SHA256_VALUE = re.compile(r"^[0-9a-f]{64}$")
+_GIT_SHA_VALUE = re.compile(r"^[0-9a-f]{40}$")
 
-def _path_exempt_from_value_patterns(path: str) -> bool:
-    return any(path.endswith(suffix) for suffix in PRIVACY_VALUE_SCAN_EXEMPT_SUFFIXES)
+
+def _path_leaf(path: str) -> str:
+    return path.rsplit(".", 1)[-1]
+
+
+def _is_schema_constrained_integrity_value(path: str, value: str) -> bool:
+    """True only for known digest/commit fields whose value matches the schema shape."""
+    leaf = _path_leaf(path)
+    if leaf in INTEGRITY_SHA256_LEAVES:
+        return bool(_SHA256_VALUE.fullmatch(value))
+    if leaf in INTEGRITY_GIT_SHA_LEAVES:
+        return bool(_GIT_SHA_VALUE.fullmatch(value))
+    return False
+
+
+def _path_exempt_from_value_patterns(path: str, value: str | None = None) -> bool:
+    if any(path.endswith(suffix) for suffix in PRIVACY_VALUE_SCAN_EXEMPT_SUFFIXES):
+        return True
+    if value is not None and _is_schema_constrained_integrity_value(path, value):
+        return True
+    return False
 
 
 def find_prohibited_identifiers(
@@ -115,7 +154,7 @@ def find_prohibited_identifiers(
         for idx, item in enumerate(obj):
             findings.extend(find_prohibited_identifiers(item, f"{path}[{idx}]"))
     elif isinstance(obj, str):
-        if not _path_exempt_from_value_patterns(path):
+        if not _path_exempt_from_value_patterns(path, obj):
             for pat in PROHIBITED_VALUE_PATTERNS:
                 if pat.search(obj):
                     findings.append(f"prohibited value pattern at {path}: {obj[:48]}")
