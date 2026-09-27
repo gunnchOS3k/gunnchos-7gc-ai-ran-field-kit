@@ -96,19 +96,30 @@ Campus V2 geometry is `AUTHORED_PLANNING_LAYOUT`.
 
 ## Next MLV action
 
+Authorized only after live field-kit PR #120 exact-head CI is green:
+
 ```text
-NEXT_7GC_AIRAN_ACTION=STACK_NETWORK_TWIN_EXTENSION_ON_LIVE_3K_MLV_PR2
+NEXT_7GC_AIRAN_ACTION=RUN_PHASE2_MLV_NETWORK_TWIN_ON_LIVE_PR2
 ```
 
 Use playbook:
 
-`CURSOR_3K_MLV_AIRAN_NETWORK_TWIN_EXTENSION_ON_PR2_V3.md`
+`CURSOR_PHASE2_3K_MLV_AIRAN_NETWORK_TWIN_ON_PR2.md`
 
-Backend draft PR refs:
+This file cannot contain the SHA of the commit that adds it. Consume the live PR #120 tip from GitHub, not an embedded self-hash.
+
+```text
+pr_branch: integration/7gc-campus-airan-closed-loop-v2
+implementation_commit: 93614673e7d57213f34df07f46c1fc233c6e3515
+handoff_generated_from_commit: 93614673e7d57213f34df07f46c1fc233c6e3515
+live_head_at_report_time: recorded in PR #120 body after push
+```
+
+Backend draft PR refs (siblings unchanged):
 
 ```text
 field-kit     https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit/pull/120
-              c87f16e6c719b6159ff8e2541c9d51a22d802be2
+              consume live PR tip (implementation 93614673e7d57213f34df07f46c1fc233c6e3515)
 
 7gc-digital-twin  https://github.com/gunnchOS3k/7gc-digital-twin/pull/33
               1d3c159ed942bb499a83af0c4e1533bf439a5970
@@ -118,6 +129,12 @@ spectrumx-ai-ran-gary  https://github.com/gunnchOS3k/spectrumx-ai-ran-gary/pull/
 
 edge-io-measurement-node  https://github.com/gunnchOS3k/edge-io-measurement-node/pull/41
               1af382b489732d4dfa745f67eef9ee61ec1ba9a4
+
+WAIKE PR #25
+              f0176c2c45c1c366ad22f46407e6c55c3c5f3e8e
+
+3k MLV PR #2
+              5ce416d25f7821ee5506be1a60fd30315372956c
 ```
 
 Also recorded in:
