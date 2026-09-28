@@ -2,12 +2,16 @@ name: Code Health & Authenticity Baseline
 
 on:
   push:
-    branches: [main, 'eng/code-health-authenticity-baseline-v1']
+    branches: [main, 'eng/code-health-authenticity-baseline-v1', 'fix/code-health-authenticity-current-main-baseline']
   pull_request:
     paths:
       - 'program/code_health_authenticity_baseline_v1/**'
+      - 'program/digital_ecosystem_baseline_v2/**'
       - 'tools/code_integrity/**'
       - 'scripts/run_code_health_authenticity_baseline.py'
+      - 'scripts/validate_digital_baseline_workflow_pin.py'
+      - 'scripts/generate_digital_ecosystem_baseline_v2.py'
+      - 'scripts/validate_digital_ecosystem_baseline_v2.py'
       - '.github/workflows/code-health-authenticity-baseline.yml'
   workflow_dispatch:
 
@@ -105,6 +109,9 @@ jobs:
           print("NOTE: S0/S1 findings do not fail this workflow")
           PY
 
+      - name: Canonical digital baseline vs wave closeout provenance
+        run: python3 scripts/validate_digital_baseline_workflow_pin.py
+
       - name: Truth convergence + mutation classifier gates
         run: |
           python3 - <<'PY'
@@ -155,17 +162,35 @@ jobs:
           tv = json.loads((base / "TRUTH_CONVERGENCE_VALIDATION.json").read_text())
           assert tv.get("CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION") == "PASS", tv.get("failures")
           assert tv.get("token") == "CODE_HEALTH_BASELINE_V1_TRUTH_CONVERGENCE_VALIDATION_PASS"
-          # Baseline unchanged
+          # Canonical digital-ecosystem baseline must match its own closeout provenance.
+          # Do not pin stale current-main 111/51 (Wave 009). Wave 010 closed 15 GAME-PP
+          # rows (111→126); Wave 011 closed 10 GAME-AA rows (126→136).
           d = json.loads(Path("program/digital_ecosystem_baseline_v2/BASELINE_V2_RESULT.json").read_text())
           t = d["totals"]
+          w9 = (d.get("ENGINEERING_WAVE_009_TARGETED_CLOSEOUT") or {}).get("EXPECTED_AFTER") or {}
+          w10 = d["ENGINEERING_WAVE_010_ACCEPTED_MAIN_CLOSEOUT"]
+          w11 = d["ENGINEERING_WAVE_011_ACCEPTED_MAIN_CLOSEOUT"]
           assert t["ATOMIC_TOTAL"] == 419
-          assert t["DIGITAL_IMPLEMENTATION_COMPLETE"] == 111
-          assert t["DIGITAL_IMPLEMENTATION_OPEN"] == 51
+          assert int(w9.get("DIGITAL_IMPLEMENTATION_COMPLETE", 111)) == 111
+          assert int(w9.get("DIGITAL_IMPLEMENTATION_OPEN", 51)) == 51
+          assert int(w10["COMPLETE"]) == 126
+          assert int(w10["IMPL_OPEN"]) == 36
+          assert list(w10.get("target_ids") or []) == [f"GAME-PP-{i:03d}" for i in range(1, 16)]
+          assert int(w11["COMPLETE"]) == 136
+          assert int(w11["IMPL_OPEN"]) == 26
+          assert list(w11.get("target_ids") or []) == [f"GAME-AA-{i:03d}" for i in range(1, 11)]
+          assert t["DIGITAL_IMPLEMENTATION_COMPLETE"] == w11["COMPLETE"]
+          assert t["DIGITAL_IMPLEMENTATION_OPEN"] == w11["IMPL_OPEN"]
           assert t["DIGITAL_VALIDATION_OPEN"] == 0
           assert t["EVIDENCE_MAPPING_OPEN"] == 0
+          assert int(w11["COMPLETE"]) - 111 == 25
+          assert 51 - int(w11["IMPL_OPEN"]) == 25
+          assert t.get("HUMAN_OR_TARGET_HARDWARE_VALIDATED", 0) == 0
+          assert t.get("L4_HUMAN_OR_TARGET_HARDWARE_VALIDATED", 0) == 0
+          assert t.get("PRODUCTION_OR_FIELD", 0) == 0
           nv = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_VALIDATION_WORK.json").read_text())
           ni = json.loads(Path("program/digital_ecosystem_baseline_v2/NEXT_DIGITAL_IMPLEMENTATION_WORK.json").read_text())
           assert nv["total_open"] == 0
-          assert ni["total_open"] == 51
+          assert ni["total_open"] == t["DIGITAL_IMPLEMENTATION_OPEN"]
           print("TRUTH_CONVERGENCE_AND_MUTATION_GATES_OK")
           PY
