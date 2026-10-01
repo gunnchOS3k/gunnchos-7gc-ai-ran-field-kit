@@ -7,45 +7,76 @@
   <title>7GC AI-RAN field kit · gunnchOS</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body style="--accent:#7dcea0">
+<body data-surfacekit="v2" data-theme="dark">
   <a class="skip" href="#content">Skip to content</a>
   <header class="top">
     <p class="mark">gunnchOS</p>
-    <a id="portal-return" href="#return" aria-label="Return to gunnchOS">← gunnchOS</a>
+    <nav class="tools" aria-label="Surface">
+      <button type="button" id="theme-toggle">Light theme</button>
+      <a id="portal-return" href="#return" aria-label="Return to gunnchOS">← gunnchOS</a>
+    </nav>
   </header>
   <main id="content">
-    <p class="kicker">7GC</p>
+    <p class="kicker">7GC · STAGING_WORKER</p>
     <h1>7GC AI-RAN field kit</h1>
-    <p class="badge">STAGING_WORKER</p>
     <p class="lead">Umbrella research artifact for a phone-first AI-RAN measurement kit.</p>
-    <section aria-labelledby="what">
+    
+    <p><a class="cta" id="primary-action" href="#explore">Explore evidence</a></p>
+    <section id="explore" aria-labelledby="explore-title">
+      <h2 id="explore-title">Explore evidence</h2>
+      <p id="diagram-note"></p>
+      <div class="layout">
+        <div>
+          <svg id="diagram" role="img" aria-labelledby="diagram-note" viewBox="0 0 640 160"></svg>
+          <label for="row-select">Repository record</label>
+          <select id="row-select"></select>
+          <label for="row-filter">Filter records</label>
+          <input id="row-filter" type="search" placeholder="Filter by text in the repository records">
+        </div>
+        <div id="detail" tabindex="0" aria-live="polite"></div>
+      </div>
+      <div id="directory"></div>
+      <table id="evidence">
+        <caption>Records copied from this repository</caption>
+        <thead><tr id="evidence-head"></tr></thead>
+        <tbody id="evidence-body"></tbody>
+      </table>
+    </section>
+    <section id="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">Overview</h2>
+      <div class="cards"><article><h3>Overview</h3><p># gunnchos 7GC Field Console: Phone-First AI-RAN Measurement Kit **Umbrella research artifact** for an **IMT-2030-aligned / 6G-aligned** portfolio coupling AI-assisted O-RAN-style policy experiments with a **phone-first field console** for exploratory edge measurements. This is a **research prototype**, not commercial 6G, carrier-grade AI-RAN, or citywide deployment. ---</p></article><article><h3>Component repositories</h3><p>---</p></article><article><h3>Authoritative research-gate status</h3><p>Notes: - One valid Pixel 6a calibration exists (privacy-safe reports committed); it is **calibration_only** and does **not** count toward the pilot. - Gate 2 system PASS does **not** imply clean-checkout reproduction, non-author reproduction, immutable release, or DOI/archive (those remain Gate 5/6). - ReadyGary is an **optional** PHY supporting study, not a flagship thesis repository.</p></article></div>
+    </section>
+    <section id="methods" aria-labelledby="methods-title">
+      <h2 id="methods-title">Methods</h2>
+      <p># Reproducibility **Results status:** **RESULTS_PENDING_AUTHENTIC_GATE3_DATA** **Pilot matrix:** **0/54** eligible cells ## What is reproducible today | Target | Command | Evidence label | |--------|---------|----------------| | Contract tests | `make contract-test` | smoke + schema | | Unit tests | `make test` | smoke | | Gate 1 thesis lock | `make gate1-validate` | proven | | Integrated pipeline | `make integrated-pipeline EDGE_INPUT=fixtures/valid/edge_measurement_batch.valid.json` | synthetic/fixture | | Provenance verify | `make reproduce` | synthetic/fixture | Sibling repositories under `REPOS_ROOT` (default parent directory) are required for full integrated runs — see [`ENVIRONMENT.md</p>
+      <p>Native research runtimes stay on a local checkout. This page shows repository records only.</p>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Artifacts</h2>
+      <ul><li><code>results/calibration/CALIBRATION_REPORT.md</code></li><li><code>results/calibration/calibration_consent_report.json</code></li><li><code>results/calibration/calibration_privacy_report.json</code></li><li><code>results/calibration/calibration_provenance.json</code></li><li><code>results/calibration/calibration_validation_report.json</code></li><li><code>results/calibration/pixel6a/FAILED_EXPORT_ATTEMPT_REPORT.md</code></li><li><code>results/calibration/pixel6a/PIXEL6A_CALIBRATION_REPORT.md</code></li><li><code>results/calibration/pixel6a/PIXEL6A_INTEGRATED_CALIBRATION_REPORT.md</code></li><li><code>results/calibration/pixel6a/calibration_consent_report.json</code></li><li><code>results/calibration/pixel6a/calibration_privacy_report.json</code></li><li><code>results/calibration/pixel6a/calibration_provenance.json</code></li><li><code>results/calibration/pixel6a/calibration_validation_report.json</code></li></ul>
+    </section>
+    <section id="source" aria-labelledby="source-title">
+      <h2 id="source-title">Source</h2>
+      <p><a href="https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit">Source repository</a></p>
+      <p>Pinned source <code>9dfc326647880c244904dd50a47ea80c3d46748e</code></p>
+    </section>
+    <section id="limits" aria-labelledby="limits-title">
+      <h2 id="limits-title">Limitations</h2>
+      <ul><li>A field kit repository is not a completed field trial</li><li>No carrier acceptance is claimed</li></ul>
+    </section>
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About / Build status / Evidence</h2>
       <h2 id="what">What is this?</h2>
       <p>Umbrella research artifact for a phone-first AI-RAN measurement kit.</p>
       <p>The research code is not executing here. This is a research surface.</p>
-    </section>
-    <section aria-labelledby="why">
       <h2 id="why">Why does it exist?</h2>
       <p>It gives this repository a public web surface inside the gunnchOS ecosystem without pretending the original runtime runs on Cloudflare Workers.</p>
-    </section>
-    <section aria-labelledby="today">
       <h2 id="today">What can I actually do with it today?</h2>
-      <ul><li>Read what the kit repository contains</li><li>Open the source repository</li></ul>
-    </section>
-    <section aria-labelledby="tech">
-      <h2 id="tech">What technology is inside it?</h2>
-      <p>Classification STATIC_RESEARCH_SURFACE_WORKER. Accepted source <code>9dfc326647880c244904dd50a47ea80c3d46748e</code>.</p>
-    </section>
-    <section aria-labelledby="evidence">
-      <h2 id="evidence">What evidence exists?</h2>
-      <p><a href="https://github.com/gunnchOS3k/gunnchos-7gc-ai-ran-field-kit">Source repository</a>. Read the repository for methods, results, and status. This page does not add new experimental claims.</p>
-    </section>
-    <section aria-labelledby="limits">
-      <h2 id="limits">What is not finished?</h2>
+      <p>Use the primary action to inspect repository records, then open the source for the local toolchain.</p>
+      <h2 id="unfinished">What is not finished?</h2>
       <ul><li>A field kit repository is not a completed field trial</li><li>No carrier acceptance is claimed</li></ul>
-    </section>
-    <section aria-labelledby="fit">
-      <h2 id="fit">Where does it fit in gunnchOS?</h2>
-      <p>Family: 7GC. Return with the gunnchOS link in the header.</p>
+      <p class="badge">STAGING_WORKER</p>
+      <p>Runtime mode on this page: PRECOMPUTED. No remote model call is made.</p>
     </section>
   </main>
   <script src="/app.js"></script>
